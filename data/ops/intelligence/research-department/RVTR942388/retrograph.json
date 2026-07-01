@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR942388",
+    "kind": "song",
+    "rvtr": "RVTR942388",
+    "generatedAt": "2026-06-28T23:08:07.712Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR942388",
+    "artist": "Big Unk",
+    "title": "Walk It Out",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Big Unk",
+    "relatedArtists": [
+      "Big Unk"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-xmzcql",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Big Unk - Walk It Out.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-u3dlcc",
+      "date": "2006",
+      "label": "Walk It Out — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2006",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "47608d26a0d4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR942388&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-xmzcql",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2d7a7581c803",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR942388&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-xmzcql",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2a86a3c80fc3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR942388&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-xmzcql",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "87c542401912",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR942388&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-xmzcql",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d60735701734",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR942388&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-xmzcql",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-xmzcql",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Big Unk - Walk It Out.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR942388-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR942388"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Big Unk"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Big Unk"
+    },
+    {
+      "id": "rel-RVTR942388-tl-tl-u3dlcc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR942388"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-u3dlcc"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Walk It Out — original release"
+    },
+    {
+      "id": "rel-RVTR942388-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR942388"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR942388-perf-perf-xmzcql",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR942388"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-xmzcql"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-xmzcql-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xmzcql"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Big Unk - Walk It Out.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-47608d26a0d4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xmzcql"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "47608d26a0d4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-2d7a7581c803-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xmzcql"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2d7a7581c803"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2a86a3c80fc3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xmzcql"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a86a3c80fc3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-87c542401912-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xmzcql"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "87c542401912"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d60735701734-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xmzcql"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d60735701734"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR942388. \"Walk It Out\" by Big Unk.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Big Unk · Title: Walk It Out · Album: Unk - Walk It Out / Back It Up · Year: 2006 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Big Unk - Walk It Out.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6938284b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Big Unk - Walk It Out.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-43813751",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Unk - Walk It Out.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ee094c0f-d4cb-4f2a-b8b8-8f524f2c5685",
+      "category": "artist",
+      "text": "Walk It Out is performed by Big Unk.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1e368740-f3bc-4eb1-a6f2-8ffa70893fcf",
+      "category": "trivia",
+      "text": "Artist: Big Unk · Title: Walk It Out · Album: Unk - Walk It Out / Back It Up · Year: 2006 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Big Unk - Walk It Out.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f7e06145-2dc1-4340-97c9-5bd7363ed534",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Big Unk - Walk It Out.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4d096297-6f81-439c-9c23-b38332ebfc9e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Unk - Walk It Out.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Big Unk - Walk It Out.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR146055",
+    "kind": "song",
+    "rvtr": "RVTR146055",
+    "generatedAt": "2026-06-28T22:46:44.114Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR146055",
+    "artist": "Jet",
+    "title": "Cold Hard Bitch",
+    "year": 2004,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jet",
+    "relatedArtists": [
+      "Jet"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2004,
+    "recordings": [
+      {
+        "id": "rec-a27qyr",
+        "title": "Cold Hard Bitch — graph recording",
+        "releaseDate": 2004,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-s26nnx",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2002,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jet - Cold Hard Bitch.mp4",
+      "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 55,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #55 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-fvlbnn",
+      "date": "2004",
+      "label": "Cold Hard Bitch — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ja",
+      "date": "2004",
+      "label": "Billboard Hot 100 peak #55",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-kspbqw",
+      "date": "2004",
+      "label": "Cold Hard Bitch — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2002",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b9dc91aeea16",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR146055&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-s26nnx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "970ab5f11aa3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR146055&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-s26nnx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a186f7933247",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR146055&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-s26nnx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cb28b7f188cb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR146055&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-s26nnx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4a00bd3cba30",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR146055&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-s26nnx",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-s26nnx",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2002,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jet - Cold Hard Bitch.mp4",
+        "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR146055-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR146055"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jet"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jet"
+    },
+    {
+      "id": "rel-RVTR146055-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR146055"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #55"
+    },
+    {
+      "id": "rel-RVTR146055-tl-tl-fvlbnn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR146055"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fvlbnn"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Cold Hard Bitch — original release"
+    },
+    {
+      "id": "rel-RVTR146055-tl-tl-fcm3ja",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR146055"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ja"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #55"
+    },
+    {
+      "id": "rel-RVTR146055-tl-tl-kspbqw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR146055"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kspbqw"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Cold Hard Bitch — graph recording"
+    },
+    {
+      "id": "rel-RVTR146055-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR146055"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR146055-perf-perf-s26nnx",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR146055"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-s26nnx"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-s26nnx-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s26nnx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jet - Cold Hard Bitch.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b9dc91aeea16-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s26nnx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b9dc91aeea16"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-970ab5f11aa3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s26nnx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "970ab5f11aa3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a186f7933247-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s26nnx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a186f7933247"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-cb28b7f188cb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s26nnx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cb28b7f188cb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4a00bd3cba30-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s26nnx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a00bd3cba30"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR146055. \"Cold Hard Bitch\" by Jet.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #55. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jet · Title: Cold Hard Bitch · Album: Dirty Sweet · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jet - Cold Hard Bitch.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2004.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-512a403b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jet - Cold Hard Bitch.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-96fa5ea6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Jet - Cold Hard Bitch.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d7b7a04b-8fd8-4e52-8198-f1ed1bb8eb66",
+      "category": "artist",
+      "text": "Cold Hard Bitch is performed by Jet.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a14696ad-8118-47fa-afc0-9f1b478ae144",
+      "category": "chart",
+      "text": "The song peaked at #55 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "126e4179-da52-4d18-a65a-5ec2cb968c01",
+      "category": "recording",
+      "text": "Cold Hard Bitch was released in 2004.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "3447bccb-5c36-44a8-af6e-0bd3c23ecb18",
+      "category": "trivia",
+      "text": "Artist: Jet · Title: Cold Hard Bitch · Album: Dirty Sweet · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jet - Cold Hard Bitch.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1b177c3f-8bd5-45c6-8729-979af4b36d32",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jet - Cold Hard Bitch.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "94ff8bce-ce38-448c-9ec3-f34844216d4b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Jet - Cold Hard Bitch.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jet - Cold Hard Bitch.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

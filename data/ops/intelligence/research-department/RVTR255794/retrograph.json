@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR255794",
+    "kind": "song",
+    "rvtr": "RVTR255794",
+    "generatedAt": "2026-06-28T22:49:25.998Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR255794",
+    "artist": "Onyx",
+    "title": "Judgment Night",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Onyx",
+    "relatedArtists": [
+      "Onyx"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-qffga0",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ONYX - Judgment Night.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-nole1k",
+      "date": "1993",
+      "label": "Judgment Night — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1993",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "27b7117016e3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR255794&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-qffga0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0c2f9162ad37",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR255794&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-qffga0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "233bd752e73c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR255794&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-qffga0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bba397e9e917",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR255794&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-qffga0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "570844bf12e8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR255794&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-qffga0",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-qffga0",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ONYX - Judgment Night.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR255794-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR255794"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Onyx"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Onyx"
+    },
+    {
+      "id": "rel-RVTR255794-tl-tl-nole1k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR255794"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nole1k"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Judgment Night — original release"
+    },
+    {
+      "id": "rel-RVTR255794-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR255794"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR255794-perf-perf-qffga0",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR255794"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-qffga0"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-qffga0-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qffga0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ONYX - Judgment Night.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-27b7117016e3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qffga0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "27b7117016e3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-0c2f9162ad37-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qffga0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0c2f9162ad37"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-233bd752e73c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qffga0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "233bd752e73c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-bba397e9e917-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qffga0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bba397e9e917"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-570844bf12e8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qffga0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "570844bf12e8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR255794. \"Judgment Night\" by Onyx.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: ONYX · Title: Judgment Night · Album: Biohazard And Onyx - Judgment Night · Year: 1993 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/ONYX - Judgment Night.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3dcd27f0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ONYX - Judgment Night.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c2fb00af-ca08-4f9b-ace0-ae0886d943d0",
+      "category": "artist",
+      "text": "Judgment Night is performed by Onyx.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "eef60f25-d686-4009-998a-5caedd417f32",
+      "category": "trivia",
+      "text": "Artist: ONYX · Title: Judgment Night · Album: Biohazard And Onyx - Judgment Night · Year: 1993 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/ONYX - Judgment Night.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "68cc5fda-3aaa-46b5-9137-ad459e4f9583",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ONYX - Judgment Night.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ONYX - Judgment Night.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

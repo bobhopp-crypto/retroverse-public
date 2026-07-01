@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR965809",
+    "kind": "song",
+    "rvtr": "RVTR965809",
+    "generatedAt": "2026-06-28T22:42:59.695Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR965809",
+    "artist": "Phish",
+    "title": "Bathtub Gin",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Phish",
+    "relatedArtists": [
+      "Phish"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-3nv8ec",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1990,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Phish - Bathtub Gin.mp4",
+      "notes": "Detected year: 1990. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ryhj8e",
+      "date": "1990",
+      "label": "Bathtub Gin — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1990",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "564a04a02fa1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR965809&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-3nv8ec",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d3a3465b2f74",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR965809&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-3nv8ec",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "14f32116aaa6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR965809&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-3nv8ec",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "86d9ef6a07c5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR965809&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-3nv8ec",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6c555c8fb035",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR965809&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-3nv8ec",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-3nv8ec",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1990,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Phish - Bathtub Gin.mp4",
+        "notes": "Detected year: 1990. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR965809-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR965809"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Phish"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Phish"
+    },
+    {
+      "id": "rel-RVTR965809-tl-tl-ryhj8e",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR965809"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ryhj8e"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Bathtub Gin — original release"
+    },
+    {
+      "id": "rel-RVTR965809-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR965809"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR965809-perf-perf-3nv8ec",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR965809"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-3nv8ec"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-3nv8ec-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3nv8ec"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Phish - Bathtub Gin.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-564a04a02fa1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3nv8ec"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "564a04a02fa1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d3a3465b2f74-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3nv8ec"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d3a3465b2f74"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-14f32116aaa6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3nv8ec"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "14f32116aaa6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-86d9ef6a07c5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3nv8ec"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "86d9ef6a07c5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6c555c8fb035-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3nv8ec"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6c555c8fb035"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR965809. \"Bathtub Gin\" by Phish.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Phish · Title: Bathtub Gin · Album: Lawn Boy · Year: 1990 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Phish - Bathtub Gin.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-27738cc4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Phish - Bathtub Gin.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "76e52c24-35c0-4102-b91f-82a200d1fc04",
+      "category": "artist",
+      "text": "Bathtub Gin is performed by Phish.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0a1643f8-8e20-40d6-9f8f-5cd151486017",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1ca9923a-5b7a-4a9e-b66b-6451402008ba",
+      "category": "trivia",
+      "text": "Artist: Phish · Title: Bathtub Gin · Album: Lawn Boy · Year: 1990 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Phish - Bathtub Gin.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ed0448b7-ed84-4d77-90d3-8fefa5c74188",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Phish - Bathtub Gin.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Phish - Bathtub Gin.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

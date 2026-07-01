@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR330901",
+    "kind": "song",
+    "rvtr": "RVTR330901",
+    "generatedAt": "2026-06-28T22:50:48.411Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR330901",
+    "artist": "Dirty Heads",
+    "title": "Vacation",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dirty Heads",
+    "relatedArtists": [
+      "Dirty Heads"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-4iuehw",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2017,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dirty Heads - Vacation.mp4",
+      "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ddce4x",
+      "date": "2017",
+      "label": "Vacation — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2017",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "6a5395d2fed6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR330901&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-4iuehw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e165ef72b532",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR330901&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-4iuehw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "645650fd92ee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR330901&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-4iuehw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "95845a95860c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR330901&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-4iuehw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "053c5fe8a1d0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR330901&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-4iuehw",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-4iuehw",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2017,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dirty Heads - Vacation.mp4",
+        "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR330901-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR330901"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dirty Heads"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dirty Heads"
+    },
+    {
+      "id": "rel-RVTR330901-tl-tl-ddce4x",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR330901"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ddce4x"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Vacation — original release"
+    },
+    {
+      "id": "rel-RVTR330901-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR330901"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR330901-perf-perf-4iuehw",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR330901"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-4iuehw"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-4iuehw-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4iuehw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dirty Heads - Vacation.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6a5395d2fed6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4iuehw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6a5395d2fed6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e165ef72b532-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4iuehw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e165ef72b532"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-645650fd92ee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4iuehw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "645650fd92ee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-95845a95860c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4iuehw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "95845a95860c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-053c5fe8a1d0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4iuehw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "053c5fe8a1d0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR330901. \"Vacation\" by Dirty Heads.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dirty Heads · Title: Vacation · Album: Swim Team · Year: 2017 · Genre: Reggae · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dirty Heads - Vacation.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ac95d925",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dirty Heads - Vacation.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b0ef2d19-7014-4605-bd06-bf8efc94cfc0",
+      "category": "artist",
+      "text": "Vacation is performed by Dirty Heads.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b725d455-c04b-4185-be5f-b3e4351e7364",
+      "category": "trivia",
+      "text": "Artist: Dirty Heads · Title: Vacation · Album: Swim Team · Year: 2017 · Genre: Reggae · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dirty Heads - Vacation.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "92067242-43ba-49a3-aaad-cc20e983d58c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dirty Heads - Vacation.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dirty Heads - Vacation.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

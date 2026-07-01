@@ -1,0 +1,151 @@
+main.atlas-root:has(.atlas-arch-shell) {
+  background: transparent;
+  min-height: auto;
+  padding: 0;
+}
+
+.atlas-arch-shell {
+  min-height: 100vh;
+}
+
+.atlas-arch {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.atlas-arch__hero,
+.atlas-arch__status,
+.atlas-arch__section {
+  border: 2px solid rgba(138, 197, 255, 0.28);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(18, 55, 119, 0.85), rgba(13, 36, 85, 0.9));
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.atlas-arch__eyebrow {
+  margin: 0;
+  color: #9ec7ef;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.atlas-arch__title {
+  margin: 0.35rem 0 0;
+  color: #f5fbff;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 950;
+}
+
+.atlas-arch__lead {
+  margin: 0.75rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.45;
+  max-width: 52rem;
+}
+
+.atlas-arch__section-title {
+  margin: 0 0 1rem;
+  color: #f5fbff;
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.atlas-arch__status-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.atlas-arch__status-grid div {
+  padding: 0.85rem 1rem;
+  border: 2px solid rgba(138, 197, 255, 0.28);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.atlas-arch__status-grid dt {
+  margin: 0;
+  color: #9ec7ef;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.atlas-arch__status-grid dd {
+  margin: 0.35rem 0 0;
+  color: #f5fbff;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.atlas-arch__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+}
+
+.atlas-arch__list li + li {
+  margin-top: 0.5rem;
+}
+
+.atlas-arch__body {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+}
+
+.atlas-arch__items {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.atlas-arch__items div {
+  padding: 0.85rem 1rem;
+  border: 2px solid rgba(138, 197, 255, 0.22);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.atlas-arch__items dt {
+  margin: 0;
+  color: #9ec7ef;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.atlas-arch__items dd {
+  margin: 0.35rem 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.5;
+}
+
+.atlas-arch__back {
+  margin: 0;
+  color: #9ec7ef;
+  font-size: 0.9rem;
+}
+
+.atlas-arch__items dt a {
+  color: #4fd5ff;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.atlas-arch__items dt a:hover {
+  text-decoration: underline;
+}
+
+.atlas-arch__back a {
+  color: #4fd5ff;
+  font-weight: 700;
+  text-decoration: none;
+}

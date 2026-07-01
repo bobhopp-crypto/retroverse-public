@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR892230",
+    "kind": "song",
+    "rvtr": "RVTR892230",
+    "generatedAt": "2026-06-28T22:42:04.969Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR892230",
+    "artist": "Mark Lindsay",
+    "title": "Silver Bird",
+    "year": 1970,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mark Lindsay",
+    "relatedArtists": [
+      "Mark Lindsay"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1970,
+    "recordings": [
+      {
+        "id": "rec-bbml73",
+        "title": "Silver Bird — graph recording",
+        "releaseDate": 1970,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-kmkt8z",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1970,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mark Lindsay - Silver Bird.mp4",
+      "notes": "Detected year: 1970. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 25,
+    "chartWeeks": 10,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #25 · 10 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-2pxhw0",
+      "date": "1970",
+      "label": "Silver Bird — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gp",
+      "date": "1970",
+      "label": "Billboard Hot 100 peak #25",
+      "detail": "10 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-g5ir9n",
+      "date": "1970",
+      "label": "Silver Bird — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1970",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "33514a6f1377",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR892230&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kmkt8z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9163ade4e26c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR892230&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kmkt8z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b05c0b7b629b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR892230&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kmkt8z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3032ad79dedd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR892230&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kmkt8z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a04298f4cd15",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR892230&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kmkt8z",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kmkt8z",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1970,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mark Lindsay - Silver Bird.mp4",
+        "notes": "Detected year: 1970. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR892230-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR892230"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mark Lindsay"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mark Lindsay"
+    },
+    {
+      "id": "rel-RVTR892230-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR892230"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #25"
+    },
+    {
+      "id": "rel-RVTR892230-tl-tl-2pxhw0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR892230"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2pxhw0"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Silver Bird — original release"
+    },
+    {
+      "id": "rel-RVTR892230-tl-tl-fcm3gp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR892230"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gp"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #25"
+    },
+    {
+      "id": "rel-RVTR892230-tl-tl-g5ir9n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR892230"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-g5ir9n"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Silver Bird — graph recording"
+    },
+    {
+      "id": "rel-RVTR892230-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR892230"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR892230-perf-perf-kmkt8z",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR892230"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kmkt8z"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-kmkt8z-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kmkt8z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mark Lindsay - Silver Bird.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-33514a6f1377-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kmkt8z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "33514a6f1377"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9163ade4e26c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kmkt8z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9163ade4e26c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b05c0b7b629b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kmkt8z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b05c0b7b629b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-3032ad79dedd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kmkt8z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3032ad79dedd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a04298f4cd15-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kmkt8z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a04298f4cd15"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR892230. \"Silver Bird\" by Mark Lindsay.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #25. 10 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mark Lindsay · Title: Silver Bird · Album: Silver Bird · Year: 1970 · Genre: Rock · PlayCount: 1 · LastPlayed: 1752465494 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mark Lindsay - Silver Bird.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1970.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-dc3eb4a5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mark Lindsay - Silver Bird.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "78cb523a-0dd9-4933-b443-1e5d0bc35bb1",
+      "category": "artist",
+      "text": "Silver Bird is performed by Mark Lindsay.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "97959479-40fe-4c58-962b-1cdc27db5de6",
+      "category": "chart",
+      "text": "The song peaked at #25 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "15aeba7d-5b13-4aa7-9ab1-d2d2e8fd3d00",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "134bc689-5784-4afa-bd55-444d719673cf",
+      "category": "recording",
+      "text": "Silver Bird was released in 1970.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e5c7135a-146b-4806-bed7-80de3ce0777e",
+      "category": "trivia",
+      "text": "Artist: Mark Lindsay · Title: Silver Bird · Album: Silver Bird · Year: 1970 · Genre: Rock · PlayCount: 1 · LastPlayed: 1752465494 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mark Lindsay - Silver Bird.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8988040b-ea3c-47ef-b4c4-e730481f7cc3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mark Lindsay - Silver Bird.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mark Lindsay - Silver Bird.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR195395",
+    "kind": "song",
+    "rvtr": "RVTR195395",
+    "generatedAt": "2026-06-28T22:47:47.730Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR195395",
+    "artist": "Devo",
+    "title": "Peek A Boo",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Devo",
+    "relatedArtists": [
+      "Devo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-jklv4p",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1983,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Devo - Peek A Boo.mp4",
+      "notes": "Detected year: 1983. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-e5nyq",
+      "date": "1983",
+      "label": "Peek A Boo — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1983",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9075535ad7bb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195395&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-jklv4p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e0121e759471",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195395&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-jklv4p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "80b1583c2c17",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195395&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-jklv4p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6338c38866db",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195395&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-jklv4p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2e272f918bab",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195395&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-jklv4p",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-jklv4p",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1983,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Devo - Peek A Boo.mp4",
+        "notes": "Detected year: 1983. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR195395-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195395"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Devo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Devo"
+    },
+    {
+      "id": "rel-RVTR195395-tl-tl-e5nyq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195395"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-e5nyq"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Peek A Boo — original release"
+    },
+    {
+      "id": "rel-RVTR195395-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195395"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR195395-perf-perf-jklv4p",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195395"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-jklv4p"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-jklv4p-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jklv4p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Devo - Peek A Boo.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9075535ad7bb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jklv4p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9075535ad7bb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-e0121e759471-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jklv4p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e0121e759471"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-80b1583c2c17-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jklv4p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "80b1583c2c17"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6338c38866db-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jklv4p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6338c38866db"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2e272f918bab-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jklv4p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2e272f918bab"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR195395. \"Peek A Boo\" by Devo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Devo · Title: Peek A Boo · Album: We're All Devo · Year: 1983 · Genre: New Wave · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Devo - Peek A Boo.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e4f85918",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Devo - Peek A Boo.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "444b6ac6-36d7-47ae-8b50-4c0bc067ac37",
+      "category": "artist",
+      "text": "Peek A Boo is performed by Devo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "987bb74e-2798-4a36-bfc0-491f15e87a5f",
+      "category": "trivia",
+      "text": "Artist: Devo · Title: Peek A Boo · Album: We're All Devo · Year: 1983 · Genre: New Wave · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Devo - Peek A Boo.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "951f4d91-5f61-4362-aa50-d97d56b7534e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Devo - Peek A Boo.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Devo - Peek A Boo.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

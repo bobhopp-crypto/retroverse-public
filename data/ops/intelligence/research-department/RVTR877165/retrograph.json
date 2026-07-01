@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR877165",
+    "kind": "song",
+    "rvtr": "RVTR877165",
+    "generatedAt": "2026-06-28T23:05:46.168Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR877165",
+    "artist": "Sean Paul",
+    "title": "So Fine",
+    "year": 2009,
+    "albumTitle": "Imperial Blaze",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Sean Paul",
+    "relatedArtists": [
+      "Sean Paul"
+    ]
+  },
+  "album": {
+    "title": "Imperial Blaze",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-lc41ok",
+        "title": "Imperial Blaze",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-850mte",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Sean Paul - So Fine.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 50,
+    "chartWeeks": 9,
+    "albumTitle": "Imperial Blaze",
+    "summary": "Hot 100 peak #50 · 9 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ps3ata",
+      "date": "2009",
+      "label": "So Fine — original release",
+      "detail": "Original album: Imperial Blaze",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3j5",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #50",
+      "detail": "9 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-8fqa6n",
+      "date": "2009",
+      "label": "Imperial Blaze",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "857c3b71a249",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877165&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-850mte",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5515138ab13d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877165&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-850mte",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7e77c7136fc7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877165&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-850mte",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9086b69aa938",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877165&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-850mte",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "11685c70bff7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877165&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-850mte",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-850mte",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Sean Paul - So Fine.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR877165-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877165"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Sean Paul"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Sean Paul"
+    },
+    {
+      "id": "rel-RVTR877165-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877165"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-lc41ok"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Imperial Blaze"
+    },
+    {
+      "id": "rel-RVTR877165-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877165"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #50"
+    },
+    {
+      "id": "rel-RVTR877165-tl-tl-ps3ata",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877165"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ps3ata"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "So Fine — original release"
+    },
+    {
+      "id": "rel-RVTR877165-tl-tl-fcm3j5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877165"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3j5"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #50"
+    },
+    {
+      "id": "rel-RVTR877165-tl-tl-8fqa6n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877165"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8fqa6n"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Imperial Blaze"
+    },
+    {
+      "id": "rel-RVTR877165-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877165"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR877165-perf-perf-850mte",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877165"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-850mte"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-850mte-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-850mte"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Sean Paul - So Fine.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-857c3b71a249-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-850mte"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "857c3b71a249"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5515138ab13d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-850mte"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5515138ab13d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7e77c7136fc7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-850mte"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7e77c7136fc7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-9086b69aa938-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-850mte"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9086b69aa938"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-11685c70bff7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-850mte"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "11685c70bff7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR877165. \"So Fine\" by Sean Paul. Album: Imperial Blaze (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Imperial Blaze (2009). Billboard Hot 100 peak: #50. 9 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Sean Paul · Title: So Fine · Album: So Fine · Year: 2009 · Genre: Reggae · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Sean Paul - So Fine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-d78fb6c1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Sean Paul - So Fine.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "00c2a37d-fbf9-430a-87b3-41abb297f3a4",
+      "category": "artist",
+      "text": "So Fine is performed by Sean Paul.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a5dbba13-e904-4e8a-a211-547d64a42021",
+      "category": "album",
+      "text": "The song appears on the album \"Imperial Blaze\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ddde7d48-f5ac-4517-9296-33976a272b22",
+      "category": "chart",
+      "text": "The song peaked at #50 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5fb0a7d6-a13e-4cef-84ab-06cac71ba4b6",
+      "category": "recording",
+      "text": "So Fine was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "cfbfdefa-b1e0-4a4c-9364-034db9ecd2e3",
+      "category": "trivia",
+      "text": "Artist: Sean Paul · Title: So Fine · Album: So Fine · Year: 2009 · Genre: Reggae · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Sean Paul - So Fine.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "48233d53-ff5d-47ce-9005-6a2d978f645d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Sean Paul - So Fine.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Sean Paul - So Fine.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

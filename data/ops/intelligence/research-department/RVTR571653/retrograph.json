@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR571653",
+    "kind": "song",
+    "rvtr": "RVTR571653",
+    "generatedAt": "2026-06-28T22:56:14.425Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR571653",
+    "artist": "Lana Del Ray",
+    "title": "American",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Lana Del Ray",
+    "relatedArtists": [
+      "Lana Del Ray"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-64jx1f",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Ray - American.MP4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-4ntlmc",
+      "date": "2012",
+      "label": "American — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-s0ntw3",
+      "date": "—",
+      "label": "Paradise is the third extended play (EP) by American singer-songwriter Lana Del Rey.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-q1asdl",
+      "date": "2012",
+      "label": "It was released on November 9, 2012, in Australasia and November 11, 2012, worldwide by Polydor and ",
+      "detail": "Interscope.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-s0ntw3",
+      "date": "—",
+      "label": "Paradise is the third extended play (EP) by American singer-songwriter Lana Del Rey.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2014",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "It was additionally packaged with the reissue of her second studio album, Born to Die (2012), titled Born to Die: The Paradise Edition.",
+      "Grant enlisted collaborators including producers Rick Nowels, Justin Parker and Rick Rubin."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "af63c3d94c73",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR571653&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-64jx1f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "30c29de11a7d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR571653&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-64jx1f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ac154297ee61",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR571653&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-64jx1f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2a58a081439c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR571653&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-64jx1f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "472088144074",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR571653&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-64jx1f",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-64jx1f",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Ray - American.MP4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR571653-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR571653"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lana Del Ray"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lana Del Ray"
+    },
+    {
+      "id": "rel-RVTR571653-tl-tl-4ntlmc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR571653"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4ntlmc"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "American — original release"
+    },
+    {
+      "id": "rel-RVTR571653-tl-tl-s0ntw3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR571653"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-s0ntw3"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Paradise is the third extended play (EP) by American singer-songwriter Lana Del Rey."
+    },
+    {
+      "id": "rel-RVTR571653-tl-tl-q1asdl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR571653"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-q1asdl"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It was released on November 9, 2012, in Australasia and November 11, 2012, worldwide by Polydor and "
+    },
+    {
+      "id": "rel-RVTR571653-tl-tl-s0ntw3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR571653"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-s0ntw3"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Paradise is the third extended play (EP) by American singer-songwriter Lana Del Rey."
+    },
+    {
+      "id": "rel-RVTR571653-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR571653"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR571653-perf-perf-64jx1f",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR571653"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-64jx1f"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-64jx1f-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-64jx1f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Ray - American.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-af63c3d94c73-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-64jx1f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "af63c3d94c73"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-30c29de11a7d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-64jx1f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "30c29de11a7d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ac154297ee61-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-64jx1f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ac154297ee61"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2a58a081439c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-64jx1f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a58a081439c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-472088144074-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-64jx1f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "472088144074"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR571653. \"American\" by Lana Del Ray.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lana Del Ray · Title: American · Album: Ultimix 200 (Special Anniversary Issue) · Year: 2014 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Ray - American.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-40c36d6a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Ray - American.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-paradise-lana-del-rey-ep-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Paradise_(Lana_Del_Rey_EP)",
+      "excerpt": "Paradise is the third extended play (EP) by American singer-songwriter Lana Del Rey. It was released on November 9, 2012, in Australasia and November 11, 2012, worldwide by Polydor and Interscope. It was additionally packaged with the reissue of her second studio album, Born to Die (2012), titled Born to Die: The Paradise Edition. Grant enlisted collaborators including producers Rick Nowels, Justin Parker and Rick Rubin. The EP's sound has been described as baroque pop and trip hop.\nUpon its release, Paradise received generally favorable reviews from music critics. The extended play debuted at No. 10 on the US Billboard 200 with first-week sales of 67,000 copies. It also debuted at No. 10 on the Canadian Albums Chart and peaked within the top five of various other Billboard charts. In Europe, the EP charted within top 10 in Flanders and Poland as well as within the top 20 in Wallonia and the Netherlands.\nThe EP's lead single was the ballad \"Ride\", which became a modest hit in the United States, Switzerland, Ireland and France and reached the top 10 in Russia. \"Blue Velvet\" (a cover of the popular 1950s track) and \"Burning Desire\" were released as promotional singles. Music videos for \"Ride\", \"Blue Velvet\", \"Bel Air\" and \"Burning Desire\" were posted to Vevo and YouTube to help promote the EP.\nIn December 2013, Del Rey released the Anthony Mandler-directed Tropico, a short film that includes the songs \"Body Electric\", \"Gods & Monsters\" and \"Bel Air\". That same month, an EP of the same name was made available for digital purchase, containing the film along with the three aforementioned songs. In 2014, Paradise was nominated for Best Pop Vocal Album at the 56th Annual Grammy Awards.\n\n\nBackground\n\nIn an interview with RTVE on June 15, 2012, Del Rey announced that she had been working on a new album due in November, and that five tracks had already been written, two of them being \"Young and Beautiful\" and \"Gods and Monsters\", and another track titled \"Body Electric\", which was performed and announced as one of her songs at BBC Radio 1's Hackney Weekend. In an interview with Tim Blackwell for radio station Nova 100 in Melbourne, Australia, Del Rey added that her upcoming November release would not be a new album, but more like an EP, which she described as the \"Paradise Edition\" of Born to Die. Del Rey stated that the new release would contain approximately seven new songs.\nParadise was released on November 12, 2012, in the UK and one day later in the US. The prior album's re-release, titled Born to Die: The Paradise Edition, was available for pre-order offering an immediate download of \"Burning Desire\" in some countries. The nine tracks were issued as a stand-alone CD or vinyl EP titled Paradise, in a two-disc set including the original Born to Die album tracks, as well as in a deluxe box set including both the album and the EP, a remix CD including eight remixes of songs from Born to Die, a DVD with six music videos and a two-track vinyl 7\" single of \"Blue Velvet\". Two remixes of Blue Velvet were included on the special edition of Paradise exclusively at Target stores, however the remixes were not included on Born to Die: The Paradise Edition.\n\n\nPromotion\nOn the day of \"Ride\"'s release as the EP's first single, Del Rey uploaded a teaser trailer to video-hosting website YouTube, that contained snippets of each track on Born to Die: The Paradise Edition. To promote the album, two promotional singles were also released, a cover version of \"Blue Velvet\" and \"Burning Desire\". \"Blue Velvet\" was used in a television commercial for H&M. \"Burning Desire\", the album's second promotional single, was used to promote the Jaguar F-Type model; at a promotional concert, Del Rey sang the song, wearing red lipstick, because the model features a built-in lipstick holder. Unlike in the US. where it was released as an EP, Paradise was released in the United Kingdom as a re-release of Born to Die. The song served as the soundtrack for a short film called Desire, directed by Ridley Scott and starring Damian Lewis. A promotional video for \"Burning Desire\" appeared online on Valentine's Day 2013, featuring Del Rey as her usual lounge singer persona, interspersed with snippets of the Jaguar F-Type. Directed by Ridley Scott, the video was filmed in the Rivoli Ballroom in London's South end.\nOn November 30, 2012, Del Rey was a musical guest on Later... with Jools Holland and performed her current single, \"Ride\".\n\n\nSingles\n\nOn September 13, 2012, the lead single of Paradise was confirmed to be \"Ride\", the accompanying music video being shot in Las Vegas, Nevada. It was eventually released for purchase on September 25, 2012. On October 10, Del Rey premiered the music video for \"Ride\" at the Aero Theatre in Santa Monica, California. On October 12, the music video for \"Ride\" was released online. Del Rey portrays a prostitute in the video, which the NME described as \"not exactly empowering,\" and said might be seen as \"anti-feminist\". To further promote the single and album, an EP was released containing remixes of \"Ride\" by artists including Sohn, MJ Cole, Eli Escobar, 14th, Wes James and James Lavelle.\nOn September 19, the music video for \"Blue Velvet\" was released through H&M. On September 20, 2012, \"Blue Velvet\" was made available for purchase via digital download as the first promotional single from the EP. People who preordered the EP received an immediate download of \"Burning Desire\". On February 14, 2013, the music video for \"Burning Desire\" was released. The song was made available for purchase via digital download on March 19, 2013, as the EP's second and final promo single.\n\n\nOther songs\nThe third single from Paradise and the eighth single overall from Born to Die, was announced as \"Cola\" on November 14, 2012. However, a release date for the single never materialized. Because the description of the trailer listed the song \"Cola\" as \"Pussy\", it led to speculation about the song being titled \"Pussy\" or having a subti",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "f0c9adec-d827-4baa-aa34-da28f6ac1971",
+      "category": "artist",
+      "text": "American is performed by Lana Del Ray.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ae84dc15-266b-4237-a78a-37f77970c833",
+      "category": "cultural_impact",
+      "text": "Paradise is the third extended play (EP) by American singer-songwriter Lana Del Rey.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Paradise_(Lana_Del_Rey_EP)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ba5c04dd-bdac-474c-9ca9-68822bd60f5b",
+      "category": "cultural_impact",
+      "text": "It was released on November 9, 2012, in Australasia and November 11, 2012, worldwide by Polydor and Interscope.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Paradise_(Lana_Del_Rey_EP)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "476b6406-0384-4c4b-91a2-b554f878e529",
+      "category": "cultural_impact",
+      "text": "It was additionally packaged with the reissue of her second studio album, Born to Die (2012), titled Born to Die: The Paradise Edition.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Paradise_(Lana_Del_Rey_EP)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8ecc4473-ad1c-4d6d-9d7f-697c49346016",
+      "category": "trivia",
+      "text": "Artist: Lana Del Ray · Title: American · Album: Ultimix 200 (Special Anniversary Issue) · Year: 2014 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Ray - American.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ee2ddc89-208b-4c79-9043-7ca761cc52ef",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Ray - American.MP4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Ray - American.MP4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

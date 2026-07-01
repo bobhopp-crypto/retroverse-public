@@ -1,0 +1,565 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR626549",
+    "kind": "song",
+    "rvtr": "RVTR626549",
+    "generatedAt": "2026-06-28T22:57:55.657Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR626549",
+    "artist": "Fifth Harmony",
+    "title": "Bo",
+    "year": 2015,
+    "albumTitle": "Reflection",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL108777/RVAL108777__fifth-harmony__reflection.jpg"
+  },
+  "artist": {
+    "name": "Fifth Harmony",
+    "relatedArtists": [
+      "Fifth Harmony"
+    ]
+  },
+  "album": {
+    "title": "Reflection",
+    "releaseYear": 2015,
+    "recordings": [
+      {
+        "id": "rec-a2418v",
+        "title": "Reflection",
+        "releaseDate": 2015,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-bi7bgk",
+      "title": "$",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Fifth Harmony - Bo$$.MP4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 43,
+    "chartWeeks": 15,
+    "albumTitle": "Reflection",
+    "summary": "Hot 100 peak #43 · 15 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-v8p6v3",
+      "date": "2015",
+      "label": "Bo — original release",
+      "detail": "Original album: Reflection",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3id",
+      "date": "2015",
+      "label": "Billboard Hot 100 peak #43",
+      "detail": "15 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-cc6rhb",
+      "date": "2015",
+      "label": "Reflection",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-vuecy8",
+      "date": "2014",
+      "label": "$",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR626549",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL108777/RVAL108777__fifth-harmony__reflection.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4f63a70eacf6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626549&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-bi7bgk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c86f8a43f13d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626549&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-bi7bgk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4016de30eb97",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626549&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-bi7bgk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dcfed363e5f1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626549&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-bi7bgk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "01db95dc4a10",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626549&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-bi7bgk",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-bi7bgk",
+        "title": "$",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Fifth Harmony - Bo$$.MP4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR626549-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626549"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Fifth Harmony"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Fifth Harmony"
+    },
+    {
+      "id": "rel-RVTR626549-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626549"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-a2418v"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Reflection"
+    },
+    {
+      "id": "rel-RVTR626549-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626549"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #43"
+    },
+    {
+      "id": "rel-RVTR626549-tl-tl-v8p6v3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626549"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-v8p6v3"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Bo — original release"
+    },
+    {
+      "id": "rel-RVTR626549-tl-tl-fcm3id",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626549"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3id"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #43"
+    },
+    {
+      "id": "rel-RVTR626549-tl-tl-cc6rhb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626549"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cc6rhb"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Reflection"
+    },
+    {
+      "id": "rel-RVTR626549-tl-tl-vuecy8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626549"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vuecy8"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "$"
+    },
+    {
+      "id": "rel-RVTR626549-perf-perf-bi7bgk",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626549"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-bi7bgk"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "$"
+    },
+    {
+      "id": "rel-perf-bi7bgk-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bi7bgk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Fifth Harmony - Bo$$.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "$"
+    },
+    {
+      "id": "rel-4f63a70eacf6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bi7bgk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4f63a70eacf6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c86f8a43f13d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bi7bgk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c86f8a43f13d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-4016de30eb97-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bi7bgk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4016de30eb97"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-dcfed363e5f1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bi7bgk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dcfed363e5f1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-01db95dc4a10-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bi7bgk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "01db95dc4a10"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR626549. \"Bo\" by Fifth Harmony. Album: Reflection (2015).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL108777/RVAL108777__fifth-harmony__reflection.jpg",
+      "excerpt": "Canonical cover assignment for RVTR626549 (Bo). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Reflection (2015). Billboard Hot 100 peak: #43. 15 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Fifth Harmony · Title: Bo$ · Album: Now That's What I Call Music! The DVD Vol.29 · Year: 2014 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Fifth Harmony - Bo$$.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2015.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-4a6161c5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Fifth Harmony - Bo$$.MP4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4c1c0221-f517-4697-8270-30bda1f67511",
+      "category": "artist",
+      "text": "Bo is performed by Fifth Harmony.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "588f2760-06c2-4422-a5ac-917c76cfc8c4",
+      "category": "album",
+      "text": "The song appears on the album \"Reflection\" (2015).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "400850e6-2348-45ea-a98e-c81a1a6c4d7e",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR626549.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL108777/RVAL108777__fifth-harmony__reflection.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e46d33da-3623-4727-a255-60030e26f822",
+      "category": "chart",
+      "text": "The song peaked at #43 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "41ba508b-5e60-41a5-9b12-caa2385eb4f9",
+      "category": "recording",
+      "text": "Bo was released in 2015.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0d8cdc10-a342-4263-aff8-a723f5015371",
+      "category": "trivia",
+      "text": "Artist: Fifth Harmony · Title: Bo$ · Album: Now That's What I Call Music!",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ff13b29a-d271-4e25-b73a-ff19e8a25cd9",
+      "category": "trivia",
+      "text": "The DVD Vol.29 · Year: 2014 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Fifth Harmony - Bo$$.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9c4dff80-759d-4184-9615-45ed16315f2c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Fifth Harmony - Bo$$.MP4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 6,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Fifth Harmony - Bo$$.MP4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

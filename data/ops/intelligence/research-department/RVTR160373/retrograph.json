@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR160373",
+    "kind": "song",
+    "rvtr": "RVTR160373",
+    "generatedAt": "2026-06-28T22:47:06.590Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR160373",
+    "artist": "Britney Spears",
+    "title": "Criminal",
+    "year": 2011,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Britney Spears",
+    "relatedArtists": [
+      "Britney Spears"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-b4ng51",
+        "title": "Criminal — graph recording",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-bkrt4g",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Britney Spears - Criminal.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 55,
+    "chartWeeks": 6,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #55 · 6 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-x7tk9j",
+      "date": "2011",
+      "label": "Criminal — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ja",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #55",
+      "detail": "6 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-aitabu",
+      "date": "2011",
+      "label": "Criminal — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "569b4781308f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR160373&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-bkrt4g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3c75eaad0197",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR160373&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-bkrt4g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8fd0bf7dcacd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR160373&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-bkrt4g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d4b56810c80d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR160373&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-bkrt4g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "df41c799d2ef",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR160373&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-bkrt4g",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-bkrt4g",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Britney Spears - Criminal.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR160373-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR160373"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Britney Spears"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Britney Spears"
+    },
+    {
+      "id": "rel-RVTR160373-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR160373"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #55"
+    },
+    {
+      "id": "rel-RVTR160373-tl-tl-x7tk9j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR160373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-x7tk9j"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Criminal — original release"
+    },
+    {
+      "id": "rel-RVTR160373-tl-tl-fcm3ja",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR160373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ja"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #55"
+    },
+    {
+      "id": "rel-RVTR160373-tl-tl-aitabu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR160373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aitabu"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Criminal — graph recording"
+    },
+    {
+      "id": "rel-RVTR160373-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR160373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR160373-perf-perf-bkrt4g",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR160373"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-bkrt4g"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-bkrt4g-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrt4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Britney Spears - Criminal.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-569b4781308f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrt4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "569b4781308f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-3c75eaad0197-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrt4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3c75eaad0197"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-8fd0bf7dcacd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrt4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8fd0bf7dcacd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d4b56810c80d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrt4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d4b56810c80d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-df41c799d2ef-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrt4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "df41c799d2ef"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR160373. \"Criminal\" by Britney Spears.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #55. 6 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Britney Spears · Title: Criminal · Album: HV 12-11 · Year: 2011 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Britney Spears - Criminal.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-99ce1d87",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Britney Spears - Criminal.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2d5c0670-95f2-4f62-b26c-abd4181636be",
+      "category": "artist",
+      "text": "Criminal is performed by Britney Spears.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4b5a9a38-fe5b-4800-854d-a1eb64cffef3",
+      "category": "chart",
+      "text": "The song peaked at #55 on the Billboard Hot 100 and spent 6 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5459489e-441e-49a8-be90-ab0f0cdaf0e8",
+      "category": "recording",
+      "text": "Criminal was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b43cc05b-1b57-40d2-91c7-e267bbe349ef",
+      "category": "trivia",
+      "text": "Artist: Britney Spears · Title: Criminal · Album: HV 12-11 · Year: 2011 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Britney Spears - Criminal.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "36f0095e-8473-43ef-88ba-a52bcad28966",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Britney Spears - Criminal.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Britney Spears - Criminal.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

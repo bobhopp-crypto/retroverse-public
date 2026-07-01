@@ -1,0 +1,480 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR291693",
+    "kind": "song",
+    "rvtr": "RVTR291693",
+    "generatedAt": "2026-06-28T22:50:05.017Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR291693",
+    "artist": "Dusty Springfield",
+    "title": "Lost",
+    "year": 1970,
+    "albumTitle": "A Brand New Me",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL810625/RVAL810625__dusty-springfield__a-brand-new-me.jpg"
+  },
+  "artist": {
+    "name": "Dusty Springfield",
+    "relatedArtists": [
+      "Dusty Springfield"
+    ]
+  },
+  "album": {
+    "title": "A Brand New Me",
+    "releaseYear": 1970,
+    "recordings": [
+      {
+        "id": "rec-yix6d1",
+        "title": "A Brand New Me",
+        "releaseDate": 1970,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-bvhl6w",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1971,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dusty Springfield - Lost.mp4",
+      "notes": "Detected year: 1971. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "A Brand New Me",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-piky0o",
+      "date": "1970",
+      "label": "Lost — original release",
+      "detail": "Original album: A Brand New Me",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-gw01rw",
+      "date": "1970",
+      "label": "A Brand New Me",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1971",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR291693",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL810625/RVAL810625__dusty-springfield__a-brand-new-me.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "101e30135a1b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR291693&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-bvhl6w",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b3603c9013f1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR291693&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-bvhl6w",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "50629dd0bfdc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR291693&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-bvhl6w",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ac55767327cb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR291693&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-bvhl6w",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-bvhl6w",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1971,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dusty Springfield - Lost.mp4",
+        "notes": "Detected year: 1971. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR291693-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR291693"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dusty Springfield"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dusty Springfield"
+    },
+    {
+      "id": "rel-RVTR291693-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR291693"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-yix6d1"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "A Brand New Me"
+    },
+    {
+      "id": "rel-RVTR291693-tl-tl-piky0o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR291693"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-piky0o"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Lost — original release"
+    },
+    {
+      "id": "rel-RVTR291693-tl-tl-gw01rw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR291693"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-gw01rw"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "A Brand New Me"
+    },
+    {
+      "id": "rel-RVTR291693-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR291693"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR291693-perf-perf-bvhl6w",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR291693"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-bvhl6w"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-bvhl6w-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bvhl6w"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dusty Springfield - Lost.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-101e30135a1b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bvhl6w"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "101e30135a1b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-b3603c9013f1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bvhl6w"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b3603c9013f1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-50629dd0bfdc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bvhl6w"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "50629dd0bfdc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-ac55767327cb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bvhl6w"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ac55767327cb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR291693. \"Lost\" by Dusty Springfield. Album: A Brand New Me (1970).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL810625/RVAL810625__dusty-springfield__a-brand-new-me.jpg",
+      "excerpt": "Canonical cover assignment for RVTR291693 (Lost). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: A Brand New Me (1970)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dusty Springfield · Title: Lost · Album: Lost · Year: 1971 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dusty Springfield - Lost.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1970.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-3434fc01",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dusty Springfield - Lost.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "3cd36273-7cb9-4725-9ee7-7cc8c45a046e",
+      "category": "artist",
+      "text": "Lost is performed by Dusty Springfield.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "62eabe43-64ca-44f9-baee-b80a6c721727",
+      "category": "album",
+      "text": "The song appears on the album \"A Brand New Me\" (1970).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2369f91e-3cb3-4293-8c06-e245801118da",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR291693.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL810625/RVAL810625__dusty-springfield__a-brand-new-me.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "78f3bea8-bf53-4a15-ac34-8d4c0e10957a",
+      "category": "recording",
+      "text": "Lost was released in 1970.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a2ee8643-3599-4a0c-975b-d2c5dbf908bb",
+      "category": "trivia",
+      "text": "Artist: Dusty Springfield · Title: Lost · Album: Lost · Year: 1971 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dusty Springfield - Lost.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "14aa295a-0b51-4f1b-b954-9e5f25526327",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dusty Springfield - Lost.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dusty Springfield - Lost.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR277308",
+    "kind": "song",
+    "rvtr": "RVTR277308",
+    "generatedAt": "2026-06-28T22:49:48.712Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR277308",
+    "artist": "Missy Elliott",
+    "title": "Rain",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Missy Elliott",
+    "relatedArtists": [
+      "Missy Elliott"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-nsl7g6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1997,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Missy Elliott - Rain.mp4",
+      "notes": "Detected year: 1997. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-78wbiw",
+      "date": "1997",
+      "label": "Rain — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1997",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b96bb8a2c708",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR277308&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-nsl7g6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "312230bc6945",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR277308&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-nsl7g6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d4c7ede6161e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR277308&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-nsl7g6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "109a6373bc9a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR277308&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-nsl7g6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "10a8b0c54ae2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR277308&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-nsl7g6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-nsl7g6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1997,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Missy Elliott - Rain.mp4",
+        "notes": "Detected year: 1997. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR277308-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR277308"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Missy Elliott"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Missy Elliott"
+    },
+    {
+      "id": "rel-RVTR277308-tl-tl-78wbiw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR277308"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-78wbiw"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Rain — original release"
+    },
+    {
+      "id": "rel-RVTR277308-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR277308"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR277308-perf-perf-nsl7g6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR277308"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-nsl7g6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-nsl7g6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nsl7g6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Missy Elliott - Rain.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b96bb8a2c708-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nsl7g6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b96bb8a2c708"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-312230bc6945-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nsl7g6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "312230bc6945"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d4c7ede6161e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nsl7g6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d4c7ede6161e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-109a6373bc9a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nsl7g6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "109a6373bc9a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-10a8b0c54ae2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nsl7g6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "10a8b0c54ae2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR277308. \"Rain\" by Missy Elliott.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Missy Elliott · Title: Rain · Album: Missy Misdemeanor Elliott - The Rain (Supa Dupa Fly) · Year: 1997 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Missy Elliott - Rain.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-290c367f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Missy Elliott - Rain.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "06d0d9ee-d189-40c5-bb21-ec2df16869d2",
+      "category": "artist",
+      "text": "Rain is performed by Missy Elliott.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b0791c01-3145-4d41-84fe-32dd18e03282",
+      "category": "trivia",
+      "text": "Artist: Missy Elliott · Title: Rain · Album: Missy Misdemeanor Elliott - The Rain (Supa Dupa Fly) · Year: 1997 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Missy Elliott - Rain.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a05cd857-0031-466e-87af-822eb23267a1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Missy Elliott - Rain.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Missy Elliott - Rain.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

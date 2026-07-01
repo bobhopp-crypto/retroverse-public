@@ -1,0 +1,665 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR129414",
+    "kind": "song",
+    "rvtr": "RVTR129414",
+    "generatedAt": "2026-06-28T22:46:19.915Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR129414",
+    "artist": "Rob Thomas",
+    "title": "Someday",
+    "year": 2009,
+    "albumTitle": "Cradlesong",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL990094/RVAL990094__rob-thomas__cradlesong.jpg"
+  },
+  "artist": {
+    "name": "Rob Thomas",
+    "relatedArtists": [
+      "Rob Thomas"
+    ]
+  },
+  "album": {
+    "title": "Cradlesong",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-i0wdq7",
+        "title": "Cradlesong",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-tbn11p",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rob Thomas - Someday.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 59,
+    "chartWeeks": 22,
+    "albumTitle": "Cradlesong",
+    "summary": "Hot 100 peak #59 · 22 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-1redos",
+      "date": "2009",
+      "label": "Someday — original release",
+      "detail": "Original album: Cradlesong",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3je",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #59",
+      "detail": "22 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ntzwmy",
+      "date": "—",
+      "label": "\"Someday\" is a song released from Rob Thomas' second album, Cradlesong.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-ddhpnh",
+      "date": "2009",
+      "label": "It was released as the album's third single (second outside of Australia) in September 2009 only in ",
+      "detail": "digital format, and followed as a physical release in December 2009.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-ntzwmy",
+      "date": "—",
+      "label": "\"Someday\" is a song released from Rob Thomas' second album, Cradlesong.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-hg9sto",
+      "date": "2009",
+      "label": "Cradlesong",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR129414",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL990094/RVAL990094__rob-thomas__cradlesong.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c9f51f6e9bcc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129414&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-tbn11p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b61689db61ee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129414&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-tbn11p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6ef43f193628",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129414&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-tbn11p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d7324c1d8f29",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129414&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-tbn11p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b96d0396a6a0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129414&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-tbn11p",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-tbn11p",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rob Thomas - Someday.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR129414-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Rob Thomas"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Rob Thomas"
+    },
+    {
+      "id": "rel-RVTR129414-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-i0wdq7"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Cradlesong"
+    },
+    {
+      "id": "rel-RVTR129414-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #59"
+    },
+    {
+      "id": "rel-RVTR129414-tl-tl-1redos",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-1redos"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Someday — original release"
+    },
+    {
+      "id": "rel-RVTR129414-tl-tl-fcm3je",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3je"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #59"
+    },
+    {
+      "id": "rel-RVTR129414-tl-tl-ntzwmy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ntzwmy"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Someday\" is a song released from Rob Thomas' second album, Cradlesong."
+    },
+    {
+      "id": "rel-RVTR129414-tl-tl-ddhpnh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ddhpnh"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It was released as the album's third single (second outside of Australia) in September 2009 only in "
+    },
+    {
+      "id": "rel-RVTR129414-tl-tl-ntzwmy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ntzwmy"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Someday\" is a song released from Rob Thomas' second album, Cradlesong."
+    },
+    {
+      "id": "rel-RVTR129414-tl-tl-hg9sto",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hg9sto"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Cradlesong"
+    },
+    {
+      "id": "rel-RVTR129414-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR129414-perf-perf-tbn11p",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR129414"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-tbn11p"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-tbn11p-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tbn11p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rob Thomas - Someday.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c9f51f6e9bcc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tbn11p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c9f51f6e9bcc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b61689db61ee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tbn11p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b61689db61ee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6ef43f193628-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tbn11p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6ef43f193628"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d7324c1d8f29-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tbn11p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d7324c1d8f29"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b96d0396a6a0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tbn11p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b96d0396a6a0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR129414. \"Someday\" by Rob Thomas. Album: Cradlesong (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL990094/RVAL990094__rob-thomas__cradlesong.jpg",
+      "excerpt": "Canonical cover assignment for RVTR129414 (Someday). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Cradlesong (2009). Billboard Hot 100 peak: #59. 22 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Rob Thomas · Title: Someday · Album: HV 1-10 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rob Thomas - Someday.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-a23fd9c7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rob Thomas - Someday.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-someday-rob-thomas-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Someday_(Rob_Thomas_song)",
+      "excerpt": "\"Someday\" is a song released from Rob Thomas' second album, Cradlesong. It was released as the album's third single (second outside of Australia) in September 2009 only in digital format, and followed as a physical release in December 2009.\nIt debuted at No. 93 on the Billboard Hot 100, peaking at No. 59. It has since become Thomas's third career No. 1 on Billboard's Adult Top 40 chart as a solo artist, and fourth overall, also extending his top-five singles streak on the format to seven (eight when including his collaborative hit \"Smooth\").\n\n\nMusic video\nThe music video was released on 15 September 2009 and is directed by Alan Ferguson.\nIt captures Rob Thomas wandering through a parade in downtown New York City.\n\n\nChart positions\n\n\nWeekly charts\n\n\nYear-end charts\n\n\nSales and Certifications\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "f708e01b-f813-4db5-8cfa-efe3e99f23f0",
+      "category": "artist",
+      "text": "Someday is performed by Rob Thomas.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fa4209f7-1700-4d1d-a1c1-f22634fc0cfd",
+      "category": "album",
+      "text": "The song appears on the album \"Cradlesong\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "180e6de4-9e89-4e86-bcc3-4b28cc919fe2",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR129414.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL990094/RVAL990094__rob-thomas__cradlesong.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "df053bc5-fecf-44c8-9415-79cc832321c1",
+      "category": "chart",
+      "text": "The song peaked at #59 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fb930be7-da98-4df8-bc4c-2047b490bba5",
+      "category": "recording",
+      "text": "Someday was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d1852a51-4ad2-4cae-a267-21c8abbd2079",
+      "category": "cultural_impact",
+      "text": "\"Someday\" is a song released from Rob Thomas' second album, Cradlesong.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Someday_(Rob_Thomas_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5dca7ff6-aa03-41ce-9cb8-0fe34d7eac5e",
+      "category": "cultural_impact",
+      "text": "It was released as the album's third single (second outside of Australia) in September 2009 only in digital format, and followed as a physical release in December 2009.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Someday_(Rob_Thomas_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "874dd6f2-37bb-4e6d-bc72-807a21066895",
+      "category": "cultural_impact",
+      "text": "93 on the Billboard Hot 100, peaking at No.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Someday_(Rob_Thomas_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "97b67140-d3df-40dd-8787-f601739680fa",
+      "category": "trivia",
+      "text": "Artist: Rob Thomas · Title: Someday · Album: HV 1-10 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rob Thomas - Someday.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "46e49bd7-5e34-4f50-ac2e-ab5f6d04cb28",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rob Thomas - Someday.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 71
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 13,
+    "preserved": 10,
+    "accepted": 8,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rob Thomas - Someday.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR621788",
+    "kind": "song",
+    "rvtr": "RVTR621788",
+    "generatedAt": "2026-06-28T22:57:41.111Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR621788",
+    "artist": "Clay Walker",
+    "title": "One More",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Clay Walker",
+    "relatedArtists": [
+      "Clay Walker"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-346qb",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1980,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - One More.mp4",
+      "notes": "Detected year: 1980. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-h08rh9",
+      "date": "1980",
+      "label": "One More — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1980",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ebf0b09f79de",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR621788&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-346qb",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-346qb",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1980,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - One More.mp4",
+        "notes": "Detected year: 1980. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR621788-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR621788"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Clay Walker"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Clay Walker"
+    },
+    {
+      "id": "rel-RVTR621788-tl-tl-h08rh9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR621788"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-h08rh9"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "One More — original release"
+    },
+    {
+      "id": "rel-RVTR621788-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR621788"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR621788-perf-perf-346qb",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR621788"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-346qb"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-346qb-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-346qb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - One More.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ebf0b09f79de-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-346qb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ebf0b09f79de"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR621788. \"One More\" by Clay Walker.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Clay Walker · Title: One More · Album: David Meece - Are You Ready? · Year: 1980 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - One More.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-da225953",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - One More.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "114f54d7-46e8-43b7-9906-f33f31c901a8",
+      "category": "artist",
+      "text": "One More is performed by Clay Walker.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "774af8ff-0929-4b41-b47e-9c51d5b316d2",
+      "category": "trivia",
+      "text": "Artist: Clay Walker · Title: One More · Album: David Meece - Are You Ready?",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c8b49efd-247d-4d96-bb13-69d5e3e6d36d",
+      "category": "trivia",
+      "text": "· Year: 1980 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - One More.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b31e89a2-9edb-4830-ae5b-140c68a9e87e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - One More.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - One More.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,515 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR896618",
+    "kind": "song",
+    "rvtr": "RVTR896618",
+    "generatedAt": "2026-06-28T23:06:28.873Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR896618",
+    "artist": "Nalin & Kane",
+    "title": "Beachball",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Nalin & Kane",
+    "relatedArtists": [
+      "Nalin & Kane"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-igwqcj",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1996,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Nalin & Kane - Beachball.mp4",
+      "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-5n0m9y",
+      "date": "1997",
+      "label": "Beachball — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-ipjduf",
+      "date": "1997",
+      "label": "\"Beachball\" is a song by German production team Nalin & Kane, released in June 1997 as a single.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-yye7ut",
+      "date": "—",
+      "label": "It reached number one on the Canadian RPM Dance chart for four weeks and reached number two in Spain",
+      "detail": ", number 10 in Germany and number 19 in Switzerland.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-ipjduf",
+      "date": "1997",
+      "label": "\"Beachball\" is a song by German production team Nalin & Kane, released in June 1997 as a single.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1996",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "\"Beachball\" is a song by German production team Nalin & Kane, released in June 1997 as a single.",
+      "This German production duo have come up with a sparsely arranged and yet remarkably tuneful number."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0cbe7b18d255",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR896618&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-igwqcj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e14c20c3e69b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR896618&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-igwqcj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7e35f7b580ca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR896618&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-igwqcj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "332bc5f19650",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR896618&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-igwqcj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "394ab24fa86c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR896618&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-igwqcj",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-igwqcj",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1996,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Nalin & Kane - Beachball.mp4",
+        "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR896618-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR896618"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Nalin & Kane"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Nalin & Kane"
+    },
+    {
+      "id": "rel-RVTR896618-tl-tl-5n0m9y",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR896618"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5n0m9y"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Beachball — original release"
+    },
+    {
+      "id": "rel-RVTR896618-tl-tl-ipjduf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR896618"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ipjduf"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Beachball\" is a song by German production team Nalin & Kane, released in June 1997 as a single."
+    },
+    {
+      "id": "rel-RVTR896618-tl-tl-yye7ut",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR896618"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yye7ut"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It reached number one on the Canadian RPM Dance chart for four weeks and reached number two in Spain"
+    },
+    {
+      "id": "rel-RVTR896618-tl-tl-ipjduf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR896618"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ipjduf"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Beachball\" is a song by German production team Nalin & Kane, released in June 1997 as a single."
+    },
+    {
+      "id": "rel-RVTR896618-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR896618"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR896618-perf-perf-igwqcj",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR896618"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-igwqcj"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-igwqcj-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igwqcj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Nalin & Kane - Beachball.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0cbe7b18d255-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igwqcj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0cbe7b18d255"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e14c20c3e69b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igwqcj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e14c20c3e69b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-7e35f7b580ca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igwqcj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7e35f7b580ca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-332bc5f19650-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igwqcj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "332bc5f19650"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-394ab24fa86c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igwqcj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "394ab24fa86c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR896618. \"Beachball\" by Nalin & Kane.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Nalin & Kane · Title: Beachball · Album: Vol. III · Year: 1996 · Genre: Progressive House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Nalin & Kane - Beachball.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-499dc5a2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Nalin & Kane - Beachball.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-beachball-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Beachball_(song)",
+      "excerpt": "\"Beachball\" is a song by German production team Nalin & Kane, released in June 1997 as a single. It reached number one on the Canadian RPM Dance chart for four weeks and reached number two in Spain, number 10 in Germany and number 19 in Switzerland. A Tall Paul remix of the song reached number seven in Ireland and number 17 in the United Kingdom in October 1998.\n\n\nCritical reception\nPan-European magazine Music & Media wrote, \"Bouncing onto the airwaves comes a summery helping of minimalistic trance. This German production duo have come up with a sparsely arranged and yet remarkably tuneful number. With the proper support—and the proverbial little bit of luck—Messrs Nalin and Kane should be able to emulate the massive chart success they enjoyed in their homeland a couple of months ago. In spite of their length—which undoubtedly renders them less than suitable for mainstream radio play—the selection of remixes on offer is also well worthy of further investigation.\"\nChris Finan from Music Week's RM Dance Update gave \"Beachball\" four out of five, commenting, \"German duo Nalin & Kane get a run of only 2,000 copies on this release from Hooj. Chill-out trance is a simple guide to this tune—it has moody electro influences but with a steady beat which gives this an amazing flexibility as to where and when it can be played. Sometimes minimal, sometimes drifty but always mesmerising in its four mixes. The Seaside mix works best, though, featuring the greater of the hooks and probably appealing more to the mainstream than the others. Shame it's limited really.\"\n\n\nImpact and legacy\nIn 2018, Mixmag ranked \"Beachball\" among \"The 15 Best Mid-90s Trance Tracks\", writing that it \"is as sun-soaked as it gets and tailor-made for Ibiza shores, from the track title to the lyrics about beaches and oceans. There are even bird chirps thrown into the breakdown for good measure. Proper hands in the air fare.\"\n\n\nTrack listings\nCD maxi-single (Europe, 1997)\n\"Beachball\" (Vocal Radio Edit) – 3:52\n\"Beachball\" (Original Radio Edit) – 3:57\n\"Beachball\" (Extended Vocal Mix) – 7:36\n\"Beachball\" (Original Club Mix) – 10:23\n\"Beachball\" (Sea Side Mix) – 8:10\nCD maxi-single Remix (Europe, 1997)\n\"Beachball\" (Sharam Baywatch Remix) – 9:32\n\"Beachball\" (Shahin & Simon Remix) – 5:43\n\"Beachball\" (Daniel Klein & Basti Remix) – 9:51\n\"Beachball\" (Tom Civic Remix) – 6:12\n\n\nCharts\n\n\nCertifications\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "d76a32b3-68d1-4127-8965-6b9151fb7a2e",
+      "category": "artist",
+      "text": "Beachball is performed by Nalin & Kane.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "995c7ab6-7a63-4c81-ab85-ca7b83548595",
+      "category": "trivia",
+      "text": "Artist: Nalin & Kane · Title: Beachball · Album: Vol.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "27938568-0669-4d34-9d8e-070bbc6f8275",
+      "category": "cultural_impact",
+      "text": "\"Beachball\" is a song by German production team Nalin & Kane, released in June 1997 as a single.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Beachball_(song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8b8461ab-532f-425f-a5eb-f9bd240655c0",
+      "category": "cultural_impact",
+      "text": "It reached number one on the Canadian RPM Dance chart for four weeks and reached number two in Spain, number 10 in Germany and number 19 in Switzerland.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Beachball_(song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5dd52999-9b1f-42ab-9725-a6f6ed681850",
+      "category": "cultural_impact",
+      "text": "A Tall Paul remix of the song reached number seven in Ireland and number 17 in the United Kingdom in October 1998.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Beachball_(song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "152f3646-9b47-4064-bbd4-f2c2c845baef",
+      "category": "trivia",
+      "text": "III · Year: 1996 · Genre: Progressive House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Nalin & Kane - Beachball.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8353222f-da9d-4062-8c63-3e44240a6472",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Nalin & Kane - Beachball.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Nalin & Kane - Beachball.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

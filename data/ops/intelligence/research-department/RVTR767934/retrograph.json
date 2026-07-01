@@ -1,0 +1,552 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR767934",
+    "kind": "song",
+    "rvtr": "RVTR767934",
+    "generatedAt": "2026-06-28T23:02:00.908Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR767934",
+    "artist": "Madness",
+    "title": "One Step Beyond",
+    "year": 1980,
+    "albumTitle": "One Step Beyond",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL439121/RVAL439121__madness__one-step-beyond.jpg"
+  },
+  "artist": {
+    "name": "Madness",
+    "relatedArtists": [
+      "Madness"
+    ]
+  },
+  "album": {
+    "title": "One Step Beyond",
+    "releaseYear": 1980,
+    "recordings": [
+      {
+        "id": "rec-40fa41",
+        "title": "One Step Beyond",
+        "releaseDate": 1980,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-lnifua",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Madness - One Step Beyond.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "One Step Beyond",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-mq7wcz",
+      "date": "1980",
+      "label": "One Step Beyond — original release",
+      "detail": "Original album: One Step Beyond",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-rmng39",
+      "date": "1980",
+      "label": "One Step Beyond",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR767934",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL439121/RVAL439121__madness__one-step-beyond.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7e3f1fee11ae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR767934&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lnifua",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a6cfc09d5685",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR767934&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lnifua",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9217d959f883",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR767934&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-lnifua",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "62586afde101",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR767934&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lnifua",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "99d4e48d96ac",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR767934&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lnifua",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lnifua",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Madness - One Step Beyond.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR767934-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR767934"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Madness"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Madness"
+    },
+    {
+      "id": "rel-RVTR767934-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR767934"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-40fa41"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "One Step Beyond"
+    },
+    {
+      "id": "rel-RVTR767934-tl-tl-mq7wcz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR767934"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mq7wcz"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "One Step Beyond — original release"
+    },
+    {
+      "id": "rel-RVTR767934-tl-tl-rmng39",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR767934"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-rmng39"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "One Step Beyond"
+    },
+    {
+      "id": "rel-RVTR767934-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR767934"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR767934-perf-perf-lnifua",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR767934"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lnifua"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-lnifua-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lnifua"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Madness - One Step Beyond.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-7e3f1fee11ae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lnifua"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7e3f1fee11ae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a6cfc09d5685-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lnifua"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a6cfc09d5685"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-9217d959f883-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lnifua"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9217d959f883"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-62586afde101-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lnifua"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "62586afde101"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-99d4e48d96ac-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lnifua"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "99d4e48d96ac"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR767934. \"One Step Beyond\" by Madness. Album: One Step Beyond (1980).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL439121/RVAL439121__madness__one-step-beyond.jpg",
+      "excerpt": "Canonical cover assignment for RVTR767934 (One Step Beyond). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: One Step Beyond (1980)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Madness · Title: One Step Beyond · Album: One Step Beyond... · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Madness - One Step Beyond.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1980.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-05208593",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Madness - One Step Beyond.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b694c90e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Madness - One Step Beyond.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-60855356",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/ Madness - One Step Beyond.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "25e023ad-04e8-4811-bcaa-8a32504b4a72",
+      "category": "artist",
+      "text": "One Step Beyond is performed by Madness.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6d04d599-fb59-4ae2-bb61-beaed6db392a",
+      "category": "album",
+      "text": "The song appears on the album \"One Step Beyond\" (1980).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c129de2c-f5c5-49ab-8090-1fc0b9acdf1a",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR767934.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL439121/RVAL439121__madness__one-step-beyond.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eed878d2-545f-4afa-8aec-f6a94b5122e5",
+      "category": "recording",
+      "text": "One Step Beyond was released in 1980.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a8bb53c1-59f7-4e2d-bcd6-79ece31ae5e8",
+      "category": "trivia",
+      "text": "Artist: Madness · Title: One Step Beyond · Album: One Step Beyond...",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "21eee2ec-6eef-4cf0-a0d7-db93f467cc95",
+      "category": "trivia",
+      "text": "· Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Madness - One Step Beyond.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "de6de844-1861-4e46-b4d9-4de86f1b3ba0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Madness - One Step Beyond.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "435df8c9-c50a-4b53-b940-759c785c0f76",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Madness - One Step Beyond.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e8506e45-4474-4cac-936e-ca2e3900e3c1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/ Madness - One Step Beyond.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 9,
+    "accepted": 5,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Madness - One Step Beyond.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

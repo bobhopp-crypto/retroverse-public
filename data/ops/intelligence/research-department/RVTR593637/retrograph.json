@@ -1,0 +1,555 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR593637",
+    "kind": "song",
+    "rvtr": "RVTR593637",
+    "generatedAt": "2026-06-28T22:56:53.885Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR593637",
+    "artist": "Zhane",
+    "title": "Hey Mr D J",
+    "year": 1994,
+    "albumTitle": "Pronounced Jah-Nay",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Zhane",
+    "relatedArtists": [
+      "Zhane"
+    ]
+  },
+  "album": {
+    "title": "Pronounced Jah-Nay",
+    "releaseYear": 1994,
+    "recordings": [
+      {
+        "id": "rec-46nh9k",
+        "title": "Pronounced Jah-Nay",
+        "releaseDate": 1994,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-tm910j",
+      "title": "Hey Mr DJ",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Zhane - Hey Mr DJ.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 6,
+    "chartWeeks": 24,
+    "albumTitle": "Pronounced Jah-Nay",
+    "summary": "Hot 100 peak #6 · 24 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-efiakr",
+      "date": "1994",
+      "label": "Hey Mr D J — original release",
+      "detail": "Original album: Pronounced Jah-Nay",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2o",
+      "date": "1994",
+      "label": "Billboard Hot 100 peak #6",
+      "detail": "24 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-g6sz6h",
+      "date": "1994",
+      "label": "Pronounced Jah-Nay",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-t414yx",
+      "date": "1993",
+      "label": "Hey Mr DJ",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c2b959a2edc5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR593637&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-tm910j",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "702a843d00ed",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR593637&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-tm910j",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "19721cc2136d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR593637&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-tm910j",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "14117aa469ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR593637&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-tm910j",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6059bcc87022",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR593637&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-tm910j",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-tm910j",
+        "title": "Hey Mr DJ",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Zhane - Hey Mr DJ.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR593637-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR593637"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Zhane"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Zhane"
+    },
+    {
+      "id": "rel-RVTR593637-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR593637"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-46nh9k"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Pronounced Jah-Nay"
+    },
+    {
+      "id": "rel-RVTR593637-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR593637"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #6"
+    },
+    {
+      "id": "rel-RVTR593637-tl-tl-efiakr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR593637"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-efiakr"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hey Mr D J — original release"
+    },
+    {
+      "id": "rel-RVTR593637-tl-tl-l47p2o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR593637"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2o"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #6"
+    },
+    {
+      "id": "rel-RVTR593637-tl-tl-g6sz6h",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR593637"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-g6sz6h"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Pronounced Jah-Nay"
+    },
+    {
+      "id": "rel-RVTR593637-tl-tl-t414yx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR593637"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-t414yx"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Hey Mr DJ"
+    },
+    {
+      "id": "rel-RVTR593637-perf-perf-tm910j",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR593637"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-tm910j"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Hey Mr DJ"
+    },
+    {
+      "id": "rel-perf-tm910j-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tm910j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Zhane - Hey Mr DJ.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Hey Mr DJ"
+    },
+    {
+      "id": "rel-c2b959a2edc5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tm910j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c2b959a2edc5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-702a843d00ed-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tm910j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "702a843d00ed"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-19721cc2136d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tm910j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "19721cc2136d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-14117aa469ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tm910j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "14117aa469ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6059bcc87022-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tm910j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6059bcc87022"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR593637. \"Hey Mr D J\" by Zhane. Album: Pronounced Jah-Nay (1994).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Pronounced Jah-Nay (1994). Billboard Hot 100 peak: #6. 24 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Zhane · Title: Hey Mr DJ · Album: Zhané - Hey Mr. D.J. · Year: 1993 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Zhane - Hey Mr DJ.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1994.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-cec30d6d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Zhane - Hey Mr DJ.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b8c5b699",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Zhane - Hey Mr. Dj.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f0b07a6c-05b2-4526-86ba-94515a3da4e1",
+      "category": "artist",
+      "text": "Hey Mr D J is performed by Zhane.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "86c9244a-3918-424e-ad83-686788681d17",
+      "category": "album",
+      "text": "The song appears on the album \"Pronounced Jah-Nay\" (1994).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "483b41d8-f0c7-4563-bcc6-70a9a97f3560",
+      "category": "chart",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "469fbe43-0f15-4947-8c3e-385604d5cc5f",
+      "category": "recording",
+      "text": "Hey Mr D J was released in 1994.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bbe7cc58-018e-416f-a750-96c7e41e6e6d",
+      "category": "trivia",
+      "text": "Artist: Zhane · Title: Hey Mr DJ · Album: Zhané - Hey Mr.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8ca2c07d-1200-457d-95df-a0a9990a0504",
+      "category": "trivia",
+      "text": "· Year: 1993 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Zhane - Hey Mr DJ.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9c650dc8-0bf4-48ec-9572-d154d4a7fe1a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Zhane - Hey Mr DJ.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d8e02426-e1dc-41a1-8d70-927dfbada856",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Zhane - Hey Mr.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Zhane - Hey Mr DJ.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

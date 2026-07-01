@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR753044",
+    "kind": "song",
+    "rvtr": "RVTR753044",
+    "generatedAt": "2026-06-28T23:01:28.100Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR753044",
+    "artist": "Marilyn Mccoo",
+    "title": "Up Up Away Last Night I Didn T Get To Sleep",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Marilyn Mccoo",
+    "relatedArtists": [
+      "Marilyn Mccoo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-kbhmmh",
+      "title": "Up Up & Away Last Night I Didn t Get to Sleep",
+      "kind": "performance",
+      "year": 1972,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Marilyn McCoo - Up Up & Away Last Night I Didn t Get to Sleep.mp4",
+      "notes": "Detected year: 1972. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-jzob46",
+      "date": "1972",
+      "label": "Up Up Away Last Night I Didn T Get To Sleep — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-4iq2xg",
+      "date": "1972",
+      "label": "Up Up & Away Last Night I Didn t Get to Sleep",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0908507f1202",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753044&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kbhmmh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "80f5d7d68df6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753044&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kbhmmh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e2e6df4248fe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753044&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kbhmmh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5a8e73afd1a3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753044&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kbhmmh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "755053f40ddc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753044&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kbhmmh",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kbhmmh",
+        "title": "Up Up & Away Last Night I Didn t Get to Sleep",
+        "kind": "performance",
+        "year": 1972,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Marilyn McCoo - Up Up & Away Last Night I Didn t Get to Sleep.mp4",
+        "notes": "Detected year: 1972. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR753044-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR753044"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Marilyn Mccoo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Marilyn Mccoo"
+    },
+    {
+      "id": "rel-RVTR753044-tl-tl-jzob46",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR753044"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jzob46"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Up Up Away Last Night I Didn T Get To Sleep — original release"
+    },
+    {
+      "id": "rel-RVTR753044-tl-tl-4iq2xg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR753044"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4iq2xg"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Up Up & Away Last Night I Didn t Get to Sleep"
+    },
+    {
+      "id": "rel-RVTR753044-perf-perf-kbhmmh",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR753044"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kbhmmh"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Up Up & Away Last Night I Didn t Get to Sleep"
+    },
+    {
+      "id": "rel-perf-kbhmmh-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kbhmmh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Marilyn McCoo - Up Up & Away Last Night I Didn t Get to Sleep.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Up Up & Away Last Night I Didn t Get to Sleep"
+    },
+    {
+      "id": "rel-0908507f1202-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kbhmmh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0908507f1202"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-80f5d7d68df6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kbhmmh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "80f5d7d68df6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e2e6df4248fe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kbhmmh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e2e6df4248fe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5a8e73afd1a3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kbhmmh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5a8e73afd1a3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-755053f40ddc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kbhmmh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "755053f40ddc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR753044. \"Up Up Away Last Night I Didn T Get To Sleep\" by Marilyn Mccoo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Marilyn McCoo · Title: Up Up & Away Last Night I Didn t Get to Sleep · Year: 1972 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Marilyn McCoo - Up Up & Away Last Night I Didn t Get to Sleep.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b7f02978",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Marilyn McCoo - Up Up & Away Last Night I Didn t Get to Sleep.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "63e1d807-84bb-4242-b2da-49292b16e43d",
+      "category": "artist",
+      "text": "Up Up Away Last Night I Didn T Get To Sleep is performed by Marilyn Mccoo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "48f589f9-304e-4d56-bcd0-ca7e2532b45e",
+      "category": "trivia",
+      "text": "\"Up Up Away Last Night I Didn T Get To Sleep\" by Marilyn Mccoo.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "25c1be62-33a8-4f0d-9b37-389bc600316c",
+      "category": "trivia",
+      "text": "Artist: Marilyn McCoo · Title: Up Up & Away Last Night I Didn t Get to Sleep · Year: 1972 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Marilyn McCoo - Up Up & Away Last Night I Didn t Get to Sleep.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "88055f3c-5a92-4b83-ab99-fb7d07eef057",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Marilyn McCoo - Up Up & Away Last Night I Didn t Get to Sleep.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Marilyn McCoo - Up Up & Away Last Night I Didn t Get to Sleep.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

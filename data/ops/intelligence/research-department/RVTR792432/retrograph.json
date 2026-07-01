@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR792432",
+    "kind": "song",
+    "rvtr": "RVTR792432",
+    "generatedAt": "2026-06-28T23:02:46.028Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR792432",
+    "artist": "69 Boyz",
+    "title": "Tootsie Roll",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "69 Boyz",
+    "relatedArtists": [
+      "69 Boyz"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-rpi5bn",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1994,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/69 Boyz - Tootsie Roll.mp4",
+      "notes": "Detected year: 1994. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fnc2wu",
+      "date": "1994",
+      "label": "Tootsie Roll — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1994",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "a5fa7b388440",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792432&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-rpi5bn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4103ff962537",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792432&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-rpi5bn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "603bd2b55bf2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792432&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-rpi5bn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5a174101d585",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792432&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-rpi5bn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8b5ee6c00ae0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792432&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-rpi5bn",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-rpi5bn",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1994,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/69 Boyz - Tootsie Roll.mp4",
+        "notes": "Detected year: 1994. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR792432-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR792432"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "69 Boyz"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "69 Boyz"
+    },
+    {
+      "id": "rel-RVTR792432-tl-tl-fnc2wu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR792432"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fnc2wu"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Tootsie Roll — original release"
+    },
+    {
+      "id": "rel-RVTR792432-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR792432"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR792432-perf-perf-rpi5bn",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR792432"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-rpi5bn"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-rpi5bn-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rpi5bn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/69 Boyz - Tootsie Roll.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-a5fa7b388440-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rpi5bn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a5fa7b388440"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4103ff962537-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rpi5bn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4103ff962537"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-603bd2b55bf2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rpi5bn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "603bd2b55bf2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5a174101d585-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rpi5bn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5a174101d585"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8b5ee6c00ae0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rpi5bn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8b5ee6c00ae0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR792432. \"Tootsie Roll\" by 69 Boyz.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: 69 Boyz · Title: Tootsie Roll · Album: Funkymix 18 · Year: 1994 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/69 Boyz - Tootsie Roll.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4d5bb152",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/69 Boyz - Tootsie Roll.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0e93779d-fc24-45ae-b1b7-bd66136b7f16",
+      "category": "artist",
+      "text": "Tootsie Roll is performed by 69 Boyz.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "16e25ac7-2ae8-4566-9433-c04277c916af",
+      "category": "trivia",
+      "text": "Artist: 69 Boyz · Title: Tootsie Roll · Album: Funkymix 18 · Year: 1994 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/69 Boyz - Tootsie Roll.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aa13a0c5-31bb-4cad-9e98-4f26777ff31e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/69 Boyz - Tootsie Roll.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/69 Boyz - Tootsie Roll.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

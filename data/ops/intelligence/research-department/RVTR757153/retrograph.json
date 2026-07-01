@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR757153",
+    "kind": "song",
+    "rvtr": "RVTR757153",
+    "generatedAt": "2026-06-28T23:01:40.785Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR757153",
+    "artist": "Taylor Swift",
+    "title": "Me",
+    "year": 2019,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Taylor Swift",
+    "relatedArtists": [
+      "Taylor Swift"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2019,
+    "recordings": [
+      {
+        "id": "rec-sm080o",
+        "title": "Me — graph recording",
+        "releaseDate": 2019,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-4mvdw1",
+      "title": "an",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mean.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-4rbvos",
+      "date": "2019",
+      "label": "Me — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "2019",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-65xrwf",
+      "date": "2019",
+      "label": "Me — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-797nq9",
+      "date": "2010",
+      "label": "an",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "aac080306de9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757153&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-4mvdw1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4a6f2df0fb1c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757153&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-4mvdw1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8ece11cb06b2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757153&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-4mvdw1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "18360378733f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757153&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-4mvdw1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b2f3dac565a3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757153&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-4mvdw1",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-4mvdw1",
+        "title": "an",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mean.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR757153-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757153"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Taylor Swift"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Taylor Swift"
+    },
+    {
+      "id": "rel-RVTR757153-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757153"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR757153-tl-tl-4rbvos",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757153"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4rbvos"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Me — original release"
+    },
+    {
+      "id": "rel-RVTR757153-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757153"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR757153-tl-tl-65xrwf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757153"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-65xrwf"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Me — graph recording"
+    },
+    {
+      "id": "rel-RVTR757153-tl-tl-797nq9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757153"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-797nq9"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "an"
+    },
+    {
+      "id": "rel-RVTR757153-perf-perf-4mvdw1",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757153"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-4mvdw1"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "an"
+    },
+    {
+      "id": "rel-perf-4mvdw1-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4mvdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mean.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "an"
+    },
+    {
+      "id": "rel-aac080306de9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4mvdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aac080306de9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-4a6f2df0fb1c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4mvdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a6f2df0fb1c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8ece11cb06b2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4mvdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8ece11cb06b2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-18360378733f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4mvdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "18360378733f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b2f3dac565a3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4mvdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2f3dac565a3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR757153. \"Me\" by Taylor Swift.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Taylor Swift · Title: Mean · Album: HV 07-11 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mean.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2019.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-312dda84",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mean.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6e7e5048-b5e0-4c5a-96c4-1b87a279b422",
+      "category": "artist",
+      "text": "Me is performed by Taylor Swift.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7364699f-8e31-48c0-8f66-d04b08c063a1",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2378b919-6c72-42f4-a5db-fd4fb99946ab",
+      "category": "recording",
+      "text": "Me was released in 2019.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "47061213-08c1-41e8-8da2-4f6d432e1924",
+      "category": "trivia",
+      "text": "Artist: Taylor Swift · Title: Mean · Album: HV 07-11 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mean.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5f346d59-e1bf-4fc7-9e77-971aa6532a41",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mean.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mean.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

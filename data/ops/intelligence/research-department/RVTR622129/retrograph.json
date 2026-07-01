@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR622129",
+    "kind": "song",
+    "rvtr": "RVTR622129",
+    "generatedAt": "2026-06-28T22:57:41.999Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR622129",
+    "artist": "Michael Buble",
+    "title": "Everything",
+    "year": 2009,
+    "albumTitle": "Michael Buble Meets Madison Square Garden",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Michael Buble",
+    "relatedArtists": [
+      "Michael Buble"
+    ]
+  },
+  "album": {
+    "title": "Michael Buble Meets Madison Square Garden",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-5be051",
+        "title": "Michael Buble Meets Madison Square Garden",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-bkrz4f",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Michael Buble - Everything.MP4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 46,
+    "chartWeeks": 20,
+    "albumTitle": "Michael Buble Meets Madison Square Garden",
+    "summary": "Hot 100 peak #46 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-z600yh",
+      "date": "2009",
+      "label": "Everything — original release",
+      "detail": "Original album: Michael Buble Meets Madison Square Garden",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ig",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #46",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-tmjcs8",
+      "date": "2009",
+      "label": "Michael Buble Meets Madison Square Garden",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "68a585d3aeff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR622129&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-bkrz4f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2a71bbb42a63",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR622129&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-bkrz4f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0378747dd541",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR622129&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-bkrz4f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "033a411902c7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR622129&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-bkrz4f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "10ee20b5d971",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR622129&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-bkrz4f",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-bkrz4f",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Michael Buble - Everything.MP4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR622129-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR622129"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Michael Buble"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Michael Buble"
+    },
+    {
+      "id": "rel-RVTR622129-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR622129"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-5be051"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Michael Buble Meets Madison Square Garden"
+    },
+    {
+      "id": "rel-RVTR622129-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR622129"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #46"
+    },
+    {
+      "id": "rel-RVTR622129-tl-tl-z600yh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR622129"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z600yh"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Everything — original release"
+    },
+    {
+      "id": "rel-RVTR622129-tl-tl-fcm3ig",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR622129"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ig"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #46"
+    },
+    {
+      "id": "rel-RVTR622129-tl-tl-tmjcs8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR622129"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tmjcs8"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Michael Buble Meets Madison Square Garden"
+    },
+    {
+      "id": "rel-RVTR622129-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR622129"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR622129-perf-perf-bkrz4f",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR622129"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-bkrz4f"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-bkrz4f-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrz4f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Michael Buble - Everything.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-68a585d3aeff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrz4f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "68a585d3aeff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2a71bbb42a63-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrz4f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a71bbb42a63"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-0378747dd541-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrz4f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0378747dd541"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-033a411902c7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrz4f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "033a411902c7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-10ee20b5d971-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bkrz4f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "10ee20b5d971"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR622129. \"Everything\" by Michael Buble. Album: Michael Buble Meets Madison Square Garden (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Michael Buble Meets Madison Square Garden (2009). Billboard Hot 100 peak: #46. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Michael Buble · Title: Everything · Album: Michael Bublé - Everything · Year: 2007 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Michael Buble - Everything.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-5eff6782",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Michael Buble - Everything.MP4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2f7f70ac-fc5a-406f-bfda-0fb2bd399248",
+      "category": "artist",
+      "text": "Everything is performed by Michael Buble.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "68431f2b-44c3-4a1c-ad9a-8c57400a383a",
+      "category": "album",
+      "text": "The song appears on the album \"Michael Buble Meets Madison Square Garden\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "29d70ee9-1104-48cc-90ca-3112246ea967",
+      "category": "chart",
+      "text": "The song peaked at #46 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "68de72db-2602-447c-a5c8-4f2abfd028ef",
+      "category": "recording",
+      "text": "Everything was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "086f3c1b-5edd-437f-b89c-da3d2ae31fbc",
+      "category": "trivia",
+      "text": "Album: Michael Buble Meets Madison Square Garden (2009).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4d573a69-6a18-4c87-9944-7f685c2bd535",
+      "category": "trivia",
+      "text": "Artist: Michael Buble · Title: Everything · Album: Michael Bublé - Everything · Year: 2007 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Michael Buble - Everything.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ae3e2103-218a-432f-8f7b-bd040b4b3897",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Michael Buble - Everything.MP4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 1,
+    "clusters": [
+      {
+        "clusterId": "cluster-086f3c1b",
+        "keptFactId": "086f3c1b-5edd-437f-b89c-da3d2ae31fbc",
+        "memberIds": [
+          "c1081aba-c165-4f69-be3f-a10922a47bc3"
+        ],
+        "reason": "Duplicate cluster (2) — kept highest confidence"
+      }
+    ]
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 1,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Michael Buble - Everything.MP4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR329575",
+    "kind": "song",
+    "rvtr": "RVTR329575",
+    "generatedAt": "2026-06-28T22:50:45.442Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR329575",
+    "artist": "Anna Kendrick",
+    "title": "Cups Pitch Perfect's When I'm Gone",
+    "year": 2013,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Anna Kendrick",
+    "relatedArtists": [
+      "Anna Kendrick"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2013,
+    "recordings": [
+      {
+        "id": "rec-4t3oa2",
+        "title": "Cups Pitch Perfect's When I'm Gone — graph recording",
+        "releaseDate": 2013,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-1k96mq",
+      "title": "Cups",
+      "kind": "performance",
+      "year": 2013,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Anna Kendrick - Cups.mp4",
+      "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 6,
+    "chartWeeks": 44,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #6 · 44 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-hen12w",
+      "date": "2013",
+      "label": "Cups Pitch Perfect's When I'm Gone — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2o",
+      "date": "2013",
+      "label": "Billboard Hot 100 peak #6",
+      "detail": "44 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-81kd8r",
+      "date": "2013",
+      "label": "Cups Pitch Perfect's When I'm Gone — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bvw4i1",
+      "date": "2013",
+      "label": "Cups",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "904f3906bf7b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR329575&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-1k96mq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "23a53f534420",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR329575&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-1k96mq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bc768ea0824e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR329575&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-1k96mq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9dd711983d53",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR329575&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-1k96mq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3991a9bb964c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR329575&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-1k96mq",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-1k96mq",
+        "title": "Cups",
+        "kind": "performance",
+        "year": 2013,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Anna Kendrick - Cups.mp4",
+        "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR329575-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR329575"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Anna Kendrick"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Anna Kendrick"
+    },
+    {
+      "id": "rel-RVTR329575-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR329575"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #6"
+    },
+    {
+      "id": "rel-RVTR329575-tl-tl-hen12w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR329575"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hen12w"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Cups Pitch Perfect's When I'm Gone — original release"
+    },
+    {
+      "id": "rel-RVTR329575-tl-tl-l47p2o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR329575"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2o"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #6"
+    },
+    {
+      "id": "rel-RVTR329575-tl-tl-81kd8r",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR329575"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-81kd8r"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Cups Pitch Perfect's When I'm Gone — graph recording"
+    },
+    {
+      "id": "rel-RVTR329575-tl-tl-bvw4i1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR329575"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bvw4i1"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Cups"
+    },
+    {
+      "id": "rel-RVTR329575-perf-perf-1k96mq",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR329575"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1k96mq"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Cups"
+    },
+    {
+      "id": "rel-perf-1k96mq-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1k96mq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Anna Kendrick - Cups.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Cups"
+    },
+    {
+      "id": "rel-904f3906bf7b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1k96mq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "904f3906bf7b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-23a53f534420-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1k96mq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "23a53f534420"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-bc768ea0824e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1k96mq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bc768ea0824e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9dd711983d53-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1k96mq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9dd711983d53"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-3991a9bb964c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1k96mq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3991a9bb964c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR329575. \"Cups Pitch Perfect's When I'm Gone\" by Anna Kendrick.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #6. 44 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Anna Kendrick · Title: Cups · Album: Cups (Pitch Perfect's \"When I'm Gone\") · Year: 2013 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Anna Kendrick - Cups.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2013.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-14503ae5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Anna Kendrick - Cups.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6e215910-ff1f-4ef0-b884-20faa130e7d9",
+      "category": "artist",
+      "text": "Cups Pitch Perfect's When I'm Gone is performed by Anna Kendrick.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "57e86964-f9a4-493e-9b66-081394072595",
+      "category": "chart",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 44 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "112cf467-8119-40a1-b1cc-5ddf4882bf74",
+      "category": "recording",
+      "text": "Cups Pitch Perfect's When I'm Gone was released in 2013.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ab6c4b2d-cefa-4620-8d84-9bde76cce7d5",
+      "category": "trivia",
+      "text": "\"Cups Pitch Perfect's When I'm Gone\" by Anna Kendrick.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1084fd80-a543-4d36-a92a-afcb4fb7bed3",
+      "category": "trivia",
+      "text": "Artist: Anna Kendrick · Title: Cups · Album: Cups (Pitch Perfect's \"When I'm Gone\") · Year: 2013 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Anna Kendrick - Cups.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "481a1516-4cd5-4746-98de-3a6fce9ccdde",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Anna Kendrick - Cups.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Anna Kendrick - Cups.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

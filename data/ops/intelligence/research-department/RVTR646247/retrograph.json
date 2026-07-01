@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR646247",
+    "kind": "song",
+    "rvtr": "RVTR646247",
+    "generatedAt": "2026-06-28T22:58:23.926Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR646247",
+    "artist": "No Doubt",
+    "title": "Excuse Me Mr",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "No Doubt",
+    "relatedArtists": [
+      "No Doubt"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-1f0ypj",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1995,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/No Doubt - Excuse Me Mr.mp4",
+      "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-v8as7s",
+      "date": "1995",
+      "label": "Excuse Me Mr — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1995",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f7e33084221b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646247&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-1f0ypj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ff5f9007cdf6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646247&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-1f0ypj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ae180838cc51",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646247&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-1f0ypj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2e7428eaec7c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646247&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-1f0ypj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8ef37c63da6f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646247&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-1f0ypj",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-1f0ypj",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1995,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/No Doubt - Excuse Me Mr.mp4",
+        "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR646247-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR646247"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "No Doubt"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "No Doubt"
+    },
+    {
+      "id": "rel-RVTR646247-tl-tl-v8as7s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR646247"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-v8as7s"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Excuse Me Mr — original release"
+    },
+    {
+      "id": "rel-RVTR646247-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR646247"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR646247-perf-perf-1f0ypj",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR646247"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1f0ypj"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-1f0ypj-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1f0ypj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/No Doubt - Excuse Me Mr.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f7e33084221b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1f0ypj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f7e33084221b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-ff5f9007cdf6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1f0ypj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ff5f9007cdf6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-ae180838cc51-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1f0ypj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ae180838cc51"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2e7428eaec7c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1f0ypj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2e7428eaec7c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-8ef37c63da6f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1f0ypj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8ef37c63da6f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR646247. \"Excuse Me Mr\" by No Doubt.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: No Doubt · Title: Excuse Me Mr · Album: Tragic Kingdom · Year: 1995 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/No Doubt - Excuse Me Mr.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c2f7296d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/No Doubt - Excuse Me Mr.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ff7cd387-29e9-4af9-9ac3-4982cd8f7f3e",
+      "category": "artist",
+      "text": "Excuse Me Mr is performed by No Doubt.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "03895831-1d15-48b4-9bbf-d1d6b616fee0",
+      "category": "trivia",
+      "text": "Artist: No Doubt · Title: Excuse Me Mr · Album: Tragic Kingdom · Year: 1995 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/No Doubt - Excuse Me Mr.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "600e4dac-0c1b-492d-ba4f-7a4fda2c86a1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/No Doubt - Excuse Me Mr.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/No Doubt - Excuse Me Mr.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

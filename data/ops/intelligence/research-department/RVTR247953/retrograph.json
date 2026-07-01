@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR247953",
+    "kind": "song",
+    "rvtr": "RVTR247953",
+    "generatedAt": "2026-06-28T22:49:17.224Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR247953",
+    "artist": "Bazzi",
+    "title": "Myself",
+    "year": 2018,
+    "albumTitle": "Cosmic",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL009150/RVAL009150__bazzi__cosmic.jpg"
+  },
+  "artist": {
+    "name": "Bazzi",
+    "relatedArtists": [
+      "Bazzi"
+    ]
+  },
+  "album": {
+    "title": "Cosmic",
+    "releaseYear": 2018,
+    "recordings": [
+      {
+        "id": "rec-6nejdr",
+        "title": "Cosmic",
+        "releaseDate": 2018,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-rtc1qe",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2018,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bazzi - Myself.mp4",
+      "notes": "Detected year: 2018. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Cosmic",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-mb5gms",
+      "date": "2018",
+      "label": "Myself — original release",
+      "detail": "Original album: Cosmic",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-t0m6dw",
+      "date": "2018",
+      "label": "Cosmic",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2018",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR247953",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL009150/RVAL009150__bazzi__cosmic.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b94ca11c13a1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR247953&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-rtc1qe",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "af71de1d3fc3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR247953&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-rtc1qe",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8d109408e14d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR247953&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-rtc1qe",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5da18809fd92",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR247953&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-rtc1qe",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a1d3f9d49798",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR247953&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-rtc1qe",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-rtc1qe",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2018,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bazzi - Myself.mp4",
+        "notes": "Detected year: 2018. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR247953-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR247953"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Bazzi"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Bazzi"
+    },
+    {
+      "id": "rel-RVTR247953-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR247953"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-6nejdr"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Cosmic"
+    },
+    {
+      "id": "rel-RVTR247953-tl-tl-mb5gms",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR247953"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mb5gms"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Myself — original release"
+    },
+    {
+      "id": "rel-RVTR247953-tl-tl-t0m6dw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR247953"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-t0m6dw"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Cosmic"
+    },
+    {
+      "id": "rel-RVTR247953-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR247953"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR247953-perf-perf-rtc1qe",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR247953"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-rtc1qe"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-rtc1qe-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rtc1qe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bazzi - Myself.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b94ca11c13a1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rtc1qe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b94ca11c13a1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-af71de1d3fc3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rtc1qe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "af71de1d3fc3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8d109408e14d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rtc1qe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8d109408e14d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5da18809fd92-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rtc1qe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5da18809fd92"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a1d3f9d49798-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rtc1qe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a1d3f9d49798"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR247953. \"Myself\" by Bazzi. Album: Cosmic (2018).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL009150/RVAL009150__bazzi__cosmic.jpg",
+      "excerpt": "Canonical cover assignment for RVTR247953 (Myself). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Cosmic (2018)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Bazzi · Title: Myself · Album: Cosmic · Year: 2018 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bazzi - Myself.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2018.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-0353f15c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bazzi - Myself.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5ee9d265-585b-4e81-bf39-cb76d8f895c2",
+      "category": "artist",
+      "text": "Myself is performed by Bazzi.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5b0b014c-9511-46e6-8d67-a812336f483d",
+      "category": "album",
+      "text": "The song appears on the album \"Cosmic\" (2018).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5dc8cfc6-6b6d-463b-9463-fe7e5aef46d5",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR247953.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL009150/RVAL009150__bazzi__cosmic.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6366719d-3275-4240-b8d1-c7d5b09c734e",
+      "category": "recording",
+      "text": "Myself was released in 2018.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "3fafd17b-626d-46dc-8be2-30934b28131e",
+      "category": "trivia",
+      "text": "Artist: Bazzi · Title: Myself · Album: Cosmic · Year: 2018 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bazzi - Myself.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "76f08b50-4b88-4eea-92bf-b2231dce3e38",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bazzi - Myself.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bazzi - Myself.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

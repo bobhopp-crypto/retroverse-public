@@ -1,0 +1,527 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR339552",
+    "kind": "song",
+    "rvtr": "RVTR339552",
+    "generatedAt": "2026-06-28T22:50:59.876Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR339552",
+    "artist": "Paul Mccartney",
+    "title": "Hi Hi Hi",
+    "year": 2001,
+    "albumTitle": "Wingspan: Hits And History",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL291488/RVAL291488__paul-mccartney__wingspan-hits-and-history.jpg"
+  },
+  "artist": {
+    "name": "Paul Mccartney",
+    "relatedArtists": [
+      "Paul Mccartney"
+    ]
+  },
+  "album": {
+    "title": "Wingspan: Hits And History",
+    "releaseYear": 2001,
+    "recordings": [
+      {
+        "id": "rec-eh3lar",
+        "title": "Wingspan: Hits And History",
+        "releaseDate": 2001,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-960knv",
+      "title": "Hi, Hi, Hi",
+      "kind": "performance",
+      "year": 1973,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Paul McCartney - Hi, Hi, Hi.mp4",
+      "notes": "Detected year: 1973. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Wingspan: Hits And History",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-wu6pcl",
+      "date": "2001",
+      "label": "Hi Hi Hi — original release",
+      "detail": "Original album: Wingspan: Hits And History",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-sfdabe",
+      "date": "2001",
+      "label": "Wingspan: Hits And History",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ic9jep",
+      "date": "1973",
+      "label": "Hi, Hi, Hi",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR339552",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL291488/RVAL291488__paul-mccartney__wingspan-hits-and-history.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c1fc497f468e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339552&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-960knv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "72de8e9f4796",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339552&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-960knv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9871022c76cc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339552&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-960knv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5e0941b3e11f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339552&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-960knv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a4d01de99427",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339552&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-960knv",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-960knv",
+        "title": "Hi, Hi, Hi",
+        "kind": "performance",
+        "year": 1973,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Paul McCartney - Hi, Hi, Hi.mp4",
+        "notes": "Detected year: 1973. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR339552-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339552"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Paul Mccartney"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Paul Mccartney"
+    },
+    {
+      "id": "rel-RVTR339552-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339552"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-eh3lar"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Wingspan: Hits And History"
+    },
+    {
+      "id": "rel-RVTR339552-tl-tl-wu6pcl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339552"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wu6pcl"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hi Hi Hi — original release"
+    },
+    {
+      "id": "rel-RVTR339552-tl-tl-sfdabe",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339552"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sfdabe"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Wingspan: Hits And History"
+    },
+    {
+      "id": "rel-RVTR339552-tl-tl-ic9jep",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339552"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ic9jep"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Hi, Hi, Hi"
+    },
+    {
+      "id": "rel-RVTR339552-perf-perf-960knv",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339552"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-960knv"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Hi, Hi, Hi"
+    },
+    {
+      "id": "rel-perf-960knv-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-960knv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Paul McCartney - Hi, Hi, Hi.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Hi, Hi, Hi"
+    },
+    {
+      "id": "rel-c1fc497f468e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-960knv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c1fc497f468e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-72de8e9f4796-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-960knv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "72de8e9f4796"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9871022c76cc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-960knv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9871022c76cc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5e0941b3e11f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-960knv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5e0941b3e11f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a4d01de99427-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-960knv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a4d01de99427"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR339552. \"Hi Hi Hi\" by Paul Mccartney. Album: Wingspan: Hits And History (2001).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL291488/RVAL291488__paul-mccartney__wingspan-hits-and-history.jpg",
+      "excerpt": "Canonical cover assignment for RVTR339552 (Hi Hi Hi). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Wingspan: Hits And History (2001)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Paul McCartney · Title: Hi, Hi, Hi · Album: Simon = C Moon · Year: 1973 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Paul McCartney - Hi, Hi, Hi.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2001.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-4d0bb19c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Paul McCartney - Hi, Hi, Hi.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "79e7e243-340c-4fdb-8b6d-1d83d1a193da",
+      "category": "artist",
+      "text": "Hi Hi Hi is performed by Paul Mccartney.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "826396a8-f947-4bc7-9f91-73c15b0b5169",
+      "category": "album",
+      "text": "The song appears on the album \"Wingspan: Hits And History\" (2001).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "34447af2-8763-4b1a-9788-68796a9e9e62",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR339552.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL291488/RVAL291488__paul-mccartney__wingspan-hits-and-history.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5c3f3fd2-553a-4d8e-abb5-869037d32ba4",
+      "category": "recording",
+      "text": "Hi Hi Hi was released in 2001.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "80c8ae52-7d6c-4c33-9ff7-cb313b8c9162",
+      "category": "trivia",
+      "text": "Album: Wingspan: Hits And History (2001).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f0ee829d-23d3-4a21-a159-b5c9fd054819",
+      "category": "trivia",
+      "text": "Album: Wingspan: Hits And History (2001)",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f14a7cf0-6494-476f-b079-43dee01247ce",
+      "category": "trivia",
+      "text": "Artist: Paul McCartney · Title: Hi, Hi, Hi · Album: Simon = C Moon · Year: 1973 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Paul McCartney - Hi, Hi, Hi.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "05c960cb-a91d-45a3-a6f2-b1c275fe8994",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Paul McCartney - Hi, Hi, Hi.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 6,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Paul McCartney - Hi, Hi, Hi.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

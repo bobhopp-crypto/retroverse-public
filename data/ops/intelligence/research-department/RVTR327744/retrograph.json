@@ -1,0 +1,477 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR327744",
+    "kind": "song",
+    "rvtr": "RVTR327744",
+    "generatedAt": "2026-06-28T22:50:40.747Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR327744",
+    "artist": "Public Enemy",
+    "title": "911 Is A Joke",
+    "year": 1990,
+    "albumTitle": "Fear Of A Black Planet",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Public Enemy",
+    "relatedArtists": [
+      "Public Enemy"
+    ]
+  },
+  "album": {
+    "title": "Fear Of A Black Planet",
+    "releaseYear": 1990,
+    "recordings": [
+      {
+        "id": "rec-n5ju2w",
+        "title": "Fear Of A Black Planet",
+        "releaseDate": 1990,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-cokkvy",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1990,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Public Enemy - 911 Is A Joke.mp4",
+      "notes": "Detected year: 1990. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Fear Of A Black Planet",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-b646vj",
+      "date": "1990",
+      "label": "911 Is A Joke — original release",
+      "detail": "Original album: Fear Of A Black Planet",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-joc38l",
+      "date": "1990",
+      "label": "Fear Of A Black Planet",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1990",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "39de0aa89aca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR327744&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-cokkvy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "06431a5a7a33",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR327744&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-cokkvy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "35883c7ee673",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR327744&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-cokkvy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0786ed8bd0b1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR327744&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-cokkvy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e6d91362d50e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR327744&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-cokkvy",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-cokkvy",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1990,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Public Enemy - 911 Is A Joke.mp4",
+        "notes": "Detected year: 1990. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR327744-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR327744"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Public Enemy"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Public Enemy"
+    },
+    {
+      "id": "rel-RVTR327744-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR327744"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-n5ju2w"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Fear Of A Black Planet"
+    },
+    {
+      "id": "rel-RVTR327744-tl-tl-b646vj",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR327744"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-b646vj"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "911 Is A Joke — original release"
+    },
+    {
+      "id": "rel-RVTR327744-tl-tl-joc38l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR327744"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-joc38l"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Fear Of A Black Planet"
+    },
+    {
+      "id": "rel-RVTR327744-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR327744"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR327744-perf-perf-cokkvy",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR327744"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-cokkvy"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-cokkvy-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cokkvy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Public Enemy - 911 Is A Joke.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-39de0aa89aca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cokkvy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "39de0aa89aca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-06431a5a7a33-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cokkvy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "06431a5a7a33"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-35883c7ee673-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cokkvy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "35883c7ee673"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-0786ed8bd0b1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cokkvy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0786ed8bd0b1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e6d91362d50e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cokkvy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e6d91362d50e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR327744. \"911 Is A Joke\" by Public Enemy. Album: Fear Of A Black Planet (1990).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Fear Of A Black Planet (1990)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Public Enemy · Title: 911 Is A Joke · Album: 911 Is A Joke · Year: 1990 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Public Enemy - 911 Is A Joke.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1990.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-1be10498",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Public Enemy - 911 Is A Joke.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "90dc2349-de6e-453b-9bdd-fed785264b27",
+      "category": "artist",
+      "text": "911 Is A Joke is performed by Public Enemy.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3f11baf7-2e93-4f0a-95d7-ac7b2ef66a24",
+      "category": "album",
+      "text": "The song appears on the album \"Fear Of A Black Planet\" (1990).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2056fed2-4f90-41bd-ba98-380a734040c4",
+      "category": "recording",
+      "text": "911 Is A Joke was released in 1990.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "826f6323-5c8a-4142-b452-6bbb875cb1ff",
+      "category": "trivia",
+      "text": "Artist: Public Enemy · Title: 911 Is A Joke · Album: 911 Is A Joke · Year: 1990 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Public Enemy - 911 Is A Joke.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8ba139d7-47c7-4c84-96f7-42d0831c9182",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Public Enemy - 911 Is A Joke.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Public Enemy - 911 Is A Joke.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

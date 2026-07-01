@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR618103",
+    "kind": "song",
+    "rvtr": "RVTR618103",
+    "generatedAt": "2026-06-28T22:57:34.852Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR618103",
+    "artist": "Rihanna And Kanye West And Paul Mccartney",
+    "title": "Fourfiveseconds",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Rihanna And Kanye West And Paul Mccartney",
+    "relatedArtists": [
+      "Rihanna And Kanye West And Paul Mccartney"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-9wy04l",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2015,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rihanna And Kanye West And Paul Mccartney - Fourfiveseconds.MP4",
+      "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-2ivyad",
+      "date": "2015",
+      "label": "Fourfiveseconds — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2015",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9211e196f298",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR618103&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-9wy04l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7e902360547e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR618103&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-9wy04l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "549361c899eb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR618103&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-9wy04l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1ce305b7f0ea",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR618103&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-9wy04l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "46ad3990b35e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR618103&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-9wy04l",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-9wy04l",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2015,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rihanna And Kanye West And Paul Mccartney - Fourfiveseconds.MP4",
+        "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR618103-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR618103"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Rihanna And Kanye West And Paul Mccartney"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Rihanna And Kanye West And Paul Mccartney"
+    },
+    {
+      "id": "rel-RVTR618103-tl-tl-2ivyad",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR618103"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2ivyad"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Fourfiveseconds — original release"
+    },
+    {
+      "id": "rel-RVTR618103-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR618103"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR618103-perf-perf-9wy04l",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR618103"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-9wy04l"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-9wy04l-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9wy04l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rihanna And Kanye West And Paul Mccartney - Fourfiveseconds.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9211e196f298-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9wy04l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9211e196f298"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7e902360547e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9wy04l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7e902360547e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-549361c899eb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9wy04l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "549361c899eb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1ce305b7f0ea-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9wy04l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1ce305b7f0ea"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-46ad3990b35e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9wy04l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "46ad3990b35e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR618103. \"Fourfiveseconds\" by Rihanna And Kanye West And Paul Mccartney.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Rihanna And Kanye West And Paul Mccartney · Title: Fourfiveseconds · Album: FourFiveSeconds · Year: 2015 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rihanna And Kanye West And Paul Mccartney - Fourfiveseconds.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-92eaaf6c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rihanna And Kanye West And Paul Mccartney - Fourfiveseconds.MP4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4c07ec58-8d67-47ef-9804-35d45a2a4614",
+      "category": "artist",
+      "text": "Fourfiveseconds is performed by Rihanna And Kanye West And Paul Mccartney.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d160d043-7fa1-4033-9508-dbe0d6060fa3",
+      "category": "trivia",
+      "text": "\"Fourfiveseconds\" by Rihanna And Kanye West And Paul Mccartney.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b04a32ac-d490-471e-83d9-90aad4eefc6b",
+      "category": "trivia",
+      "text": "Artist: Rihanna And Kanye West And Paul Mccartney · Title: Fourfiveseconds · Album: FourFiveSeconds · Year: 2015 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rihanna And Kanye West And Paul Mccartney - Fourfiveseconds.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "89954c55-40b9-4c75-9578-cfb95f57e875",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rihanna And Kanye West And Paul Mccartney - Fourfiveseconds.MP4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Rihanna And Kanye West And Paul Mccartney - Fourfiveseconds.MP4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

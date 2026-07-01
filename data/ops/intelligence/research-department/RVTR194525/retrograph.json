@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR194525",
+    "kind": "song",
+    "rvtr": "RVTR194525",
+    "generatedAt": "2026-06-28T22:47:45.346Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR194525",
+    "artist": "Mad'house",
+    "title": "Like A Prayer",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mad'house",
+    "relatedArtists": [
+      "Mad'house"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ks1wo0",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2002,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mad'House - Like A Prayer.mp4",
+      "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fgtq6l",
+      "date": "2002",
+      "label": "Like A Prayer — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2002",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "21454e9b768d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR194525&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ks1wo0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "926df5b75c1b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR194525&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ks1wo0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3df239ec04c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR194525&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ks1wo0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f9c362c2da00",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR194525&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ks1wo0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "062bd9db6736",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR194525&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ks1wo0",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ks1wo0",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2002,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mad'House - Like A Prayer.mp4",
+        "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR194525-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR194525"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mad'house"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mad'house"
+    },
+    {
+      "id": "rel-RVTR194525-tl-tl-fgtq6l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR194525"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fgtq6l"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Like A Prayer — original release"
+    },
+    {
+      "id": "rel-RVTR194525-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR194525"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR194525-perf-perf-ks1wo0",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR194525"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ks1wo0"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ks1wo0-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ks1wo0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mad'House - Like A Prayer.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-21454e9b768d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ks1wo0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "21454e9b768d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-926df5b75c1b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ks1wo0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "926df5b75c1b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-3df239ec04c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ks1wo0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3df239ec04c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f9c362c2da00-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ks1wo0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f9c362c2da00"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-062bd9db6736-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ks1wo0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "062bd9db6736"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR194525. \"Like A Prayer\" by Mad'house.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mad'House · Title: Like A Prayer · Album: Megamix & Remix · Year: 2002 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mad'House - Like A Prayer.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0c01f49e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mad'House - Like A Prayer.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ca8fcaf5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Mad'House - Like A Prayer.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "77d75dd3-5091-4650-95e7-8e855c479eba",
+      "category": "artist",
+      "text": "Like A Prayer is performed by Mad'house.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "720ad4e5-cd33-4d20-b4e1-c4eee48f780f",
+      "category": "trivia",
+      "text": "Artist: Mad'House · Title: Like A Prayer · Album: Megamix & Remix · Year: 2002 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mad'House - Like A Prayer.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "dff0fd66-8c71-441b-84b5-ea896c4f416c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mad'House - Like A Prayer.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6cf63cf7-92c5-461c-9160-ff82220ce565",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Mad'House - Like A Prayer.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mad'House - Like A Prayer.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

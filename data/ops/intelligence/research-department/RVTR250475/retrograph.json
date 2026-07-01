@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR250475",
+    "kind": "song",
+    "rvtr": "RVTR250475",
+    "generatedAt": "2026-06-28T22:49:21.637Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR250475",
+    "artist": "Ll Cool J",
+    "title": "I'm Bad",
+    "year": 1987,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ll Cool J",
+    "relatedArtists": [
+      "Ll Cool J"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1987,
+    "recordings": [
+      {
+        "id": "rec-54f3pv",
+        "title": "I'm Bad — graph recording",
+        "releaseDate": 1987,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-95dk0s",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1987,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/LL COOL J - I'm Bad.mp4",
+      "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 84,
+    "chartWeeks": 4,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #84 · 4 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-9xushk",
+      "date": "1987",
+      "label": "I'm Bad — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3lu",
+      "date": "1987",
+      "label": "Billboard Hot 100 peak #84",
+      "detail": "4 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-e2552l",
+      "date": "1987",
+      "label": "I'm Bad — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1987",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d8f1e7776680",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250475&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-95dk0s",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "080ae02bdcce",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250475&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-95dk0s",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "883a9875159b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250475&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-95dk0s",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3ec22a5d3b9f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250475&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-95dk0s",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6e5a90e8f0ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250475&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-95dk0s",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-95dk0s",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1987,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/LL COOL J - I'm Bad.mp4",
+        "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR250475-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR250475"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ll Cool J"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ll Cool J"
+    },
+    {
+      "id": "rel-RVTR250475-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR250475"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #84"
+    },
+    {
+      "id": "rel-RVTR250475-tl-tl-9xushk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR250475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9xushk"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "I'm Bad — original release"
+    },
+    {
+      "id": "rel-RVTR250475-tl-tl-fcm3lu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR250475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3lu"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #84"
+    },
+    {
+      "id": "rel-RVTR250475-tl-tl-e2552l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR250475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-e2552l"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "I'm Bad — graph recording"
+    },
+    {
+      "id": "rel-RVTR250475-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR250475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR250475-perf-perf-95dk0s",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR250475"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-95dk0s"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-95dk0s-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-95dk0s"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/LL COOL J - I'm Bad.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d8f1e7776680-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-95dk0s"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d8f1e7776680"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-080ae02bdcce-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-95dk0s"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "080ae02bdcce"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-883a9875159b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-95dk0s"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "883a9875159b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-3ec22a5d3b9f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-95dk0s"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3ec22a5d3b9f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6e5a90e8f0ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-95dk0s"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6e5a90e8f0ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR250475. \"I'm Bad\" by Ll Cool J.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #84. 4 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: LL COOL J · Title: I'm Bad · Album: L.L. Cool J - I Need Love / I'm Bad · Year: 1987 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/LL COOL J - I'm Bad.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1987.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-8336222f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/LL COOL J - I'm Bad.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "86bd081f-f2eb-4e06-b4e8-6ed484a9de36",
+      "category": "artist",
+      "text": "I'm Bad is performed by Ll Cool J.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f1fce8fa-b03d-4f62-82a1-09d33e887e24",
+      "category": "chart",
+      "text": "The song peaked at #84 on the Billboard Hot 100 and spent 4 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1cbfb21e-2885-431a-a9b5-80bc89ec8148",
+      "category": "recording",
+      "text": "I'm Bad was released in 1987.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ceaad563-b56c-4c83-aad5-66bb7a8d598f",
+      "category": "trivia",
+      "text": "Artist: LL COOL J · Title: I'm Bad · Album: L.L.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6660f58f-08b6-4b0d-96ed-2fc1e8620d91",
+      "category": "trivia",
+      "text": "Cool J - I Need Love / I'm Bad · Year: 1987 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/LL COOL J - I'm Bad.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "74545de4-286a-4266-b3fd-29674ace3e17",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/LL COOL J - I'm Bad.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/LL COOL J - I'm Bad.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR809091",
+    "kind": "song",
+    "rvtr": "RVTR809091",
+    "generatedAt": "2026-06-28T23:03:12.404Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR809091",
+    "artist": "Lmfao",
+    "title": "Shooting Star",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Lmfao",
+    "relatedArtists": [
+      "Lmfao"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-occxsm",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/LMFAO - Shooting Star.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-kyuprh",
+      "date": "2008",
+      "label": "Shooting Star — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "2369d4da1ea4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR809091&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-occxsm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a25dad4b1a01",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR809091&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-occxsm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bf580e27974f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR809091&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-occxsm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "71a00ef1d810",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR809091&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-occxsm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c47cccf802b7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR809091&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-occxsm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-occxsm",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/LMFAO - Shooting Star.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR809091-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR809091"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lmfao"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lmfao"
+    },
+    {
+      "id": "rel-RVTR809091-tl-tl-kyuprh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR809091"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kyuprh"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Shooting Star — original release"
+    },
+    {
+      "id": "rel-RVTR809091-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR809091"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR809091-perf-perf-occxsm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR809091"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-occxsm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-occxsm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-occxsm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/LMFAO - Shooting Star.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-2369d4da1ea4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-occxsm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2369d4da1ea4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a25dad4b1a01-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-occxsm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a25dad4b1a01"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-bf580e27974f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-occxsm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bf580e27974f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-71a00ef1d810-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-occxsm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "71a00ef1d810"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c47cccf802b7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-occxsm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c47cccf802b7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR809091. \"Shooting Star\" by Lmfao.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: LMFAO · Title: Shooting Star · Album: David Rush - Shooting Star · Year: 2008 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/LMFAO - Shooting Star.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0896eac6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/LMFAO - Shooting Star.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-bc467d7c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/David Rush - Shooting Star.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b57c0800-171b-440b-b470-f2e42934af7c",
+      "category": "artist",
+      "text": "Shooting Star is performed by Lmfao.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "44b75000-fb5d-4e79-b1c4-bdcc27f9a03b",
+      "category": "trivia",
+      "text": "Artist: LMFAO · Title: Shooting Star · Album: David Rush - Shooting Star · Year: 2008 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/LMFAO - Shooting Star.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "533fac62-140e-46bf-be83-3d688e783b47",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/LMFAO - Shooting Star.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d210b8f2-8ee5-42c4-b92e-a3d38b4f2d32",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/David Rush - Shooting Star.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/LMFAO - Shooting Star.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

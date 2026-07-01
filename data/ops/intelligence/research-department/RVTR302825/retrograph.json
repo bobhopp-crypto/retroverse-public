@@ -1,0 +1,475 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR302825",
+    "kind": "song",
+    "rvtr": "RVTR302825",
+    "generatedAt": "2026-06-28T22:50:14.824Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR302825",
+    "artist": "Pepper",
+    "title": "Give It Up",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pepper",
+    "relatedArtists": [
+      "Pepper"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-kv7pf1",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2002,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pepper - Give It Up.mp4",
+      "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-rtjevi",
+      "title": "Give It Away",
+      "kind": "performance",
+      "year": 1992,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Red Hot Chili Peppers - Give It Away.mp4",
+      "notes": "Detected year: 1992. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "2002",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-39gg3s",
+      "date": "1992",
+      "label": "Give It Away",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "dfe83b8895c5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR302825&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kv7pf1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9c66700abcc6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR302825&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kv7pf1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "49aa6582279b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR302825&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kv7pf1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "abf1b6a30fc3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR302825&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kv7pf1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a2ea389cfcfc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR302825&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kv7pf1",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kv7pf1",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2002,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pepper - Give It Up.mp4",
+        "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-rtjevi",
+        "title": "Give It Away",
+        "kind": "performance",
+        "year": 1992,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Red Hot Chili Peppers - Give It Away.mp4",
+        "notes": "Detected year: 1992. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR302825-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR302825"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pepper"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pepper"
+    },
+    {
+      "id": "rel-RVTR302825-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR302825"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR302825-tl-tl-39gg3s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR302825"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-39gg3s"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Give It Away"
+    },
+    {
+      "id": "rel-RVTR302825-perf-perf-kv7pf1",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR302825"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kv7pf1"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-kv7pf1-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kv7pf1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pepper - Give It Up.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR302825-perf-perf-rtjevi",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR302825"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-rtjevi"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Give It Away"
+    },
+    {
+      "id": "rel-perf-rtjevi-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rtjevi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Red Hot Chili Peppers - Give It Away.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Give It Away"
+    },
+    {
+      "id": "rel-dfe83b8895c5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kv7pf1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dfe83b8895c5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9c66700abcc6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kv7pf1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9c66700abcc6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-49aa6582279b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kv7pf1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "49aa6582279b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-abf1b6a30fc3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kv7pf1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "abf1b6a30fc3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a2ea389cfcfc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kv7pf1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a2ea389cfcfc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR302825. \"Give It Up\" by Pepper.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pepper · Title: Give It Up · Album: Kona Town · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pepper - Give It Up.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6cec0827",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pepper - Give It Up.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8f4a49b1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Red Hot Chili Peppers - Give It Away.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1231be82",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Red Hot Chili Peppers - Give it Away.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2b587d9e-2367-41f7-b262-26a4a4f24e64",
+      "category": "artist",
+      "text": "Give It Up is performed by Pepper.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "0a7362c8-1289-42dc-9224-fc8960bda6e1",
+      "category": "trivia",
+      "text": "Artist: Pepper · Title: Give It Up · Album: Kona Town · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pepper - Give It Up.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5109c67a-5f68-4259-bdbd-f7887476fe69",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pepper - Give It Up.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "94258e82-2776-4893-8e34-769a07e28cea",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Red Hot Chili Peppers - Give It Away.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5411318d-0420-41eb-8c21-6421e9701ff5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Red Hot Chili Peppers - Give it Away.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pepper - Give It Up.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

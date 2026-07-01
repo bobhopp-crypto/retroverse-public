@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR503544",
+    "kind": "song",
+    "rvtr": "RVTR503544",
+    "generatedAt": "2026-06-28T22:54:24.410Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR503544",
+    "artist": "Big & Rich",
+    "title": "Look At You",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Big & Rich",
+    "relatedArtists": [
+      "Big & Rich"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-iyvlkf",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Big & Rich - Look At You.mp4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-evlrft",
+      "date": "2014",
+      "label": "Look At You — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2014",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "402ce724531f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR503544&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-iyvlkf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6b867c81711c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR503544&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-iyvlkf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "046dc6fe635a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR503544&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-iyvlkf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6cc33d62ad85",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR503544&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-iyvlkf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "60bdaed75e22",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR503544&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-iyvlkf",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-iyvlkf",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Big & Rich - Look At You.mp4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR503544-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR503544"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Big & Rich"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Big & Rich"
+    },
+    {
+      "id": "rel-RVTR503544-tl-tl-evlrft",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR503544"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-evlrft"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Look At You — original release"
+    },
+    {
+      "id": "rel-RVTR503544-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR503544"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR503544-perf-perf-iyvlkf",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR503544"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-iyvlkf"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-iyvlkf-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyvlkf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Big & Rich - Look At You.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-402ce724531f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyvlkf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "402ce724531f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6b867c81711c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyvlkf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6b867c81711c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-046dc6fe635a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyvlkf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "046dc6fe635a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6cc33d62ad85-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyvlkf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6cc33d62ad85"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-60bdaed75e22-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyvlkf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "60bdaed75e22"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR503544. \"Look At You\" by Big & Rich.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Big & Rich · Title: Look At You · Album: Barry Manilow - The Complete Collection And Then Some · Year: 2014 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Big & Rich - Look At You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f0836579",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Big & Rich - Look At You.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c7be839b-482f-4a35-9356-470658398042",
+      "category": "artist",
+      "text": "Look At You is performed by Big & Rich.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "39a9947d-d831-490d-b21a-8051b12382c2",
+      "category": "trivia",
+      "text": "Artist: Big & Rich · Title: Look At You · Album: Barry Manilow - The Complete Collection And Then Some · Year: 2014 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Big & Rich - Look At You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b8bc47d2-c93b-4df2-8a4f-e292c54bdfeb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Big & Rich - Look At You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Big & Rich - Look At You.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

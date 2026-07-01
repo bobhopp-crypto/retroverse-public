@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR070074",
+    "kind": "song",
+    "rvtr": "RVTR070074",
+    "generatedAt": "2026-06-28T22:44:53.828Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR070074",
+    "artist": "Melanie Fiona",
+    "title": "It Kills Me",
+    "year": 2009,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Melanie Fiona",
+    "relatedArtists": [
+      "Melanie Fiona"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-pv7qvd",
+        "title": "It Kills Me — graph recording",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-83ypzi",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Melanie Fiona - It Kills Me.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 43,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #43 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-nzc2ro",
+      "date": "2009",
+      "label": "It Kills Me — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3id",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #43",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-lf6pqv",
+      "date": "2009",
+      "label": "It Kills Me — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "60255ed40343",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR070074&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-83ypzi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9f0cbfdd2d41",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR070074&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-83ypzi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1b8c59386f90",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR070074&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-83ypzi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ed42c8ccf3a6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR070074&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-83ypzi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "70467e16311a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR070074&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-83ypzi",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-83ypzi",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Melanie Fiona - It Kills Me.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR070074-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR070074"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Melanie Fiona"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Melanie Fiona"
+    },
+    {
+      "id": "rel-RVTR070074-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR070074"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #43"
+    },
+    {
+      "id": "rel-RVTR070074-tl-tl-nzc2ro",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR070074"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nzc2ro"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "It Kills Me — original release"
+    },
+    {
+      "id": "rel-RVTR070074-tl-tl-fcm3id",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR070074"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3id"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #43"
+    },
+    {
+      "id": "rel-RVTR070074-tl-tl-lf6pqv",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR070074"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-lf6pqv"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "It Kills Me — graph recording"
+    },
+    {
+      "id": "rel-RVTR070074-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR070074"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR070074-perf-perf-83ypzi",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR070074"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-83ypzi"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-83ypzi-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-83ypzi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Melanie Fiona - It Kills Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-60255ed40343-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-83ypzi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "60255ed40343"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9f0cbfdd2d41-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-83ypzi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9f0cbfdd2d41"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1b8c59386f90-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-83ypzi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1b8c59386f90"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ed42c8ccf3a6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-83ypzi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ed42c8ccf3a6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-70467e16311a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-83ypzi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "70467e16311a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR070074. \"It Kills Me\" by Melanie Fiona.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #43. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Melanie Fiona · Title: It Kills Me · Album: HV 2-10 · Year: 2010 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Melanie Fiona - It Kills Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ee73ba0c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Melanie Fiona - It Kills Me.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c7a70236-7e81-4ddd-b34c-3301784384a9",
+      "category": "artist",
+      "text": "It Kills Me is performed by Melanie Fiona.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "297d7064-bacf-4465-8be8-b9c229161dbf",
+      "category": "chart",
+      "text": "The song peaked at #43 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "736160a6-2679-4fd7-a28b-92226818eedc",
+      "category": "recording",
+      "text": "It Kills Me was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ecfda5dc-a073-475f-8a73-57558d07aed3",
+      "category": "trivia",
+      "text": "Artist: Melanie Fiona · Title: It Kills Me · Album: HV 2-10 · Year: 2010 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Melanie Fiona - It Kills Me.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c764404b-9fa5-4eff-81bd-de20cfe05eb0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Melanie Fiona - It Kills Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Melanie Fiona - It Kills Me.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

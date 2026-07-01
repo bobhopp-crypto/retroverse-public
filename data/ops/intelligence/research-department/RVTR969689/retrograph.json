@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR969689",
+    "kind": "song",
+    "rvtr": "RVTR969689",
+    "generatedAt": "2026-06-28T23:08:47.951Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR969689",
+    "artist": "Duffy",
+    "title": "Stepping Stone",
+    "year": 2008,
+    "albumTitle": "Rockferry",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL339733/RVAL339733__duffy__rockferry.jpg"
+  },
+  "artist": {
+    "name": "Duffy",
+    "relatedArtists": [
+      "Duffy"
+    ]
+  },
+  "album": {
+    "title": "Rockferry",
+    "releaseYear": 2008,
+    "recordings": [
+      {
+        "id": "rec-v2d4yz",
+        "title": "Rockferry",
+        "releaseDate": 2008,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-hluzq",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Duffy - Stepping Stone.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Rockferry",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-adaafr",
+      "date": "2008",
+      "label": "Stepping Stone — original release",
+      "detail": "Original album: Rockferry",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-sr3f1d",
+      "date": "2008",
+      "label": "Rockferry",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR969689",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL339733/RVAL339733__duffy__rockferry.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2b498b38bfb8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR969689&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hluzq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b3bad9814820",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR969689&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hluzq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e9dfa889c08a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR969689&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hluzq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "286b027214fe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR969689&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hluzq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cd1bdb7d1271",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR969689&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hluzq",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hluzq",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Duffy - Stepping Stone.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR969689-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR969689"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Duffy"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Duffy"
+    },
+    {
+      "id": "rel-RVTR969689-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR969689"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-v2d4yz"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Rockferry"
+    },
+    {
+      "id": "rel-RVTR969689-tl-tl-adaafr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR969689"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-adaafr"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Stepping Stone — original release"
+    },
+    {
+      "id": "rel-RVTR969689-tl-tl-sr3f1d",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR969689"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sr3f1d"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Rockferry"
+    },
+    {
+      "id": "rel-RVTR969689-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR969689"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR969689-perf-perf-hluzq",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR969689"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hluzq"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hluzq-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hluzq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Duffy - Stepping Stone.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-2b498b38bfb8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hluzq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2b498b38bfb8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b3bad9814820-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hluzq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b3bad9814820"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e9dfa889c08a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hluzq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e9dfa889c08a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-286b027214fe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hluzq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "286b027214fe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-cd1bdb7d1271-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hluzq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cd1bdb7d1271"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR969689. \"Stepping Stone\" by Duffy. Album: Rockferry (2008).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL339733/RVAL339733__duffy__rockferry.jpg",
+      "excerpt": "Canonical cover assignment for RVTR969689 (Stepping Stone). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Rockferry (2008)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Duffy · Title: Stepping Stone · Album: Stepping Stone · Year: 2008 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Duffy - Stepping Stone.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2008.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-6ced0213",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Duffy - Stepping Stone.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8f42025c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Duffy - Stepping Stone.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "517655e2-aea4-4f80-a72c-ad6137666267",
+      "category": "artist",
+      "text": "Stepping Stone is performed by Duffy.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "855d24dc-935f-44e5-b784-f612a03b2d21",
+      "category": "album",
+      "text": "The song appears on the album \"Rockferry\" (2008).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1730f56b-d916-460b-a7aa-e7ff8e6885f4",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR969689.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL339733/RVAL339733__duffy__rockferry.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c1480823-896d-49c9-8ffa-4d4098992fca",
+      "category": "recording",
+      "text": "Stepping Stone was released in 2008.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1b597b46-8e1e-4b89-9079-e017f0c839f5",
+      "category": "trivia",
+      "text": "Artist: Duffy · Title: Stepping Stone · Album: Stepping Stone · Year: 2008 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Duffy - Stepping Stone.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "94535852-37fa-48a7-bf34-47b79b71305e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Duffy - Stepping Stone.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "80c1e1c0-9787-4459-a5c2-c789364e707a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Duffy - Stepping Stone.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Duffy - Stepping Stone.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

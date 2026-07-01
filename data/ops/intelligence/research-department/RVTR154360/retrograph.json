@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR154360",
+    "kind": "song",
+    "rvtr": "RVTR154360",
+    "generatedAt": "2026-06-28T22:46:56.783Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR154360",
+    "artist": "Jonas Brothers",
+    "title": "Sucker",
+    "year": 2007,
+    "albumTitle": "Jonas Brothers",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL516800/RVAL516800__jonas-brothers__jonas-brothers.jpg"
+  },
+  "artist": {
+    "name": "Jonas Brothers",
+    "relatedArtists": [
+      "Jonas Brothers"
+    ]
+  },
+  "album": {
+    "title": "Jonas Brothers",
+    "releaseYear": 2007,
+    "recordings": [
+      {
+        "id": "rec-9gbk1z",
+        "title": "Jonas Brothers",
+        "releaseDate": 2007,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-cb5c68",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jonas Brothers - Sucker.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 47,
+    "albumTitle": "Jonas Brothers",
+    "summary": "Hot 100 peak #1 · 47 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-z91ugb",
+      "date": "2007",
+      "label": "Sucker — original release",
+      "detail": "Original album: Jonas Brothers",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2007",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "47 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-81fnrg",
+      "date": "2007",
+      "label": "Jonas Brothers",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR154360",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL516800/RVAL516800__jonas-brothers__jonas-brothers.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "31e7ac95c052",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR154360&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-cb5c68",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ef5531d59b8c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR154360&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-cb5c68",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e3248786d7c3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR154360&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-cb5c68",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5afb00ffeec2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR154360&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-cb5c68",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "344200c0485a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR154360&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-cb5c68",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-cb5c68",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jonas Brothers - Sucker.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR154360-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR154360"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jonas Brothers"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jonas Brothers"
+    },
+    {
+      "id": "rel-RVTR154360-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR154360"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-9gbk1z"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Jonas Brothers"
+    },
+    {
+      "id": "rel-RVTR154360-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR154360"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR154360-tl-tl-z91ugb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR154360"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z91ugb"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Sucker — original release"
+    },
+    {
+      "id": "rel-RVTR154360-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR154360"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR154360-tl-tl-81fnrg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR154360"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-81fnrg"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Jonas Brothers"
+    },
+    {
+      "id": "rel-RVTR154360-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR154360"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR154360-perf-perf-cb5c68",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR154360"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-cb5c68"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-cb5c68-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cb5c68"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jonas Brothers - Sucker.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-31e7ac95c052-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cb5c68"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "31e7ac95c052"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ef5531d59b8c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cb5c68"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ef5531d59b8c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-e3248786d7c3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cb5c68"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e3248786d7c3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5afb00ffeec2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cb5c68"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5afb00ffeec2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-344200c0485a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cb5c68"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "344200c0485a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR154360. \"Sucker\" by Jonas Brothers. Album: Jonas Brothers (2007).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL516800/RVAL516800__jonas-brothers__jonas-brothers.jpg",
+      "excerpt": "Canonical cover assignment for RVTR154360 (Sucker). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Jonas Brothers (2007). Billboard Hot 100 peak: #1. 47 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jonas Brothers · Title: Sucker · Album: Sucker · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jonas Brothers - Sucker.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2007.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-0bb09cba",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jonas Brothers - Sucker.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-23c946ba",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Jonas Brothers - Sucker.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "a0b46215-5379-41dc-bffe-1c42141b438a",
+      "category": "artist",
+      "text": "Sucker is performed by Jonas Brothers.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8af637cf-679f-4049-9926-5058c1b8063f",
+      "category": "album",
+      "text": "The song appears on the album \"Jonas Brothers\" (2007).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8890b7b3-dc3a-4492-99f2-d055ebcc9d3b",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR154360.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL516800/RVAL516800__jonas-brothers__jonas-brothers.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "18c8ce03-3b67-455f-9c7c-7412a5f1ddf1",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 47 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cacdca25-bcfd-48ed-a5bb-b6946bd3d92e",
+      "category": "recording",
+      "text": "Sucker was released in 2007.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f301967b-478b-45e4-9d5b-ec863935ac14",
+      "category": "trivia",
+      "text": "Artist: Jonas Brothers · Title: Sucker · Album: Sucker · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jonas Brothers - Sucker.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9f670481-0eb2-4cdd-ad4a-fa1aa7444bc3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jonas Brothers - Sucker.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0466d4d3-221f-4550-8ede-6682a51320b5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Jonas Brothers - Sucker.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jonas Brothers - Sucker.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

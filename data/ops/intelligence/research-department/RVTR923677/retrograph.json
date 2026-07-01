@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR923677",
+    "kind": "song",
+    "rvtr": "RVTR923677",
+    "generatedAt": "2026-06-28T23:07:28.214Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR923677",
+    "artist": "Madonna",
+    "title": "American Life",
+    "year": 2003,
+    "albumTitle": "American Life",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg"
+  },
+  "artist": {
+    "name": "Madonna",
+    "relatedArtists": [
+      "Madonna"
+    ]
+  },
+  "album": {
+    "title": "American Life",
+    "releaseYear": 2003,
+    "recordings": [
+      {
+        "id": "rec-319b41",
+        "title": "American Life",
+        "releaseDate": 2003,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-i9ss3d",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - American Life.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 37,
+    "chartWeeks": 8,
+    "albumTitle": "American Life",
+    "summary": "Hot 100 peak #37 · 8 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-6dli9s",
+      "date": "2003",
+      "label": "American Life — original release",
+      "detail": "Original album: American Life",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3hm",
+      "date": "2003",
+      "label": "Billboard Hot 100 peak #37",
+      "detail": "8 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-aizopk",
+      "date": "2003",
+      "label": "American Life",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR923677",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "86ad9f87dd1b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923677&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-i9ss3d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5d4dcba81309",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923677&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-i9ss3d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "659a0fd695d5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923677&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-i9ss3d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b19678c348db",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923677&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-i9ss3d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bbf32068e010",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923677&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-i9ss3d",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-i9ss3d",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - American Life.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR923677-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923677"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Madonna"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Madonna"
+    },
+    {
+      "id": "rel-RVTR923677-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923677"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-319b41"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "American Life"
+    },
+    {
+      "id": "rel-RVTR923677-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923677"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #37"
+    },
+    {
+      "id": "rel-RVTR923677-tl-tl-6dli9s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923677"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6dli9s"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "American Life — original release"
+    },
+    {
+      "id": "rel-RVTR923677-tl-tl-fcm3hm",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923677"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3hm"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #37"
+    },
+    {
+      "id": "rel-RVTR923677-tl-tl-aizopk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923677"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aizopk"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "American Life"
+    },
+    {
+      "id": "rel-RVTR923677-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923677"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR923677-perf-perf-i9ss3d",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923677"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-i9ss3d"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-i9ss3d-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i9ss3d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - American Life.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-86ad9f87dd1b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i9ss3d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "86ad9f87dd1b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5d4dcba81309-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i9ss3d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5d4dcba81309"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-659a0fd695d5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i9ss3d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "659a0fd695d5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b19678c348db-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i9ss3d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b19678c348db"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-bbf32068e010-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i9ss3d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bbf32068e010"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR923677. \"American Life\" by Madonna. Album: American Life (2003).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+      "excerpt": "Canonical cover assignment for RVTR923677 (American Life). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: American Life (2003). Billboard Hot 100 peak: #37. 8 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Madonna · Title: American Life · Album: American Life · Year: 2003 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - American Life.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2003.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-8c3354ff",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - American Life.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8d4d0635",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Madonna - American Life.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5c299b59",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Madonna - American Life.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "551a8dbd-9f32-4501-9a6f-6f90842b58c7",
+      "category": "artist",
+      "text": "American Life is performed by Madonna.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c58a13c4-ff34-4a4b-aa21-2039aafc50ad",
+      "category": "album",
+      "text": "The song appears on the album \"American Life\" (2003).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a97590b9-19aa-479c-91f0-2762cb493238",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR923677.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6fd24b26-56de-47b0-8141-69c9742ca969",
+      "category": "chart",
+      "text": "The song peaked at #37 on the Billboard Hot 100 and spent 8 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3d02b6ad-522e-47b1-be29-39a2facd8ffc",
+      "category": "recording",
+      "text": "American Life was released in 2003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "7840dba9-0678-4494-9673-f697d4ab01ba",
+      "category": "trivia",
+      "text": "Artist: Madonna · Title: American Life · Album: American Life · Year: 2003 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - American Life.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7a9cc12c-e279-496c-bec2-9ab98df45c1a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - American Life.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f333ae05-df1d-49ad-b60e-022def87a8cc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Madonna - American Life.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c0404a73-2d51-45ee-847f-c888881b66e2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Madonna - American Life.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 9,
+    "accepted": 5,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - American Life.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

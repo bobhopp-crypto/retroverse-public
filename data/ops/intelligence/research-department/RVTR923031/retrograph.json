@@ -1,0 +1,400 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR923031",
+    "kind": "song",
+    "rvtr": "RVTR923031",
+    "generatedAt": "2026-06-28T23:07:24.499Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR923031",
+    "artist": "Bobby Helms",
+    "title": "Jingle Bell Rock",
+    "year": 1958,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Bobby Helms",
+    "relatedArtists": [
+      "Bobby Helms"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1958,
+    "recordings": [
+      {
+        "id": "rec-krh8y",
+        "title": "Jingle Bell Rock — graph recording",
+        "releaseDate": 1958,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-1xbg99",
+      "title": "Jingle Bell",
+      "kind": "performance",
+      "year": 2019,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bobby Helms - Jingle Bell.mp4",
+      "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 66,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #3 · 66 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-r4qymx",
+      "date": "1958",
+      "label": "Jingle Bell Rock — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "1958",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "66 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ive4va",
+      "date": "1958",
+      "label": "Jingle Bell Rock — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-s3usyq",
+      "date": "2019",
+      "label": "Jingle Bell",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "2348ad3904ed",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923031&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-1xbg99",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-1xbg99",
+        "title": "Jingle Bell",
+        "kind": "performance",
+        "year": 2019,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bobby Helms - Jingle Bell.mp4",
+        "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR923031-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923031"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Bobby Helms"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Bobby Helms"
+    },
+    {
+      "id": "rel-RVTR923031-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923031"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR923031-tl-tl-r4qymx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923031"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-r4qymx"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Jingle Bell Rock — original release"
+    },
+    {
+      "id": "rel-RVTR923031-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923031"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR923031-tl-tl-ive4va",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923031"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ive4va"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Jingle Bell Rock — graph recording"
+    },
+    {
+      "id": "rel-RVTR923031-tl-tl-s3usyq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923031"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-s3usyq"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Jingle Bell"
+    },
+    {
+      "id": "rel-RVTR923031-perf-perf-1xbg99",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923031"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1xbg99"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Jingle Bell"
+    },
+    {
+      "id": "rel-perf-1xbg99-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1xbg99"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bobby Helms - Jingle Bell.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Jingle Bell"
+    },
+    {
+      "id": "rel-2348ad3904ed-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1xbg99"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2348ad3904ed"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR923031. \"Jingle Bell Rock\" by Bobby Helms.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #3. 66 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Bobby Helms · Title: Jingle Bell · Album: Jingle Bell Rock / The Bell That Couldn't Jingle · Year: 2019 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bobby Helms - Jingle Bell.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1958.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-fd12fc8d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bobby Helms - Jingle Bell.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "225631e3-1f68-404d-adcb-21debe16c637",
+      "category": "artist",
+      "text": "Jingle Bell Rock is performed by Bobby Helms.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eaee99c3-aef0-4bb6-becc-f6333102510b",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 66 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "788ffe2d-1b6d-4eeb-b0f0-042cd1aa910e",
+      "category": "recording",
+      "text": "Jingle Bell Rock was released in 1958.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "95ab3e46-f570-4182-a3d0-bc02665bd256",
+      "category": "trivia",
+      "text": "Artist: Bobby Helms · Title: Jingle Bell · Album: Jingle Bell Rock / The Bell That Couldn't Jingle · Year: 2019 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bobby Helms - Jingle Bell.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0be35f48-8163-46df-aa8a-fb9f5c13e088",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bobby Helms - Jingle Bell.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bobby Helms - Jingle Bell.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

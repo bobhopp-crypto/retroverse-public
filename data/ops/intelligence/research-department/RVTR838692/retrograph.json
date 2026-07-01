@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR838692",
+    "kind": "song",
+    "rvtr": "RVTR838692",
+    "generatedAt": "2026-06-28T23:04:11.016Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR838692",
+    "artist": "Yazoo",
+    "title": "Situation",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Yazoo",
+    "relatedArtists": [
+      "Yazoo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-qohoml",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1982,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Situation.mp4",
+      "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-jex2le",
+      "date": "1982",
+      "label": "Situation — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1982",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "dcc0fc00ac54",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR838692&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-qohoml",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9911a8dbbc7a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR838692&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-qohoml",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "71144ebffcba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR838692&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-qohoml",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6de5dbca9234",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR838692&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-qohoml",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7352fc06a6b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR838692&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-qohoml",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-qohoml",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1982,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Situation.mp4",
+        "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR838692-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR838692"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Yazoo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Yazoo"
+    },
+    {
+      "id": "rel-RVTR838692-tl-tl-jex2le",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR838692"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jex2le"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Situation — original release"
+    },
+    {
+      "id": "rel-RVTR838692-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR838692"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR838692-perf-perf-qohoml",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR838692"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-qohoml"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-qohoml-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qohoml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Situation.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-dcc0fc00ac54-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qohoml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dcc0fc00ac54"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9911a8dbbc7a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qohoml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9911a8dbbc7a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-71144ebffcba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qohoml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "71144ebffcba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6de5dbca9234-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qohoml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6de5dbca9234"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7352fc06a6b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qohoml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7352fc06a6b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR838692. \"Situation\" by Yazoo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Yazoo · Title: Situation · Album: Yaz - Situation · Year: 1982 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Situation.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8a5d2fd3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Situation.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5d093c95",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Yaz - Situation.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "36fc9e84-089f-4e46-85a9-cf91e112d87f",
+      "category": "artist",
+      "text": "Situation is performed by Yazoo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "87bae819-5405-47ed-9f5a-83a0eb44d67a",
+      "category": "trivia",
+      "text": "Artist: Yazoo · Title: Situation · Album: Yaz - Situation · Year: 1982 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Situation.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "82ee6824-b12c-4302-b377-8640108ea0d2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Situation.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aa402da3-a4d3-42da-9fb2-621cde02e77e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Yaz - Situation.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Situation.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

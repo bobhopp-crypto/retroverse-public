@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR860729",
+    "kind": "song",
+    "rvtr": "RVTR860729",
+    "generatedAt": "2026-06-28T23:05:04.034Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR860729",
+    "artist": "Jayz And Kanye West",
+    "title": "Otis",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jayz And Kanye West",
+    "relatedArtists": [
+      "Jayz And Kanye West"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-docxlt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JayZ and Kanye West - Otis.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-if0dkz",
+      "date": "2011",
+      "label": "Otis — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4b22fef523ba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860729&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-docxlt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ce6a079108a0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860729&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-docxlt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5ef54dd5f24f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860729&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-docxlt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "020214bb81ac",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860729&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-docxlt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8ab759c3451a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860729&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-docxlt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-docxlt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JayZ and Kanye West - Otis.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR860729-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860729"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jayz And Kanye West"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jayz And Kanye West"
+    },
+    {
+      "id": "rel-RVTR860729-tl-tl-if0dkz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860729"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-if0dkz"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Otis — original release"
+    },
+    {
+      "id": "rel-RVTR860729-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860729"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR860729-perf-perf-docxlt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860729"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-docxlt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-docxlt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-docxlt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JayZ and Kanye West - Otis.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4b22fef523ba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-docxlt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4b22fef523ba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ce6a079108a0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-docxlt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ce6a079108a0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5ef54dd5f24f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-docxlt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5ef54dd5f24f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-020214bb81ac-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-docxlt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "020214bb81ac"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8ab759c3451a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-docxlt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8ab759c3451a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR860729. \"Otis\" by Jayz And Kanye West.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: JayZ and Kanye West · Title: Otis · Year: 2011 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/JayZ and Kanye West - Otis.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3f271648",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JayZ and Kanye West - Otis.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0a51cf74-d2bb-479c-8de2-d384731d16af",
+      "category": "artist",
+      "text": "Otis is performed by Jayz And Kanye West.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a5b58297-3b3c-44ce-81a6-97f8b2211795",
+      "category": "trivia",
+      "text": "Artist: JayZ and Kanye West · Title: Otis · Year: 2011 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/JayZ and Kanye West - Otis.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "450aef77-f4db-487b-9cde-d7e821aa3a32",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JayZ and Kanye West - Otis.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JayZ and Kanye West - Otis.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

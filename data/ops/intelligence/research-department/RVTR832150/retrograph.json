@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR832150",
+    "kind": "song",
+    "rvtr": "RVTR832150",
+    "generatedAt": "2026-06-28T23:04:00.680Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR832150",
+    "artist": "Nicki Minaj",
+    "title": "Your Love",
+    "year": 2010,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Nicki Minaj",
+    "relatedArtists": [
+      "Nicki Minaj"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2010,
+    "recordings": [
+      {
+        "id": "rec-u7516g",
+        "title": "Your Love — graph recording",
+        "releaseDate": 2010,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-lofjfq",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nicki Minaj - Your Love.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 14,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #14 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-3px3dv",
+      "date": "2010",
+      "label": "Your Love — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ft",
+      "date": "2010",
+      "label": "Billboard Hot 100 peak #14",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-yya7ky",
+      "date": "2010",
+      "label": "Your Love — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b7d22a0bd38a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR832150&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lofjfq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d1a437ae1cbe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR832150&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lofjfq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bc797958f4a2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR832150&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-lofjfq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2fc0a14b07c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR832150&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lofjfq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "90cf19451fca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR832150&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lofjfq",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lofjfq",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nicki Minaj - Your Love.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR832150-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR832150"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Nicki Minaj"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Nicki Minaj"
+    },
+    {
+      "id": "rel-RVTR832150-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR832150"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #14"
+    },
+    {
+      "id": "rel-RVTR832150-tl-tl-3px3dv",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR832150"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3px3dv"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Your Love — original release"
+    },
+    {
+      "id": "rel-RVTR832150-tl-tl-fcm3ft",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR832150"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ft"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #14"
+    },
+    {
+      "id": "rel-RVTR832150-tl-tl-yya7ky",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR832150"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yya7ky"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Your Love — graph recording"
+    },
+    {
+      "id": "rel-RVTR832150-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR832150"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR832150-perf-perf-lofjfq",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR832150"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lofjfq"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-lofjfq-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lofjfq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nicki Minaj - Your Love.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b7d22a0bd38a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lofjfq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b7d22a0bd38a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d1a437ae1cbe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lofjfq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d1a437ae1cbe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-bc797958f4a2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lofjfq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bc797958f4a2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2fc0a14b07c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lofjfq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2fc0a14b07c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-90cf19451fca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lofjfq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "90cf19451fca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR832150. \"Your Love\" by Nicki Minaj.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #14. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Nicki Minaj · Title: Your Love · Album: HV 9-10 · Year: 2010 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nicki Minaj - Your Love.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2010.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-bebe334d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nicki Minaj - Your Love.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b3bf0e87",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Nicki Minaj - Your Love.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e10040f8-30a5-4e86-a5d5-7e6317791e8f",
+      "category": "artist",
+      "text": "Your Love is performed by Nicki Minaj.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6bc7b5ff-2a6a-450a-88e3-55fba9028631",
+      "category": "chart",
+      "text": "The song peaked at #14 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "808ddcb0-e66e-45ca-9214-9def83b0ecbf",
+      "category": "recording",
+      "text": "Your Love was released in 2010.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "00a90a22-3eea-4b9d-b4fe-c8fb1f0cf220",
+      "category": "trivia",
+      "text": "Artist: Nicki Minaj · Title: Your Love · Album: HV 9-10 · Year: 2010 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nicki Minaj - Your Love.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c9293391-c9e2-4e8e-9b0c-c1abbc109105",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nicki Minaj - Your Love.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2e526aa9-54be-4689-8997-5dc4d8f408e0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Nicki Minaj - Your Love.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nicki Minaj - Your Love.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,390 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR857236",
+    "kind": "song",
+    "rvtr": "RVTR857236",
+    "generatedAt": "2026-06-28T22:41:39.459Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR857236",
+    "artist": "L.a. Guns",
+    "title": "Ballad Of Jayne",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "L.a. Guns",
+    "relatedArtists": [
+      "L.a. Guns"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-kothv6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1990,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/L.A. Guns - Ballad Of Jayne.mp4",
+      "notes": "Detected year: 1990. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ytfaoe",
+      "date": "1990",
+      "label": "Ballad Of Jayne — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1990",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "3eea4860a523",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR857236&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kothv6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0472ebf97a25",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR857236&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kothv6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "22d0ccb224c6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR857236&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kothv6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "86edee55adf3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR857236&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kothv6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2e82d8d19bf6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR857236&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kothv6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kothv6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1990,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/L.A. Guns - Ballad Of Jayne.mp4",
+        "notes": "Detected year: 1990. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR857236-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR857236"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "L.a. Guns"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "L.a. Guns"
+    },
+    {
+      "id": "rel-RVTR857236-tl-tl-ytfaoe",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR857236"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ytfaoe"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Ballad Of Jayne — original release"
+    },
+    {
+      "id": "rel-RVTR857236-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR857236"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR857236-perf-perf-kothv6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR857236"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kothv6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-kothv6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kothv6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/L.A. Guns - Ballad Of Jayne.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3eea4860a523-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kothv6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3eea4860a523"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0472ebf97a25-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kothv6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0472ebf97a25"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-22d0ccb224c6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kothv6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "22d0ccb224c6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-86edee55adf3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kothv6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "86edee55adf3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2e82d8d19bf6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kothv6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2e82d8d19bf6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR857236. \"Ballad Of Jayne\" by L.a. Guns.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: L.A. Guns · Title: Ballad Of Jayne · Album:  Love, Peace & Geese  · Year: 1990 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/L.A. Guns - Ballad Of Jayne.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8b301744",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/L.A. Guns - Ballad Of Jayne.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f1153e1a-5be1-4aa7-8aa9-66f56cd1cc85",
+      "category": "artist",
+      "text": "Ballad Of Jayne is performed by L.a. Guns.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e80b9c69-9603-4772-a8ac-2ec4b9b1fd19",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fe2cd4d9-14d4-49dc-80b3-ced59c327b06",
+      "category": "trivia",
+      "text": "Guns · Title: Ballad Of Jayne · Album:  Love, Peace & Geese  · Year: 1990 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/L.A.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 3,
+    "accepted": 3,
+    "pending": 0,
+    "duplicate": 0,
+    "invalid": 2,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/L.A. Guns - Ballad Of Jayne.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

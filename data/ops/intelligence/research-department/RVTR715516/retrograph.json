@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR715516",
+    "kind": "song",
+    "rvtr": "RVTR715516",
+    "generatedAt": "2026-06-28T23:00:22.284Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR715516",
+    "artist": "Tom Petty",
+    "title": "The Waiting",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Tom Petty",
+    "relatedArtists": [
+      "Tom Petty"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ya0vwx",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1981,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty - The Waiting.mp4",
+      "notes": "Detected year: 1981. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-sqcuau",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1985,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty And The Heartbreakers - The Waiting.mp4",
+      "notes": "Detected year: 1985. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "1981",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1985",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "08936ad15cd7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR715516&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ya0vwx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8ef4464ff993",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR715516&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ya0vwx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8578d269b13a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR715516&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ya0vwx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "452ba39397f3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR715516&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ya0vwx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "eee640e3c8df",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR715516&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ya0vwx",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ya0vwx",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1981,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty - The Waiting.mp4",
+        "notes": "Detected year: 1981. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-sqcuau",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1985,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty And The Heartbreakers - The Waiting.mp4",
+        "notes": "Detected year: 1985. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR715516-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR715516"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Tom Petty"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Tom Petty"
+    },
+    {
+      "id": "rel-RVTR715516-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR715516"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR715516-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR715516"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR715516-perf-perf-ya0vwx",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR715516"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ya0vwx"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ya0vwx-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ya0vwx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty - The Waiting.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR715516-perf-perf-sqcuau",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR715516"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-sqcuau"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-sqcuau-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sqcuau"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty And The Heartbreakers - The Waiting.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-08936ad15cd7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ya0vwx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "08936ad15cd7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-8ef4464ff993-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ya0vwx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8ef4464ff993"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8578d269b13a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ya0vwx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8578d269b13a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-452ba39397f3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ya0vwx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "452ba39397f3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-eee640e3c8df-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ya0vwx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "eee640e3c8df"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR715516. \"The Waiting\" by Tom Petty.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Tom Petty · Title: The Waiting · Album: Tom Petty And The Heartbreakers - The Waiting · Year: 1981 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty - The Waiting.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4c755f8f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty - The Waiting.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cd15c97a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty And The Heartbreakers - The Waiting.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "fb6fd971-9318-4f43-ba4e-67ca7761c638",
+      "category": "artist",
+      "text": "The Waiting is performed by Tom Petty.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8bf39eab-8779-44c3-8a08-33d46ceef8db",
+      "category": "trivia",
+      "text": "Artist: Tom Petty · Title: The Waiting · Album: Tom Petty And The Heartbreakers - The Waiting · Year: 1981 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty - The Waiting.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8e4e1492-4ade-40f1-b597-67d86657b051",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty - The Waiting.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0ba8902a-b45d-4f8c-8787-cc34fafca959",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty And The Heartbreakers - The Waiting.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tom Petty - The Waiting.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

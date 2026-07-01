@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR645058",
+    "kind": "song",
+    "rvtr": "RVTR645058",
+    "generatedAt": "2026-06-28T22:58:21.124Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR645058",
+    "artist": "Stryper",
+    "title": "Calling On You",
+    "year": 1986,
+    "albumTitle": "To Hell With The Devil",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL422422/RVAL422422__stryper__to-hell-with-the-devil.jpg"
+  },
+  "artist": {
+    "name": "Stryper",
+    "relatedArtists": [
+      "Stryper"
+    ]
+  },
+  "album": {
+    "title": "To Hell With The Devil",
+    "releaseYear": 1986,
+    "recordings": [
+      {
+        "id": "rec-t0ix4d",
+        "title": "To Hell With The Devil",
+        "releaseDate": 1986,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-z9hr37",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1985,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Stryper - Calling On You.mp4",
+      "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "To Hell With The Devil",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-sr054i",
+      "date": "1986",
+      "label": "Calling On You — original release",
+      "detail": "Original album: To Hell With The Devil",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-u5dgqn",
+      "date": "1986",
+      "label": "To Hell With The Devil",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1985",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR645058",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL422422/RVAL422422__stryper__to-hell-with-the-devil.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9d40331a7a33",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645058&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-z9hr37",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "924f571ea6d5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645058&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-z9hr37",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "999b45c09b15",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645058&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-z9hr37",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "547683317e57",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645058&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-z9hr37",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "de7ef165a8e7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645058&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-z9hr37",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-z9hr37",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1985,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Stryper - Calling On You.mp4",
+        "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR645058-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645058"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Stryper"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Stryper"
+    },
+    {
+      "id": "rel-RVTR645058-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645058"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-t0ix4d"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "To Hell With The Devil"
+    },
+    {
+      "id": "rel-RVTR645058-tl-tl-sr054i",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645058"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sr054i"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Calling On You — original release"
+    },
+    {
+      "id": "rel-RVTR645058-tl-tl-u5dgqn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645058"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-u5dgqn"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "To Hell With The Devil"
+    },
+    {
+      "id": "rel-RVTR645058-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645058"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR645058-perf-perf-z9hr37",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645058"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-z9hr37"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-z9hr37-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z9hr37"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Stryper - Calling On You.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9d40331a7a33-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z9hr37"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9d40331a7a33"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-924f571ea6d5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z9hr37"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "924f571ea6d5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-999b45c09b15-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z9hr37"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "999b45c09b15"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-547683317e57-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z9hr37"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "547683317e57"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-de7ef165a8e7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z9hr37"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "de7ef165a8e7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR645058. \"Calling On You\" by Stryper. Album: To Hell With The Devil (1986).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL422422/RVAL422422__stryper__to-hell-with-the-devil.jpg",
+      "excerpt": "Canonical cover assignment for RVTR645058 (Calling On You). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: To Hell With The Devil (1986)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Stryper · Title: Calling On You · Album: Free · Year: 1985 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Stryper - Calling On You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1986.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-73ed3ce1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Stryper - Calling On You.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "513ff69b-b16c-4196-97f6-2d3456f45269",
+      "category": "artist",
+      "text": "Calling On You is performed by Stryper.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "963a9c70-0661-4cb1-9d1e-fac8033161b2",
+      "category": "album",
+      "text": "The song appears on the album \"To Hell With The Devil\" (1986).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8995e835-a946-4912-bda2-a0a2cba09818",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR645058.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL422422/RVAL422422__stryper__to-hell-with-the-devil.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "76f3a263-55d2-48ac-a84e-8f226917f01f",
+      "category": "recording",
+      "text": "Calling On You was released in 1986.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "03004cc6-16b1-45d0-881c-1c6cb184a8b5",
+      "category": "trivia",
+      "text": "Artist: Stryper · Title: Calling On You · Album: Free · Year: 1985 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Stryper - Calling On You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "24bf260d-9ea9-4469-bae4-3ebfbae0ca07",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Stryper - Calling On You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Stryper - Calling On You.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

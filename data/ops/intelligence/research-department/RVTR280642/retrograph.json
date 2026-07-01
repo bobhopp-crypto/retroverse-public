@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR280642",
+    "kind": "song",
+    "rvtr": "RVTR280642",
+    "generatedAt": "2026-06-28T22:49:55.335Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR280642",
+    "artist": "Morrissey",
+    "title": "Suedehead",
+    "year": 1988,
+    "albumTitle": "Viva Hate",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL791271/RVAL791271__morrissey__viva-hate.jpg"
+  },
+  "artist": {
+    "name": "Morrissey",
+    "relatedArtists": [
+      "Morrissey"
+    ]
+  },
+  "album": {
+    "title": "Viva Hate",
+    "releaseYear": 1988,
+    "recordings": [
+      {
+        "id": "rec-5ov72i",
+        "title": "Viva Hate",
+        "releaseDate": 1988,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-cjjs64",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1988,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Morrissey - Suedehead.mp4",
+      "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Viva Hate",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-aholq0",
+      "date": "1988",
+      "label": "Suedehead — original release",
+      "detail": "Original album: Viva Hate",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-9az72w",
+      "date": "1988",
+      "label": "Viva Hate",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1988",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR280642",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL791271/RVAL791271__morrissey__viva-hate.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9cf138ce263a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280642&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-cjjs64",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d3c945c86944",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280642&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-cjjs64",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "453c38878628",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280642&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-cjjs64",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a0d8ef4b34f5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280642&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-cjjs64",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9bfe34de5c4f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280642&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-cjjs64",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-cjjs64",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1988,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Morrissey - Suedehead.mp4",
+        "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR280642-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR280642"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Morrissey"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Morrissey"
+    },
+    {
+      "id": "rel-RVTR280642-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR280642"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-5ov72i"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Viva Hate"
+    },
+    {
+      "id": "rel-RVTR280642-tl-tl-aholq0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR280642"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aholq0"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Suedehead — original release"
+    },
+    {
+      "id": "rel-RVTR280642-tl-tl-9az72w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR280642"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9az72w"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Viva Hate"
+    },
+    {
+      "id": "rel-RVTR280642-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR280642"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR280642-perf-perf-cjjs64",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR280642"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-cjjs64"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-cjjs64-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cjjs64"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Morrissey - Suedehead.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9cf138ce263a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cjjs64"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9cf138ce263a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d3c945c86944-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cjjs64"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d3c945c86944"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-453c38878628-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cjjs64"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "453c38878628"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-a0d8ef4b34f5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cjjs64"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a0d8ef4b34f5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9bfe34de5c4f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cjjs64"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9bfe34de5c4f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR280642. \"Suedehead\" by Morrissey. Album: Viva Hate (1988).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL791271/RVAL791271__morrissey__viva-hate.jpg",
+      "excerpt": "Canonical cover assignment for RVTR280642 (Suedehead). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Viva Hate (1988)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Morrissey · Title: Suedehead · Album: Viva Hate · Year: 1988 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Morrissey - Suedehead.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1988.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-1f79843d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Morrissey - Suedehead.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-abff921a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Morrissey - Suedehead.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ae13f2e4-3b1b-4cf1-ad0a-4b033aa32a2b",
+      "category": "artist",
+      "text": "Suedehead is performed by Morrissey.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4fc878b0-265b-491c-84d8-a723dca6c75c",
+      "category": "album",
+      "text": "The song appears on the album \"Viva Hate\" (1988).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a92952d9-3b8e-4fbd-a483-4e7df9a073d4",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR280642.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL791271/RVAL791271__morrissey__viva-hate.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "369c55d4-be0d-43f1-9412-912bbcea9751",
+      "category": "recording",
+      "text": "Suedehead was released in 1988.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2a415205-e8e2-45c8-907f-7f4b900c2531",
+      "category": "trivia",
+      "text": "Artist: Morrissey · Title: Suedehead · Album: Viva Hate · Year: 1988 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Morrissey - Suedehead.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5761c7fa-ed56-4b5f-92c6-f2b14180569f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Morrissey - Suedehead.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "de643e4f-da5a-493c-9d81-7e6bc3418259",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Morrissey - Suedehead.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Morrissey - Suedehead.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

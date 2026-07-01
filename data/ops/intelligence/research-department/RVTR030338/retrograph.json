@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR030338",
+    "kind": "song",
+    "rvtr": "RVTR030338",
+    "generatedAt": "2026-06-28T22:44:00.270Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR030338",
+    "artist": "Amber",
+    "title": "Colour Of Love",
+    "year": 1997,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Amber",
+    "relatedArtists": [
+      "Amber"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1997,
+    "recordings": [
+      {
+        "id": "rec-jz4e13",
+        "title": "Colour Of Love — graph recording",
+        "releaseDate": 1997,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-yq28nm",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1996,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - Colour Of Love.mp4",
+      "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 74,
+    "chartWeeks": 10,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #74 · 10 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-jlrmf9",
+      "date": "1997",
+      "label": "Colour Of Love — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3kz",
+      "date": "1997",
+      "label": "Billboard Hot 100 peak #74",
+      "detail": "10 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bwc8e",
+      "date": "1997",
+      "label": "Colour Of Love — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1996",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "3d5bfdaa6292",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR030338&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yq28nm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5978334ccecc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR030338&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yq28nm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b511df6ff808",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR030338&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yq28nm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b5eadf019837",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR030338&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yq28nm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "930c51782bc6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR030338&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yq28nm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yq28nm",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1996,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - Colour Of Love.mp4",
+        "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR030338-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR030338"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Amber"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Amber"
+    },
+    {
+      "id": "rel-RVTR030338-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR030338"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #74"
+    },
+    {
+      "id": "rel-RVTR030338-tl-tl-jlrmf9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR030338"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jlrmf9"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Colour Of Love — original release"
+    },
+    {
+      "id": "rel-RVTR030338-tl-tl-fcm3kz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR030338"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3kz"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #74"
+    },
+    {
+      "id": "rel-RVTR030338-tl-tl-bwc8e",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR030338"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bwc8e"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Colour Of Love — graph recording"
+    },
+    {
+      "id": "rel-RVTR030338-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR030338"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR030338-perf-perf-yq28nm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR030338"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yq28nm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yq28nm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq28nm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - Colour Of Love.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3d5bfdaa6292-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq28nm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3d5bfdaa6292"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5978334ccecc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq28nm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5978334ccecc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b511df6ff808-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq28nm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b511df6ff808"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b5eadf019837-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq28nm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b5eadf019837"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-930c51782bc6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq28nm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "930c51782bc6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR030338. \"Colour Of Love\" by Amber.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #74. 10 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Amber · Title: Colour Of Love · Album: Colour Of Love · Year: 1996 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - Colour Of Love.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1997.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-031f8763",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - Colour Of Love.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "066494ce-fe5b-42f1-b72c-7d9c5620e4fe",
+      "category": "artist",
+      "text": "Colour Of Love is performed by Amber.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2824d794-bade-4305-8992-04d06ce82dcc",
+      "category": "chart",
+      "text": "The song peaked at #74 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b4fe31a4-e701-4be3-beba-49e46680410d",
+      "category": "recording",
+      "text": "Colour Of Love was released in 1997.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c3f99b0a-f9e0-4362-9657-b50b7481753d",
+      "category": "trivia",
+      "text": "Artist: Amber · Title: Colour Of Love · Album: Colour Of Love · Year: 1996 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - Colour Of Love.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f1eb14a6-d481-44dd-a0ef-64a12848e678",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - Colour Of Love.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - Colour Of Love.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

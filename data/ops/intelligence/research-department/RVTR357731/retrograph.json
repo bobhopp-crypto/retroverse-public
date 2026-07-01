@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR357731",
+    "kind": "song",
+    "rvtr": "RVTR357731",
+    "generatedAt": "2026-06-28T22:51:18.146Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR357731",
+    "artist": "Little Mix",
+    "title": "Black Magic",
+    "year": 2015,
+    "albumTitle": "Get Weird",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880315/RVAL880315__little-mix__get-weird.jpg"
+  },
+  "artist": {
+    "name": "Little Mix",
+    "relatedArtists": [
+      "Little Mix"
+    ]
+  },
+  "album": {
+    "title": "Get Weird",
+    "releaseYear": 2015,
+    "recordings": [
+      {
+        "id": "rec-e5z83d",
+        "title": "Get Weird",
+        "releaseDate": 2015,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-fknes",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2015,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Little Mix - Black Magic.mp4",
+      "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 67,
+    "chartWeeks": 8,
+    "albumTitle": "Get Weird",
+    "summary": "Hot 100 peak #67 · 8 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-wrwh4g",
+      "date": "2015",
+      "label": "Black Magic — original release",
+      "detail": "Original album: Get Weird",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k7",
+      "date": "2015",
+      "label": "Billboard Hot 100 peak #67",
+      "detail": "8 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-10985t",
+      "date": "2015",
+      "label": "Get Weird",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2015",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR357731",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880315/RVAL880315__little-mix__get-weird.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cf433c28834a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR357731&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-fknes",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "deea1d6e82d6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR357731&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-fknes",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "81254d8c516c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR357731&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-fknes",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "de7bc3b6334c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR357731&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-fknes",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d82c9f72175c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR357731&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-fknes",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-fknes",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2015,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Little Mix - Black Magic.mp4",
+        "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR357731-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR357731"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Little Mix"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Little Mix"
+    },
+    {
+      "id": "rel-RVTR357731-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR357731"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-e5z83d"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Get Weird"
+    },
+    {
+      "id": "rel-RVTR357731-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR357731"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #67"
+    },
+    {
+      "id": "rel-RVTR357731-tl-tl-wrwh4g",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR357731"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wrwh4g"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Black Magic — original release"
+    },
+    {
+      "id": "rel-RVTR357731-tl-tl-fcm3k7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR357731"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k7"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #67"
+    },
+    {
+      "id": "rel-RVTR357731-tl-tl-10985t",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR357731"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-10985t"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Get Weird"
+    },
+    {
+      "id": "rel-RVTR357731-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR357731"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR357731-perf-perf-fknes",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR357731"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-fknes"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-fknes-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fknes"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Little Mix - Black Magic.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-cf433c28834a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fknes"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cf433c28834a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-deea1d6e82d6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fknes"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "deea1d6e82d6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-81254d8c516c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fknes"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "81254d8c516c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-de7bc3b6334c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fknes"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "de7bc3b6334c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d82c9f72175c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fknes"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d82c9f72175c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR357731. \"Black Magic\" by Little Mix. Album: Get Weird (2015).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880315/RVAL880315__little-mix__get-weird.jpg",
+      "excerpt": "Canonical cover assignment for RVTR357731 (Black Magic). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Get Weird (2015). Billboard Hot 100 peak: #67. 8 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Little Mix · Title: Black Magic · Album: Black Magic · Year: 2015 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Little Mix - Black Magic.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2015.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-6b0c8046",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Little Mix - Black Magic.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "96c291ab-2a4e-4232-a3a2-4b26031a6151",
+      "category": "artist",
+      "text": "Black Magic is performed by Little Mix.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fc72e2ae-f7dd-4b77-ac9d-1e1ffb4ba2e9",
+      "category": "album",
+      "text": "The song appears on the album \"Get Weird\" (2015).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d286a940-66c9-4583-b693-fb53cd9538eb",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR357731.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880315/RVAL880315__little-mix__get-weird.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "00b53946-926f-49cb-93c8-6aa850a0aa05",
+      "category": "chart",
+      "text": "The song peaked at #67 on the Billboard Hot 100 and spent 8 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "39e159b4-f2e5-41ed-acd4-69e5a4641245",
+      "category": "recording",
+      "text": "Black Magic was released in 2015.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "224f2cc1-5414-4ee3-b997-8f5237c22a51",
+      "category": "trivia",
+      "text": "Artist: Little Mix · Title: Black Magic · Album: Black Magic · Year: 2015 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Little Mix - Black Magic.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ac49090a-bd5e-4a32-967b-4d00ffdb3934",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Little Mix - Black Magic.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Little Mix - Black Magic.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

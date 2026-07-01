@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR388119",
+    "kind": "song",
+    "rvtr": "RVTR388119",
+    "generatedAt": "2026-06-28T22:51:52.063Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR388119",
+    "artist": "Triumph",
+    "title": "Say Goodbye",
+    "year": 1981,
+    "albumTitle": "Allied Forces",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL391201/RVAL391201__triumph__allied-forces.jpg"
+  },
+  "artist": {
+    "name": "Triumph",
+    "relatedArtists": [
+      "Triumph"
+    ]
+  },
+  "album": {
+    "title": "Allied Forces",
+    "releaseYear": 1981,
+    "recordings": [
+      {
+        "id": "rec-mmxzmu",
+        "title": "Allied Forces",
+        "releaseDate": 1981,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-jplfqk",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1981,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Triumph - Say Goodbye.mp4",
+      "notes": "Detected year: 1981. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Allied Forces",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-aie0io",
+      "date": "1981",
+      "label": "Say Goodbye — original release",
+      "detail": "Original album: Allied Forces",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-kdp4qb",
+      "date": "1981",
+      "label": "Allied Forces",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1981",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR388119",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL391201/RVAL391201__triumph__allied-forces.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "08a636ee65a7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388119&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-jplfqk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "114a03d2cbe8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388119&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-jplfqk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f29ee6cc5b43",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388119&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-jplfqk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6aff0bdc48fe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388119&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-jplfqk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0d13a00cce42",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388119&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-jplfqk",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-jplfqk",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1981,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Triumph - Say Goodbye.mp4",
+        "notes": "Detected year: 1981. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR388119-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR388119"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Triumph"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Triumph"
+    },
+    {
+      "id": "rel-RVTR388119-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR388119"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-mmxzmu"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Allied Forces"
+    },
+    {
+      "id": "rel-RVTR388119-tl-tl-aie0io",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR388119"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aie0io"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Say Goodbye — original release"
+    },
+    {
+      "id": "rel-RVTR388119-tl-tl-kdp4qb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR388119"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kdp4qb"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Allied Forces"
+    },
+    {
+      "id": "rel-RVTR388119-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR388119"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR388119-perf-perf-jplfqk",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR388119"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-jplfqk"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-jplfqk-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jplfqk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Triumph - Say Goodbye.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-08a636ee65a7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jplfqk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "08a636ee65a7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-114a03d2cbe8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jplfqk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "114a03d2cbe8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f29ee6cc5b43-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jplfqk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f29ee6cc5b43"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6aff0bdc48fe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jplfqk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6aff0bdc48fe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-0d13a00cce42-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jplfqk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0d13a00cce42"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR388119. \"Say Goodbye\" by Triumph. Album: Allied Forces (1981).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL391201/RVAL391201__triumph__allied-forces.jpg",
+      "excerpt": "Canonical cover assignment for RVTR388119 (Say Goodbye). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Allied Forces (1981)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Triumph · Title: Say Goodbye · Album: Say Goodbye · Year: 1981 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Triumph - Say Goodbye.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1981.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-fcc47dd7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Triumph - Say Goodbye.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c981f9f1-380b-44c3-bb1c-8cded1e71acf",
+      "category": "artist",
+      "text": "Say Goodbye is performed by Triumph.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2208ad89-d43c-4560-8580-34d847b338d5",
+      "category": "album",
+      "text": "The song appears on the album \"Allied Forces\" (1981).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "df0b7ebc-947b-4747-a7bf-a7aeb207916e",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR388119.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL391201/RVAL391201__triumph__allied-forces.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c96f3316-2a44-4791-917c-bf0d2032fe84",
+      "category": "recording",
+      "text": "Say Goodbye was released in 1981.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "0dcb4813-34d5-4d01-aada-ffda8fe5128a",
+      "category": "trivia",
+      "text": "Artist: Triumph · Title: Say Goodbye · Album: Say Goodbye · Year: 1981 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Triumph - Say Goodbye.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4c36c485-b77b-4354-be7a-c86f74d94a3a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Triumph - Say Goodbye.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Triumph - Say Goodbye.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

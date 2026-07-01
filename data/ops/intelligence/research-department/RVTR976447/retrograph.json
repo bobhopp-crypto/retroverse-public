@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR976447",
+    "kind": "song",
+    "rvtr": "RVTR976447",
+    "generatedAt": "2026-06-28T22:43:06.849Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR976447",
+    "artist": "Now You Has Jazz",
+    "title": "Bing Crosby Louis Armstrong 1956",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Now You Has Jazz",
+    "relatedArtists": [
+      "Now You Has Jazz"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-m4eiup",
+      "title": "1956",
+      "kind": "performance",
+      "year": 1956,
+      "venue": "1956",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Now You Has Jazz - Bing Crosby, Louis Armstrong (1956).mp4",
+      "notes": "Performance label: 1956. Detected year: 1956. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-544a64",
+      "date": "1956",
+      "label": "Bing Crosby Louis Armstrong 1956 — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-bvjcsd",
+      "date": "1956",
+      "label": "1956",
+      "detail": "1956",
+      "domain": "performance",
+      "confidence": 1,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d02e9899ce86",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976447&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-m4eiup",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1bf99272d5d6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976447&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-m4eiup",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fe82be689404",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976447&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-m4eiup",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8192d6d9e893",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976447&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-m4eiup",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a5318ca5f0de",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976447&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-m4eiup",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-m4eiup",
+        "title": "1956",
+        "kind": "performance",
+        "year": 1956,
+        "venue": "1956",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Now You Has Jazz - Bing Crosby, Louis Armstrong (1956).mp4",
+        "notes": "Performance label: 1956. Detected year: 1956. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR976447-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR976447"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Now You Has Jazz"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Now You Has Jazz"
+    },
+    {
+      "id": "rel-RVTR976447-tl-tl-544a64",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR976447"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-544a64"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Bing Crosby Louis Armstrong 1956 — original release"
+    },
+    {
+      "id": "rel-RVTR976447-tl-tl-bvjcsd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR976447"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bvjcsd"
+      },
+      "confidence": 1,
+      "source": "owned video",
+      "label": "1956"
+    },
+    {
+      "id": "rel-RVTR976447-perf-perf-m4eiup",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR976447"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-m4eiup"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "1956"
+    },
+    {
+      "id": "rel-perf-m4eiup-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m4eiup"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Now You Has Jazz - Bing Crosby, Louis Armstrong (1956).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "1956"
+    },
+    {
+      "id": "rel-d02e9899ce86-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m4eiup"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d02e9899ce86"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1bf99272d5d6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m4eiup"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1bf99272d5d6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fe82be689404-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m4eiup"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fe82be689404"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-8192d6d9e893-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m4eiup"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8192d6d9e893"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a5318ca5f0de-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m4eiup"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a5318ca5f0de"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR976447. \"Bing Crosby Louis Armstrong 1956\" by Now You Has Jazz.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Now You Has Jazz · Title: Bing Crosby, Louis Armstrong (1956) · Album: Louis Armstrong And His Band / Bing Crosby And Louis Armstrong - High Society Calypso / Now You Has Jazz · Year: 1956 · Genre: Jazz · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1950's/Now You Has Jazz - Bing Crosby, Louis Armstrong (1956).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-99a2fc5d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Now You Has Jazz - Bing Crosby, Louis Armstrong (1956).mp4 · Plays: 1 · Performance: 1956",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "9f8872f2-3224-43cb-8b9a-ac8630fc9a1f",
+      "category": "artist",
+      "text": "Bing Crosby Louis Armstrong 1956 is performed by Now You Has Jazz.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a42b75d7-eccf-4223-960a-ef8490be6fdb",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4beceb82-a36e-4753-83d3-bab5bb9b7a3d",
+      "category": "trivia",
+      "text": "\"Bing Crosby Louis Armstrong 1956\" by Now You Has Jazz.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "dad29bf6-1b22-4551-b437-567350184f73",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Now You Has Jazz - Bing Crosby, Louis Armstrong (1956).mp4 · Plays: 1 · Performance: 1956",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 3,
+    "pending": 1,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Now You Has Jazz - Bing Crosby, Louis Armstrong (1956).mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

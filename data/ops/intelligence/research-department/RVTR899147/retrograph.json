@@ -1,0 +1,438 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR899147",
+    "kind": "song",
+    "rvtr": "RVTR899147",
+    "generatedAt": "2026-06-28T22:42:09.861Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR899147",
+    "artist": "Stevie Wonder",
+    "title": "Isn't She Lovely",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Stevie Wonder",
+    "relatedArtists": [
+      "Stevie Wonder"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-mxo7gn",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1976,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Stevie Wonder - Isn't She Lovely.mp4",
+      "notes": "Detected year: 1976. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-hkamaa",
+      "date": "1976",
+      "label": "Isn't She Lovely — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1976",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ed5ab2f620c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899147&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mxo7gn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e8d012e64ae7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899147&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mxo7gn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ff436bd8d350",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899147&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mxo7gn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5960ccdd8712",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899147&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mxo7gn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f39ee31baf33",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899147&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mxo7gn",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mxo7gn",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1976,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Stevie Wonder - Isn't She Lovely.mp4",
+        "notes": "Detected year: 1976. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR899147-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR899147"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Stevie Wonder"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Stevie Wonder"
+    },
+    {
+      "id": "rel-RVTR899147-tl-tl-hkamaa",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR899147"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hkamaa"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Isn't She Lovely — original release"
+    },
+    {
+      "id": "rel-RVTR899147-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR899147"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR899147-perf-perf-mxo7gn",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR899147"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mxo7gn"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mxo7gn-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mxo7gn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Stevie Wonder - Isn't She Lovely.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ed5ab2f620c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mxo7gn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ed5ab2f620c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-e8d012e64ae7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mxo7gn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e8d012e64ae7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ff436bd8d350-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mxo7gn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ff436bd8d350"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5960ccdd8712-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mxo7gn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5960ccdd8712"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f39ee31baf33-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mxo7gn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f39ee31baf33"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR899147. \"Isn't She Lovely\" by Stevie Wonder.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Stevie Wonder · Title: Isn't She Lovely · Album: The Definitive Collection · Year: 1976 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1762033503 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Stevie Wonder - Isn't She Lovely.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-94182374",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Stevie Wonder - Isn't She Lovely.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-62ab84b3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Stevie Wonder - Isn't She Lovely.mp3 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-46bfd283",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1980/Stevie Wonder - Isn't She Lovely.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "3dc0752a-dc24-4915-8c7e-4491458d9dfb",
+      "category": "artist",
+      "text": "Isn't She Lovely is performed by Stevie Wonder.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "727c2bb7-652b-444d-b790-ac0d9757309d",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "7dbb8cba-235d-420e-b952-ddde2aba7f79",
+      "category": "trivia",
+      "text": "Artist: Stevie Wonder · Title: Isn't She Lovely · Album: The Definitive Collection · Year: 1976 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1762033503 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Stevie Wonder - Isn't She Lovely.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "41f807ca-0f6c-4348-b5ab-3488749d5081",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Stevie Wonder - Isn't She Lovely.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "381fb88e-5fcc-410d-9b35-52b6400d05f8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Stevie Wonder - Isn't She Lovely.mp3 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9ac75cce-eb56-4ed9-9007-f7462fd29521",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1980/Stevie Wonder - Isn't She Lovely.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 2,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Stevie Wonder - Isn't She Lovely.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

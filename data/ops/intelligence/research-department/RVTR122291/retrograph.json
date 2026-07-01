@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR122291",
+    "kind": "song",
+    "rvtr": "RVTR122291",
+    "generatedAt": "2026-06-28T22:46:11.872Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR122291",
+    "artist": "Cher",
+    "title": "Dove L'Amore",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Cher",
+    "relatedArtists": [
+      "Cher"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-mqhgn9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1999,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Cher - Dove L'amore.mp4",
+      "notes": "Detected year: 1999. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-s8mg5z",
+      "date": "1999",
+      "label": "Dove L'Amore — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1999",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "15029bc60c38",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR122291&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mqhgn9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "17c1fb843f0e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR122291&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mqhgn9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e1567507bbcb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR122291&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mqhgn9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "22804f33aa2b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR122291&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mqhgn9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "673ed2b2f60d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR122291&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mqhgn9",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mqhgn9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1999,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Cher - Dove L'amore.mp4",
+        "notes": "Detected year: 1999. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR122291-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR122291"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Cher"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Cher"
+    },
+    {
+      "id": "rel-RVTR122291-tl-tl-s8mg5z",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR122291"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-s8mg5z"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Dove L'Amore — original release"
+    },
+    {
+      "id": "rel-RVTR122291-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR122291"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR122291-perf-perf-mqhgn9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR122291"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mqhgn9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mqhgn9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqhgn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Cher - Dove L'amore.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-15029bc60c38-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqhgn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "15029bc60c38"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-17c1fb843f0e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqhgn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "17c1fb843f0e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e1567507bbcb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqhgn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e1567507bbcb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-22804f33aa2b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqhgn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "22804f33aa2b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-673ed2b2f60d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqhgn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "673ed2b2f60d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR122291. \"Dove L'Amore\" by Cher.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Cher · Title: Dove L'amore · Album: Dov'è L'Amore · Year: 1999 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Cher - Dove L'amore.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c3bdcdcf",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Cher - Dove L'amore.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6274f0ed",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Cher - Dove L'amore.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "708f7089-99ee-4202-905e-c4bcc713a2ce",
+      "category": "artist",
+      "text": "Dove L'Amore is performed by Cher.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "418aa354-262b-4588-9376-ee7df87c83fa",
+      "category": "trivia",
+      "text": "Artist: Cher · Title: Dove L'amore · Album: Dov'è L'Amore · Year: 1999 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Cher - Dove L'amore.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eab80335-3a8e-4175-9481-0783c15ea376",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Cher - Dove L'amore.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b0824148-08af-45cf-bc51-d6ae6e3ce727",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Cher - Dove L'amore.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Cher - Dove L'amore.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -16,8 +16,8 @@ export const EVENT_STUDIO_NAV: EventStudioNavItem[] = [
 
 /** Sunday workflow — visible sidebar only. */
 export const EVENT_STUDIO_SUNDAY_NAV: EventStudioNavItem[] = [
-  { id: "producer", label: "Producer", href: "/ops/event-studio/producer" },
-  { id: "passes", label: "Passes", href: "/ops/event-studio/create/pass-generator" },
+  { id: "producer", label: "Producer", href: "/bobos/producer" },
+  { id: "passes", label: "Passes", href: "/bobos/passes" },
   { id: "giveaway", label: "Giveaway", href: "/ops/event-studio/giveaway" },
   { id: "homepage", label: "Homepage", href: "/ops/event-studio/homepage" },
   { id: "settings", label: "Settings", href: "/ops/event-studio/settings" },
@@ -25,11 +25,11 @@ export const EVENT_STUDIO_SUNDAY_NAV: EventStudioNavItem[] = [
 
 export const EVENT_STUDIO_CREATE_TOOLS: EventStudioCreateTool[] = [
   {
-    id: "pass",
-    title: "Generate Pass",
-    description: "Collectible front/back pass artwork with QR export and print sheets.",
-    href: "/ops/event-studio/create/pass-generator",
-    status: "active",
+      id: "pass",
+      title: "Generate Pass",
+      description: "Collectible front/back pass artwork with QR export and print sheets.",
+      href: "/bobos/passes",
+      status: "active",
   },
   {
     id: "poster",
@@ -112,7 +112,7 @@ export const EVENT_STUDIO_PUBLISH_ITEMS: EventStudioWorkflowItem[] = [
     id: "printables",
     title: "Printable Assets",
     description: "Download passes, posters, and table cards for the venue.",
-    href: "/ops/event-studio/create/pass-generator",
+    href: "/bobos/passes",
   },
   {
     id: "download",
@@ -169,13 +169,14 @@ export const EVENT_STUDIO_ARCHIVE_EXAMPLES = [
 ] as const;
 
 export const EVENT_STUDIO_QUICK_ACTIONS = [
-  { label: "Event Producer", href: "/ops/event-studio/producer" },
-  { label: "Generate Passes", href: "/ops/event-studio/create/pass-generator" },
+  { label: "Event Producer", href: "/bobos/producer" },
+  { label: "Event Hub", href: "/bobos/event" },
+  { label: "Generate Passes", href: "/bobos/passes" },
   { label: "Generate Poster", href: plannedGeneratorHref("poster") },
   { label: "Generate Facebook", href: plannedGeneratorHref("facebook") },
   { label: "Generate Landing Page", href: plannedGeneratorHref("landing-page") },
   { label: "Registration", href: "/ops/event-studio/giveaway/audience" },
-  { label: "Pass Generator", href: "/ops/event-studio/create/pass-generator" },
+  { label: "Pass Generator", href: "/bobos/passes" },
   { label: "Collectible Library", href: "/ops/content-creator" },
   { label: "Event Control", href: "/ops/event-control" },
 ] as const;

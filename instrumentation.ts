@@ -25,8 +25,13 @@ function logErr(label: string, err: unknown) {
   console.error("================================================\n");
 }
 
+function canRegisterProcessHandlers(): boolean {
+  return typeof process !== "undefined" && typeof process.on === "function";
+}
+
 export async function register() {
   if (process.env.NODE_ENV !== "development") return;
+  if (!canRegisterProcessHandlers()) return;
 
   process.on("unhandledRejection", (reason) => {
     logErr("instrumentation unhandledRejection", reason);

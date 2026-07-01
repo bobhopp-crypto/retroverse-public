@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR019504",
+    "kind": "song",
+    "rvtr": "RVTR019504",
+    "generatedAt": "2026-06-28T22:43:49.559Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR019504",
+    "artist": "Taylor Swift Feat. Brendon Urie Of Panic! At The Disco",
+    "title": "Me",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Taylor Swift Feat. Brendon Urie Of Panic! At The Disco",
+    "relatedArtists": [
+      "Taylor Swift Feat. Brendon Urie Of Panic! At The Disco"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-s7j5b1",
+      "title": "!",
+      "kind": "performance",
+      "year": 2019,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift feat. Brendon Urie Of Panic! At The Disco - Me!.mp4",
+      "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-4rbvos",
+      "date": "2019",
+      "label": "Me — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-vuecyb",
+      "date": "2019",
+      "label": "!",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "95a5324e5f2b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR019504&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-s7j5b1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "83d78b7d3d31",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR019504&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-s7j5b1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d2b81d6327a8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR019504&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-s7j5b1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9839f40946f3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR019504&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-s7j5b1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a201d805bed6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR019504&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-s7j5b1",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-s7j5b1",
+        "title": "!",
+        "kind": "performance",
+        "year": 2019,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift feat. Brendon Urie Of Panic! At The Disco - Me!.mp4",
+        "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR019504-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR019504"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Taylor Swift Feat. Brendon Urie Of Panic! At The Disco"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Taylor Swift Feat. Brendon Urie Of Panic! At The Disco"
+    },
+    {
+      "id": "rel-RVTR019504-tl-tl-4rbvos",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR019504"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4rbvos"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Me — original release"
+    },
+    {
+      "id": "rel-RVTR019504-tl-tl-vuecyb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR019504"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vuecyb"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "!"
+    },
+    {
+      "id": "rel-RVTR019504-perf-perf-s7j5b1",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR019504"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-s7j5b1"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "!"
+    },
+    {
+      "id": "rel-perf-s7j5b1-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7j5b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift feat. Brendon Urie Of Panic! At The Disco - Me!.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "!"
+    },
+    {
+      "id": "rel-95a5324e5f2b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7j5b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "95a5324e5f2b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-83d78b7d3d31-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7j5b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "83d78b7d3d31"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d2b81d6327a8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7j5b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d2b81d6327a8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9839f40946f3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7j5b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9839f40946f3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-a201d805bed6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7j5b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a201d805bed6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR019504. \"Me\" by Taylor Swift Feat. Brendon Urie Of Panic! At The Disco.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Taylor Swift feat. Brendon Urie Of Panic! At The Disco · Title: Me! · Album: Taylor Swift - You Belong With Me · Year: 2019 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift feat. Brendon Urie Of Panic! At The Disco - Me!.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ae9b5697",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift feat. Brendon Urie Of Panic! At The Disco - Me!.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-babbd988",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Taylor Swift - Me! (Feat. Brendon Urie Of Panic! At The Disco).mp3 · Performance: Feat. Brendon Urie Of Panic! At The Disco",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "37d54ccb-cd4b-477b-9842-bfd0aa0c82d0",
+      "category": "artist",
+      "text": "Me is performed by Taylor Swift Feat. Brendon Urie Of Panic! At The Disco.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8467ebc0-9d11-42f6-a050-a78d304fba4f",
+      "category": "trivia",
+      "text": "· Album: Taylor Swift - You Belong With Me · Year: 2019 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift feat.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b74c0759-f1c6-459b-a987-819f7ca5ebc7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift feat.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a097ea05-0960-4cb0-b6af-056db25ab848",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Taylor Swift - Me!",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift feat. Brendon Urie Of Panic! At The Disco - Me!.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

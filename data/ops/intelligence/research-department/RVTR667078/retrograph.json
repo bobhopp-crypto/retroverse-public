@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR667078",
+    "kind": "song",
+    "rvtr": "RVTR667078",
+    "generatedAt": "2026-06-28T22:59:00.265Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR667078",
+    "artist": "Deep Dish",
+    "title": "Flashdance",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Deep Dish",
+    "relatedArtists": [
+      "Deep Dish"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-mfqfxp",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Deep Dish - Flashdance.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-5pmocp",
+      "date": "2004",
+      "label": "Flashdance — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d3ac34eb1b05",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR667078&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mfqfxp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "26550d1516b9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR667078&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mfqfxp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9316a1aa1f46",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR667078&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mfqfxp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "87e8e22e933c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR667078&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mfqfxp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0ee83dea2bb6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR667078&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mfqfxp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mfqfxp",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Deep Dish - Flashdance.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR667078-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR667078"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Deep Dish"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Deep Dish"
+    },
+    {
+      "id": "rel-RVTR667078-tl-tl-5pmocp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR667078"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5pmocp"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Flashdance — original release"
+    },
+    {
+      "id": "rel-RVTR667078-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR667078"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR667078-perf-perf-mfqfxp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR667078"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mfqfxp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mfqfxp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mfqfxp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Deep Dish - Flashdance.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d3ac34eb1b05-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mfqfxp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d3ac34eb1b05"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-26550d1516b9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mfqfxp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "26550d1516b9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9316a1aa1f46-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mfqfxp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9316a1aa1f46"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-87e8e22e933c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mfqfxp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "87e8e22e933c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0ee83dea2bb6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mfqfxp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0ee83dea2bb6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR667078. \"Flashdance\" by Deep Dish.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Deep Dish · Title: Flashdance · Album: Flashdance · Year: 2004 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Deep Dish - Flashdance.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-98fa562f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Deep Dish - Flashdance.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5fcf103b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Deep Dish - Flashdance.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-98e1a4a2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Deep Dish - Flashdance.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "93f7e67b-b818-4796-9da2-31e7460ddaa1",
+      "category": "artist",
+      "text": "Flashdance is performed by Deep Dish.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "774d19de-f57b-4126-bb65-da47dfa5be48",
+      "category": "trivia",
+      "text": "Artist: Deep Dish · Title: Flashdance · Album: Flashdance · Year: 2004 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Deep Dish - Flashdance.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ffde50e8-daaa-43d0-bf09-69c7be8c3fc8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Deep Dish - Flashdance.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d4e1cab5-f5d4-4363-8992-6ce038b3b641",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Deep Dish - Flashdance.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5800589e-c7ba-4aee-a763-d3ba926ab1c7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Deep Dish - Flashdance.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Deep Dish - Flashdance.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

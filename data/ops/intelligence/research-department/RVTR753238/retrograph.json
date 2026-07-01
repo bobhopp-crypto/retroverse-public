@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR753238",
+    "kind": "song",
+    "rvtr": "RVTR753238",
+    "generatedAt": "2026-06-28T23:01:29.151Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR753238",
+    "artist": "Kerli",
+    "title": "Love Is Dead",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kerli",
+    "relatedArtists": [
+      "Kerli"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-9iwad1",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Love Is Dead.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-6gvg8w",
+      "date": "2007",
+      "label": "Love Is Dead — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9aa1a3664af9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753238&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-9iwad1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0aed4ecf181f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753238&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-9iwad1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "511f940f8aea",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753238&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-9iwad1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9aabbabeb3a0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753238&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-9iwad1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "295ca31b34a3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753238&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-9iwad1",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-9iwad1",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Love Is Dead.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR753238-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR753238"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kerli"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kerli"
+    },
+    {
+      "id": "rel-RVTR753238-tl-tl-6gvg8w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR753238"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6gvg8w"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Love Is Dead — original release"
+    },
+    {
+      "id": "rel-RVTR753238-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR753238"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR753238-perf-perf-9iwad1",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR753238"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-9iwad1"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-9iwad1-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9iwad1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Love Is Dead.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9aa1a3664af9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9iwad1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9aa1a3664af9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0aed4ecf181f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9iwad1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0aed4ecf181f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-511f940f8aea-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9iwad1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "511f940f8aea"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9aabbabeb3a0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9iwad1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9aabbabeb3a0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-295ca31b34a3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9iwad1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "295ca31b34a3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR753238. \"Love Is Dead\" by Kerli.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kerli · Title: Love Is Dead · Album: Kerli · Year: 2007 · Genre: Europop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Love Is Dead.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d4b022d1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Love Is Dead.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-810b2f45",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Kerli - Love Is Dead.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6a425d29-8abd-448c-9241-2ff5a55c92e7",
+      "category": "artist",
+      "text": "Love Is Dead is performed by Kerli.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f0165bbf-7fc8-4f83-b705-324689b70842",
+      "category": "trivia",
+      "text": "Artist: Kerli · Title: Love Is Dead · Album: Kerli · Year: 2007 · Genre: Europop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Love Is Dead.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9fe887f0-0399-4272-87a9-58ed2dd2d139",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Love Is Dead.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "196d9888-6383-4203-94bb-495060256ee9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Kerli - Love Is Dead.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Love Is Dead.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

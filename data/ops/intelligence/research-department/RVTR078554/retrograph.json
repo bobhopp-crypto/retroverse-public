@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR078554",
+    "kind": "song",
+    "rvtr": "RVTR078554",
+    "generatedAt": "2026-06-28T22:45:02.422Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR078554",
+    "artist": "Vixen",
+    "title": "Cryin'",
+    "year": 1989,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Vixen",
+    "relatedArtists": [
+      "Vixen"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1989,
+    "recordings": [
+      {
+        "id": "rec-vcyh8r",
+        "title": "Cryin' — graph recording",
+        "releaseDate": 1989,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-e5voz1",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1988,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Vixen - Cryin'.mp4",
+      "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 22,
+    "chartWeeks": 13,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #22 · 13 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-dwebxw",
+      "date": "1989",
+      "label": "Cryin' — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gm",
+      "date": "1989",
+      "label": "Billboard Hot 100 peak #22",
+      "detail": "13 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-m6mau7",
+      "date": "1989",
+      "label": "Cryin' — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1988",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e2d494dd94ba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR078554&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-e5voz1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f0029a1f3a8f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR078554&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-e5voz1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f2440008b72b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR078554&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-e5voz1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3b1a1b995fcb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR078554&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-e5voz1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bf6a830debc1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR078554&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-e5voz1",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-e5voz1",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1988,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Vixen - Cryin'.mp4",
+        "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR078554-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR078554"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Vixen"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Vixen"
+    },
+    {
+      "id": "rel-RVTR078554-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR078554"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #22"
+    },
+    {
+      "id": "rel-RVTR078554-tl-tl-dwebxw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR078554"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dwebxw"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Cryin' — original release"
+    },
+    {
+      "id": "rel-RVTR078554-tl-tl-fcm3gm",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR078554"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gm"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #22"
+    },
+    {
+      "id": "rel-RVTR078554-tl-tl-m6mau7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR078554"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-m6mau7"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Cryin' — graph recording"
+    },
+    {
+      "id": "rel-RVTR078554-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR078554"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR078554-perf-perf-e5voz1",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR078554"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-e5voz1"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-e5voz1-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e5voz1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Vixen - Cryin'.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e2d494dd94ba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e5voz1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e2d494dd94ba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f0029a1f3a8f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e5voz1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f0029a1f3a8f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f2440008b72b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e5voz1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f2440008b72b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-3b1a1b995fcb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e5voz1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3b1a1b995fcb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-bf6a830debc1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e5voz1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bf6a830debc1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR078554. \"Cryin'\" by Vixen.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #22. 13 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Vixen · Title: Cryin' · Album: Cryin' · Year: 1988 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Vixen - Cryin'.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1989.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-a8862988",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Vixen - Cryin'.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b2447ed4-c556-408f-a90d-7772127a3bfb",
+      "category": "artist",
+      "text": "Cryin' is performed by Vixen.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8a59b843-a343-4004-b264-a65937b1ad5b",
+      "category": "chart",
+      "text": "The song peaked at #22 on the Billboard Hot 100 and spent 13 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1dfcb9ec-8ea1-4820-8bf6-de63f5de349a",
+      "category": "recording",
+      "text": "Cryin' was released in 1989.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9ef5d6a9-e3ff-43fb-a4f1-e93f7baa3c44",
+      "category": "trivia",
+      "text": "Artist: Vixen · Title: Cryin' · Album: Cryin' · Year: 1988 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Vixen - Cryin'.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4c851ab2-fa2c-4275-9f4b-bd8895947962",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Vixen - Cryin'.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Vixen - Cryin'.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

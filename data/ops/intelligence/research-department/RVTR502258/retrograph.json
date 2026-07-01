@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR502258",
+    "kind": "song",
+    "rvtr": "RVTR502258",
+    "generatedAt": "2026-06-28T22:54:21.746Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR502258",
+    "artist": "Breathe",
+    "title": "How Can I Fall",
+    "year": 1988,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Breathe",
+    "relatedArtists": [
+      "Breathe"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1988,
+    "recordings": [
+      {
+        "id": "rec-ifyecw",
+        "title": "How Can I Fall — graph recording",
+        "releaseDate": 1988,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-oc5ihi",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1988,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Breathe - How Can I Fall.mp4",
+      "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 22,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #3 · 22 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ifb1zu",
+      "date": "1988",
+      "label": "How Can I Fall — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "1988",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "22 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-tht4cn",
+      "date": "1988",
+      "label": "How Can I Fall — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1988",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "11f2b614c255",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502258&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-oc5ihi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3c39605f842e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502258&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-oc5ihi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "25f6a6dc589a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502258&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-oc5ihi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7447bec68471",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502258&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-oc5ihi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6d4aca8bfc4d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502258&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-oc5ihi",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-oc5ihi",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1988,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Breathe - How Can I Fall.mp4",
+        "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR502258-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502258"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Breathe"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Breathe"
+    },
+    {
+      "id": "rel-RVTR502258-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502258"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR502258-tl-tl-ifb1zu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502258"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ifb1zu"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "How Can I Fall — original release"
+    },
+    {
+      "id": "rel-RVTR502258-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502258"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR502258-tl-tl-tht4cn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502258"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tht4cn"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "How Can I Fall — graph recording"
+    },
+    {
+      "id": "rel-RVTR502258-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502258"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR502258-perf-perf-oc5ihi",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502258"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-oc5ihi"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-oc5ihi-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oc5ihi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Breathe - How Can I Fall.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-11f2b614c255-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oc5ihi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "11f2b614c255"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-3c39605f842e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oc5ihi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3c39605f842e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-25f6a6dc589a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oc5ihi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "25f6a6dc589a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7447bec68471-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oc5ihi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7447bec68471"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6d4aca8bfc4d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oc5ihi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6d4aca8bfc4d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR502258. \"How Can I Fall\" by Breathe.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #3. 22 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Breathe · Title: How Can I Fall · Album: How Can I Fall? · Year: 1988 · Genre: Downtempo · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Breathe - How Can I Fall.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1988.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-de26b2be",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Breathe - How Can I Fall.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c6a516dd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Breathe - How Can I Fall.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1192c1e1-ec5e-4d9b-ba62-159f66133592",
+      "category": "artist",
+      "text": "How Can I Fall is performed by Breathe.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3850ae7c-76d1-4afa-ae34-88da96916b2c",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e00ddea8-fae0-4e8a-b524-882a54cf9e9e",
+      "category": "recording",
+      "text": "How Can I Fall was released in 1988.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "779642d8-7e94-4f57-8f15-84581525681a",
+      "category": "trivia",
+      "text": "Artist: Breathe · Title: How Can I Fall · Album: How Can I Fall?",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ae6c91ba-692c-438c-9f73-5abc0a520207",
+      "category": "trivia",
+      "text": "· Year: 1988 · Genre: Downtempo · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Breathe - How Can I Fall.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "83e526e4-a87a-42a4-8111-70bc8c02dfb3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Breathe - How Can I Fall.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "57373cf2-7d6b-4b44-9c25-5ad76bf7f2ed",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Breathe - How Can I Fall.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Breathe - How Can I Fall.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

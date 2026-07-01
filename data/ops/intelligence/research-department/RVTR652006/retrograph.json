@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR652006",
+    "kind": "song",
+    "rvtr": "RVTR652006",
+    "generatedAt": "2026-06-28T22:58:36.815Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR652006",
+    "artist": "War",
+    "title": "Cisco Kid Live",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "War",
+    "relatedArtists": [
+      "War"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-1kt4om",
+      "title": "Live",
+      "kind": "performance",
+      "year": 1973,
+      "venue": "Live",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - Cisco Kid (Live).mp4",
+      "notes": "Performance label: Live. Detected year: 1973. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-1pqs6",
+      "title": "The Cisco Kid",
+      "kind": "performance",
+      "year": 1972,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - The Cisco Kid.mp4",
+      "notes": "Detected year: 1972. VirtualDJ play count: 4. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k42geu",
+      "date": "1973",
+      "label": "Live",
+      "detail": "Live",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-jxco0s",
+      "date": "1972",
+      "label": "The Cisco Kid",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.6,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b4e319562fe4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR652006&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-1kt4om",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0b3fe72920a6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR652006&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-1kt4om",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1ab393e45be4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR652006&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-1kt4om",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "95873aec8034",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR652006&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-1kt4om",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "109aa83ada5f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR652006&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-1kt4om",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-1kt4om",
+        "title": "Live",
+        "kind": "performance",
+        "year": 1973,
+        "venue": "Live",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - Cisco Kid (Live).mp4",
+        "notes": "Performance label: Live. Detected year: 1973. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-1pqs6",
+        "title": "The Cisco Kid",
+        "kind": "performance",
+        "year": 1972,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - The Cisco Kid.mp4",
+        "notes": "Detected year: 1972. VirtualDJ play count: 4. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR652006-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR652006"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "War"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "War"
+    },
+    {
+      "id": "rel-RVTR652006-tl-tl-k42geu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR652006"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k42geu"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "Live"
+    },
+    {
+      "id": "rel-RVTR652006-tl-tl-jxco0s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR652006"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jxco0s"
+      },
+      "confidence": 0.6,
+      "source": "owned video",
+      "label": "The Cisco Kid"
+    },
+    {
+      "id": "rel-RVTR652006-perf-perf-1kt4om",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR652006"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1kt4om"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Live"
+    },
+    {
+      "id": "rel-perf-1kt4om-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1kt4om"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - Cisco Kid (Live).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Live"
+    },
+    {
+      "id": "rel-RVTR652006-perf-perf-1pqs6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR652006"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1pqs6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "The Cisco Kid"
+    },
+    {
+      "id": "rel-perf-1pqs6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1pqs6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - The Cisco Kid.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "The Cisco Kid"
+    },
+    {
+      "id": "rel-b4e319562fe4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1kt4om"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b4e319562fe4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0b3fe72920a6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1kt4om"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0b3fe72920a6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1ab393e45be4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1kt4om"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1ab393e45be4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-95873aec8034-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1kt4om"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "95873aec8034"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-109aa83ada5f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1kt4om"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "109aa83ada5f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR652006. \"Cisco Kid Live\" by War.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: War · Title: Cisco Kid (Live) · Album: Icon 2 - The Hits & More · Year: 1973 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - Cisco Kid (Live).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0e191398",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - Cisco Kid (Live).mp4 · Performance: Live",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-63b726f0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - The Cisco Kid.mp4 · Plays: 4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0388b5cd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/War - Cisco Kid.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-72b4f515",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/War - Cisco Kid.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-33d0f3ea",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/War - The Cisco Kid.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "10835fb1-8a2d-44b2-90d7-7d4eb223d490",
+      "category": "artist",
+      "text": "Cisco Kid Live is performed by War.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "58823391-5296-42e6-95ab-b68c9b64bf6b",
+      "category": "trivia",
+      "text": "Artist: War · Title: Cisco Kid (Live) · Album: Icon 2 - The Hits & More · Year: 1973 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - Cisco Kid (Live).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9f5cacbf-aee6-4eea-bb27-c66e352e8ccb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - Cisco Kid (Live).mp4 · Performance: Live",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f505877d-a619-41ef-9a23-b69436bb9e38",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - The Cisco Kid.mp4 · Plays: 4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "02941a4c-ce7a-4683-9eb1-60ff63e536f6",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/War - Cisco Kid.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "95a82b62-8f35-4f76-a427-833bdeabeb8b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/War - Cisco Kid.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6aeb07e0-aa18-4a80-bcba-f9941681b129",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/War - The Cisco Kid.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 1,
+    "pending": 6,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/War - Cisco Kid (Live).mp4",
+    "tags": [],
+    "mediaItemCount": 5
+  },
+  "relatedSongs": []
+}

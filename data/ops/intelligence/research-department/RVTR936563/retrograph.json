@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR936563",
+    "kind": "song",
+    "rvtr": "RVTR936563",
+    "generatedAt": "2026-06-28T22:42:37.308Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR936563",
+    "artist": "Disco Tex And His Sex O Lettes",
+    "title": "Get Dancin'",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Disco Tex And His Sex O Lettes",
+    "relatedArtists": [
+      "Disco Tex And His Sex O Lettes"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-bnp2wm",
+      "title": "Live",
+      "kind": "performance",
+      "year": 1974,
+      "venue": "Live",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Disco Tex and his sex o lettes - Get Dancin' 1974 Top of the pops live recording and remastered.mp4",
+      "notes": "Performance label: Live. Detected year: 1974. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ue7v1m",
+      "date": "1974",
+      "label": "Get Dancin' — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k42geu",
+      "date": "1974",
+      "label": "Live",
+      "detail": "Live · Top of the pops",
+      "domain": "performance",
+      "confidence": 1,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "179001da9242",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936563&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-bnp2wm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "98449393453b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936563&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-bnp2wm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2c1472a5d8ea",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936563&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-bnp2wm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3c1dc96a6e25",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936563&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-bnp2wm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2ae76eb4db5e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936563&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-bnp2wm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-bnp2wm",
+        "title": "Live",
+        "kind": "performance",
+        "year": 1974,
+        "venue": "Live",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Disco Tex and his sex o lettes - Get Dancin' 1974 Top of the pops live recording and remastered.mp4",
+        "notes": "Performance label: Live. Detected year: 1974. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR936563-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936563"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Disco Tex And His Sex O Lettes"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Disco Tex And His Sex O Lettes"
+    },
+    {
+      "id": "rel-RVTR936563-tl-tl-ue7v1m",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936563"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ue7v1m"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Get Dancin' — original release"
+    },
+    {
+      "id": "rel-RVTR936563-tl-tl-k42geu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936563"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k42geu"
+      },
+      "confidence": 1,
+      "source": "owned video",
+      "label": "Live"
+    },
+    {
+      "id": "rel-RVTR936563-perf-perf-bnp2wm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936563"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-bnp2wm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Live"
+    },
+    {
+      "id": "rel-perf-bnp2wm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bnp2wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Disco Tex and his sex o lettes - Get Dancin' 1974 Top of the pops live recording and remastered.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Live"
+    },
+    {
+      "id": "rel-179001da9242-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bnp2wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "179001da9242"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-98449393453b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bnp2wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "98449393453b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-2c1472a5d8ea-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bnp2wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2c1472a5d8ea"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-3c1dc96a6e25-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bnp2wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3c1dc96a6e25"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2ae76eb4db5e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bnp2wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2ae76eb4db5e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR936563. \"Get Dancin'\" by Disco Tex And His Sex O Lettes.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Disco Tex and His Sex O Lettes · Title: Get Dancin'  · Year: 1974 · Genre: Disco · PlayCount: 1 · LastPlayed: 1764572136 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Disco Tex and his sex o lettes - Get Dancin' 1974 Top of the pops live recording and remastered.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-bfd9d7c8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Disco Tex and his sex o lettes - Get Dancin' 1974 Top of the pops live recording and remastered.mp4 · Plays: 1 · Performance: Live",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6c1be60d-1138-410c-9929-3732cf7f2f02",
+      "category": "artist",
+      "text": "Get Dancin' is performed by Disco Tex And His Sex O Lettes.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e0265456-1dfc-4781-8537-b778295e9110",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9408b24f-c2a6-4590-a219-966f9af85851",
+      "category": "trivia",
+      "text": "\"Get Dancin'\" by Disco Tex And His Sex O Lettes.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2c91b710-81ea-42e6-b961-20d525794832",
+      "category": "trivia",
+      "text": "Artist: Disco Tex and His Sex O Lettes · Title: Get Dancin'  · Year: 1974 · Genre: Disco · PlayCount: 1 · LastPlayed: 1764572136 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Disco Tex and his sex o lettes - Get Dancin' 1974 Top of the pops live recording and remastered.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aaa2c620-89fc-4e66-9eb5-433d9ef10ed5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Disco Tex and his sex o lettes - Get Dancin' 1974 Top of the pops live recording and remastered.mp4 · Plays: 1 · Performance: Live",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Disco Tex and his sex o lettes - Get Dancin' 1974 Top of the pops live recording and remastered.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

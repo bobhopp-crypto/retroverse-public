@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR185559",
+    "kind": "song",
+    "rvtr": "RVTR185559",
+    "generatedAt": "2026-06-28T22:47:33.579Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR185559",
+    "artist": "Adele",
+    "title": "Rumor Has It",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Adele",
+    "relatedArtists": [
+      "Adele"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-tzl21h",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2012,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Rumor Has It.mp4",
+      "notes": "Detected year: 2012. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-8xdt94",
+      "date": "2012",
+      "label": "Rumor Has It — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2012",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "2b6487823839",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR185559&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-tzl21h",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "895e7abc0387",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR185559&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-tzl21h",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f71f428ff1ce",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR185559&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-tzl21h",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6428d7c2040e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR185559&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-tzl21h",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2c12a511100a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR185559&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-tzl21h",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-tzl21h",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2012,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Rumor Has It.mp4",
+        "notes": "Detected year: 2012. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR185559-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR185559"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Adele"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Adele"
+    },
+    {
+      "id": "rel-RVTR185559-tl-tl-8xdt94",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR185559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8xdt94"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Rumor Has It — original release"
+    },
+    {
+      "id": "rel-RVTR185559-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR185559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR185559-perf-perf-tzl21h",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR185559"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-tzl21h"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-tzl21h-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tzl21h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Rumor Has It.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-2b6487823839-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tzl21h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2b6487823839"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-895e7abc0387-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tzl21h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "895e7abc0387"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f71f428ff1ce-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tzl21h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f71f428ff1ce"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6428d7c2040e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tzl21h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6428d7c2040e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2c12a511100a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tzl21h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2c12a511100a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR185559. \"Rumor Has It\" by Adele.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Adele · Title: Rumor Has It · Album: Greatest Hits · Year: 2012 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Rumor Has It.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-04ab4090",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Rumor Has It.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2dd4510b-a2cd-41b8-86bb-15f2e129346d",
+      "category": "artist",
+      "text": "Rumor Has It is performed by Adele.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "72075f74-f456-4027-8f0e-f79c0ba4b77e",
+      "category": "trivia",
+      "text": "Artist: Adele · Title: Rumor Has It · Album: Greatest Hits · Year: 2012 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Rumor Has It.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "04e89dee-5df4-44d7-b5e0-227a33db9fd9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Rumor Has It.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Rumor Has It.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

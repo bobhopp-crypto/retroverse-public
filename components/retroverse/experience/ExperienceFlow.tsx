@@ -1,3 +1,5 @@
+"use client";
+
 import { BehindTheStory } from "@/components/retroverse/experience/BehindTheStory";
 import { BeyondTheCharts } from "@/components/retroverse/experience/BeyondTheCharts";
 import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";

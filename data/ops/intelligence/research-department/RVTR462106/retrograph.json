@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR462106",
+    "kind": "song",
+    "rvtr": "RVTR462106",
+    "generatedAt": "2026-06-28T22:53:25.275Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR462106",
+    "artist": "Dmx",
+    "title": "Ain't No Sunshine",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dmx",
+    "relatedArtists": [
+      "Dmx"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ikpzln",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1994,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Dmx - Ain't No Sunshine.mp4",
+      "notes": "Detected year: 1994. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-yvf0s5",
+      "date": "1994",
+      "label": "Ain't No Sunshine — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1994",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f3351490aed0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR462106&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ikpzln",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9b5098e0be08",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR462106&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ikpzln",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3747055e25fa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR462106&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ikpzln",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1f06e77fc8bc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR462106&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ikpzln",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "167401bc4ad4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR462106&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ikpzln",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ikpzln",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1994,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Dmx - Ain't No Sunshine.mp4",
+        "notes": "Detected year: 1994. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR462106-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR462106"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dmx"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dmx"
+    },
+    {
+      "id": "rel-RVTR462106-tl-tl-yvf0s5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR462106"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yvf0s5"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Ain't No Sunshine — original release"
+    },
+    {
+      "id": "rel-RVTR462106-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR462106"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR462106-perf-perf-ikpzln",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR462106"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ikpzln"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ikpzln-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ikpzln"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Dmx - Ain't No Sunshine.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f3351490aed0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ikpzln"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f3351490aed0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9b5098e0be08-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ikpzln"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9b5098e0be08"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-3747055e25fa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ikpzln"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3747055e25fa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1f06e77fc8bc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ikpzln"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1f06e77fc8bc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-167401bc4ad4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ikpzln"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "167401bc4ad4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR462106. \"Ain't No Sunshine\" by Dmx.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dmx · Title: Ain't No Sunshine · Album: Funky Mix · Year: 1994 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Dmx - Ain't No Sunshine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c8be5e6d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Dmx - Ain't No Sunshine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-68fbca8c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/DMX - Aint No Sunshine.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2b9ab0a9-7dd5-4727-8a5c-f125e28d2b65",
+      "category": "artist",
+      "text": "Ain't No Sunshine is performed by Dmx.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ec8ce818-eff0-4110-8f2d-f46d36d3562b",
+      "category": "trivia",
+      "text": "Artist: Dmx · Title: Ain't No Sunshine · Album: Funky Mix · Year: 1994 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Dmx - Ain't No Sunshine.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "07490a9b-1834-42df-bece-6ff677ac4036",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Dmx - Ain't No Sunshine.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3ec1b99e-4124-40b3-afbd-7395fd6c5386",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/DMX - Aint No Sunshine.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Dmx - Ain't No Sunshine.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

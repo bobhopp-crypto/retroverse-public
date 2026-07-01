@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR423027",
+    "kind": "song",
+    "rvtr": "RVTR423027",
+    "generatedAt": "2026-06-28T22:52:31.169Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR423027",
+    "artist": "Thinkman",
+    "title": "The Formula",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Thinkman",
+    "relatedArtists": [
+      "Thinkman"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-1jgh0i",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1986,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Thinkman - The Formula.mp4",
+      "notes": "Detected year: 1986. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-i1qpwb",
+      "date": "1986",
+      "label": "The Formula — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1986",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "541a6f8b1473",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR423027&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-1jgh0i",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b1e298b085b2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR423027&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-1jgh0i",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "21b4a3569060",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR423027&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-1jgh0i",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5821a7e0a263",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR423027&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-1jgh0i",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "947e55649a56",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR423027&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-1jgh0i",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-1jgh0i",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1986,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Thinkman - The Formula.mp4",
+        "notes": "Detected year: 1986. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR423027-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR423027"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Thinkman"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Thinkman"
+    },
+    {
+      "id": "rel-RVTR423027-tl-tl-i1qpwb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR423027"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i1qpwb"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "The Formula — original release"
+    },
+    {
+      "id": "rel-RVTR423027-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR423027"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR423027-perf-perf-1jgh0i",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR423027"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1jgh0i"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-1jgh0i-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1jgh0i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Thinkman - The Formula.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-541a6f8b1473-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1jgh0i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "541a6f8b1473"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b1e298b085b2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1jgh0i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b1e298b085b2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-21b4a3569060-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1jgh0i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "21b4a3569060"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5821a7e0a263-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1jgh0i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5821a7e0a263"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-947e55649a56-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1jgh0i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "947e55649a56"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR423027. \"The Formula\" by Thinkman.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Thinkman · Title: The Formula · Album: The Formula · Year: 1986 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Thinkman - The Formula.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c5227bb7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Thinkman - The Formula.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0599184f-53a3-4ccf-96c2-91ec0a17298a",
+      "category": "artist",
+      "text": "The Formula is performed by Thinkman.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "270a3d26-153d-435a-b232-52012e8c93f4",
+      "category": "trivia",
+      "text": "Artist: Thinkman · Title: The Formula · Album: The Formula · Year: 1986 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Thinkman - The Formula.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "76d76236-8fa1-4e7e-b43f-236a91b61ef1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Thinkman - The Formula.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Thinkman - The Formula.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

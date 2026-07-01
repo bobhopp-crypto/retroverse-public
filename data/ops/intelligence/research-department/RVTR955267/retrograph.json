@@ -1,0 +1,474 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR955267",
+    "kind": "song",
+    "rvtr": "RVTR955267",
+    "generatedAt": "2026-06-28T22:42:49.080Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR955267",
+    "artist": "Carl Perkins",
+    "title": "Blue Suede Shoes",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Carl Perkins",
+    "relatedArtists": [
+      "Carl Perkins"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-yhm8xg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1956,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4",
+      "notes": "Detected year: 1956. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-3brffq",
+      "date": "1956",
+      "label": "Blue Suede Shoes — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1956",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d4c5d5ff5956",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955267&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yhm8xg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b822c21996f4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955267&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yhm8xg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a16a5e899999",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955267&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yhm8xg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5dd807314e68",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955267&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yhm8xg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a20a26ab2f72",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955267&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yhm8xg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yhm8xg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1956,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4",
+        "notes": "Detected year: 1956. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR955267-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR955267"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Carl Perkins"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Carl Perkins"
+    },
+    {
+      "id": "rel-RVTR955267-tl-tl-3brffq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR955267"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3brffq"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Blue Suede Shoes — original release"
+    },
+    {
+      "id": "rel-RVTR955267-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR955267"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR955267-perf-perf-yhm8xg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR955267"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yhm8xg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yhm8xg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yhm8xg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d4c5d5ff5956-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yhm8xg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d4c5d5ff5956"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b822c21996f4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yhm8xg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b822c21996f4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a16a5e899999-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yhm8xg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a16a5e899999"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5dd807314e68-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yhm8xg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5dd807314e68"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-a20a26ab2f72-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yhm8xg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a20a26ab2f72"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR955267. \"Blue Suede Shoes\" by Carl Perkins.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Carl Perkins · Title: Blue Suede Shoes · Album: Blue Suede Shoes · Year: 1956 · Genre: Rock · PlayCount: 1 · LastPlayed: 1759733378 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a0b303bb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5d53350b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1950/Fill/Blue Suede Shoes.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3d9dcb82",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/UNFILED/Blue Suede Shoes - Carl Perkins.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8debf895",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1950/Fill/Carl Perkins - Blue Suede Shoes.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ca447908",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1950/Carl Perkins - Blue Swede Shoes.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "17413947-768f-4a20-b852-f96fdaffae39",
+      "category": "artist",
+      "text": "Blue Suede Shoes is performed by Carl Perkins.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5030642f-fdcb-44e9-81da-aa88cb095e00",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "3eafbe6f-2209-49e4-9b44-a00ae30c4448",
+      "category": "trivia",
+      "text": "Artist: Carl Perkins · Title: Blue Suede Shoes · Album: Blue Suede Shoes · Year: 1956 · Genre: Rock · PlayCount: 1 · LastPlayed: 1759733378 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6e5c505b-23ca-48cc-91ee-258498a69bae",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4b1ddbad-4bca-4b8c-ae39-705e60a05739",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1950/Fill/Blue Suede Shoes.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "43a84e7a-036d-42b7-aa28-c9aa995d53f3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/UNFILED/Blue Suede Shoes - Carl Perkins.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4046182a-bab1-47a8-8220-2be1149ba214",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1950/Fill/Carl Perkins - Blue Suede Shoes.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8c11f76b-2397-42fc-a64d-204ed8a062e7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1950/Carl Perkins - Blue Swede Shoes.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 8,
+    "accepted": 2,
+    "pending": 6,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4",
+    "tags": [],
+    "mediaItemCount": 5
+  },
+  "relatedSongs": []
+}

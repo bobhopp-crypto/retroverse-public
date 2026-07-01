@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR736137",
+    "kind": "song",
+    "rvtr": "RVTR736137",
+    "generatedAt": "2026-06-28T23:00:53.196Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR736137",
+    "artist": "Air",
+    "title": "Sexy Boy",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Air",
+    "relatedArtists": [
+      "Air"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-9n0p6p",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1998,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+      "notes": "Detected year: 1998. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-6jjtc2",
+      "title": "Sexy",
+      "kind": "performance",
+      "year": 2001,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+      "notes": "Detected year: 2001. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "1998",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-bw60mf",
+      "date": "2001",
+      "label": "Sexy",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "854f79ea471d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR736137&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-9n0p6p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "699e43aab84b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR736137&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-9n0p6p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d4013aab60f7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR736137&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-9n0p6p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f7def8403700",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR736137&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-9n0p6p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e17e4775d5cc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR736137&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-9n0p6p",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-9n0p6p",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1998,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+        "notes": "Detected year: 1998. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-6jjtc2",
+        "title": "Sexy",
+        "kind": "performance",
+        "year": 2001,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+        "notes": "Detected year: 2001. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR736137-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR736137"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Air"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Air"
+    },
+    {
+      "id": "rel-RVTR736137-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR736137"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR736137-tl-tl-bw60mf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR736137"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bw60mf"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Sexy"
+    },
+    {
+      "id": "rel-RVTR736137-perf-perf-9n0p6p",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR736137"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-9n0p6p-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR736137-perf-perf-6jjtc2",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR736137"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Sexy"
+    },
+    {
+      "id": "rel-perf-6jjtc2-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Sexy"
+    },
+    {
+      "id": "rel-854f79ea471d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "854f79ea471d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-699e43aab84b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "699e43aab84b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d4013aab60f7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d4013aab60f7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f7def8403700-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f7def8403700"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e17e4775d5cc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e17e4775d5cc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR736137. \"Sexy Boy\" by Air.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Air · Title: Sexy Boy · Album: AIR French Band - Sexy Boy · Year: 1998 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-96f3d27a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8efc8093",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "af304b14-d680-48e6-b84f-bab0831cce8d",
+      "category": "artist",
+      "text": "Sexy Boy is performed by Air.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b7e838f9-ed66-4bf3-b1b8-d73bc23ad850",
+      "category": "trivia",
+      "text": "Artist: Air · Title: Sexy Boy · Album: AIR French Band - Sexy Boy · Year: 1998 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a55a041d-29f6-4c2e-ac35-32cc5742de04",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f1d65026-48f2-4b27-b5f1-49936cff0554",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

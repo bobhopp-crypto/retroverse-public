@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR328510",
+    "kind": "song",
+    "rvtr": "RVTR328510",
+    "generatedAt": "2026-06-28T22:50:44.159Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR328510",
+    "artist": "DJ Russ Harris F.dj Keri & Bam Bam Buddha",
+    "title": "Drums In The Club",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "DJ Russ Harris F.dj Keri & Bam Bam Buddha",
+    "relatedArtists": [
+      "DJ Russ Harris F.dj Keri & Bam Bam Buddha"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-6firka",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Russ Harris f.DJ Keri & Bam Bam Buddha - Drums In The Club.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-8pw6mn",
+      "date": "2007",
+      "label": "Drums In The Club — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "edce5053d390",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR328510&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6firka",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "07ba63d32f3b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR328510&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6firka",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "26d382c4719b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR328510&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6firka",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8043ac462b76",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR328510&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6firka",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "514e26607b29",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR328510&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6firka",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6firka",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Russ Harris f.DJ Keri & Bam Bam Buddha - Drums In The Club.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR328510-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR328510"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "DJ Russ Harris F.dj Keri & Bam Bam Buddha"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "DJ Russ Harris F.dj Keri & Bam Bam Buddha"
+    },
+    {
+      "id": "rel-RVTR328510-tl-tl-8pw6mn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR328510"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8pw6mn"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Drums In The Club — original release"
+    },
+    {
+      "id": "rel-RVTR328510-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR328510"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR328510-perf-perf-6firka",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR328510"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6firka"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6firka-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6firka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Russ Harris f.DJ Keri & Bam Bam Buddha - Drums In The Club.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-edce5053d390-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6firka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "edce5053d390"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-07ba63d32f3b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6firka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "07ba63d32f3b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-26d382c4719b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6firka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "26d382c4719b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-8043ac462b76-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6firka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8043ac462b76"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-514e26607b29-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6firka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "514e26607b29"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR328510. \"Drums In The Club\" by DJ Russ Harris F.dj Keri & Bam Bam Buddha.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: DJ Russ Harris f.DJ Keri & Bam Bam Buddha · Title: Drums In The Club · Album: DJ Russ Harris W/ DJ Keri & Bam Bam Buddha - Drums In The Club · Year: 2007 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Russ Harris f.DJ Keri & Bam Bam Buddha - Drums In The Club.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7cc22331",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Russ Harris f.DJ Keri & Bam Bam Buddha - Drums In The Club.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b5b40b89-2460-422d-9600-b403177e2700",
+      "category": "artist",
+      "text": "Drums In The Club is performed by DJ Russ Harris F.dj Keri & Bam Bam Buddha.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ceb47743-de40-43de-bd84-08a3482fea00",
+      "category": "trivia",
+      "text": "\"Drums In The Club\" by DJ Russ Harris F.dj Keri & Bam Bam Buddha.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "79ea0271-7f4a-4d65-a9ac-98e07bd129f9",
+      "category": "trivia",
+      "text": "Artist: DJ Russ Harris f.DJ Keri & Bam Bam Buddha · Title: Drums In The Club · Album: DJ Russ Harris W/ DJ Keri & Bam Bam Buddha - Drums In The Club · Year: 2007 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Russ Harris f.DJ Keri & Bam Bam Buddha - Drums In The Club.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b424421f-210b-4ca1-b28d-05bb6c2a263f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Russ Harris f.DJ Keri & Bam Bam Buddha - Drums In The Club.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Russ Harris f.DJ Keri & Bam Bam Buddha - Drums In The Club.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

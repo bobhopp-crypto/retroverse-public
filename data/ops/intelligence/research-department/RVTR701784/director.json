@@ -1,0 +1,2632 @@
+{
+  "version": "0.3",
+  "rvtr": "RVTR701784",
+  "artist": "Brandy",
+  "title": "What About Us",
+  "generatedAt": "2026-06-28T22:59:55.286Z",
+  "handoffVersion": 2,
+  "experiencePlan": {
+    "version": "0.3",
+    "opening": "What About Us is performed by Brandy.",
+    "closing": "Brandy's \"What About Us\" reached #7 on the Billboard Hot 100. The song peaked at #7 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "sceneType": "hero",
+        "title": "Song Identity",
+        "headline": "What About Us",
+        "supportingCopy": "",
+        "narrativePurpose": "story:hero:exhibit:hero:identity:page:page-hero:identity-0",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "hero",
+          "displayName": "Song Identity",
+          "confidence": 92,
+          "reason": "Story page — hero"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Ready"
+      },
+      {
+        "sceneNumber": 2,
+        "sceneType": "story",
+        "title": "Introduction",
+        "headline": "Why this song matters",
+        "supportingCopy": "What About Us is performed by Brandy.",
+        "narrativePurpose": "story:introduction:exhibit:introduction:opening_hook:page:page-introduction:opening_hook-1",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "quote",
+          "displayName": "Introduction",
+          "confidence": 92,
+          "reason": "Story page — introduction"
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready"
+      },
+      {
+        "sceneNumber": 3,
+        "sceneType": "performance",
+        "title": "Official Video",
+        "headline": "Official music video",
+        "supportingCopy": "Primary music video capture",
+        "narrativePurpose": "story:performance_history:exhibit:performance_history:official_video:page:page-performance_history:official_video-3",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "d48f954317bb",
+          "99c022142099"
+        ],
+        "linkedPerformanceId": "perf-ev38ho",
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "performance",
+          "displayName": "Official Video",
+          "confidence": 92,
+          "reason": "Story page — performance_history"
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready"
+      },
+      {
+        "sceneNumber": 4,
+        "sceneType": "image",
+        "title": "Live Moments",
+        "headline": "Live on stage",
+        "supportingCopy": "Stage and crowd energy",
+        "narrativePurpose": "story:performance_history:exhibit:performance_history:live_moments:page:page-performance_history:live_moments-4",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "ac8e956dd124",
+          "8ca03983e19c"
+        ],
+        "linkedPerformanceId": "perf-ev38ho",
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Live Moments",
+          "confidence": 92,
+          "reason": "Story page — performance_history"
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready"
+      },
+      {
+        "sceneNumber": 5,
+        "sceneType": "chart",
+        "title": "Chart Journey",
+        "headline": "Hot 100 #7",
+        "supportingCopy": "The song peaked at #7 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+        "narrativePurpose": "story:chart_journey:exhibit:chart_journey:peak_moment:page:page-chart_journey:peak_moment-2",
+        "linkedFactIds": [
+          "d1057f5c-28e6-48a3-a27a-8800d4c64d16"
+        ],
+        "linkedImageAssetIds": [
+          "f69a8d0b26ee"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 9,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart Journey",
+          "confidence": 92,
+          "reason": "Story page — chart_journey"
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready"
+      },
+      {
+        "sceneNumber": 6,
+        "sceneType": "image",
+        "title": "Song DNA",
+        "headline": "Song DNA",
+        "supportingCopy": "Tempo, key, and energy — the musical fingerprint of this track.",
+        "narrativePurpose": "story:song_dna:exhibit:song_dna:musical_fingerprint:page:page-song_dna:musical_fingerprint-5",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Song DNA",
+          "confidence": 92,
+          "reason": "Story page — song_dna"
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready"
+      }
+    ],
+    "estimatedRuntimeSec": 49,
+    "targetRuntimeSec": {
+      "min": 49,
+      "max": 79
+    },
+    "primaryPerformance": {
+      "performanceId": "perf-ev38ho",
+      "title": "Official Video · 2001",
+      "reason": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2001 performance helps anchor the narrative.."
+    },
+    "visualRhythm": "moderate",
+    "presentationStyle": "documentary",
+    "templateLibraryVersion": "storytelling-3.36"
+  },
+  "storyPlan": {
+    "version": 5,
+    "generatedAt": "2026-06-28T22:59:55.286Z",
+    "retrographSummary": {
+      "rvtr": "RVTR701784",
+      "artist": "Brandy",
+      "title": "What About Us",
+      "factCount": 8,
+      "pendingFactCount": 4,
+      "mediaCount": 5,
+      "relationshipCount": 13,
+      "timelineCount": 4
+    },
+    "discoveries": [
+      {
+        "id": "performance_footage",
+        "title": "Live Performance Footage",
+        "whyItMatters": "Owned performance captures show the song on stage — beyond the studio take.",
+        "category": "rare_footage",
+        "factIds": [],
+        "mediaIds": [
+          "99c022142099",
+          "f69a8d0b26ee",
+          "ac8e956dd124",
+          "d48f954317bb",
+          "8ca03983e19c"
+        ],
+        "relationshipIds": [],
+        "confidence": 90,
+        "potentialExperiences": [
+          "Performance History",
+          "Official Video"
+        ],
+        "status": "used",
+        "ignoreReason": null,
+        "rank": 1,
+        "scores": {
+          "audienceInterest": 77,
+          "historicalSignificance": 68,
+          "emotionalImpact": 81,
+          "visualPotential": 82,
+          "researchConfidence": 90,
+          "uniqueness": 72,
+          "composite": 78
+        }
+      },
+      {
+        "id": "chart_longevity",
+        "title": "25 Weeks on the Hot 100",
+        "whyItMatters": "Peak #6 with 25 weeks on chart — staying power, not a one-week flash.",
+        "category": "chart_journey",
+        "factIds": [
+          "d1057f5c-28e6-48a3-a27a-8800d4c64d16"
+        ],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl"
+        ],
+        "confidence": 94,
+        "potentialExperiences": [
+          "Chart Journey",
+          "Legacy"
+        ],
+        "status": "used",
+        "ignoreReason": null,
+        "rank": 2,
+        "scores": {
+          "audienceInterest": 80,
+          "historicalSignificance": 71,
+          "emotionalImpact": 66,
+          "visualPotential": 68,
+          "researchConfidence": 94,
+          "uniqueness": 75,
+          "composite": 75
+        }
+      },
+      {
+        "id": "missing_research_depth",
+        "title": "Unexplored Artist Depth",
+        "whyItMatters": "Artist relationship depth is unknown — interesting gap worth researching.",
+        "category": "missing_research",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [],
+        "confidence": 55,
+        "potentialExperiences": [
+          "Artist Journey",
+          "Research Brief"
+        ],
+        "status": "ignored",
+        "ignoreReason": "Research gap — recommend Collector follow-up",
+        "rank": 3,
+        "scores": {
+          "audienceInterest": 47,
+          "historicalSignificance": 41,
+          "emotionalImpact": 39,
+          "visualPotential": 45,
+          "researchConfidence": 55,
+          "uniqueness": 44,
+          "composite": 45
+        }
+      }
+    ],
+    "opportunities": [
+      {
+        "id": "opp-structural-hero",
+        "title": "Structural — hero",
+        "discoveryId": "",
+        "storyId": "hero",
+        "exhibitHints": [],
+        "priority": 0,
+        "compositeScore": 100
+      },
+      {
+        "id": "opp-performance_footage-performance_history",
+        "title": "Live Performance Footage → performance history",
+        "discoveryId": "performance_footage",
+        "storyId": "performance_history",
+        "exhibitHints": [
+          "Performance History",
+          "Official Video"
+        ],
+        "priority": 1,
+        "compositeScore": 78
+      },
+      {
+        "id": "opp-structural-introduction",
+        "title": "Structural — introduction",
+        "discoveryId": "",
+        "storyId": "introduction",
+        "exhibitHints": [],
+        "priority": 1,
+        "compositeScore": 100
+      },
+      {
+        "id": "opp-chart_longevity-chart_journey",
+        "title": "25 Weeks on the Hot 100 → chart journey",
+        "discoveryId": "chart_longevity",
+        "storyId": "chart_journey",
+        "exhibitHints": [
+          "Chart Journey",
+          "Legacy"
+        ],
+        "priority": 2,
+        "compositeScore": 75
+      },
+      {
+        "id": "opp-structural-song_dna",
+        "title": "Structural — song dna",
+        "discoveryId": "",
+        "storyId": "song_dna",
+        "exhibitHints": [],
+        "priority": 50,
+        "compositeScore": 100
+      }
+    ],
+    "narrativeChapters": [
+      {
+        "id": "life_of_the_song",
+        "title": "The Life of the Song",
+        "thesis": "How the track was written, recorded, released, and climbed the charts.",
+        "discoveryIds": [
+          "chart_longevity"
+        ],
+        "storyIds": [
+          "hero",
+          "introduction",
+          "recording_story",
+          "album_story",
+          "chart_journey",
+          "artist_journey",
+          "legacy"
+        ],
+        "opportunityIds": [
+          "opp-structural-hero",
+          "opp-structural-introduction",
+          "opp-chart_longevity-chart_journey"
+        ],
+        "order": 1
+      },
+      {
+        "id": "watching_the_song",
+        "title": "Watching the Song",
+        "thesis": "Performance footage, video, and the song's musical fingerprint.",
+        "discoveryIds": [
+          "performance_footage"
+        ],
+        "storyIds": [
+          "performance_history",
+          "song_dna"
+        ],
+        "opportunityIds": [
+          "opp-performance_footage-performance_history",
+          "opp-structural-song_dna"
+        ],
+        "order": 2
+      },
+      {
+        "id": "crossing_borders",
+        "title": "Crossing Borders",
+        "thesis": "How a US hit grew into an international success.",
+        "discoveryIds": [],
+        "storyIds": [
+          "cultural_impact",
+          "chart_journey"
+        ],
+        "opportunityIds": [],
+        "order": 3
+      }
+    ],
+    "discoveryCoverage": {
+      "discoveriesFound": 3,
+      "discoveriesUsed": 2,
+      "discoveriesIgnored": 1,
+      "ignored": [
+        {
+          "id": "missing_research_depth",
+          "title": "Unexplored Artist Depth",
+          "reason": "Research gap — recommend Collector follow-up"
+        }
+      ],
+      "unusedFactIds": [
+        "806dc01b-5eaf-44ac-9b01-4d2f127e85dd",
+        "aa243f95-0585-42a0-bd50-d2628993e942",
+        "8b6020cb-8c35-469b-bfa6-eff311669d5a",
+        "2bfeb2d2-e5ff-4c97-af5a-5ceb3c501d9a",
+        "01d1fd4a-bf97-4d48-88c4-60d7d942e2eb",
+        "70c01677-8ec7-438f-980f-42deb0f0b1d9",
+        "4ddbde65-71de-43e4-9818-2a2aeac88d33"
+      ],
+      "unusedMediaIds": [],
+      "unusedRelationshipIds": []
+    },
+    "experienceConcepts": [
+      {
+        "storyId": "hero",
+        "storyTitle": "Rise of the Song",
+        "conceptTitle": "Cinematic Opening",
+        "experienceType": "cinematic_opening",
+        "mood": "Grand",
+        "primaryMedia": "Album cover hero",
+        "supportingMedia": [
+          "Artist name",
+          "Release year",
+          "Title typography"
+        ],
+        "animation": "Slow zoom into cover art with title reveal",
+        "narration": "Every great song has a moment the world first heard it.",
+        "visualPriority": 5,
+        "visualVocabulary": {
+          "primaryVisual": "Oversized album artwork",
+          "supportingVisual": "Bold title lockup",
+          "backgroundStyle": "Warm cream paper with teal accent frame",
+          "motionStyle": "Ken Burns drift on cover",
+          "typographyEmphasis": "Display title — largest element on screen",
+          "iconography": "Minimal — let artwork dominate",
+          "informationDensity": "sparse",
+          "desiredEmotionalReaction": "Recognition and anticipation"
+        }
+      },
+      {
+        "storyId": "introduction",
+        "storyTitle": "Story Introduction",
+        "conceptTitle": "Documentary Hook",
+        "experienceType": "documentary",
+        "mood": "Intimate",
+        "primaryMedia": "Quote typography",
+        "supportingMedia": [
+          "Subtle texture",
+          "Discovery tease"
+        ],
+        "animation": "Fade-in from black with voiceover cadence",
+        "narration": "Before the details — why this song matters.",
+        "visualPriority": 4,
+        "visualVocabulary": {
+          "primaryVisual": "Editorial quote block",
+          "supportingVisual": "Soft vignette background",
+          "backgroundStyle": "Paper grain, warm editorial",
+          "motionStyle": "Gentle fade — no hard cuts",
+          "typographyEmphasis": "Hook line as pull quote",
+          "iconography": "None — pure typography moment",
+          "informationDensity": "sparse",
+          "desiredEmotionalReaction": "Curiosity — lean in"
+        }
+      },
+      {
+        "storyId": "chart_journey",
+        "storyTitle": "Chart Journey",
+        "conceptTitle": "Animated Timeline",
+        "experienceType": "timeline",
+        "mood": "Momentum",
+        "primaryMedia": "Chart animation",
+        "supportingMedia": [
+          "Magazine covers",
+          "Billboard pages",
+          "Peak badge"
+        ],
+        "animation": "Line climbs week by week toward peak",
+        "narration": "The climb, the peak, and how long America kept listening.",
+        "visualPriority": 5,
+        "visualVocabulary": {
+          "primaryVisual": "Animated chart line",
+          "supportingVisual": "Peak position badge",
+          "backgroundStyle": "Clean data backdrop — cream with chart ink",
+          "motionStyle": "Line draw — week-by-week momentum",
+          "typographyEmphasis": "Peak number as hero stat",
+          "iconography": "Chart arrow, week counter",
+          "informationDensity": "moderate",
+          "desiredEmotionalReaction": "Momentum — feel the climb"
+        }
+      },
+      {
+        "storyId": "performance_history",
+        "storyTitle": "Performance History",
+        "conceptTitle": "Concert Memory Wall",
+        "experienceType": "performance_reel",
+        "mood": "Energetic",
+        "primaryMedia": "Video stills",
+        "supportingMedia": [
+          "Venue",
+          "Crowd",
+          "Date stamp"
+        ],
+        "animation": "Cross-fade between performances",
+        "narration": "The camera found this song again — on stage and on screen.",
+        "visualPriority": 5,
+        "visualVocabulary": {
+          "primaryVisual": "Stage stills and video frames",
+          "supportingVisual": "Venue and date metadata",
+          "backgroundStyle": "Dark stage wash with spotlight accent",
+          "motionStyle": "Cross-fade reel between captures",
+          "typographyEmphasis": "Performance title and year",
+          "iconography": "Play button, crowd silhouette",
+          "informationDensity": "sparse",
+          "desiredEmotionalReaction": "Energy — you were there"
+        }
+      },
+      {
+        "storyId": "song_dna",
+        "storyTitle": "Song DNA",
+        "conceptTitle": "Music Fingerprint",
+        "experienceType": "data_visualization",
+        "mood": "Analytical",
+        "primaryMedia": "DNA visualization",
+        "supportingMedia": [
+          "Tempo",
+          "Key",
+          "Energy",
+          "Danceability"
+        ],
+        "animation": "Pulse with beat — waveform breathes",
+        "narration": "Every song has a fingerprint — tempo, key, and emotional color.",
+        "visualPriority": 4,
+        "visualVocabulary": {
+          "primaryVisual": "Radial DNA fingerprint chart",
+          "supportingVisual": "Tempo and key badges",
+          "backgroundStyle": "Dark analytical canvas with neon accent",
+          "motionStyle": "Pulse sync to tempo",
+          "typographyEmphasis": "Key and BPM as hero stats",
+          "iconography": "Waveform, key signature",
+          "informationDensity": "dense",
+          "desiredEmotionalReaction": "Discovery — see the song's shape"
+        }
+      }
+    ],
+    "visualConcepts": [
+      {
+        "id": "vc-hero:identity",
+        "storyId": "hero",
+        "exhibitId": "hero:identity",
+        "experienceType": "cinematic_opening",
+        "conceptTitle": "Cinematic Opening",
+        "wireframeIcon": "🎬",
+        "wireframeLabel": "Hero",
+        "templateId": "hero",
+        "mood": "Grand",
+        "motionHint": "Slow zoom into cover art with title reveal",
+        "contrastNote": null
+      },
+      {
+        "id": "vc-introduction:opening_hook",
+        "storyId": "introduction",
+        "exhibitId": "introduction:opening_hook",
+        "experienceType": "quote_focus",
+        "conceptTitle": "Documentary Hook",
+        "wireframeIcon": "💬",
+        "wireframeLabel": "Hook",
+        "templateId": "quote",
+        "mood": "Intimate",
+        "motionHint": "Fade-in from black with voiceover cadence",
+        "contrastNote": null
+      },
+      {
+        "id": "vc-chart_journey:peak_moment",
+        "storyId": "chart_journey",
+        "exhibitId": "chart_journey:peak_moment",
+        "experienceType": "infographic",
+        "conceptTitle": "Animated Timeline",
+        "wireframeIcon": "📈",
+        "wireframeLabel": "Chart",
+        "templateId": "chart",
+        "mood": "Momentum",
+        "motionHint": "Line climbs week by week toward peak",
+        "contrastNote": null
+      },
+      {
+        "id": "vc-chart_journey:chart_longevity",
+        "storyId": "chart_journey",
+        "exhibitId": "chart_journey:chart_longevity",
+        "experienceType": "infographic",
+        "conceptTitle": "Animated Timeline",
+        "wireframeIcon": "📊",
+        "wireframeLabel": "Infographic",
+        "templateId": "chart",
+        "mood": "Momentum",
+        "motionHint": "Line climbs week by week toward peak",
+        "contrastNote": "Contrast with prior infographic — vary motion or density"
+      },
+      {
+        "id": "vc-chart_journey:international",
+        "storyId": "chart_journey",
+        "exhibitId": "chart_journey:international",
+        "experienceType": "map",
+        "conceptTitle": "Animated Timeline",
+        "wireframeIcon": "🌍",
+        "wireframeLabel": "World Map",
+        "templateId": "quote",
+        "mood": "Momentum",
+        "motionHint": "Line climbs week by week toward peak",
+        "contrastNote": null
+      },
+      {
+        "id": "vc-performance_history:official_video",
+        "storyId": "performance_history",
+        "exhibitId": "performance_history:official_video",
+        "experienceType": "performance_reel",
+        "conceptTitle": "Concert Memory Wall",
+        "wireframeIcon": "🎬",
+        "wireframeLabel": "Official Video",
+        "templateId": "performance",
+        "mood": "Energetic",
+        "motionHint": "Cross-fade between performances",
+        "contrastNote": null
+      },
+      {
+        "id": "vc-performance_history:live_moments",
+        "storyId": "performance_history",
+        "exhibitId": "performance_history:live_moments",
+        "experienceType": "performance_reel",
+        "conceptTitle": "Concert Memory Wall",
+        "wireframeIcon": "🎤",
+        "wireframeLabel": "Live",
+        "templateId": "gallery",
+        "mood": "Energetic",
+        "motionHint": "Cross-fade between performances",
+        "contrastNote": "Contrast with prior performance reel — vary motion or density"
+      },
+      {
+        "id": "vc-performance_history:video_gallery",
+        "storyId": "performance_history",
+        "exhibitId": "performance_history:video_gallery",
+        "experienceType": "performance_reel",
+        "conceptTitle": "Concert Memory Wall",
+        "wireframeIcon": "🎤",
+        "wireframeLabel": "Live",
+        "templateId": "performance",
+        "mood": "Energetic",
+        "motionHint": "Cross-fade between performances",
+        "contrastNote": "Contrast with prior performance reel — vary motion or density"
+      },
+      {
+        "id": "vc-song_dna:musical_fingerprint",
+        "storyId": "song_dna",
+        "exhibitId": "song_dna:musical_fingerprint",
+        "experienceType": "data_visualization",
+        "conceptTitle": "Music Fingerprint",
+        "wireframeIcon": "🧬",
+        "wireframeLabel": "DNA",
+        "templateId": "gallery",
+        "mood": "Analytical",
+        "motionHint": "Pulse with beat — waveform breathes",
+        "contrastNote": null
+      }
+    ],
+    "experienceVariety": {
+      "varietyScore": 85,
+      "visualTypesUsed": {
+        "Cinematic Opening": 1,
+        "Quote Focus": 1,
+        "Performance Reel": 2,
+        "Infographic": 1,
+        "Data Visualization": 1
+      },
+      "motionTypesUsed": {
+        "Ken Burns drift on cover": 1,
+        "Gentle fade — no hard cuts": 1,
+        "Cross-fade reel between captures": 2,
+        "Line draw — week-by-week momentum": 1,
+        "Pulse sync to tempo": 1
+      },
+      "mediaBalance": {
+        "photo": 1,
+        "video": 1,
+        "chart": 1,
+        "text": 1,
+        "illustration": 2
+      },
+      "textHeavyWarnings": [],
+      "repeatedLayouts": [],
+      "missingVisualOpportunities": [],
+      "scrollStopMoments": [
+        {
+          "storyId": "hero",
+          "pageId": "page-hero:identity-0",
+          "verdict": "strong",
+          "reason": "Cinematic Opening — distinctive treatment"
+        },
+        {
+          "storyId": "introduction",
+          "pageId": "page-introduction:opening_hook-1",
+          "verdict": "strong",
+          "reason": "Documentary Hook — distinctive treatment"
+        },
+        {
+          "storyId": "performance_history",
+          "pageId": "page-performance_history:official_video-3",
+          "verdict": "strong",
+          "reason": "High-priority concept with owned media — strong scroll-stop"
+        },
+        {
+          "storyId": "performance_history",
+          "pageId": "page-performance_history:live_moments-4",
+          "verdict": "strong",
+          "reason": "High-priority concept with owned media — strong scroll-stop"
+        },
+        {
+          "storyId": "chart_journey",
+          "pageId": "page-chart_journey:peak_moment-2",
+          "verdict": "strong",
+          "reason": "High-priority concept with owned media — strong scroll-stop"
+        },
+        {
+          "storyId": "song_dna",
+          "pageId": "page-song_dna:musical_fingerprint-5",
+          "verdict": "strong",
+          "reason": "Music Fingerprint — distinctive treatment"
+        }
+      ],
+      "varietyViolations": []
+    },
+    "artDirectionBriefs": [
+      {
+        "id": "art-hero",
+        "storyId": "hero",
+        "storyTitle": "Rise of the Song",
+        "visualIdentity": "Album premiere poster",
+        "primaryEnvironment": "Record store window display",
+        "camera": "Push-in",
+        "lighting": "Golden hour",
+        "colorPalette": [
+          "Amber",
+          "Brown",
+          "Cream",
+          "Teal"
+        ],
+        "textures": [
+          "Gloss magazine",
+          "Vinyl",
+          "Paper"
+        ],
+        "motion": "Zoom",
+        "layoutStyle": "Poster",
+        "primaryFocus": "Album cover artwork",
+        "supportingElements": [
+          "Artist name",
+          "Release year",
+          "Title lockup"
+        ],
+        "emotionalGoal": "Recognition — the world meets this song",
+        "emotionalTone": "Wonder",
+        "eraYear": 2002,
+        "eraNotes": "2000s — Timeless editorial — avoid anachronistic digital gloss. Typography: Editorial serif, Clean sans-serif.",
+        "openingBeat": "Album cover fills the frame on cream paper. Slow push-in as 2000s display type locks the title over the artwork."
+      },
+      {
+        "id": "art-introduction",
+        "storyId": "introduction",
+        "storyTitle": "Story Introduction",
+        "visualIdentity": "Documentary cold open",
+        "primaryEnvironment": "Editorial title card",
+        "camera": "Close-up",
+        "lighting": "Studio tungsten",
+        "colorPalette": [
+          "Cream",
+          "Muted black",
+          "Sepia"
+        ],
+        "textures": [
+          "Paper",
+          "Film grain"
+        ],
+        "motion": "Fade",
+        "layoutStyle": "Magazine",
+        "primaryFocus": "Pull-quote typography",
+        "supportingElements": [
+          "Soft vignette",
+          "Discovery tease line"
+        ],
+        "emotionalGoal": "Lean in — why this song matters",
+        "emotionalTone": "Curiosity",
+        "eraYear": 2002,
+        "eraNotes": "2000s — Timeless editorial — avoid anachronistic digital gloss. Typography: Editorial serif, Clean sans-serif.",
+        "openingBeat": "Documentary cold open — Editorial title card. Studio tungsten light, close-up camera, fade motion."
+      },
+      {
+        "id": "art-chart_journey",
+        "storyId": "chart_journey",
+        "storyTitle": "Chart Journey",
+        "visualIdentity": "Billboard office",
+        "primaryEnvironment": "Chart room wall",
+        "camera": "Static",
+        "lighting": "Daylight",
+        "colorPalette": [
+          "Black",
+          "Red",
+          "White"
+        ],
+        "textures": [
+          "Newsprint",
+          "Gloss magazine",
+          "Paper"
+        ],
+        "motion": "Timeline growth",
+        "layoutStyle": "Billboard",
+        "primaryFocus": "Animated chart line",
+        "supportingElements": [
+          "Magazine covers",
+          "Chart pages",
+          "Peak badge"
+        ],
+        "emotionalGoal": "Momentum — feel the climb",
+        "emotionalTone": "Excitement",
+        "eraYear": 2002,
+        "eraNotes": "2000s — Timeless editorial — avoid anachronistic digital gloss. Typography: Editorial serif, Clean sans-serif.",
+        "openingBeat": "Straight-on view of a 2000s Billboard chart wall. Red line climbs week by week against newsprint texture. Peak #6 holds in bold type."
+      },
+      {
+        "id": "art-performance_history",
+        "storyId": "performance_history",
+        "storyTitle": "Performance History",
+        "visualIdentity": "Concert memory wall",
+        "primaryEnvironment": "Backstage photo collage",
+        "camera": "Handheld",
+        "lighting": "Concert spotlight",
+        "colorPalette": [
+          "Black",
+          "Spotlight white",
+          "Stage blue"
+        ],
+        "textures": [
+          "Polaroid",
+          "CRT",
+          "Paper"
+        ],
+        "motion": "Photo scatter",
+        "layoutStyle": "Concert flyer",
+        "primaryFocus": "Performance stills",
+        "supportingElements": [
+          "Venue names",
+          "Dates",
+          "Crowd silhouettes"
+        ],
+        "emotionalGoal": "Energy — you were there",
+        "emotionalTone": "Celebration",
+        "eraYear": 2002,
+        "eraNotes": "2000s — Timeless editorial — avoid anachronistic digital gloss. Typography: Editorial serif, Clean sans-serif.",
+        "openingBeat": "Concert memory wall — Backstage photo collage. Concert spotlight light, handheld camera, photo scatter motion."
+      },
+      {
+        "id": "art-song_dna",
+        "storyId": "song_dna",
+        "storyTitle": "Song DNA",
+        "visualIdentity": "Scientific music lab",
+        "primaryEnvironment": "Analysis workstation",
+        "camera": "Tracking",
+        "lighting": "Neon",
+        "colorPalette": [
+          "Lab cyan",
+          "Muted black",
+          "White"
+        ],
+        "textures": [
+          "Blueprint",
+          "Paper"
+        ],
+        "motion": "Pulse",
+        "layoutStyle": "Infographic",
+        "primaryFocus": "DNA spiral visualization",
+        "supportingElements": [
+          "Tempo",
+          "Key",
+          "Energy",
+          "Waveform"
+        ],
+        "emotionalGoal": "Discovery — see the song's shape",
+        "emotionalTone": "Wonder",
+        "eraYear": 2002,
+        "eraNotes": "2000s — Timeless editorial — avoid anachronistic digital gloss. Typography: Editorial serif, Clean sans-serif.",
+        "openingBeat": "Scientific music lab — Analysis workstation. Neon light, tracking camera, pulse motion."
+      }
+    ],
+    "pageArtDirections": [
+      {
+        "exhibitId": "hero:identity",
+        "storyId": "hero",
+        "pageId": "page-hero:identity-0",
+        "wireframeIcon": "🎬",
+        "paletteChips": [
+          "Amber",
+          "Brown",
+          "Cream",
+          "Teal"
+        ],
+        "cameraIcon": "⊙",
+        "cameraLabel": "Push-in",
+        "motionIcon": "⊕",
+        "motionLabel": "Zoom",
+        "layoutType": "Poster",
+        "texture": "Gloss magazine",
+        "mood": "Wonder",
+        "priority": 5
+      },
+      {
+        "exhibitId": "introduction:opening_hook",
+        "storyId": "introduction",
+        "pageId": "page-introduction:opening_hook-1",
+        "wireframeIcon": "💬",
+        "paletteChips": [
+          "Cream",
+          "Muted black",
+          "Sepia"
+        ],
+        "cameraIcon": "◎",
+        "cameraLabel": "Close-up",
+        "motionIcon": "◐",
+        "motionLabel": "Fade",
+        "layoutType": "Magazine",
+        "texture": "Paper",
+        "mood": "Curiosity",
+        "priority": 4
+      },
+      {
+        "exhibitId": "chart_journey:peak_moment",
+        "storyId": "chart_journey",
+        "pageId": "page-chart_journey:peak_moment-2",
+        "wireframeIcon": "📈",
+        "paletteChips": [
+          "White",
+          "Red",
+          "Black"
+        ],
+        "cameraIcon": "▣",
+        "cameraLabel": "Static",
+        "motionIcon": "📈",
+        "motionLabel": "Timeline growth",
+        "layoutType": "Billboard",
+        "texture": "Newsprint",
+        "mood": "Excitement",
+        "priority": 5
+      },
+      {
+        "exhibitId": "chart_journey:chart_longevity",
+        "storyId": "chart_journey",
+        "pageId": null,
+        "wireframeIcon": "📊",
+        "paletteChips": [
+          "Black",
+          "Red",
+          "White"
+        ],
+        "cameraIcon": "▣",
+        "cameraLabel": "Static",
+        "motionIcon": "📈",
+        "motionLabel": "Timeline growth",
+        "layoutType": "Billboard",
+        "texture": "Newsprint",
+        "mood": "Excitement",
+        "priority": 5
+      },
+      {
+        "exhibitId": "chart_journey:international",
+        "storyId": "chart_journey",
+        "pageId": null,
+        "wireframeIcon": "🌍",
+        "paletteChips": [
+          "Cream",
+          "Teal",
+          "Gold"
+        ],
+        "cameraIcon": "⬒",
+        "cameraLabel": "Overhead",
+        "motionIcon": "🧭",
+        "motionLabel": "Map travel",
+        "layoutType": "Magazine",
+        "texture": "Gloss magazine",
+        "mood": "Excitement",
+        "priority": 5
+      },
+      {
+        "exhibitId": "performance_history:official_video",
+        "storyId": "performance_history",
+        "pageId": "page-performance_history:official_video-3",
+        "wireframeIcon": "🎬",
+        "paletteChips": [
+          "Stage blue",
+          "Spotlight white",
+          "Black"
+        ],
+        "cameraIcon": "◎",
+        "cameraLabel": "Close-up",
+        "motionIcon": "⇄",
+        "motionLabel": "Cross dissolve",
+        "layoutType": "TV guide",
+        "texture": "CRT",
+        "mood": "Celebration",
+        "priority": 5
+      },
+      {
+        "exhibitId": "performance_history:live_moments",
+        "storyId": "performance_history",
+        "pageId": "page-performance_history:live_moments-4",
+        "wireframeIcon": "🎤",
+        "paletteChips": [
+          "Black",
+          "Red",
+          "Spotlight white"
+        ],
+        "cameraIcon": "⌁",
+        "cameraLabel": "Handheld",
+        "motionIcon": "✦",
+        "motionLabel": "Photo scatter",
+        "layoutType": "Concert flyer",
+        "texture": "Polaroid",
+        "mood": "Celebration",
+        "priority": 5
+      },
+      {
+        "exhibitId": "performance_history:video_gallery",
+        "storyId": "performance_history",
+        "pageId": null,
+        "wireframeIcon": "🎤",
+        "paletteChips": [
+          "Black",
+          "Spotlight white",
+          "Stage blue"
+        ],
+        "cameraIcon": "⌁",
+        "cameraLabel": "Handheld",
+        "motionIcon": "✦",
+        "motionLabel": "Photo scatter",
+        "layoutType": "Concert flyer",
+        "texture": "Polaroid",
+        "mood": "Celebration",
+        "priority": 5
+      },
+      {
+        "exhibitId": "song_dna:musical_fingerprint",
+        "storyId": "song_dna",
+        "pageId": "page-song_dna:musical_fingerprint-5",
+        "wireframeIcon": "🧬",
+        "paletteChips": [
+          "Lab cyan",
+          "Muted black",
+          "White"
+        ],
+        "cameraIcon": "→",
+        "cameraLabel": "Tracking",
+        "motionIcon": "♫",
+        "motionLabel": "Pulse",
+        "layoutType": "Infographic",
+        "texture": "Blueprint",
+        "mood": "Wonder",
+        "priority": 4
+      }
+    ],
+    "artDirectionConsistency": {
+      "uniquenessScore": 100,
+      "repeatedPalettes": [],
+      "repeatedLayouts": [],
+      "repeatedCameras": [],
+      "repeatedTextures": [
+        "Gloss magazine (×2)",
+        "Paper (×5)"
+      ],
+      "repeatedMotions": [],
+      "repeatedEmotionalTones": [
+        "Wonder (×2)"
+      ],
+      "warnings": []
+    },
+    "artDirectionOverview": {
+      "visualStylesUsed": [
+        "Album premiere poster",
+        "Documentary cold open",
+        "Billboard office",
+        "Concert memory wall",
+        "Scientific music lab"
+      ],
+      "cameraVariety": [
+        "Push-in",
+        "Close-up",
+        "Static",
+        "Handheld",
+        "Tracking"
+      ],
+      "motionVariety": [
+        "Zoom",
+        "Fade",
+        "Timeline growth",
+        "Photo scatter",
+        "Pulse"
+      ],
+      "eraAuthenticity": "2002 — Timeless editorial — avoid anachronistic digital gloss",
+      "textureBalance": [
+        "Gloss magazine",
+        "Vinyl",
+        "Paper",
+        "Film grain",
+        "Newsprint",
+        "Polaroid",
+        "CRT",
+        "Blueprint"
+      ],
+      "colorDiversity": [
+        "Amber",
+        "Brown",
+        "Cream",
+        "Teal",
+        "Muted black",
+        "Sepia",
+        "Black",
+        "Red",
+        "White",
+        "Spotlight white",
+        "Stage blue",
+        "Lab cyan"
+      ],
+      "emotionalPacing": "Wonder → Curiosity → Celebration → Excitement → Wonder",
+      "overallCreativeIdentity": "2000s · Minimal editorial · Album documentary experience",
+      "consistencyScore": 100
+    },
+    "stories": [
+      {
+        "id": "hero",
+        "title": "Rise of the Song",
+        "hook": "Every great song has a moment the world first heard it.",
+        "whyCare": "Introduce the song identity — who, what, when.",
+        "status": "built",
+        "skipReason": null,
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [
+          "hero:identity"
+        ],
+        "pageIds": [
+          "page-hero:identity-0"
+        ],
+        "discoveryIds": []
+      },
+      {
+        "id": "introduction",
+        "title": "Story Introduction",
+        "hook": "Before the details — why this song matters.",
+        "whyCare": "Frame the documentary before diving into chapters.",
+        "status": "built",
+        "skipReason": null,
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [
+          "introduction:opening_hook"
+        ],
+        "pageIds": [
+          "page-introduction:opening_hook-1"
+        ],
+        "discoveryIds": []
+      },
+      {
+        "id": "recording_story",
+        "title": "Recording Story",
+        "hook": "Some songs are born in legendary rooms with unlikely pitches.",
+        "whyCare": "The studio, the songwriter, and the session that created the track.",
+        "status": "skipped",
+        "skipReason": "No interesting discovery drives this story",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [],
+        "pageIds": [],
+        "discoveryIds": []
+      },
+      {
+        "id": "album_story",
+        "title": "Album Story",
+        "hook": "A hit single lives inside a larger album world.",
+        "whyCare": "Place the song on its album and release context.",
+        "status": "skipped",
+        "skipReason": "No interesting discovery drives this story",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [],
+        "pageIds": [],
+        "discoveryIds": []
+      },
+      {
+        "id": "chart_journey",
+        "title": "Chart Journey",
+        "hook": "The climb, the peak, and how long America kept listening.",
+        "whyCare": "Chart success is the most tangible proof a song broke through.",
+        "status": "built",
+        "skipReason": null,
+        "factIds": [
+          "d1057f5c-28e6-48a3-a27a-8800d4c64d16"
+        ],
+        "mediaIds": [
+          "f69a8d0b26ee"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-chart"
+        ],
+        "exhibitIds": [
+          "chart_journey:peak_moment",
+          "chart_journey:chart_longevity",
+          "chart_journey:international"
+        ],
+        "pageIds": [
+          "page-chart_journey:peak_moment-2"
+        ],
+        "discoveryIds": [
+          "chart_longevity"
+        ]
+      },
+      {
+        "id": "artist_journey",
+        "title": "Artist Journey",
+        "hook": "Dr. Hook didn't arrive overnight — this song fits a career arc.",
+        "whyCare": "Connect the song to the artist's identity and trajectory.",
+        "status": "skipped",
+        "skipReason": "No interesting discovery drives this story",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist"
+        ],
+        "exhibitIds": [],
+        "pageIds": [],
+        "discoveryIds": []
+      },
+      {
+        "id": "performance_history",
+        "title": "Performance History",
+        "hook": "The camera found this song again — on stage and on screen.",
+        "whyCare": "Visual performance history brings the song to life.",
+        "status": "built",
+        "skipReason": null,
+        "factIds": [],
+        "mediaIds": [
+          "99c022142099",
+          "f69a8d0b26ee",
+          "ac8e956dd124",
+          "d48f954317bb",
+          "8ca03983e19c"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [
+          "performance_history:official_video",
+          "performance_history:live_moments",
+          "performance_history:video_gallery"
+        ],
+        "pageIds": [
+          "page-performance_history:official_video-3",
+          "page-performance_history:live_moments-4"
+        ],
+        "discoveryIds": [
+          "performance_footage"
+        ]
+      },
+      {
+        "id": "song_dna",
+        "title": "Song DNA",
+        "hook": "Every song has a fingerprint — tempo, key, and emotional color.",
+        "whyCare": "Musical identity as a visual story beat.",
+        "status": "built",
+        "skipReason": null,
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [
+          "song_dna:musical_fingerprint"
+        ],
+        "pageIds": [
+          "page-song_dna:musical_fingerprint-5"
+        ],
+        "discoveryIds": []
+      },
+      {
+        "id": "cultural_impact",
+        "title": "Cultural Impact",
+        "hook": "Some songs become bigger than the charts.",
+        "whyCare": "International reach, cultural footprint, and lasting resonance.",
+        "status": "skipped",
+        "skipReason": "No interesting discovery drives this story",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [],
+        "pageIds": [],
+        "discoveryIds": []
+      },
+      {
+        "id": "legacy",
+        "title": "Legacy",
+        "hook": "What remains after the charts fade.",
+        "whyCare": "Timeline events and lasting significance.",
+        "status": "skipped",
+        "skipReason": "No interesting discovery drives this story",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [],
+        "pageIds": [],
+        "discoveryIds": []
+      },
+      {
+        "id": "related_songs",
+        "title": "Related Songs",
+        "hook": "One song opens doors to others.",
+        "whyCare": "Discovery paths through the Retroverse graph.",
+        "status": "skipped",
+        "skipReason": "No interesting discovery drives this story",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "exhibitIds": [],
+        "pageIds": [],
+        "discoveryIds": []
+      }
+    ],
+    "clusters": [
+      {
+        "storyId": "hero",
+        "title": "Rise of the Song",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "summary": "13 relationships"
+      },
+      {
+        "storyId": "introduction",
+        "title": "Story Introduction",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "summary": "13 relationships"
+      },
+      {
+        "storyId": "chart_journey",
+        "title": "Chart Journey",
+        "factIds": [
+          "d1057f5c-28e6-48a3-a27a-8800d4c64d16"
+        ],
+        "mediaIds": [
+          "f69a8d0b26ee"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-chart"
+        ],
+        "summary": "1 facts · 1 media · 1 relationships"
+      },
+      {
+        "storyId": "performance_history",
+        "title": "Performance History",
+        "factIds": [],
+        "mediaIds": [
+          "99c022142099",
+          "f69a8d0b26ee",
+          "ac8e956dd124",
+          "d48f954317bb",
+          "8ca03983e19c"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "summary": "5 media · 7 relationships"
+      },
+      {
+        "storyId": "song_dna",
+        "title": "Song DNA",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "summary": "13 relationships"
+      }
+    ],
+    "exhibits": [
+      {
+        "id": "hero:identity",
+        "storyId": "hero",
+        "title": "Song Identity",
+        "purpose": "Who, what, when — the opening title card",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [
+          "page-hero:identity-0"
+        ],
+        "status": "built",
+        "skipReason": null
+      },
+      {
+        "id": "introduction:opening_hook",
+        "storyId": "introduction",
+        "title": "Why This Song",
+        "purpose": "Documentary cold open — why care",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [
+          "page-introduction:opening_hook-1"
+        ],
+        "status": "built",
+        "skipReason": null
+      },
+      {
+        "id": "chart_journey:peak_moment",
+        "storyId": "chart_journey",
+        "title": "Peak Moment",
+        "purpose": "The highest chart position",
+        "factIds": [
+          "d1057f5c-28e6-48a3-a27a-8800d4c64d16"
+        ],
+        "mediaIds": [
+          "f69a8d0b26ee"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-chart"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [
+          "page-chart_journey:peak_moment-2"
+        ],
+        "status": "built",
+        "skipReason": null
+      },
+      {
+        "id": "chart_journey:chart_longevity",
+        "storyId": "chart_journey",
+        "title": "Chart Longevity",
+        "purpose": "Weeks on chart and staying power",
+        "factIds": [
+          "d1057f5c-28e6-48a3-a27a-8800d4c64d16"
+        ],
+        "mediaIds": [
+          "f69a8d0b26ee"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-chart"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [],
+        "status": "built",
+        "skipReason": null
+      },
+      {
+        "id": "chart_journey:international",
+        "storyId": "chart_journey",
+        "title": "International Charts",
+        "purpose": "Success beyond the US",
+        "factIds": [],
+        "mediaIds": [
+          "f69a8d0b26ee"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-chart"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [],
+        "status": "built",
+        "skipReason": null
+      },
+      {
+        "id": "performance_history:official_video",
+        "storyId": "performance_history",
+        "title": "Official Video",
+        "purpose": "Primary music video capture",
+        "factIds": [],
+        "mediaIds": [
+          "f69a8d0b26ee",
+          "d48f954317bb",
+          "99c022142099",
+          "ac8e956dd124"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [
+          "page-performance_history:official_video-3"
+        ],
+        "status": "built",
+        "skipReason": null
+      },
+      {
+        "id": "performance_history:live_moments",
+        "storyId": "performance_history",
+        "title": "Live Moments",
+        "purpose": "Stage and crowd energy",
+        "factIds": [],
+        "mediaIds": [
+          "99c022142099",
+          "ac8e956dd124",
+          "8ca03983e19c",
+          "f69a8d0b26ee"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [
+          "page-performance_history:live_moments-4"
+        ],
+        "status": "built",
+        "skipReason": null
+      },
+      {
+        "id": "performance_history:video_gallery",
+        "storyId": "performance_history",
+        "title": "Video Gallery",
+        "purpose": "Additional frames from owned footage",
+        "factIds": [],
+        "mediaIds": [
+          "99c022142099",
+          "f69a8d0b26ee",
+          "ac8e956dd124",
+          "8ca03983e19c"
+        ],
+        "relationshipIds": [
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [],
+        "status": "built",
+        "skipReason": null
+      },
+      {
+        "id": "song_dna:musical_fingerprint",
+        "storyId": "song_dna",
+        "title": "Musical Fingerprint",
+        "purpose": "Tempo, key, energy visualization",
+        "factIds": [],
+        "mediaIds": [],
+        "relationshipIds": [
+          "rel-RVTR701784-artist",
+          "rel-RVTR701784-chart",
+          "rel-RVTR701784-tl-tl-n111bl",
+          "rel-RVTR701784-tl-tl-l47p2p",
+          "rel-RVTR701784-tl-tl-xrpgfg",
+          "rel-RVTR701784-tl-tl-k5j70p",
+          "rel-RVTR701784-perf-perf-ev38ho",
+          "rel-perf-ev38ho-video",
+          "rel-99c022142099-frame",
+          "rel-f69a8d0b26ee-frame",
+          "rel-ac8e956dd124-frame",
+          "rel-d48f954317bb-frame",
+          "rel-8ca03983e19c-frame"
+        ],
+        "estimatedPages": 1,
+        "pageIds": [
+          "page-song_dna:musical_fingerprint-5"
+        ],
+        "status": "built",
+        "skipReason": null
+      }
+    ],
+    "pages": [
+      {
+        "id": "page-hero:identity-0",
+        "storyId": "hero",
+        "exhibitId": "hero:identity",
+        "sceneNumber": 1,
+        "title": "Song Identity",
+        "headline": "What About Us",
+        "supportingCopy": "",
+        "factIds": [],
+        "mediaIds": [],
+        "templateId": "hero",
+        "visualConceptId": "vc-hero:identity"
+      },
+      {
+        "id": "page-introduction:opening_hook-1",
+        "storyId": "introduction",
+        "exhibitId": "introduction:opening_hook",
+        "sceneNumber": 2,
+        "title": "Introduction",
+        "headline": "Why this song matters",
+        "supportingCopy": "What About Us is performed by Brandy.",
+        "factIds": [],
+        "mediaIds": [],
+        "templateId": "quote",
+        "visualConceptId": "vc-introduction:opening_hook"
+      },
+      {
+        "id": "page-performance_history:official_video-3",
+        "storyId": "performance_history",
+        "exhibitId": "performance_history:official_video",
+        "sceneNumber": 3,
+        "title": "Official Video",
+        "headline": "Official music video",
+        "supportingCopy": "Primary music video capture",
+        "factIds": [],
+        "mediaIds": [
+          "d48f954317bb",
+          "99c022142099"
+        ],
+        "templateId": "performance",
+        "visualConceptId": "vc-performance_history:official_video"
+      },
+      {
+        "id": "page-performance_history:live_moments-4",
+        "storyId": "performance_history",
+        "exhibitId": "performance_history:live_moments",
+        "sceneNumber": 4,
+        "title": "Live Moments",
+        "headline": "Live on stage",
+        "supportingCopy": "Stage and crowd energy",
+        "factIds": [],
+        "mediaIds": [
+          "ac8e956dd124",
+          "8ca03983e19c"
+        ],
+        "templateId": "gallery",
+        "visualConceptId": "vc-performance_history:live_moments"
+      },
+      {
+        "id": "page-chart_journey:peak_moment-2",
+        "storyId": "chart_journey",
+        "exhibitId": "chart_journey:peak_moment",
+        "sceneNumber": 5,
+        "title": "Chart Journey",
+        "headline": "Hot 100 #7",
+        "supportingCopy": "The song peaked at #7 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+        "factIds": [
+          "d1057f5c-28e6-48a3-a27a-8800d4c64d16"
+        ],
+        "mediaIds": [
+          "f69a8d0b26ee"
+        ],
+        "templateId": "chart",
+        "visualConceptId": "vc-chart_journey:peak_moment"
+      },
+      {
+        "id": "page-song_dna:musical_fingerprint-5",
+        "storyId": "song_dna",
+        "exhibitId": "song_dna:musical_fingerprint",
+        "sceneNumber": 6,
+        "title": "Song DNA",
+        "headline": "Song DNA",
+        "supportingCopy": "Tempo, key, and energy — the musical fingerprint of this track.",
+        "factIds": [],
+        "mediaIds": [],
+        "templateId": "gallery",
+        "visualConceptId": "vc-song_dna:musical_fingerprint"
+      }
+    ],
+    "storyboard": [
+      {
+        "order": 1,
+        "storyId": "hero",
+        "storyTitle": "Rise of the Song",
+        "role": "opening",
+        "exhibitIds": [
+          "hero:identity"
+        ],
+        "pageIds": [
+          "page-hero:identity-0"
+        ]
+      },
+      {
+        "order": 2,
+        "storyId": "introduction",
+        "storyTitle": "Story Introduction",
+        "role": "opening",
+        "exhibitIds": [
+          "introduction:opening_hook"
+        ],
+        "pageIds": [
+          "page-introduction:opening_hook-1"
+        ]
+      },
+      {
+        "order": 3,
+        "storyId": "performance_history",
+        "storyTitle": "Performance History",
+        "role": "act",
+        "exhibitIds": [
+          "performance_history:official_video",
+          "performance_history:live_moments"
+        ],
+        "pageIds": [
+          "page-performance_history:official_video-3",
+          "page-performance_history:live_moments-4"
+        ]
+      },
+      {
+        "order": 4,
+        "storyId": "chart_journey",
+        "storyTitle": "Chart Journey",
+        "role": "act",
+        "exhibitIds": [
+          "chart_journey:peak_moment"
+        ],
+        "pageIds": [
+          "page-chart_journey:peak_moment-2"
+        ]
+      },
+      {
+        "order": 5,
+        "storyId": "song_dna",
+        "storyTitle": "Song DNA",
+        "role": "visual_break",
+        "exhibitIds": [
+          "song_dna:musical_fingerprint"
+        ],
+        "pageIds": [
+          "page-song_dna:musical_fingerprint-5"
+        ]
+      }
+    ],
+    "coverage": {
+      "storiesDiscovered": 11,
+      "storiesBuilt": 5,
+      "storiesSkipped": 6,
+      "exhibitsBuilt": 9,
+      "pagesBuilt": 6,
+      "factsTotal": 8,
+      "factsUsed": 1,
+      "factsUnused": 7,
+      "unusedFactIds": [
+        "806dc01b-5eaf-44ac-9b01-4d2f127e85dd",
+        "aa243f95-0585-42a0-bd50-d2628993e942",
+        "8b6020cb-8c35-469b-bfa6-eff311669d5a",
+        "2bfeb2d2-e5ff-4c97-af5a-5ceb3c501d9a",
+        "01d1fd4a-bf97-4d48-88c4-60d7d942e2eb",
+        "70c01677-8ec7-438f-980f-42deb0f0b1d9",
+        "4ddbde65-71de-43e4-9818-2a2aeac88d33"
+      ],
+      "relationshipsTotal": 13,
+      "relationshipsUsed": 13,
+      "mediaTotal": 5,
+      "mediaUsed": 5,
+      "unusedMediaIds": [],
+      "skippedStories": [
+        {
+          "id": "recording_story",
+          "title": "Recording Story",
+          "reason": "No interesting discovery drives this story"
+        },
+        {
+          "id": "album_story",
+          "title": "Album Story",
+          "reason": "No interesting discovery drives this story"
+        },
+        {
+          "id": "artist_journey",
+          "title": "Artist Journey",
+          "reason": "No interesting discovery drives this story"
+        },
+        {
+          "id": "cultural_impact",
+          "title": "Cultural Impact",
+          "reason": "No interesting discovery drives this story"
+        },
+        {
+          "id": "legacy",
+          "title": "Legacy",
+          "reason": "No interesting discovery drives this story"
+        },
+        {
+          "id": "related_songs",
+          "title": "Related Songs",
+          "reason": "No interesting discovery drives this story"
+        }
+      ],
+      "unusedStories": [],
+      "missingResearchOpportunities": [
+        "Recording session details",
+        "Cultural context sources",
+        "Artist relationship depth",
+        "7 facts not assigned to any story",
+        "4 pending facts awaiting Editor promotion"
+      ]
+    },
+    "summary": {
+      "mainStory": "What About Us by Brandy",
+      "narrativeParagraph": "This song contains 3 major discoveries. The strongest are: • Live Performance Footage • 25 Weeks on the Hot 100 • Unexplored Artist Depth The experience builds around strong live performance material and chart journey with real staying power.",
+      "creativeBrief": "This song contains 3 major discoveries. The strongest are: • Live Performance Footage • 25 Weeks on the Hot 100 • Unexplored Artist Depth The experience builds around strong live performance material and chart journey with real staying power.",
+      "majorDiscoveryCount": 3,
+      "topDiscoveries": [
+        "Live Performance Footage",
+        "25 Weeks on the Hot 100",
+        "Unexplored Artist Depth"
+      ],
+      "storyCount": 5,
+      "exhibitCount": 9,
+      "pageCount": 6,
+      "strengths": [
+        "Strong live performance material",
+        "Chart journey with real staying power",
+        "Unexplored Artist Depth"
+      ],
+      "weaknesses": [
+        "1 interesting discovery not yet used",
+        "7 facts unused"
+      ],
+      "publishReadiness": "ready",
+      "publishReadinessLabel": "Ready to publish"
+    },
+    "audienceSequence": [
+      {
+        "order": 1,
+        "pageId": "page-hero:identity-0",
+        "label": "Hero",
+        "templateId": "hero",
+        "storyId": "hero",
+        "warnings": []
+      },
+      {
+        "order": 2,
+        "pageId": "page-introduction:opening_hook-1",
+        "label": "Why this song matters",
+        "templateId": "quote",
+        "storyId": "introduction",
+        "warnings": []
+      },
+      {
+        "order": 3,
+        "pageId": "page-performance_history:official_video-3",
+        "label": "Official music video",
+        "templateId": "performance",
+        "storyId": "performance_history",
+        "warnings": []
+      },
+      {
+        "order": 4,
+        "pageId": "page-performance_history:live_moments-4",
+        "label": "Live on stage",
+        "templateId": "gallery",
+        "storyId": "performance_history",
+        "warnings": []
+      },
+      {
+        "order": 5,
+        "pageId": "page-chart_journey:peak_moment-2",
+        "label": "Chart climb",
+        "templateId": "chart",
+        "storyId": "chart_journey",
+        "warnings": []
+      },
+      {
+        "order": 6,
+        "pageId": "page-song_dna:musical_fingerprint-5",
+        "label": "Song DNA",
+        "templateId": "gallery",
+        "storyId": "song_dna",
+        "warnings": []
+      }
+    ],
+    "chapters": [
+      {
+        "order": 1,
+        "storyId": "hero",
+        "title": "Rise of the Song",
+        "role": "opening",
+        "purpose": "Introduce the song identity — who, what, when.",
+        "factCount": 0,
+        "mediaCount": 0,
+        "exhibitCount": 1,
+        "pageCount": 1,
+        "warnings": [],
+        "pageIds": [
+          "page-hero:identity-0"
+        ]
+      },
+      {
+        "order": 2,
+        "storyId": "introduction",
+        "title": "Story Introduction",
+        "role": "opening",
+        "purpose": "Frame the documentary before diving into chapters.",
+        "factCount": 0,
+        "mediaCount": 0,
+        "exhibitCount": 1,
+        "pageCount": 1,
+        "warnings": [],
+        "pageIds": [
+          "page-introduction:opening_hook-1"
+        ]
+      },
+      {
+        "order": 3,
+        "storyId": "chart_journey",
+        "title": "Chart Journey",
+        "role": "act",
+        "purpose": "Chart success is the most tangible proof a song broke through.",
+        "factCount": 1,
+        "mediaCount": 1,
+        "exhibitCount": 3,
+        "pageCount": 1,
+        "warnings": [],
+        "pageIds": [
+          "page-chart_journey:peak_moment-2"
+        ]
+      },
+      {
+        "order": 4,
+        "storyId": "performance_history",
+        "title": "Performance History",
+        "role": "act",
+        "purpose": "Visual performance history brings the song to life.",
+        "factCount": 0,
+        "mediaCount": 5,
+        "exhibitCount": 3,
+        "pageCount": 2,
+        "warnings": [],
+        "pageIds": [
+          "page-performance_history:official_video-3",
+          "page-performance_history:live_moments-4"
+        ]
+      },
+      {
+        "order": 5,
+        "storyId": "song_dna",
+        "title": "Song DNA",
+        "role": "visual_break",
+        "purpose": "Musical identity as a visual story beat.",
+        "factCount": 0,
+        "mediaCount": 0,
+        "exhibitCount": 1,
+        "pageCount": 1,
+        "warnings": [],
+        "pageIds": [
+          "page-song_dna:musical_fingerprint-5"
+        ]
+      }
+    ],
+    "sequenceViolations": []
+  },
+  "review": {
+    "readiness": "needs_editorial_revision",
+    "readinessLabel": "Needs Editorial Revision",
+    "sceneCount": 6,
+    "estimatedRuntimeSec": 49,
+    "storyCoveragePct": 50,
+    "imageCoveragePct": 50,
+    "factCoveragePct": 13,
+    "recommendedPerformance": "Official Video · 2001",
+    "missingAssets": [
+      "Scene 1 (Song Identity): Ready"
+    ],
+    "warnings": [],
+    "summary": "6 scenes · 49s · 5 template types · Render Ready with Optional Gaps · Confidence 67% · Template 100% · Layout ready 83% · Diversity 83% · 50% exhibit coverage · 50% image · 13% fact coverage · Gaps: 1",
+    "templateCoveragePct": 100,
+    "layoutReadinessPct": 83,
+    "assetCoveragePct": 83,
+    "visualVarietyScore": 83,
+    "templateUsage": [
+      {
+        "templateId": "gallery",
+        "displayName": "Gallery",
+        "count": 2,
+        "pct": 33
+      },
+      {
+        "templateId": "hero",
+        "displayName": "Hero",
+        "count": 1,
+        "pct": 17
+      },
+      {
+        "templateId": "quote",
+        "displayName": "Quote",
+        "count": 1,
+        "pct": 17
+      },
+      {
+        "templateId": "performance",
+        "displayName": "Performance",
+        "count": 1,
+        "pct": 17
+      },
+      {
+        "templateId": "chart",
+        "displayName": "Chart",
+        "count": 1,
+        "pct": 17
+      }
+    ],
+    "duplicateTemplateWarnings": [],
+    "varietyRecommendations": [
+      "Timeline template unused — chronological beats may benefit"
+    ],
+    "templateDiversityScore": 83,
+    "visualDiversityScore": 67,
+    "pacingDiversityScore": 4,
+    "templateDowngradesApplied": 0,
+    "varietyAdjustmentsApplied": 0,
+    "renderReadiness": "missing_optional_assets",
+    "renderReadinessLabel": "Ready with Optional Gaps",
+    "estimatedRenderingConfidence": 67,
+    "downgradeReport": [],
+    "varietyReport": []
+  },
+  "renderSpec": {
+    "version": "0.3",
+    "metadata": {
+      "rvtr": "RVTR701784",
+      "artist": "Brandy",
+      "title": "What About Us",
+      "version": "0.3",
+      "generatedAt": "2026-06-28T22:59:55.286Z",
+      "estimatedRuntimeSec": 49,
+      "presentationStyle": "documentary",
+      "primaryPerformance": {
+        "performanceId": "perf-ev38ho",
+        "title": "Official Video · 2001"
+      },
+      "patronValue": 6,
+      "storyQuality": "Fair"
+    },
+    "globalPresentation": {
+      "backgroundTreatment": "warm_paper_documentary",
+      "typographyProfile": "retroverse_display",
+      "colorTheme": "retroverse_teal_cream",
+      "pacingProfile": "moderate",
+      "imageTreatment": "poster_card_framed",
+      "orientation": "both"
+    },
+    "sceneTimeline": [
+      {
+        "sceneNumber": 1,
+        "templateId": "hero",
+        "preferredTemplateId": "hero",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "What About Us",
+        "supportingCopy": "",
+        "narrativePurpose": "story:hero:exhibit:hero:identity:page:page-hero:identity-0",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "reveal",
+        "transitionOut": "fade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 2,
+        "templateId": "quote",
+        "preferredTemplateId": "quote",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "Why this song matters",
+        "supportingCopy": "What About Us is performed by Brandy.",
+        "narrativePurpose": "story:introduction:exhibit:introduction:opening_hook:page:page-introduction:opening_hook-1",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "fade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 3,
+        "templateId": "performance",
+        "preferredTemplateId": "performance",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "Official music video",
+        "supportingCopy": "Primary music video capture",
+        "narrativePurpose": "story:performance_history:exhibit:performance_history:official_video:page:page-performance_history:official_video-3",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "d48f954317bb",
+            "99c022142099"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=hero.jpg",
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=close-up.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-ev38ho",
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "zoom",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 4,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "Live on stage",
+        "supportingCopy": "Stage and crowd energy",
+        "narrativePurpose": "story:performance_history:exhibit:performance_history:live_moments:page:page-performance_history:live_moments-4",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "ac8e956dd124",
+            "8ca03983e19c"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=crowd.jpg",
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=alternate.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-ev38ho",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 5,
+        "templateId": "chart",
+        "preferredTemplateId": "chart",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 9,
+        "headline": "Hot 100 #7",
+        "supportingCopy": "The song peaked at #7 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+        "narrativePurpose": "story:chart_journey:exhibit:chart_journey:peak_moment:page:page-chart_journey:peak_moment-2",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "f69a8d0b26ee"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=performance.jpg"
+          ],
+          "factIds": [
+            "d1057f5c-28e6-48a3-a27a-8800d4c64d16"
+          ],
+          "factTexts": [
+            "The song peaked at #7 on the Billboard Hot 100 and spent 18 weeks on the chart."
+          ],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 6,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "Song DNA",
+        "supportingCopy": "Tempo, key, and energy — the musical fingerprint of this track.",
+        "narrativePurpose": "story:song_dna:exhibit:song_dna:musical_fingerprint:page:page-song_dna:musical_fingerprint-5",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      }
+    ],
+    "assetManifest": {
+      "hero": [],
+      "supportingImages": [
+        {
+          "id": "f69a8d0b26ee",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            5
+          ]
+        }
+      ],
+      "performanceImages": [
+        {
+          "id": "d48f954317bb",
+          "role": "performance_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": "perf-ev38ho",
+          "sceneNumbers": [
+            3,
+            4
+          ]
+        },
+        {
+          "id": "99c022142099",
+          "role": "performance_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=close-up.jpg",
+          "caption": "Sharpest close-up in sequence",
+          "performanceId": "perf-ev38ho",
+          "sceneNumbers": [
+            3,
+            4
+          ]
+        },
+        {
+          "id": "f69a8d0b26ee",
+          "role": "performance_image",
+          "required": false,
+          "priority": 85,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=performance.jpg",
+          "caption": "Official Video · 2001",
+          "performanceId": "perf-ev38ho",
+          "sceneNumbers": [
+            3,
+            4
+          ]
+        },
+        {
+          "id": "ac8e956dd124",
+          "role": "performance_image",
+          "required": false,
+          "priority": 85,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=crowd.jpg",
+          "caption": "Official Video · 2001",
+          "performanceId": "perf-ev38ho",
+          "sceneNumbers": [
+            3,
+            4
+          ]
+        },
+        {
+          "id": "8ca03983e19c",
+          "role": "performance_image",
+          "required": false,
+          "priority": 85,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=alternate.jpg",
+          "caption": "Official Video · 2001",
+          "performanceId": "perf-ev38ho",
+          "sceneNumbers": [
+            3,
+            4
+          ]
+        }
+      ],
+      "galleryImages": [
+        {
+          "id": "ac8e956dd124",
+          "role": "gallery_image",
+          "required": true,
+          "priority": 70,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=crowd.jpg",
+          "caption": "Audience or wide-stage context",
+          "performanceId": "perf-ev38ho",
+          "sceneNumbers": [
+            4
+          ]
+        },
+        {
+          "id": "8ca03983e19c",
+          "role": "gallery_image",
+          "required": true,
+          "priority": 70,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701784&file=alternate.jpg",
+          "caption": "Visually distinct alternate angle",
+          "performanceId": "perf-ev38ho",
+          "sceneNumbers": [
+            4
+          ]
+        }
+      ],
+      "timelineData": [],
+      "charts": [
+        {
+          "id": "chart-scene-5",
+          "role": "chart_data",
+          "required": true,
+          "priority": 80,
+          "url": null,
+          "caption": "Hot 100 #7",
+          "performanceId": null,
+          "sceneNumbers": [
+            5
+          ]
+        }
+      ],
+      "quotes": [
+        {
+          "id": "quote-scene-2",
+          "role": "quote_text",
+          "required": true,
+          "priority": 65,
+          "url": null,
+          "caption": "What About Us is performed by Brandy.",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "id": "d1057f5c-28e6-48a3-a27a-8800d4c64d16",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "The song peaked at #7 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+          "performanceId": null,
+          "sceneNumbers": [
+            5
+          ]
+        }
+      ],
+      "logos": []
+    },
+    "renderingInstructions": {
+      "sceneOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "autoAdvance": true,
+      "loopPresentation": false,
+      "respectDurationHints": true,
+      "notes": [
+        "Execute scenes in sceneOrder — no creative decisions required",
+        "Transition hints are labels only; renderer chooses motion",
+        "Template downgrades are final; do not revert to preferredTemplateId",
+        "6 scenes · 49s · 5 template types · Render Ready with Optional Gaps · Confidence 67% · Template 100% · Layout ready 83% · Diversity 83% · 50% exhibit coverage · 50% image · 13% fact coverage · Gaps: 1"
+      ]
+    },
+    "fallbackRules": [
+      {
+        "id": "quote-to-story",
+        "when": "quote template lacks pull-quote length",
+        "fallbackTemplate": "story",
+        "description": "Quote without quote text becomes Story layout"
+      },
+      {
+        "id": "gallery-to-hero",
+        "when": "gallery template has fewer than two images",
+        "fallbackTemplate": "hero",
+        "description": "Gallery with one image becomes Hero layout"
+      },
+      {
+        "id": "fact-stack-to-story",
+        "when": "fact stack has fewer than two facts",
+        "fallbackTemplate": "story",
+        "description": "Insufficient facts collapse to Story"
+      },
+      {
+        "id": "timeline-to-story",
+        "when": "timeline lacks dated events",
+        "fallbackTemplate": "story",
+        "description": "Timeline without dates becomes Story"
+      },
+      {
+        "id": "performance-to-story",
+        "when": "performance reference or image missing",
+        "fallbackTemplate": "story",
+        "description": "Performance without footage falls back to Story"
+      },
+      {
+        "id": "chart-to-story",
+        "when": "chart data missing",
+        "fallbackTemplate": "story",
+        "description": "Chart without peak data becomes Story"
+      },
+      {
+        "id": "comparison-to-story",
+        "when": "comparison copy missing",
+        "fallbackTemplate": "story",
+        "description": "Comparison without dual timeline copy becomes Story"
+      }
+    ],
+    "renderReadiness": "missing_required_assets",
+    "renderReadinessLabel": "Missing Required Assets — renderer should not publish",
+    "templateDowngradesApplied": 0,
+    "varietyAdjustmentsApplied": 0,
+    "estimatedRenderingConfidence": 54
+  }
+}

@@ -1,0 +1,492 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR895822",
+    "kind": "song",
+    "rvtr": "RVTR895822",
+    "generatedAt": "2026-06-28T23:06:26.477Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR895822",
+    "artist": "J. Cole",
+    "title": "Foldin Clothes",
+    "year": 2016,
+    "albumTitle": "4 Your Eyez Only",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL291920/RVAL291920__j-cole__4-your-eyez-only.jpg"
+  },
+  "artist": {
+    "name": "J. Cole",
+    "relatedArtists": [
+      "J. Cole"
+    ]
+  },
+  "album": {
+    "title": "4 Your Eyez Only",
+    "releaseYear": 2016,
+    "recordings": [
+      {
+        "id": "rec-wm0u4b",
+        "title": "4 Your Eyez Only",
+        "releaseDate": 2016,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-4krm2k",
+      "title": "Foldin' Clothes",
+      "kind": "performance",
+      "year": 2016,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - Foldin' Clothes.mp4",
+      "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 30,
+    "chartWeeks": 2,
+    "albumTitle": "4 Your Eyez Only",
+    "summary": "Hot 100 peak #30 · 2 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-w713ya",
+      "date": "2016",
+      "label": "Foldin Clothes — original release",
+      "detail": "Original album: 4 Your Eyez Only",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3hf",
+      "date": "2016",
+      "label": "Billboard Hot 100 peak #30",
+      "detail": "2 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-yd6g52",
+      "date": "2016",
+      "label": "4 Your Eyez Only",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-yu5lcb",
+      "date": "2016",
+      "label": "Foldin' Clothes",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR895822",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL291920/RVAL291920__j-cole__4-your-eyez-only.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "97a64c900874",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR895822&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-4krm2k",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "297ae69028b3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR895822&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-4krm2k",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "39408e3a34c4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR895822&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-4krm2k",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-4krm2k",
+        "title": "Foldin' Clothes",
+        "kind": "performance",
+        "year": 2016,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - Foldin' Clothes.mp4",
+        "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR895822-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR895822"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "J. Cole"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "J. Cole"
+    },
+    {
+      "id": "rel-RVTR895822-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR895822"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-wm0u4b"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "4 Your Eyez Only"
+    },
+    {
+      "id": "rel-RVTR895822-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR895822"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #30"
+    },
+    {
+      "id": "rel-RVTR895822-tl-tl-w713ya",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR895822"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-w713ya"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Foldin Clothes — original release"
+    },
+    {
+      "id": "rel-RVTR895822-tl-tl-fcm3hf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR895822"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3hf"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #30"
+    },
+    {
+      "id": "rel-RVTR895822-tl-tl-yd6g52",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR895822"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yd6g52"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "4 Your Eyez Only"
+    },
+    {
+      "id": "rel-RVTR895822-tl-tl-yu5lcb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR895822"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yu5lcb"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Foldin' Clothes"
+    },
+    {
+      "id": "rel-RVTR895822-perf-perf-4krm2k",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR895822"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-4krm2k"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Foldin' Clothes"
+    },
+    {
+      "id": "rel-perf-4krm2k-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4krm2k"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - Foldin' Clothes.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Foldin' Clothes"
+    },
+    {
+      "id": "rel-97a64c900874-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4krm2k"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "97a64c900874"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-297ae69028b3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4krm2k"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "297ae69028b3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-39408e3a34c4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4krm2k"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "39408e3a34c4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR895822. \"Foldin Clothes\" by J. Cole. Album: 4 Your Eyez Only (2016).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL291920/RVAL291920__j-cole__4-your-eyez-only.jpg",
+      "excerpt": "Canonical cover assignment for RVTR895822 (Foldin Clothes). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: 4 Your Eyez Only (2016). Billboard Hot 100 peak: #30. 2 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: J. Cole · Title: Foldin' Clothes · Album: 4 Your Eyez Only · Year: 2016 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - Foldin' Clothes.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2016.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-3f168011",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - Foldin' Clothes.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ad4a27ce-74f7-4f83-acfb-d52cdf77c947",
+      "category": "artist",
+      "text": "Foldin Clothes is performed by J. Cole.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bd999872-b964-4ce2-8ffe-24246816f370",
+      "category": "album",
+      "text": "The song appears on the album \"4 Your Eyez Only\" (2016).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "918f4a5f-2d32-42e6-8291-84e9d63b2113",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR895822.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL291920/RVAL291920__j-cole__4-your-eyez-only.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "abe6239c-7a13-4ab1-a516-17f2881b1f0b",
+      "category": "chart",
+      "text": "The song peaked at #30 on the Billboard Hot 100 and spent 2 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d5fc552b-be8d-4e9a-a018-bf7691e0905c",
+      "category": "recording",
+      "text": "Foldin Clothes was released in 2016.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "18660ba2-96d2-4f69-b987-d56267a72dfa",
+      "category": "trivia",
+      "text": "Cole · Title: Foldin' Clothes · Album: 4 Your Eyez Only · Year: 2016 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/J.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 6,
+    "pending": 0,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - Foldin' Clothes.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

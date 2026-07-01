@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR637814",
+    "kind": "song",
+    "rvtr": "RVTR637814",
+    "generatedAt": "2026-06-28T22:58:11.038Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR637814",
+    "artist": "Tool",
+    "title": "Sober",
+    "year": 1993,
+    "albumTitle": "Undertow",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL092302/RVAL092302__tool__undertow.jpg"
+  },
+  "artist": {
+    "name": "Tool",
+    "relatedArtists": [
+      "Tool"
+    ]
+  },
+  "album": {
+    "title": "Undertow",
+    "releaseYear": 1993,
+    "recordings": [
+      {
+        "id": "rec-8nctd4",
+        "title": "Undertow",
+        "releaseDate": 1993,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-tu1bkg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2000,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tool - Sober.mp4",
+      "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Undertow",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-x0vxzd",
+      "date": "1993",
+      "label": "Sober — original release",
+      "detail": "Original album: Undertow",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-u03qx4",
+      "date": "1993",
+      "label": "Undertow",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2000",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR637814",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL092302/RVAL092302__tool__undertow.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "760be88a4277",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR637814&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-tu1bkg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fd880cfdb608",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR637814&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-tu1bkg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5a32ea7cfeda",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR637814&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-tu1bkg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b72b5256b6d0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR637814&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-tu1bkg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "84a846e6013f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR637814&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-tu1bkg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-tu1bkg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2000,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tool - Sober.mp4",
+        "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR637814-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR637814"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Tool"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Tool"
+    },
+    {
+      "id": "rel-RVTR637814-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR637814"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-8nctd4"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Undertow"
+    },
+    {
+      "id": "rel-RVTR637814-tl-tl-x0vxzd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR637814"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-x0vxzd"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Sober — original release"
+    },
+    {
+      "id": "rel-RVTR637814-tl-tl-u03qx4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR637814"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-u03qx4"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Undertow"
+    },
+    {
+      "id": "rel-RVTR637814-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR637814"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR637814-perf-perf-tu1bkg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR637814"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-tu1bkg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-tu1bkg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tu1bkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tool - Sober.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-760be88a4277-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tu1bkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "760be88a4277"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-fd880cfdb608-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tu1bkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fd880cfdb608"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5a32ea7cfeda-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tu1bkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5a32ea7cfeda"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b72b5256b6d0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tu1bkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b72b5256b6d0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-84a846e6013f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tu1bkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "84a846e6013f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR637814. \"Sober\" by Tool. Album: Undertow (1993).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL092302/RVAL092302__tool__undertow.jpg",
+      "excerpt": "Canonical cover assignment for RVTR637814 (Sober). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Undertow (1993)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Tool · Title: Sober · Album: Sober - Tales From The Darkside · Year: 2000 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tool - Sober.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1993.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-81f3587f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tool - Sober.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2a57d5dc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Tool - Sober.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f3c6cb35-76d4-4824-9a2c-b733d95382eb",
+      "category": "artist",
+      "text": "Sober is performed by Tool.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6b90cd47-ee2b-4bd3-a4f3-d329197aa04c",
+      "category": "album",
+      "text": "The song appears on the album \"Undertow\" (1993).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c41cce81-5a83-47a5-a5a0-b8c34e779349",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR637814.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL092302/RVAL092302__tool__undertow.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "61e57f31-4116-4814-96ac-23ff195371d4",
+      "category": "recording",
+      "text": "Sober was released in 1993.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4e29ad02-883a-481e-9ab9-22f2d329b070",
+      "category": "trivia",
+      "text": "Artist: Tool · Title: Sober · Album: Sober - Tales From The Darkside · Year: 2000 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tool - Sober.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8bfd3dcc-65fe-4059-863a-143214b26ea7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tool - Sober.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "09955f1d-8052-44a9-95da-7f7c5099fd7d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Tool - Sober.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tool - Sober.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

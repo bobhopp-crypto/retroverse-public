@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR246965",
+    "kind": "song",
+    "rvtr": "RVTR246965",
+    "generatedAt": "2026-06-28T22:49:16.708Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR246965",
+    "artist": "Friends Again",
+    "title": "Sunkissed",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Friends Again",
+    "relatedArtists": [
+      "Friends Again"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-yb62bf",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1983,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Friends Again - Sunkissed.mp4",
+      "notes": "Detected year: 1983. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-z29kvh",
+      "date": "1983",
+      "label": "Sunkissed — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1983",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "63746f519c60",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR246965&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yb62bf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1240e06d36ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR246965&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yb62bf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "96b894db3d7e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR246965&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yb62bf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "76ca30e4aa3f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR246965&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yb62bf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2f2d21f21ec5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR246965&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yb62bf",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yb62bf",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1983,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Friends Again - Sunkissed.mp4",
+        "notes": "Detected year: 1983. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR246965-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR246965"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Friends Again"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Friends Again"
+    },
+    {
+      "id": "rel-RVTR246965-tl-tl-z29kvh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR246965"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z29kvh"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Sunkissed — original release"
+    },
+    {
+      "id": "rel-RVTR246965-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR246965"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR246965-perf-perf-yb62bf",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR246965"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yb62bf"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yb62bf-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yb62bf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Friends Again - Sunkissed.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-63746f519c60-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yb62bf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "63746f519c60"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-1240e06d36ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yb62bf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1240e06d36ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-96b894db3d7e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yb62bf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "96b894db3d7e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-76ca30e4aa3f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yb62bf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "76ca30e4aa3f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2f2d21f21ec5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yb62bf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2f2d21f21ec5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR246965. \"Sunkissed\" by Friends Again.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Friends Again · Title: Sunkissed · Album: Sunkissed · Year: 1983 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Friends Again - Sunkissed.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b9276b48",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Friends Again - Sunkissed.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "a0a7eae2-093d-4742-870a-df2a2d36bc84",
+      "category": "artist",
+      "text": "Sunkissed is performed by Friends Again.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2b56a90a-3d73-4912-b41d-da106e9dd064",
+      "category": "trivia",
+      "text": "Artist: Friends Again · Title: Sunkissed · Album: Sunkissed · Year: 1983 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Friends Again - Sunkissed.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6c8d6277-20e6-4d2e-ae49-ba47d51376c4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Friends Again - Sunkissed.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Friends Again - Sunkissed.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

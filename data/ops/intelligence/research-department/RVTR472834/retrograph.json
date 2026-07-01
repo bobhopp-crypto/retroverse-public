@@ -1,0 +1,608 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR472834",
+    "kind": "song",
+    "rvtr": "RVTR472834",
+    "generatedAt": "2026-06-28T22:53:40.797Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR472834",
+    "artist": "Madonna",
+    "title": "Lucky Star",
+    "year": 1983,
+    "albumTitle": "Madonna",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL475112/RVAL475112__madonna__madonna.jpg"
+  },
+  "artist": {
+    "name": "Madonna",
+    "relatedArtists": [
+      "Madonna"
+    ]
+  },
+  "album": {
+    "title": "Madonna",
+    "releaseYear": 1983,
+    "recordings": [
+      {
+        "id": "rec-xa0wij",
+        "title": "Madonna",
+        "releaseDate": 1983,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-p44g5r",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1984,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Lucky Star.mp4",
+      "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 4,
+    "chartWeeks": 16,
+    "albumTitle": "Madonna",
+    "summary": "Hot 100 peak #4 · 16 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-z9oose",
+      "date": "1983",
+      "label": "Lucky Star — original release",
+      "detail": "Original album: Madonna",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2m",
+      "date": "1983",
+      "label": "Billboard Hot 100 peak #4",
+      "detail": "16 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-q0gpua",
+      "date": "1983",
+      "label": "Madonna",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1984",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR472834",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL475112/RVAL475112__madonna__madonna.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "838a50110d3c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR472834&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-p44g5r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cffe9afab0f4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR472834&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-p44g5r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1c7edc1e255d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR472834&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-p44g5r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ac735a5554ef",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR472834&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-p44g5r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a04777e344a3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR472834&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-p44g5r",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-p44g5r",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1984,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Lucky Star.mp4",
+        "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR472834-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR472834"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Madonna"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Madonna"
+    },
+    {
+      "id": "rel-RVTR472834-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR472834"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-xa0wij"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Madonna"
+    },
+    {
+      "id": "rel-RVTR472834-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR472834"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #4"
+    },
+    {
+      "id": "rel-RVTR472834-tl-tl-z9oose",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR472834"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z9oose"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Lucky Star — original release"
+    },
+    {
+      "id": "rel-RVTR472834-tl-tl-l47p2m",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR472834"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2m"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #4"
+    },
+    {
+      "id": "rel-RVTR472834-tl-tl-q0gpua",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR472834"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-q0gpua"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Madonna"
+    },
+    {
+      "id": "rel-RVTR472834-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR472834"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR472834-perf-perf-p44g5r",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR472834"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-p44g5r"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-p44g5r-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p44g5r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Lucky Star.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-838a50110d3c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p44g5r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "838a50110d3c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-cffe9afab0f4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p44g5r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cffe9afab0f4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1c7edc1e255d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p44g5r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1c7edc1e255d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ac735a5554ef-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p44g5r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ac735a5554ef"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a04777e344a3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p44g5r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a04777e344a3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR472834. \"Lucky Star\" by Madonna. Album: Madonna (1983).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL475112/RVAL475112__madonna__madonna.jpg",
+      "excerpt": "Canonical cover assignment for RVTR472834 (Lucky Star). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Madonna (1983). Billboard Hot 100 peak: #4. 16 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Madonna · Title: Lucky Star · Album: Lucky Star / Borderline · Year: 1984 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Lucky Star.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1983.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-1a836241",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Lucky Star.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ceb3f474",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Madonna - Lucky Star.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-829c0267",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Madonna - Lucky Star.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1b938fa9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Madonna - Lucky Star.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c9d88305-885d-4aa2-b13e-4f851ad61629",
+      "category": "artist",
+      "text": "Lucky Star is performed by Madonna.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1f56c2ba-5f86-4531-87c0-c77899be14e3",
+      "category": "album",
+      "text": "The song appears on the album \"Madonna\" (1983).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5640d992-76f1-4cb5-b263-950dfd436adb",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR472834.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL475112/RVAL475112__madonna__madonna.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6959ae7c-6d5b-4d8f-813e-8c982a06dd77",
+      "category": "chart",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "21553e2d-f283-4fe6-9d14-d019a70f107b",
+      "category": "recording",
+      "text": "Lucky Star was released in 1983.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "998b8476-fb5c-406e-a398-70ab869c04eb",
+      "category": "trivia",
+      "text": "Artist: Madonna · Title: Lucky Star · Album: Lucky Star / Borderline · Year: 1984 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Lucky Star.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8c2697df-5699-4ef3-8424-a116647836e0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Lucky Star.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8a28544c-8e5b-481f-93e8-d1130d56b94f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Madonna - Lucky Star.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "128ad3e4-ffe6-4dc8-8d7d-565a27674bbb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Madonna - Lucky Star.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9f923646-59af-425f-8243-05f6022a89fd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Madonna - Lucky Star.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 13,
+    "preserved": 10,
+    "accepted": 5,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Lucky Star.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

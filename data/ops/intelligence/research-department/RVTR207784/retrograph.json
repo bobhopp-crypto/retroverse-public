@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR207784",
+    "kind": "song",
+    "rvtr": "RVTR207784",
+    "generatedAt": "2026-06-28T22:48:08.346Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR207784",
+    "artist": "Meg Myers",
+    "title": "Desire",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Meg Myers",
+    "relatedArtists": [
+      "Meg Myers"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ezemct",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2015,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Desire.mp4",
+      "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-xgx8gy",
+      "date": "2015",
+      "label": "Desire — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2015",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "6ff967b0f98f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR207784&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ezemct",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6fe2c15931df",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR207784&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ezemct",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bc566f091c2b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR207784&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ezemct",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "61bba7a7e2e7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR207784&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ezemct",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e4207332d17a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR207784&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ezemct",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ezemct",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2015,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Desire.mp4",
+        "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR207784-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR207784"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Meg Myers"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Meg Myers"
+    },
+    {
+      "id": "rel-RVTR207784-tl-tl-xgx8gy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR207784"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-xgx8gy"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Desire — original release"
+    },
+    {
+      "id": "rel-RVTR207784-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR207784"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR207784-perf-perf-ezemct",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR207784"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ezemct"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ezemct-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ezemct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Desire.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6ff967b0f98f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ezemct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6ff967b0f98f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6fe2c15931df-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ezemct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6fe2c15931df"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-bc566f091c2b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ezemct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bc566f091c2b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-61bba7a7e2e7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ezemct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "61bba7a7e2e7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e4207332d17a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ezemct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e4207332d17a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR207784. \"Desire\" by Meg Myers.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Meg Myers · Title: Desire · Album: Make A Shadow · Year: 2015 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Desire.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-654a5bfb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Desire.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "64fe00c6-6570-4f0d-acae-fb427d685bdb",
+      "category": "artist",
+      "text": "Desire is performed by Meg Myers.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9fa5140f-df2d-4dbe-882f-9a451b8b5dc7",
+      "category": "trivia",
+      "text": "Artist: Meg Myers · Title: Desire · Album: Make A Shadow · Year: 2015 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Desire.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fe726505-6d5a-4c0f-bd5a-f41683377520",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Desire.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Desire.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

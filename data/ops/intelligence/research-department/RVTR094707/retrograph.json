@@ -1,0 +1,600 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR094707",
+    "kind": "song",
+    "rvtr": "RVTR094707",
+    "generatedAt": "2026-06-28T22:45:27.649Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR094707",
+    "artist": "Willie Jones",
+    "title": "Lil Vibe",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Willie Jones",
+    "relatedArtists": [
+      "Willie Jones"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-aooojg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1999,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Willie Jones - Lil Vibe.mp4",
+      "notes": "Detected year: 1999. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-d6rtx7",
+      "date": "2026",
+      "label": "Lil Vibe — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-vdvmly",
+      "date": "2026",
+      "label": "This article summarizes the events, album releases, and album release dates in hip-hop for the year ",
+      "detail": "2026.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-jq4g0f",
+      "date": "—",
+      "label": "Events\n\n\nJanuary\nOn January 1, ZeeTheWizard was shot in Dallas, Texas.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-9djbl3",
+      "date": "—",
+      "label": "This is the discography for the American jazz musician Elvin Jones.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1999",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "Kendrick Lamar and SZA won Record of the Year and Best Melodic Rap Performance for \"Luther\".",
+      "Central Cee won Best Hip-hop Act, Chip won Best Grime Act, Twin S won Best Drill Act, and P2J won Best Producer.",
+      "In 2024, he was featured on Beyoncé's album Cowboy Carter on the track \"Just for Fun\", and signed with independent record label Gravel Road Records."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "582d9ad5caaa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR094707&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-aooojg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "12fb37dcf36c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR094707&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-aooojg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1489e6f479a6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR094707&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-aooojg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d9ab3643c955",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR094707&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-aooojg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8aeaddc28440",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR094707&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-aooojg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-aooojg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1999,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Willie Jones - Lil Vibe.mp4",
+        "notes": "Detected year: 1999. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR094707-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR094707"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Willie Jones"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Willie Jones"
+    },
+    {
+      "id": "rel-RVTR094707-tl-tl-d6rtx7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR094707"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-d6rtx7"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Lil Vibe — original release"
+    },
+    {
+      "id": "rel-RVTR094707-tl-tl-vdvmly",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR094707"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vdvmly"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "This article summarizes the events, album releases, and album release dates in hip-hop for the year "
+    },
+    {
+      "id": "rel-RVTR094707-tl-tl-jq4g0f",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR094707"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jq4g0f"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Events\n\n\nJanuary\nOn January 1, ZeeTheWizard was shot in Dallas, Texas."
+    },
+    {
+      "id": "rel-RVTR094707-tl-tl-9djbl3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR094707"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9djbl3"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "This is the discography for the American jazz musician Elvin Jones."
+    },
+    {
+      "id": "rel-RVTR094707-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR094707"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR094707-perf-perf-aooojg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR094707"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-aooojg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-aooojg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aooojg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Willie Jones - Lil Vibe.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-582d9ad5caaa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aooojg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "582d9ad5caaa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-12fb37dcf36c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aooojg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "12fb37dcf36c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1489e6f479a6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aooojg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1489e6f479a6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d9ab3643c955-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aooojg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d9ab3643c955"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-8aeaddc28440-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aooojg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8aeaddc28440"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR094707. \"Lil Vibe\" by Willie Jones.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Willie Jones · Title: Lil Vibe · Album: No Sweat 7 (The Coolest R&B) · Year: 1999 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Willie Jones - Lil Vibe.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-083bee9a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Willie Jones - Lil Vibe.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-2026-in-hip-hop",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/2026_in_hip-hop",
+      "excerpt": "This article summarizes the events, album releases, and album release dates in hip-hop for the year 2026.\n\n\nEvents\n\n\nJanuary\nOn January 1, ZeeTheWizard was shot in Dallas, Texas. He died days later.\nOn January 4, Calbo died at the age of 52.\nOn January 7, the death of James Bernard was announced.\nOn January 8, Fetty Wap was released from prison.\nOn January 12, John Forté died at the age of 50.\nOn January 21, the death of DJ Mike T was announced.\n\n\nFebruary\nOn February 1, the 68th Annual Grammy Awards were held. Kendrick Lamar and SZA won Record of the Year and Best Melodic Rap Performance for \"Luther\". Clipse and Lamar won Best Rap Performance for \"Chains & Whips\". Lamar and Lefty Gunplay won Best Rap Song for \"TV Off\". Lamar won Best Rap Album for GNX. Mad Skillz won Best Spoken Word Poetry Album for Words for Days Vol. 1. Tyler, the Creator won Best Album Cover for Chromakopia. Pharrell Williams received the Dr. Dre Global Impact Award.\nOn February 11, All Eyez on Me by Tupac Shakur and \"Paid in Full\" by Eric B. & Rakim were inducted into the Grammy Hall of Fame.\nOn February 12, Milkman died at the age of 36.\nOn February 18, Lil Poppa died at the age of 25 from suicide by gunshot.\nOn February 22, Luci4 died at the age of 23.\nOn February 23, Oliver \"Power\" Grant died at the age of 52.\nOn February 28, the 57th NAACP Image Awards were held. Salt-N-Pepa and DJ Spinderella won the Hall of Fame Award. The Apple Music Super Bowl LIX Halftime Show with Kendrick Lamar won Outstanding Short-Form Series or Special - Reality/Nonfiction/Documentary. Kendrick Lamar and SZA won Outstanding Music Video/Visual Album for \"Luther\". Lamar won Outstanding Male Artist. Cardi B won Outstanding Album for Am I the Drama?, Outstanding Hip Hop/Rap Song for \"ErrTime\", and Outstanding Female Artist. Monaleo won Outstanding New Artist. The Brit Awards 2026 were held. Dave won Best Hip Hop/Grime/Rap Act.\n\n\nMarch\nOn March 1, Bob Power died at the age of 73.\nOn March 8, Dot Rotten died at the age of 37.\nOn March 12, Lord Sear died at the age of 53.\nOn March 26, the MOBO Awards 2026 were held. Jim Legxacy won Best Male Act. Central Cee won Best Hip-hop Act, Chip won Best Grime Act, Twin S won Best Drill Act, and P2J won Best Producer. On the same day, The 2026 iHeartRadio Music Awards were held. Kendrick Lamar and SZA won Hip-Hop Song of the Year for \"Luther\". Kendrick Lamar won Hip-Hop Album of the Year for GNX and Hip-Hop Artist of the Year. Real Boston Richey won Best New Hip-Hop Artist. Ludacris received the iHeartRadio Landmark Award.\n\n\nApril\nOn April 2, nine people, including Pooh Shiesty and Big30, were arrested in Memphis, Tennessee for allegedly robbing and kidnapping multiple men, one of which was Gucci Mane.\nOn April 6, Offset was shot in Hollywood, Florida.\nOn April 7, Blondy of The Sequence died at the age of 67.\nOn April 9, Afrika Bambaataa died at the age of 68.\nOn April 23, HavinMotion died at the age of 22 in Washington, D.C.\nOn April 28, Cleetis Mack, of Digital Underground, died.\n\n\nMay\nOn May 8, Isaiah Chance, Davion Murphy, Rashad Murphy, and Sean Gathwright were found guilty for the murder of Julio Foolio.\nOn May 15, Corneilus Smith was sentenced to 20 years in prison for the murder of Young Dolph.\nOn May 22, Rob Base died at the age of 59.\nOn May 25, the American Music Awards of 2026 were held. Kendrick Lamar won Best Male Hip-Hop Artist. Cardi B won Best Hip-Hop Song for \"ErrTime\", Best Hip-Hop Album for Am I the Drama?, and Best Female Hip-Hop Artist. Monaleo won Breakthrough Hip-Hop Artist.\n\n\nJune\nOn June 1, Ludacris and Organized Noize were inducted into the Black Music & Entertainment Walk of Fame.\nOn June 14, Oliver Tree died at the age 32 in a helicopter collision in Rio de Janeiro, Brazil, with five others onboard.\nOn June 16, Mystikal was sentenced to 20 years in prison.\nOn June 18, Tay Keith was found dead in his apartment in Nashville, Tennessee at the age of 29.\nOn June 24, XXL released their 2026 Freshman Class, including Chris Patrick, Belly Gang Kushington, Slayr, La Reezy, Trim, Trap Dickey, Babyfxce E, Hurricane Wisdom, YKNiece, Skrilla, Sosocamo, and Miles Minnick.\nOn June 28, the BET Awards 2026 are scheduled to be held.\n\n\nJuly\n\n\nAugust\nOn August 10, Duane \"Keefe D\" Davis will go on trial for the murder of Tupac Shakur.\nOn August 20, Lil Durk is scheduled for his murder for hire trial.\nOn August 24, Yella Beezy will start his trial for the alleged involvement for the murder MO3 (rapper).\n\n\nNovember\nOn November 9, the murder trial for the murder of Takeoff will begin.\nOn November 14, Wu-Tang Clan will be inducted into the Rock & Roll Hall of Fame.\n\n\nReleased albums\n\n\nJanuary\n\n\nFebruary\n\n\nMarch\n\n\nApril\n\n\nMay\n\n\nJune\n\n\nUpcoming releases\n\n\nJune\n\n\nJuly\n\n\nAugust\n\n\nSeptember\n\n\nUnscheduled and TBA\n\n\nHighest-charting songs\n\n\nUnited States\n\n\nUnited Kingdom\n\n\nHighest first-week consumption\n\n\nAll critically reviewed albums ranked\n\n\nMetacritic\n\n\nSee also\nPrevious article: 2025 in hip-hop\n\n\nReferences",
+      "confidence": 0.85
+    },
+    {
+      "id": "wiki-album-elvin-jones-discography",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Elvin_Jones_discography",
+      "excerpt": "This is the discography for the American jazz musician Elvin Jones.\n\n\nAs leader/co-leader\n\n\nAs sideman\n\n\nReferences\n\n\nExternal links\nElvin Jones at Discogs",
+      "confidence": 0.75
+    },
+    {
+      "id": "wiki-artist-willie-jones-country-singer-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Willie_Jones_(country_singer)",
+      "excerpt": "Willie Jones is an American country music singer and a former contestant on The X Factor.\n\n\nEarly life\nJones was born in Shreveport, Louisiana, on September 23, 1994, the son of a preacher. He is a graduate of Green Oaks Performing Arts Academy in Shreveport. He learned to sing in his church choir and appeared in musicals at school.\n\n\nCareer\nWhen he was 17 years old, he competed in the second season of The X Factor where he auditioned with Josh Turner's song \"Your Man\". In 2016 he appeared in the Netflix reality show Chasing Cameron. In 2021, he signed with Sony Music Nashville and The Penthouse and released his first album Right Now which features T.I. Jones also appeared in the 2022 documentary For Love and Country. In 2023, he released his second album/major-label debut, Something to Dance To. However, he was shortly dropped from Sony Music following its release.\nIn 2024, he was featured on Beyoncé's album Cowboy Carter on the track \"Just for Fun\", and signed with independent record label Gravel Road Records.\nHe has toured with artists Shawn Mendes, Michael Ray and Logan Mize.\n\n\nInfluences\nJones has been influenced by a variety of musicians, including John Legend, Sam Cooke, Randy Travis, Darius Rucker and Kacey Musgraves.\n\n\nPersonal life\nJones lives in Nashville.\n\n\nDiscography\n\n\nAlbums\nRight Now (2021)\nSomething to Dance To (2023)\n\n\nSingles\n\"Down for It\" (2019)\n\"American Dream\" (2021)\n\n\nReferences",
+      "confidence": 0.7
+    }
+  ],
+  "facts": [
+    {
+      "id": "fd589c64-84f3-4353-aa73-ca5c3f3a7e15",
+      "category": "artist",
+      "text": "Lil Vibe is performed by Willie Jones.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4510ed96-675b-492b-b425-a43b33825ae2",
+      "category": "cultural_impact",
+      "text": "This article summarizes the events, album releases, and album release dates in hip-hop for the year 2026.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/2026_in_hip-hop",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "daf4bea8-4c4a-4a0f-abb9-c48b6da796c1",
+      "category": "cultural_impact",
+      "text": "Events\n\n\nJanuary\nOn January 1, ZeeTheWizard was shot in Dallas, Texas.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/2026_in_hip-hop",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b590caf8-dcd3-4c04-b5e9-a5c6473d3903",
+      "category": "cultural_impact",
+      "text": "On January 4, Calbo died at the age of 52.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/2026_in_hip-hop",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4a3995f7-81c5-47ee-83e6-0ac87329cc16",
+      "category": "cultural_impact",
+      "text": "This is the discography for the American jazz musician Elvin Jones.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Elvin_Jones_discography",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4db58436-8fc1-4a2f-94af-898548d84ddf",
+      "category": "cultural_impact",
+      "text": "As leader/co-leader\n\n\nAs sideman\n\n\nReferences\n\n\nExternal links\nElvin Jones at Discogs",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Elvin_Jones_discography",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fa97b2be-0f12-4038-979b-ca4924496ede",
+      "category": "cultural_impact",
+      "text": "Willie Jones is an American country music singer and a former contestant on The X Factor.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Willie_Jones_(country_singer)",
+      "confidence": 0.7,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "468baf30-b65a-4c1f-887c-55dda937e48d",
+      "category": "cultural_impact",
+      "text": "Early life\nJones was born in Shreveport, Louisiana, on September 23, 1994, the son of a preacher.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Willie_Jones_(country_singer)",
+      "confidence": 0.7,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "7ff912e1-6d99-43f3-ab3f-ca642c464e3b",
+      "category": "trivia",
+      "text": "Artist: Willie Jones · Title: Lil Vibe · Album: No Sweat 7 (The Coolest R&B) · Year: 1999 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Willie Jones - Lil Vibe.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "421d0e02-3d52-4473-a5e7-786dc76b3dfc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Willie Jones - Lil Vibe.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "01db4442-5d30-4f2c-83aa-f76792abf819",
+      "category": "cultural_impact",
+      "text": "He is a graduate of Green Oaks Performing Arts Academy in Shreveport.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Willie_Jones_(country_singer)",
+      "confidence": 0.7,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 90,
+    "relationships": 40,
+    "overall": 67
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": [
+      {
+        "id": "conflict-0",
+        "text": "Verify: This is the discography for the American jazz musician Elvin Jones.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-1",
+        "text": "Verify: As leader/co-leader\n\n\nAs sideman\n\n\nReferences\n\n\nExternal links\nElvin Jones at Discogs… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-2",
+        "text": "Verify: Willie Jones is an American country music singer and a former contestant on The X Factor.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-3",
+        "text": "Verify: Early life\nJones was born in Shreveport, Louisiana, on September 23, 1994, the son of a preacher.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-4",
+        "text": "Verify: He is a graduate of Green Oaks Performing Arts Academy in Shreveport.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      }
+    ]
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 11,
+    "accepted": 8,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Willie Jones - Lil Vibe.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

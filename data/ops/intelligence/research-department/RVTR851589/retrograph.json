@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR851589",
+    "kind": "song",
+    "rvtr": "RVTR851589",
+    "generatedAt": "2026-06-28T23:04:41.035Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR851589",
+    "artist": "Bonnie Raitt",
+    "title": "Sugar Man",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Bonnie Raitt",
+    "relatedArtists": [
+      "Bonnie Raitt"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-g1v2iz",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1977,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bonnie Raitt - Sugar Man.mp4",
+      "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-1fde5w",
+      "date": "1977",
+      "label": "Sugar Man — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1977",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f525c01330cc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR851589&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-g1v2iz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aa2a362cea4a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR851589&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-g1v2iz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "76f7d7277b59",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR851589&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-g1v2iz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fcc615ce6833",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR851589&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-g1v2iz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7d8f489297e7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR851589&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-g1v2iz",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-g1v2iz",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1977,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bonnie Raitt - Sugar Man.mp4",
+        "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR851589-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR851589"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Bonnie Raitt"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Bonnie Raitt"
+    },
+    {
+      "id": "rel-RVTR851589-tl-tl-1fde5w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR851589"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-1fde5w"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Sugar Man — original release"
+    },
+    {
+      "id": "rel-RVTR851589-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR851589"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR851589-perf-perf-g1v2iz",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR851589"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-g1v2iz"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-g1v2iz-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g1v2iz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bonnie Raitt - Sugar Man.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f525c01330cc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g1v2iz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f525c01330cc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-aa2a362cea4a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g1v2iz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aa2a362cea4a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-76f7d7277b59-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g1v2iz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "76f7d7277b59"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-fcc615ce6833-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g1v2iz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fcc615ce6833"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7d8f489297e7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g1v2iz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7d8f489297e7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR851589. \"Sugar Man\" by Bonnie Raitt.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Bonnie Raitt · Title: Sugar Man · Album: Live At Montreux 1977 · Year: 1977 · Genre: Blues · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bonnie Raitt - Sugar Man.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cb9a1228",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bonnie Raitt - Sugar Man.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ad0f2cdf-2ea3-491c-8b21-92d9ab2385fa",
+      "category": "artist",
+      "text": "Sugar Man is performed by Bonnie Raitt.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "aad8f055-8121-4d8f-bf21-9747d1299095",
+      "category": "trivia",
+      "text": "Artist: Bonnie Raitt · Title: Sugar Man · Album: Live At Montreux 1977 · Year: 1977 · Genre: Blues · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bonnie Raitt - Sugar Man.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0939b9c4-7539-441f-a8f2-9469a1138092",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bonnie Raitt - Sugar Man.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bonnie Raitt - Sugar Man.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

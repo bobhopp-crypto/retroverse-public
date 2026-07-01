@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR048889",
+    "kind": "song",
+    "rvtr": "RVTR048889",
+    "generatedAt": "2026-06-28T22:44:26.218Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR048889",
+    "artist": "Wings",
+    "title": "Mull Of Kintyre",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Wings",
+    "relatedArtists": [
+      "Wings"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-aqafqb",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1977,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Wings - Mull of Kintyre.mp4",
+      "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-p67if9",
+      "date": "1977",
+      "label": "Mull Of Kintyre — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1977",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "079ada09ddf2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048889&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-aqafqb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fdde3fe1f83e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048889&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-aqafqb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2f89cf230ad9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048889&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-aqafqb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "72eb678eab52",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048889&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-aqafqb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ed8cc4ed89c9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048889&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-aqafqb",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-aqafqb",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1977,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Wings - Mull of Kintyre.mp4",
+        "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR048889-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048889"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Wings"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Wings"
+    },
+    {
+      "id": "rel-RVTR048889-tl-tl-p67if9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048889"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p67if9"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Mull Of Kintyre — original release"
+    },
+    {
+      "id": "rel-RVTR048889-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048889"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR048889-perf-perf-aqafqb",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048889"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-aqafqb"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-aqafqb-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aqafqb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Wings - Mull of Kintyre.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-079ada09ddf2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aqafqb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "079ada09ddf2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-fdde3fe1f83e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aqafqb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fdde3fe1f83e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2f89cf230ad9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aqafqb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2f89cf230ad9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-72eb678eab52-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aqafqb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "72eb678eab52"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ed8cc4ed89c9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aqafqb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ed8cc4ed89c9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR048889. \"Mull Of Kintyre\" by Wings.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Wings · Title: Mull of Kintyre · Album: Mull Of Kintyre / Girls' School · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Wings - Mull of Kintyre.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c0a63158",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Wings - Mull of Kintyre.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6e1e7f30-b402-4551-b0d5-4b588e0dfccb",
+      "category": "artist",
+      "text": "Mull Of Kintyre is performed by Wings.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "676a85fa-7bba-4bfa-b812-2783b608d9b3",
+      "category": "trivia",
+      "text": "Artist: Wings · Title: Mull of Kintyre · Album: Mull Of Kintyre / Girls' School · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Wings - Mull of Kintyre.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d1d13e66-30bf-4d73-83c3-62265c073df9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Wings - Mull of Kintyre.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Wings - Mull of Kintyre.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR794678",
+    "kind": "song",
+    "rvtr": "RVTR794678",
+    "generatedAt": "2026-06-28T23:02:51.476Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR794678",
+    "artist": "Primal Scream",
+    "title": "Jailbird",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Primal Scream",
+    "relatedArtists": [
+      "Primal Scream"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-5ieosf",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1994,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Primal Scream - Jailbird.mp4",
+      "notes": "Detected year: 1994. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-4nvhdz",
+      "date": "1994",
+      "label": "Jailbird — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1994",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4751366c5b06",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR794678&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-5ieosf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b016d8a5eda5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR794678&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-5ieosf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f9e3d58e51fc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR794678&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-5ieosf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ff359a087898",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR794678&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-5ieosf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4ebb0e13abaf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR794678&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-5ieosf",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-5ieosf",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1994,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Primal Scream - Jailbird.mp4",
+        "notes": "Detected year: 1994. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR794678-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR794678"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Primal Scream"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Primal Scream"
+    },
+    {
+      "id": "rel-RVTR794678-tl-tl-4nvhdz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR794678"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4nvhdz"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Jailbird — original release"
+    },
+    {
+      "id": "rel-RVTR794678-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR794678"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR794678-perf-perf-5ieosf",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR794678"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-5ieosf"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-5ieosf-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5ieosf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Primal Scream - Jailbird.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4751366c5b06-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5ieosf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4751366c5b06"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b016d8a5eda5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5ieosf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b016d8a5eda5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f9e3d58e51fc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5ieosf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f9e3d58e51fc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ff359a087898-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5ieosf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ff359a087898"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4ebb0e13abaf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5ieosf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4ebb0e13abaf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR794678. \"Jailbird\" by Primal Scream.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Primal Scream · Title: Jailbird · Album: Jailbird · Year: 1994 · Genre: Breakbeat · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Primal Scream - Jailbird.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0af7c91c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Primal Scream - Jailbird.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "74ff7ef1-9e6d-48c7-a420-6e347fefe534",
+      "category": "artist",
+      "text": "Jailbird is performed by Primal Scream.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d814ed69-ff05-4460-a754-94df18e54456",
+      "category": "trivia",
+      "text": "Artist: Primal Scream · Title: Jailbird · Album: Jailbird · Year: 1994 · Genre: Breakbeat · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Primal Scream - Jailbird.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "661d4cc4-3eba-4cff-9598-63bcb23ee27d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Primal Scream - Jailbird.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Primal Scream - Jailbird.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

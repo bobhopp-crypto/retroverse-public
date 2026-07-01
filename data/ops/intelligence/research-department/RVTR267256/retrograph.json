@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR267256",
+    "kind": "song",
+    "rvtr": "RVTR267256",
+    "generatedAt": "2026-06-28T22:49:35.986Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR267256",
+    "artist": "Jules And Raoul",
+    "title": "Progress",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jules And Raoul",
+    "relatedArtists": [
+      "Jules And Raoul"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-e7m6lu",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jules And Raoul - Progress.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-iy1zoh",
+      "date": "2004",
+      "label": "Progress — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "eef085258f40",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR267256&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-e7m6lu",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "13c3579c3e67",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR267256&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-e7m6lu",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9be78a888a16",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR267256&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-e7m6lu",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "eeb0b64de25c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR267256&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-e7m6lu",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7a1245d45a05",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR267256&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-e7m6lu",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-e7m6lu",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jules And Raoul - Progress.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR267256-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR267256"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jules And Raoul"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jules And Raoul"
+    },
+    {
+      "id": "rel-RVTR267256-tl-tl-iy1zoh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR267256"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-iy1zoh"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Progress — original release"
+    },
+    {
+      "id": "rel-RVTR267256-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR267256"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR267256-perf-perf-e7m6lu",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR267256"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-e7m6lu"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-e7m6lu-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7m6lu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jules And Raoul - Progress.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-eef085258f40-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7m6lu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "eef085258f40"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-13c3579c3e67-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7m6lu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "13c3579c3e67"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9be78a888a16-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7m6lu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9be78a888a16"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-eeb0b64de25c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7m6lu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "eeb0b64de25c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-7a1245d45a05-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7m6lu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7a1245d45a05"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR267256. \"Progress\" by Jules And Raoul.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jules And Raoul · Title: Progress · Album: Jules & Raoul / Rob D - Progress / Ambulance · Year: 2004 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jules And Raoul - Progress.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f3885218",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jules And Raoul - Progress.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "3aa876a7-024b-4c0a-a13d-f2a9868d33b1",
+      "category": "artist",
+      "text": "Progress is performed by Jules And Raoul.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e331f7eb-4ba4-446a-95ee-b558e58e48cd",
+      "category": "trivia",
+      "text": "Artist: Jules And Raoul · Title: Progress · Album: Jules & Raoul / Rob D - Progress / Ambulance · Year: 2004 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jules And Raoul - Progress.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8c727482-2ba1-4923-8712-895f45b52774",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jules And Raoul - Progress.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jules And Raoul - Progress.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

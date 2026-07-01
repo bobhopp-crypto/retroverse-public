@@ -59,9 +59,9 @@ export function songChartsHref(target: SongActionTarget): string | null {
 /** Curate / inspect — existing graph inspector workflow. */
 export function songInspectHref(target: SongActionTarget): string {
   const rvtr = rvtrFromToken(target.rvtr);
-  if (rvtr) return `/inspect?q=${encodeURIComponent(rvtr)}`;
+  if (rvtr) return `/database-explorer?q=${encodeURIComponent(rvtr)}`;
   const label = [target.artist, target.title].filter(Boolean).join(" ").trim();
-  return `/inspect?q=${encodeURIComponent(label || target.title || "song")}`;
+  return `/database-explorer?q=${encodeURIComponent(label || target.title || "song")}`;
 }
 
 export function songActionTargetFromParts(parts: {

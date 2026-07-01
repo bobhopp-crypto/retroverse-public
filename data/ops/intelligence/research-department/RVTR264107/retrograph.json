@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR264107",
+    "kind": "song",
+    "rvtr": "RVTR264107",
+    "generatedAt": "2026-06-28T22:49:31.687Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR264107",
+    "artist": "Chanel",
+    "title": "My Life",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Chanel",
+    "relatedArtists": [
+      "Chanel"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-enpifp",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Chanel - My Life.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-c6lw38",
+      "date": "1979",
+      "label": "My Life — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9f0ba5a96cd8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR264107&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-enpifp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e3b38c87d52b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR264107&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-enpifp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0e78f091a947",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR264107&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-enpifp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aee139621715",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR264107&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-enpifp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b4364813f408",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR264107&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-enpifp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-enpifp",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Chanel - My Life.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR264107-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR264107"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Chanel"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Chanel"
+    },
+    {
+      "id": "rel-RVTR264107-tl-tl-c6lw38",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR264107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-c6lw38"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "My Life — original release"
+    },
+    {
+      "id": "rel-RVTR264107-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR264107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR264107-perf-perf-enpifp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR264107"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-enpifp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-enpifp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-enpifp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Chanel - My Life.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9f0ba5a96cd8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-enpifp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9f0ba5a96cd8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-e3b38c87d52b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-enpifp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e3b38c87d52b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-0e78f091a947-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-enpifp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0e78f091a947"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-aee139621715-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-enpifp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aee139621715"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b4364813f408-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-enpifp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b4364813f408"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR264107. \"My Life\" by Chanel.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Chanel · Title: My Life · Album: Bunny Chanél - You Needed Me · Year: 1979 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Chanel - My Life.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8ce65798",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Chanel - My Life.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d8efd68b-4757-4f0c-9863-9a1b332f595a",
+      "category": "artist",
+      "text": "My Life is performed by Chanel.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a1caa800-e53d-4af1-9e8c-30a24fab889b",
+      "category": "trivia",
+      "text": "Artist: Chanel · Title: My Life · Album: Bunny Chanél - You Needed Me · Year: 1979 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Chanel - My Life.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8dd1803b-59ca-4e07-aa1f-059cfffb41fa",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Chanel - My Life.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Chanel - My Life.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

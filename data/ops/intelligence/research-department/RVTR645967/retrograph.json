@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR645967",
+    "kind": "song",
+    "rvtr": "RVTR645967",
+    "generatedAt": "2026-06-28T22:58:22.948Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR645967",
+    "artist": "Too Late",
+    "title": "Shoes",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Too Late",
+    "relatedArtists": [
+      "Too Late"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-2g9yqs",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Too Late - Shoes.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-c8eg6s",
+      "date": "2006",
+      "label": "Shoes — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-mz18a3",
+      "date": "—",
+      "label": "\"Shoes\" is a song recorded by American actor Liam Kyle Sullivan, performing as his alter ego, Kelly.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-pyv6fo",
+      "date": "2006",
+      "label": "After Sullivan posted its music video to his own website in early 2006, he uploaded it to YouTube on",
+      "detail": " May 5, 2006, where it became one of the first-ever viral videos online.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-mz18a3",
+      "date": "—",
+      "label": "\"Shoes\" is a song recorded by American actor Liam Kyle Sullivan, performing as his alter ego, Kelly.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "\"Shoes\" is a song recorded by American actor Liam Kyle Sullivan, performing as his alter ego, Kelly.",
+      "It was included on Kelly's debut studio album, also titled Shoes (2006)."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4a0d731b8904",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645967&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-2g9yqs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cadb63393a01",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645967&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-2g9yqs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "44ebed074afd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645967&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-2g9yqs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c4f9b8f4ed93",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645967&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-2g9yqs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9d818d7dbabc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR645967&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-2g9yqs",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-2g9yqs",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Too Late - Shoes.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR645967-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645967"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Too Late"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Too Late"
+    },
+    {
+      "id": "rel-RVTR645967-tl-tl-c8eg6s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645967"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-c8eg6s"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "Shoes — original release"
+    },
+    {
+      "id": "rel-RVTR645967-tl-tl-mz18a3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645967"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mz18a3"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Shoes\" is a song recorded by American actor Liam Kyle Sullivan, performing as his alter ego, Kelly."
+    },
+    {
+      "id": "rel-RVTR645967-tl-tl-pyv6fo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645967"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-pyv6fo"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "After Sullivan posted its music video to his own website in early 2006, he uploaded it to YouTube on"
+    },
+    {
+      "id": "rel-RVTR645967-tl-tl-mz18a3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645967"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mz18a3"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Shoes\" is a song recorded by American actor Liam Kyle Sullivan, performing as his alter ego, Kelly."
+    },
+    {
+      "id": "rel-RVTR645967-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645967"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR645967-perf-perf-2g9yqs",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR645967"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-2g9yqs"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-2g9yqs-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2g9yqs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Too Late - Shoes.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4a0d731b8904-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2g9yqs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a0d731b8904"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-cadb63393a01-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2g9yqs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cadb63393a01"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-44ebed074afd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2g9yqs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "44ebed074afd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-c4f9b8f4ed93-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2g9yqs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c4f9b8f4ed93"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9d818d7dbabc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2g9yqs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9d818d7dbabc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR645967. \"Shoes\" by Too Late.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Too Late · Title: Shoes · Album: Shoes - Too Late · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Too Late - Shoes.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ae514b81",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Too Late - Shoes.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-shoes-kelly-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Shoes_(Kelly_song)",
+      "excerpt": "\"Shoes\" is a song recorded by American actor Liam Kyle Sullivan, performing as his alter ego, Kelly. After Sullivan posted its music video to his own website in early 2006, he uploaded it to YouTube on May 5, 2006, where it became one of the first-ever viral videos online. It was included on Kelly's debut studio album, also titled Shoes (2006).\n\"Shoes\" is a satirical electroclash song about Kelly, a moody teenage valley girl, going on a shopping spree for shoes on her birthday. It was praised by critics for its memorable lyrics, surreal video, and Sullivan's characterization of Kelly. Sullivan performed \"Shoes\" live during Margaret Cho's off-Broadway show The Sensuous Woman (2007) and for a one-off 2024 Pride Month performance that went viral online. The music video won the People's Choice Award for Favorite User-Generated Video in 2008. It has appeared on several lists of the best YouTube videos of all time and has been described as an important moment in the history of YouTube and of the Internet due to its virality.\n\n\nBackground\n\nPrior to performing as Kelly, Liam Kyle Sullivan worked as an actor in Los Angeles, having previously appeared in the series Gilmore Girls and 8 Simple Rules, and was a member of the comedy troupe Drama 3⁄4. He also had a live comedy show, the Liam Show, which began in 2004 and incorporated video skits he filmed. His character of Kelly is a mercurial teenage valley girl who wears a leather jacket, glasses, a blonde wig which Sullivan borrowed from his ex-girlfriend, and striped white-and-red tights. She was based on various women in his life, including his mother and his older sister, the latter of whom he used as the basis for Kelly's restrictive family dynamics due to the \"restrictions on her that [he] didn't have\" growing up. Before writing \"Shoes\", Sullivan performed as Kelly by only changing his voice, imagining her as a teenage girl speaking with braces on. He performed as her at the ACME Comedy Theatre but stated that \"it didn't work [and] wasn't funny\" without the accompanying costume.\nSullivan was inspired to write \"Shoes\", Kelly's debut song, after repeatedly saying the word \"shoes\" in Kelly's voice and finding it funny. He was also inspired by his mother's love of shoes and by a friend who told him about having spent $300 on a pair. \"Shoes\" began as a comedy sketch, which Sullivan first performed as Kelly at a small club in Santa Monica in 2005, before being adapted into a song which he wrote in 15 minutes. He performed the song live several times and, encouraged by audiences' positive reception to it, decided to film a music video for it.\n\n\nComposition\n\nMusically, \"Shoes\" is a satirical and rhythmic electroclash song with house– and techno–based production. Sullivan performs on the song in a deadpan monotone. In its lyrics, Kelly sings the refrain \"Oh my god, shoes\"; points out which shoes \"rule\" and which shoes \"suck\"; decides to buy a pair of $300 shoes; and is told by several store clerks, \"I think you have too many shoes,\" to which she retorts, \"Shut up!\" Sullivan explained Kelly's obsession with shoe shopping as being \"like oxygen for her\" and \"a robotic thing for her\". Toward the end of the song, a saleswoman tells Kelly that a pair of shoes she wants likely will not fit her, explaining, \"Your feet are kinda big.\" Kelly launches into a rage and attacks the woman. She also sings, \"Those shoes are mine, betch,\" repeatedly. Sullivan described the end of the song as \"explor[ing] Kelly's rage more\".\nSullivan stated that \"Shoes\" was inspired by electroclash acts such as Peaches and Chicks on Speed, who were \"so expressive, but not doing too much\". Justine McDaniel of The Washington Post described \"Shoes\" as having \"simplistic lyrics, flat valley-girl tune and big personality\". In his 2011 book Reading YouTube: The Critical Viewers Guide, Anandam P. Kavoori described \"Shoes\" as \"an over-determined text\" that \"affirm[s] the terms of the contract between object and identity that shoes represent for women\" and compared its tone of \"feminist agency\" to that in the Nancy Sinatra song \"These Boots Are Made for Walkin'\".\n\n\nMusic video\nSullivan wrote and directed the music video for \"Shoes\" after his friend convinced him to make one for the song. It was filmed in early 2006 on a Panasonic camcorder on location at the Electric Grasshopper, a shoe store in Silver Lake, Los Angeles, and co-stars Sullivan's friends, also actors. He enlisted other friends to edit and film the video.\nThe music video begins with a skit in which Kelly and her twin brother (both played by Sullivan) open birthday presents given to them by their father (also played by Sullivan) and mother (played by Pam Cook). Her brother receives a new computer and a car, while Kelly receives a stuffed animal of a purple dinosaur. After expressing her disappointment, her mother asks her if she expected \"con-dams\" instead and she and her brother argue. She gets up and pledges to her father, who asks, \"What are you going to do with your life?\", that she's going to \"get what I want\". She then goes on a shoe shopping spree with her friends. She also steps on a man with her shoes. The video depicts a pool party and a person in a robot costume. Toward the end of the song, the video shows a woman dancing with a hula hoop on fire and the purple dinosaur toy attacks a police officer to protect Kelly.\nTray Butler of HX likened the video to that for Cyndi Lauper's song \"Girls Just Wanna Have Fun\", particularly in its opening skit. Eric Newman of Footwear News described the video as \"campy\" and as having \"next-to-no budget\". Advertising Age and Wired both compared it and other music videos by Sullivan as Kelly to the sketch comedy series The Kids in the Hall. Kavoori wrote that \"Shoes\" was closer to having the framework of a short film than a music video and described Kelly as \"an irreverent mix of Madonna and Ugly Betty\".\n\n\nRelease and virality\nThe music video for \"Shoes\" was originally uploaded exclusively to",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "c8d65069-754a-47a9-80af-7c0316900164",
+      "category": "artist",
+      "text": "Shoes is performed by Too Late.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7eb4248f-03a2-465d-8f3e-377b87971c37",
+      "category": "cultural_impact",
+      "text": "\"Shoes\" is a song recorded by American actor Liam Kyle Sullivan, performing as his alter ego, Kelly.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Shoes_(Kelly_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "32c7ccc0-d13b-43a9-9a57-9e0d0c1e68f5",
+      "category": "cultural_impact",
+      "text": "After Sullivan posted its music video to his own website in early 2006, he uploaded it to YouTube on May 5, 2006, where it became one of the first-ever viral videos online.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Shoes_(Kelly_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fb0fe58e-aee1-43fa-a1e8-46ee73e803c3",
+      "category": "cultural_impact",
+      "text": "It was included on Kelly's debut studio album, also titled Shoes (2006).",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Shoes_(Kelly_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "53e182d5-d17a-49e2-a84a-b315f39caf1e",
+      "category": "trivia",
+      "text": "Artist: Too Late · Title: Shoes · Album: Shoes - Too Late · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Too Late - Shoes.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c31ab962-a420-449f-b0e0-51ef38666097",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Too Late - Shoes.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Too Late - Shoes.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

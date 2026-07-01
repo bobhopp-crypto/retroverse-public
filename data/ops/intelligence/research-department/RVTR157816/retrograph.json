@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR157816",
+    "kind": "song",
+    "rvtr": "RVTR157816",
+    "generatedAt": "2026-06-28T22:47:04.309Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR157816",
+    "artist": "Farruko",
+    "title": "Pepas",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Farruko",
+    "relatedArtists": [
+      "Farruko"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-7jxjvu",
+        "title": "Pepas — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-pnpzr8",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Farruko - Pepas.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 25,
+    "chartWeeks": 21,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #25 · 21 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-muucsx",
+      "date": "2021",
+      "label": "Pepas — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gp",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #25",
+      "detail": "21 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ockfuc",
+      "date": "2021",
+      "label": "Pepas — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e1a83562701c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR157816&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-pnpzr8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "123e77dd082e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR157816&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-pnpzr8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9cfb536d8ef8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR157816&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-pnpzr8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "693be98edad9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR157816&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-pnpzr8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "455197f9c88a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR157816&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-pnpzr8",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-pnpzr8",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Farruko - Pepas.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR157816-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR157816"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Farruko"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Farruko"
+    },
+    {
+      "id": "rel-RVTR157816-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR157816"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #25"
+    },
+    {
+      "id": "rel-RVTR157816-tl-tl-muucsx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR157816"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-muucsx"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Pepas — original release"
+    },
+    {
+      "id": "rel-RVTR157816-tl-tl-fcm3gp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR157816"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gp"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #25"
+    },
+    {
+      "id": "rel-RVTR157816-tl-tl-ockfuc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR157816"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ockfuc"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Pepas — graph recording"
+    },
+    {
+      "id": "rel-RVTR157816-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR157816"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR157816-perf-perf-pnpzr8",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR157816"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-pnpzr8"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-pnpzr8-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pnpzr8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Farruko - Pepas.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e1a83562701c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pnpzr8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e1a83562701c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-123e77dd082e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pnpzr8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "123e77dd082e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-9cfb536d8ef8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pnpzr8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9cfb536d8ef8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-693be98edad9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pnpzr8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "693be98edad9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-455197f9c88a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pnpzr8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "455197f9c88a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR157816. \"Pepas\" by Farruko.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #25. 21 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Farruko · Title: Pepas · Album: Pepas · Year: 2021 · Genre: Guaracha · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Farruko - Pepas.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f8230dd3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Farruko - Pepas.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8030049f-1336-4e60-9648-a6622f0f88fc",
+      "category": "artist",
+      "text": "Pepas is performed by Farruko.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "86b5323b-b2b9-43e9-8b2d-1886007555e3",
+      "category": "chart",
+      "text": "The song peaked at #25 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2ca7d1fb-006a-4879-af26-ad8fc21ea024",
+      "category": "recording",
+      "text": "Pepas was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4758814d-38be-429a-8aa8-0fd1024c9024",
+      "category": "trivia",
+      "text": "Artist: Farruko · Title: Pepas · Album: Pepas · Year: 2021 · Genre: Guaracha · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Farruko - Pepas.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "036af496-1c24-477a-b9f4-f81457c78005",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Farruko - Pepas.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Farruko - Pepas.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -63,6 +63,20 @@ export function AtlasRail({ active }: Props) {
         >
           Workshop
         </Link>
+        <Link
+          href="/ops/atlas/scripts"
+          className={`atlas-rail__pill${pathname === "/ops/atlas/scripts" ? " atlas-rail__pill--active" : ""}`}
+          prefetch
+        >
+          Script Launcher
+        </Link>
+        <Link
+          href="/ops/atlas/system"
+          className={`atlas-rail__pill${pathname === "/ops/atlas/system" ? " atlas-rail__pill--active" : ""}`}
+          prefetch
+        >
+          System Map
+        </Link>
       </div>
       <Link href="/ops" className="atlas-rail__back" prefetch={false}>
         Ops

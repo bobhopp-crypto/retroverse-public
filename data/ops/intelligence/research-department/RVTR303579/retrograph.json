@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR303579",
+    "kind": "song",
+    "rvtr": "RVTR303579",
+    "generatedAt": "2026-06-28T22:50:15.853Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR303579",
+    "artist": "Ed Sheeran",
+    "title": "Photograph",
+    "year": 2014,
+    "albumTitle": "x",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL032308/RVAL032308__ed-sheeran__x.jpg"
+  },
+  "artist": {
+    "name": "Ed Sheeran",
+    "relatedArtists": [
+      "Ed Sheeran"
+    ]
+  },
+  "album": {
+    "title": "x",
+    "releaseYear": 2014,
+    "recordings": [
+      {
+        "id": "rec-dawe3h",
+        "title": "x",
+        "releaseDate": 2014,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-mhfa9f",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2015,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ed Sheeran - Photograph.mp4",
+      "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 10,
+    "chartWeeks": 30,
+    "albumTitle": "x",
+    "summary": "Hot 100 peak #10 · 30 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-6g0y34",
+      "date": "2014",
+      "label": "Photograph — original release",
+      "detail": "Original album: x",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fp",
+      "date": "2014",
+      "label": "Billboard Hot 100 peak #10",
+      "detail": "30 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-c7iesc",
+      "date": "2014",
+      "label": "x",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2015",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR303579",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL032308/RVAL032308__ed-sheeran__x.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bc610272dfe0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR303579&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mhfa9f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b576afc86a22",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR303579&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mhfa9f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a63b173b6b3f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR303579&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mhfa9f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b42e70861154",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR303579&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mhfa9f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "363f81a08091",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR303579&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mhfa9f",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mhfa9f",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2015,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ed Sheeran - Photograph.mp4",
+        "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR303579-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR303579"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ed Sheeran"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ed Sheeran"
+    },
+    {
+      "id": "rel-RVTR303579-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR303579"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-dawe3h"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "x"
+    },
+    {
+      "id": "rel-RVTR303579-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR303579"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #10"
+    },
+    {
+      "id": "rel-RVTR303579-tl-tl-6g0y34",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR303579"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6g0y34"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Photograph — original release"
+    },
+    {
+      "id": "rel-RVTR303579-tl-tl-fcm3fp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR303579"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fp"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #10"
+    },
+    {
+      "id": "rel-RVTR303579-tl-tl-c7iesc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR303579"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-c7iesc"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "x"
+    },
+    {
+      "id": "rel-RVTR303579-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR303579"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR303579-perf-perf-mhfa9f",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR303579"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mhfa9f"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mhfa9f-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhfa9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ed Sheeran - Photograph.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-bc610272dfe0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhfa9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bc610272dfe0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b576afc86a22-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhfa9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b576afc86a22"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-a63b173b6b3f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhfa9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a63b173b6b3f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b42e70861154-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhfa9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b42e70861154"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-363f81a08091-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhfa9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "363f81a08091"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR303579. \"Photograph\" by Ed Sheeran. Album: x (2014).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL032308/RVAL032308__ed-sheeran__x.jpg",
+      "excerpt": "Canonical cover assignment for RVTR303579 (Photograph). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: x (2014). Billboard Hot 100 peak: #10. 30 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ed Sheeran · Title: Photograph · Album: Photograph · Year: 2015 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ed Sheeran - Photograph.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2014.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ef33c701",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ed Sheeran - Photograph.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6bf1c6ac-1976-42d9-9272-44380da0ec2d",
+      "category": "artist",
+      "text": "Photograph is performed by Ed Sheeran.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5502b3b9-866d-4922-b5e2-5b52292d92bd",
+      "category": "album",
+      "text": "The song appears on the album \"x\" (2014).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a0e7bfe3-c4a3-4474-be62-a4ee4385524e",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR303579.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL032308/RVAL032308__ed-sheeran__x.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9df66e38-345c-4407-91eb-0fbe1c096ca5",
+      "category": "chart",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 30 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "094dc653-b116-47e2-88fb-9381fb979f91",
+      "category": "recording",
+      "text": "Photograph was released in 2014.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "afda42b2-8880-4355-b14e-89ec754fdfef",
+      "category": "trivia",
+      "text": "Artist: Ed Sheeran · Title: Photograph · Album: Photograph · Year: 2015 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ed Sheeran - Photograph.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "530bfa62-81d1-4bff-b33e-deea0d1b952a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ed Sheeran - Photograph.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ed Sheeran - Photograph.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

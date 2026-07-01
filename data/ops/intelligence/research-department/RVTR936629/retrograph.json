@@ -1,0 +1,479 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR936629",
+    "kind": "song",
+    "rvtr": "RVTR936629",
+    "generatedAt": "2026-06-28T22:42:37.851Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR936629",
+    "artist": "The Chardon Polka Band",
+    "title": "Two Sisters Polka",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "The Chardon Polka Band",
+    "relatedArtists": [
+      "The Chardon Polka Band"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-oo2a38",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Two Sisters Polka.mp4",
+      "notes": "Detected year: 2009. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-d72zc9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/The Chardon Polka Band - Two Sisters Polka.mp4",
+      "notes": "Detected year: 2009. VirtualDJ play count: 1. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.6,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "8af30098b3ec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936629&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-oo2a38",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2c3e1c34e7df",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936629&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-oo2a38",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cce0eb835d41",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936629&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-oo2a38",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d45927555a18",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936629&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-oo2a38",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "91c2f68ac4a2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR936629&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-oo2a38",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-oo2a38",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Two Sisters Polka.mp4",
+        "notes": "Detected year: 2009. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-d72zc9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/The Chardon Polka Band - Two Sisters Polka.mp4",
+        "notes": "Detected year: 2009. VirtualDJ play count: 1. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR936629-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936629"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Chardon Polka Band"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Chardon Polka Band"
+    },
+    {
+      "id": "rel-RVTR936629-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936629"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR936629-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936629"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.6,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR936629-perf-perf-oo2a38",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936629"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-oo2a38"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-oo2a38-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oo2a38"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Two Sisters Polka.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR936629-perf-perf-d72zc9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR936629"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-d72zc9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-d72zc9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d72zc9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/The Chardon Polka Band - Two Sisters Polka.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-8af30098b3ec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oo2a38"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8af30098b3ec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-2c3e1c34e7df-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oo2a38"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2c3e1c34e7df"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-cce0eb835d41-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oo2a38"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cce0eb835d41"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d45927555a18-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oo2a38"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d45927555a18"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-91c2f68ac4a2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oo2a38"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "91c2f68ac4a2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR936629. \"Two Sisters Polka\" by The Chardon Polka Band.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Chardon Polka Band · Title: Two Sisters Polka · Album: Pirates, Women, And Beer · Year: 2009 · Genre: Country · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Two Sisters Polka.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cd8d2eee",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Two Sisters Polka.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-08f044f4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/The Chardon Polka Band - Two Sisters Polka.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "92153575-19cf-4d80-aba2-7f587852704d",
+      "category": "artist",
+      "text": "Two Sisters Polka is performed by The Chardon Polka Band.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e4a1e2fe-2d48-46b5-b3a0-ae1b51b4c9db",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e72f62ea-656a-441c-bcfb-d66b031310e2",
+      "category": "trivia",
+      "text": "\"Two Sisters Polka\" by The Chardon Polka Band.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "01d4b774-c8bb-4a3c-b8c3-6f5d8399d804",
+      "category": "trivia",
+      "text": "Artist: The Chardon Polka Band · Title: Two Sisters Polka · Album: Pirates, Women, And Beer · Year: 2009 · Genre: Country · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Two Sisters Polka.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4dac25fc-9e41-47ba-9288-0b4daa153d34",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Two Sisters Polka.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cc59602d-ce3b-48f2-ab9e-2ac2c9b622be",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/The Chardon Polka Band - Two Sisters Polka.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Two Sisters Polka.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

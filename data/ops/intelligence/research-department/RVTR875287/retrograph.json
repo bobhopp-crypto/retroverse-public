@@ -1,0 +1,561 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR875287",
+    "kind": "song",
+    "rvtr": "RVTR875287",
+    "generatedAt": "2026-06-28T23:05:37.951Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR875287",
+    "artist": "Sofi Tucker",
+    "title": "Best Friend",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Sofi Tucker",
+    "relatedArtists": [
+      "Sofi Tucker"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-7hogbv",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2017,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sofi Tucker - Best Friend.mp4",
+      "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-l9zz2",
+      "date": "2017",
+      "label": "Best Friend — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-cwgaj2",
+      "date": "—",
+      "label": "\"Best Friend\" is a song by American duo Sofi Tukker featuring Australian duo Nervo, American duo The",
+      "detail": " Knocks and Japanese singer Alisa Ueno.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-bhkmil",
+      "date": "2017",
+      "label": "It was released on September 12, 2017, as the third single from their debut album Treehouse.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-z2i6dm",
+      "date": "—",
+      "label": "Sofi Tukker (stylized \"SOFI TUKKER\") are an American musical DJ duo based in New York City, consisti",
+      "detail": "ng of Sophie Hawley-Weld and Tucker Halpern.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2017",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "Composition\nThe song is written in the key of B minor.",
+      "Their song \"Drinkee\" from the Soft Animals EP was nominated for a 2017 Grammy for Best Dance Recording.",
+      "\"Drinkee\" is adapted from a poem written by the Brazilian poet Chacal, sung sensually amidst cowbells, bongos, electric guitars and deep driving bass."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "3da1cbfbba69",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR875287&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-7hogbv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "eaf6f7168fc3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR875287&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-7hogbv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1afacb6a53dc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR875287&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-7hogbv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "14e7382f799a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR875287&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-7hogbv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ba08b4fb9a30",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR875287&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-7hogbv",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-7hogbv",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2017,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sofi Tucker - Best Friend.mp4",
+        "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR875287-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR875287"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Sofi Tucker"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Sofi Tucker"
+    },
+    {
+      "id": "rel-RVTR875287-tl-tl-l9zz2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR875287"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l9zz2"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "Best Friend — original release"
+    },
+    {
+      "id": "rel-RVTR875287-tl-tl-cwgaj2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR875287"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cwgaj2"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Best Friend\" is a song by American duo Sofi Tukker featuring Australian duo Nervo, American duo The"
+    },
+    {
+      "id": "rel-RVTR875287-tl-tl-bhkmil",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR875287"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bhkmil"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It was released on September 12, 2017, as the third single from their debut album Treehouse."
+    },
+    {
+      "id": "rel-RVTR875287-tl-tl-z2i6dm",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR875287"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z2i6dm"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Sofi Tukker (stylized \"SOFI TUKKER\") are an American musical DJ duo based in New York City, consisti"
+    },
+    {
+      "id": "rel-RVTR875287-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR875287"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR875287-perf-perf-7hogbv",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR875287"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-7hogbv"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-7hogbv-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7hogbv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sofi Tucker - Best Friend.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3da1cbfbba69-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7hogbv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3da1cbfbba69"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-eaf6f7168fc3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7hogbv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "eaf6f7168fc3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-1afacb6a53dc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7hogbv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1afacb6a53dc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-14e7382f799a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7hogbv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "14e7382f799a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ba08b4fb9a30-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7hogbv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ba08b4fb9a30"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR875287. \"Best Friend\" by Sofi Tucker.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Sofi Tucker · Title: Best Friend · Album: Sofi Tukker - Treehouse · Year: 2017 · Genre: Dance-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sofi Tucker - Best Friend.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4e212aa0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sofi Tucker - Best Friend.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-best-friend-sofi-tukker-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Best_Friend_(Sofi_Tukker_song)",
+      "excerpt": "\"Best Friend\" is a song by American duo Sofi Tukker featuring Australian duo Nervo, American duo The Knocks and Japanese singer Alisa Ueno. It was released on September 12, 2017, as the third single from their debut album Treehouse.\nIt was also featured in a commercial for the iPhone X.\n\n\nComposition\nThe song is written in the key of B minor.\n\n\nMusic video\nThe music video was uploaded on October 25, 2017, by Ultra Music.\n\n\nChart performance\nThe track reached number one on Billboard's Dance/Mix Show Airplay chart in its January 20, 2018 issue, giving the four acts their first chart topper, and their best showing anywhere on the Billboard charts.\n\n\nUsage in media\nThe song was featured in a commercial for Apple's iPhone X. The song is a part of FIFA 18 soundtrack. It was also used in the advertisement of Friends Ultra Marathons on Comedy Central India. In 2017, the song was featured during a prominent scene in TNT's \"Good Behavior\" episode titled \"It's No Fun If It's Easy\". In 2018, the song was featured in the end credits of Netflix's Santa Clarita Diet episode titled \"Suspicious Objects\", and in the film Oceans 8. The song is also the opening and closing theme, and bumper music to the MLB Network show MLB Central.\n\n\nTrack listing\n\n\nCharts\n\n\nCertifications\n\n\nRelease history\n\n\nReferences",
+      "confidence": 0.85
+    },
+    {
+      "id": "wiki-album-sofi-tukker",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Sofi_Tukker",
+      "excerpt": "Sofi Tukker (stylized \"SOFI TUKKER\") are an American musical DJ duo based in New York City, consisting of Sophie Hawley-Weld and Tucker Halpern. They are known for their songs \"Drinkee\", \"Best Friend\", and \"Purple Hat\".\n\"Best Friend\" was featured in a commercial during Apple's unveiling of the iPhone X, while \"Drinkee\" was nominated for a Grammy at the 2017 Grammy Awards. In December 2018, their album Treehouse was nominated for a Grammy for Best Dance/Electronic Album.\n\n\nHistory\nSofi Tukker is the duo of Sophie Hawley-Weld and Tucker Halpern.\nSophie Hawley-Weld was born in Frankfurt, Germany, but grew up in rural Canada and Atlanta. She then attended United World College of the Adriatic, a UWC in Duino, Italy. While in college Hawley-Weld studied Portuguese; her love for Brazilian culture and the Portuguese language inspired a move to Brazil afterwards, to further learn the language and collaborate with local poets and artists.\nTucker Halpern was born in Brookline, Massachusetts. Growing up, he was a basketball player who was recruited by Noble and Greenough School, ending up at Brown University where he played three years and was the captain for a year. Due to an illness, he changed his career, started DJing, occasionally with musician Nicolas Jaar, and concentrated on making music.\nHalpern and Hawley-Weld first met at Brown University in 2014 at an art gallery where Hawley-Weld was performing. Halpern approached her and they began writing and performing songs together. They then moved to New York City to focus on their artist projects and performing. After an accident that left Hawley-Weld in a wheelchair for four months, the two had to maintain their relationship over Skype calls. This gave Hawley-Weld an opportunity to learn how to use Ableton Live.\nSofi Tukker released an EP, Soft Animals on July 8, 2016. The EP includes \"Drinkee\", \"Matadora\", \"Awoo\", \"Déjà Vu Affair\", \"Moon Tattoo\", and \"Hey Lion\". The title comes from the 1986 Mary Oliver poem “Wild Geese” (\"You only have to let the soft animal of your body love what it loves\").\nTheir song \"Drinkee\" from the Soft Animals EP was nominated for a 2017 Grammy for Best Dance Recording. \"Drinkee\" is adapted from a poem written by the Brazilian poet Chacal, sung sensually amidst cowbells, bongos, electric guitars and deep driving bass. The song is featured in The Incredible Jessica James.\nIn June 2019, \"Feeling Good\" played in the trailer for the television series Dead to Me. This track was also featured in the soundtrack of the 2020 feature film Birds of Prey.\nOn April 24, 2020, Australian radio station Triple J premiered a new song created by the duo titled \"When the Rona's Over\", as part of a COVID-19 self-isolation musical challenge nicknamed Quarantune.\nSofi Tukker began DJing while sheltering at home due to the COVID-19 outbreak, reaching 400 performances on April 19, 2021. Along the way, the show was expanded to Twitch, Facebook, Discord, Instagram Live. A social media-connected community of fans, known as the \"Freak Fam\", have even formed their own channels and held Zoom dance parties during the livestream.\nIn February 2022, Sofi Tukker debuted \"Original Sin\", the first single from their upcoming second album Wet Tennis. Sofi Tukker's second studio album Wet Tennis was released on April 29, 2022.\nSofi Tukker performed at the 22nd Coachella Valley Music and Arts Festival in April 2023.\nIn May 2025 they released their new album, butter, exploring diverse brazilian genres such as samba, MPB, bossa nova, brazilian funk and carimbó and featuring brazilian artists such as Seu Jorge and Liniker.\n\n\nFeatures and appearances\nTheir song \"Johny\" is featured in EA Sports' FIFA 17, and was adapted from a poem by Brazilian poet Paulo Leminski.\nTheir 2017 song \"Best Friend\" was played during the iPhone X full commercial reveal at the Apple Event on September 12, 2017. It is also included in the football game FIFA 18, the second straight year that a song of theirs has been included on the soundtrack of FIFA. It is also playing in the club scene in the 2018 movie Ocean's 8, as well as during The Block Season 17 Episode 32 'Living & Dinings Continue'.\nThe clean version of their song \"Batshit\", titled \"That's It (I'm Crazy)\", was featured in a TV commercial for Apple promoting their special edition iPhone 8 RED smartphone in 2018.\nBoth \"Best Friend\" and \"Batshit\" were featured in the episode \"Robert Diaz (No. 15)\" (season 6, episode 22) of the TV series The Blacklist.\nOn June 28, 2018, they collaborated with Italian DJ Benny Benassi for the single \"Everybody Needs a Kiss\", and on September 14, 2018, they released a remix of \"Energia\" with Brazilian singer Pabllo Vittar.\n\"Baby I'm a Queen\" is featured in Xbox Game Studios' Forza Horizon 4.\n\"Purple Hat\" is featured in Netflix's To All the Boys: P.S. I Still Love You.\n\"Swing\" is featured in EA Sports' FIFA 20 and Need for Speed Heat. which also features \"Playa Grande\" and \"Mi Rumba\".\n\"Good Time Girl\" is featured during the opening credits of HBO's series The New Pope.\n\"Fuck They\" is featured in Season 4 of the Spanish television series Elite.\n\"Wet Tennis\" is featured in Season 1 of Ubisoft's Just Dance 2023 Edition.\n\"Cafuné\" is featured in EA Sports' FC25.\n\n\nReception\nPaste magazine described the band's release Soft Animals as \"an insatiable dance collection of jungle-pop songs with many well-executed nods towards Brazilian instruments, poets and to the national language, Portuguese\". The magazine's review referred to the \"carefully conceptualized 'Matadora'\" as \"the album's show-stopper\".\nSlant Magazine said of their album Treehouse, \"the songs on Sofi Tukker's Treehouse are alternately playful and sincere, intimate and global.\" \"Though Sofi Tukker's mélange of disparate sounds and influences—bossa-nova rhythms, cowbells, castanets, and spaghetti-western guitars—lends Treehouse an air of worldly sophistication, Hawley-Weld and Halpern never take themselves or their music too seriously. But that doesn",
+      "confidence": 0.75
+    }
+  ],
+  "facts": [
+    {
+      "id": "d27aa61f-ebd3-4632-ad9d-a11f2be6748f",
+      "category": "artist",
+      "text": "Best Friend is performed by Sofi Tucker.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "21fd05b9-51c5-44a6-9b7f-9ef7e3fd0bb1",
+      "category": "cultural_impact",
+      "text": "\"Best Friend\" is a song by American duo Sofi Tukker featuring Australian duo Nervo, American duo The Knocks and Japanese singer Alisa Ueno.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Best_Friend_(Sofi_Tukker_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c7c10550-e5e6-46c6-b45e-79e3e03126a3",
+      "category": "cultural_impact",
+      "text": "It was released on September 12, 2017, as the third single from their debut album Treehouse.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Best_Friend_(Sofi_Tukker_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "af389d26-e777-4173-b908-1379d7b2fe1a",
+      "category": "cultural_impact",
+      "text": "It was also featured in a commercial for the iPhone X.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Best_Friend_(Sofi_Tukker_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e148d06b-662e-41a9-adc3-daf677e8af50",
+      "category": "cultural_impact",
+      "text": "Sofi Tukker (stylized \"SOFI TUKKER\") are an American musical DJ duo based in New York City, consisting of Sophie Hawley-Weld and Tucker Halpern.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sofi_Tukker",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9e414a3e-e68d-498a-91a3-0911448d74ad",
+      "category": "cultural_impact",
+      "text": "They are known for their songs \"Drinkee\", \"Best Friend\", and \"Purple Hat\".",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sofi_Tukker",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "136bc9f2-a749-4f0b-af4f-93ddc4b51b50",
+      "category": "trivia",
+      "text": "Artist: Sofi Tucker · Title: Best Friend · Album: Sofi Tukker - Treehouse · Year: 2017 · Genre: Dance-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sofi Tucker - Best Friend.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "20fe1264-c175-4a72-9949-8acd9819ef20",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sofi Tucker - Best Friend.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ba9d32c7-81af-4461-94b9-93be171a52c1",
+      "category": "cultural_impact",
+      "text": "\"Best Friend\" was featured in a commercial during Apple's unveiling of the iPhone X, while \"Drinkee\" was nominated for a Grammy at the 2017 Grammy Awards.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sofi_Tukker",
+      "confidence": 0.75,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 90,
+    "relationships": 40,
+    "overall": 67
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": [
+      {
+        "id": "conflict-0",
+        "text": "Verify: Sofi Tukker (stylized \"SOFI TUKKER\") are an American musical DJ duo based in New York City, consisting of Sophie Hawley-… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-1",
+        "text": "Verify: They are known for their songs \"Drinkee\", \"Best Friend\", and \"Purple Hat\".… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-2",
+        "text": "Verify: \"Best Friend\" was featured in a commercial during Apple's unveiling of the iPhone X, while \"Drinkee\" was nominated for a… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      }
+    ]
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 9,
+    "accepted": 6,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sofi Tucker - Best Friend.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

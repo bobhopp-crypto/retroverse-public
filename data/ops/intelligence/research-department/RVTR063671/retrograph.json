@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR063671",
+    "kind": "song",
+    "rvtr": "RVTR063671",
+    "generatedAt": "2026-06-28T22:44:45.273Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR063671",
+    "artist": "Ll Cool J",
+    "title": "Loungin",
+    "year": 1996,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ll Cool J",
+    "relatedArtists": [
+      "Ll Cool J"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1996,
+    "recordings": [
+      {
+        "id": "rec-v1n1rj",
+        "title": "Loungin — graph recording",
+        "releaseDate": 1996,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-6gmt5e",
+      "title": "'",
+      "kind": "performance",
+      "year": 1995,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/LL Cool J - Loungin'.mp4",
+      "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 29,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #3 · 29 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-u7qc18",
+      "date": "1996",
+      "label": "Loungin — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "1996",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "29 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-qifp1t",
+      "date": "1996",
+      "label": "Loungin — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-vuecy5",
+      "date": "1995",
+      "label": "'",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d9a63d010a87",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR063671&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6gmt5e",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "07e050307714",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR063671&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6gmt5e",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "06993a60bfce",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR063671&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6gmt5e",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8a78900bc159",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR063671&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6gmt5e",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c2579b592150",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR063671&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6gmt5e",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6gmt5e",
+        "title": "'",
+        "kind": "performance",
+        "year": 1995,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/LL Cool J - Loungin'.mp4",
+        "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR063671-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR063671"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ll Cool J"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ll Cool J"
+    },
+    {
+      "id": "rel-RVTR063671-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR063671"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR063671-tl-tl-u7qc18",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR063671"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-u7qc18"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Loungin — original release"
+    },
+    {
+      "id": "rel-RVTR063671-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR063671"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR063671-tl-tl-qifp1t",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR063671"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qifp1t"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Loungin — graph recording"
+    },
+    {
+      "id": "rel-RVTR063671-tl-tl-vuecy5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR063671"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vuecy5"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "'"
+    },
+    {
+      "id": "rel-RVTR063671-perf-perf-6gmt5e",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR063671"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6gmt5e"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "'"
+    },
+    {
+      "id": "rel-perf-6gmt5e-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6gmt5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/LL Cool J - Loungin'.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "'"
+    },
+    {
+      "id": "rel-d9a63d010a87-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6gmt5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d9a63d010a87"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-07e050307714-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6gmt5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "07e050307714"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-06993a60bfce-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6gmt5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "06993a60bfce"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-8a78900bc159-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6gmt5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8a78900bc159"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c2579b592150-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6gmt5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c2579b592150"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR063671. \"Loungin\" by Ll Cool J.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #3. 29 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: LL Cool J · Title: Loungin' · Album: Mr. Smith · Year: 1995 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/LL Cool J - Loungin'.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1996.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-cad3e397",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/LL Cool J - Loungin'.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cedc7c9b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Ll Cool J - Loungin.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "9497bd21-8f49-4429-ac3b-6c0219cfa2a9",
+      "category": "artist",
+      "text": "Loungin is performed by Ll Cool J.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6cc25fc0-5c16-43e7-b7fb-065b36b867af",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 29 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "dcbfb9ec-bcf0-4782-a03f-18534beb9ffb",
+      "category": "recording",
+      "text": "Loungin was released in 1996.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d7dfecb6-3888-48cd-a133-521b302063c5",
+      "category": "trivia",
+      "text": "Artist: LL Cool J · Title: Loungin' · Album: Mr.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "48546174-8821-4c76-ab5d-e2e3ee28830e",
+      "category": "trivia",
+      "text": "Smith · Year: 1995 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/LL Cool J - Loungin'.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7b179713-7cac-4672-a51d-2f235e180eca",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/LL Cool J - Loungin'.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1f9a3fba-9aab-43e6-8ed6-cbe7e5d8792a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Ll Cool J - Loungin.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/LL Cool J - Loungin'.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

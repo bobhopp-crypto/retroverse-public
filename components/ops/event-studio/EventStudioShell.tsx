@@ -32,7 +32,7 @@ export async function EventStudioShell({
         <aside className="ops-event-studio__sidebar" aria-label="Production binder">
           <div className="ops-event-studio__brand">
             <p className="ops-event-studio__kicker">Production binder</p>
-            <Link href="/ops/event-studio/producer" className="ops-event-studio__title">
+            <Link href="/bobos/event" className="ops-event-studio__title">
               {snapshot.eventName}
             </Link>
           </div>

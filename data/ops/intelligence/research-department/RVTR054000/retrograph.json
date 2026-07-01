@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR054000",
+    "kind": "song",
+    "rvtr": "RVTR054000",
+    "generatedAt": "2026-06-28T22:44:33.363Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR054000",
+    "artist": "Marty Stuart",
+    "title": "This One's Gonna Hurt You For A Long Long Time",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Marty Stuart",
+    "relatedArtists": [
+      "Marty Stuart"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-fkgdkr",
+      "title": "For A Long, Long Time",
+      "kind": "performance",
+      "year": 1992,
+      "venue": "For A Long, Long Time",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Marty Stuart - This One's Gonna Hurt You (For A Long, Long Time).mp4",
+      "notes": "Performance label: For A Long, Long Time. Detected year: 1992. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-uqyhvy",
+      "date": "1992",
+      "label": "This One's Gonna Hurt You For A Long Long Time — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-p66pef",
+      "date": "1992",
+      "label": "For A Long, Long Time",
+      "detail": "For A Long, Long Time",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "901a01481cfb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR054000&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-fkgdkr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1921103665f2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR054000&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-fkgdkr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "64daa016ad70",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR054000&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-fkgdkr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5fcc8ad24e7d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR054000&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-fkgdkr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "406898939443",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR054000&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-fkgdkr",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-fkgdkr",
+        "title": "For A Long, Long Time",
+        "kind": "performance",
+        "year": 1992,
+        "venue": "For A Long, Long Time",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Marty Stuart - This One's Gonna Hurt You (For A Long, Long Time).mp4",
+        "notes": "Performance label: For A Long, Long Time. Detected year: 1992. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR054000-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR054000"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Marty Stuart"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Marty Stuart"
+    },
+    {
+      "id": "rel-RVTR054000-tl-tl-uqyhvy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR054000"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-uqyhvy"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "This One's Gonna Hurt You For A Long Long Time — original release"
+    },
+    {
+      "id": "rel-RVTR054000-tl-tl-p66pef",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR054000"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p66pef"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "For A Long, Long Time"
+    },
+    {
+      "id": "rel-RVTR054000-perf-perf-fkgdkr",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR054000"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-fkgdkr"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "For A Long, Long Time"
+    },
+    {
+      "id": "rel-perf-fkgdkr-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fkgdkr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Marty Stuart - This One's Gonna Hurt You (For A Long, Long Time).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "For A Long, Long Time"
+    },
+    {
+      "id": "rel-901a01481cfb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fkgdkr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "901a01481cfb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1921103665f2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fkgdkr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1921103665f2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-64daa016ad70-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fkgdkr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "64daa016ad70"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5fcc8ad24e7d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fkgdkr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5fcc8ad24e7d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-406898939443-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fkgdkr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "406898939443"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR054000. \"This One's Gonna Hurt You For A Long Long Time\" by Marty Stuart.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Marty Stuart · Title: This One's Gonna Hurt You (For A Long, Long Time) · Album: This One's Gonna Hurt You · Year: 1992 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Marty Stuart - This One's Gonna Hurt You (For A Long, Long Time).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6d09e35a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Marty Stuart - This One's Gonna Hurt You (For A Long, Long Time).mp4 · Performance: For A Long, Long Time",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "de973cd2-c183-4620-8b47-7c78e1b060b2",
+      "category": "artist",
+      "text": "This One's Gonna Hurt You For A Long Long Time is performed by Marty Stuart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bfd6d648-229c-4336-a7c4-1fcbbec22cd3",
+      "category": "trivia",
+      "text": "\"This One's Gonna Hurt You For A Long Long Time\" by Marty Stuart.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2516eb82-8044-4bce-8b9d-afbd46b37291",
+      "category": "trivia",
+      "text": "Artist: Marty Stuart · Title: This One's Gonna Hurt You (For A Long, Long Time) · Album: This One's Gonna Hurt You · Year: 1992 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Marty Stuart - This One's Gonna Hurt You (For A Long, Long Time).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "433cd624-404f-4cc0-8ea6-9c2f6f86fd5c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Marty Stuart - This One's Gonna Hurt You (For A Long, Long Time).mp4 · Performance: For A Long, Long Time",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Marty Stuart - This One's Gonna Hurt You (For A Long, Long Time).mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

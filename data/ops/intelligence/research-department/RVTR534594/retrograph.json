@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR534594",
+    "kind": "song",
+    "rvtr": "RVTR534594",
+    "generatedAt": "2026-06-28T22:55:15.625Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR534594",
+    "artist": "Velvet Revolver",
+    "title": "Slither",
+    "year": 2004,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Velvet Revolver",
+    "relatedArtists": [
+      "Velvet Revolver"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2004,
+    "recordings": [
+      {
+        "id": "rec-x79nyt",
+        "title": "Slither — graph recording",
+        "releaseDate": 2004,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-idmss9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Velvet Revolver - Slither.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 56,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #56 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-e571cl",
+      "date": "2004",
+      "label": "Slither — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3jb",
+      "date": "2004",
+      "label": "Billboard Hot 100 peak #56",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-rxy6wg",
+      "date": "2004",
+      "label": "Slither — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c1b90cbd03c3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534594&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-idmss9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "54c31909763a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534594&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-idmss9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2f16f119a4fd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534594&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-idmss9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "51b9cf006c27",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534594&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-idmss9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6b5df9506520",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534594&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-idmss9",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-idmss9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Velvet Revolver - Slither.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR534594-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534594"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Velvet Revolver"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Velvet Revolver"
+    },
+    {
+      "id": "rel-RVTR534594-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534594"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #56"
+    },
+    {
+      "id": "rel-RVTR534594-tl-tl-e571cl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534594"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-e571cl"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Slither — original release"
+    },
+    {
+      "id": "rel-RVTR534594-tl-tl-fcm3jb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534594"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3jb"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #56"
+    },
+    {
+      "id": "rel-RVTR534594-tl-tl-rxy6wg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534594"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-rxy6wg"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Slither — graph recording"
+    },
+    {
+      "id": "rel-RVTR534594-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534594"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR534594-perf-perf-idmss9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534594"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-idmss9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-idmss9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-idmss9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Velvet Revolver - Slither.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c1b90cbd03c3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-idmss9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c1b90cbd03c3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-54c31909763a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-idmss9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "54c31909763a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2f16f119a4fd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-idmss9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2f16f119a4fd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-51b9cf006c27-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-idmss9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "51b9cf006c27"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6b5df9506520-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-idmss9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6b5df9506520"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR534594. \"Slither\" by Velvet Revolver.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #56. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Velvet Revolver · Title: Slither · Album: Slither · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Velvet Revolver - Slither.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2004.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-877661b8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Velvet Revolver - Slither.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "797b747a-e97c-44ad-a359-df569a4a2774",
+      "category": "artist",
+      "text": "Slither is performed by Velvet Revolver.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a6827f9a-815c-4bda-b8d8-7a4f90371ab1",
+      "category": "chart",
+      "text": "The song peaked at #56 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e6def1d5-ca68-4969-b00d-0f8e4cb0f85f",
+      "category": "recording",
+      "text": "Slither was released in 2004.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "70b2bece-b7cd-4fc7-a24c-6ce034d9f4b7",
+      "category": "trivia",
+      "text": "Artist: Velvet Revolver · Title: Slither · Album: Slither · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Velvet Revolver - Slither.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2d700e1f-a467-4bf9-a067-7362d520d808",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Velvet Revolver - Slither.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Velvet Revolver - Slither.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

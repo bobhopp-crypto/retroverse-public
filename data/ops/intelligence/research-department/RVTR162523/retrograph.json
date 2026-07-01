@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR162523",
+    "kind": "song",
+    "rvtr": "RVTR162523",
+    "generatedAt": "2026-06-28T22:47:10.384Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR162523",
+    "artist": "Ja Rule & Ashley Joi",
+    "title": "Body",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ja Rule & Ashley Joi",
+    "relatedArtists": [
+      "Ja Rule & Ashley Joi"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-frbnar",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Ja Rule & Ashley Joi - Body.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-xhnbee",
+      "date": "2007",
+      "label": "Body — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f91d3a06be1d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR162523&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-frbnar",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a3596e947924",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR162523&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-frbnar",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d42d8c72377a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR162523&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-frbnar",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "65cb3fe0fc27",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR162523&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-frbnar",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7cd5ab95d3a7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR162523&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-frbnar",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-frbnar",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Ja Rule & Ashley Joi - Body.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR162523-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR162523"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ja Rule & Ashley Joi"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ja Rule & Ashley Joi"
+    },
+    {
+      "id": "rel-RVTR162523-tl-tl-xhnbee",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR162523"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-xhnbee"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Body — original release"
+    },
+    {
+      "id": "rel-RVTR162523-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR162523"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR162523-perf-perf-frbnar",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR162523"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-frbnar"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-frbnar-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-frbnar"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Ja Rule & Ashley Joi - Body.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f91d3a06be1d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-frbnar"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f91d3a06be1d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a3596e947924-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-frbnar"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a3596e947924"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d42d8c72377a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-frbnar"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d42d8c72377a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-65cb3fe0fc27-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-frbnar"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "65cb3fe0fc27"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7cd5ab95d3a7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-frbnar"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7cd5ab95d3a7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR162523. \"Body\" by Ja Rule & Ashley Joi.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ja Rule & Ashley Joi · Title: Body · Album: Ja Rule Featuring Ashley Joi - Body · Year: 2007 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Ja Rule & Ashley Joi - Body.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3f477422",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Ja Rule & Ashley Joi - Body.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c0d6cfef",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Ja Rule & Ashley Joi - Body.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-83e37aeb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Ja Rule Feat. Ashley Joi - Body.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "88e3f9c5-18d9-4cc2-b5ad-d2cd76a4812b",
+      "category": "artist",
+      "text": "Body is performed by Ja Rule & Ashley Joi.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "dcd60afa-2065-4f5b-acac-5ccad3e9040f",
+      "category": "trivia",
+      "text": "Artist: Ja Rule & Ashley Joi · Title: Body · Album: Ja Rule Featuring Ashley Joi - Body · Year: 2007 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Ja Rule & Ashley Joi - Body.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a0c9c308-dbca-40e1-8045-c3347d064633",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Ja Rule & Ashley Joi - Body.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "827b3c5a-b875-4d4d-a8c0-441e60d28505",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Ja Rule & Ashley Joi - Body.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "83f43fdd-ee94-4971-9bfa-1dffc56bfbba",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Ja Rule Feat.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Ja Rule & Ashley Joi - Body.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

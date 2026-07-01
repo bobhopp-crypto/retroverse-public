@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR097307",
+    "kind": "song",
+    "rvtr": "RVTR097307",
+    "generatedAt": "2026-06-28T22:45:36.132Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR097307",
+    "artist": "Don Diablo",
+    "title": "Easy Lover",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Don Diablo",
+    "relatedArtists": [
+      "Don Diablo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-41flxy",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Don Diablo - Easy Lover.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-2lamae",
+      "date": "2005",
+      "label": "Easy Lover — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "7a91f0a6ea67",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097307&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-41flxy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "db7999bf9017",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097307&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-41flxy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c3d00577d064",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097307&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-41flxy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "68c49d718842",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097307&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-41flxy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ecb99cb5fd0b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097307&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-41flxy",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-41flxy",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Don Diablo - Easy Lover.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR097307-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097307"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Don Diablo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Don Diablo"
+    },
+    {
+      "id": "rel-RVTR097307-tl-tl-2lamae",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097307"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2lamae"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Easy Lover — original release"
+    },
+    {
+      "id": "rel-RVTR097307-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097307"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR097307-perf-perf-41flxy",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097307"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-41flxy"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-41flxy-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-41flxy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Don Diablo - Easy Lover.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-7a91f0a6ea67-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-41flxy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7a91f0a6ea67"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-db7999bf9017-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-41flxy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "db7999bf9017"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c3d00577d064-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-41flxy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c3d00577d064"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-68c49d718842-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-41flxy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "68c49d718842"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-ecb99cb5fd0b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-41flxy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ecb99cb5fd0b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR097307. \"Easy Lover\" by Don Diablo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Don Diablo · Title: Easy Lover · Album: Divided - Easy Lover · Year: 2005 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Don Diablo - Easy Lover.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5975cb8f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Don Diablo - Easy Lover.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "fd58dbca-aeb4-417e-a221-21319faf2687",
+      "category": "artist",
+      "text": "Easy Lover is performed by Don Diablo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "632706f6-4c27-4a86-8d25-61c1de5c09e6",
+      "category": "trivia",
+      "text": "Artist: Don Diablo · Title: Easy Lover · Album: Divided - Easy Lover · Year: 2005 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Don Diablo - Easy Lover.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "15ab8d2a-a60c-46ff-afbb-bbeae1cccc6b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Don Diablo - Easy Lover.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Don Diablo - Easy Lover.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

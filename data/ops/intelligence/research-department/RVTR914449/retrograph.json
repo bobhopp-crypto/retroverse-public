@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR914449",
+    "kind": "song",
+    "rvtr": "RVTR914449",
+    "generatedAt": "2026-06-28T23:07:00.650Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR914449",
+    "artist": "Geri Halliwell",
+    "title": "Desire",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Geri Halliwell",
+    "relatedArtists": [
+      "Geri Halliwell"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-snwhet",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Geri Halliwell - Desire.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-xgx8gy",
+      "date": "2005",
+      "label": "Desire — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d3811f0c6234",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR914449&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-snwhet",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fcdb19c4735a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR914449&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-snwhet",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d54a8bfc0218",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR914449&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-snwhet",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "767215cf80f8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR914449&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-snwhet",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f83e51d64cae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR914449&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-snwhet",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-snwhet",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Geri Halliwell - Desire.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR914449-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR914449"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Geri Halliwell"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Geri Halliwell"
+    },
+    {
+      "id": "rel-RVTR914449-tl-tl-xgx8gy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR914449"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-xgx8gy"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Desire — original release"
+    },
+    {
+      "id": "rel-RVTR914449-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR914449"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR914449-perf-perf-snwhet",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR914449"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-snwhet"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-snwhet-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-snwhet"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Geri Halliwell - Desire.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d3811f0c6234-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-snwhet"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d3811f0c6234"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-fcdb19c4735a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-snwhet"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fcdb19c4735a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d54a8bfc0218-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-snwhet"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d54a8bfc0218"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-767215cf80f8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-snwhet"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "767215cf80f8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f83e51d64cae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-snwhet"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f83e51d64cae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR914449. \"Desire\" by Geri Halliwell.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Geri Halliwell · Title: Desire · Album: Desire · Year: 2005 · Genre: Europop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Geri Halliwell - Desire.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5dc647e7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Geri Halliwell - Desire.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1e9cb4b8-2e10-4136-b80c-b5bd435e4d9b",
+      "category": "artist",
+      "text": "Desire is performed by Geri Halliwell.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f6a554b7-e3ff-4bb9-9a35-7b130b29735d",
+      "category": "trivia",
+      "text": "Artist: Geri Halliwell · Title: Desire · Album: Desire · Year: 2005 · Genre: Europop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Geri Halliwell - Desire.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0de1bdbe-dda5-459f-8b15-8d5522271296",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Geri Halliwell - Desire.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Geri Halliwell - Desire.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

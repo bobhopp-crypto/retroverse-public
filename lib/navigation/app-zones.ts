@@ -21,7 +21,7 @@ export const APP_ZONES: AppZone[] = [
     label: "Public",
     href: "/",
     description: "Discovery, search, artists, albums, and charts.",
-    publicNav: true,
+    publicNav: false,
     requiresOps: false,
     requiresAuth: false,
   },
@@ -30,7 +30,7 @@ export const APP_ZONES: AppZone[] = [
     label: "Live",
     href: "/retroverse-2/live",
     description: "Live channel and now playing.",
-    publicNav: true,
+    publicNav: false,
     requiresOps: false,
     requiresAuth: false,
   },
@@ -56,7 +56,7 @@ export const APP_ZONES: AppZone[] = [
     id: "diagnostics",
     label: "Diagnostics",
     href: "/diagnostics",
-    description: "Inspectors, dev tools, and system health.",
+    description: "Database Explorer and system health.",
     publicNav: false,
     requiresOps: true,
     requiresAuth: true,
@@ -82,6 +82,7 @@ export function detectAppZone(pathname: string): AppZoneId {
   if (path.startsWith("/ops/studio")) return "studio";
   if (path.startsWith("/ops") || path === "/internal/ops-pin") return "command";
   if (
+    path.startsWith("/database-explorer") ||
     path.startsWith("/inspect") ||
     path.startsWith("/control-center") ||
     path.startsWith("/diagnostics")

@@ -138,6 +138,13 @@ export type SongPackageMetadata = {
   vdjSnapshot?: import("./vdj-intelligence-types").VdjIntelligenceSnapshot;
 };
 
+/** Persisted visual curation — written by BobOS Bridge View, read at hydrate time. */
+export type StoredVisualProfile = {
+  primaryHeroUrl?: string | null;
+  tertiaryHeroUrl?: string | null;
+  statusOverride?: import("@/lib/visual-profile/types").VisualProfileStatus | null;
+};
+
 export type SongPackage = {
   version: 2;
   rvtr: string;
@@ -155,6 +162,10 @@ export type SongPackage = {
   storyCards: StoryCard[];
   intel: PackageIntel;
   issueFlags?: PackageIssueFlag[];
+  /** Persisted hero curation from BobOS Bridge View. */
+  storedVisualProfile?: StoredVisualProfile;
+  /** Populated at hydrate time — not persisted to package JSON. */
+  visualProfile?: import("@/lib/visual-profile/types").VisualProfile;
 };
 
 export type SongPackageIndex = {

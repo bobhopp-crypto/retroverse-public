@@ -1,0 +1,579 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR081246",
+    "kind": "song",
+    "rvtr": "RVTR081246",
+    "generatedAt": "2026-06-28T22:45:05.092Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR081246",
+    "artist": "Pitbull",
+    "title": "Timber",
+    "year": 2013,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pitbull",
+    "relatedArtists": [
+      "Pitbull"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2013,
+    "recordings": [
+      {
+        "id": "rec-t3af8d",
+        "title": "Timber — graph recording",
+        "releaseDate": 2013,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-lh4ei6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2013,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pitbull - Timber Ft. Ke$Ha .mp4",
+      "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 39,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 39 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-qpy2hh",
+      "date": "2013",
+      "label": "Timber — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2013",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "39 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-76tuxu",
+      "date": "2013",
+      "label": "Timber — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2013",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "bf6a1b6bdd83",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR081246&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lh4ei6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dc343a4e5e2f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR081246&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-lh4ei6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e3945b395360",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR081246&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lh4ei6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "18d729864e7d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR081246&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lh4ei6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c5905f6c96ad",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR081246&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lh4ei6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lh4ei6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2013,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pitbull - Timber Ft. Ke$Ha .mp4",
+        "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR081246-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR081246"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pitbull"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pitbull"
+    },
+    {
+      "id": "rel-RVTR081246-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR081246"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR081246-tl-tl-qpy2hh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR081246"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qpy2hh"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Timber — original release"
+    },
+    {
+      "id": "rel-RVTR081246-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR081246"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR081246-tl-tl-76tuxu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR081246"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-76tuxu"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Timber — graph recording"
+    },
+    {
+      "id": "rel-RVTR081246-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR081246"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR081246-perf-perf-lh4ei6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR081246"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lh4ei6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-lh4ei6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh4ei6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pitbull - Timber Ft. Ke$Ha .mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-bf6a1b6bdd83-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh4ei6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bf6a1b6bdd83"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-dc343a4e5e2f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh4ei6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dc343a4e5e2f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e3945b395360-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh4ei6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e3945b395360"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-18d729864e7d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh4ei6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "18d729864e7d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-c5905f6c96ad-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh4ei6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c5905f6c96ad"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR081246. \"Timber\" by Pitbull.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #1. 39 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pitbull Feat. Ke$ha · Title: Timber · Album: Pitbull Feat. Ke$ha - Timber · Year: 2013 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pitbull - Timber Ft. Ke$Ha .mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2013.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ddaf1ae5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pitbull - Timber Ft. Ke$Ha .mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c9a46a7d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "netsearch://bs2501040 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b3d851e0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "netsearch://td88190985 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-711d9693",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Pitbull - Timber.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-833fe70d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Pitbull Feat. Ke$ha - Timber.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-52198b35",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/UNFILED/Pitbull - Timber (Official Video) ft. Ke$ha.mp3 · Performance: Official Video",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "df60558e-390c-44cb-9a89-15bcab998de6",
+      "category": "artist",
+      "text": "Timber is performed by Pitbull.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "090d1a91-7048-4f61-9abc-1b38fa2f13b7",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 39 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5010c910-0aca-48a5-b76b-c55f8126e4e5",
+      "category": "recording",
+      "text": "Timber was released in 2013.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e2bccacd-9791-43f7-a2f1-5a0df98a6821",
+      "category": "trivia",
+      "text": "Ke$ha · Title: Timber · Album: Pitbull Feat.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fd5140e5-c205-4276-be74-9a2b8cb4a4bb",
+      "category": "trivia",
+      "text": "Ke$ha - Timber · Year: 2013 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pitbull - Timber Ft.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5f1adc2d-4ca9-451b-b808-4cafe2d32b55",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pitbull - Timber Ft.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "314560be-771a-40af-b57c-9d2f69008fb0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Pitbull - Timber.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7177f24e-7d65-4f95-a5a3-8426cad82563",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Pitbull Feat.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "41f0b896-df7d-48ca-883c-de72ddd702ad",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/UNFILED/Pitbull - Timber (Official Video) ft.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 9,
+    "accepted": 5,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pitbull - Timber Ft. Ke$Ha .mp4",
+    "tags": [],
+    "mediaItemCount": 6
+  },
+  "relatedSongs": []
+}

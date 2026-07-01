@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR793406",
+    "kind": "song",
+    "rvtr": "RVTR793406",
+    "generatedAt": "2026-06-28T23:02:50.371Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR793406",
+    "artist": "Axel Thesleff",
+    "title": "Bad Karma",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Axel Thesleff",
+    "relatedArtists": [
+      "Axel Thesleff"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-sjz3rg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2019,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Axel Thesleff - Bad Karma.mp4",
+      "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-peacs9",
+      "date": "2019",
+      "label": "Bad Karma — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2019",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b08d1b495c90",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR793406&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-sjz3rg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6465092f2e14",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR793406&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-sjz3rg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f752638eca95",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR793406&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-sjz3rg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a3b9795bde0e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR793406&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-sjz3rg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8372765ea99d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR793406&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-sjz3rg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-sjz3rg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2019,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Axel Thesleff - Bad Karma.mp4",
+        "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR793406-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR793406"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Axel Thesleff"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Axel Thesleff"
+    },
+    {
+      "id": "rel-RVTR793406-tl-tl-peacs9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR793406"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-peacs9"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Bad Karma — original release"
+    },
+    {
+      "id": "rel-RVTR793406-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR793406"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR793406-perf-perf-sjz3rg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR793406"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-sjz3rg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-sjz3rg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sjz3rg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Axel Thesleff - Bad Karma.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b08d1b495c90-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sjz3rg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b08d1b495c90"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6465092f2e14-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sjz3rg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6465092f2e14"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f752638eca95-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sjz3rg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f752638eca95"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a3b9795bde0e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sjz3rg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a3b9795bde0e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-8372765ea99d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sjz3rg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8372765ea99d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR793406. \"Bad Karma\" by Axel Thesleff.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Axel Thesleff · Title: Bad Karma · Album: Panda Dub - Horizons · Year: 2019 · Genre: Dub · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Axel Thesleff - Bad Karma.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f514d938",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Axel Thesleff - Bad Karma.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "75a78c74-b27d-4651-a046-8984443cf1e1",
+      "category": "artist",
+      "text": "Bad Karma is performed by Axel Thesleff.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "00035ede-9d7d-4571-baf2-3d9822c87761",
+      "category": "trivia",
+      "text": "Artist: Axel Thesleff · Title: Bad Karma · Album: Panda Dub - Horizons · Year: 2019 · Genre: Dub · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Axel Thesleff - Bad Karma.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f11de41d-7fc4-41ac-9615-145e07f242f6",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Axel Thesleff - Bad Karma.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Axel Thesleff - Bad Karma.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

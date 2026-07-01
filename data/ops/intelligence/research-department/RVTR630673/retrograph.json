@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR630673",
+    "kind": "song",
+    "rvtr": "RVTR630673",
+    "generatedAt": "2026-06-28T22:58:02.882Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR630673",
+    "artist": "Dokken",
+    "title": "The Hunter",
+    "year": 1985,
+    "albumTitle": "Under Lock And Key",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL924810/RVAL924810__dokken__under-lock-and-key.jpg"
+  },
+  "artist": {
+    "name": "Dokken",
+    "relatedArtists": [
+      "Dokken"
+    ]
+  },
+  "album": {
+    "title": "Under Lock And Key",
+    "releaseYear": 1985,
+    "recordings": [
+      {
+        "id": "rec-pyowyy",
+        "title": "Under Lock And Key",
+        "releaseDate": 1985,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-pzisn2",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1987,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - The Hunter.mp4",
+      "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Under Lock And Key",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-9jc7xf",
+      "date": "1985",
+      "label": "The Hunter — original release",
+      "detail": "Original album: Under Lock And Key",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-ilzwlf",
+      "date": "1985",
+      "label": "Under Lock And Key",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1987",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR630673",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL924810/RVAL924810__dokken__under-lock-and-key.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "55fbce0f6a3c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR630673&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-pzisn2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ccaf9e245a83",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR630673&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-pzisn2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "435c454f9677",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR630673&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-pzisn2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fca45f349a66",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR630673&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-pzisn2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f1678344c13c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR630673&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-pzisn2",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-pzisn2",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1987,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - The Hunter.mp4",
+        "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR630673-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR630673"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dokken"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dokken"
+    },
+    {
+      "id": "rel-RVTR630673-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR630673"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-pyowyy"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Under Lock And Key"
+    },
+    {
+      "id": "rel-RVTR630673-tl-tl-9jc7xf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR630673"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9jc7xf"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "The Hunter — original release"
+    },
+    {
+      "id": "rel-RVTR630673-tl-tl-ilzwlf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR630673"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ilzwlf"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Under Lock And Key"
+    },
+    {
+      "id": "rel-RVTR630673-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR630673"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR630673-perf-perf-pzisn2",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR630673"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-pzisn2"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-pzisn2-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pzisn2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - The Hunter.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-55fbce0f6a3c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pzisn2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "55fbce0f6a3c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ccaf9e245a83-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pzisn2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ccaf9e245a83"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-435c454f9677-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pzisn2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "435c454f9677"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-fca45f349a66-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pzisn2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fca45f349a66"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f1678344c13c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pzisn2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f1678344c13c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR630673. \"The Hunter\" by Dokken. Album: Under Lock And Key (1985).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL924810/RVAL924810__dokken__under-lock-and-key.jpg",
+      "excerpt": "Canonical cover assignment for RVTR630673 (The Hunter). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Under Lock And Key (1985)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dokken · Title: The Hunter · Year: 1987 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - The Hunter.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1985.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-eea7401b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - The Hunter.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b0438966-9632-41df-be01-44aaffbc6616",
+      "category": "artist",
+      "text": "The Hunter is performed by Dokken.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9516f287-ee1b-4499-b46e-9e074f77b18e",
+      "category": "album",
+      "text": "The song appears on the album \"Under Lock And Key\" (1985).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fac5b81f-845e-4ddc-bd6e-ff0c54d715ac",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR630673.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL924810/RVAL924810__dokken__under-lock-and-key.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4267b0a6-0554-4583-a8d3-4c802e56400d",
+      "category": "recording",
+      "text": "The Hunter was released in 1985.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ea973203-0866-49fb-bd80-cc57b6d2a00a",
+      "category": "trivia",
+      "text": "Artist: Dokken · Title: The Hunter · Year: 1987 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - The Hunter.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7b636fb7-4035-4517-8dfe-4a71aed8f5a3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - The Hunter.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - The Hunter.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

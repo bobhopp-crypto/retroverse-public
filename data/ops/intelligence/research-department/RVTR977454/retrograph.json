@@ -1,0 +1,515 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR977454",
+    "kind": "song",
+    "rvtr": "RVTR977454",
+    "generatedAt": "2026-06-28T22:43:07.939Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR977454",
+    "artist": "Kenny Wayne Shepherd",
+    "title": "You Can't Judge A Book By The Cover",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kenny Wayne Shepherd",
+    "relatedArtists": [
+      "Kenny Wayne Shepherd"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-hchi5i",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kenny Wayne Shepherd - You Can't Judge A Book By The Cover.mp4",
+      "notes": "Detected year: 2014. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-cuk0dq",
+      "date": "1977",
+      "label": "You Can't Judge A Book By The Cover — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-kf4ujg",
+      "date": "1977",
+      "label": "Kenny Wayne Shepherd (born Kenneth Wayne Brobst; June 12, 1977) is an American guitarist.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-gsm98e",
+      "date": "—",
+      "label": "He has released several studio albums and experienced significant commercial success as a blues rock",
+      "detail": " artist.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-kf4ujg",
+      "date": "1977",
+      "label": "Kenny Wayne Shepherd (born Kenneth Wayne Brobst; June 12, 1977) is an American guitarist.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2014",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "He has released several studio albums and experienced significant commercial success as a blues rock artist.",
+      "made out of plywood, basically\", and learning to play by following along with material from his father's record collection."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c3ffacc661fb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977454&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hchi5i",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "41548274a29e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977454&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hchi5i",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9117aec04646",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977454&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hchi5i",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6d17bca7a322",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977454&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hchi5i",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8ee4178124c2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977454&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hchi5i",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hchi5i",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kenny Wayne Shepherd - You Can't Judge A Book By The Cover.mp4",
+        "notes": "Detected year: 2014. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR977454-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977454"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kenny Wayne Shepherd"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kenny Wayne Shepherd"
+    },
+    {
+      "id": "rel-RVTR977454-tl-tl-cuk0dq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977454"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cuk0dq"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "You Can't Judge A Book By The Cover — original release"
+    },
+    {
+      "id": "rel-RVTR977454-tl-tl-kf4ujg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977454"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kf4ujg"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Kenny Wayne Shepherd (born Kenneth Wayne Brobst; June 12, 1977) is an American guitarist."
+    },
+    {
+      "id": "rel-RVTR977454-tl-tl-gsm98e",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977454"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-gsm98e"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "He has released several studio albums and experienced significant commercial success as a blues rock"
+    },
+    {
+      "id": "rel-RVTR977454-tl-tl-kf4ujg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977454"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kf4ujg"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Kenny Wayne Shepherd (born Kenneth Wayne Brobst; June 12, 1977) is an American guitarist."
+    },
+    {
+      "id": "rel-RVTR977454-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977454"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR977454-perf-perf-hchi5i",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977454"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hchi5i"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hchi5i-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hchi5i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kenny Wayne Shepherd - You Can't Judge A Book By The Cover.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c3ffacc661fb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hchi5i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c3ffacc661fb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-41548274a29e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hchi5i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "41548274a29e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-9117aec04646-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hchi5i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9117aec04646"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6d17bca7a322-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hchi5i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6d17bca7a322"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-8ee4178124c2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hchi5i"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8ee4178124c2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR977454. \"You Can't Judge A Book By The Cover\" by Kenny Wayne Shepherd.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kenny Wayne Shepherd · Title: You Can't Judge A Book By The Cover · Album: The Kenny Wayne Shepherd Band - You Can't Judge A Book By Its Cover · Year: 2014 · Genre: Blues · PlayCount: 1 · LastPlayed: 1770500178 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kenny Wayne Shepherd - You Can't Judge A Book By The Cover.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ff6f28ef",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kenny Wayne Shepherd - You Can't Judge A Book By The Cover.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-kenny-wayne-shepherd",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Kenny_Wayne_Shepherd",
+      "excerpt": "Kenny Wayne Shepherd (born Kenneth Wayne Brobst; June 12, 1977) is an American guitarist. He has released several studio albums and experienced significant commercial success as a blues rock artist.\n\n\nEarly life\nShepherd was born in Shreveport, Louisiana. He graduated from Caddo Magnet High School in Shreveport. He is \"completely self-taught\",\n and does not read music. Growing up, Shepherd's father (Ken Shepherd) was a local radio personality and part-time concert promoter, and had a vast collection of music. Kenny received his first \"guitar\" at the age of three or four, when his grandmother purchased a series of several plastic guitars for him with S&H Green Stamps, which he has said he would \"go through like candy\".\nShepherd stated in a 2011 interview that he began playing guitar in earnest at age seven, about six months after meeting and being \"pretty mesmerized\" by Stevie Ray Vaughan, Labor Day weekend in 1984, at one of his father's promoted concerts. His self-taught method employed a process of learning one note at a time, playing and rewinding cassette tapes, using \"a cheap Yamaha wanna-be Stratocaster ... made out of plywood, basically\", and learning to play by following along with material from his father's record collection.\n\n\nCareer\nBlues musician Bryan Lee invited the then-13-year-old Shepherd to play guitar onstage. He subsequently made demo tapes, and a video was shot at Shepherd's first performance at the Red River Revel Arts Festival in Shreveport. It was this video performance that impressed Giant Records chief Irving Azoff enough to sign Shepherd to a multiple album record deal.\n\nBeginning in 1995, Shepherd took seven singles into the Top 10, and holds the record for the longest-running album on the Billboard Blues Charts with Trouble Is.... In 1996, Shepherd began a longtime collaboration with vocalist Noah Hunt, who provided the vocals for Shepherd's signature song, \"Blue on Black\". Shepherd has been nominated for five Grammy Awards, and has received two Billboard Music Awards, two Blues Music Awards, and two Orville H. Gibson Awards. \nIn 2000, Shepherd played guitar on the end title theme for the animated feature Batman Beyond: Return of the Joker.\nIn 2007, he released a critically acclaimed and two-time Grammy nominated DVD–CD project, 10 Days Out: Blues from the Backroads. This documents Shepherd as he travels the country to jam with and interview the last of the authentic blues musicians. As they tour the back-roads, Shepherd, with members of the Double Trouble Band, play with a host of blues greats including Clarence \"Gatemouth\" Brown and Bryan Lee, Buddy Flett (with whom he jams at Lead Belly's grave), B. B. King, blues harp master Jerry \"Boogie\" McCain, Cootie Stark, Neal Pattman, John Dee Holeman, Etta Baker, Henry Townsend with David \"Honeyboy\" Edwards, and a concert session with the surviving members of Muddy Waters' and Howlin' Wolf's bands, including Hubert Sumlin, Willie \"Big Eyes\" Smith and Pinetop Perkins.\nIn September 2008, Fender Musical Instruments Corp. released the Kenny Wayne Shepherd Signature Series Stratocaster, designed exclusively by Shepherd. In 2010, Shepherd was nominated for a Grammy for Live in Chicago, which featured performances with Hubert Sumlin, Willie \"Big Eyes\" Smith, Buddy Flett, and Bryan Lee. In 2011, Shepherd released his seventh CD, titled How I Go, on Roadrunner Records. \nIn 2014, he released \"Goin Home\" on Mascot Label Group in Europe, and on Concord Records in the US and the rest of the world. In 2015, Shepherd released \"Something from the Road Vol. 1\", a live special release for Record Store Day in the U.S.\n\nIn January 2017, the Kenny Wayne Shepherd Band went into the studio with producer Marshall Altman to record a new album of all newly written songs, titled Lay It On Down, and released the album on August 4 (July 21 in Europe via Mascot Label Group). Lay It On Down is the eighth record by the Kenny Wayne Shepherd Band to debut at No. 1 on the Billboard Blues Chart.\nShepherd made his Edinburgh Jazz & Blues Festival debut on July 16, 2019. On May 31, 2019, Shepherd released The Traveler on Concord Records and Mascot Label Group in Europe.  The album, like the previous release Lay It On Down, was co-produced by Marshall Altman. The Traveler was chosen as a Favorite Blues Album by AllMusic. Shepherd headlined the 2020 Mahindra Blues Festival, along with Buddy Guy, Larkin Poe and Keb Mo.\nIn March 2021, the Blues Foundation revoked Kenny Wayne Shepherd's 2021 Blues Music Awards nomination for Best Blues/Rock Artist. According to a statement from the organization, the decision was \"based upon continuing revelations of representations of the Confederate flag on Shepherd's 'General Lee' car, guitars and elsewhere.\" After Shepherd procured the car and a custom guitar with the flag emblazoned on it in 2015, he explained \"The confederate flag can be controversial, but not in this case.\" Following the rebuke from the Blues Foundation, Shepherd acknowledged the offensiveness of the flag, saying, \"Years ago I put that car in permanent storage and some time ago, I made the decision to permanently cover the flag on my car because it was completely against my values and offensive to the African American community which created the music I love so much and I apologize to anyone that I have unintentionally hurt because of it.\" The organization also asked Shepherd's father, Ken Shepherd, to step down as a member of its board of directors. Ken Shepherd declined to comment on being asked to step down.\nOn December 2, 2022, Shepherd released Trouble Is... 25, a complete re-recording of his second album for its 25th anniversary. The album includes a never-before-heard cover of Bob Dylan's \"Ballad of a Thin Man.\"\nNovember of 2023 saw the release of Dirt on My Diamonds Vol. 1 which was produced by Shepherd and Marshall Altman.  The album debuted at #1 on the Blues charts.  It was followed up in September of 2024 with Dirt on My Diamonds Vol. 2, w",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "6b3778ac-0fa5-451d-989b-1e57cfe80744",
+      "category": "artist",
+      "text": "You Can't Judge A Book By The Cover is performed by Kenny Wayne Shepherd.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "156da192-ea2c-4ec9-9b1b-f8cd94001d19",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e89bba0a-5d28-4ec3-80fa-6aefab46366f",
+      "category": "cultural_impact",
+      "text": "Kenny Wayne Shepherd (born Kenneth Wayne Brobst; June 12, 1977) is an American guitarist.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kenny_Wayne_Shepherd",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2695f184-3303-45b9-acff-4bb2546c4345",
+      "category": "cultural_impact",
+      "text": "He has released several studio albums and experienced significant commercial success as a blues rock artist.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kenny_Wayne_Shepherd",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d6bf03b2-aad4-47ed-aa8a-373b7c3acb70",
+      "category": "cultural_impact",
+      "text": "Early life\nShepherd was born in Shreveport, Louisiana.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kenny_Wayne_Shepherd",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "016a05af-1d8d-4c99-b480-bf4af72db1cf",
+      "category": "trivia",
+      "text": "\"You Can't Judge A Book By The Cover\" by Kenny Wayne Shepherd.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c8e31f63-d297-43ca-af14-f59d34c52c37",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kenny Wayne Shepherd - You Can't Judge A Book By The Cover.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kenny Wayne Shepherd - You Can't Judge A Book By The Cover.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

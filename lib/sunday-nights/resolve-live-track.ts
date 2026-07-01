@@ -2,6 +2,7 @@ import { slugFromArtistName } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { resolveChartOrbitTrack } from "@/lib/ops/chart-orbit/resolve-track";
 import { loadTrackPage } from "@/lib/track/load-track-page";
+import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 
 import { loadRvtrAliasStore, lookupAliasRvtrFromStore } from "./rvtr-aliases";
 import type { LiveResolution } from "./types";
@@ -90,13 +91,16 @@ export async function resolveLiveTrack(input: {
   }
 
   if (rvtr) {
-    const track = await loadTrackPage(rvtr);
+    const [track, hero] = await Promise.all([
+      loadTrackPage(rvtr),
+      resolveHeroForRvtr(rvtr),
+    ]);
     if (track) {
       return {
         rvtr,
         resolution,
         year: track.releaseYear,
-        coverUrl: track.coverUrl,
+        coverUrl: hero.url,
       };
     }
   }

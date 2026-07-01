@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR603722",
+    "kind": "song",
+    "rvtr": "RVTR603722",
+    "generatedAt": "2026-06-28T22:57:12.898Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR603722",
+    "artist": "Dierks Bentley",
+    "title": "Gone",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dierks Bentley",
+    "relatedArtists": [
+      "Dierks Bentley"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-tx10dk",
+        "title": "Gone — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-cvb51d",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Dierks Bentley - Gone.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 26,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #26 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-qiwwod",
+      "date": "2021",
+      "label": "Gone — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gq",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #26",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ql13ju",
+      "date": "2021",
+      "label": "Gone — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f2cbfd429a31",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR603722&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-cvb51d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "be9586ba18c3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR603722&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-cvb51d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "48c42142de67",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR603722&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-cvb51d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2cbc684b67bb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR603722&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-cvb51d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f56160f46f7d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR603722&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-cvb51d",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-cvb51d",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Dierks Bentley - Gone.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR603722-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR603722"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dierks Bentley"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dierks Bentley"
+    },
+    {
+      "id": "rel-RVTR603722-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR603722"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #26"
+    },
+    {
+      "id": "rel-RVTR603722-tl-tl-qiwwod",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR603722"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qiwwod"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Gone — original release"
+    },
+    {
+      "id": "rel-RVTR603722-tl-tl-fcm3gq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR603722"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gq"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #26"
+    },
+    {
+      "id": "rel-RVTR603722-tl-tl-ql13ju",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR603722"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ql13ju"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Gone — graph recording"
+    },
+    {
+      "id": "rel-RVTR603722-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR603722"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR603722-perf-perf-cvb51d",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR603722"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-cvb51d"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-cvb51d-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cvb51d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Dierks Bentley - Gone.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f2cbfd429a31-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cvb51d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f2cbfd429a31"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-be9586ba18c3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cvb51d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "be9586ba18c3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-48c42142de67-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cvb51d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "48c42142de67"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2cbc684b67bb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cvb51d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2cbc684b67bb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f56160f46f7d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cvb51d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f56160f46f7d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR603722. \"Gone\" by Dierks Bentley.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #26. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dierks Bentley · Title: Gone · Album: CMT Most Wanted Volume 1 · Year: 2003 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Dierks Bentley - Gone.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-77e74afc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Dierks Bentley - Gone.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6eb3f665-23b7-44e8-ba8c-26ff853555d5",
+      "category": "artist",
+      "text": "Gone is performed by Dierks Bentley.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b62a0eca-ab12-4eca-802d-e4ce13659ddc",
+      "category": "chart",
+      "text": "The song peaked at #26 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d8442def-e945-4d38-8d47-5985d1a4682b",
+      "category": "recording",
+      "text": "Gone was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c4132a42-73d9-4a89-b97d-1387c080ba6b",
+      "category": "trivia",
+      "text": "Artist: Dierks Bentley · Title: Gone · Album: CMT Most Wanted Volume 1 · Year: 2003 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Dierks Bentley - Gone.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d33d3e4f-6e2b-4c60-a312-ff7a207f6e60",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Dierks Bentley - Gone.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Dierks Bentley - Gone.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

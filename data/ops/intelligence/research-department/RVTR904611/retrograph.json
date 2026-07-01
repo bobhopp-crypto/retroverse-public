@@ -1,0 +1,540 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR904611",
+    "kind": "song",
+    "rvtr": "RVTR904611",
+    "generatedAt": "2026-06-28T23:06:42.097Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR904611",
+    "artist": "Beyoncé",
+    "title": "Sweet Dreams",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Beyoncé",
+    "relatedArtists": [
+      "Beyoncé"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-rvb8og",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Sweet Dreams.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ok8m6k",
+      "date": "2008",
+      "label": "Sweet Dreams — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-orv8la",
+      "date": "—",
+      "label": "\"Sweet Dreams\" is a song by American singer Beyoncé from her third studio album I Am...",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-4xh6ie",
+      "date": "2008",
+      "label": "Originally titled \"Beautiful Nightmare\", it leaked online in March 2008.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-orv8la",
+      "date": "—",
+      "label": "\"Sweet Dreams\" is a song by American singer Beyoncé from her third studio album I Am...",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "\"Sweet Dreams\" is a song by American singer Beyoncé from her third studio album I Am...",
+      "The song was written and produced by Beyoncé, James Scheffer, Wayne Wilkins, and Rico Love."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "352dc02e7bf2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904611&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-rvb8og",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4169f98dd961",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904611&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-rvb8og",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2f2597dd68eb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904611&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-rvb8og",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ffbf52b1c916",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904611&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-rvb8og",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a368d7954e15",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904611&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-rvb8og",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-rvb8og",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Sweet Dreams.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR904611-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904611"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Beyoncé"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Beyoncé"
+    },
+    {
+      "id": "rel-RVTR904611-tl-tl-ok8m6k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904611"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ok8m6k"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Sweet Dreams — original release"
+    },
+    {
+      "id": "rel-RVTR904611-tl-tl-orv8la",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904611"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-orv8la"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Sweet Dreams\" is a song by American singer Beyoncé from her third studio album I Am..."
+    },
+    {
+      "id": "rel-RVTR904611-tl-tl-4xh6ie",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904611"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4xh6ie"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Originally titled \"Beautiful Nightmare\", it leaked online in March 2008."
+    },
+    {
+      "id": "rel-RVTR904611-tl-tl-orv8la",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904611"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-orv8la"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Sweet Dreams\" is a song by American singer Beyoncé from her third studio album I Am..."
+    },
+    {
+      "id": "rel-RVTR904611-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904611"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR904611-perf-perf-rvb8og",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904611"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-rvb8og"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-rvb8og-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rvb8og"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Sweet Dreams.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-352dc02e7bf2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rvb8og"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "352dc02e7bf2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4169f98dd961-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rvb8og"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4169f98dd961"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-2f2597dd68eb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rvb8og"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2f2597dd68eb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ffbf52b1c916-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rvb8og"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ffbf52b1c916"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a368d7954e15-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rvb8og"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a368d7954e15"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR904611. \"Sweet Dreams\" by Beyoncé.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Beyoncé · Title: Sweet Dreams · Album: I Am...Sasha Fierce (Deluxe Edition) · Year: 2008 · Genre: R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Sweet Dreams.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-befa9c59",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Sweet Dreams.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-05fe070d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Beyoncé - Sweet Dreams.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0168e70c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Beyonce - Sweet Dreams.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-sweet-dreams-beyonc-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Sweet_Dreams_(Beyonc%C3%A9_song)",
+      "excerpt": "\"Sweet Dreams\" is a song by American singer Beyoncé from her third studio album I Am... Sasha Fierce (2008). Originally titled \"Beautiful Nightmare\", it leaked online in March 2008. The song was written and produced by Beyoncé, James Scheffer, Wayne Wilkins, and Rico Love. Columbia Records released \"Sweet Dreams\" as the album's sixth single, to mainstream radio and rhythmic contemporary radio playlists in the United States on June 2, 2009, and elsewhere on July 13. It is an electropop song whose instrumentation includes synthesizers, a keyboard, and a snare drum. Beyoncé employs slinky vocals to deliver the lyrics, which describe a romantic relationship that the female protagonist believes could be a dream.\nMusic critics praised the beats, synthpop sound and Beyoncé's vocals in \"Sweet Dreams\". Some critics noted that the sliding bassline gave the song a dark quality and resembled the one used in some of Michael Jackson's songs on Thriller (1982). \"Sweet Dreams\" gained popularity for its electronic style, which contrasted her earlier R&B, urban, and funk-tinged releases. The song was nominated for the Viewers Choice Award at the 2010 BET Awards. \"Sweet Dreams\" peaked at number ten on the Billboard Hot 100. Outside of the United States, \"Sweet Dreams\" topped the charts in New Zealand, and peaked within the top ten of the charts in many countries, including Australia, the Czech Republic, the Republic of Ireland, Slovakia, and the United Kingdom. \"Sweet Dreams\" was certified platinum in the United States, Australia, Canada, the United Kingdom, and New Zealand.\nThe song's accompanying music video was directed by Adria Petty, and was filmed in Brooklyn, New York. It mainly uses a green screen and computer-generated effects, making the clip minimal and performance based. The video sees Beyoncé wearing a golden robot suit designed by French fashion designer Thierry Mugler. Critics described it as high-fashion and noted that she reprised some of the choreography from her 2008 video for \"Single Ladies\". Beyoncé promoted the song by performing it live at the 2009 MTV Europe Music Awards and occasionally during the I Am... World Tour (2009–10). \"Sweet Dreams\" was recognized as one of the most performed songs of 2009 at the 27th American Society of Composers, Authors and Publishers (ASCAP) Pop Music Awards. The song was used in a Japanese Crystal Geyser Water advertisement that featured Beyoncé.\n\n\nProduction and recording\nInitially titled \"Beautiful Nightmare\", \"Sweet Dreams\" became one of the first songs composed for Beyoncé's 2008 double album I Am... Sasha Fierce. Record producer Rico Love regarded writing \"Sweet Dreams\" with Beyoncé as \"the experience of a lifetime\". When Beyoncé went to the South Beat Studios in Miami Beach, Florida, she was not prepared to record and had to attend the opening concert of her husband Jay-Z's tour. However, when she heard a demo of the song, she was impressed and wanted to record it immediately. She sang and recorded \"Sweet Dreams\" in 15 minutes. \nBeyoncé, Wayne Wilkins and Jim Jonsin did additional writing and produced the song alongside Love at the same studio. Beyoncé and Love worked on the vocal arrangements; Beyoncé appreciated Love's background vocals in the hook and retained them. Jim Caruana assisted in recording the music. Love then recorded Beyoncé's vocals; the recording session lasted for an hour. Lastly, Wilkins mixed the track. \"Sweet Dreams\" appears on the Sasha Fierce disc of I Am... Sasha Fierce as it allowed Beyoncé to portray her alter ego Sasha Fierce, whom she described as her \"fun, more sensual, more aggressive, more outspoken [...] and more glamorous side\".\n\n\nComposition and lyrical interpretation\n\n\"Sweet Dreams\" is an electropop song that incorporates elements of rock. The song is built on undulating electro rhythms and a thumping beat; its groove fits into hip hop phrasing. It is mainly driven by a keyboard and also has guitar, piano, synthesizer, snare drum and bass instrumentation. Many music critics noted that several components of \"Sweet Dreams\" are reminiscent of the songs on Michael Jackson's 1982 album Thriller. James Montgomery of MTV News said that the \"gnarly low end\" sounds like Jackson's song \"Beat It\" (1983). Nick Levine of Digital Spy noted that the electronic bassline is similar to those used in Jackson's songs \"Thriller\" (1983) and \"Bad\" (1987). Arielle Castillo of the Miami New Times wrote that Jackson could use the beat of \"Sweet Dreams\" to bring his Thriller-era style up to date.\nThe lyrics of \"Sweet Dreams\" are about a female protagonist who has insecurities about her new romantic relationship; she is confused about whether her relationship with her partner is a \"sweet dream or a beautiful nightmare\". The song starts with a bassline, which is occasionally interrupted by spare snare kicks, drum fills and Beyoncé's chanting, \"Turn the lights on\". She then adopts slinky vocals to begin the first verse. The \"expansive-yet-molecular\" chorus then starts with the line, \"You can be a sweet dream or a beautiful nightmare / Either way, I don't wanna wake up from you\". The song is written in the key of E-flat minor and has a tempo of122 beats per minute. Beyoncé's vocals span from D♭4 to F5 in the song.\n\n\nLeak and release\n\"Sweet Dreams\" was leaked under its original title the day after it was recorded in March 2008, eight months before the album's release. It was the first time that a song by Beyoncé was leaked before its inclusion on an forthcoming album. She responded to the leak on her official website, thanking her fans for the positive response towards the song, before clarifying that it was a work in progress and that she did not intend to release new material in the near future. About the leak, Love told MTV News:\n\nI was more concerned that [Beyoncé] would feel that we did it. A lot of times producers or songwriters leak records because they feel if you put the song out there it would go [on to become a hit]. Usually a leak",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "7a1cefdd-620a-411e-8cf6-e2a06583c437",
+      "category": "artist",
+      "text": "Sweet Dreams is performed by Beyoncé.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "af2ae792-a156-4052-927a-aafd32b45373",
+      "category": "cultural_impact",
+      "text": "\"Sweet Dreams\" is a song by American singer Beyoncé from her third studio album I Am...",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sweet_Dreams_(Beyonc%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3ca189d8-c56b-43fc-a3c0-c6242faf0539",
+      "category": "cultural_impact",
+      "text": "Originally titled \"Beautiful Nightmare\", it leaked online in March 2008.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sweet_Dreams_(Beyonc%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "53d32554-f0be-46bd-9fe9-ab3a355097f9",
+      "category": "cultural_impact",
+      "text": "The song was written and produced by Beyoncé, James Scheffer, Wayne Wilkins, and Rico Love.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sweet_Dreams_(Beyonc%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "999c53a1-1d7f-48a9-ba03-46a6a2363a96",
+      "category": "trivia",
+      "text": "Artist: Beyoncé · Title: Sweet Dreams · Album: I Am...Sasha Fierce (Deluxe Edition) · Year: 2008 · Genre: R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Sweet Dreams.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "56382ee8-fcf8-4645-b6fb-65a6542323e6",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Sweet Dreams.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ae6cb588-0244-46ea-9bde-22c9301ed941",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Beyoncé - Sweet Dreams.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ead41a70-eedb-4c0f-b870-aac935119d73",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Beyonce - Sweet Dreams.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 8,
+    "accepted": 4,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Sweet Dreams.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

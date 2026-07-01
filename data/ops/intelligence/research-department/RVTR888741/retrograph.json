@@ -1,0 +1,545 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR888741",
+    "kind": "song",
+    "rvtr": "RVTR888741",
+    "generatedAt": "2026-06-28T23:06:15.724Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR888741",
+    "artist": "Jason Mraz",
+    "title": "You And I Both",
+    "year": 2003,
+    "albumTitle": "Waiting For My Rocket To Come",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797621/RVAL797621__jason-mraz__waiting-for-my-rocket-to-come.jpg"
+  },
+  "artist": {
+    "name": "Jason Mraz",
+    "relatedArtists": [
+      "Jason Mraz"
+    ]
+  },
+  "album": {
+    "title": "Waiting For My Rocket To Come",
+    "releaseYear": 2003,
+    "recordings": [
+      {
+        "id": "rec-uihuvo",
+        "title": "Waiting For My Rocket To Come",
+        "releaseDate": 2003,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-6b0ekt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2001,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jason Mraz - You And I Both.mp4",
+      "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Waiting For My Rocket To Come",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-6j01ka",
+      "date": "2003",
+      "label": "You And I Both — original release",
+      "detail": "Original album: Waiting For My Rocket To Come",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-tdjhn1",
+      "date": "2003",
+      "label": "Waiting For My Rocket To Come",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2001",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR888741",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797621/RVAL797621__jason-mraz__waiting-for-my-rocket-to-come.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6984a7907fa4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR888741&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6b0ekt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e5f6963b48ec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR888741&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6b0ekt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "415c092fb3a9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR888741&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6b0ekt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bb2a248b37a2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR888741&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6b0ekt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a359e1efb10f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR888741&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6b0ekt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6b0ekt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2001,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jason Mraz - You And I Both.mp4",
+        "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR888741-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR888741"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jason Mraz"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jason Mraz"
+    },
+    {
+      "id": "rel-RVTR888741-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR888741"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-uihuvo"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Waiting For My Rocket To Come"
+    },
+    {
+      "id": "rel-RVTR888741-tl-tl-6j01ka",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR888741"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6j01ka"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "You And I Both — original release"
+    },
+    {
+      "id": "rel-RVTR888741-tl-tl-tdjhn1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR888741"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tdjhn1"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Waiting For My Rocket To Come"
+    },
+    {
+      "id": "rel-RVTR888741-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR888741"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR888741-perf-perf-6b0ekt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR888741"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6b0ekt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6b0ekt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6b0ekt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jason Mraz - You And I Both.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6984a7907fa4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6b0ekt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6984a7907fa4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-e5f6963b48ec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6b0ekt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e5f6963b48ec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-415c092fb3a9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6b0ekt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "415c092fb3a9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-bb2a248b37a2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6b0ekt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bb2a248b37a2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a359e1efb10f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6b0ekt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a359e1efb10f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR888741. \"You And I Both\" by Jason Mraz. Album: Waiting For My Rocket To Come (2003).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797621/RVAL797621__jason-mraz__waiting-for-my-rocket-to-come.jpg",
+      "excerpt": "Canonical cover assignment for RVTR888741 (You And I Both). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Waiting For My Rocket To Come (2003)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jason Mraz · Title: You And I Both · Album: Live At Java Joe's · Year: 2001 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jason Mraz - You And I Both.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2003.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-78641634",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jason Mraz - You And I Both.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-38ed4498",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Jason Mraz - You And I Both.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1f1c0ba8-c538-4158-bb95-d3cdd856a1a7",
+      "category": "artist",
+      "text": "You And I Both is performed by Jason Mraz.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3eb5f4ed-6c17-4fad-90b1-0702b055f896",
+      "category": "album",
+      "text": "The song appears on the album \"Waiting For My Rocket To Come\" (2003).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e2fab98b-c9ba-4fdd-aa03-2677acf0eba1",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR888741.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797621/RVAL797621__jason-mraz__waiting-for-my-rocket-to-come.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d61bf2ac-642f-4fc6-8c8c-7d2da4fc6f4a",
+      "category": "recording",
+      "text": "You And I Both was released in 2003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "83f3acb4-cc0e-4529-b344-7309036173ab",
+      "category": "trivia",
+      "text": "Album: Waiting For My Rocket To Come (2003).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b0daab71-1a2b-4619-88b8-e78fac9221e8",
+      "category": "trivia",
+      "text": "Album: Waiting For My Rocket To Come (2003)",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "75d57f19-3e0e-4ac6-a2a1-aeef0568d923",
+      "category": "trivia",
+      "text": "Artist: Jason Mraz · Title: You And I Both · Album: Live At Java Joe's · Year: 2001 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jason Mraz - You And I Both.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c7177791-ad1e-45e9-9c4f-cd1bd596d3ff",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jason Mraz - You And I Both.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fb981c60-3921-4111-84ca-91d935c8c6a3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Jason Mraz - You And I Both.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 9,
+    "accepted": 6,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jason Mraz - You And I Both.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,698 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR783475",
+    "kind": "song",
+    "rvtr": "RVTR783475",
+    "generatedAt": "2026-06-28T23:02:30.933Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR783475",
+    "artist": "The Beatles",
+    "title": "Let It Be",
+    "year": 2010,
+    "albumTitle": "Past Masters",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL654978/RVAL654978__the-beatles__past-masters.jpg"
+  },
+  "artist": {
+    "name": "The Beatles",
+    "relatedArtists": [
+      "The Beatles"
+    ]
+  },
+  "album": {
+    "title": "Past Masters",
+    "releaseYear": 2010,
+    "recordings": [
+      {
+        "id": "rec-cf70l0",
+        "title": "Past Masters",
+        "releaseDate": 2010,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-nu3cw7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1970,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Let It Be.mp4",
+      "notes": "Detected year: 1970. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-oxtkmo",
+      "title": "Don t Let Me Down",
+      "kind": "performance",
+      "year": 1969,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Don t Let Me Down.mp4",
+      "notes": "Detected year: 1969. VirtualDJ play count: 2. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 14,
+    "albumTitle": "Past Masters",
+    "summary": "Hot 100 peak #1 · 14 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-vhrop",
+      "date": "2010",
+      "label": "Let It Be — original release",
+      "detail": "Original album: Past Masters",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2010",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "14 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-61jwix",
+      "date": "2010",
+      "label": "Past Masters",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1970",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-t9f5rc",
+      "date": "1969",
+      "label": "Don t Let Me Down",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.6,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR783475",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL654978/RVAL654978__the-beatles__past-masters.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b2010bdce476",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR783475&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-nu3cw7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d2137b814ca3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR783475&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-nu3cw7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2564f71cb40e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR783475&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-nu3cw7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f5ea5f145cf5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR783475&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-nu3cw7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "803c420280ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR783475&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-nu3cw7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-nu3cw7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1970,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Let It Be.mp4",
+        "notes": "Detected year: 1970. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-oxtkmo",
+        "title": "Don t Let Me Down",
+        "kind": "performance",
+        "year": 1969,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Don t Let Me Down.mp4",
+        "notes": "Detected year: 1969. VirtualDJ play count: 2. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR783475-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Beatles"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Beatles"
+    },
+    {
+      "id": "rel-RVTR783475-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-cf70l0"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Past Masters"
+    },
+    {
+      "id": "rel-RVTR783475-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR783475-tl-tl-vhrop",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vhrop"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Let It Be — original release"
+    },
+    {
+      "id": "rel-RVTR783475-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR783475-tl-tl-61jwix",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-61jwix"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Past Masters"
+    },
+    {
+      "id": "rel-RVTR783475-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR783475-tl-tl-t9f5rc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-t9f5rc"
+      },
+      "confidence": 0.6,
+      "source": "owned video",
+      "label": "Don t Let Me Down"
+    },
+    {
+      "id": "rel-RVTR783475-perf-perf-nu3cw7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-nu3cw7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-nu3cw7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nu3cw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Let It Be.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR783475-perf-perf-oxtkmo",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR783475"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-oxtkmo"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Don t Let Me Down"
+    },
+    {
+      "id": "rel-perf-oxtkmo-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oxtkmo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Don t Let Me Down.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Don t Let Me Down"
+    },
+    {
+      "id": "rel-b2010bdce476-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nu3cw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2010bdce476"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d2137b814ca3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nu3cw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d2137b814ca3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2564f71cb40e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nu3cw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2564f71cb40e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f5ea5f145cf5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nu3cw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f5ea5f145cf5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-803c420280ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nu3cw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "803c420280ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR783475. \"Let It Be\" by The Beatles. Album: Past Masters (2010).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL654978/RVAL654978__the-beatles__past-masters.jpg",
+      "excerpt": "Canonical cover assignment for RVTR783475 (Let It Be). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Past Masters (2010). Billboard Hot 100 peak: #1. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Beatles · Title: Let It Be · Album: Dialogue From The Motion Picture \"Let It Be\" · Year: 1970 · Genre: Non-Music · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Let It Be.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2010.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-48cc74aa",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Let It Be.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9705a139",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Don t Let Me Down.mp4 · Plays: 2",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1beb26ea",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Beatles - Let It Be.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d79f81d1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1970/Beatles - Let It Be.mp3 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a65a3b2c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/The Beatles - Let It Be.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "47f9d75a-733d-4508-8594-e55233450013",
+      "category": "artist",
+      "text": "Let It Be is performed by The Beatles.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ad7c9233-e899-4cf1-990a-d1c97ca39df5",
+      "category": "album",
+      "text": "The song appears on the album \"Past Masters\" (2010).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1d22a590-f9ad-482b-bf01-5e7eeb207650",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR783475.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL654978/RVAL654978__the-beatles__past-masters.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0f36b2f2-ec79-48f4-9687-cff45c950d50",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0e28753b-99eb-40b9-9e69-fb147cef2e5f",
+      "category": "recording",
+      "text": "Let It Be was released in 2010.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ebb156e8-ab50-490e-91fa-84a9e3268ff9",
+      "category": "trivia",
+      "text": "Artist: The Beatles · Title: Let It Be · Album: Dialogue From The Motion Picture \"Let It Be\" · Year: 1970 · Genre: Non-Music · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Let It Be.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d7cca105-8b70-4c24-a041-3abc47873df2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Let It Be.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c5ca2423-8833-4288-bff0-263d9eecf0e9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Don t Let Me Down.mp4 · Plays: 2",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7f708474-fadf-49a1-9af5-a7636365f578",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Beatles - Let It Be.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5f816f87-a57d-4507-a4eb-442b830e778c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1970/Beatles - Let It Be.mp3 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1f81f045-d5fb-4f11-8313-dece6489e4bb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/The Beatles - Let It Be.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 65
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 14,
+    "preserved": 11,
+    "accepted": 5,
+    "pending": 6,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Let It Be.mp4",
+    "tags": [],
+    "mediaItemCount": 5
+  },
+  "relatedSongs": []
+}

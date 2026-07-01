@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR150953",
+    "kind": "song",
+    "rvtr": "RVTR150953",
+    "generatedAt": "2026-06-28T22:46:51.509Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR150953",
+    "artist": "Daisy Gray",
+    "title": "Wicked Game",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Daisy Gray",
+    "relatedArtists": [
+      "Daisy Gray"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ccslio",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2017,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Daisy Gray - Wicked Game.mp4",
+      "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ekrynx",
+      "date": "2017",
+      "label": "Wicked Game — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2017",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "3d98be134a69",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150953&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ccslio",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "800843518531",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150953&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ccslio",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "450b32196c3f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150953&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ccslio",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7d61ca2c8779",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150953&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ccslio",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7fd078362350",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150953&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ccslio",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ccslio",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2017,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Daisy Gray - Wicked Game.mp4",
+        "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR150953-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR150953"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Daisy Gray"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Daisy Gray"
+    },
+    {
+      "id": "rel-RVTR150953-tl-tl-ekrynx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR150953"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ekrynx"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Wicked Game — original release"
+    },
+    {
+      "id": "rel-RVTR150953-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR150953"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR150953-perf-perf-ccslio",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR150953"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ccslio"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ccslio-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ccslio"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Daisy Gray - Wicked Game.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3d98be134a69-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ccslio"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3d98be134a69"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-800843518531-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ccslio"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "800843518531"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-450b32196c3f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ccslio"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "450b32196c3f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-7d61ca2c8779-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ccslio"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7d61ca2c8779"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7fd078362350-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ccslio"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7fd078362350"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR150953. \"Wicked Game\" by Daisy Gray.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Daisy Gray · Title: Wicked Game · Year: 2017 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Daisy Gray - Wicked Game.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-728fa585",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Daisy Gray - Wicked Game.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e93b3b82-5a95-4663-9c72-cc1baa8ea83a",
+      "category": "artist",
+      "text": "Wicked Game is performed by Daisy Gray.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1cf8fdd7-8d15-4e4d-a59d-12c51d225ff0",
+      "category": "trivia",
+      "text": "Artist: Daisy Gray · Title: Wicked Game · Year: 2017 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Daisy Gray - Wicked Game.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b8be090d-1e40-4d0e-8881-c718db72aed2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Daisy Gray - Wicked Game.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Daisy Gray - Wicked Game.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

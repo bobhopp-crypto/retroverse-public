@@ -1,0 +1,420 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR377324",
+    "kind": "song",
+    "rvtr": "RVTR377324",
+    "generatedAt": "2026-06-28T22:51:37.419Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR377324",
+    "artist": "Michael Gray",
+    "title": "Borderline",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Michael Gray",
+    "relatedArtists": [
+      "Michael Gray"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-mosaby",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - Borderline.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-kjn4ng",
+      "date": "2006",
+      "label": "Borderline — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2006",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "1bf3553ef7f1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377324&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mosaby",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8e31420fbbac",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377324&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mosaby",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "31d9ce8469ed",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377324&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mosaby",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "11141ba78878",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377324&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mosaby",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fc046f07672d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377324&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mosaby",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mosaby",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - Borderline.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR377324-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377324"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Michael Gray"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Michael Gray"
+    },
+    {
+      "id": "rel-RVTR377324-tl-tl-kjn4ng",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377324"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kjn4ng"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Borderline — original release"
+    },
+    {
+      "id": "rel-RVTR377324-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377324"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR377324-perf-perf-mosaby",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377324"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mosaby"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mosaby-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mosaby"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - Borderline.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-1bf3553ef7f1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mosaby"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1bf3553ef7f1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-8e31420fbbac-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mosaby"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8e31420fbbac"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-31d9ce8469ed-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mosaby"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "31d9ce8469ed"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-11141ba78878-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mosaby"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "11141ba78878"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-fc046f07672d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mosaby"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fc046f07672d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR377324. \"Borderline\" by Michael Gray.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Michael Gray · Title: Borderline · Album: Michael Gray Feat. Shelly Poole - Borderline · Year: 2006 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - Borderline.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-40d624a0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - Borderline.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-04657d03",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Michael Gray Feat. Shally Poole - Borderline.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "3c94e6cf-9b40-4102-9901-8db1c81d6e61",
+      "category": "artist",
+      "text": "Borderline is performed by Michael Gray.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8ea4f5b3-f95f-46c6-88f9-255de3da0be8",
+      "category": "trivia",
+      "text": "Artist: Michael Gray · Title: Borderline · Album: Michael Gray Feat.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1585be70-ad9a-417f-a7c5-78116f3abf84",
+      "category": "trivia",
+      "text": "Shelly Poole - Borderline · Year: 2006 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - Borderline.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2e552cd4-c844-4cb3-9cd3-2f8815f955ef",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - Borderline.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "88ba4e56-8b61-4992-888a-d523d9b0809d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Michael Gray Feat.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 2,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - Borderline.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

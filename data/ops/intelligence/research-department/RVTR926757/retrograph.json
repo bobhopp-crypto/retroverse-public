@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR926757",
+    "kind": "song",
+    "rvtr": "RVTR926757",
+    "generatedAt": "2026-06-28T23:07:33.356Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR926757",
+    "artist": "Brooke Hogan",
+    "title": "Falling",
+    "year": 2009,
+    "albumTitle": "The Redemption",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL112592/RVAL112592__brooke-hogan__the-redemption.jpg"
+  },
+  "artist": {
+    "name": "Brooke Hogan",
+    "relatedArtists": [
+      "Brooke Hogan"
+    ]
+  },
+  "album": {
+    "title": "The Redemption",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-eh2k07",
+        "title": "The Redemption",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-uamjna",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brooke Hogan - Falling.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "The Redemption",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-mxt6dn",
+      "date": "2009",
+      "label": "Falling — original release",
+      "detail": "Original album: The Redemption",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-6khgz6",
+      "date": "2009",
+      "label": "The Redemption",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR926757",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL112592/RVAL112592__brooke-hogan__the-redemption.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ef8a742b7485",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR926757&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-uamjna",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "de7eac91644d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR926757&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-uamjna",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "02b30746ad94",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR926757&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-uamjna",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1d0c021bcc34",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR926757&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-uamjna",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a0426f76eb1e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR926757&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-uamjna",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-uamjna",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brooke Hogan - Falling.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR926757-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR926757"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Brooke Hogan"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Brooke Hogan"
+    },
+    {
+      "id": "rel-RVTR926757-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR926757"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-eh2k07"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Redemption"
+    },
+    {
+      "id": "rel-RVTR926757-tl-tl-mxt6dn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR926757"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mxt6dn"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Falling — original release"
+    },
+    {
+      "id": "rel-RVTR926757-tl-tl-6khgz6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR926757"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6khgz6"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Redemption"
+    },
+    {
+      "id": "rel-RVTR926757-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR926757"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR926757-perf-perf-uamjna",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR926757"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-uamjna"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-uamjna-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uamjna"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brooke Hogan - Falling.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ef8a742b7485-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uamjna"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ef8a742b7485"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-de7eac91644d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uamjna"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "de7eac91644d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-02b30746ad94-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uamjna"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "02b30746ad94"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1d0c021bcc34-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uamjna"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1d0c021bcc34"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-a0426f76eb1e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uamjna"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a0426f76eb1e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR926757. \"Falling\" by Brooke Hogan. Album: The Redemption (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL112592/RVAL112592__brooke-hogan__the-redemption.jpg",
+      "excerpt": "Canonical cover assignment for RVTR926757 (Falling). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Redemption (2009)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Brooke Hogan · Title: Falling · Album: Brooke - The Redemption · Year: 2009 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brooke Hogan - Falling.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-b494d750",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brooke Hogan - Falling.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-923b7a29",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Brooke Hogan - Falling.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "de465d3e-0c3f-48c9-9079-23e40391e51d",
+      "category": "artist",
+      "text": "Falling is performed by Brooke Hogan.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "25d56ffb-4bbc-4a2c-ab94-cc7400a9a47b",
+      "category": "album",
+      "text": "The song appears on the album \"The Redemption\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2a03c241-ef2e-417a-9954-1ff2f5598413",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR926757.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL112592/RVAL112592__brooke-hogan__the-redemption.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "19554a13-badc-4af1-a666-49579b8b8b34",
+      "category": "recording",
+      "text": "Falling was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "32b8a47f-6502-4de4-96c7-363c884d978d",
+      "category": "trivia",
+      "text": "Artist: Brooke Hogan · Title: Falling · Album: Brooke - The Redemption · Year: 2009 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brooke Hogan - Falling.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e9e2fab6-62ed-429a-90c2-5ff68876420b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brooke Hogan - Falling.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cd35f9e9-fb70-4d2e-ac72-5e87032e2007",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Brooke Hogan - Falling.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brooke Hogan - Falling.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

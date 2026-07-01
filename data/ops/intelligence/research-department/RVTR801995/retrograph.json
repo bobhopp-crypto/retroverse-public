@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR801995",
+    "kind": "song",
+    "rvtr": "RVTR801995",
+    "generatedAt": "2026-06-28T23:03:04.642Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR801995",
+    "artist": "Dua Lipa",
+    "title": "Don't Start Now",
+    "year": 2019,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dua Lipa",
+    "relatedArtists": [
+      "Dua Lipa"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2019,
+    "recordings": [
+      {
+        "id": "rec-31v2zc",
+        "title": "Don't Start Now — graph recording",
+        "releaseDate": 2019,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-ea9mwc",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2020,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dua Lipa - Don't Start Now.mp4",
+      "notes": "Detected year: 2020. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 52,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 52 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-bsqdis",
+      "date": "2019",
+      "label": "Don't Start Now — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "2019",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "52 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-4je9sp",
+      "date": "2019",
+      "label": "Don't Start Now — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2020",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e283c34183ae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR801995&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ea9mwc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "06fcf6879538",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR801995&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ea9mwc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f5f1634d3a0b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR801995&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ea9mwc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c80a1e6f3e7d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR801995&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ea9mwc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c0bce5e1a564",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR801995&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ea9mwc",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ea9mwc",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2020,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dua Lipa - Don't Start Now.mp4",
+        "notes": "Detected year: 2020. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR801995-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR801995"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dua Lipa"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dua Lipa"
+    },
+    {
+      "id": "rel-RVTR801995-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR801995"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR801995-tl-tl-bsqdis",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR801995"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bsqdis"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Don't Start Now — original release"
+    },
+    {
+      "id": "rel-RVTR801995-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR801995"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR801995-tl-tl-4je9sp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR801995"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4je9sp"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Don't Start Now — graph recording"
+    },
+    {
+      "id": "rel-RVTR801995-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR801995"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR801995-perf-perf-ea9mwc",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR801995"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ea9mwc"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ea9mwc-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ea9mwc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dua Lipa - Don't Start Now.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e283c34183ae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ea9mwc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e283c34183ae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-06fcf6879538-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ea9mwc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "06fcf6879538"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f5f1634d3a0b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ea9mwc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f5f1634d3a0b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-c80a1e6f3e7d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ea9mwc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c80a1e6f3e7d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c0bce5e1a564-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ea9mwc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c0bce5e1a564"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR801995. \"Don't Start Now\" by Dua Lipa.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 52 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dua Lipa · Title: Don't Start Now · Album: Future Nostalgia · Year: 2020 · Genre: Power Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dua Lipa - Don't Start Now.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2019.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-3d30f1b4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dua Lipa - Don't Start Now.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-505ecbb9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Dua Lipa - Don't Start Now.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "beaa6c35-ca3b-40d0-9cb0-a9e0804b68f1",
+      "category": "artist",
+      "text": "Don't Start Now is performed by Dua Lipa.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d7ce8657-db04-4fef-8b2a-ac53e38e3e12",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 52 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5ca446ed-8633-4995-9cca-9e98926fc395",
+      "category": "recording",
+      "text": "Don't Start Now was released in 2019.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "82acc621-48bb-4ad3-9c28-4eda6d630b9b",
+      "category": "trivia",
+      "text": "Artist: Dua Lipa · Title: Don't Start Now · Album: Future Nostalgia · Year: 2020 · Genre: Power Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dua Lipa - Don't Start Now.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "04166f51-1bfd-4e18-a966-bca401076fdb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dua Lipa - Don't Start Now.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "42daddcc-d47c-4cc4-af44-67457534fb50",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Dua Lipa - Don't Start Now.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Dua Lipa - Don't Start Now.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

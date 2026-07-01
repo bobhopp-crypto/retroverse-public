@@ -1,0 +1,673 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR031330",
+    "kind": "song",
+    "rvtr": "RVTR031330",
+    "generatedAt": "2026-06-28T22:44:02.179Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR031330",
+    "artist": "Heart",
+    "title": "Never",
+    "year": 1985,
+    "albumTitle": "Heart",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL856326/RVAL856326__heart__heart.jpg"
+  },
+  "artist": {
+    "name": "Heart",
+    "relatedArtists": [
+      "Heart"
+    ]
+  },
+  "album": {
+    "title": "Heart",
+    "releaseYear": 1985,
+    "recordings": [
+      {
+        "id": "rec-6qfpqf",
+        "title": "Heart",
+        "releaseDate": 1985,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-3thclt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1985,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Heart - Never.mp4",
+      "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-byw0a2",
+      "title": "I ll  Let You Go",
+      "kind": "performance",
+      "year": 1991,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Steelheart - I ll Never Let You Go.mp4",
+      "notes": "Detected year: 1991. VirtualDJ play count: 2. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": 4,
+    "chartWeeks": 24,
+    "albumTitle": "Heart",
+    "summary": "Hot 100 peak #4 · 24 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-aykx8w",
+      "date": "1985",
+      "label": "Never — original release",
+      "detail": "Original album: Heart",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2m",
+      "date": "1985",
+      "label": "Billboard Hot 100 peak #4",
+      "detail": "24 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-3aqvde",
+      "date": "1985",
+      "label": "Heart",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1985",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-6srjwn",
+      "date": "1991",
+      "label": "I ll  Let You Go",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.6,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR031330",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL856326/RVAL856326__heart__heart.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d983aadd27fb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR031330&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-3thclt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d04eeb1049ea",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR031330&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-3thclt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1ab406b78a25",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR031330&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-3thclt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "302f6b7ef60d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR031330&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-3thclt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "365fe351d324",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR031330&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-3thclt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-3thclt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1985,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Heart - Never.mp4",
+        "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-byw0a2",
+        "title": "I ll  Let You Go",
+        "kind": "performance",
+        "year": 1991,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Steelheart - I ll Never Let You Go.mp4",
+        "notes": "Detected year: 1991. VirtualDJ play count: 2. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR031330-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Heart"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Heart"
+    },
+    {
+      "id": "rel-RVTR031330-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-6qfpqf"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Heart"
+    },
+    {
+      "id": "rel-RVTR031330-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #4"
+    },
+    {
+      "id": "rel-RVTR031330-tl-tl-aykx8w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aykx8w"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Never — original release"
+    },
+    {
+      "id": "rel-RVTR031330-tl-tl-l47p2m",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2m"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #4"
+    },
+    {
+      "id": "rel-RVTR031330-tl-tl-3aqvde",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3aqvde"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Heart"
+    },
+    {
+      "id": "rel-RVTR031330-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR031330-tl-tl-6srjwn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6srjwn"
+      },
+      "confidence": 0.6,
+      "source": "owned video",
+      "label": "I ll  Let You Go"
+    },
+    {
+      "id": "rel-RVTR031330-perf-perf-3thclt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-3thclt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-3thclt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3thclt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Heart - Never.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR031330-perf-perf-byw0a2",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR031330"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-byw0a2"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "I ll  Let You Go"
+    },
+    {
+      "id": "rel-perf-byw0a2-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-byw0a2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Steelheart - I ll Never Let You Go.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "I ll  Let You Go"
+    },
+    {
+      "id": "rel-d983aadd27fb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3thclt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d983aadd27fb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d04eeb1049ea-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3thclt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d04eeb1049ea"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-1ab406b78a25-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3thclt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1ab406b78a25"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-302f6b7ef60d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3thclt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "302f6b7ef60d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-365fe351d324-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3thclt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "365fe351d324"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR031330. \"Never\" by Heart. Album: Heart (1985).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL856326/RVAL856326__heart__heart.jpg",
+      "excerpt": "Canonical cover assignment for RVTR031330 (Never). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Heart (1985). Billboard Hot 100 peak: #4. 24 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Heart · Title: Never · Album: Never (Remix) / What About Love? · Year: 1985 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Heart - Never.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1985.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ccc8d4f5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Heart - Never.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-574ec1d1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Steelheart - I ll Never Let You Go.mp4 · Plays: 2",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1ad2092a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Heart - Never.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "454a4441-37f6-4d68-8a92-ecf2c2731a73",
+      "category": "artist",
+      "text": "Never is performed by Heart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c11bd7df-e200-431c-8383-5b3e38de51e3",
+      "category": "album",
+      "text": "The song appears on the album \"Heart\" (1985).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d9516913-f044-46d1-b9f4-83ee0925314e",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR031330.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL856326/RVAL856326__heart__heart.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2cf316a5-ec2c-4c0c-ae35-78a94dd11600",
+      "category": "chart",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5134c8fa-0a97-4ff8-b12a-518f704bcaa8",
+      "category": "recording",
+      "text": "Never was released in 1985.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3d047ce8-c153-4ca9-9c4a-335f910fc70f",
+      "category": "trivia",
+      "text": "Artist: Heart · Title: Never · Album: Never (Remix) / What About Love?",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "40c51d4f-b110-4a50-a266-3e4d667fa32b",
+      "category": "trivia",
+      "text": "· Year: 1985 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Heart - Never.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5e09c500-eb54-4f92-9da1-15bca22c8982",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Heart - Never.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e24c49ed-754e-4898-8bda-14963c6bd459",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Steelheart - I ll Never Let You Go.mp4 · Plays: 2",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "df66635f-f329-4d1d-ab4d-5c37bb149354",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Heart - Never.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 65
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 13,
+    "preserved": 10,
+    "accepted": 6,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Heart - Never.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

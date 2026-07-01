@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR217782",
+    "kind": "song",
+    "rvtr": "RVTR217782",
+    "generatedAt": "2026-06-28T22:48:29.613Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR217782",
+    "artist": "Mixi",
+    "title": "I Miss Those Days",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mixi",
+    "relatedArtists": [
+      "Mixi"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-rqvja4",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mixi - I Miss Those Days.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-oxmicl",
+      "date": "2009",
+      "label": "I Miss Those Days — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "20afb8bd2ae7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217782&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-rqvja4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e68366719543",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217782&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-rqvja4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2bdb66d5752b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217782&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-rqvja4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7d91f37c7edc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217782&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-rqvja4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "38d895c6de0f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217782&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-rqvja4",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-rqvja4",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mixi - I Miss Those Days.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR217782-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR217782"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mixi"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mixi"
+    },
+    {
+      "id": "rel-RVTR217782-tl-tl-oxmicl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR217782"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-oxmicl"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "I Miss Those Days — original release"
+    },
+    {
+      "id": "rel-RVTR217782-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR217782"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR217782-perf-perf-rqvja4",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR217782"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-rqvja4"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-rqvja4-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rqvja4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mixi - I Miss Those Days.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-20afb8bd2ae7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rqvja4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "20afb8bd2ae7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-e68366719543-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rqvja4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e68366719543"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2bdb66d5752b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rqvja4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2bdb66d5752b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7d91f37c7edc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rqvja4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7d91f37c7edc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-38d895c6de0f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rqvja4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "38d895c6de0f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR217782. \"I Miss Those Days\" by Mixi.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mixi · Title: I Miss Those Days · Album: Promo Only Hot Video: April 2009 · Year: 2009 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mixi - I Miss Those Days.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2476691d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mixi - I Miss Those Days.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-001952fa",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Mixi - I Miss Those Days (Ghost).mp4 · Performance: Ghost",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5085b7ad-5ba2-4070-a273-899cde272fa4",
+      "category": "artist",
+      "text": "I Miss Those Days is performed by Mixi.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "64a26440-7018-46ab-8d9f-c369184eb707",
+      "category": "trivia",
+      "text": "Artist: Mixi · Title: I Miss Those Days · Album: Promo Only Hot Video: April 2009 · Year: 2009 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mixi - I Miss Those Days.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6b30bd8a-8757-4dbc-acc0-200c48d2577e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mixi - I Miss Those Days.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cdd61c76-b6d9-46e2-873a-658cde932858",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Mixi - I Miss Those Days (Ghost).mp4 · Performance: Ghost",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mixi - I Miss Those Days.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

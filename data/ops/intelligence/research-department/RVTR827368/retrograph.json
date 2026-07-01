@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR827368",
+    "kind": "song",
+    "rvtr": "RVTR827368",
+    "generatedAt": "2026-06-28T23:03:51.528Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR827368",
+    "artist": "Greg Kihn Band",
+    "title": "Happy Man",
+    "year": 1982,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Greg Kihn Band",
+    "relatedArtists": [
+      "Greg Kihn Band"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1982,
+    "recordings": [
+      {
+        "id": "rec-v2ybwi",
+        "title": "Happy Man — graph recording",
+        "releaseDate": 1982,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-xlkydh",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1982,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Kihn Band - Happy Man.mp4",
+      "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 62,
+    "chartWeeks": 7,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #62 · 7 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-a915um",
+      "date": "1982",
+      "label": "Happy Man — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k2",
+      "date": "1982",
+      "label": "Billboard Hot 100 peak #62",
+      "detail": "7 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-jttyih",
+      "date": "1982",
+      "label": "Happy Man — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1982",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "3605be35fd19",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR827368&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-xlkydh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0190332440c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR827368&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-xlkydh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8a11a3574b38",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR827368&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-xlkydh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e8ba2dcd28d3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR827368&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-xlkydh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6cd8e23815e4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR827368&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-xlkydh",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-xlkydh",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1982,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Kihn Band - Happy Man.mp4",
+        "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR827368-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR827368"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Greg Kihn Band"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Greg Kihn Band"
+    },
+    {
+      "id": "rel-RVTR827368-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR827368"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #62"
+    },
+    {
+      "id": "rel-RVTR827368-tl-tl-a915um",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR827368"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-a915um"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Happy Man — original release"
+    },
+    {
+      "id": "rel-RVTR827368-tl-tl-fcm3k2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR827368"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k2"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #62"
+    },
+    {
+      "id": "rel-RVTR827368-tl-tl-jttyih",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR827368"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jttyih"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Happy Man — graph recording"
+    },
+    {
+      "id": "rel-RVTR827368-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR827368"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR827368-perf-perf-xlkydh",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR827368"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-xlkydh"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-xlkydh-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xlkydh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Kihn Band - Happy Man.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3605be35fd19-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xlkydh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3605be35fd19"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0190332440c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xlkydh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0190332440c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8a11a3574b38-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xlkydh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8a11a3574b38"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e8ba2dcd28d3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xlkydh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e8ba2dcd28d3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6cd8e23815e4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xlkydh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6cd8e23815e4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR827368. \"Happy Man\" by Greg Kihn Band.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #62. 7 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Greg Kihn Band · Title: Happy Man · Album: Happy Man  · Year: 1982 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Kihn Band - Happy Man.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1982.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-da39f8a2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Kihn Band - Happy Man.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2419825f-13ba-4bf8-91f4-db86febb8bf5",
+      "category": "artist",
+      "text": "Happy Man is performed by Greg Kihn Band.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a56c3f15-167a-48f6-92b0-62c37f288484",
+      "category": "chart",
+      "text": "The song peaked at #62 on the Billboard Hot 100 and spent 7 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "de8528dd-68ff-4f89-9c66-577462db595d",
+      "category": "recording",
+      "text": "Happy Man was released in 1982.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "7c38c821-63ba-4e3b-845c-1c71bf608692",
+      "category": "trivia",
+      "text": "Artist: Greg Kihn Band · Title: Happy Man · Album: Happy Man  · Year: 1982 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Kihn Band - Happy Man.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8af3097a-fc44-4b3e-9acf-6234e710e8f9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Kihn Band - Happy Man.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Kihn Band - Happy Man.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

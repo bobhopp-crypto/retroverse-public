@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR385973",
+    "kind": "song",
+    "rvtr": "RVTR385973",
+    "generatedAt": "2026-06-28T22:51:48.263Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR385973",
+    "artist": "No Doubt",
+    "title": "Cool",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "No Doubt",
+    "relatedArtists": [
+      "No Doubt"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-wtjbpp",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1996,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/No Doubt - Cool.mp4",
+      "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-smd75p",
+      "date": "1996",
+      "label": "Cool — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1996",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "28db33cc2634",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385973&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-wtjbpp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9cfce22c3750",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385973&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-wtjbpp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "da123e7675a2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385973&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-wtjbpp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "06bb151cf7cf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385973&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-wtjbpp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "22d18e69bafc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385973&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-wtjbpp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-wtjbpp",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1996,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/No Doubt - Cool.mp4",
+        "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR385973-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR385973"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "No Doubt"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "No Doubt"
+    },
+    {
+      "id": "rel-RVTR385973-tl-tl-smd75p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR385973"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-smd75p"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Cool — original release"
+    },
+    {
+      "id": "rel-RVTR385973-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR385973"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR385973-perf-perf-wtjbpp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR385973"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-wtjbpp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-wtjbpp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wtjbpp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/No Doubt - Cool.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-28db33cc2634-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wtjbpp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "28db33cc2634"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-9cfce22c3750-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wtjbpp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9cfce22c3750"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-da123e7675a2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wtjbpp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "da123e7675a2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-06bb151cf7cf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wtjbpp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "06bb151cf7cf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-22d18e69bafc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wtjbpp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "22d18e69bafc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR385973. \"Cool\" by No Doubt.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: No Doubt · Title: Cool · Album: Beavis And Butt-Head Do America - Original Motion Picture Soundtrack · Year: 1996 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/No Doubt - Cool.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a00fe1e7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/No Doubt - Cool.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d8081f2f-ca81-4fa0-b6dd-1eadcfa9f90a",
+      "category": "artist",
+      "text": "Cool is performed by No Doubt.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "646fedb3-26da-40b0-863c-d04aef4f4bf6",
+      "category": "trivia",
+      "text": "Artist: No Doubt · Title: Cool · Album: Beavis And Butt-Head Do America - Original Motion Picture Soundtrack · Year: 1996 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/No Doubt - Cool.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3dc09481-2bda-4390-a157-d59b45760ad8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/No Doubt - Cool.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/No Doubt - Cool.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

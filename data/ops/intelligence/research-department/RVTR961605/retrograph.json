@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR961605",
+    "kind": "song",
+    "rvtr": "RVTR961605",
+    "generatedAt": "2026-06-28T22:42:55.915Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR961605",
+    "artist": "Journey",
+    "title": "Stone In Love",
+    "year": 2011,
+    "albumTitle": "Greatest Hits 2",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL482432/RVAL482432__journey__greatest-hits-2.jpg"
+  },
+  "artist": {
+    "name": "Journey",
+    "relatedArtists": [
+      "Journey"
+    ]
+  },
+  "album": {
+    "title": "Greatest Hits 2",
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-yl41t",
+        "title": "Greatest Hits 2",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-fpl769",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1981,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Journey - Stone In Love.mp4",
+      "notes": "Detected year: 1981. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Greatest Hits 2",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-qw4q0m",
+      "date": "1981",
+      "label": "Stone In Love — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.58,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-787hdl",
+      "date": "2011",
+      "label": "Greatest Hits 2",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.82,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1981",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR961605",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL482432/RVAL482432__journey__greatest-hits-2.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3f27efc5c805",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR961605&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-fpl769",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b95e33ae3094",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR961605&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-fpl769",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3a065e6a433f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR961605&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-fpl769",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fae879f6721d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR961605&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-fpl769",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f94154b16392",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR961605&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-fpl769",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-fpl769",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1981,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Journey - Stone In Love.mp4",
+        "notes": "Detected year: 1981. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR961605-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR961605"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Journey"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Journey"
+    },
+    {
+      "id": "rel-RVTR961605-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR961605"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-yl41t"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Greatest Hits 2"
+    },
+    {
+      "id": "rel-RVTR961605-tl-tl-qw4q0m",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR961605"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qw4q0m"
+      },
+      "confidence": 0.58,
+      "source": "song entity",
+      "label": "Stone In Love — original release"
+    },
+    {
+      "id": "rel-RVTR961605-tl-tl-787hdl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR961605"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-787hdl"
+      },
+      "confidence": 0.82,
+      "source": "Retroverse graph",
+      "label": "Greatest Hits 2"
+    },
+    {
+      "id": "rel-RVTR961605-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR961605"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR961605-perf-perf-fpl769",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR961605"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-fpl769"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-fpl769-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fpl769"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Journey - Stone In Love.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3f27efc5c805-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fpl769"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3f27efc5c805"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b95e33ae3094-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fpl769"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b95e33ae3094"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-3a065e6a433f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fpl769"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3a065e6a433f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fae879f6721d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fpl769"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fae879f6721d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f94154b16392-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fpl769"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f94154b16392"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR961605. \"Stone In Love\" by Journey. Album: Greatest Hits 2 (2011).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL482432/RVAL482432__journey__greatest-hits-2.jpg",
+      "excerpt": "Canonical cover assignment for RVTR961605 (Stone In Love). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Greatest Hits 2 (2011)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Journey · Title: Stone In Love · Album: Escape · Year: 1981 · Genre: Rock · PlayCount: 1 · LastPlayed: 1751254048 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Journey - Stone In Love.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-2b7a78e5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Journey - Stone In Love.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "49acf8f0-be59-46b3-a30f-aa8e534f1ff3",
+      "category": "artist",
+      "text": "Stone In Love is performed by Journey.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "59bd8d72-097f-486b-b4f3-61a41f0c9501",
+      "category": "album",
+      "text": "The song appears on the album \"Greatest Hits 2\" (2011).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "13fcdc93-530d-4d29-8ab7-0c78589c7b76",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR961605.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL482432/RVAL482432__journey__greatest-hits-2.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "60eff7ed-53a0-4725-a2d6-e9c2b56218c2",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "161dcb5f-0e4b-42b8-988b-6c62932f3428",
+      "category": "album",
+      "text": "Graph compilation anchor: \"Greatest Hits 2\" (2011) — not the song's original release year.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4f67ec84-8cea-4b1e-a7b9-6e63f1e46e22",
+      "category": "trivia",
+      "text": "Artist: Journey · Title: Stone In Love · Album: Escape · Year: 1981 · Genre: Rock · PlayCount: 1 · LastPlayed: 1751254048 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Journey - Stone In Love.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "55e32466-e228-4d03-a498-4770530f175e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Journey - Stone In Love.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Journey - Stone In Love.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR915536",
+    "kind": "song",
+    "rvtr": "RVTR915536",
+    "generatedAt": "2026-06-28T23:07:01.903Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR915536",
+    "artist": "Abba",
+    "title": "Fernando",
+    "year": 1976,
+    "albumTitle": "Greatest Hits",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL793416/RVAL793416__abba__greatest-hits.jpg"
+  },
+  "artist": {
+    "name": "Abba",
+    "relatedArtists": [
+      "Abba"
+    ]
+  },
+  "album": {
+    "title": "Greatest Hits",
+    "releaseYear": 1976,
+    "recordings": [
+      {
+        "id": "rec-vd5it6",
+        "title": "Greatest Hits",
+        "releaseDate": 1976,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-1csgax",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1976,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Fernando.mp4",
+      "notes": "Detected year: 1976. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 13,
+    "chartWeeks": 16,
+    "albumTitle": "Greatest Hits",
+    "summary": "Hot 100 peak #13 · 16 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-k9krbt",
+      "date": "1976",
+      "label": "Fernando — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fs",
+      "date": "1976",
+      "label": "Billboard Hot 100 peak #13",
+      "detail": "16 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-6ag293",
+      "date": "1976",
+      "label": "Greatest Hits",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.82,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1976",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR915536",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL793416/RVAL793416__abba__greatest-hits.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d8009498fcc9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR915536&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-1csgax",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bf2d00a62263",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR915536&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-1csgax",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "744ad0590125",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR915536&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-1csgax",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "97e4a5d5f599",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR915536&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-1csgax",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "117b3b2b66be",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR915536&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-1csgax",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-1csgax",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1976,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Fernando.mp4",
+        "notes": "Detected year: 1976. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR915536-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR915536"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Abba"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Abba"
+    },
+    {
+      "id": "rel-RVTR915536-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR915536"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-vd5it6"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Greatest Hits"
+    },
+    {
+      "id": "rel-RVTR915536-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR915536"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #13"
+    },
+    {
+      "id": "rel-RVTR915536-tl-tl-k9krbt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR915536"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k9krbt"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Fernando — original release"
+    },
+    {
+      "id": "rel-RVTR915536-tl-tl-fcm3fs",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR915536"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fs"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #13"
+    },
+    {
+      "id": "rel-RVTR915536-tl-tl-6ag293",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR915536"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6ag293"
+      },
+      "confidence": 0.82,
+      "source": "Retroverse graph",
+      "label": "Greatest Hits"
+    },
+    {
+      "id": "rel-RVTR915536-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR915536"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR915536-perf-perf-1csgax",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR915536"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1csgax"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-1csgax-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1csgax"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Fernando.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d8009498fcc9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1csgax"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d8009498fcc9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-bf2d00a62263-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1csgax"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bf2d00a62263"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-744ad0590125-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1csgax"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "744ad0590125"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-97e4a5d5f599-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1csgax"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "97e4a5d5f599"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-117b3b2b66be-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1csgax"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "117b3b2b66be"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR915536. \"Fernando\" by Abba. Album: Greatest Hits (1976).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL793416/RVAL793416__abba__greatest-hits.jpg",
+      "excerpt": "Canonical cover assignment for RVTR915536 (Fernando). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Greatest Hits (1976). Billboard Hot 100 peak: #13. 16 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: ABBA · Title: Fernando · Album: Dancing Queen / Fernando · Year: 1976 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Fernando.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1976.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-64501202",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Fernando.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c3041521",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Abba - Fernando.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4b810625-3031-41d8-a1af-690b9dadb756",
+      "category": "artist",
+      "text": "Fernando is performed by Abba.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eb9299c0-a7e0-4c2a-a030-76ae5b16cc14",
+      "category": "album",
+      "text": "The song appears on the album \"Greatest Hits\" (1976).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "db29f322-a4da-4dea-89b9-d01d884ae20c",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR915536.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL793416/RVAL793416__abba__greatest-hits.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b7d2ac2e-9a20-4df3-8b12-35362f1cdd34",
+      "category": "chart",
+      "text": "The song peaked at #13 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2dedaa93-8091-4687-83b2-8e7b8e3462a9",
+      "category": "album",
+      "text": "Graph compilation anchor: \"Greatest Hits\" (1976) — not the song's original release year.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4bebae99-413d-48bf-9bcf-913d31039909",
+      "category": "trivia",
+      "text": "Artist: ABBA · Title: Fernando · Album: Dancing Queen / Fernando · Year: 1976 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Fernando.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9239a67f-3267-4cfa-a973-3faf0c365660",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Fernando.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2be09c8f-7476-4e38-bb31-58019118ac40",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Abba - Fernando.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Fernando.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

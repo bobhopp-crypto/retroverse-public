@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR013798",
+    "kind": "song",
+    "rvtr": "RVTR013798",
+    "generatedAt": "2026-06-28T22:43:40.901Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR013798",
+    "artist": "Bootcamp",
+    "title": "I'm A Victim",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Bootcamp",
+    "relatedArtists": [
+      "Bootcamp"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-irwydz",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bootcamp - I'm a Victim.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-zab4no",
+      "date": "1979",
+      "label": "I'm A Victim — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d5c900f93254",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013798&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-irwydz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2bec222cf979",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013798&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-irwydz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f1b01432fac3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013798&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-irwydz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6f6c00943ad6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013798&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-irwydz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6b99bfd6a29d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013798&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-irwydz",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-irwydz",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bootcamp - I'm a Victim.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR013798-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR013798"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Bootcamp"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Bootcamp"
+    },
+    {
+      "id": "rel-RVTR013798-tl-tl-zab4no",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR013798"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-zab4no"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "I'm A Victim — original release"
+    },
+    {
+      "id": "rel-RVTR013798-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR013798"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR013798-perf-perf-irwydz",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR013798"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-irwydz"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-irwydz-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-irwydz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bootcamp - I'm a Victim.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d5c900f93254-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-irwydz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d5c900f93254"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2bec222cf979-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-irwydz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2bec222cf979"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f1b01432fac3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-irwydz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f1b01432fac3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6f6c00943ad6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-irwydz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6f6c00943ad6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6b99bfd6a29d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-irwydz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6b99bfd6a29d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR013798. \"I'm A Victim\" by Bootcamp.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Bootcamp · Title: I'm a Victim · Album: I'm A Victim · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bootcamp - I'm a Victim.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5643acd0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bootcamp - I'm a Victim.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b396dad8-8b7e-44ce-8be5-23fb5716bc61",
+      "category": "artist",
+      "text": "I'm A Victim is performed by Bootcamp.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "31b93946-46a0-4140-aef0-e5b9bcfdd96f",
+      "category": "trivia",
+      "text": "Artist: Bootcamp · Title: I'm a Victim · Album: I'm A Victim · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bootcamp - I'm a Victim.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7870af0a-3d16-43ed-b0ba-7ffe271abc50",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bootcamp - I'm a Victim.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bootcamp - I'm a Victim.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

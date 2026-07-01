@@ -1,0 +1,608 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR022400",
+    "kind": "song",
+    "rvtr": "RVTR022400",
+    "generatedAt": "2026-06-28T22:43:52.745Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR022400",
+    "artist": "Lifehouse",
+    "title": "You And Me",
+    "year": 2005,
+    "albumTitle": "Lifehouse",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL735911/RVAL735911__lifehouse__lifehouse.jpg"
+  },
+  "artist": {
+    "name": "Lifehouse",
+    "relatedArtists": [
+      "Lifehouse"
+    ]
+  },
+  "album": {
+    "title": "Lifehouse",
+    "releaseYear": 2005,
+    "recordings": [
+      {
+        "id": "rec-aaatbt",
+        "title": "Lifehouse",
+        "releaseDate": 2005,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-sudilz",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - You And Me.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 5,
+    "chartWeeks": 62,
+    "albumTitle": "Lifehouse",
+    "summary": "Hot 100 peak #5 · 62 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-p1ak3u",
+      "date": "2005",
+      "label": "You And Me — original release",
+      "detail": "Original album: Lifehouse",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2n",
+      "date": "2005",
+      "label": "Billboard Hot 100 peak #5",
+      "detail": "62 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-5d3t0w",
+      "date": "2005",
+      "label": "Lifehouse",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR022400",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL735911/RVAL735911__lifehouse__lifehouse.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e5cbc0d3846f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR022400&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-sudilz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c9868578b716",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR022400&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-sudilz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "350191bcd3fd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR022400&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-sudilz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e47050b2ff86",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR022400&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-sudilz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "97a129d42fab",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR022400&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-sudilz",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-sudilz",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - You And Me.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR022400-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR022400"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lifehouse"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lifehouse"
+    },
+    {
+      "id": "rel-RVTR022400-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR022400"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-aaatbt"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Lifehouse"
+    },
+    {
+      "id": "rel-RVTR022400-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR022400"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #5"
+    },
+    {
+      "id": "rel-RVTR022400-tl-tl-p1ak3u",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR022400"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p1ak3u"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "You And Me — original release"
+    },
+    {
+      "id": "rel-RVTR022400-tl-tl-l47p2n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR022400"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2n"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #5"
+    },
+    {
+      "id": "rel-RVTR022400-tl-tl-5d3t0w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR022400"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5d3t0w"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Lifehouse"
+    },
+    {
+      "id": "rel-RVTR022400-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR022400"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR022400-perf-perf-sudilz",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR022400"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-sudilz"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-sudilz-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sudilz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - You And Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e5cbc0d3846f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sudilz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e5cbc0d3846f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c9868578b716-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sudilz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c9868578b716"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-350191bcd3fd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sudilz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "350191bcd3fd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e47050b2ff86-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sudilz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e47050b2ff86"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-97a129d42fab-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sudilz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "97a129d42fab"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR022400. \"You And Me\" by Lifehouse. Album: Lifehouse (2005).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL735911/RVAL735911__lifehouse__lifehouse.jpg",
+      "excerpt": "Canonical cover assignment for RVTR022400 (You And Me). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Lifehouse (2005). Billboard Hot 100 peak: #5. 62 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lifehouse · Title: You And Me · Album: You And Me  · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - You And Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2005.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ba3a004a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - You And Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-bd446259",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Lifehouse - You And Me.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-91edcc2c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/Lifehouse - You And Me.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0f135eed",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Ceremony Entrance Songs/9-Lifehouse - You And Me (Official Music Video).mp3 · Performance: Official Music Video",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "703c69f9-7a24-49f5-800c-a306e80c29e5",
+      "category": "artist",
+      "text": "You And Me is performed by Lifehouse.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7ede6833-297f-4247-b8e8-c3602e444ace",
+      "category": "album",
+      "text": "The song appears on the album \"Lifehouse\" (2005).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "544ea8de-1fd5-4b38-ae73-e95e440f7ec2",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR022400.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL735911/RVAL735911__lifehouse__lifehouse.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "60224e51-ccb9-40dd-b6dc-3dce30676cc5",
+      "category": "chart",
+      "text": "The song peaked at #5 on the Billboard Hot 100 and spent 62 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3469bc12-92d4-4fb0-96ca-ec39a62558ed",
+      "category": "recording",
+      "text": "You And Me was released in 2005.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "56f5e5f1-505e-443c-bc19-2848bc242c9e",
+      "category": "trivia",
+      "text": "Artist: Lifehouse · Title: You And Me · Album: You And Me  · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - You And Me.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c2252bb0-d7ac-4f8a-a35d-aaf217d2af87",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - You And Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cfc6db11-d6d3-4767-b81b-6f9b767ef613",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Lifehouse - You And Me.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d5e4ae40-7cad-4bc2-89da-3ae6b9598060",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/Lifehouse - You And Me.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c64aa1de-3fc8-4811-8006-1e8d5c6b80c4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Ceremony Entrance Songs/9-Lifehouse - You And Me (Official Music Video).mp3 · Performance: Official Music Video",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 13,
+    "preserved": 10,
+    "accepted": 5,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - You And Me.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

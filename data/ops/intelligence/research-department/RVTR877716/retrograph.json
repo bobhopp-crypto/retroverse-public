@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR877716",
+    "kind": "song",
+    "rvtr": "RVTR877716",
+    "generatedAt": "2026-06-28T22:41:54.461Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR877716",
+    "artist": "Chaka Khan",
+    "title": "I'm Every Woman",
+    "year": 1978,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Chaka Khan",
+    "relatedArtists": [
+      "Chaka Khan"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1978,
+    "recordings": [
+      {
+        "id": "rec-jplulz",
+        "title": "I'm Every Woman — graph recording",
+        "releaseDate": 1978,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-2npsnt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1978,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Chaka Khan - I'm Every Woman.mp4",
+      "notes": "Detected year: 1978. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 21,
+    "chartWeeks": 16,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #21 · 16 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-iie09c",
+      "date": "1978",
+      "label": "I'm Every Woman — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gl",
+      "date": "1978",
+      "label": "Billboard Hot 100 peak #21",
+      "detail": "16 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-j9iok5",
+      "date": "1978",
+      "label": "I'm Every Woman — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1978",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "10d2750a2dcc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877716&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-2npsnt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "33983ea17360",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877716&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-2npsnt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f9890b6bba88",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877716&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-2npsnt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9119c6ac47b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877716&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-2npsnt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "99cd0665dfbd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877716&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-2npsnt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-2npsnt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1978,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Chaka Khan - I'm Every Woman.mp4",
+        "notes": "Detected year: 1978. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR877716-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877716"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Chaka Khan"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Chaka Khan"
+    },
+    {
+      "id": "rel-RVTR877716-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877716"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #21"
+    },
+    {
+      "id": "rel-RVTR877716-tl-tl-iie09c",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877716"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-iie09c"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "I'm Every Woman — original release"
+    },
+    {
+      "id": "rel-RVTR877716-tl-tl-fcm3gl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877716"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gl"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #21"
+    },
+    {
+      "id": "rel-RVTR877716-tl-tl-j9iok5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877716"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-j9iok5"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "I'm Every Woman — graph recording"
+    },
+    {
+      "id": "rel-RVTR877716-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877716"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR877716-perf-perf-2npsnt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877716"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-2npsnt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-2npsnt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2npsnt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Chaka Khan - I'm Every Woman.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-10d2750a2dcc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2npsnt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "10d2750a2dcc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-33983ea17360-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2npsnt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "33983ea17360"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f9890b6bba88-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2npsnt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f9890b6bba88"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9119c6ac47b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2npsnt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9119c6ac47b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-99cd0665dfbd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2npsnt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "99cd0665dfbd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR877716. \"I'm Every Woman\" by Chaka Khan.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #21. 16 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Chaka Khan · Title: I'm Every Woman · Album: I'm Every Woman · Year: 1978 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1772425841 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Chaka Khan - I'm Every Woman.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1978.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-316d8728",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Chaka Khan - I'm Every Woman.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "9fb6779b-b162-42a4-8dee-6f336505745d",
+      "category": "artist",
+      "text": "I'm Every Woman is performed by Chaka Khan.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "670f3ff5-46ef-4b95-9d7a-b1fe40397397",
+      "category": "chart",
+      "text": "The song peaked at #21 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cdc1961f-83a1-451a-bc0c-50c74814f964",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "efd829ac-1bf0-41de-a428-9f4ba1b06858",
+      "category": "recording",
+      "text": "I'm Every Woman was released in 1978.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "0bcbc2ff-a14b-4cd9-b26a-4bc5523adcd9",
+      "category": "trivia",
+      "text": "Artist: Chaka Khan · Title: I'm Every Woman · Album: I'm Every Woman · Year: 1978 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1772425841 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Chaka Khan - I'm Every Woman.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "703d3992-4aaa-4d61-9edd-43ee4125f20b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Chaka Khan - I'm Every Woman.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Chaka Khan - I'm Every Woman.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

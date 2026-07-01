@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR473287",
+    "kind": "song",
+    "rvtr": "RVTR473287",
+    "generatedAt": "2026-06-28T22:53:43.069Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR473287",
+    "artist": "T. Rex",
+    "title": "Bang A Gong",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "T. Rex",
+    "relatedArtists": [
+      "T. Rex"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-c0q9d8",
+      "title": "BangAGong",
+      "kind": "performance",
+      "year": 1973,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T-Rex - Bang-A-Gong.mp4",
+      "notes": "Detected year: 1973. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-mn3gd6",
+      "title": "Get It On",
+      "kind": "performance",
+      "year": 1971,
+      "venue": "Get It On",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T Rex - Bang A Gong (Get It On).mp4",
+      "notes": "Performance label: Get It On. Detected year: 1971. VirtualDJ play count: 2. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-yv9wy2",
+      "date": "1973",
+      "label": "BangAGong",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-eg05gq",
+      "date": "1971",
+      "label": "Get It On",
+      "detail": "Get It On",
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "56bb2a2300a0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR473287&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-c0q9d8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2877abaa0d11",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR473287&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-c0q9d8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "418c90aadd61",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR473287&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-c0q9d8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9e6e5d9ac4d1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR473287&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-c0q9d8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "93e6a84d3a94",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR473287&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-c0q9d8",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-c0q9d8",
+        "title": "BangAGong",
+        "kind": "performance",
+        "year": 1973,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T-Rex - Bang-A-Gong.mp4",
+        "notes": "Detected year: 1973. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-mn3gd6",
+        "title": "Get It On",
+        "kind": "performance",
+        "year": 1971,
+        "venue": "Get It On",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T Rex - Bang A Gong (Get It On).mp4",
+        "notes": "Performance label: Get It On. Detected year: 1971. VirtualDJ play count: 2. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR473287-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR473287"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "T. Rex"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "T. Rex"
+    },
+    {
+      "id": "rel-RVTR473287-tl-tl-yv9wy2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR473287"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yv9wy2"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "BangAGong"
+    },
+    {
+      "id": "rel-RVTR473287-tl-tl-eg05gq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR473287"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-eg05gq"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Get It On"
+    },
+    {
+      "id": "rel-RVTR473287-perf-perf-c0q9d8",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR473287"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-c0q9d8"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "BangAGong"
+    },
+    {
+      "id": "rel-perf-c0q9d8-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-c0q9d8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T-Rex - Bang-A-Gong.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "BangAGong"
+    },
+    {
+      "id": "rel-RVTR473287-perf-perf-mn3gd6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR473287"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mn3gd6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Get It On"
+    },
+    {
+      "id": "rel-perf-mn3gd6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mn3gd6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T Rex - Bang A Gong (Get It On).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Get It On"
+    },
+    {
+      "id": "rel-56bb2a2300a0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-c0q9d8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "56bb2a2300a0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-2877abaa0d11-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-c0q9d8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2877abaa0d11"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-418c90aadd61-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-c0q9d8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "418c90aadd61"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9e6e5d9ac4d1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-c0q9d8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9e6e5d9ac4d1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-93e6a84d3a94-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-c0q9d8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "93e6a84d3a94"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR473287. \"Bang A Gong\" by T. Rex.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: T-Rex · Title: Bang-A-Gong · Album: T. Rex - Bang A Gong (Get It On) / Telegram Sam · Year: 1973 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/T-Rex - Bang-A-Gong.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-54ba8ad2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T-Rex - Bang-A-Gong.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-00493d95",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T Rex - Bang A Gong (Get It On).mp4 · Plays: 2 · Performance: Get It On",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-85be2eab",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/T. Rex - Bang A Gong (Get It On).mp3 · Performance: Get It On",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c50ceb64",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/T. Rex - Bang a Gong (Get It On).mp4 · Performance: Get It On",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "961c168b-841a-4dd7-9b28-391dbd5828fc",
+      "category": "artist",
+      "text": "Bang A Gong is performed by T. Rex.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f2580086-6129-4c45-8bbd-00c36ed20c9e",
+      "category": "trivia",
+      "text": "Artist: T-Rex · Title: Bang-A-Gong · Album: T.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f00b4c18-55ea-4055-8546-30feb343a637",
+      "category": "trivia",
+      "text": "Rex - Bang A Gong (Get It On) / Telegram Sam · Year: 1973 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/T-Rex - Bang-A-Gong.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b4e3500f-1b8c-4c11-8f2e-2ebf983cf7ed",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T-Rex - Bang-A-Gong.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2e757d89-22df-4e5d-b02d-38f7e141ffaa",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T Rex - Bang A Gong (Get It On).mp4 · Plays: 2 · Performance: Get It On",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c5f0bfbc-1b68-4206-8ed3-2e60e0b9e6c4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/T.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6f21de86-692d-49c7-92c8-1525c87205dd",
+      "category": "trivia",
+      "text": "Rex - Bang A Gong (Get It On).mp3 · Performance: Get It On",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8e6904e1-ab1e-483b-917c-3877ebdcc086",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/T.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cb3bed97-a6dd-40cb-9f99-ad6474745aff",
+      "category": "trivia",
+      "text": "Rex - Bang a Gong (Get It On).mp4 · Performance: Get It On",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 9,
+    "accepted": 2,
+    "pending": 7,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/T-Rex - Bang-A-Gong.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

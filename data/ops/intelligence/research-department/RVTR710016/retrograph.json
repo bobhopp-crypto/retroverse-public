@@ -1,0 +1,502 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR710016",
+    "kind": "song",
+    "rvtr": "RVTR710016",
+    "generatedAt": "2026-06-28T23:00:12.235Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR710016",
+    "artist": "Ziggy Marley",
+    "title": "Live Jam",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ziggy Marley",
+    "relatedArtists": [
+      "Ziggy Marley"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-goe01g",
+      "title": "Live",
+      "kind": "performance",
+      "year": 1998,
+      "venue": "Live",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Ziggy Marley - Live Jam.mp4",
+      "notes": "Performance label: Live. Detected year: 1998. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-apd1m2",
+      "date": "1977",
+      "label": "Live Jam — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-hrrjza",
+      "date": "1977",
+      "label": "\"Jamming\" is a song by the reggae band Bob Marley and the Wailers from their 1977 album Exodus.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-m1wdma",
+      "date": "—",
+      "label": "The song also appears on the compilation album Legend.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-hrrjza",
+      "date": "1977",
+      "label": "\"Jamming\" is a song by the reggae band Bob Marley and the Wailers from their 1977 album Exodus.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k42geu",
+      "date": "1998",
+      "label": "Live",
+      "detail": "Live",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4f104c1cc23c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR710016&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-goe01g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "88f461e74679",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR710016&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-goe01g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c295d4cd9e6f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR710016&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-goe01g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2a31ffb0250c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR710016&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-goe01g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "38bf37643d2b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR710016&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-goe01g",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-goe01g",
+        "title": "Live",
+        "kind": "performance",
+        "year": 1998,
+        "venue": "Live",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Ziggy Marley - Live Jam.mp4",
+        "notes": "Performance label: Live. Detected year: 1998. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR710016-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR710016"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ziggy Marley"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ziggy Marley"
+    },
+    {
+      "id": "rel-RVTR710016-tl-tl-apd1m2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR710016"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-apd1m2"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Live Jam — original release"
+    },
+    {
+      "id": "rel-RVTR710016-tl-tl-hrrjza",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR710016"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hrrjza"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Jamming\" is a song by the reggae band Bob Marley and the Wailers from their 1977 album Exodus."
+    },
+    {
+      "id": "rel-RVTR710016-tl-tl-m1wdma",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR710016"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-m1wdma"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "The song also appears on the compilation album Legend."
+    },
+    {
+      "id": "rel-RVTR710016-tl-tl-hrrjza",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR710016"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hrrjza"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Jamming\" is a song by the reggae band Bob Marley and the Wailers from their 1977 album Exodus."
+    },
+    {
+      "id": "rel-RVTR710016-tl-tl-k42geu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR710016"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k42geu"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "Live"
+    },
+    {
+      "id": "rel-RVTR710016-perf-perf-goe01g",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR710016"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-goe01g"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Live"
+    },
+    {
+      "id": "rel-perf-goe01g-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-goe01g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Ziggy Marley - Live Jam.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Live"
+    },
+    {
+      "id": "rel-4f104c1cc23c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-goe01g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4f104c1cc23c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-88f461e74679-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-goe01g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "88f461e74679"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-c295d4cd9e6f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-goe01g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c295d4cd9e6f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2a31ffb0250c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-goe01g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a31ffb0250c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-38bf37643d2b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-goe01g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "38bf37643d2b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR710016. \"Live Jam\" by Ziggy Marley.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ziggy Marley · Title: Live Jam · Year: 1998 · Genre: Reggae · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Ziggy Marley - Live Jam.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a72e5c81",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Ziggy Marley - Live Jam.mp4 · Performance: Live",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-jamming-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Jamming_(song)",
+      "excerpt": "\"Jamming\" is a song by the reggae band Bob Marley and the Wailers from their 1977 album Exodus. The song also appears on the compilation album Legend. The song was re-released 10 years later as a tribute to Bob Marley and was again a hit, as in the Netherlands, where it was classified in the charts for 4 weeks. In Jamaican patois, the word jamming refers to a getting together or celebration. It still receives moderate airplay from adult alternative stations.\nBob Marley's wife Rita Marley has performed the song during the tribute concert \"Marley Magic: Live In Central Park At Summerstage\". Marley's children Ziggy Marley and the Melody Makers have performed the song during their concerts. Their live version of the song appears on the concert CD/DVDs Live Vol. 1 and Ziggy Marley and the Melody Makers Live. The song notably contains the line, \"No bullet could stop us now\". On December 3, 1976, Marley was shot by unknown gunmen who had broken into his home, then recovered shortly afterward.\n\n\nCharts\n\n\nWeekly charts\n\n\nOriginal version\n\n\nwith MC Lyte\n\n\nCertifications\n\n\nIn popular culture\nThe song is played in the movie Captain Ron, along with many other Bob Marley songs.\nThe song was adapted for a Vodafone commercial called \"Roaming\" instead of \"Jamming\", promoting the operator's roaming service.\nThe song was spoofed as \"Diggin'\" on an episode of Bill Nye the Science Guy centered on archaeology.\nThe song is played live in a nightclub in the Miami Vice episode titled \"Cool Runnin'\" (1984).\nThe song is sometimes used by ABC during coverage of NBA games.\nThe song made an appearance in a Super Bowl commercial featuring the Budweiser Frogs.\nThe song is featured in The Simpsons episode \"The Canine Mutiny\".\n\n\nSee also\n\"Master Blaster (Jammin')\", a Stevie Wonder song intended as an ode to Bob Marley (particularly inspired by \"Jamming\").\n\n\nReferences\n\n\nExternal links\nBob Marley - Jamming on YouTube",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "ad95136e-56a5-47bd-a2d1-ff26cdc6bb71",
+      "category": "artist",
+      "text": "Live Jam is performed by Ziggy Marley.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "91000a20-7b5f-4cdb-a460-e1d6affab732",
+      "category": "cultural_impact",
+      "text": "\"Jamming\" is a song by the reggae band Bob Marley and the Wailers from their 1977 album Exodus.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jamming_(song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1f9272e3-9b6b-4fd2-8ef3-0430ed99ca7c",
+      "category": "cultural_impact",
+      "text": "The song also appears on the compilation album Legend.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jamming_(song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d62292b1-02d4-475e-bdf4-eb5c85c8f079",
+      "category": "cultural_impact",
+      "text": "The song was re-released 10 years later as a tribute to Bob Marley and was again a hit, as in the Netherlands, where it was classified in the charts for 4 weeks.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jamming_(song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a6f8d61f-5ee9-42c2-b792-fc24a74c7f55",
+      "category": "trivia",
+      "text": "Artist: Ziggy Marley · Title: Live Jam · Year: 1998 · Genre: Reggae · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Ziggy Marley - Live Jam.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "85007e7e-f72a-409a-b8b8-e0220dff1a50",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Ziggy Marley - Live Jam.mp4 · Performance: Live",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Ziggy Marley - Live Jam.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

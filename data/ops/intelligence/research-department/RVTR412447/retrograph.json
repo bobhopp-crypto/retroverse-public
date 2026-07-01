@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR412447",
+    "kind": "song",
+    "rvtr": "RVTR412447",
+    "generatedAt": "2026-06-28T22:52:21.858Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR412447",
+    "artist": "Bts",
+    "title": "Permission To Dance",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Bts",
+    "relatedArtists": [
+      "Bts"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-fnmcso",
+        "title": "Permission To Dance — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-jfb5c7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/BTS - Permission to Dance.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 7,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 7 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-jxj1mr",
+      "date": "2021",
+      "label": "Permission To Dance — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "7 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-88g5ky",
+      "date": "2021",
+      "label": "Permission To Dance — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "38474e918a4e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412447&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-jfb5c7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "11bf9ec950f5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412447&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-jfb5c7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b71ba3d1e985",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412447&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-jfb5c7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a1bbf535456d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412447&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-jfb5c7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6e25186d9c91",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412447&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-jfb5c7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-jfb5c7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/BTS - Permission to Dance.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR412447-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR412447"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Bts"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Bts"
+    },
+    {
+      "id": "rel-RVTR412447-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR412447"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR412447-tl-tl-jxj1mr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR412447"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jxj1mr"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Permission To Dance — original release"
+    },
+    {
+      "id": "rel-RVTR412447-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR412447"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR412447-tl-tl-88g5ky",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR412447"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-88g5ky"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Permission To Dance — graph recording"
+    },
+    {
+      "id": "rel-RVTR412447-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR412447"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR412447-perf-perf-jfb5c7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR412447"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-jfb5c7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-jfb5c7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jfb5c7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/BTS - Permission to Dance.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-38474e918a4e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jfb5c7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "38474e918a4e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-11bf9ec950f5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jfb5c7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "11bf9ec950f5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b71ba3d1e985-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jfb5c7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b71ba3d1e985"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a1bbf535456d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jfb5c7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a1bbf535456d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6e25186d9c91-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jfb5c7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6e25186d9c91"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR412447. \"Permission To Dance\" by Bts.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #1. 7 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: BTS · Title: Permission to Dance · Album: Butter / Permission To Dance · Year: 2021 · Genre: K-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/BTS - Permission to Dance.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-bf92e6ec",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/BTS - Permission to Dance.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b5e0e5ea-5f2a-479a-9214-96c4d73a930a",
+      "category": "artist",
+      "text": "Permission To Dance is performed by Bts.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4037525f-4176-4249-b71e-32366712fbb2",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 7 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5a7c6a50-9f9a-49be-ba9d-212346a9a636",
+      "category": "recording",
+      "text": "Permission To Dance was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "630c5e0a-6904-4800-9f75-34dbcbd70a7d",
+      "category": "trivia",
+      "text": "Artist: BTS · Title: Permission to Dance · Album: Butter / Permission To Dance · Year: 2021 · Genre: K-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/BTS - Permission to Dance.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1c0f6163-cd0b-4fca-93b4-3ece731f46ad",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/BTS - Permission to Dance.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/BTS - Permission to Dance.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

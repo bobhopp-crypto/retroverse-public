@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR223122",
+    "kind": "song",
+    "rvtr": "RVTR223122",
+    "generatedAt": "2026-06-28T22:48:40.156Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR223122",
+    "artist": "Madonna",
+    "title": "Hollywood",
+    "year": 2003,
+    "albumTitle": "American Life",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg"
+  },
+  "artist": {
+    "name": "Madonna",
+    "relatedArtists": [
+      "Madonna"
+    ]
+  },
+  "album": {
+    "title": "American Life",
+    "releaseYear": 2003,
+    "recordings": [
+      {
+        "id": "rec-319b41",
+        "title": "American Life",
+        "releaseDate": 2003,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-mhmurt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Hollywood.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "American Life",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-r6wzsz",
+      "date": "2003",
+      "label": "Hollywood — original release",
+      "detail": "Original album: American Life",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-aizopk",
+      "date": "2003",
+      "label": "American Life",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR223122",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b245c76b990a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR223122&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mhmurt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "54a2305eb68e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR223122&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mhmurt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aec2a088b7e6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR223122&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mhmurt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "386a0edb1cf9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR223122&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mhmurt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bb6bbff7eff6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR223122&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mhmurt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mhmurt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Hollywood.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR223122-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR223122"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Madonna"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Madonna"
+    },
+    {
+      "id": "rel-RVTR223122-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR223122"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-319b41"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "American Life"
+    },
+    {
+      "id": "rel-RVTR223122-tl-tl-r6wzsz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR223122"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-r6wzsz"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hollywood — original release"
+    },
+    {
+      "id": "rel-RVTR223122-tl-tl-aizopk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR223122"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aizopk"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "American Life"
+    },
+    {
+      "id": "rel-RVTR223122-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR223122"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR223122-perf-perf-mhmurt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR223122"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mhmurt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mhmurt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhmurt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Hollywood.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b245c76b990a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhmurt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b245c76b990a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-54a2305eb68e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhmurt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "54a2305eb68e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-aec2a088b7e6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhmurt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aec2a088b7e6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-386a0edb1cf9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhmurt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "386a0edb1cf9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-bb6bbff7eff6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhmurt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bb6bbff7eff6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR223122. \"Hollywood\" by Madonna. Album: American Life (2003).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+      "excerpt": "Canonical cover assignment for RVTR223122 (Hollywood). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: American Life (2003)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Madonna · Title: Hollywood · Album: Hollywood · Year: 2003 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Hollywood.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2003.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-dad08272",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Hollywood.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e91375e7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Madonna - Hollywood.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "bbfda613-36ad-48e7-98d6-8a136059f8da",
+      "category": "artist",
+      "text": "Hollywood is performed by Madonna.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fc2ee05f-ffc6-404f-a2ac-3ff8619e8cae",
+      "category": "album",
+      "text": "The song appears on the album \"American Life\" (2003).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bf2721ac-71bc-4ecb-ad48-1ca6ac8a6470",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR223122.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a49d2cef-3b0e-4bad-8c1c-5173fea097cc",
+      "category": "recording",
+      "text": "Hollywood was released in 2003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "803de075-58cd-4537-be03-3109216c322b",
+      "category": "trivia",
+      "text": "Artist: Madonna · Title: Hollywood · Album: Hollywood · Year: 2003 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Hollywood.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a6a28a85-d8cf-4f2b-a9ee-16eda1d24624",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Hollywood.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9e69c1ba-de40-4a23-a5a9-fc23db6aacc3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Madonna - Hollywood.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Hollywood.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

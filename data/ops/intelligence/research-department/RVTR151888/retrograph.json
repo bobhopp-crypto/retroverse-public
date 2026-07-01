@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR151888",
+    "kind": "song",
+    "rvtr": "RVTR151888",
+    "generatedAt": "2026-06-28T22:46:54.478Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR151888",
+    "artist": "Are There Any More Real Cowboys",
+    "title": "Willie Nelson Neil Young",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Are There Any More Real Cowboys",
+    "relatedArtists": [
+      "Are There Any More Real Cowboys"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-x3o7yp",
+      "title": "Willie Nelson, Neil Young",
+      "kind": "performance",
+      "year": 1985,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Are There Any More Real Cowboys - Willie Nelson, Neil Young.mp4",
+      "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-h1x2qx",
+      "date": "1985",
+      "label": "Willie Nelson Neil Young — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-cuu42p",
+      "date": "1985",
+      "label": "Willie Nelson, Neil Young",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "75b5f53452c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR151888&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-x3o7yp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2883819ad148",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR151888&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-x3o7yp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "15f616af956e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR151888&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-x3o7yp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5e043d6f9154",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR151888&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-x3o7yp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "55b0b01dbc9c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR151888&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-x3o7yp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-x3o7yp",
+        "title": "Willie Nelson, Neil Young",
+        "kind": "performance",
+        "year": 1985,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Are There Any More Real Cowboys - Willie Nelson, Neil Young.mp4",
+        "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR151888-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR151888"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Are There Any More Real Cowboys"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Are There Any More Real Cowboys"
+    },
+    {
+      "id": "rel-RVTR151888-tl-tl-h1x2qx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR151888"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-h1x2qx"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Willie Nelson Neil Young — original release"
+    },
+    {
+      "id": "rel-RVTR151888-tl-tl-cuu42p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR151888"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cuu42p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Willie Nelson, Neil Young"
+    },
+    {
+      "id": "rel-RVTR151888-perf-perf-x3o7yp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR151888"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-x3o7yp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Willie Nelson, Neil Young"
+    },
+    {
+      "id": "rel-perf-x3o7yp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3o7yp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Are There Any More Real Cowboys - Willie Nelson, Neil Young.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Willie Nelson, Neil Young"
+    },
+    {
+      "id": "rel-75b5f53452c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3o7yp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "75b5f53452c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-2883819ad148-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3o7yp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2883819ad148"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-15f616af956e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3o7yp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "15f616af956e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5e043d6f9154-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3o7yp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5e043d6f9154"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-55b0b01dbc9c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3o7yp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "55b0b01dbc9c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR151888. \"Willie Nelson Neil Young\" by Are There Any More Real Cowboys.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Are There Any More Real Cowboys · Title: Willie Nelson, Neil Young · Album: Willie Nelson With Neil Young - Are There Any More Real Cowboys? · Year: 1985 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Are There Any More Real Cowboys - Willie Nelson, Neil Young.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a88a6a60",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Are There Any More Real Cowboys - Willie Nelson, Neil Young.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "deaabd30-d9da-4535-a1c5-dbcb97b44cd9",
+      "category": "artist",
+      "text": "Willie Nelson Neil Young is performed by Are There Any More Real Cowboys.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "af5eb3ed-e12e-4f3a-a78b-fcce3fc4fb07",
+      "category": "trivia",
+      "text": "\"Willie Nelson Neil Young\" by Are There Any More Real Cowboys.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "57a234cc-8dee-4703-abec-c5de406f1992",
+      "category": "trivia",
+      "text": "Artist: Are There Any More Real Cowboys · Title: Willie Nelson, Neil Young · Album: Willie Nelson With Neil Young - Are There Any More Real Cowboys?",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c0840521-c43e-4f61-bb31-56798c6df47c",
+      "category": "trivia",
+      "text": "· Year: 1985 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Are There Any More Real Cowboys - Willie Nelson, Neil Young.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c1d9f200-da97-4ab7-9992-926a9250defd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Are There Any More Real Cowboys - Willie Nelson, Neil Young.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Are There Any More Real Cowboys - Willie Nelson, Neil Young.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR632741",
+    "kind": "song",
+    "rvtr": "RVTR632741",
+    "generatedAt": "2026-06-28T22:58:05.606Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR632741",
+    "artist": "Dan Hartman",
+    "title": "This Is It",
+    "year": 1979,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dan Hartman",
+    "relatedArtists": [
+      "Dan Hartman"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1979,
+    "recordings": [
+      {
+        "id": "rec-ian6at",
+        "title": "This Is It — graph recording",
+        "releaseDate": 1979,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-8scynr",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1978,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dan Hartman - This Is It.mp4",
+      "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 91,
+    "chartWeeks": 3,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #91 · 3 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-9h8w8d",
+      "date": "1979",
+      "label": "This Is It — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3mm",
+      "date": "1979",
+      "label": "Billboard Hot 100 peak #91",
+      "detail": "3 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-e6bugq",
+      "date": "1979",
+      "label": "This Is It — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1978",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ab63dee46bb7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR632741&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-8scynr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "47651ab02bac",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR632741&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-8scynr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e2aa2771c3f4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR632741&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-8scynr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5960aca6fff5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR632741&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-8scynr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e2c49f766ad3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR632741&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-8scynr",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-8scynr",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1978,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dan Hartman - This Is It.mp4",
+        "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR632741-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR632741"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dan Hartman"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dan Hartman"
+    },
+    {
+      "id": "rel-RVTR632741-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR632741"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #91"
+    },
+    {
+      "id": "rel-RVTR632741-tl-tl-9h8w8d",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR632741"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9h8w8d"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "This Is It — original release"
+    },
+    {
+      "id": "rel-RVTR632741-tl-tl-fcm3mm",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR632741"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3mm"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #91"
+    },
+    {
+      "id": "rel-RVTR632741-tl-tl-e6bugq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR632741"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-e6bugq"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "This Is It — graph recording"
+    },
+    {
+      "id": "rel-RVTR632741-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR632741"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR632741-perf-perf-8scynr",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR632741"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-8scynr"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-8scynr-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8scynr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dan Hartman - This Is It.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ab63dee46bb7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8scynr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ab63dee46bb7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-47651ab02bac-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8scynr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "47651ab02bac"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e2aa2771c3f4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8scynr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e2aa2771c3f4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5960aca6fff5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8scynr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5960aca6fff5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e2c49f766ad3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8scynr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e2c49f766ad3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR632741. \"This Is It\" by Dan Hartman.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #91. 3 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dan Hartman · Title: This Is It · Album: This Is It / Countdown · Year: 1978 · Genre: Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dan Hartman - This Is It.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1979.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-b8f97141",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dan Hartman - This Is It.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "694968dc-c9a0-4bce-ba3c-e1a1c44f59a5",
+      "category": "artist",
+      "text": "This Is It is performed by Dan Hartman.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e6a128a9-2493-46a4-afa2-5839d1fafc28",
+      "category": "chart",
+      "text": "The song peaked at #91 on the Billboard Hot 100 and spent 3 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5d6a5757-275e-4690-9180-6c1fc1ee10ca",
+      "category": "recording",
+      "text": "This Is It was released in 1979.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "0968335f-ed0f-4b4b-be06-87dc984ad1c6",
+      "category": "trivia",
+      "text": "Artist: Dan Hartman · Title: This Is It · Album: This Is It / Countdown · Year: 1978 · Genre: Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dan Hartman - This Is It.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0a1743b8-ae30-4ca9-b4c4-3edb5d65be1e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dan Hartman - This Is It.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Dan Hartman - This Is It.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR489795",
+    "kind": "song",
+    "rvtr": "RVTR489795",
+    "generatedAt": "2026-06-28T22:54:02.850Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR489795",
+    "artist": "Billie Eilish",
+    "title": "Your Power",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Billie Eilish",
+    "relatedArtists": [
+      "Billie Eilish"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-ftnp29",
+        "title": "Your Power — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-5pnqcy",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Your Power.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 10,
+    "chartWeeks": 6,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #10 · 6 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-fp2do4",
+      "date": "2021",
+      "label": "Your Power — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fp",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #10",
+      "detail": "6 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-u0is0x",
+      "date": "2021",
+      "label": "Your Power — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "737d807abc13",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR489795&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-5pnqcy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ddc3dac0063a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR489795&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-5pnqcy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "114159b12771",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR489795&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-5pnqcy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cbcb20f6461a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR489795&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-5pnqcy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5680f948895a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR489795&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-5pnqcy",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-5pnqcy",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Your Power.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR489795-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR489795"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Billie Eilish"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Billie Eilish"
+    },
+    {
+      "id": "rel-RVTR489795-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR489795"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #10"
+    },
+    {
+      "id": "rel-RVTR489795-tl-tl-fp2do4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR489795"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fp2do4"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Your Power — original release"
+    },
+    {
+      "id": "rel-RVTR489795-tl-tl-fcm3fp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR489795"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fp"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #10"
+    },
+    {
+      "id": "rel-RVTR489795-tl-tl-u0is0x",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR489795"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-u0is0x"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Your Power — graph recording"
+    },
+    {
+      "id": "rel-RVTR489795-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR489795"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR489795-perf-perf-5pnqcy",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR489795"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-5pnqcy"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-5pnqcy-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5pnqcy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Your Power.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-737d807abc13-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5pnqcy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "737d807abc13"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ddc3dac0063a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5pnqcy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ddc3dac0063a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-114159b12771-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5pnqcy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "114159b12771"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-cbcb20f6461a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5pnqcy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cbcb20f6461a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5680f948895a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5pnqcy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5680f948895a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR489795. \"Your Power\" by Billie Eilish.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #10. 6 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Billie Eilish · Title: Your Power · Album: Happier Than Ever · Year: 2021 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Your Power.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-87f889e1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Your Power.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b17b7c6e-2f7a-4b3c-bf66-b5dbd7c14b9a",
+      "category": "artist",
+      "text": "Your Power is performed by Billie Eilish.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3e8ae3c2-79af-48aa-9fd4-6ed2d087381b",
+      "category": "chart",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 6 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3c604c0d-a52d-4cb0-966d-885d43387e5d",
+      "category": "recording",
+      "text": "Your Power was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "3cd7569f-c798-4829-8a59-037503ab8a6f",
+      "category": "trivia",
+      "text": "Artist: Billie Eilish · Title: Your Power · Album: Happier Than Ever · Year: 2021 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Your Power.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b74f16b6-9b90-4338-9aa1-d9e70d40f681",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Your Power.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Your Power.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

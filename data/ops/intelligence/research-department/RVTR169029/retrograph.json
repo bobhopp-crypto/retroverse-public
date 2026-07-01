@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR169029",
+    "kind": "song",
+    "rvtr": "RVTR169029",
+    "generatedAt": "2026-06-28T22:47:17.332Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR169029",
+    "artist": "Company B",
+    "title": "Fascinated",
+    "year": 1987,
+    "albumTitle": "Company B",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL184567/RVAL184567__company-b__company-b.jpg"
+  },
+  "artist": {
+    "name": "Company B",
+    "relatedArtists": [
+      "Company B"
+    ]
+  },
+  "album": {
+    "title": "Company B",
+    "releaseYear": 1987,
+    "recordings": [
+      {
+        "id": "rec-r5wnlu",
+        "title": "Company B",
+        "releaseDate": 1987,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-v2953o",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1987,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Company B - Fascinated.mp4",
+      "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 21,
+    "chartWeeks": 18,
+    "albumTitle": "Company B",
+    "summary": "Hot 100 peak #21 · 18 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-p5nr6y",
+      "date": "1987",
+      "label": "Fascinated — original release",
+      "detail": "Original album: Company B",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gl",
+      "date": "1987",
+      "label": "Billboard Hot 100 peak #21",
+      "detail": "18 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-d2mxlh",
+      "date": "1987",
+      "label": "Company B",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1987",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR169029",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL184567/RVAL184567__company-b__company-b.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7dda696dfa41",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR169029&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-v2953o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9c2d75866e59",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR169029&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-v2953o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2cf22792517f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR169029&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-v2953o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6769eb7cd83d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR169029&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-v2953o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cd7bd2871f85",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR169029&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-v2953o",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-v2953o",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1987,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Company B - Fascinated.mp4",
+        "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR169029-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR169029"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Company B"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Company B"
+    },
+    {
+      "id": "rel-RVTR169029-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR169029"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-r5wnlu"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Company B"
+    },
+    {
+      "id": "rel-RVTR169029-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR169029"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #21"
+    },
+    {
+      "id": "rel-RVTR169029-tl-tl-p5nr6y",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR169029"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p5nr6y"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Fascinated — original release"
+    },
+    {
+      "id": "rel-RVTR169029-tl-tl-fcm3gl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR169029"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gl"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #21"
+    },
+    {
+      "id": "rel-RVTR169029-tl-tl-d2mxlh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR169029"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-d2mxlh"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Company B"
+    },
+    {
+      "id": "rel-RVTR169029-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR169029"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR169029-perf-perf-v2953o",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR169029"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-v2953o"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-v2953o-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v2953o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Company B - Fascinated.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-7dda696dfa41-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v2953o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7dda696dfa41"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9c2d75866e59-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v2953o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9c2d75866e59"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2cf22792517f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v2953o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2cf22792517f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6769eb7cd83d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v2953o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6769eb7cd83d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-cd7bd2871f85-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v2953o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cd7bd2871f85"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR169029. \"Fascinated\" by Company B. Album: Company B (1987).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL184567/RVAL184567__company-b__company-b.jpg",
+      "excerpt": "Canonical cover assignment for RVTR169029 (Fascinated). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Company B (1987). Billboard Hot 100 peak: #21. 18 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Company B · Title: Fascinated · Album: Fascinated · Year: 1987 · Genre: Freestyle · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Company B - Fascinated.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1987.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-8d3e37a0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Company B - Fascinated.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "44e80761-1f22-4656-bfdf-cba55b44d169",
+      "category": "artist",
+      "text": "Fascinated is performed by Company B.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cb18a7a6-1a97-4965-bd33-26893da6fa31",
+      "category": "album",
+      "text": "The song appears on the album \"Company B\" (1987).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "be3e56e9-e2fd-45a9-bfd8-75fe088dff67",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR169029.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL184567/RVAL184567__company-b__company-b.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "43610787-2850-47b6-8d72-157d349849d2",
+      "category": "chart",
+      "text": "The song peaked at #21 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "08be269c-009a-4d06-a714-4184394d12cb",
+      "category": "recording",
+      "text": "Fascinated was released in 1987.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5c316e12-c714-473a-8e4c-467f1bdd8192",
+      "category": "trivia",
+      "text": "Artist: Company B · Title: Fascinated · Album: Fascinated · Year: 1987 · Genre: Freestyle · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Company B - Fascinated.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a28d4f39-346c-4f12-b98c-9c2758f6106d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Company B - Fascinated.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Company B - Fascinated.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

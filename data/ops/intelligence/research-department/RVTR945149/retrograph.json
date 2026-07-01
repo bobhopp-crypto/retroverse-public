@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR945149",
+    "kind": "song",
+    "rvtr": "RVTR945149",
+    "generatedAt": "2026-06-28T23:08:18.299Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR945149",
+    "artist": "Ed Sheeran",
+    "title": "Bad Habits",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ed Sheeran",
+    "relatedArtists": [
+      "Ed Sheeran"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-uo6jwd",
+        "title": "Bad Habits — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-kf4nkg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ed Sheeran - Bad Habits.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 56,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 56 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-aprram",
+      "date": "2021",
+      "label": "Bad Habits — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "56 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-zg62rj",
+      "date": "2021",
+      "label": "Bad Habits — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "a030a854190a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945149&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kf4nkg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f7aae3f1817a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945149&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kf4nkg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e4d86544130f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945149&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kf4nkg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2588175d8fba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945149&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kf4nkg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e38b3c6f5e33",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945149&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kf4nkg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kf4nkg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ed Sheeran - Bad Habits.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR945149-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945149"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ed Sheeran"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ed Sheeran"
+    },
+    {
+      "id": "rel-RVTR945149-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945149"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR945149-tl-tl-aprram",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aprram"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Bad Habits — original release"
+    },
+    {
+      "id": "rel-RVTR945149-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR945149-tl-tl-zg62rj",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-zg62rj"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Bad Habits — graph recording"
+    },
+    {
+      "id": "rel-RVTR945149-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR945149-perf-perf-kf4nkg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945149"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kf4nkg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-kf4nkg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kf4nkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ed Sheeran - Bad Habits.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-a030a854190a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kf4nkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a030a854190a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-f7aae3f1817a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kf4nkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f7aae3f1817a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e4d86544130f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kf4nkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e4d86544130f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2588175d8fba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kf4nkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2588175d8fba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-e38b3c6f5e33-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kf4nkg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e38b3c6f5e33"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR945149. \"Bad Habits\" by Ed Sheeran.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 56 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ed Sheeran · Title: Bad Habits · Album: Bad Habits · Year: 2021 · Genre: Dance-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ed Sheeran - Bad Habits.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-d4961ade",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ed Sheeran - Bad Habits.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "9611dc97-c9a2-4194-b573-0db65818a745",
+      "category": "artist",
+      "text": "Bad Habits is performed by Ed Sheeran.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "28a21c5e-d7be-4b2a-bf50-1a5dcfadcb5f",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 56 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f38146f7-3484-4ccf-b4ec-9fa99917da5d",
+      "category": "recording",
+      "text": "Bad Habits was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b39d2ceb-2892-44d3-8bbf-58bb2b5809c7",
+      "category": "trivia",
+      "text": "Artist: Ed Sheeran · Title: Bad Habits · Album: Bad Habits · Year: 2021 · Genre: Dance-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ed Sheeran - Bad Habits.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "71abf855-566c-4a8d-a3be-f7984d2b2a17",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ed Sheeran - Bad Habits.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ed Sheeran - Bad Habits.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

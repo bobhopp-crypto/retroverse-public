@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR403107",
+    "kind": "song",
+    "rvtr": "RVTR403107",
+    "generatedAt": "2026-06-28T22:52:09.290Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR403107",
+    "artist": "Iyaz",
+    "title": "Replay",
+    "year": 2009,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Iyaz",
+    "relatedArtists": [
+      "Iyaz"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-qla0ti",
+        "title": "Replay — graph recording",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-rh2kjm",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Iyaz - Replay.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 34,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 34 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-nnmbiz",
+      "date": "2009",
+      "label": "Replay — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "34 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-b3thiq",
+      "date": "2009",
+      "label": "Replay — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0b36a7d4170b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR403107&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-rh2kjm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "289a460e9c30",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR403107&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-rh2kjm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "379334a3073b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR403107&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-rh2kjm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d53a2a7e857b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR403107&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-rh2kjm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a98d78dcf44f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR403107&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-rh2kjm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-rh2kjm",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Iyaz - Replay.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR403107-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR403107"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Iyaz"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Iyaz"
+    },
+    {
+      "id": "rel-RVTR403107-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR403107"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR403107-tl-tl-nnmbiz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR403107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nnmbiz"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Replay — original release"
+    },
+    {
+      "id": "rel-RVTR403107-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR403107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR403107-tl-tl-b3thiq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR403107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-b3thiq"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Replay — graph recording"
+    },
+    {
+      "id": "rel-RVTR403107-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR403107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR403107-perf-perf-rh2kjm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR403107"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-rh2kjm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-rh2kjm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rh2kjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Iyaz - Replay.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0b36a7d4170b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rh2kjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0b36a7d4170b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-289a460e9c30-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rh2kjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "289a460e9c30"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-379334a3073b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rh2kjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "379334a3073b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d53a2a7e857b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rh2kjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d53a2a7e857b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a98d78dcf44f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rh2kjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a98d78dcf44f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR403107. \"Replay\" by Iyaz.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 34 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Iyaz · Title: Replay · Album: HV 1-10 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Iyaz - Replay.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-889fc2c8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Iyaz - Replay.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b6c1a407",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Iyaz - Replay.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b1f31fb9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Iyaz - Replay.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "419a671a-444c-48eb-9345-ac3bc6e4d0b7",
+      "category": "artist",
+      "text": "Replay is performed by Iyaz.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8650893d-b874-4b24-a483-df1f9902ca39",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 34 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "73f503d8-75f8-4299-b0b3-eeac2a15d1d8",
+      "category": "recording",
+      "text": "Replay was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c59aa83b-d89f-45eb-b0c2-99a2c7559c60",
+      "category": "trivia",
+      "text": "Artist: Iyaz · Title: Replay · Album: HV 1-10 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Iyaz - Replay.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3a5258b3-6bed-4165-9038-623f030e2764",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Iyaz - Replay.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fceeded3-a992-4db8-bb26-a604e601fb7e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Iyaz - Replay.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "054d4ca7-a923-4767-8dee-8e1620ff26d9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Iyaz - Replay.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 3,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Iyaz - Replay.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

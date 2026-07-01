@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR283373",
+    "kind": "song",
+    "rvtr": "RVTR283373",
+    "generatedAt": "2026-06-28T22:49:57.446Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR283373",
+    "artist": "Gabrielle",
+    "title": "Dreams",
+    "year": 1993,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Gabrielle",
+    "relatedArtists": [
+      "Gabrielle"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1993,
+    "recordings": [
+      {
+        "id": "rec-z1sxvw",
+        "title": "Dreams — graph recording",
+        "releaseDate": 1993,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-r7ktdn",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Gabrielle - Dreams.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 26,
+    "chartWeeks": 28,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #26 · 28 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ufjx5o",
+      "date": "1993",
+      "label": "Dreams — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gq",
+      "date": "1993",
+      "label": "Billboard Hot 100 peak #26",
+      "detail": "28 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-w9vr61",
+      "date": "1993",
+      "label": "Dreams — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1993",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "8174e64aca1d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283373&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-r7ktdn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "22786be317aa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283373&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-r7ktdn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1ab3039dbaa6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283373&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-r7ktdn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b96bab95fe96",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283373&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-r7ktdn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "96a66238d660",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283373&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-r7ktdn",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-r7ktdn",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Gabrielle - Dreams.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR283373-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR283373"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Gabrielle"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Gabrielle"
+    },
+    {
+      "id": "rel-RVTR283373-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR283373"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #26"
+    },
+    {
+      "id": "rel-RVTR283373-tl-tl-ufjx5o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR283373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ufjx5o"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Dreams — original release"
+    },
+    {
+      "id": "rel-RVTR283373-tl-tl-fcm3gq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR283373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gq"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #26"
+    },
+    {
+      "id": "rel-RVTR283373-tl-tl-w9vr61",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR283373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-w9vr61"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Dreams — graph recording"
+    },
+    {
+      "id": "rel-RVTR283373-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR283373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR283373-perf-perf-r7ktdn",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR283373"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-r7ktdn"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-r7ktdn-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r7ktdn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Gabrielle - Dreams.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-8174e64aca1d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r7ktdn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8174e64aca1d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-22786be317aa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r7ktdn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "22786be317aa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1ab3039dbaa6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r7ktdn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1ab3039dbaa6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b96bab95fe96-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r7ktdn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b96bab95fe96"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-96a66238d660-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r7ktdn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "96a66238d660"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR283373. \"Dreams\" by Gabrielle.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #26. 28 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Gabrielle · Title: Dreams · Album: Dreams · Year: 1993 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Gabrielle - Dreams.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1993.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-b67f24bc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Gabrielle - Dreams.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cd74d93a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Gabrielle - Dreams.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6bccf384",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Gabrielle - Dreams (FNP Edit).mp3 · Performance: FNP Edit",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "063a0b2b-e828-41e6-acaf-cd295a03e7b2",
+      "category": "artist",
+      "text": "Dreams is performed by Gabrielle.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d712928f-15e9-4c53-b497-386f727aeb25",
+      "category": "chart",
+      "text": "The song peaked at #26 on the Billboard Hot 100 and spent 28 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d53dccaf-fccd-4cdb-a587-954192b8917c",
+      "category": "recording",
+      "text": "Dreams was released in 1993.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1e683a37-71c5-4151-aa05-e0aa8dcf908d",
+      "category": "trivia",
+      "text": "Artist: Gabrielle · Title: Dreams · Album: Dreams · Year: 1993 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Gabrielle - Dreams.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "75774934-fef1-4793-b4f2-6c6343098601",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Gabrielle - Dreams.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9ab46dc5-7703-4fb0-8f01-07a062851c98",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Gabrielle - Dreams.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d1a159ef-33c7-4346-808c-388fdd26331e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Gabrielle - Dreams (FNP Edit).mp3 · Performance: FNP Edit",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 3,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Gabrielle - Dreams.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

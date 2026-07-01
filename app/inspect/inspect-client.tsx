@@ -74,19 +74,20 @@ export default function InspectClient() {
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const q = input.trim();
-    router.push(q.length >= 2 ? `/inspect?q=${encodeURIComponent(q)}` : "/inspect");
+    router.push(q.length >= 2 ? `/database-explorer?q=${encodeURIComponent(q)}` : "/database-explorer");
   }
 
   const resolved = data?.resolved;
   const showResults = data && qParam.length >= 2;
 
   return (
-    <main className="inspect-page">
+    <main className="inspect-page ops-command-surface">
+      <div className="ops-page__grain" aria-hidden />
       <div className="inspect-page__inner">
-        <p className="inspect-banner">Local dev — read-only graph inspector</p>
+        <p className="inspect-banner">Local dev — read-only Postgres graph explorer</p>
 
         <header className="inspect-header">
-          <h1>Graph Inspector</h1>
+          <h1>Database Explorer</h1>
           <p>See what local Postgres knows about an artist — no SQL required.</p>
         </header>
 
@@ -106,7 +107,7 @@ export default function InspectClient() {
           </div>
           <div className="inspect-chips" aria-label="Quick artists">
             {QUICK_ARTISTS.map((name) => (
-              <Link key={name} href={`/inspect?q=${encodeURIComponent(name)}`}>
+              <Link key={name} href={`/database-explorer?q=${encodeURIComponent(name)}`}>
                 {name}
               </Link>
             ))}
@@ -272,9 +273,9 @@ export default function InspectClient() {
         )}
 
         <p className="inspect-footer">
-          <Link href="/">← Home</Link>
+          <Link href="/ops">← Command Center</Link>
           {" · "}
-          <Link href="/search">Search</Link>
+          <Link href="/diagnostics">Diagnostics</Link>
         </p>
       </div>
     </main>

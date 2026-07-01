@@ -574,7 +574,11 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
     applyingContext.current = true;
     const persisted = readContextMap()[contextKey];
     if (persisted?.mode) setMode(normalizeBrowserPlusMode(persisted.mode));
-    setQuery(persisted?.query ?? "");
+    const urlQuery =
+      new URLSearchParams(window.location.search).get("q")?.trim() ||
+      new URLSearchParams(window.location.search).get("rvtr")?.trim() ||
+      null;
+    setQuery(urlQuery ?? persisted?.query ?? "");
     if (persisted?.sortColumn) setSortColumn(persisted.sortColumn);
     if (persisted?.sortDirection) setSortDirection(persisted.sortDirection);
     setFocusedRowId(persisted?.focusedRowId ?? model.rows[0]?.id ?? null);

@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR745717",
+    "kind": "song",
+    "rvtr": "RVTR745717",
+    "generatedAt": "2026-06-28T23:01:12.488Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR745717",
+    "artist": "Tai Verdes",
+    "title": "A O K",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Tai Verdes",
+    "relatedArtists": [
+      "Tai Verdes"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-idwkzo",
+        "title": "A O K — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-p5lnkq",
+      "title": "AOK",
+      "kind": "performance",
+      "year": 2019,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tai Verdes - A-O-K.mp4",
+      "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 34,
+    "chartWeeks": 19,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #34 · 19 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-czh341",
+      "date": "2021",
+      "label": "A O K — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3hj",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #34",
+      "detail": "19 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-y38qwq",
+      "date": "2021",
+      "label": "A O K — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bu8l9l",
+      "date": "2019",
+      "label": "AOK",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ab2d33cf8443",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR745717&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-p5lnkq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9e00adba7f00",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR745717&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-p5lnkq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a9e5cddbf6c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR745717&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-p5lnkq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2160316a0eb0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR745717&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-p5lnkq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bd64080f7a9e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR745717&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-p5lnkq",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-p5lnkq",
+        "title": "AOK",
+        "kind": "performance",
+        "year": 2019,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tai Verdes - A-O-K.mp4",
+        "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR745717-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR745717"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Tai Verdes"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Tai Verdes"
+    },
+    {
+      "id": "rel-RVTR745717-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR745717"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #34"
+    },
+    {
+      "id": "rel-RVTR745717-tl-tl-czh341",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR745717"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-czh341"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "A O K — original release"
+    },
+    {
+      "id": "rel-RVTR745717-tl-tl-fcm3hj",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR745717"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3hj"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #34"
+    },
+    {
+      "id": "rel-RVTR745717-tl-tl-y38qwq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR745717"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-y38qwq"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "A O K — graph recording"
+    },
+    {
+      "id": "rel-RVTR745717-tl-tl-bu8l9l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR745717"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bu8l9l"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "AOK"
+    },
+    {
+      "id": "rel-RVTR745717-perf-perf-p5lnkq",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR745717"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-p5lnkq"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "AOK"
+    },
+    {
+      "id": "rel-perf-p5lnkq-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p5lnkq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tai Verdes - A-O-K.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "AOK"
+    },
+    {
+      "id": "rel-ab2d33cf8443-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p5lnkq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ab2d33cf8443"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9e00adba7f00-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p5lnkq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9e00adba7f00"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a9e5cddbf6c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p5lnkq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a9e5cddbf6c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2160316a0eb0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p5lnkq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2160316a0eb0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-bd64080f7a9e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-p5lnkq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bd64080f7a9e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR745717. \"A O K\" by Tai Verdes.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #34. 19 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Tai Verdes · Title: A-O-K · Album: TV [Explicit] · Year: 2019 · Genre: Bubblegum · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tai Verdes - A-O-K.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f00b8adc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tai Verdes - A-O-K.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "3dd524c3-b473-4f5d-8e16-2719fad4dea5",
+      "category": "artist",
+      "text": "A O K is performed by Tai Verdes.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3ca96513-3498-41bd-866b-0dce27c12739",
+      "category": "chart",
+      "text": "The song peaked at #34 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c57c9ea3-1cfc-4189-9cb4-1b5866fc0bdd",
+      "category": "recording",
+      "text": "A O K was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6beee0e5-5f32-443e-8248-6557001d9893",
+      "category": "trivia",
+      "text": "Artist: Tai Verdes · Title: A-O-K · Album: TV [Explicit] · Year: 2019 · Genre: Bubblegum · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tai Verdes - A-O-K.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e43163de-84c7-4251-a5e0-3f6b7f332229",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tai Verdes - A-O-K.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tai Verdes - A-O-K.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

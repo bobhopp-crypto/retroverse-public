@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR195082",
+    "kind": "song",
+    "rvtr": "RVTR195082",
+    "generatedAt": "2026-06-28T22:47:46.144Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR195082",
+    "artist": "Linkin Park",
+    "title": "Numb",
+    "year": 2003,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Linkin Park",
+    "relatedArtists": [
+      "Linkin Park"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2003,
+    "recordings": [
+      {
+        "id": "rec-bahf0h",
+        "title": "Numb — graph recording",
+        "releaseDate": 2003,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-vwp4kc",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Linkin Park - Numb.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 11,
+    "chartWeeks": 33,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #11 · 33 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-etfv74",
+      "date": "2003",
+      "label": "Numb — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fq",
+      "date": "2003",
+      "label": "Billboard Hot 100 peak #11",
+      "detail": "33 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k771j7",
+      "date": "2003",
+      "label": "Numb — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "fd20a05a9efb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195082&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-vwp4kc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2cca05b960de",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195082&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-vwp4kc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dae181565a35",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195082&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-vwp4kc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e510603b0aa0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195082&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-vwp4kc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "57b85e5fcf1f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR195082&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-vwp4kc",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-vwp4kc",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Linkin Park - Numb.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR195082-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195082"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Linkin Park"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Linkin Park"
+    },
+    {
+      "id": "rel-RVTR195082-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195082"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #11"
+    },
+    {
+      "id": "rel-RVTR195082-tl-tl-etfv74",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195082"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-etfv74"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Numb — original release"
+    },
+    {
+      "id": "rel-RVTR195082-tl-tl-fcm3fq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195082"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fq"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #11"
+    },
+    {
+      "id": "rel-RVTR195082-tl-tl-k771j7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195082"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k771j7"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Numb — graph recording"
+    },
+    {
+      "id": "rel-RVTR195082-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195082"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR195082-perf-perf-vwp4kc",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR195082"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-vwp4kc"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-vwp4kc-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vwp4kc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Linkin Park - Numb.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-fd20a05a9efb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vwp4kc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fd20a05a9efb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2cca05b960de-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vwp4kc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2cca05b960de"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-dae181565a35-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vwp4kc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dae181565a35"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-e510603b0aa0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vwp4kc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e510603b0aa0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-57b85e5fcf1f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vwp4kc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "57b85e5fcf1f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR195082. \"Numb\" by Linkin Park.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #11. 33 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Linkin Park · Title: Numb · Album: From The \"Live In Texas\" Album · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Linkin Park - Numb.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2003.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-214244ed",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Linkin Park - Numb.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0ec3e8e1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Linkin Park - Numb.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-efc1522b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Jay Z   Linkin Park - Numb Encore.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "94a7e171-bf9a-4258-b922-1255baae0a55",
+      "category": "artist",
+      "text": "Numb is performed by Linkin Park.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aa403fa9-fd77-4efa-b696-0cbab0e2043a",
+      "category": "chart",
+      "text": "The song peaked at #11 on the Billboard Hot 100 and spent 33 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "84367783-4cfc-4620-8c7b-872b06ee4555",
+      "category": "recording",
+      "text": "Numb was released in 2003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c8453811-2125-4c65-b821-f753303ad2d2",
+      "category": "trivia",
+      "text": "Artist: Linkin Park · Title: Numb · Album: From The \"Live In Texas\" Album · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Linkin Park - Numb.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "007990eb-4249-4021-9943-1ea2f3b133fc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Linkin Park - Numb.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7f242d75-3329-4523-b293-42b787ff1c51",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Linkin Park - Numb.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "29d6946e-8364-45a3-a434-85d5c49b09b6",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Jay Z   Linkin Park - Numb Encore.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 3,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Linkin Park - Numb.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR196546",
+    "kind": "song",
+    "rvtr": "RVTR196546",
+    "generatedAt": "2026-06-28T22:47:50.180Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR196546",
+    "artist": "Foo Fighters",
+    "title": "My Hero",
+    "year": 2009,
+    "albumTitle": "Greatest Hits",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880469/RVAL880469__foo-fighters__greatest-hits.jpg"
+  },
+  "artist": {
+    "name": "Foo Fighters",
+    "relatedArtists": [
+      "Foo Fighters"
+    ]
+  },
+  "album": {
+    "title": "Greatest Hits",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-vd5yyi",
+        "title": "Greatest Hits",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-es4yom",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1998,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Foo Fighters - My Hero.mp4",
+      "notes": "Detected year: 1998. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Greatest Hits",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-emkoem",
+      "date": "1998",
+      "label": "My Hero — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.58,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-6ag293",
+      "date": "2009",
+      "label": "Greatest Hits",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.82,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1998",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR196546",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880469/RVAL880469__foo-fighters__greatest-hits.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "173c9b9c3ec7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196546&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-es4yom",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a36af538411b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196546&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-es4yom",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "013c796a8027",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196546&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-es4yom",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4a8037ef9cd5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196546&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-es4yom",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ac52f395c843",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196546&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-es4yom",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-es4yom",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1998,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Foo Fighters - My Hero.mp4",
+        "notes": "Detected year: 1998. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR196546-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196546"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Foo Fighters"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Foo Fighters"
+    },
+    {
+      "id": "rel-RVTR196546-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196546"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-vd5yyi"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Greatest Hits"
+    },
+    {
+      "id": "rel-RVTR196546-tl-tl-emkoem",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196546"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-emkoem"
+      },
+      "confidence": 0.58,
+      "source": "song entity",
+      "label": "My Hero — original release"
+    },
+    {
+      "id": "rel-RVTR196546-tl-tl-6ag293",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196546"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6ag293"
+      },
+      "confidence": 0.82,
+      "source": "Retroverse graph",
+      "label": "Greatest Hits"
+    },
+    {
+      "id": "rel-RVTR196546-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196546"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR196546-perf-perf-es4yom",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196546"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-es4yom"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-es4yom-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-es4yom"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Foo Fighters - My Hero.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-173c9b9c3ec7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-es4yom"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "173c9b9c3ec7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a36af538411b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-es4yom"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a36af538411b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-013c796a8027-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-es4yom"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "013c796a8027"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4a8037ef9cd5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-es4yom"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a8037ef9cd5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ac52f395c843-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-es4yom"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ac52f395c843"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR196546. \"My Hero\" by Foo Fighters. Album: Greatest Hits (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880469/RVAL880469__foo-fighters__greatest-hits.jpg",
+      "excerpt": "Canonical cover assignment for RVTR196546 (My Hero). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Greatest Hits (2009)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Foo Fighters · Title: My Hero · Album: My Hero · Year: 1998 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Foo Fighters - My Hero.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-7c1131c4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Foo Fighters - My Hero.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2e4db313",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Foo Fighters - My Hero.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "40cc4561-b1ce-45c7-860a-ef0c08491f3e",
+      "category": "artist",
+      "text": "My Hero is performed by Foo Fighters.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "86f36c3c-c456-44c9-83d3-cd0fd1f10fbe",
+      "category": "album",
+      "text": "The song appears on the album \"Greatest Hits\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bd559e19-4fb4-4833-9170-14ac446c6823",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR196546.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880469/RVAL880469__foo-fighters__greatest-hits.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c129fa8c-601a-44a0-bd80-591033afb2df",
+      "category": "album",
+      "text": "Graph compilation anchor: \"Greatest Hits\" (2009) — not the song's original release year.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "14079242-494c-4e8c-86ca-8a65c20c4cfb",
+      "category": "trivia",
+      "text": "Artist: Foo Fighters · Title: My Hero · Album: My Hero · Year: 1998 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Foo Fighters - My Hero.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c8e429ce-5379-4448-a382-1c8242e62cd4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Foo Fighters - My Hero.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5e4870b3-2b9b-4fc2-8ec2-547afcec93ea",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Foo Fighters - My Hero.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Foo Fighters - My Hero.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

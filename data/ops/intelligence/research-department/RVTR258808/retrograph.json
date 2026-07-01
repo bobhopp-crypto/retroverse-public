@@ -1,0 +1,503 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR258808",
+    "kind": "song",
+    "rvtr": "RVTR258808",
+    "generatedAt": "2026-06-28T22:49:27.909Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR258808",
+    "artist": "Maude Latour",
+    "title": "Clean",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Maude Latour",
+    "relatedArtists": [
+      "Maude Latour"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-o8337p",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Maude Latour - Clean.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-s0xkst",
+      "date": "1999",
+      "label": "Clean — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-kbtqzy",
+      "date": "1999",
+      "label": "Maude Latour (born October 8, 1999) is a Swedish-born American singer-songwriter.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-kzmbl2",
+      "date": "—",
+      "label": "Early life and education\nLatour was born in Sweden.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-kbtqzy",
+      "date": "1999",
+      "label": "Maude Latour (born October 8, 1999) is a Swedish-born American singer-songwriter.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-7wg8v8",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "Latour is currently signed to Warner Records."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "62175053cea3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR258808&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-o8337p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e7a0c6382f28",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR258808&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-o8337p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d64cc9b2ec25",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR258808&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-o8337p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5ef0b459bd6c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR258808&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-o8337p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d54d97c5a954",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR258808&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-o8337p",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-o8337p",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Maude Latour - Clean.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR258808-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR258808"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Maude Latour"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Maude Latour"
+    },
+    {
+      "id": "rel-RVTR258808-tl-tl-s0xkst",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR258808"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-s0xkst"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Clean — original release"
+    },
+    {
+      "id": "rel-RVTR258808-tl-tl-kbtqzy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR258808"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kbtqzy"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Maude Latour (born October 8, 1999) is a Swedish-born American singer-songwriter."
+    },
+    {
+      "id": "rel-RVTR258808-tl-tl-kzmbl2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR258808"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kzmbl2"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Early life and education\nLatour was born in Sweden."
+    },
+    {
+      "id": "rel-RVTR258808-tl-tl-kbtqzy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR258808"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kbtqzy"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Maude Latour (born October 8, 1999) is a Swedish-born American singer-songwriter."
+    },
+    {
+      "id": "rel-RVTR258808-tl-tl-7wg8v8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR258808"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7wg8v8"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR258808-perf-perf-o8337p",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR258808"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-o8337p"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-o8337p-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o8337p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Maude Latour - Clean.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-62175053cea3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o8337p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "62175053cea3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-e7a0c6382f28-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o8337p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e7a0c6382f28"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d64cc9b2ec25-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o8337p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d64cc9b2ec25"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5ef0b459bd6c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o8337p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5ef0b459bd6c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d54d97c5a954-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o8337p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d54d97c5a954"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR258808. \"Clean\" by Maude Latour.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Maude Latour · Title: Clean · Year: 2021 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Maude Latour - Clean.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f718abd1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Maude Latour - Clean.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-maude-latour",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Maude_Latour",
+      "excerpt": "Maude Latour (born October 8, 1999) is a Swedish-born American singer-songwriter.\n\n\nEarly life and education\nLatour was born in Sweden. Her father is Almar Latour, former executive editor and current publisher of The Wall Street Journal and CEO of Dow Jones & Company, and her mother is a journalist for S&P Global. She lived in New York City, London, and attended Hong Kong International School before attending the Brearley School in Manhattan. Latour graduated from Columbia University in 2022 as a philosophy major.\n\n\nCareer\nLatour began songwriting at 15 and uploading her music to Spotify at 17. She released her first EP, High School High, in 2018. It has since been taken off streaming platforms. She released her second EP, Starsick, in 2019, which includes songs such as “Superfruit”, “Shoot and Run”, and “Lovesick”. Latour wrote one of her most streamed songs \"Shoot and Run\" for a school project her senior year of high school.\nLatour is currently signed to Warner Records. She released her breakout single, \"One More Weekend\" in July 2020 and it has amassed over 37 million streams on Spotify. Latour released her second EP Strangers Forever in October 2021 and in the spring of 2022 she headlined her first tour, performing in 13 cities across North America.\nIn 2022, Latour released singles \"Headphones\", \"Lola\", and \"Trees\". She performed at Lollapalooza in July 2022. Ahead of the festival, she released a new single, \"Probabilities\". In addition to headlining her \"What is This Feeling?\" tour, Latour performed at multiple music festivals in the fall, including Austin City Limits Music Festival, All Things Go Fall Classic, and Music Midtown.\nOn September 16, 2022, Latour shared on Instagram that she covered Kim Wilde's \"Kids in America\" for the 2022 Netflix film Do Revenge. Three days later, Latour announced her newest EP, 001, was to be released on September 30, 2022. On 001, 2 new songs were released, \"001\" and \"Living It\". On December 9, 2022, a new song \"Reality television\" was added to 001.\nIn 2023, Latour released singles \"Heaven\", \"Lunch\", and \"I am not the sun\", which were all included on EP Twin Flame released on June 9.\nIn 2024, Latour released \"Too Slow\", \"Cursed Romantics\", \"Comedown\", and \"Whirlpool\" in March, May, June, and August respectively. Her debut album, Sugar Water, was released on August 16, 2024. The album received positive reviews from major publications. Rolling Stone highlighted her as an \"Artist You Need to Know\" and praised the album's exploration of existential themes. PopMatters commended it for its lyrical depth and emotional resonance, while Earmilk described it as a dynamic and genre-blending project, stating that Latour \"deserves infinite roses\" for her innovative approach to pop music. She opened for the U.S. leg of Fletcher's In Search of the Antidote Tour in Fall 2024.\nOn April 25, 2025, Latour released the single \"Miss America.\" She stated that falling in love and meeting queer people while touring the U.S. inspired the song and described it as \"a manifesto of a future with no nation state.\"\nIn July 2025, Latour announced she will be opening for the second leg of Alex Warren's Cheaper Than Therapy Tour.\nLatour released the single \"TickTickBoom\" on September 12, 2025.\nOn September 26, she released the deluxe edition of Sugar Water, including previously released singles \"Miss America\" and \"TickTickBoom\" plus three new tracks.\n\n\nPersonal life\nLatour described herself as a \"fluid bi girl\" in 2022.\n\n\nDiscography\n\n\nAlbums\n\n\nEPs\n\n\nSingles\n\n\nTours\n\n\nHeadlining\nSpring 2022 Tour (2022)\nWhat Is This Feeling? Tour (2022)\nTwin Flame Tour (2023)\nThe Sugar Water Tour (2025)\n\n\nOpening act\nFletcher  – In Search of the Antidote Tour (2024)\nAlex Warren – Cheaper Than Therapy Tour (2025)\nPeach PRC – Wondering Spirit Tour (2026)\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "f9c1c083-be1b-4217-ae4b-f52712face07",
+      "category": "artist",
+      "text": "Clean is performed by Maude Latour.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bd93d9c4-cfbe-439a-bdf0-4687c91b39bf",
+      "category": "cultural_impact",
+      "text": "Maude Latour (born October 8, 1999) is a Swedish-born American singer-songwriter.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Maude_Latour",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9443b52e-e9bc-40fc-b312-8b490ce236fe",
+      "category": "cultural_impact",
+      "text": "Early life and education\nLatour was born in Sweden.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Maude_Latour",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f6ad7181-592e-4575-b244-ae6c96b6b3c9",
+      "category": "cultural_impact",
+      "text": "Her father is Almar Latour, former executive editor and current publisher of The Wall Street Journal and CEO of Dow Jones & Company, and her mother is a journalist for S&P Global.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Maude_Latour",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c4c7aad3-ec3b-447e-ab8e-a83260681adb",
+      "category": "trivia",
+      "text": "Artist: Maude Latour · Title: Clean · Year: 2021 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Maude Latour - Clean.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f3f57744-8b30-445b-b567-c631db672ad5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Maude Latour - Clean.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 70,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 61
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Maude Latour - Clean.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

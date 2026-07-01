@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR905102",
+    "kind": "song",
+    "rvtr": "RVTR905102",
+    "generatedAt": "2026-06-28T22:42:11.934Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR905102",
+    "artist": "Indigo Girls",
+    "title": "Share The Moon",
+    "year": 2011,
+    "albumTitle": "Beauty Queen Sister",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL872732/RVAL872732__indigo-girls__beauty-queen-sister.jpg"
+  },
+  "artist": {
+    "name": "Indigo Girls",
+    "relatedArtists": [
+      "Indigo Girls"
+    ]
+  },
+  "album": {
+    "title": "Beauty Queen Sister",
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-8oy7cq",
+        "title": "Beauty Queen Sister",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-47h1zc",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Indigo Girls - Share The Moon.MP4",
+      "notes": "Detected year: 2011. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Beauty Queen Sister",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-egd8gr",
+      "date": "2011",
+      "label": "Share The Moon — original release",
+      "detail": "Original album: Beauty Queen Sister",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-4ho4ae",
+      "date": "2011",
+      "label": "Beauty Queen Sister",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR905102",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL872732/RVAL872732__indigo-girls__beauty-queen-sister.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5aeefe0a92ed",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905102&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-47h1zc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9b0c24046e05",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905102&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-47h1zc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "80e47cc358fa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905102&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-47h1zc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "25aea2078727",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905102&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-47h1zc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6254b7b63c78",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905102&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-47h1zc",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-47h1zc",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Indigo Girls - Share The Moon.MP4",
+        "notes": "Detected year: 2011. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR905102-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905102"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Indigo Girls"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Indigo Girls"
+    },
+    {
+      "id": "rel-RVTR905102-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905102"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-8oy7cq"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Beauty Queen Sister"
+    },
+    {
+      "id": "rel-RVTR905102-tl-tl-egd8gr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905102"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-egd8gr"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Share The Moon — original release"
+    },
+    {
+      "id": "rel-RVTR905102-tl-tl-4ho4ae",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905102"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4ho4ae"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Beauty Queen Sister"
+    },
+    {
+      "id": "rel-RVTR905102-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905102"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR905102-perf-perf-47h1zc",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905102"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-47h1zc"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-47h1zc-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-47h1zc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Indigo Girls - Share The Moon.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-5aeefe0a92ed-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-47h1zc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5aeefe0a92ed"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9b0c24046e05-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-47h1zc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9b0c24046e05"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-80e47cc358fa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-47h1zc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "80e47cc358fa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-25aea2078727-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-47h1zc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "25aea2078727"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6254b7b63c78-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-47h1zc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6254b7b63c78"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR905102. \"Share The Moon\" by Indigo Girls. Album: Beauty Queen Sister (2011).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL872732/RVAL872732__indigo-girls__beauty-queen-sister.jpg",
+      "excerpt": "Canonical cover assignment for RVTR905102 (Share The Moon). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Beauty Queen Sister (2011)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Indigo Girls · Title: Share The Moon · Album: Beauty Queen Sister · Year: 2011 · Genre: Country · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Indigo Girls - Share The Moon.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-85f36f49",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Indigo Girls - Share The Moon.MP4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8de4b6bd-1fa7-4d2a-b995-0788d2ba9bf2",
+      "category": "artist",
+      "text": "Share The Moon is performed by Indigo Girls.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f424307e-9e1c-4b16-8bb1-f11b4a1725b0",
+      "category": "album",
+      "text": "The song appears on the album \"Beauty Queen Sister\" (2011).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8754e18b-613e-4059-b17f-2dfc6d816b8f",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR905102.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL872732/RVAL872732__indigo-girls__beauty-queen-sister.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "efc10d27-8bd1-4ff2-b244-48fdc45e0f8b",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "181899f9-d852-4fe6-ad3a-749060173f73",
+      "category": "recording",
+      "text": "Share The Moon was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "dd78cacf-6c96-419d-89fa-14ba18b6904d",
+      "category": "trivia",
+      "text": "Artist: Indigo Girls · Title: Share The Moon · Album: Beauty Queen Sister · Year: 2011 · Genre: Country · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Indigo Girls - Share The Moon.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5824b6ba-bd04-43ba-8a28-a068356d6cad",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Indigo Girls - Share The Moon.MP4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Indigo Girls - Share The Moon.MP4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

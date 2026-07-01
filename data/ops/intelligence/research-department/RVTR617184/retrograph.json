@@ -1,0 +1,418 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR617184",
+    "kind": "song",
+    "rvtr": "RVTR617184",
+    "generatedAt": "2026-06-28T22:57:32.217Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR617184",
+    "artist": "J. Cole",
+    "title": "For Whom The Bells",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "J. Cole",
+    "relatedArtists": [
+      "J. Cole"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-3fk3n2",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2016,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - For Whom The Bells.mp4",
+      "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-mk8gzf",
+      "date": "2016",
+      "label": "For Whom The Bells — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-7bsbdd",
+      "date": "—",
+      "label": "\"For Whom the Bell Tolls\" is a song by American rapper J.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k1bmos",
+      "date": "2016",
+      "label": "Cole from his fourth studio album 4 Your Eyez Only (2016).",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-7bsbdd",
+      "date": "—",
+      "label": "\"For Whom the Bell Tolls\" is a song by American rapper J.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2016",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "Cole from his fourth studio album 4 Your Eyez Only (2016).",
+      "It was written by Cole with production by Cole and Elijah Scarlett."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ecaca20f6e01",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR617184&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-3fk3n2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2025326bbdc8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR617184&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-3fk3n2",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-3fk3n2",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2016,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - For Whom The Bells.mp4",
+        "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR617184-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR617184"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "J. Cole"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "J. Cole"
+    },
+    {
+      "id": "rel-RVTR617184-tl-tl-mk8gzf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR617184"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mk8gzf"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "For Whom The Bells — original release"
+    },
+    {
+      "id": "rel-RVTR617184-tl-tl-7bsbdd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR617184"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7bsbdd"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"For Whom the Bell Tolls\" is a song by American rapper J."
+    },
+    {
+      "id": "rel-RVTR617184-tl-tl-k1bmos",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR617184"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k1bmos"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Cole from his fourth studio album 4 Your Eyez Only (2016)."
+    },
+    {
+      "id": "rel-RVTR617184-tl-tl-7bsbdd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR617184"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7bsbdd"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"For Whom the Bell Tolls\" is a song by American rapper J."
+    },
+    {
+      "id": "rel-RVTR617184-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR617184"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR617184-perf-perf-3fk3n2",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR617184"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-3fk3n2"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-3fk3n2-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3fk3n2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - For Whom The Bells.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ecaca20f6e01-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3fk3n2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ecaca20f6e01"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2025326bbdc8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3fk3n2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2025326bbdc8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR617184. \"For Whom The Bells\" by J. Cole.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: J. Cole · Title: For Whom The Bells · Album: Mood Music From The Movies · Year: 2016 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - For Whom The Bells.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ba06d271",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - For Whom The Bells.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-for-whom-the-bell-tolls-j-cole-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/For_Whom_the_Bell_Tolls_(J._Cole_song)",
+      "excerpt": "\"For Whom the Bell Tolls\" is a song by American rapper J. Cole from his fourth studio album 4 Your Eyez Only (2016). It was written by Cole with production by Cole and Elijah Scarlett. It contains an interpolation from \"Divine\", written by Aknostra and Tiad Hilm, as performed by Tiad Hilm.\nThe song was recorded at the Sheltuh in North Carolina and Electric Lady Studios in New York City. Commercially, the song peaked at number 23 on the Billboard Hot 100 in the United States, peaked just outside the top ten on the Hot R&B/Hip-Hop Songs chart, and reached the top 30 in 20 other countries.\n\n\nBackground\nThe title of the song references the 1940 novel For Whom the Bell Tolls by Ernest Hemingway. The novel tells the story of Robert Jordan, a young American engaged in guerrilla warfare during the Spanish Civil War. The novel focuses on themes of death and suicide.  \"For Whom the Bell Tolls\" also features background vocals from Kay Foxx.\n\n\nCommercial performance\nUpon its first week of release, \"For Whom the Bell Tolls\" debuted at number 23 on the US Billboard Hot 100, and number 13 on the US Hot R&B/Hip-Hop Songs chart. Outside the United States, \"For Whom the Bell Tolls\" reached the top 30 in Canada and the top 20 in the United Kingdom.\n\n\nCharts\n\n\nPersonnel\nJ. Cole – lead vocals, additional production\nElijah Scarlett – Production\nJuro “Mez” Davis – Recording Engineer\nKay Foxx – Background Vocals\nGosha Usov – Assistant Engineers\nBeatriz Artola – Assistant Engineers\nCharGaux – String Arrangement\nNico Segal – Horn Arrangement\nAnthony Ware – Additional Horns\nTheo Croker – Additional Horns\nNate Fox – Additional Musical Arrangement\nPeter Cottontale – Additional Musical Arrangement\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "173e8623-ac66-4449-86b4-66814489dffa",
+      "category": "artist",
+      "text": "For Whom The Bells is performed by J. Cole.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "31885b4f-83fd-490b-9e5b-d30db3f24525",
+      "category": "cultural_impact",
+      "text": "\"For Whom the Bell Tolls\" is a song by American rapper J.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/For_Whom_the_Bell_Tolls_(J._Cole_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "99bc5eb7-85b0-47bf-a9c1-3472ee8f1bf5",
+      "category": "cultural_impact",
+      "text": "Cole from his fourth studio album 4 Your Eyez Only (2016).",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/For_Whom_the_Bell_Tolls_(J._Cole_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b9441007-0c4b-4afd-a1e3-a7a758706f28",
+      "category": "cultural_impact",
+      "text": "It was written by Cole with production by Cole and Elijah Scarlett.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/For_Whom_the_Bell_Tolls_(J._Cole_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "840159fc-1420-4672-9a65-7578603511ba",
+      "category": "trivia",
+      "text": "Cole · Title: For Whom The Bells · Album: Mood Music From The Movies · Year: 2016 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/J.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 4,
+    "pending": 1,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/J. Cole - For Whom The Bells.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR118072",
+    "kind": "song",
+    "rvtr": "RVTR118072",
+    "generatedAt": "2026-06-28T22:46:05.356Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR118072",
+    "artist": "Georgie Fame",
+    "title": "Get Away",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Georgie Fame",
+    "relatedArtists": [
+      "Georgie Fame"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-dx0jis",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1966,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Georgie Fame - Get Away.mp4",
+      "notes": "Detected year: 1966. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-84kkpg",
+      "date": "1966",
+      "label": "Get Away — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1966",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ac35626ff3f3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR118072&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dx0jis",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "976a02b8425b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR118072&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dx0jis",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "73d34817128e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR118072&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dx0jis",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c99d380f4be3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR118072&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dx0jis",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3a2a7c0d844c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR118072&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dx0jis",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dx0jis",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1966,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Georgie Fame - Get Away.mp4",
+        "notes": "Detected year: 1966. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR118072-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR118072"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Georgie Fame"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Georgie Fame"
+    },
+    {
+      "id": "rel-RVTR118072-tl-tl-84kkpg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR118072"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-84kkpg"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Get Away — original release"
+    },
+    {
+      "id": "rel-RVTR118072-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR118072"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR118072-perf-perf-dx0jis",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR118072"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dx0jis"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dx0jis-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dx0jis"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Georgie Fame - Get Away.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ac35626ff3f3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dx0jis"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ac35626ff3f3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-976a02b8425b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dx0jis"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "976a02b8425b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-73d34817128e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dx0jis"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "73d34817128e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c99d380f4be3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dx0jis"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c99d380f4be3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-3a2a7c0d844c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dx0jis"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3a2a7c0d844c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR118072. \"Get Away\" by Georgie Fame.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Georgie Fame · Title: Get Away · Album: Yeh, Yeh / Getaway · Year: 1966 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Georgie Fame - Get Away.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-26196a11",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Georgie Fame - Get Away.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "cd9254db-1e20-4757-a2d8-89af80bb524d",
+      "category": "artist",
+      "text": "Get Away is performed by Georgie Fame.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c22e1795-c38f-4337-a5d6-84681203d355",
+      "category": "trivia",
+      "text": "Artist: Georgie Fame · Title: Get Away · Album: Yeh, Yeh / Getaway · Year: 1966 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Georgie Fame - Get Away.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "70533743-8d51-49df-a552-c6bbefc6b8dc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Georgie Fame - Get Away.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Georgie Fame - Get Away.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

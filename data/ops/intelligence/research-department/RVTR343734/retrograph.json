@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR343734",
+    "kind": "song",
+    "rvtr": "RVTR343734",
+    "generatedAt": "2026-06-28T22:51:04.492Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR343734",
+    "artist": "Saigon Kick",
+    "title": "All I Want",
+    "year": 1992,
+    "albumTitle": "Lizard",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL090654/RVAL090654__saigon-kick__lizard.jpg"
+  },
+  "artist": {
+    "name": "Saigon Kick",
+    "relatedArtists": [
+      "Saigon Kick"
+    ]
+  },
+  "album": {
+    "title": "Lizard",
+    "releaseYear": 1992,
+    "recordings": [
+      {
+        "id": "rec-okzeyj",
+        "title": "Lizard",
+        "releaseDate": 1992,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-hj4oaf",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1992,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Saigon Kick - All I Want.mp4",
+      "notes": "Detected year: 1992. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Lizard",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-u7ncyi",
+      "date": "1992",
+      "label": "All I Want — original release",
+      "detail": "Original album: Lizard",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-x6u8lm",
+      "date": "1992",
+      "label": "Lizard",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1992",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR343734",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL090654/RVAL090654__saigon-kick__lizard.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "731494b16271",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR343734&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hj4oaf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7a38b8785367",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR343734&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hj4oaf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f94649427a06",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR343734&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hj4oaf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e04314e2d089",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR343734&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hj4oaf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a6a82ecf5c45",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR343734&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hj4oaf",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hj4oaf",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1992,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Saigon Kick - All I Want.mp4",
+        "notes": "Detected year: 1992. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR343734-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR343734"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Saigon Kick"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Saigon Kick"
+    },
+    {
+      "id": "rel-RVTR343734-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR343734"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-okzeyj"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Lizard"
+    },
+    {
+      "id": "rel-RVTR343734-tl-tl-u7ncyi",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR343734"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-u7ncyi"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "All I Want — original release"
+    },
+    {
+      "id": "rel-RVTR343734-tl-tl-x6u8lm",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR343734"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-x6u8lm"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Lizard"
+    },
+    {
+      "id": "rel-RVTR343734-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR343734"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR343734-perf-perf-hj4oaf",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR343734"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hj4oaf"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hj4oaf-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hj4oaf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Saigon Kick - All I Want.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-731494b16271-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hj4oaf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "731494b16271"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-7a38b8785367-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hj4oaf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7a38b8785367"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f94649427a06-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hj4oaf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f94649427a06"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e04314e2d089-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hj4oaf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e04314e2d089"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a6a82ecf5c45-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hj4oaf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a6a82ecf5c45"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR343734. \"All I Want\" by Saigon Kick. Album: Lizard (1992).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL090654/RVAL090654__saigon-kick__lizard.jpg",
+      "excerpt": "Canonical cover assignment for RVTR343734 (All I Want). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Lizard (1992)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Saigon Kick · Title: All I Want · Album: All I Want · Year: 1992 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Saigon Kick - All I Want.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1992.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-48f4d6a2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Saigon Kick - All I Want.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0355840e-9a37-4033-8de5-5e2d5656aa85",
+      "category": "artist",
+      "text": "All I Want is performed by Saigon Kick.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0225850b-6bf8-4317-beb7-e2b98ce20bd8",
+      "category": "album",
+      "text": "The song appears on the album \"Lizard\" (1992).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6b3dee7a-e23d-49a7-92d0-ca34a78de844",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR343734.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL090654/RVAL090654__saigon-kick__lizard.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2bab996c-e92c-4429-9571-474721bea34e",
+      "category": "recording",
+      "text": "All I Want was released in 1992.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "effe00ed-4cb9-4a49-a1f8-a84e629331bd",
+      "category": "trivia",
+      "text": "Artist: Saigon Kick · Title: All I Want · Album: All I Want · Year: 1992 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Saigon Kick - All I Want.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d2206842-4987-49d4-aa33-b1b4781a519d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Saigon Kick - All I Want.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Saigon Kick - All I Want.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

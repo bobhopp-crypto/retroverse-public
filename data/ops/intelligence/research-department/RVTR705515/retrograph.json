@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR705515",
+    "kind": "song",
+    "rvtr": "RVTR705515",
+    "generatedAt": "2026-06-28T23:00:06.195Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR705515",
+    "artist": "Staind",
+    "title": "All I Want",
+    "year": 2008,
+    "albumTitle": "The Illusion Of Progress",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL160938/RVAL160938__staind__the-illusion-of-progress.jpg"
+  },
+  "artist": {
+    "name": "Staind",
+    "relatedArtists": [
+      "Staind"
+    ]
+  },
+  "album": {
+    "title": "The Illusion Of Progress",
+    "releaseYear": 2008,
+    "recordings": [
+      {
+        "id": "rec-td2196",
+        "title": "The Illusion Of Progress",
+        "releaseDate": 2008,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-iyv6qz",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Staind - All I Want.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "The Illusion Of Progress",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-u7ncyi",
+      "date": "2008",
+      "label": "All I Want — original release",
+      "detail": "Original album: The Illusion Of Progress",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-56kt6u",
+      "date": "2008",
+      "label": "The Illusion Of Progress",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR705515",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL160938/RVAL160938__staind__the-illusion-of-progress.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0e903964cb3c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR705515&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-iyv6qz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "06da9d7bb795",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR705515&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-iyv6qz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8418ef1302be",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR705515&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-iyv6qz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d786507ab215",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR705515&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-iyv6qz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0b7086442574",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR705515&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-iyv6qz",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-iyv6qz",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Staind - All I Want.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR705515-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR705515"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Staind"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Staind"
+    },
+    {
+      "id": "rel-RVTR705515-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR705515"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-td2196"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Illusion Of Progress"
+    },
+    {
+      "id": "rel-RVTR705515-tl-tl-u7ncyi",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR705515"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-u7ncyi"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "All I Want — original release"
+    },
+    {
+      "id": "rel-RVTR705515-tl-tl-56kt6u",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR705515"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-56kt6u"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Illusion Of Progress"
+    },
+    {
+      "id": "rel-RVTR705515-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR705515"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR705515-perf-perf-iyv6qz",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR705515"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-iyv6qz"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-iyv6qz-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyv6qz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Staind - All I Want.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0e903964cb3c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyv6qz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0e903964cb3c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-06da9d7bb795-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyv6qz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "06da9d7bb795"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-8418ef1302be-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyv6qz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8418ef1302be"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d786507ab215-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyv6qz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d786507ab215"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0b7086442574-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iyv6qz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0b7086442574"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR705515. \"All I Want\" by Staind. Album: The Illusion Of Progress (2008).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL160938/RVAL160938__staind__the-illusion-of-progress.jpg",
+      "excerpt": "Canonical cover assignment for RVTR705515 (All I Want). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Illusion Of Progress (2008)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Staind · Title: All I Want · Album: All I Want · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Staind - All I Want.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2008.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-5c58ad6f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Staind - All I Want.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e0e080dc-48d2-4027-8999-88045d4b200b",
+      "category": "artist",
+      "text": "All I Want is performed by Staind.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "43a24260-bea7-4252-a42f-41284ce10de8",
+      "category": "album",
+      "text": "The song appears on the album \"The Illusion Of Progress\" (2008).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5f797eae-17f6-4253-aeef-8210a7e01815",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR705515.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL160938/RVAL160938__staind__the-illusion-of-progress.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cf711514-4826-4eb5-bd6b-f2f53de0b186",
+      "category": "recording",
+      "text": "All I Want was released in 2008.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "67fe55c2-f45c-4e46-ac5d-15253b4d0cb5",
+      "category": "trivia",
+      "text": "Artist: Staind · Title: All I Want · Album: All I Want · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Staind - All I Want.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eeb9aec0-0cf7-4010-8579-9980abb55981",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Staind - All I Want.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Staind - All I Want.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

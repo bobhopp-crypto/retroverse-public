@@ -1,6 +1,7 @@
 import { hydratePackageIntel } from "./package-intel";
 import { loadSongPackage, normalizePackageRvtr } from "./song-package-store";
 import type { CandidateFact, SongPackage, StoryCard } from "./song-package-types";
+import { resolveHeroFromSongPackage } from "@/lib/visual-profile/hero-resolver";
 
 const RVTR_RE = /^RVTR\d{6}$/;
 
@@ -154,6 +155,7 @@ export async function loadPerformanceDeck(rvtrParam: string): Promise<Performanc
   const status = raw.status;
   const pkg = hydratePackageIntel(raw);
   const meta = pkg.metadata;
+  const hero = resolveHeroFromSongPackage(pkg);
   const cards: PerformanceDeckCard[] = [
     {
       type: "hero",
@@ -163,7 +165,7 @@ export async function loadPerformanceDeck(rvtrParam: string): Promise<Performanc
       rvtr: pkg.rvtr,
       year: meta.year,
       albumTitle: meta.albumTitle,
-      coverUrl: meta.coverUrl,
+      coverUrl: hero.url,
       peakHot100: meta.peakHot100,
       chartWeeks: meta.chartWeeks,
       label: pkg.intel.label,

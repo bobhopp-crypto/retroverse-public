@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR666430",
+    "kind": "song",
+    "rvtr": "RVTR666430",
+    "generatedAt": "2026-06-28T22:58:58.404Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR666430",
+    "artist": "Mann F./50 Cent",
+    "title": "Buzzin'",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mann F./50 Cent",
+    "relatedArtists": [
+      "Mann F./50 Cent"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-yzfj63",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mann f._50 Cent - Buzzin'.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-6nb84z",
+      "date": "2011",
+      "label": "Buzzin' — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cc54e1462ab2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR666430&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yzfj63",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "37ac065733fb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR666430&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yzfj63",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8a8d42102f0f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR666430&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yzfj63",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "98f59a1cdfc4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR666430&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yzfj63",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b2619bb1e834",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR666430&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yzfj63",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yzfj63",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mann f._50 Cent - Buzzin'.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR666430-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR666430"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mann F./50 Cent"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mann F./50 Cent"
+    },
+    {
+      "id": "rel-RVTR666430-tl-tl-6nb84z",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR666430"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6nb84z"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Buzzin' — original release"
+    },
+    {
+      "id": "rel-RVTR666430-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR666430"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR666430-perf-perf-yzfj63",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR666430"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yzfj63"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yzfj63-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzfj63"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mann f._50 Cent - Buzzin'.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-cc54e1462ab2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzfj63"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cc54e1462ab2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-37ac065733fb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzfj63"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "37ac065733fb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8a8d42102f0f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzfj63"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8a8d42102f0f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-98f59a1cdfc4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzfj63"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "98f59a1cdfc4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b2619bb1e834-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzfj63"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2619bb1e834"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR666430. \"Buzzin'\" by Mann F./50 Cent.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mann f./50 Cent · Title: Buzzin' · Album: HV 02-11 · Year: 2011 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mann f._50 Cent - Buzzin'.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7a8c4c06",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mann f._50 Cent - Buzzin'.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-fea4cb1e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Mann Featuring 50 Cent - Buzzin (Remix) (Edited Version).mp3 · Performance: Remix",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "cb2e3efc-cb97-4777-b53d-5b75de98b8d3",
+      "category": "artist",
+      "text": "Buzzin' is performed by Mann F./50 Cent.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "17e3df57-d7b2-4b17-bfed-eebb1fccc16d",
+      "category": "trivia",
+      "text": "Artist: Mann f./50 Cent · Title: Buzzin' · Album: HV 02-11 · Year: 2011 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mann f._50 Cent - Buzzin'.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1e7077dc-a6a6-4fa2-bc91-e0580f78ddd5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mann f._50 Cent - Buzzin'.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c46b3a47-b964-4d99-92d7-04dd887b3480",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Mann Featuring 50 Cent - Buzzin (Remix) (Edited Version).mp3 · Performance: Remix",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mann f._50 Cent - Buzzin'.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,564 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR437790",
+    "kind": "song",
+    "rvtr": "RVTR437790",
+    "generatedAt": "2026-06-28T22:52:51.408Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR437790",
+    "artist": "Freak Nasty",
+    "title": "Da' Dip",
+    "year": 1997,
+    "albumTitle": "Controversee... That's Life...And That's The Way It Is",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Freak Nasty",
+    "relatedArtists": [
+      "Freak Nasty"
+    ]
+  },
+  "album": {
+    "title": "Controversee... That's Life...And That's The Way It Is",
+    "releaseYear": 1997,
+    "recordings": [
+      {
+        "id": "rec-tbsncf",
+        "title": "Controversee... That's Life...And That's The Way It Is",
+        "releaseDate": 1997,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-5u12kn",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1996,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Freak Nasty - Da' Dip.mp4",
+      "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 15,
+    "chartWeeks": 33,
+    "albumTitle": "Controversee... That's Life...And That's The Way It Is",
+    "summary": "Hot 100 peak #15 · 33 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-bw39gn",
+      "date": "1997",
+      "label": "Da' Dip — original release",
+      "detail": "Original album: Controversee... That's Life...And That's The Way It Is",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fu",
+      "date": "1997",
+      "label": "Billboard Hot 100 peak #15",
+      "detail": "33 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-e358w5",
+      "date": "1997",
+      "label": "Controversee... That's Life...And That's The Way It Is",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1996",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "44b3d885e198",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR437790&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-5u12kn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d6ede1a25017",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR437790&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-5u12kn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d6ecfc44008b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR437790&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-5u12kn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "29b54c3cb769",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR437790&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-5u12kn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "474fdac8bda1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR437790&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-5u12kn",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-5u12kn",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1996,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Freak Nasty - Da' Dip.mp4",
+        "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR437790-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR437790"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Freak Nasty"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Freak Nasty"
+    },
+    {
+      "id": "rel-RVTR437790-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR437790"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-tbsncf"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Controversee... That's Life...And That's The Way It Is"
+    },
+    {
+      "id": "rel-RVTR437790-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR437790"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #15"
+    },
+    {
+      "id": "rel-RVTR437790-tl-tl-bw39gn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR437790"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bw39gn"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Da' Dip — original release"
+    },
+    {
+      "id": "rel-RVTR437790-tl-tl-fcm3fu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR437790"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fu"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #15"
+    },
+    {
+      "id": "rel-RVTR437790-tl-tl-e358w5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR437790"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-e358w5"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Controversee... That's Life...And That's The Way It Is"
+    },
+    {
+      "id": "rel-RVTR437790-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR437790"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR437790-perf-perf-5u12kn",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR437790"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-5u12kn"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-5u12kn-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5u12kn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Freak Nasty - Da' Dip.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-44b3d885e198-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5u12kn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "44b3d885e198"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d6ede1a25017-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5u12kn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d6ede1a25017"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d6ecfc44008b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5u12kn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d6ecfc44008b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-29b54c3cb769-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5u12kn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "29b54c3cb769"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-474fdac8bda1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5u12kn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "474fdac8bda1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR437790. \"Da' Dip\" by Freak Nasty. Album: Controversee... That's Life...And That's The Way It Is (1997).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Controversee... That's Life...And That's The Way It Is (1997). Billboard Hot 100 peak: #15. 33 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Freak Nasty · Title: Da' Dip · Album: Da' Dip · Year: 1996 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Freak Nasty - Da' Dip.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1997.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c338cf7e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Freak Nasty - Da' Dip.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cf8fd834",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Freak Nasty - Da Dip.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "54b43c48-1873-43e6-8d04-36386254a970",
+      "category": "artist",
+      "text": "Da' Dip is performed by Freak Nasty.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ac7d5af2-43ce-4d35-99c8-55c03641ac00",
+      "category": "album",
+      "text": "The song appears on the album \"Controversee... That's Life...And That's The Way It Is\" (1997).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8559d66a-c838-4bbd-87e5-1db010c58e23",
+      "category": "chart",
+      "text": "The song peaked at #15 on the Billboard Hot 100 and spent 33 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "37ae45f9-4ab4-473f-92da-d03220d571b2",
+      "category": "recording",
+      "text": "Da' Dip was released in 1997.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8555eb67-a72c-406f-9790-fa758f25c703",
+      "category": "trivia",
+      "text": "That's Life...And That's The Way It Is (1997).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "100ad58c-cb48-4246-9675-5c484372973c",
+      "category": "trivia",
+      "text": "Artist: Freak Nasty · Title: Da' Dip · Album: Da' Dip · Year: 1996 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Freak Nasty - Da' Dip.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "84ec758b-def9-44dc-8372-f77d86178ab3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Freak Nasty - Da' Dip.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bf80fc5c-1fea-4ac5-a79b-a5dbc55a97f7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Freak Nasty - Da Dip.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 1,
+    "clusters": [
+      {
+        "clusterId": "cluster-8555eb67",
+        "keptFactId": "8555eb67-a72c-406f-9790-fa758f25c703",
+        "memberIds": [
+          "a3d5ef00-e241-44c0-9ccc-d363cc198a2a"
+        ],
+        "reason": "Duplicate cluster (2) — kept highest confidence"
+      }
+    ]
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 1,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Freak Nasty - Da' Dip.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR299408",
+    "kind": "song",
+    "rvtr": "RVTR299408",
+    "generatedAt": "2026-06-28T22:50:12.259Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR299408",
+    "artist": "Tomoyasu Hotei",
+    "title": "Battle Without Honor Or Humanity Kill Bill",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Tomoyasu Hotei",
+    "relatedArtists": [
+      "Tomoyasu Hotei"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-qlofcp",
+      "title": "Kill Bill",
+      "kind": "performance",
+      "year": 2004,
+      "venue": "Kill Bill",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tomoyasu Hotei - Battle Without Honor or Humanity (Kill Bill).mp4",
+      "notes": "Performance label: Kill Bill. Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-69vc9x",
+      "date": "2004",
+      "label": "Battle Without Honor Or Humanity Kill Bill — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-trz92j",
+      "date": "2004",
+      "label": "Kill Bill",
+      "detail": "Kill Bill",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "18ffc1336744",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299408&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-qlofcp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4a0bb81ffe60",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299408&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-qlofcp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7057513acc8d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299408&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-qlofcp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6e83511cccd7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299408&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-qlofcp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4f2b6442a0ae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299408&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-qlofcp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-qlofcp",
+        "title": "Kill Bill",
+        "kind": "performance",
+        "year": 2004,
+        "venue": "Kill Bill",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tomoyasu Hotei - Battle Without Honor or Humanity (Kill Bill).mp4",
+        "notes": "Performance label: Kill Bill. Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR299408-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR299408"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Tomoyasu Hotei"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Tomoyasu Hotei"
+    },
+    {
+      "id": "rel-RVTR299408-tl-tl-69vc9x",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR299408"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-69vc9x"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Battle Without Honor Or Humanity Kill Bill — original release"
+    },
+    {
+      "id": "rel-RVTR299408-tl-tl-trz92j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR299408"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-trz92j"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "Kill Bill"
+    },
+    {
+      "id": "rel-RVTR299408-perf-perf-qlofcp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR299408"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-qlofcp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Kill Bill"
+    },
+    {
+      "id": "rel-perf-qlofcp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qlofcp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tomoyasu Hotei - Battle Without Honor or Humanity (Kill Bill).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Kill Bill"
+    },
+    {
+      "id": "rel-18ffc1336744-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qlofcp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "18ffc1336744"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4a0bb81ffe60-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qlofcp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a0bb81ffe60"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-7057513acc8d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qlofcp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7057513acc8d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6e83511cccd7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qlofcp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6e83511cccd7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-4f2b6442a0ae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qlofcp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4f2b6442a0ae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR299408. \"Battle Without Honor Or Humanity Kill Bill\" by Tomoyasu Hotei.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Tomoyasu Hotei · Title: Battle Without Honor or Humanity (Kill Bill) · Album: Kill Bill · Year: 2004 · Genre: Breakbeat · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tomoyasu Hotei - Battle Without Honor or Humanity (Kill Bill).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-607364cf",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tomoyasu Hotei - Battle Without Honor or Humanity (Kill Bill).mp4 · Performance: Kill Bill",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f3491ccc-a342-4634-a8f9-440c8850ba5c",
+      "category": "artist",
+      "text": "Battle Without Honor Or Humanity Kill Bill is performed by Tomoyasu Hotei.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "44164017-08f2-4241-a953-ff53838c1bec",
+      "category": "trivia",
+      "text": "\"Battle Without Honor Or Humanity Kill Bill\" by Tomoyasu Hotei.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5179aa61-9fd6-494a-84db-3a3bceb03c05",
+      "category": "trivia",
+      "text": "Artist: Tomoyasu Hotei · Title: Battle Without Honor or Humanity (Kill Bill) · Album: Kill Bill · Year: 2004 · Genre: Breakbeat · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tomoyasu Hotei - Battle Without Honor or Humanity (Kill Bill).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5e25e001-ff52-4ede-84e4-06cfbe6585ee",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tomoyasu Hotei - Battle Without Honor or Humanity (Kill Bill).mp4 · Performance: Kill Bill",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Tomoyasu Hotei - Battle Without Honor or Humanity (Kill Bill).mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR385522",
+    "kind": "song",
+    "rvtr": "RVTR385522",
+    "generatedAt": "2026-06-28T22:51:46.948Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR385522",
+    "artist": "Flex",
+    "title": "Cupid",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Flex",
+    "relatedArtists": [
+      "Flex"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ufsunb",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2024,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Flex - Cupid.mp4",
+      "notes": "Detected year: 2024. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-o4feub",
+      "date": "2024",
+      "label": "Cupid — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2024",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d7a4f84d676b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385522&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ufsunb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "077765f9ded0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385522&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ufsunb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "94794d8c0da9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385522&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ufsunb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9b9e63f504a7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385522&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ufsunb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8d70b61c0bf8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR385522&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ufsunb",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ufsunb",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2024,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Flex - Cupid.mp4",
+        "notes": "Detected year: 2024. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR385522-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR385522"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Flex"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Flex"
+    },
+    {
+      "id": "rel-RVTR385522-tl-tl-o4feub",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR385522"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-o4feub"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Cupid — original release"
+    },
+    {
+      "id": "rel-RVTR385522-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR385522"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR385522-perf-perf-ufsunb",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR385522"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ufsunb"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ufsunb-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ufsunb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Flex - Cupid.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d7a4f84d676b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ufsunb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d7a4f84d676b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-077765f9ded0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ufsunb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "077765f9ded0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-94794d8c0da9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ufsunb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "94794d8c0da9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9b9e63f504a7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ufsunb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9b9e63f504a7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-8d70b61c0bf8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ufsunb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8d70b61c0bf8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR385522. \"Cupid\" by Flex.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Flex · Title: Cupid · Album: Little Esther* And Mel Walker With Johnny Otis Orchestra* And The Beltones - Just Can't Get Free / Cupid's Boogie · Year: 2024 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Flex - Cupid.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d3805a0d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Flex - Cupid.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ae517302-2252-430f-8ad9-3d8099fe4191",
+      "category": "artist",
+      "text": "Cupid is performed by Flex.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b5b2a147-b2f2-4b0b-8340-30a297dfbe90",
+      "category": "trivia",
+      "text": "Artist: Flex · Title: Cupid · Album: Little Esther* And Mel Walker With Johnny Otis Orchestra* And The Beltones - Just Can't Get Free / Cupid's Boogie · Year: 2024 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Flex - Cupid.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "45b85655-6361-48e8-8a6a-8bae923416c0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Flex - Cupid.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Flex - Cupid.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

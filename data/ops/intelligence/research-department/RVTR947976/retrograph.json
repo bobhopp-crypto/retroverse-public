@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR947976",
+    "kind": "song",
+    "rvtr": "RVTR947976",
+    "generatedAt": "2026-06-28T23:08:25.432Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR947976",
+    "artist": "Dokken",
+    "title": "Into The Fire",
+    "year": 1984,
+    "albumTitle": "Tooth And Nail",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL572674/RVAL572674__dokken__tooth-and-nail.jpg"
+  },
+  "artist": {
+    "name": "Dokken",
+    "relatedArtists": [
+      "Dokken"
+    ]
+  },
+  "album": {
+    "title": "Tooth And Nail",
+    "releaseYear": 1984,
+    "recordings": [
+      {
+        "id": "rec-by6bt3",
+        "title": "Tooth And Nail",
+        "releaseDate": 1984,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-dw25z0",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1988,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Into The Fire.mp4",
+      "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Tooth And Nail",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-eu73cn",
+      "date": "1984",
+      "label": "Into The Fire — original release",
+      "detail": "Original album: Tooth And Nail",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-dxrqh7",
+      "date": "1984",
+      "label": "Tooth And Nail",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1988",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR947976",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL572674/RVAL572674__dokken__tooth-and-nail.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "21a887ac4773",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR947976&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dw25z0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "69b87110e7a2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR947976&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dw25z0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fd1519e95d01",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR947976&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dw25z0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aad62409136c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR947976&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dw25z0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "54d19e7d6110",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR947976&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dw25z0",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dw25z0",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1988,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Into The Fire.mp4",
+        "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR947976-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR947976"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dokken"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dokken"
+    },
+    {
+      "id": "rel-RVTR947976-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR947976"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-by6bt3"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Tooth And Nail"
+    },
+    {
+      "id": "rel-RVTR947976-tl-tl-eu73cn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR947976"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-eu73cn"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Into The Fire — original release"
+    },
+    {
+      "id": "rel-RVTR947976-tl-tl-dxrqh7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR947976"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dxrqh7"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Tooth And Nail"
+    },
+    {
+      "id": "rel-RVTR947976-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR947976"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR947976-perf-perf-dw25z0",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR947976"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dw25z0"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dw25z0-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dw25z0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Into The Fire.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-21a887ac4773-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dw25z0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "21a887ac4773"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-69b87110e7a2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dw25z0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "69b87110e7a2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-fd1519e95d01-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dw25z0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fd1519e95d01"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-aad62409136c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dw25z0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aad62409136c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-54d19e7d6110-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dw25z0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "54d19e7d6110"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR947976. \"Into The Fire\" by Dokken. Album: Tooth And Nail (1984).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL572674/RVAL572674__dokken__tooth-and-nail.jpg",
+      "excerpt": "Canonical cover assignment for RVTR947976 (Into The Fire). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Tooth And Nail (1984)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dokken · Title: Into The Fire · Year: 1988 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Into The Fire.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1984.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c66f8145",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Into The Fire.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d5291459-ca5a-405b-ae74-1badeb8f9823",
+      "category": "artist",
+      "text": "Into The Fire is performed by Dokken.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bcf072b2-bfc9-48e7-8a65-b40882261aea",
+      "category": "album",
+      "text": "The song appears on the album \"Tooth And Nail\" (1984).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6ed33d0a-241c-4e29-b331-1f2a06df4881",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR947976.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL572674/RVAL572674__dokken__tooth-and-nail.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "412afd62-b2e8-4437-8c83-0ef2d8279d76",
+      "category": "recording",
+      "text": "Into The Fire was released in 1984.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "438a14b4-400c-4c8f-b9ab-f90ffeaeb46a",
+      "category": "trivia",
+      "text": "Artist: Dokken · Title: Into The Fire · Year: 1988 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Into The Fire.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a42efc49-e22e-4964-8d10-6447c1b500c5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Into The Fire.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Into The Fire.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

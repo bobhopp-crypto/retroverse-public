@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR816369",
+    "kind": "song",
+    "rvtr": "RVTR816369",
+    "generatedAt": "2026-06-28T23:03:24.474Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR816369",
+    "artist": "Bakar",
+    "title": "Hell N Back",
+    "year": 2024,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Bakar",
+    "relatedArtists": [
+      "Bakar"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2024,
+    "recordings": [
+      {
+        "id": "rec-uwgqgu",
+        "title": "Hell N Back — graph recording",
+        "releaseDate": 2024,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-feq96b",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2019,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bakar - Hell N Back.mp4",
+      "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 53,
+    "chartWeeks": 12,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #53 · 12 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-uhm4n4",
+      "date": "2024",
+      "label": "Hell N Back — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3j8",
+      "date": "2024",
+      "label": "Billboard Hot 100 peak #53",
+      "detail": "12 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-era4pn",
+      "date": "2024",
+      "label": "Hell N Back — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2019",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e66d1f6a766b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR816369&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-feq96b",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2ad00fdee1f0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR816369&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-feq96b",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0751ca77dec7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR816369&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-feq96b",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "afa816b35c78",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR816369&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-feq96b",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d673e2c81f35",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR816369&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-feq96b",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-feq96b",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2019,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bakar - Hell N Back.mp4",
+        "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR816369-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR816369"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Bakar"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Bakar"
+    },
+    {
+      "id": "rel-RVTR816369-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR816369"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #53"
+    },
+    {
+      "id": "rel-RVTR816369-tl-tl-uhm4n4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR816369"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-uhm4n4"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hell N Back — original release"
+    },
+    {
+      "id": "rel-RVTR816369-tl-tl-fcm3j8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR816369"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3j8"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #53"
+    },
+    {
+      "id": "rel-RVTR816369-tl-tl-era4pn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR816369"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-era4pn"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Hell N Back — graph recording"
+    },
+    {
+      "id": "rel-RVTR816369-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR816369"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR816369-perf-perf-feq96b",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR816369"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-feq96b"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-feq96b-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-feq96b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bakar - Hell N Back.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e66d1f6a766b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-feq96b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e66d1f6a766b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-2ad00fdee1f0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-feq96b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2ad00fdee1f0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-0751ca77dec7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-feq96b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0751ca77dec7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-afa816b35c78-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-feq96b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "afa816b35c78"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d673e2c81f35-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-feq96b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d673e2c81f35"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR816369. \"Hell N Back\" by Bakar.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #53. 12 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Bakar · Title: Hell N Back · Album: Hell N Back · Year: 2019 · Genre: Trap · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bakar - Hell N Back.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2024.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-56c5e09b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bakar - Hell N Back.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e2ef7458-6d26-445c-a8a9-f4c075a57db9",
+      "category": "artist",
+      "text": "Hell N Back is performed by Bakar.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "67fc3cab-6c59-4729-902d-2f92f9d1dbb9",
+      "category": "chart",
+      "text": "The song peaked at #53 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "43ac469c-8695-41f6-922f-ba7b483dbe7f",
+      "category": "recording",
+      "text": "Hell N Back was released in 2024.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "72c3ac26-e9f7-4acb-9c97-30f866269794",
+      "category": "trivia",
+      "text": "Artist: Bakar · Title: Hell N Back · Album: Hell N Back · Year: 2019 · Genre: Trap · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bakar - Hell N Back.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "84865144-d278-4f4c-9d2e-8e1bee751f42",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bakar - Hell N Back.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Bakar - Hell N Back.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

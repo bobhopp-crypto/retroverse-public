@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR764020",
+    "kind": "song",
+    "rvtr": "RVTR764020",
+    "generatedAt": "2026-06-28T23:01:52.434Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR764020",
+    "artist": "Jenny Morris",
+    "title": "You I Know",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jenny Morris",
+    "relatedArtists": [
+      "Jenny Morris"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-efs7co",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1987,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jenny Morris - You I Know.mp4",
+      "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-sjgguh",
+      "date": "1987",
+      "label": "You I Know — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1987",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b7effc7879be",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR764020&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-efs7co",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "990f105c5e44",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR764020&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-efs7co",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9471e2607752",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR764020&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-efs7co",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "757a5576b9e9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR764020&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-efs7co",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b2df5dd2dc8e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR764020&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-efs7co",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-efs7co",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1987,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jenny Morris - You I Know.mp4",
+        "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR764020-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR764020"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jenny Morris"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jenny Morris"
+    },
+    {
+      "id": "rel-RVTR764020-tl-tl-sjgguh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR764020"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sjgguh"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "You I Know — original release"
+    },
+    {
+      "id": "rel-RVTR764020-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR764020"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR764020-perf-perf-efs7co",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR764020"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-efs7co"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-efs7co-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-efs7co"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jenny Morris - You I Know.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b7effc7879be-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-efs7co"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b7effc7879be"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-990f105c5e44-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-efs7co"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "990f105c5e44"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9471e2607752-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-efs7co"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9471e2607752"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-757a5576b9e9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-efs7co"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "757a5576b9e9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b2df5dd2dc8e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-efs7co"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2df5dd2dc8e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR764020. \"You I Know\" by Jenny Morris.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jenny Morris · Title: You I Know · Album: You I Know · Year: 1987 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jenny Morris - You I Know.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-10344a3f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jenny Morris - You I Know.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1a47640d-fd48-4697-aedd-2913cbd9e40d",
+      "category": "artist",
+      "text": "You I Know is performed by Jenny Morris.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "7e762690-bd49-46a0-9858-40af079e673a",
+      "category": "trivia",
+      "text": "Artist: Jenny Morris · Title: You I Know · Album: You I Know · Year: 1987 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jenny Morris - You I Know.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a67c0b98-5a96-4522-8a7e-07a422c7074d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jenny Morris - You I Know.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jenny Morris - You I Know.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

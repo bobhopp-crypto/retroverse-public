@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR358103",
+    "kind": "song",
+    "rvtr": "RVTR358103",
+    "generatedAt": "2026-06-28T22:51:19.969Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR358103",
+    "artist": "Pee Wee Herman",
+    "title": "Tequila",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pee Wee Herman",
+    "relatedArtists": [
+      "Pee Wee Herman"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ygvcgl",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1988,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Pee Wee Herman - Tequila.mp4",
+      "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-aw1jsd",
+      "date": "1988",
+      "label": "Tequila — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1988",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0892a1065eca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR358103&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ygvcgl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6e96fb34aab4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR358103&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ygvcgl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d4191d150b8d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR358103&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ygvcgl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "db20ad5a0dbc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR358103&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ygvcgl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e22ba7f507e8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR358103&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ygvcgl",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ygvcgl",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1988,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Pee Wee Herman - Tequila.mp4",
+        "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR358103-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR358103"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pee Wee Herman"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pee Wee Herman"
+    },
+    {
+      "id": "rel-RVTR358103-tl-tl-aw1jsd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR358103"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aw1jsd"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Tequila — original release"
+    },
+    {
+      "id": "rel-RVTR358103-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR358103"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR358103-perf-perf-ygvcgl",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR358103"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ygvcgl"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ygvcgl-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ygvcgl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Pee Wee Herman - Tequila.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0892a1065eca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ygvcgl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0892a1065eca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6e96fb34aab4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ygvcgl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6e96fb34aab4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d4191d150b8d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ygvcgl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d4191d150b8d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-db20ad5a0dbc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ygvcgl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "db20ad5a0dbc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-e22ba7f507e8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ygvcgl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e22ba7f507e8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR358103. \"Tequila\" by Pee Wee Herman.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pee Wee Herman · Title: Tequila · Album: Danny Elfman - Big Top Pee-Wee (The Original  Soundtrack Album) · Year: 1988 · Genre: Stage & Screen · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Pee Wee Herman - Tequila.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0642d160",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Pee Wee Herman - Tequila.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "399cd1cd-63aa-46d3-842a-dd0052547b0a",
+      "category": "artist",
+      "text": "Tequila is performed by Pee Wee Herman.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e65524b0-fabd-4c7b-b0c8-236ed51eab85",
+      "category": "trivia",
+      "text": "Artist: Pee Wee Herman · Title: Tequila · Album: Danny Elfman - Big Top Pee-Wee (The Original  Soundtrack Album) · Year: 1988 · Genre: Stage & Screen · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Pee Wee Herman - Tequila.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9d164b27-82a3-4cdd-ab4e-9f859a180e9c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Pee Wee Herman - Tequila.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Pee Wee Herman - Tequila.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

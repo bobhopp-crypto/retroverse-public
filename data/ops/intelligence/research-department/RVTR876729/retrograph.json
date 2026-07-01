@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR876729",
+    "kind": "song",
+    "rvtr": "RVTR876729",
+    "generatedAt": "2026-06-28T23:05:43.821Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR876729",
+    "artist": "Christina Milian",
+    "title": "Am To Pm",
+    "year": 2001,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Christina Milian",
+    "relatedArtists": [
+      "Christina Milian"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2001,
+    "recordings": [
+      {
+        "id": "rec-ag0gjv",
+        "title": "Am To Pm — graph recording",
+        "releaseDate": 2001,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-q5awxk",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2001,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Christina Milian - Am To Pm.mp4",
+      "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 27,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #27 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-uz12ci",
+      "date": "2001",
+      "label": "Am To Pm — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gr",
+      "date": "2001",
+      "label": "Billboard Hot 100 peak #27",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-cvwnqt",
+      "date": "2001",
+      "label": "Am To Pm — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2001",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c179b7fb8f3c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876729&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-q5awxk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7fa762eae58b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876729&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-q5awxk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "116563238b6c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876729&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-q5awxk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0fa7ab9118e5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876729&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-q5awxk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b2f09dd3b8fe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876729&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-q5awxk",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-q5awxk",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2001,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Christina Milian - Am To Pm.mp4",
+        "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR876729-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876729"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Christina Milian"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Christina Milian"
+    },
+    {
+      "id": "rel-RVTR876729-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876729"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #27"
+    },
+    {
+      "id": "rel-RVTR876729-tl-tl-uz12ci",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876729"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-uz12ci"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Am To Pm — original release"
+    },
+    {
+      "id": "rel-RVTR876729-tl-tl-fcm3gr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876729"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gr"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #27"
+    },
+    {
+      "id": "rel-RVTR876729-tl-tl-cvwnqt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876729"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cvwnqt"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Am To Pm — graph recording"
+    },
+    {
+      "id": "rel-RVTR876729-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876729"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR876729-perf-perf-q5awxk",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876729"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-q5awxk"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-q5awxk-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q5awxk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Christina Milian - Am To Pm.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c179b7fb8f3c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q5awxk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c179b7fb8f3c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-7fa762eae58b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q5awxk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7fa762eae58b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-116563238b6c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q5awxk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "116563238b6c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-0fa7ab9118e5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q5awxk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0fa7ab9118e5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b2f09dd3b8fe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q5awxk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2f09dd3b8fe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR876729. \"Am To Pm\" by Christina Milian.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #27. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Christina Milian · Title: Am To Pm · Album: AM To PM · Year: 2001 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Christina Milian - Am To Pm.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2001.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-85bad7e4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Christina Milian - Am To Pm.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cad0909d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Christina Milian - AM To PM.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1d8a48ca-72d8-4878-a9cd-9c537b488be1",
+      "category": "artist",
+      "text": "Am To Pm is performed by Christina Milian.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "78c15694-71b3-48de-baf1-c7d00306b2ec",
+      "category": "chart",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6c06a65a-c0a8-4cc7-9134-e1a06904c698",
+      "category": "recording",
+      "text": "Am To Pm was released in 2001.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6633cb59-0888-42aa-a272-84105ab04ffb",
+      "category": "trivia",
+      "text": "Artist: Christina Milian · Title: Am To Pm · Album: AM To PM · Year: 2001 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Christina Milian - Am To Pm.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cfca508f-8d32-4087-a81c-817110193e73",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Christina Milian - Am To Pm.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "43fe084e-a472-49c8-82f5-7e425c8db242",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Christina Milian - AM To PM.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Christina Milian - Am To Pm.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

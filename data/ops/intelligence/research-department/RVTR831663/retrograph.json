@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR831663",
+    "kind": "song",
+    "rvtr": "RVTR831663",
+    "generatedAt": "2026-06-28T23:03:58.418Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR831663",
+    "artist": "Maybe This Time",
+    "title": "Cabaret",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Maybe This Time",
+    "relatedArtists": [
+      "Maybe This Time"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-wegrbb",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1972,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Maybe This Time - Cabaret.mp4",
+      "notes": "Detected year: 1972. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-n9rgjs",
+      "date": "1972",
+      "label": "Cabaret — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1972",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "93d8a256ab3b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR831663&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-wegrbb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d1ee6b2c6a6b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR831663&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-wegrbb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b2b16c3ae879",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR831663&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-wegrbb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f91777f92377",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR831663&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-wegrbb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bb2411163c73",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR831663&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-wegrbb",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-wegrbb",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1972,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Maybe This Time - Cabaret.mp4",
+        "notes": "Detected year: 1972. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR831663-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR831663"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Maybe This Time"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Maybe This Time"
+    },
+    {
+      "id": "rel-RVTR831663-tl-tl-n9rgjs",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR831663"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-n9rgjs"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Cabaret — original release"
+    },
+    {
+      "id": "rel-RVTR831663-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR831663"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR831663-perf-perf-wegrbb",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR831663"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-wegrbb"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-wegrbb-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wegrbb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Maybe This Time - Cabaret.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-93d8a256ab3b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wegrbb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "93d8a256ab3b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d1ee6b2c6a6b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wegrbb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d1ee6b2c6a6b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-b2b16c3ae879-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wegrbb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2b16c3ae879"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f91777f92377-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wegrbb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f91777f92377"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-bb2411163c73-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wegrbb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bb2411163c73"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR831663. \"Cabaret\" by Maybe This Time.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Maybe This Time · Title: Cabaret · Year: 1972 · Genre: Stage & Screen · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Maybe This Time - Cabaret.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-40b9dcc0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Maybe This Time - Cabaret.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "39d899ce-12f8-4b03-baa6-6146c89adb74",
+      "category": "artist",
+      "text": "Cabaret is performed by Maybe This Time.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "861ccbb7-c3b8-49cd-8137-400373c3a1eb",
+      "category": "trivia",
+      "text": "Artist: Maybe This Time · Title: Cabaret · Year: 1972 · Genre: Stage & Screen · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Maybe This Time - Cabaret.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eef00360-41fe-466a-ae33-cef1f8e3cd79",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Maybe This Time - Cabaret.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Maybe This Time - Cabaret.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

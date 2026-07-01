@@ -1,0 +1,398 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR553536",
+    "kind": "song",
+    "rvtr": "RVTR553536",
+    "generatedAt": "2026-06-28T22:55:45.176Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR553536",
+    "artist": "Ferg",
+    "title": "Plain Jane",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ferg",
+    "relatedArtists": [
+      "Ferg"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-o10f4g",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2017,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ferg - Plain Jane.mp4",
+      "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-cevqwo",
+      "date": "2017",
+      "label": "Plain Jane — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2017",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ecea464ee806",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR553536&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-o10f4g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "791ae8eb4c69",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR553536&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-o10f4g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c44b67cc4bde",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR553536&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-o10f4g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "37fcbedef493",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR553536&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-o10f4g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d9610e58e3c1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR553536&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-o10f4g",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-o10f4g",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2017,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ferg - Plain Jane.mp4",
+        "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR553536-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR553536"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ferg"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ferg"
+    },
+    {
+      "id": "rel-RVTR553536-tl-tl-cevqwo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR553536"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cevqwo"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Plain Jane — original release"
+    },
+    {
+      "id": "rel-RVTR553536-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR553536"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR553536-perf-perf-o10f4g",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR553536"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-o10f4g"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-o10f4g-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o10f4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ferg - Plain Jane.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ecea464ee806-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o10f4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ecea464ee806"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-791ae8eb4c69-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o10f4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "791ae8eb4c69"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c44b67cc4bde-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o10f4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c44b67cc4bde"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-37fcbedef493-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o10f4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "37fcbedef493"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d9610e58e3c1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o10f4g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d9610e58e3c1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR553536. \"Plain Jane\" by Ferg.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ferg · Title: Plain Jane · Album: A$AP Ferg - Plain Jane · Year: 2017 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ferg - Plain Jane.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f04ce334",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ferg - Plain Jane.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8cb7fb74",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "netsearch://td77384336",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e5db32bd-deb4-4872-8328-e4c5b458fe4c",
+      "category": "artist",
+      "text": "Plain Jane is performed by Ferg.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "42bd47af-7116-42c6-98c4-20b853d7aaec",
+      "category": "trivia",
+      "text": "Artist: Ferg · Title: Plain Jane · Album: A$AP Ferg - Plain Jane · Year: 2017 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ferg - Plain Jane.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "00521dce-25c9-444c-b594-a158a84cfc79",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ferg - Plain Jane.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ferg - Plain Jane.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

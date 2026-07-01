@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR522822",
+    "kind": "song",
+    "rvtr": "RVTR522822",
+    "generatedAt": "2026-06-28T22:54:57.160Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR522822",
+    "artist": "Hoobastank",
+    "title": "My Turn",
+    "year": 2009,
+    "albumTitle": "FOR(N)EVER",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL637640/RVAL637640__hoobastank__for-n-ever.jpg"
+  },
+  "artist": {
+    "name": "Hoobastank",
+    "relatedArtists": [
+      "Hoobastank"
+    ]
+  },
+  "album": {
+    "title": "FOR(N)EVER",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-2rj621",
+        "title": "FOR(N)EVER",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-5o1k8x",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hoobastank - My Turn.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "FOR(N)EVER",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-d94ze3",
+      "date": "2009",
+      "label": "My Turn — original release",
+      "detail": "Original album: FOR(N)EVER",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-p093bo",
+      "date": "2009",
+      "label": "FOR(N)EVER",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR522822",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL637640/RVAL637640__hoobastank__for-n-ever.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c5e257118828",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522822&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-5o1k8x",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c047ddf2bcf1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522822&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-5o1k8x",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0a21b5817f42",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522822&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-5o1k8x",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8ba9f9689560",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522822&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-5o1k8x",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4a9395d59b2f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522822&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-5o1k8x",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-5o1k8x",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hoobastank - My Turn.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR522822-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522822"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Hoobastank"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Hoobastank"
+    },
+    {
+      "id": "rel-RVTR522822-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522822"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-2rj621"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "FOR(N)EVER"
+    },
+    {
+      "id": "rel-RVTR522822-tl-tl-d94ze3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522822"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-d94ze3"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "My Turn — original release"
+    },
+    {
+      "id": "rel-RVTR522822-tl-tl-p093bo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522822"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p093bo"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "FOR(N)EVER"
+    },
+    {
+      "id": "rel-RVTR522822-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522822"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR522822-perf-perf-5o1k8x",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522822"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-5o1k8x"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-5o1k8x-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5o1k8x"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hoobastank - My Turn.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c5e257118828-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5o1k8x"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c5e257118828"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c047ddf2bcf1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5o1k8x"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c047ddf2bcf1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-0a21b5817f42-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5o1k8x"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0a21b5817f42"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8ba9f9689560-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5o1k8x"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8ba9f9689560"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4a9395d59b2f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5o1k8x"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a9395d59b2f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR522822. \"My Turn\" by Hoobastank. Album: FOR(N)EVER (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL637640/RVAL637640__hoobastank__for-n-ever.jpg",
+      "excerpt": "Canonical cover assignment for RVTR522822 (My Turn). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: FOR(N)EVER (2009)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Hoobastank · Title: My Turn · Album: Live From The Wiltern · Year: 2009 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hoobastank - My Turn.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-79c60ea0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hoobastank - My Turn.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d504ffbe",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Hoobastank - My Turn.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2feede39-ce17-4761-84e4-516d090146e7",
+      "category": "artist",
+      "text": "My Turn is performed by Hoobastank.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "675cada3-a325-4c09-b1b5-510ebac6fe2c",
+      "category": "album",
+      "text": "The song appears on the album \"FOR(N)EVER\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "621ab7d2-b233-4194-94d1-85ed5c78f8e1",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR522822.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL637640/RVAL637640__hoobastank__for-n-ever.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a83e802e-0494-4273-9e5c-a22551e01fe8",
+      "category": "recording",
+      "text": "My Turn was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a54561de-e367-4a1f-a2f9-0c6e3f7a4797",
+      "category": "trivia",
+      "text": "Artist: Hoobastank · Title: My Turn · Album: Live From The Wiltern · Year: 2009 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hoobastank - My Turn.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "96fb4165-b03d-4158-9a50-d78ef3d1b51c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hoobastank - My Turn.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "78b9c430-8ceb-4ff2-a214-e83124b804c7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Hoobastank - My Turn.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hoobastank - My Turn.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

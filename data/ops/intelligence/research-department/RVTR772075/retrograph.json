@@ -1,0 +1,486 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR772075",
+    "kind": "song",
+    "rvtr": "RVTR772075",
+    "generatedAt": "2026-06-28T23:02:09.888Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR772075",
+    "artist": "Shakira F./dizzee Rascal",
+    "title": "Loca Freemasons Mixshow Edit",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Shakira F./dizzee Rascal",
+    "relatedArtists": [
+      "Shakira F./dizzee Rascal"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-e79cb8",
+      "title": "Freemasons Mixshow Edit_",
+      "kind": "performance",
+      "year": 2010,
+      "venue": "Freemasons Mixshow Edit_",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca (Freemasons Mixshow Edit_).mp4",
+      "notes": "Performance label: Freemasons Mixshow Edit_. Detected year: 2010. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-x2h13g",
+      "title": "Loca",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca.mp4",
+      "notes": "Detected year: 2010. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-14bcjx",
+      "date": "2010",
+      "label": "Freemasons Mixshow Edit_",
+      "detail": "Freemasons Mixshow Edit_",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-bw1qlx",
+      "date": "2010",
+      "label": "Loca",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4c3a5bc808f1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR772075&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-e79cb8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fc27c42b873a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR772075&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-e79cb8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bdc524ab8a05",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR772075&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-e79cb8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8bbc12646b7a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR772075&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-e79cb8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f69dd41390a2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR772075&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-e79cb8",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-e79cb8",
+        "title": "Freemasons Mixshow Edit_",
+        "kind": "performance",
+        "year": 2010,
+        "venue": "Freemasons Mixshow Edit_",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca (Freemasons Mixshow Edit_).mp4",
+        "notes": "Performance label: Freemasons Mixshow Edit_. Detected year: 2010. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-x2h13g",
+        "title": "Loca",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca.mp4",
+        "notes": "Detected year: 2010. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR772075-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR772075"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Shakira F./dizzee Rascal"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Shakira F./dizzee Rascal"
+    },
+    {
+      "id": "rel-RVTR772075-tl-tl-14bcjx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR772075"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-14bcjx"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "Freemasons Mixshow Edit_"
+    },
+    {
+      "id": "rel-RVTR772075-tl-tl-bw1qlx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR772075"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bw1qlx"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Loca"
+    },
+    {
+      "id": "rel-RVTR772075-perf-perf-e79cb8",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR772075"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-e79cb8"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Freemasons Mixshow Edit_"
+    },
+    {
+      "id": "rel-perf-e79cb8-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e79cb8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca (Freemasons Mixshow Edit_).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Freemasons Mixshow Edit_"
+    },
+    {
+      "id": "rel-RVTR772075-perf-perf-x2h13g",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR772075"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-x2h13g"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Loca"
+    },
+    {
+      "id": "rel-perf-x2h13g-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x2h13g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Loca"
+    },
+    {
+      "id": "rel-4c3a5bc808f1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e79cb8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4c3a5bc808f1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fc27c42b873a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e79cb8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fc27c42b873a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-bdc524ab8a05-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e79cb8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bdc524ab8a05"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-8bbc12646b7a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e79cb8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8bbc12646b7a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-f69dd41390a2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e79cb8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f69dd41390a2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR772075. \"Loca Freemasons Mixshow Edit\" by Shakira F./dizzee Rascal.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Shakira f./Dizzee Rascal · Title: Loca (Freemasons Mixshow Edit*) · Album: HV 12-10 · Year: 2010 · Genre: Dance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca (Freemasons Mixshow Edit_).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3c5b8822",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca (Freemasons Mixshow Edit_).mp4 · Performance: Freemasons Mixshow Edit_",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-981cad01",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5c666489",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Shakira & Dizzee Rascal  -  Loca (Freemasons Radio Edit).mp3 · Performance: Freemasons Radio Edit",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4b7fdff5-b6c2-4077-8540-508281ecc7a4",
+      "category": "artist",
+      "text": "Loca Freemasons Mixshow Edit is performed by Shakira F./dizzee Rascal.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "174cac1f-be80-4ac0-b7a7-36275c98480d",
+      "category": "trivia",
+      "text": "\"Loca Freemasons Mixshow Edit\" by Shakira F./dizzee Rascal.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ff7b2335-d1c5-424e-9e1d-50f790189587",
+      "category": "trivia",
+      "text": "Artist: Shakira f./Dizzee Rascal · Title: Loca (Freemasons Mixshow Edit*) · Album: HV 12-10 · Year: 2010 · Genre: Dance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca (Freemasons Mixshow Edit_).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f1a58915-0dae-48db-8a94-016eb8f890b5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca (Freemasons Mixshow Edit_).mp4 · Performance: Freemasons Mixshow Edit_",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "17142d21-2eda-44b6-9c05-710ad78520af",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "072d9f55-fe72-4e8e-98ad-fb2bb54a0a3f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Shakira & Dizzee Rascal  -  Loca (Freemasons Radio Edit).mp3 · Performance: Freemasons Radio Edit",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 2,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Shakira f._Dizzee Rascal - Loca (Freemasons Mixshow Edit_).mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

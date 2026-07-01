@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR068284",
+    "kind": "song",
+    "rvtr": "RVTR068284",
+    "generatedAt": "2026-06-28T22:44:50.610Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR068284",
+    "artist": "Greg Khin",
+    "title": "Breakup Song Aoustic",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Greg Khin",
+    "relatedArtists": [
+      "Greg Khin"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-gdgeb3",
+      "title": "Aoustic",
+      "kind": "performance",
+      "year": 1981,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Khin - Breakup Song.mp4",
+      "notes": "Detected year: 1981. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fhr9bl",
+      "date": "1981",
+      "label": "Breakup Song Aoustic — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-sddvo2",
+      "date": "1981",
+      "label": "Aoustic",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "6f99a1eb3db6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068284&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-gdgeb3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "625a3f0d545a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068284&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-gdgeb3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7e7d5f1b0925",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068284&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-gdgeb3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4acfbc449df7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068284&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-gdgeb3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7cb8d1e03e12",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068284&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-gdgeb3",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-gdgeb3",
+        "title": "Aoustic",
+        "kind": "performance",
+        "year": 1981,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Khin - Breakup Song.mp4",
+        "notes": "Detected year: 1981. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR068284-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068284"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Greg Khin"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Greg Khin"
+    },
+    {
+      "id": "rel-RVTR068284-tl-tl-fhr9bl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068284"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fhr9bl"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Breakup Song Aoustic — original release"
+    },
+    {
+      "id": "rel-RVTR068284-tl-tl-sddvo2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068284"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sddvo2"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Aoustic"
+    },
+    {
+      "id": "rel-RVTR068284-perf-perf-gdgeb3",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068284"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-gdgeb3"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Aoustic"
+    },
+    {
+      "id": "rel-perf-gdgeb3-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gdgeb3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Khin - Breakup Song.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Aoustic"
+    },
+    {
+      "id": "rel-6f99a1eb3db6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gdgeb3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6f99a1eb3db6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-625a3f0d545a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gdgeb3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "625a3f0d545a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7e7d5f1b0925-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gdgeb3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7e7d5f1b0925"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-4acfbc449df7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gdgeb3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4acfbc449df7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7cb8d1e03e12-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gdgeb3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7cb8d1e03e12"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR068284. \"Breakup Song Aoustic\" by Greg Khin.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Greg Khin · Title: Breakup Song (Aoustic) · Album: Greg Khin Band* / Willie Nile - King Biscuit Flower Hour · Year: 1981 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Khin - Breakup Song.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5594bb42",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Khin - Breakup Song.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d7eef629-0e8f-47aa-a574-f7ea5336a5aa",
+      "category": "artist",
+      "text": "Breakup Song Aoustic is performed by Greg Khin.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d256a466-a99f-47f5-9591-5a1810326c9f",
+      "category": "trivia",
+      "text": "Artist: Greg Khin · Title: Breakup Song (Aoustic) · Album: Greg Khin Band* / Willie Nile - King Biscuit Flower Hour · Year: 1981 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Khin - Breakup Song.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f6a07bc8-07f1-4a9d-b2c5-c38170f27add",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Khin - Breakup Song.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Greg Khin - Breakup Song.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

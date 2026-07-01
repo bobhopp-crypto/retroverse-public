@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "rvtr": "RVTR442834",
+  "artist": "Europe",
+  "title": "Tomorrow",
+  "generatedAt": "2026-06-28T22:53:00.450Z",
+  "editorDistillVersion": "2026-06-26.a4",
+  "identity": {
+    "rvtr": "RVTR442834",
+    "artist": "Europe",
+    "title": "Tomorrow",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "recordings": [],
+  "performances": [
+    {
+      "id": "perf-vz2ube",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1987,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Tomorrow.mp4",
+      "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "facts": [
+    {
+      "id": "be3c751b-bb1c-42f8-b965-e220396af7d0",
+      "category": "artist",
+      "text": "Tomorrow is performed by Europe.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2b8ba960-4589-4cbd-8b5d-6d099dadb2f4",
+      "category": "trivia",
+      "text": "Artist: Europe · Title: Tomorrow · Year: 1987 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Tomorrow.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9009ece4-f485-4734-af76-1cda732b261d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Tomorrow.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "images": [
+    {
+      "assetId": "ea7bab497afc",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR442834&file=close-up.jpg",
+      "caption": "Sharpest close-up in sequence",
+      "label": "Close-up",
+      "category": "Close-up",
+      "performanceId": "perf-vz2ube",
+      "status": "available",
+      "unusedReason": null
+    },
+    {
+      "assetId": "92cd2c1b69c4",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR442834&file=hero.jpg",
+      "caption": "Opening representative moment",
+      "label": "Hero",
+      "category": "Hero",
+      "performanceId": "perf-vz2ube",
+      "status": "available",
+      "unusedReason": null
+    }
+  ],
+  "timelines": [
+    {
+      "id": "tl-l2rd15",
+      "date": "1987",
+      "label": "Tomorrow — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1987",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR442834. \"Tomorrow\" by Europe.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Europe · Title: Tomorrow · Year: 1987 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Tomorrow.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6e521f3f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Tomorrow.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Tomorrow.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedArtists": [
+    "Europe"
+  ],
+  "relatedSongs": [],
+  "missingAreas": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  }
+}

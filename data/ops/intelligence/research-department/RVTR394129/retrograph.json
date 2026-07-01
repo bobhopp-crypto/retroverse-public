@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR394129",
+    "kind": "song",
+    "rvtr": "RVTR394129",
+    "generatedAt": "2026-06-28T22:52:00.929Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR394129",
+    "artist": "Nelly",
+    "title": "E I",
+    "year": 2000,
+    "albumTitle": "Country Grammar",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL355186/RVAL355186__nelly__country-grammar.jpg"
+  },
+  "artist": {
+    "name": "Nelly",
+    "relatedArtists": [
+      "Nelly"
+    ]
+  },
+  "album": {
+    "title": "Country Grammar",
+    "releaseYear": 2000,
+    "recordings": [
+      {
+        "id": "rec-j4chtn",
+        "title": "Country Grammar",
+        "releaseDate": 2000,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-6y0rmr",
+      "title": "E.I",
+      "kind": "performance",
+      "year": 1990,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - E.I.mp4",
+      "notes": "Detected year: 1990. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 15,
+    "chartWeeks": 20,
+    "albumTitle": "Country Grammar",
+    "summary": "Hot 100 peak #15 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ruxepe",
+      "date": "2000",
+      "label": "E I — original release",
+      "detail": "Original album: Country Grammar",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fu",
+      "date": "2000",
+      "label": "Billboard Hot 100 peak #15",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-6oqsy1",
+      "date": "2000",
+      "label": "Country Grammar",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bu8nfw",
+      "date": "1990",
+      "label": "E.I",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR394129",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL355186/RVAL355186__nelly__country-grammar.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7fc11980ef9f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394129&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6y0rmr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "444bbe941552",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394129&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6y0rmr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9e4344e0f4e6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394129&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6y0rmr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a9166b563bcf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394129&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6y0rmr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "702c66cc965b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394129&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6y0rmr",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6y0rmr",
+        "title": "E.I",
+        "kind": "performance",
+        "year": 1990,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - E.I.mp4",
+        "notes": "Detected year: 1990. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR394129-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394129"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Nelly"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Nelly"
+    },
+    {
+      "id": "rel-RVTR394129-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394129"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-j4chtn"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Country Grammar"
+    },
+    {
+      "id": "rel-RVTR394129-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394129"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #15"
+    },
+    {
+      "id": "rel-RVTR394129-tl-tl-ruxepe",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394129"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ruxepe"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "E I — original release"
+    },
+    {
+      "id": "rel-RVTR394129-tl-tl-fcm3fu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394129"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fu"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #15"
+    },
+    {
+      "id": "rel-RVTR394129-tl-tl-6oqsy1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394129"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6oqsy1"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Country Grammar"
+    },
+    {
+      "id": "rel-RVTR394129-tl-tl-bu8nfw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394129"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bu8nfw"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "E.I"
+    },
+    {
+      "id": "rel-RVTR394129-perf-perf-6y0rmr",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394129"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6y0rmr"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "E.I"
+    },
+    {
+      "id": "rel-perf-6y0rmr-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6y0rmr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - E.I.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "E.I"
+    },
+    {
+      "id": "rel-7fc11980ef9f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6y0rmr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7fc11980ef9f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-444bbe941552-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6y0rmr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "444bbe941552"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9e4344e0f4e6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6y0rmr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9e4344e0f4e6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a9166b563bcf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6y0rmr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a9166b563bcf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-702c66cc965b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6y0rmr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "702c66cc965b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR394129. \"E I\" by Nelly. Album: Country Grammar (2000).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL355186/RVAL355186__nelly__country-grammar.jpg",
+      "excerpt": "Canonical cover assignment for RVTR394129 (E I). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Country Grammar (2000). Billboard Hot 100 peak: #15. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Nelly · Title: E.I · Album: Puccini*, Miricioiu* • Lamberti* • Carroli*, Slovak Philharmonic Chorus, Czecho-Slovak Radio Symphony Orchestra (Bratislava)*, Alexander Rahbari - Tosca · Year: 1990 · Genre: Classical · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - E.I.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2000.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-374fb3a9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - E.I.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-84b9a9df",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Nelly - E.I..mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1f3edfd4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Nelly - E.I..mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "fa844252-ff73-49c5-9747-27205515cc31",
+      "category": "artist",
+      "text": "E I is performed by Nelly.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6e13b7d9-54af-4cc6-9e37-25bbbdff2175",
+      "category": "album",
+      "text": "The song appears on the album \"Country Grammar\" (2000).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ca61702b-798e-421d-9ae9-de3fb6e5688a",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR394129.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL355186/RVAL355186__nelly__country-grammar.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fda16415-60cb-41e6-a88a-02705746032f",
+      "category": "chart",
+      "text": "The song peaked at #15 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f509f272-b7f8-4ac9-9a11-5c165018ebdb",
+      "category": "recording",
+      "text": "E I was released in 2000.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "243dc01c-4ece-4ebd-ae7d-9d9e7d47a93b",
+      "category": "trivia",
+      "text": "Artist: Nelly · Title: E.I · Album: Puccini*, Miricioiu* • Lamberti* • Carroli*, Slovak Philharmonic Chorus, Czecho-Slovak Radio Symphony Orchestra (Bratislava)*, Alexander Rahbari - Tosca · Year: 1990 · Genre: Classical · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - E.I.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ec985bd4-cb62-435e-8065-4e794bbc7a30",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - E.I.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "66abba64-bdac-4d1f-80fb-423e6100dd3f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Nelly - E.I..mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "45266f68-3565-42c5-96b4-a9108067f5da",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Nelly - E.I..mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 9,
+    "accepted": 5,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - E.I.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "rvtr": "RVTR860862",
+  "artist": "Hardy",
+  "title": "Red",
+  "generatedAt": "2026-06-28T23:05:05.165Z",
+  "editorDistillVersion": "2026-06-26.a4",
+  "identity": {
+    "rvtr": "RVTR860862",
+    "artist": "Hardy",
+    "title": "Red",
+    "year": 2023,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "charts": {
+    "peakHot100": 64,
+    "chartWeeks": 1,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #64 · 1 weeks"
+  },
+  "recordings": [
+    {
+      "id": "rec-cim93s",
+      "title": "Red — graph recording",
+      "releaseDate": 2023,
+      "label": null,
+      "catalogNumber": null,
+      "recordingLocation": null,
+      "producer": null,
+      "notes": []
+    }
+  ],
+  "performances": [
+    {
+      "id": "perf-tu9pb9",
+      "title": "necker",
+      "kind": "performance",
+      "year": 2018,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hardy - Rednecker.mp4",
+      "notes": "Detected year: 2018. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "facts": [
+    {
+      "id": "8179e6b2-96ca-4f15-a1f6-005d997db99d",
+      "category": "artist",
+      "text": "Red is performed by Hardy.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "90f6eb09-45bd-4846-8eb5-45ab420f3781",
+      "category": "chart",
+      "text": "The song peaked at #64 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d0f75179-e3f2-45ad-adbd-5be105119062",
+      "category": "recording",
+      "text": "Red was released in 2023.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1db438c3-4bde-4fc4-9ede-ec01111a3523",
+      "category": "trivia",
+      "text": "Artist: Hardy · Title: Rednecker · Album: Hardy (32) - This Ole Boy · Year: 2018 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hardy - Rednecker.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b30af812-4d1c-4533-a051-127dd25f753d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hardy - Rednecker.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "images": [
+    {
+      "assetId": "b67faeb6e899",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860862&file=crowd.jpg",
+      "caption": "Audience or wide-stage context",
+      "label": "Crowd",
+      "category": "Crowd",
+      "performanceId": "perf-tu9pb9",
+      "status": "available",
+      "unusedReason": null
+    },
+    {
+      "assetId": "55f4326c24d6",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860862&file=alternate.jpg",
+      "caption": "Visually distinct alternate angle",
+      "label": "Alternate",
+      "category": "Alternate",
+      "performanceId": "perf-tu9pb9",
+      "status": "available",
+      "unusedReason": null
+    },
+    {
+      "assetId": "4b9a96d1f7c3",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860862&file=hero.jpg",
+      "caption": "Opening representative moment",
+      "label": "Hero",
+      "category": "Hero",
+      "performanceId": "perf-tu9pb9",
+      "status": "available",
+      "unusedReason": null
+    },
+    {
+      "assetId": "e623d0e8c5c5",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860862&file=close-up.jpg",
+      "caption": "Sharpest close-up in sequence",
+      "label": "Close-up",
+      "category": "Close-up",
+      "performanceId": "perf-tu9pb9",
+      "status": "available",
+      "unusedReason": null
+    },
+    {
+      "assetId": "04256c2035d5",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860862&file=performance.jpg",
+      "caption": "Strong performance moment",
+      "label": "Performance",
+      "category": "Performance",
+      "performanceId": "perf-tu9pb9",
+      "status": "available",
+      "unusedReason": null
+    }
+  ],
+  "timelines": [
+    {
+      "id": "tl-is1n3f",
+      "date": "2023",
+      "label": "Red — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k4",
+      "date": "2023",
+      "label": "Billboard Hot 100 peak #64",
+      "detail": "1 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-m70no0",
+      "date": "2023",
+      "label": "Red — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-6hbyf4",
+      "date": "2018",
+      "label": "necker",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR860862. \"Red\" by Hardy.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #64. 1 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Hardy · Title: Rednecker · Album: Hardy (32) - This Ole Boy · Year: 2018 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hardy - Rednecker.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2023.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-b83f3e57",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hardy - Rednecker.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hardy - Rednecker.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedArtists": [
+    "Hardy"
+  ],
+  "relatedSongs": [],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  }
+}

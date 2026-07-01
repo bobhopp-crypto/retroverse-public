@@ -1,0 +1,503 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR102559",
+    "kind": "song",
+    "rvtr": "RVTR102559",
+    "generatedAt": "2026-06-28T22:45:43.569Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR102559",
+    "artist": "King",
+    "title": "Alone Without You",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "King",
+    "relatedArtists": [
+      "King"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ijn9rw",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1953,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/King - Alone Without You.mp4",
+      "notes": "Detected year: 1953. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-wh9vbu",
+      "date": "1985",
+      "label": "Alone Without You — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-73o9ji",
+      "date": "—",
+      "label": "\"Alone Without You\" is a song by English band King, released as the first single from their second s",
+      "detail": "tudio album Bitter Sweet.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-xgu3uf",
+      "date": "—",
+      "label": "The single was the second of the band's only two top ten hits, peaking at No.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-73o9ji",
+      "date": "—",
+      "label": "\"Alone Without You\" is a song by English band King, released as the first single from their second s",
+      "detail": "tudio album Bitter Sweet.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1953",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "\"Alone Without You\" is a song by English band King, released as the first single from their second studio album Bitter Sweet."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9157b9e6a37e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR102559&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ijn9rw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "64b8e04e8f20",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR102559&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ijn9rw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cfba6aed7383",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR102559&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ijn9rw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ceb17a7cb031",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR102559&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ijn9rw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8805dd5732f0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR102559&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ijn9rw",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ijn9rw",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1953,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/King - Alone Without You.mp4",
+        "notes": "Detected year: 1953. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR102559-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR102559"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "King"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "King"
+    },
+    {
+      "id": "rel-RVTR102559-tl-tl-wh9vbu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR102559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wh9vbu"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Alone Without You — original release"
+    },
+    {
+      "id": "rel-RVTR102559-tl-tl-73o9ji",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR102559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-73o9ji"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Alone Without You\" is a song by English band King, released as the first single from their second s"
+    },
+    {
+      "id": "rel-RVTR102559-tl-tl-xgu3uf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR102559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-xgu3uf"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "The single was the second of the band's only two top ten hits, peaking at No."
+    },
+    {
+      "id": "rel-RVTR102559-tl-tl-73o9ji",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR102559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-73o9ji"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Alone Without You\" is a song by English band King, released as the first single from their second s"
+    },
+    {
+      "id": "rel-RVTR102559-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR102559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR102559-perf-perf-ijn9rw",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR102559"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ijn9rw"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ijn9rw-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ijn9rw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/King - Alone Without You.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9157b9e6a37e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ijn9rw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9157b9e6a37e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-64b8e04e8f20-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ijn9rw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "64b8e04e8f20"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-cfba6aed7383-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ijn9rw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cfba6aed7383"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-ceb17a7cb031-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ijn9rw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ceb17a7cb031"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8805dd5732f0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ijn9rw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8805dd5732f0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR102559. \"Alone Without You\" by King.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: King · Title: Alone Without You · Album: Pee Wee King & His Band Featuring Redd Stewart - Top Country Hits · Year: 1953 · Genre: Folk, World, & Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/King - Alone Without You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b6769cfe",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/King - Alone Without You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-alone-without-you-king-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Alone_Without_You_(King_song)",
+      "excerpt": "\"Alone Without You\" is a song by English band King, released as the first single from their second studio album Bitter Sweet.\nThe single was the second of the band's only two top ten hits, peaking at No. 8 on the UK Singles Chart in August 1985, and remaining there for nine weeks.\nThe video was filmed in Greece.\n\n\nTrack listings\nUK 7\" single\nA. \"Alone Without You\" - 3:35\nB. \"I Kissed the Spikey Fridge\" (rock hard mix) - 4:00\nUK 12\" single\nA. \"Alone Without You\" (Scorcher mix) - 4:30\nB1. \"Love & Pride\" (USA summer mix) - 6:17\nB2. \"I Kissed the Spikey Fridge\" (rock hard mix) - 4:02\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "87985bee-32e5-4dd0-a277-8c8c60421207",
+      "category": "artist",
+      "text": "Alone Without You is performed by King.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0ceb2028-de18-4b66-bdbc-5b42902fe160",
+      "category": "cultural_impact",
+      "text": "\"Alone Without You\" is a song by English band King, released as the first single from their second studio album Bitter Sweet.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Alone_Without_You_(King_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "76f6a0d0-d96f-411c-b8b0-30fdffab987f",
+      "category": "cultural_impact",
+      "text": "The single was the second of the band's only two top ten hits, peaking at No.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Alone_Without_You_(King_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3fc9b965-4736-4069-871f-bbcd1cebf236",
+      "category": "cultural_impact",
+      "text": "8 on the UK Singles Chart in August 1985, and remaining there for nine weeks.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Alone_Without_You_(King_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9493e0ba-5120-4788-acd6-a1f1f17d381f",
+      "category": "trivia",
+      "text": "Artist: King · Title: Alone Without You · Album: Pee Wee King & His Band Featuring Redd Stewart - Top Country Hits · Year: 1953 · Genre: Folk, World, & Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/King - Alone Without You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "72ba5b11-bd49-4e58-bc08-73d67184e1c3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/King - Alone Without You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 70,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 61
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/King - Alone Without You.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

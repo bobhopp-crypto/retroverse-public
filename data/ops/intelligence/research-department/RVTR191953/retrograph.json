@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR191953",
+    "kind": "song",
+    "rvtr": "RVTR191953",
+    "generatedAt": "2026-06-28T22:47:41.397Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR191953",
+    "artist": "Dave Brubeck",
+    "title": "Take Five",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dave Brubeck",
+    "relatedArtists": [
+      "Dave Brubeck"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ql12w8",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1964,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Dave Brubeck - Take Five.mp4",
+      "notes": "Detected year: 1964. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ur4skx",
+      "date": "1964",
+      "label": "Take Five — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1964",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "6afd6ba1b11a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR191953&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ql12w8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3feef7d053fd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR191953&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ql12w8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bbf197308b4d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR191953&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ql12w8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "87fcde2c1648",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR191953&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ql12w8",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "797a6e26763d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR191953&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ql12w8",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ql12w8",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1964,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Dave Brubeck - Take Five.mp4",
+        "notes": "Detected year: 1964. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR191953-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR191953"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dave Brubeck"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dave Brubeck"
+    },
+    {
+      "id": "rel-RVTR191953-tl-tl-ur4skx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR191953"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ur4skx"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Take Five — original release"
+    },
+    {
+      "id": "rel-RVTR191953-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR191953"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR191953-perf-perf-ql12w8",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR191953"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ql12w8"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ql12w8-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ql12w8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Dave Brubeck - Take Five.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6afd6ba1b11a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ql12w8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6afd6ba1b11a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-3feef7d053fd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ql12w8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3feef7d053fd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-bbf197308b4d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ql12w8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bbf197308b4d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-87fcde2c1648-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ql12w8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "87fcde2c1648"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-797a6e26763d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ql12w8"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "797a6e26763d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR191953. \"Take Five\" by Dave Brubeck.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dave Brubeck · Title: Take Five · Album: Dave Brubeck In Berlin · Year: 1964 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Dave Brubeck - Take Five.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-956cd339",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Dave Brubeck - Take Five.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a0b35d69",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Dave Brubeck - Take Five.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "30584ad2-dcdb-446b-a42a-8f8ee787e832",
+      "category": "artist",
+      "text": "Take Five is performed by Dave Brubeck.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1ed58c52-fcc6-4332-8a26-fcb0146b0e4f",
+      "category": "trivia",
+      "text": "Artist: Dave Brubeck · Title: Take Five · Album: Dave Brubeck In Berlin · Year: 1964 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Dave Brubeck - Take Five.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d9a27268-6921-4915-a52f-0a51a612adb4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Dave Brubeck - Take Five.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9191fea4-1124-41b6-aca6-ef9a95bb9526",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Dave Brubeck - Take Five.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Dave Brubeck - Take Five.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,431 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR532451",
+    "kind": "song",
+    "rvtr": "RVTR532451",
+    "generatedAt": "2026-06-28T22:55:10.569Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR532451",
+    "artist": "Cobra Starship",
+    "title": "Send My Love To The Dancefloor I'Ll See You In Hell",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Cobra Starship",
+    "relatedArtists": [
+      "Cobra Starship"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-8g0c5g",
+      "title": "Send My Love To The Dancefloor, I'll See You In Hell",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-nzkpxr",
+      "date": "2008",
+      "label": "Send My Love To The Dancefloor I'Ll See You In Hell — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-avmr9n",
+      "date": "2008",
+      "label": "Send My Love To The Dancefloor, I'll See You In Hell",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e6316bb3e63c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR532451&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-8g0c5g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "949c532f3cee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR532451&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-8g0c5g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2a870d7dd9d1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR532451&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-8g0c5g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c388f508ed36",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR532451&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-8g0c5g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e2b6a0e70be2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR532451&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-8g0c5g",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-8g0c5g",
+        "title": "Send My Love To The Dancefloor, I'll See You In Hell",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR532451-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR532451"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Cobra Starship"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Cobra Starship"
+    },
+    {
+      "id": "rel-RVTR532451-tl-tl-nzkpxr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR532451"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nzkpxr"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Send My Love To The Dancefloor I'Ll See You In Hell — original release"
+    },
+    {
+      "id": "rel-RVTR532451-tl-tl-avmr9n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR532451"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-avmr9n"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Send My Love To The Dancefloor, I'll See You In Hell"
+    },
+    {
+      "id": "rel-RVTR532451-perf-perf-8g0c5g",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR532451"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-8g0c5g"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Send My Love To The Dancefloor, I'll See You In Hell"
+    },
+    {
+      "id": "rel-perf-8g0c5g-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8g0c5g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Send My Love To The Dancefloor, I'll See You In Hell"
+    },
+    {
+      "id": "rel-e6316bb3e63c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8g0c5g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e6316bb3e63c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-949c532f3cee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8g0c5g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "949c532f3cee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-2a870d7dd9d1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8g0c5g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a870d7dd9d1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c388f508ed36-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8g0c5g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c388f508ed36"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-e2b6a0e70be2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8g0c5g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e2b6a0e70be2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR532451. \"Send My Love To The Dancefloor I'Ll See You In Hell\" by Cobra Starship.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Cobra Starship · Title: Send My Love To The Dancefloor, I'll See You In Hell · Album: The Academy Is... / Gym Class Heroes / Cute Is What We Aim For / Paramore / Cobra Starship - Fueled By Ramen Decaydance Singles · Year: 2008 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b26946d6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5a5e1e59",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell (Hey Mister Dj).mp4 · Performance: Hey Mister Dj",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0c39f077-570d-4025-a56c-12b0175a969b",
+      "category": "artist",
+      "text": "Send My Love To The Dancefloor I'Ll See You In Hell is performed by Cobra Starship.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "88b6e377-b49d-4bb1-b624-eefef793f6d1",
+      "category": "trivia",
+      "text": "\"Send My Love To The Dancefloor I'Ll See You In Hell\" by Cobra Starship.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9e62b88e-7439-4bfc-af6a-34ad3449ae3c",
+      "category": "trivia",
+      "text": "Artist: Cobra Starship · Title: Send My Love To The Dancefloor, I'll See You In Hell · Album: The Academy Is...",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1f163f93-9ae8-40a4-9190-d52066e28cc2",
+      "category": "trivia",
+      "text": "/ Gym Class Heroes / Cute Is What We Aim For / Paramore / Cobra Starship - Fueled By Ramen Decaydance Singles · Year: 2008 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a751d31f-0091-4a93-b6db-79266730ec71",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "66ac28c5-70cb-4cac-b8b1-229faf4e2a21",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell (Hey Mister Dj).mp4 · Performance: Hey Mister Dj",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cobra Starship - Send My Love To The Dancefloor, I'll See You In Hell.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

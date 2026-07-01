@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR027013",
+    "kind": "song",
+    "rvtr": "RVTR027013",
+    "generatedAt": "2026-06-28T22:43:56.575Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR027013",
+    "artist": "D'angelo",
+    "title": "Brown Sugar",
+    "year": 1995,
+    "albumTitle": "Brown Sugar",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL678009/RVAL678009__d-angelo__brown-sugar.jpg"
+  },
+  "artist": {
+    "name": "D'angelo",
+    "relatedArtists": [
+      "D'angelo"
+    ]
+  },
+  "album": {
+    "title": "Brown Sugar",
+    "releaseYear": 1995,
+    "recordings": [
+      {
+        "id": "rec-xb30j6",
+        "title": "Brown Sugar",
+        "releaseDate": 1995,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-ciijzs",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1978,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/D Angelo - Brown Sugar.mp4",
+      "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 27,
+    "chartWeeks": 20,
+    "albumTitle": "Brown Sugar",
+    "summary": "Hot 100 peak #27 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-1eq9qo",
+      "date": "1995",
+      "label": "Brown Sugar — original release",
+      "detail": "Original album: Brown Sugar",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gr",
+      "date": "1995",
+      "label": "Billboard Hot 100 peak #27",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-usj13c",
+      "date": "1995",
+      "label": "Brown Sugar",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1978",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR027013",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL678009/RVAL678009__d-angelo__brown-sugar.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "844c226e278e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027013&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ciijzs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d35feea7e6b4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027013&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ciijzs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "73247a64c75c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027013&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ciijzs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dc9ccc628816",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027013&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ciijzs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d93d192bbd4c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027013&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ciijzs",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ciijzs",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1978,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/D Angelo - Brown Sugar.mp4",
+        "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR027013-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR027013"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "D'angelo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "D'angelo"
+    },
+    {
+      "id": "rel-RVTR027013-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR027013"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-xb30j6"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Brown Sugar"
+    },
+    {
+      "id": "rel-RVTR027013-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR027013"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #27"
+    },
+    {
+      "id": "rel-RVTR027013-tl-tl-1eq9qo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR027013"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-1eq9qo"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Brown Sugar — original release"
+    },
+    {
+      "id": "rel-RVTR027013-tl-tl-fcm3gr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR027013"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gr"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #27"
+    },
+    {
+      "id": "rel-RVTR027013-tl-tl-usj13c",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR027013"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-usj13c"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Brown Sugar"
+    },
+    {
+      "id": "rel-RVTR027013-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR027013"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR027013-perf-perf-ciijzs",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR027013"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ciijzs"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ciijzs-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ciijzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/D Angelo - Brown Sugar.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-844c226e278e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ciijzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "844c226e278e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d35feea7e6b4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ciijzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d35feea7e6b4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-73247a64c75c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ciijzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "73247a64c75c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-dc9ccc628816-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ciijzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dc9ccc628816"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d93d192bbd4c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ciijzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d93d192bbd4c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR027013. \"Brown Sugar\" by D'angelo. Album: Brown Sugar (1995).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL678009/RVAL678009__d-angelo__brown-sugar.jpg",
+      "excerpt": "Canonical cover assignment for RVTR027013 (Brown Sugar). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Brown Sugar (1995). Billboard Hot 100 peak: #27. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: D Angelo · Title: Brown Sugar · Album: Super Disco Party 2 · Year: 1978 · Genre: Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/D Angelo - Brown Sugar.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1995.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ace79665",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/D Angelo - Brown Sugar.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-87923a9d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Dangelo - Brown Sugar.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "126c281b-7a8e-4fc8-bd68-01c966b4ab3c",
+      "category": "artist",
+      "text": "Brown Sugar is performed by D'angelo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "741eb176-b10b-4179-96fd-81bc5b2e9ad8",
+      "category": "album",
+      "text": "The song appears on the album \"Brown Sugar\" (1995).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "789a6f18-30ee-46a1-8ad0-bfd332c02a31",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR027013.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL678009/RVAL678009__d-angelo__brown-sugar.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cb58f82f-a540-4361-bcf1-ff83bbccf13a",
+      "category": "chart",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4eafdf99-5e4e-4ffb-947d-43a190160dae",
+      "category": "recording",
+      "text": "Brown Sugar was released in 1995.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "43de987f-9b95-4e9f-8f70-16636f018449",
+      "category": "trivia",
+      "text": "Artist: D Angelo · Title: Brown Sugar · Album: Super Disco Party 2 · Year: 1978 · Genre: Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/D Angelo - Brown Sugar.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8e6046e7-a37e-4640-bab6-e05e4d34b95a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/D Angelo - Brown Sugar.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ec1af3e2-3022-4805-a986-f46eb8443dc0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Dangelo - Brown Sugar.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/D Angelo - Brown Sugar.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

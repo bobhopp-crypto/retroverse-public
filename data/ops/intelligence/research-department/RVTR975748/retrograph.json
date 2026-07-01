@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR975748",
+    "kind": "song",
+    "rvtr": "RVTR975748",
+    "generatedAt": "2026-06-28T23:09:09.606Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR975748",
+    "artist": "Rush",
+    "title": "The Garden",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Rush",
+    "relatedArtists": [
+      "Rush"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ff2168",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1974,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - The Garden.mp4",
+      "notes": "Detected year: 1974. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-encq9k",
+      "date": "1974",
+      "label": "The Garden — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1974",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "686d346fa846",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975748&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ff2168",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b60f6497e100",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975748&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ff2168",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "575cc60f902b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975748&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ff2168",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "19a0f1863695",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975748&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ff2168",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "49262243892c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975748&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ff2168",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ff2168",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1974,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - The Garden.mp4",
+        "notes": "Detected year: 1974. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR975748-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975748"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Rush"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Rush"
+    },
+    {
+      "id": "rel-RVTR975748-tl-tl-encq9k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975748"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-encq9k"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "The Garden — original release"
+    },
+    {
+      "id": "rel-RVTR975748-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975748"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR975748-perf-perf-ff2168",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975748"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ff2168"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ff2168-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ff2168"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - The Garden.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-686d346fa846-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ff2168"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "686d346fa846"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b60f6497e100-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ff2168"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b60f6497e100"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-575cc60f902b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ff2168"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "575cc60f902b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-19a0f1863695-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ff2168"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "19a0f1863695"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-49262243892c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ff2168"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "49262243892c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR975748. \"The Garden\" by Rush.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Rush · Title: The Garden · Album: Stellar Dynamics · Year: 1974 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - The Garden.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7ae4c14a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - The Garden.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "31940d3b-2a0f-48f4-9772-8c2c9d3c6aa6",
+      "category": "artist",
+      "text": "The Garden is performed by Rush.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "44b60e7c-a604-4a60-8e30-0fd8191c97c2",
+      "category": "trivia",
+      "text": "Artist: Rush · Title: The Garden · Album: Stellar Dynamics · Year: 1974 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - The Garden.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4c59b670-a295-4a9e-b83c-196d5e0e2cd0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - The Garden.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - The Garden.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

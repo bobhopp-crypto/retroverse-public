@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR564902",
+    "kind": "song",
+    "rvtr": "RVTR564902",
+    "generatedAt": "2026-06-28T22:56:03.706Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR564902",
+    "artist": "Deer Tick",
+    "title": "The Real Thing",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Deer Tick",
+    "relatedArtists": [
+      "Deer Tick"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-y12s93",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2023,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Deer Tick - The Real Thing.mp4",
+      "notes": "Detected year: 2023. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-uycuxd",
+      "date": "2023",
+      "label": "The Real Thing — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-ux8kc5",
+      "date": "—",
+      "label": "Deer Tick is an American alternative rock-folk band from Providence, Rhode Island, composed of singe",
+      "detail": "r-songwriter John J.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-vg0x7d",
+      "date": "—",
+      "label": "McCauley, guitarist Ian O'Neil, bassist Christopher Ryan and drummer Dennis Ryan.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-ux8kc5",
+      "date": "—",
+      "label": "Deer Tick is an American alternative rock-folk band from Providence, Rhode Island, composed of singe",
+      "detail": "r-songwriter John J.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2023",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "Deer Tick is an American alternative rock-folk band from Providence, Rhode Island, composed of singer-songwriter John J.",
+      "Records."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ffb4be0b16d4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR564902&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-y12s93",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b85799e4cdc6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR564902&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-y12s93",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "86e4dd4635ca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR564902&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-y12s93",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9dad710fb09a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR564902&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-y12s93",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fa3373855e3a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR564902&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-y12s93",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-y12s93",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2023,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Deer Tick - The Real Thing.mp4",
+        "notes": "Detected year: 2023. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR564902-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR564902"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Deer Tick"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Deer Tick"
+    },
+    {
+      "id": "rel-RVTR564902-tl-tl-uycuxd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR564902"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-uycuxd"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "The Real Thing — original release"
+    },
+    {
+      "id": "rel-RVTR564902-tl-tl-ux8kc5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR564902"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ux8kc5"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Deer Tick is an American alternative rock-folk band from Providence, Rhode Island, composed of singe"
+    },
+    {
+      "id": "rel-RVTR564902-tl-tl-vg0x7d",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR564902"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vg0x7d"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "McCauley, guitarist Ian O'Neil, bassist Christopher Ryan and drummer Dennis Ryan."
+    },
+    {
+      "id": "rel-RVTR564902-tl-tl-ux8kc5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR564902"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ux8kc5"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Deer Tick is an American alternative rock-folk band from Providence, Rhode Island, composed of singe"
+    },
+    {
+      "id": "rel-RVTR564902-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR564902"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR564902-perf-perf-y12s93",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR564902"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-y12s93"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-y12s93-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y12s93"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Deer Tick - The Real Thing.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ffb4be0b16d4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y12s93"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ffb4be0b16d4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b85799e4cdc6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y12s93"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b85799e4cdc6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-86e4dd4635ca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y12s93"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "86e4dd4635ca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9dad710fb09a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y12s93"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9dad710fb09a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-fa3373855e3a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y12s93"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fa3373855e3a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR564902. \"The Real Thing\" by Deer Tick.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Deer Tick · Title: The Real Thing · Album: Emotional Contracts · Year: 2023 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Deer Tick - The Real Thing.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5064e903",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Deer Tick - The Real Thing.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-deer-tick-band-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Deer_Tick_(band)",
+      "excerpt": "Deer Tick is an American alternative rock-folk band from Providence, Rhode Island, composed of singer-songwriter John J. McCauley, guitarist Ian O'Neil, bassist Christopher Ryan and drummer Dennis Ryan.\nThe band's music has been described as rock with folk, blues and country influences, although the band actively rebels against the country tag, stating \"We're proud not to sing with a twang\". The band regularly performs cover versions in their live sets, including songs by the likes of The Replacements, Nirvana, John Prine, Hank Williams, the Beastie Boys, Warren Zevon and Sonny West. They have also performed entire sets as Deervana, a Nirvana tribute band, including a show in September 2013 to mark the 20th anniversary of the band's third album In Utero.\nMcCauley explained that inspiration for the name \"Deer Tick\" came while hiking in summer 2005 in the Morgan–Monroe State Forest near Bloomington, Indiana, where he found a deer tick on his scalp one evening, having never come into contact with one before despite having frequently gone camping and fishing as a child.\n\n\nHistory\n\n\nEarly days\nDeer Tick began in December 2004 as a duo called My Other Face, a vehicle for John McCauley's songwriting. Having previously played in high school bands Kadaver, El Toro and Metro Savages, McCauley changed direction from the heavier rock music he had grown up with after discovering Hank Williams.\nPlaying their first gig at The Growroom in Providence, the duo regularly gigged across Rhode Island, Massachusetts and New York with the likes of Chris Paddock, Jana Hunter and Diego Perez. Having parted ways with drummer Paul Marandola, McCauley dropped the My Other Face name and toured across the US in May 2005 with Viking Moses. While holding down menial jobs including as a movie projectionist and a waiter at a Chinese restaurant, McCauley continued touring the country with Miranda Stokes, Mandarin Dynasty and Nat Baldwin.\nAfter a year of touring and selling his music on handmade CD-Rs, he returned to Providence with a newfound confidence and songs including \"Dirty Dishes\", \"Art Isn't Real (City Of Sin)\" and \"Ashamed\". Up until mid-2007 McCauley was the only official member of the band, instead opting to play with a revolving cast of musicians including Marandola and keyboard player James Falzone. With the desire to make Deer Tick a real band, in April 2007 he asked GRSHN Lifestyle and 14 Foot 1 drummer Dennis Ryan from neighbouring Pawtucket to join; he instantly agreed. McCauley had previously tried to get Dennis' half brother Chris Ryan, an old high school friend and local bass player who had played with Stefan Couture And The Campfire Orchestra, to join the band full-time, but he had been unable to join due to finishing off a music degree at Providence College. Following a nationwide tour and having finished his degree, Chris Ryan finally joined.\n\n\nWar Elephant\nThe band released their debut album War Elephant on September 4, 2007, via Jana Hunter's Houston-based Feow! Records. Recorded prior to the arrival of Dennis and Chris Ryan, neither appear on the album, with McCauley playing most of the instruments with help from Brian McOmber from Dirty Projectors, Nat Baldwin and James Falzone. The album featured \"These Old Shoes,\" a cover of a song by Chris Paddock. After the initial CD run sold out by January 2008 and a dispute over royalty payments arose, the album was left out of print, leaving the band touring with no proper copies of the album to sell. McCauley would sometimes burn copies of the album on CD-R to sell at gigs.\n\n\nBorn on Flag Day\nIn August 2008, the three piece expanded their lineup with lead guitarist Andrew Tobiassen, from Florida. In September 2008, the band recorded their second album Born on Flag Day at Yellow House Studios in Baltimore, Maryland and signed to Partisan Records after the label's owner Tim Putnam saw the band play at the Knitting Factory in Brooklyn and offered them a record deal a few weeks later at a gig in Providence.\nPartisan first re-released War Elephant on November 11, 2008, with Born on Flag Day released on June 23, 2009. The album received wide critical acclaim, with Rolling Stone proclaiming it the \"Country-Rock break-through of the Year\". The band continued to tour the US extensively, and eventually toured Europe. McCauley felt that while listeners didn't have to listen to his \"hack drumming and bass playing\" as on War Elephant, the band were underrehearsed and that the album was rushed.\n\n\nThe Black Dirt Sessions\nIn January 2009, the band entered Black Dirt Studios in upstate New York with producer Jason Meagher to record every song they had left that was unrecorded for the band to \"see what we could make out of it\". The first release from the sessions was the More Fuel for the Fire EP and included the Andrew Tobiassen written and sung song \"Dance Of Love.\" The second release from the sessions was the band's third album The Black Dirt Sessions, released on June 8, 2010. Springfield, Massachusetts native and former Titus Andronicus and La Guillotine guitarist Ian O'Neil joined the band in June 2009, expanding the lineup to five, and added rhythm guitar to several songs during the later recording sessions. Lead guitarist Andrew Tobiassen amicably left the band to pursue his own music prior to the end of the sessions. Chris Ryan revealed that he believed the album \"gels more than Born on Flag Day. I think we all mean it more. We're all a lot more comfortable with what we're doing\". McCauley added that he had \"kind of grown to hate War Elephant and Flag Day knowing how much ass this new one kicks\".\nOn June 16, 2010, Deer Tick made their network television debut on the Late Show with David Letterman. Although the appearance came only a week after the new album was released, Deer Tick did not perform anything from The Black Dirt Sessions, and instead chose to play a song from their debut album, \"Baltimore Blues No. 1.\" Renowned British music journalist and editor All",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "a5f02816-22d3-4c77-858a-5d34ed58fdd2",
+      "category": "artist",
+      "text": "The Real Thing is performed by Deer Tick.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3b186428-e5c3-4f6f-b9f3-65b371f61c20",
+      "category": "cultural_impact",
+      "text": "Deer Tick is an American alternative rock-folk band from Providence, Rhode Island, composed of singer-songwriter John J.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Deer_Tick_(band)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "da6bc688-5a9b-40c1-80f9-fa0085b3b7d1",
+      "category": "cultural_impact",
+      "text": "McCauley, guitarist Ian O'Neil, bassist Christopher Ryan and drummer Dennis Ryan.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Deer_Tick_(band)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f0b55de3-d356-4ea1-a54b-a02e909db9e2",
+      "category": "cultural_impact",
+      "text": "The band's music has been described as rock with folk, blues and country influences, although the band actively rebels against the country tag, stating \"We're proud not to sing with a twang\".",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Deer_Tick_(band)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "27d0929f-e747-4daf-8aec-5366a5926f51",
+      "category": "trivia",
+      "text": "Artist: Deer Tick · Title: The Real Thing · Album: Emotional Contracts · Year: 2023 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Deer Tick - The Real Thing.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2d9d582f-3664-42d0-84cd-ff2b93f3c5e7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Deer Tick - The Real Thing.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Deer Tick - The Real Thing.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

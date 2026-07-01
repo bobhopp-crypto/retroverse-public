@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR254393",
+    "kind": "song",
+    "rvtr": "RVTR254393",
+    "generatedAt": "2026-06-28T22:49:24.993Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR254393",
+    "artist": "Adele",
+    "title": "Hello",
+    "year": 2015,
+    "albumTitle": "25",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL761029/RVAL761029__adele__25.jpg"
+  },
+  "artist": {
+    "name": "Adele",
+    "relatedArtists": [
+      "Adele"
+    ]
+  },
+  "album": {
+    "title": "25",
+    "releaseYear": 2015,
+    "recordings": [
+      {
+        "id": "rec-lg7f47",
+        "title": "25",
+        "releaseDate": 2015,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-dz272f",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2015,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Hello.mp4",
+      "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 26,
+    "albumTitle": "25",
+    "summary": "Hot 100 peak #1 · 26 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-qrmmye",
+      "date": "2015",
+      "label": "Hello — original release",
+      "detail": "Original album: 25",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2015",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "26 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-nbai5l",
+      "date": "2015",
+      "label": "25",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2015",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR254393",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL761029/RVAL761029__adele__25.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9f269cb2be46",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR254393&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dz272f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ee77573813a5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR254393&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dz272f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "acb1872a5200",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR254393&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dz272f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aa0a1d663428",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR254393&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dz272f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "168c214ccec3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR254393&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dz272f",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dz272f",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2015,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Hello.mp4",
+        "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR254393-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR254393"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Adele"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Adele"
+    },
+    {
+      "id": "rel-RVTR254393-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR254393"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-lg7f47"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "25"
+    },
+    {
+      "id": "rel-RVTR254393-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR254393"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR254393-tl-tl-qrmmye",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR254393"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qrmmye"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hello — original release"
+    },
+    {
+      "id": "rel-RVTR254393-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR254393"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR254393-tl-tl-nbai5l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR254393"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nbai5l"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "25"
+    },
+    {
+      "id": "rel-RVTR254393-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR254393"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR254393-perf-perf-dz272f",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR254393"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dz272f"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dz272f-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dz272f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Hello.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9f269cb2be46-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dz272f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9f269cb2be46"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ee77573813a5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dz272f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ee77573813a5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-acb1872a5200-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dz272f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "acb1872a5200"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-aa0a1d663428-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dz272f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aa0a1d663428"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-168c214ccec3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dz272f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "168c214ccec3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR254393. \"Hello\" by Adele. Album: 25 (2015).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL761029/RVAL761029__adele__25.jpg",
+      "excerpt": "Canonical cover assignment for RVTR254393 (Hello). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: 25 (2015). Billboard Hot 100 peak: #1. 26 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Adele · Title: Hello · Album: Hello · Year: 2015 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Hello.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2015.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f08a1bcc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Hello.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "3824c995-f4a1-4ef6-abf6-cb172dc5a6e9",
+      "category": "artist",
+      "text": "Hello is performed by Adele.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f219e100-4920-4f5f-a8b2-31a802806fab",
+      "category": "album",
+      "text": "The song appears on the album \"25\" (2015).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8c360f3e-ddf6-4fc9-9105-2d61f8a20589",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR254393.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL761029/RVAL761029__adele__25.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bd2c8693-1a51-4495-9edc-e1626e74a3c0",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 26 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b8c460cc-16eb-440b-b177-d1e99e775ae2",
+      "category": "recording",
+      "text": "Hello was released in 2015.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8c7445c8-8085-43fe-ba5d-651826a4ec95",
+      "category": "trivia",
+      "text": "Artist: Adele · Title: Hello · Album: Hello · Year: 2015 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Hello.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8dd706f7-20e1-4e6b-bc94-4b4b9c1dd92d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Hello.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Adele - Hello.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

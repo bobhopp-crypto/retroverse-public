@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR168858",
+    "kind": "song",
+    "rvtr": "RVTR168858",
+    "generatedAt": "2026-06-28T22:47:16.553Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR168858",
+    "artist": "Neil Diamond, Natalie Maines",
+    "title": "Another Day That Time Forgot",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Neil Diamond, Natalie Maines",
+    "relatedArtists": [
+      "Neil Diamond, Natalie Maines"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-b7k0yt",
+      "title": "That Time Forgot",
+      "kind": "performance",
+      "year": 2008,
+      "venue": "That Time Forgot",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond, Natalie Maines - Another Day (That Time Forgot).mp4",
+      "notes": "Performance label: That Time Forgot. Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-l4jcem",
+      "date": "2008",
+      "label": "Another Day That Time Forgot — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-38j2hb",
+      "date": "2008",
+      "label": "That Time Forgot",
+      "detail": "That Time Forgot",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cbec512f789d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR168858&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-b7k0yt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "74781f9591b8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR168858&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-b7k0yt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a0e9763094d7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR168858&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-b7k0yt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f03cc757c1b1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR168858&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-b7k0yt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9a63bd593b50",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR168858&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-b7k0yt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-b7k0yt",
+        "title": "That Time Forgot",
+        "kind": "performance",
+        "year": 2008,
+        "venue": "That Time Forgot",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond, Natalie Maines - Another Day (That Time Forgot).mp4",
+        "notes": "Performance label: That Time Forgot. Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR168858-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR168858"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Neil Diamond, Natalie Maines"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Neil Diamond, Natalie Maines"
+    },
+    {
+      "id": "rel-RVTR168858-tl-tl-l4jcem",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR168858"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l4jcem"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Another Day That Time Forgot — original release"
+    },
+    {
+      "id": "rel-RVTR168858-tl-tl-38j2hb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR168858"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-38j2hb"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "That Time Forgot"
+    },
+    {
+      "id": "rel-RVTR168858-perf-perf-b7k0yt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR168858"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-b7k0yt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "That Time Forgot"
+    },
+    {
+      "id": "rel-perf-b7k0yt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b7k0yt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond, Natalie Maines - Another Day (That Time Forgot).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "That Time Forgot"
+    },
+    {
+      "id": "rel-cbec512f789d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b7k0yt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cbec512f789d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-74781f9591b8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b7k0yt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "74781f9591b8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a0e9763094d7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b7k0yt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a0e9763094d7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f03cc757c1b1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b7k0yt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f03cc757c1b1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9a63bd593b50-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b7k0yt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9a63bd593b50"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR168858. \"Another Day That Time Forgot\" by Neil Diamond, Natalie Maines.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Neil Diamond, Natalie Maines · Title: Another Day (That Time Forgot) · Album: Neil Diamond - Home Before Dark · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond, Natalie Maines - Another Day (That Time Forgot).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-336b1c77",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond, Natalie Maines - Another Day (That Time Forgot).mp4 · Performance: That Time Forgot",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b0b79164-c7da-4cf4-9b58-6b41db468d25",
+      "category": "artist",
+      "text": "Another Day That Time Forgot is performed by Neil Diamond, Natalie Maines.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cbe2f3f5-96a9-4849-80aa-e6d92633b970",
+      "category": "trivia",
+      "text": "\"Another Day That Time Forgot\" by Neil Diamond, Natalie Maines.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5a158c70-216b-4c38-903a-379d27193fbd",
+      "category": "trivia",
+      "text": "Artist: Neil Diamond, Natalie Maines · Title: Another Day (That Time Forgot) · Album: Neil Diamond - Home Before Dark · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond, Natalie Maines - Another Day (That Time Forgot).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "85fbbb09-4eab-4ec1-8204-34e6e5595c56",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond, Natalie Maines - Another Day (That Time Forgot).mp4 · Performance: That Time Forgot",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond, Natalie Maines - Another Day (That Time Forgot).mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR450965",
+    "kind": "song",
+    "rvtr": "RVTR450965",
+    "generatedAt": "2026-06-28T22:53:11.580Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR450965",
+    "artist": "Mabel",
+    "title": "Don't Call Me Up",
+    "year": 2019,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mabel",
+    "relatedArtists": [
+      "Mabel"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2019,
+    "recordings": [
+      {
+        "id": "rec-kv72kx",
+        "title": "Don't Call Me Up — graph recording",
+        "releaseDate": 2019,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-k07orr",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2000,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mabel - Don't Call Me Up.mp4",
+      "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 66,
+    "chartWeeks": 10,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #66 · 10 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-6awva3",
+      "date": "2019",
+      "label": "Don't Call Me Up — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k6",
+      "date": "2019",
+      "label": "Billboard Hot 100 peak #66",
+      "detail": "10 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-zg4ahk",
+      "date": "2019",
+      "label": "Don't Call Me Up — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2000",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "92118d233834",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR450965&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-k07orr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c904efba781c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR450965&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-k07orr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ebb9ee08134b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR450965&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-k07orr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d0d3150c808d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR450965&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-k07orr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5ca7b221e067",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR450965&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-k07orr",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-k07orr",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2000,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mabel - Don't Call Me Up.mp4",
+        "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR450965-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR450965"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mabel"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mabel"
+    },
+    {
+      "id": "rel-RVTR450965-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR450965"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #66"
+    },
+    {
+      "id": "rel-RVTR450965-tl-tl-6awva3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR450965"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6awva3"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Don't Call Me Up — original release"
+    },
+    {
+      "id": "rel-RVTR450965-tl-tl-fcm3k6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR450965"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k6"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #66"
+    },
+    {
+      "id": "rel-RVTR450965-tl-tl-zg4ahk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR450965"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-zg4ahk"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Don't Call Me Up — graph recording"
+    },
+    {
+      "id": "rel-RVTR450965-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR450965"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR450965-perf-perf-k07orr",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR450965"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-k07orr"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-k07orr-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k07orr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mabel - Don't Call Me Up.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-92118d233834-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k07orr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "92118d233834"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c904efba781c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k07orr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c904efba781c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ebb9ee08134b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k07orr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ebb9ee08134b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d0d3150c808d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k07orr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d0d3150c808d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5ca7b221e067-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k07orr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5ca7b221e067"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR450965. \"Don't Call Me Up\" by Mabel.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #66. 10 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mabel · Title: Don't Call Me Up · Album: Deep 65 - The Y2K Edition · Year: 2000 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mabel - Don't Call Me Up.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2019.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-2330b51b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mabel - Don't Call Me Up.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "cb64f832-9410-42e8-90e3-4014b2e609af",
+      "category": "artist",
+      "text": "Don't Call Me Up is performed by Mabel.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "922e8c1e-0062-4bd7-9821-a2aa893435ad",
+      "category": "chart",
+      "text": "The song peaked at #66 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8b216b8b-8ce4-4dff-9b81-cb525fc10b50",
+      "category": "recording",
+      "text": "Don't Call Me Up was released in 2019.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1d360f82-7130-43c9-94e3-3f396c308c57",
+      "category": "trivia",
+      "text": "Artist: Mabel · Title: Don't Call Me Up · Album: Deep 65 - The Y2K Edition · Year: 2000 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mabel - Don't Call Me Up.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e4a779c1-6357-4043-8f1a-fdfbfc486087",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mabel - Don't Call Me Up.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mabel - Don't Call Me Up.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

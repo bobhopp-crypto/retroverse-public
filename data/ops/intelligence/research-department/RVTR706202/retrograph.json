@@ -1,0 +1,541 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR706202",
+    "kind": "song",
+    "rvtr": "RVTR706202",
+    "generatedAt": "2026-06-28T23:00:07.185Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR706202",
+    "artist": "Daft Punk",
+    "title": "Da Funk",
+    "year": 1997,
+    "albumTitle": "Homework",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL504471/RVAL504471__daft-punk__homework.jpg"
+  },
+  "artist": {
+    "name": "Daft Punk",
+    "relatedArtists": [
+      "Daft Punk"
+    ]
+  },
+  "album": {
+    "title": "Homework",
+    "releaseYear": 1997,
+    "recordings": [
+      {
+        "id": "rec-v3feuo",
+        "title": "Homework",
+        "releaseDate": 1997,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-v02pz6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1997,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Daft Punk - Da Funk.mp4",
+      "notes": "Detected year: 1997. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Homework",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-h1az77",
+      "date": "1997",
+      "label": "Da Funk — original release",
+      "detail": "Original album: Homework",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-ulrnrw",
+      "date": "1997",
+      "label": "Homework",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1997",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR706202",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL504471/RVAL504471__daft-punk__homework.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "76017fc8b4c1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706202&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-v02pz6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c81713610e01",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706202&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-v02pz6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c4b1bd96ab82",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706202&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-v02pz6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e585140657fd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706202&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-v02pz6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5cdec3e8ad7c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706202&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-v02pz6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-v02pz6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1997,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Daft Punk - Da Funk.mp4",
+        "notes": "Detected year: 1997. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR706202-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706202"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Daft Punk"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Daft Punk"
+    },
+    {
+      "id": "rel-RVTR706202-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706202"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-v3feuo"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Homework"
+    },
+    {
+      "id": "rel-RVTR706202-tl-tl-h1az77",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706202"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-h1az77"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Da Funk — original release"
+    },
+    {
+      "id": "rel-RVTR706202-tl-tl-ulrnrw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706202"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ulrnrw"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Homework"
+    },
+    {
+      "id": "rel-RVTR706202-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706202"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR706202-perf-perf-v02pz6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706202"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-v02pz6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-v02pz6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v02pz6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Daft Punk - Da Funk.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-76017fc8b4c1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v02pz6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "76017fc8b4c1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c81713610e01-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v02pz6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c81713610e01"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c4b1bd96ab82-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v02pz6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c4b1bd96ab82"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e585140657fd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v02pz6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e585140657fd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5cdec3e8ad7c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v02pz6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5cdec3e8ad7c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR706202. \"Da Funk\" by Daft Punk. Album: Homework (1997).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL504471/RVAL504471__daft-punk__homework.jpg",
+      "excerpt": "Canonical cover assignment for RVTR706202 (Da Funk). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Homework (1997)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Daft Punk · Title: Da Funk · Album: Da Funk · Year: 1997 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Daft Punk - Da Funk.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1997.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-5f6f02f7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Daft Punk - Da Funk.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-05466923",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Daft Punk - Da Funk.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e6516c09",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Daft Punk Vs. Jamiroquai - Disco Funky House.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c62d3df9-e189-4ceb-aac8-7f9f3565ecdd",
+      "category": "artist",
+      "text": "Da Funk is performed by Daft Punk.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fc13183f-9e71-4ed9-81b1-6f18ed15f26f",
+      "category": "album",
+      "text": "The song appears on the album \"Homework\" (1997).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d4944e5f-7c4f-49c7-be3f-d4b4c3f78725",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR706202.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL504471/RVAL504471__daft-punk__homework.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7c2faf3d-5a18-4442-94a9-7b3b851e3677",
+      "category": "recording",
+      "text": "Da Funk was released in 1997.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "091fa935-08e0-4006-83b7-d2f1f6a9a069",
+      "category": "trivia",
+      "text": "Artist: Daft Punk · Title: Da Funk · Album: Da Funk · Year: 1997 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Daft Punk - Da Funk.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "28dd0809-443c-473c-95a2-4d3454eef6bc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Daft Punk - Da Funk.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6d60116b-69df-4d9b-b903-f4d86c82cef3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Daft Punk - Da Funk.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e1f229ea-3df4-4f8a-9d57-8e78b3e6233b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Daft Punk Vs.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 4,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Daft Punk - Da Funk.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

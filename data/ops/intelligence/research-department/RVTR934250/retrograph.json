@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR934250",
+    "kind": "song",
+    "rvtr": "RVTR934250",
+    "generatedAt": "2026-06-28T22:42:33.599Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR934250",
+    "artist": "Van Halen",
+    "title": "Why Can't This Be Love",
+    "year": 1986,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Van Halen",
+    "relatedArtists": [
+      "Van Halen"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1986,
+    "recordings": [
+      {
+        "id": "rec-lun8eg",
+        "title": "Why Can't This Be Love — graph recording",
+        "releaseDate": 1986,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-d9q12n",
+      "title": "1986",
+      "kind": "performance",
+      "year": 1986,
+      "venue": "1986",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Van Halen - Why Can't This Be Love (1986).mp4",
+      "notes": "Performance label: 1986. Detected year: 1986. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 16,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #3 · 16 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-mlgl5o",
+      "date": "1986",
+      "label": "Why Can't This Be Love — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "1986",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "16 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ufa1db",
+      "date": "1986",
+      "label": "Why Can't This Be Love — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bvjcuy",
+      "date": "1986",
+      "label": "1986",
+      "detail": "1986",
+      "domain": "performance",
+      "confidence": 1,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "1c3ffa939dc0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR934250&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-d9q12n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4361dfb33b00",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR934250&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-d9q12n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "854bd1bd1557",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR934250&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-d9q12n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c1fbbfa17136",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR934250&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-d9q12n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "98c818cb2805",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR934250&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-d9q12n",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-d9q12n",
+        "title": "1986",
+        "kind": "performance",
+        "year": 1986,
+        "venue": "1986",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Van Halen - Why Can't This Be Love (1986).mp4",
+        "notes": "Performance label: 1986. Detected year: 1986. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR934250-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR934250"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Van Halen"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Van Halen"
+    },
+    {
+      "id": "rel-RVTR934250-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR934250"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR934250-tl-tl-mlgl5o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR934250"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mlgl5o"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Why Can't This Be Love — original release"
+    },
+    {
+      "id": "rel-RVTR934250-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR934250"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR934250-tl-tl-ufa1db",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR934250"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ufa1db"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Why Can't This Be Love — graph recording"
+    },
+    {
+      "id": "rel-RVTR934250-tl-tl-bvjcuy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR934250"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bvjcuy"
+      },
+      "confidence": 1,
+      "source": "owned video",
+      "label": "1986"
+    },
+    {
+      "id": "rel-RVTR934250-perf-perf-d9q12n",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR934250"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-d9q12n"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "1986"
+    },
+    {
+      "id": "rel-perf-d9q12n-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d9q12n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Van Halen - Why Can't This Be Love (1986).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "1986"
+    },
+    {
+      "id": "rel-1c3ffa939dc0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d9q12n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1c3ffa939dc0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-4361dfb33b00-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d9q12n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4361dfb33b00"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-854bd1bd1557-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d9q12n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "854bd1bd1557"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-c1fbbfa17136-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d9q12n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c1fbbfa17136"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-98c818cb2805-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d9q12n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "98c818cb2805"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR934250. \"Why Can't This Be Love\" by Van Halen.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #3. 16 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Van Halen · Title: Why Can't This Be Love (1986) · Year: 1986 · Genre: Rock · PlayCount: 1 · LastPlayed: 1774239618 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Van Halen - Why Can't This Be Love (1986).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1986.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-07fdb84b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Van Halen - Why Can't This Be Love (1986).mp4 · Plays: 1 · Performance: 1986",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9b6d4866",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Van Halen - Why Can't This Be Love.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0d3c298c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Van Halen - Why Can't This Be Love.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b6d631e7-56b2-434c-a329-1997b6108fad",
+      "category": "artist",
+      "text": "Why Can't This Be Love is performed by Van Halen.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "350e68f0-bed0-445d-8442-505dc82eb7b2",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6d786bbd-e2f5-4a31-8c52-c3f24077ff05",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c98b0b39-36bb-40e8-b6fe-57f5d59d9dd8",
+      "category": "recording",
+      "text": "Why Can't This Be Love was released in 1986.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "cfbe20fa-95a3-48cc-b7b2-ce34148fb123",
+      "category": "trivia",
+      "text": "Artist: Van Halen · Title: Why Can't This Be Love (1986) · Year: 1986 · Genre: Rock · PlayCount: 1 · LastPlayed: 1774239618 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Van Halen - Why Can't This Be Love (1986).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f20c45b9-5a54-44c4-b68f-99cb7ba8330a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Van Halen - Why Can't This Be Love (1986).mp4 · Plays: 1 · Performance: 1986",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ff67fb74-805f-4876-8b83-0796e7866d58",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Van Halen - Why Can't This Be Love.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f9af6e51-3411-46ec-963e-d03ad6bdd788",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Van Halen - Why Can't This Be Love.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 8,
+    "accepted": 4,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Van Halen - Why Can't This Be Love (1986).mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

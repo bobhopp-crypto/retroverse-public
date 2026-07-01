@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR215868",
+    "kind": "song",
+    "rvtr": "RVTR215868",
+    "generatedAt": "2026-06-28T22:48:23.054Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR215868",
+    "artist": "K.flay",
+    "title": "Make Me Fade",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "K.flay",
+    "relatedArtists": [
+      "K.flay"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-4jb1ch",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/K.Flay - Make Me Fade.mp4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ywm3dy",
+      "date": "2014",
+      "label": "Make Me Fade — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2014",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f3f1ea4b263c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR215868&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-4jb1ch",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3e03072a9aa1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR215868&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-4jb1ch",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9daf65211a2c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR215868&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-4jb1ch",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b7dc8b9736dc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR215868&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-4jb1ch",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2b9762196303",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR215868&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-4jb1ch",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-4jb1ch",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/K.Flay - Make Me Fade.mp4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR215868-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR215868"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "K.flay"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "K.flay"
+    },
+    {
+      "id": "rel-RVTR215868-tl-tl-ywm3dy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR215868"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ywm3dy"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Make Me Fade — original release"
+    },
+    {
+      "id": "rel-RVTR215868-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR215868"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR215868-perf-perf-4jb1ch",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR215868"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-4jb1ch"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-4jb1ch-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4jb1ch"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/K.Flay - Make Me Fade.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f3f1ea4b263c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4jb1ch"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f3f1ea4b263c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-3e03072a9aa1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4jb1ch"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3e03072a9aa1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9daf65211a2c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4jb1ch"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9daf65211a2c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b7dc8b9736dc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4jb1ch"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b7dc8b9736dc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-2b9762196303-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4jb1ch"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2b9762196303"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR215868. \"Make Me Fade\" by K.flay.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: K.Flay · Title: Make Me Fade · Album: Life As A Dog · Year: 2014 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/K.Flay - Make Me Fade.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2f8c1ac6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/K.Flay - Make Me Fade.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "eb91515b-4a31-4f05-a7fe-4915dafedc62",
+      "category": "artist",
+      "text": "Make Me Fade is performed by K.flay.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e2f25fc1-3596-4774-a700-210a762766e4",
+      "category": "trivia",
+      "text": "Artist: K.Flay · Title: Make Me Fade · Album: Life As A Dog · Year: 2014 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/K.Flay - Make Me Fade.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "96f0af8d-5adf-4d0a-b3a3-00fe318898ff",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/K.Flay - Make Me Fade.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/K.Flay - Make Me Fade.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

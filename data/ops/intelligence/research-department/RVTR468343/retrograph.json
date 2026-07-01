@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR468343",
+    "kind": "song",
+    "rvtr": "RVTR468343",
+    "generatedAt": "2026-06-28T22:53:34.967Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR468343",
+    "artist": "Cabin Crew",
+    "title": "Star To Fall",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Cabin Crew",
+    "relatedArtists": [
+      "Cabin Crew"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-3sskco",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cabin Crew - Star To Fall.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-s0wb9i",
+      "date": "2005",
+      "label": "Star To Fall — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "7d86755fe82a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR468343&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-3sskco",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b53a200f388d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR468343&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-3sskco",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f28cbd65be53",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR468343&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-3sskco",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "392a71db7a6e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR468343&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-3sskco",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a93f2907278e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR468343&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-3sskco",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-3sskco",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cabin Crew - Star To Fall.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR468343-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR468343"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Cabin Crew"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Cabin Crew"
+    },
+    {
+      "id": "rel-RVTR468343-tl-tl-s0wb9i",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR468343"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-s0wb9i"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Star To Fall — original release"
+    },
+    {
+      "id": "rel-RVTR468343-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR468343"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR468343-perf-perf-3sskco",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR468343"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-3sskco"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-3sskco-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3sskco"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cabin Crew - Star To Fall.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-7d86755fe82a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3sskco"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7d86755fe82a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b53a200f388d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3sskco"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b53a200f388d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f28cbd65be53-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3sskco"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f28cbd65be53"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-392a71db7a6e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3sskco"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "392a71db7a6e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a93f2907278e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3sskco"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a93f2907278e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR468343. \"Star To Fall\" by Cabin Crew.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Cabin Crew · Title: Star To Fall · Album: Star2Fall (Waiting For A Star To Fall) · Year: 2005 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cabin Crew - Star To Fall.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5f80ee1b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cabin Crew - Star To Fall.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b47f066a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Cabin Crew - Star2fall.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3d2e099a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Cabin Crew - Star To Fall.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1a9308a9-78b2-4416-8a7a-3261caa7ea80",
+      "category": "artist",
+      "text": "Star To Fall is performed by Cabin Crew.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ef2506c7-84b8-4114-821b-d80090a23181",
+      "category": "trivia",
+      "text": "Artist: Cabin Crew · Title: Star To Fall · Album: Star2Fall (Waiting For A Star To Fall) · Year: 2005 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cabin Crew - Star To Fall.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f56984d5-0c89-44ab-a235-7b9a3f52960c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cabin Crew - Star To Fall.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e879084e-f554-41d4-9e0a-d81d57c77bf3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Cabin Crew - Star2fall.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2b75ec86-b8c8-4011-a12f-f8dba4da23b7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Cabin Crew - Star To Fall.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cabin Crew - Star To Fall.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

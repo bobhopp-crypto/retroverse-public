@@ -1,0 +1,431 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR991850",
+    "kind": "song",
+    "rvtr": "RVTR991850",
+    "generatedAt": "2026-06-28T22:43:19.821Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR991850",
+    "artist": "Neil Young",
+    "title": "Rockin In The Free World",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Neil Young",
+    "relatedArtists": [
+      "Neil Young"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-i30065",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1989,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Neil Young - Rockin In The Free World.mp4",
+      "notes": "Detected year: 1989. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-es698a",
+      "date": "1989",
+      "label": "Rockin In The Free World — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1989",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "76ec4da9d5a7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991850&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-i30065",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "be3264cdea28",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991850&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-i30065",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6aca70373412",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991850&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-i30065",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1a1ccbf10b6c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991850&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-i30065",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7d3f2ee6c651",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991850&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-i30065",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-i30065",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1989,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Neil Young - Rockin In The Free World.mp4",
+        "notes": "Detected year: 1989. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR991850-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991850"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Neil Young"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Neil Young"
+    },
+    {
+      "id": "rel-RVTR991850-tl-tl-es698a",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991850"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-es698a"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Rockin In The Free World — original release"
+    },
+    {
+      "id": "rel-RVTR991850-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991850"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR991850-perf-perf-i30065",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991850"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-i30065"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-i30065-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i30065"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Neil Young - Rockin In The Free World.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-76ec4da9d5a7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i30065"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "76ec4da9d5a7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-be3264cdea28-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i30065"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "be3264cdea28"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6aca70373412-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i30065"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6aca70373412"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1a1ccbf10b6c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i30065"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1a1ccbf10b6c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7d3f2ee6c651-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i30065"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7d3f2ee6c651"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR991850. \"Rockin In The Free World\" by Neil Young.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Neil Young · Title: Rockin In The Free World · Album: Rockin' In The Free World · Year: 1989 · Genre: Rock · PlayCount: 1 · LastPlayed: 1765774260 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Neil Young - Rockin In The Free World.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7e45dd3d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Neil Young - Rockin In The Free World.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8f22ce6b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Neil Young - Keep On Rocking In The Free World.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ab1a863a-ede2-4531-909f-509b5b67c51b",
+      "category": "artist",
+      "text": "Rockin In The Free World is performed by Neil Young.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0c88826a-045d-44d2-b87d-10981c8c3a38",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f72fd979-1e28-4b99-a093-3413452c5867",
+      "category": "trivia",
+      "text": "\"Rockin In The Free World\" by Neil Young.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "3fe7ae97-7fa5-4334-9162-3f3bc8667111",
+      "category": "trivia",
+      "text": "Artist: Neil Young · Title: Rockin In The Free World · Album: Rockin' In The Free World · Year: 1989 · Genre: Rock · PlayCount: 1 · LastPlayed: 1765774260 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Neil Young - Rockin In The Free World.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "66356e2d-780e-47fe-a494-60f645c690f7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Neil Young - Rockin In The Free World.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0ad98b8a-b6bd-43f4-b71d-6feb39891f87",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Neil Young - Keep On Rocking In The Free World.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Neil Young - Rockin In The Free World.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

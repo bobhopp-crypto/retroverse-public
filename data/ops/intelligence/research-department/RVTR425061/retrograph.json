@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR425061",
+    "kind": "song",
+    "rvtr": "RVTR425061",
+    "generatedAt": "2026-06-28T22:52:32.516Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR425061",
+    "artist": "Doris Troy",
+    "title": "Just One Look",
+    "year": 1963,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Doris Troy",
+    "relatedArtists": [
+      "Doris Troy"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1963,
+    "recordings": [
+      {
+        "id": "rec-8snaum",
+        "title": "Just One Look — graph recording",
+        "releaseDate": 1963,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-opmldx",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1963,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Doris Troy - Just One Look.mp4",
+      "notes": "Detected year: 1963. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 10,
+    "chartWeeks": 14,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #10 · 14 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-f6nj8v",
+      "date": "1963",
+      "label": "Just One Look — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fp",
+      "date": "1963",
+      "label": "Billboard Hot 100 peak #10",
+      "detail": "14 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-9spyz0",
+      "date": "1963",
+      "label": "Just One Look — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1963",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4a988cc45a29",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425061&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-opmldx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5ae1ba2116b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425061&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-opmldx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3179c5233ecb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425061&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-opmldx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "129ef83bdbc2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425061&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-opmldx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8c9123ec7f8a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425061&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-opmldx",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-opmldx",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1963,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Doris Troy - Just One Look.mp4",
+        "notes": "Detected year: 1963. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR425061-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425061"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Doris Troy"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Doris Troy"
+    },
+    {
+      "id": "rel-RVTR425061-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425061"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #10"
+    },
+    {
+      "id": "rel-RVTR425061-tl-tl-f6nj8v",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-f6nj8v"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Just One Look — original release"
+    },
+    {
+      "id": "rel-RVTR425061-tl-tl-fcm3fp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fp"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #10"
+    },
+    {
+      "id": "rel-RVTR425061-tl-tl-9spyz0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9spyz0"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Just One Look — graph recording"
+    },
+    {
+      "id": "rel-RVTR425061-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR425061-perf-perf-opmldx",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425061"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-opmldx"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-opmldx-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-opmldx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Doris Troy - Just One Look.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4a988cc45a29-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-opmldx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a988cc45a29"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5ae1ba2116b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-opmldx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5ae1ba2116b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-3179c5233ecb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-opmldx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3179c5233ecb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-129ef83bdbc2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-opmldx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "129ef83bdbc2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8c9123ec7f8a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-opmldx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8c9123ec7f8a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR425061. \"Just One Look\" by Doris Troy.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #10. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Doris Troy · Title: Just One Look · Album: Just One Look / Bossa Nova Blues · Year: 1963 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Doris Troy - Just One Look.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1963.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-9dd5793d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Doris Troy - Just One Look.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "50d88633-d7a6-4819-a155-0d7383c77e8c",
+      "category": "artist",
+      "text": "Just One Look is performed by Doris Troy.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "415e3718-ebdd-4b0b-85e0-0ed647f27404",
+      "category": "chart",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8a9ee9d5-4d03-47ca-841b-d776508e8147",
+      "category": "recording",
+      "text": "Just One Look was released in 1963.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b9b60ec3-03b6-42bc-94bb-d2c0ed4452b5",
+      "category": "trivia",
+      "text": "Artist: Doris Troy · Title: Just One Look · Album: Just One Look / Bossa Nova Blues · Year: 1963 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Doris Troy - Just One Look.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "07a77ae4-f788-4240-9c95-aba0195b48f4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Doris Troy - Just One Look.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Doris Troy - Just One Look.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

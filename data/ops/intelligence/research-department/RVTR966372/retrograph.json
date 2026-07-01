@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR966372",
+    "kind": "song",
+    "rvtr": "RVTR966372",
+    "generatedAt": "2026-06-28T22:43:00.766Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR966372",
+    "artist": "Lizzo",
+    "title": "About Damn Time",
+    "year": 2022,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Lizzo",
+    "relatedArtists": [
+      "Lizzo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2022,
+    "recordings": [
+      {
+        "id": "rec-kkoxlw",
+        "title": "About Damn Time — graph recording",
+        "releaseDate": 2022,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-ap11mt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2022,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Lizzo - About Damn Time [Official Video].mp4",
+      "notes": "Detected year: 2022. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 42,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 42 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-dzqh40",
+      "date": "2022",
+      "label": "About Damn Time — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2022",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "42 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-pzqg05",
+      "date": "2022",
+      "label": "About Damn Time — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2022",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "99b583f453ae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966372&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ap11mt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "43b239f24fc0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966372&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ap11mt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c5ec0b65d2b7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966372&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ap11mt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7609c600ae83",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966372&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ap11mt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2f24b130d9d9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966372&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ap11mt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ap11mt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2022,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Lizzo - About Damn Time [Official Video].mp4",
+        "notes": "Detected year: 2022. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR966372-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966372"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lizzo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lizzo"
+    },
+    {
+      "id": "rel-RVTR966372-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966372"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR966372-tl-tl-dzqh40",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966372"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dzqh40"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "About Damn Time — original release"
+    },
+    {
+      "id": "rel-RVTR966372-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966372"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR966372-tl-tl-pzqg05",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966372"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-pzqg05"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "About Damn Time — graph recording"
+    },
+    {
+      "id": "rel-RVTR966372-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966372"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR966372-perf-perf-ap11mt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966372"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ap11mt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ap11mt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ap11mt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Lizzo - About Damn Time [Official Video].mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-99b583f453ae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ap11mt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "99b583f453ae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-43b239f24fc0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ap11mt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "43b239f24fc0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-c5ec0b65d2b7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ap11mt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c5ec0b65d2b7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7609c600ae83-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ap11mt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7609c600ae83"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2f24b130d9d9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ap11mt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2f24b130d9d9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR966372. \"About Damn Time\" by Lizzo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #1. 42 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lizzo · Title: About Damn Time · Album: About Damn Time · Year: 2022 · Genre: Pop · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Lizzo - About Damn Time [Official Video].mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2022.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-eb4df9be",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Lizzo - About Damn Time [Official Video].mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b45f8f57",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "netsearch://td224348338 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c52351bb-5577-43e7-934b-deabc9864372",
+      "category": "artist",
+      "text": "About Damn Time is performed by Lizzo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "dd2b9223-44e7-4c4c-a428-6488b6ec1f11",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 42 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1db35570-2452-47f8-bd16-c343c58e3093",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "73ebcaa2-c4e9-4a1f-bd49-a8003b6b7175",
+      "category": "recording",
+      "text": "About Damn Time was released in 2022.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "367b18fd-e306-4738-88f0-e66ec3972d65",
+      "category": "trivia",
+      "text": "Artist: Lizzo · Title: About Damn Time · Album: About Damn Time · Year: 2022 · Genre: Pop · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Lizzo - About Damn Time [Official Video].mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "66c34937-86bb-4694-b100-ae879e57cd83",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Lizzo - About Damn Time [Official Video].mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Lizzo - About Damn Time [Official Video].mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

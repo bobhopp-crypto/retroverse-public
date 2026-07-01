@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR518435",
+    "kind": "song",
+    "rvtr": "RVTR518435",
+    "generatedAt": "2026-06-28T22:54:51.637Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR518435",
+    "artist": "The Script",
+    "title": "Breakeven",
+    "year": 2009,
+    "albumTitle": "The Script",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL947440/RVAL947440__the-script__the-script.jpg"
+  },
+  "artist": {
+    "name": "The Script",
+    "relatedArtists": [
+      "The Script"
+    ]
+  },
+  "album": {
+    "title": "The Script",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-rnjfbt",
+        "title": "The Script",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-az9tk7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/The Script - Breakeven.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 12,
+    "chartWeeks": 43,
+    "albumTitle": "The Script",
+    "summary": "Hot 100 peak #12 · 43 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ao6ko3",
+      "date": "2009",
+      "label": "Breakeven — original release",
+      "detail": "Original album: The Script",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fr",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #12",
+      "detail": "43 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-t5utxu",
+      "date": "2009",
+      "label": "The Script",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR518435",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL947440/RVAL947440__the-script__the-script.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "833b6993874e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR518435&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-az9tk7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "27ef430a5237",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR518435&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-az9tk7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "641348272eba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR518435&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-az9tk7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "881c95f4f3b5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR518435&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-az9tk7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2f8d579e1a7e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR518435&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-az9tk7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-az9tk7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/The Script - Breakeven.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR518435-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR518435"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Script"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Script"
+    },
+    {
+      "id": "rel-RVTR518435-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR518435"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-rnjfbt"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Script"
+    },
+    {
+      "id": "rel-RVTR518435-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR518435"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #12"
+    },
+    {
+      "id": "rel-RVTR518435-tl-tl-ao6ko3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR518435"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ao6ko3"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Breakeven — original release"
+    },
+    {
+      "id": "rel-RVTR518435-tl-tl-fcm3fr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR518435"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fr"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #12"
+    },
+    {
+      "id": "rel-RVTR518435-tl-tl-t5utxu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR518435"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-t5utxu"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Script"
+    },
+    {
+      "id": "rel-RVTR518435-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR518435"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR518435-perf-perf-az9tk7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR518435"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-az9tk7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-az9tk7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-az9tk7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/The Script - Breakeven.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-833b6993874e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-az9tk7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "833b6993874e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-27ef430a5237-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-az9tk7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "27ef430a5237"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-641348272eba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-az9tk7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "641348272eba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-881c95f4f3b5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-az9tk7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "881c95f4f3b5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2f8d579e1a7e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-az9tk7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2f8d579e1a7e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR518435. \"Breakeven\" by The Script. Album: The Script (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL947440/RVAL947440__the-script__the-script.jpg",
+      "excerpt": "Canonical cover assignment for RVTR518435 (Breakeven). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Script (2009). Billboard Hot 100 peak: #12. 43 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Script · Title: Breakeven · Album: HV 1-10 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/The Script - Breakeven.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ecd13878",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/The Script - Breakeven.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b405486c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/The Script - Breakeven.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-50fd1472",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/The Script - Breakeven.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "a39e0768-0cb0-4db5-b785-333feb5a1c4a",
+      "category": "artist",
+      "text": "Breakeven is performed by The Script.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3af68f35-f921-405c-994f-f7b246b3ba0c",
+      "category": "album",
+      "text": "The song appears on the album \"The Script\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "09f861aa-d0e7-47df-bfc3-27bcaa70275e",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR518435.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL947440/RVAL947440__the-script__the-script.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4dba40fb-f6ff-4f6a-91b9-f7f38be648a7",
+      "category": "chart",
+      "text": "The song peaked at #12 on the Billboard Hot 100 and spent 43 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9921018c-0d1f-458c-aa3f-c2a1f9ffe5cd",
+      "category": "recording",
+      "text": "Breakeven was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f4a08dac-ac17-49de-bdd4-ec61a99d7c61",
+      "category": "trivia",
+      "text": "Artist: The Script · Title: Breakeven · Album: HV 1-10 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/The Script - Breakeven.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "beee5d86-b233-4de9-8935-bde107cf7bac",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/The Script - Breakeven.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "812ffed1-9778-47d1-b485-7ced077f51e2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/The Script - Breakeven.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1d348759-e29b-4160-9ebd-915ca5e03fe3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/The Script - Breakeven.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 9,
+    "accepted": 5,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/The Script - Breakeven.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

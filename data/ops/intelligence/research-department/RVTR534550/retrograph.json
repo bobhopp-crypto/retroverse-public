@@ -1,0 +1,608 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR534550",
+    "kind": "song",
+    "rvtr": "RVTR534550",
+    "generatedAt": "2026-06-28T22:55:14.659Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR534550",
+    "artist": "Genesis",
+    "title": "Invisible Touch",
+    "year": 1986,
+    "albumTitle": "Invisible Touch",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL840138/RVAL840138__genesis__invisible-touch.jpg"
+  },
+  "artist": {
+    "name": "Genesis",
+    "relatedArtists": [
+      "Genesis"
+    ]
+  },
+  "album": {
+    "title": "Invisible Touch",
+    "releaseYear": 1986,
+    "recordings": [
+      {
+        "id": "rec-8cuej8",
+        "title": "Invisible Touch",
+        "releaseDate": 1986,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-kopez3",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1986,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Genesis - Invisible Touch.mp4",
+      "notes": "Detected year: 1986. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 17,
+    "albumTitle": "Invisible Touch",
+    "summary": "Hot 100 peak #1 · 17 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-1rwt80",
+      "date": "1986",
+      "label": "Invisible Touch — original release",
+      "detail": "Original album: Invisible Touch",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "1986",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "17 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-6xl1q0",
+      "date": "1986",
+      "label": "Invisible Touch",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1986",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR534550",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL840138/RVAL840138__genesis__invisible-touch.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dc32b9d6164a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534550&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kopez3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "49854a84ac47",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534550&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kopez3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6d733d1a9bbe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534550&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kopez3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fabd5f6c19ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534550&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kopez3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ad959531f2c1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR534550&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kopez3",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kopez3",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1986,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Genesis - Invisible Touch.mp4",
+        "notes": "Detected year: 1986. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR534550-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534550"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Genesis"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Genesis"
+    },
+    {
+      "id": "rel-RVTR534550-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534550"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-8cuej8"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Invisible Touch"
+    },
+    {
+      "id": "rel-RVTR534550-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534550"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR534550-tl-tl-1rwt80",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534550"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-1rwt80"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Invisible Touch — original release"
+    },
+    {
+      "id": "rel-RVTR534550-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534550"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR534550-tl-tl-6xl1q0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534550"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6xl1q0"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Invisible Touch"
+    },
+    {
+      "id": "rel-RVTR534550-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534550"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR534550-perf-perf-kopez3",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR534550"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kopez3"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-kopez3-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kopez3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Genesis - Invisible Touch.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-dc32b9d6164a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kopez3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dc32b9d6164a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-49854a84ac47-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kopez3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "49854a84ac47"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6d733d1a9bbe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kopez3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6d733d1a9bbe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fabd5f6c19ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kopez3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fabd5f6c19ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-ad959531f2c1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kopez3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ad959531f2c1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR534550. \"Invisible Touch\" by Genesis. Album: Invisible Touch (1986).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL840138/RVAL840138__genesis__invisible-touch.jpg",
+      "excerpt": "Canonical cover assignment for RVTR534550 (Invisible Touch). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Invisible Touch (1986). Billboard Hot 100 peak: #1. 17 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Genesis · Title: Invisible Touch · Album: Invisible Touch (Live) · Year: 1986 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Genesis - Invisible Touch.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1986.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ebbc9912",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Genesis - Invisible Touch.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-df5c1cd8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Genesis - Invisible Touch.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d5c4f04f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Genesis - Invisible Touch.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-81ce2ba3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Genesis - Invisible Touch (Live).mp3 · Performance: Live",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4e2caa60-602f-409f-a244-7db2e282d8c4",
+      "category": "artist",
+      "text": "Invisible Touch is performed by Genesis.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e38e88b5-369a-4cd2-a145-835ca993fbf6",
+      "category": "album",
+      "text": "The song appears on the album \"Invisible Touch\" (1986).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cf988df0-a867-42c6-ace8-1aad461b12d0",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR534550.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL840138/RVAL840138__genesis__invisible-touch.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ca5121b4-fa67-477a-ab05-58a50846f3b9",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "608b939f-5f4e-44d4-8226-b9ccf6642d1f",
+      "category": "recording",
+      "text": "Invisible Touch was released in 1986.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c66f454d-9bc8-4265-ab3a-6e0e3ecae459",
+      "category": "trivia",
+      "text": "Artist: Genesis · Title: Invisible Touch · Album: Invisible Touch (Live) · Year: 1986 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Genesis - Invisible Touch.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7cf7a4ce-4aa9-497d-a7d2-9244aa2499fd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Genesis - Invisible Touch.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2b1ce81c-00f7-47ed-9a48-47969be2eaa5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Genesis - Invisible Touch.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5bd8d5d8-2018-455f-aa8f-a4b0d0e305a7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Genesis - Invisible Touch.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f87b6044-9c52-4f67-9564-aff53d44f992",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Genesis - Invisible Touch (Live).mp3 · Performance: Live",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 13,
+    "preserved": 10,
+    "accepted": 5,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Genesis - Invisible Touch.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

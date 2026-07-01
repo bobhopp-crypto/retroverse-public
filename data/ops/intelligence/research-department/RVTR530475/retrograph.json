@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR530475",
+    "kind": "song",
+    "rvtr": "RVTR530475",
+    "generatedAt": "2026-06-28T22:55:07.093Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR530475",
+    "artist": "Krokus",
+    "title": "Ballroom Blitz",
+    "year": 1984,
+    "albumTitle": "The Blitz",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL160984/RVAL160984__krokus__the-blitz.jpg"
+  },
+  "artist": {
+    "name": "Krokus",
+    "relatedArtists": [
+      "Krokus"
+    ]
+  },
+  "album": {
+    "title": "The Blitz",
+    "releaseYear": 1984,
+    "recordings": [
+      {
+        "id": "rec-t8icew",
+        "title": "The Blitz",
+        "releaseDate": 1984,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-4vhxr3",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1984,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Krokus - Ballroom Blitz.mp4",
+      "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "The Blitz",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-jj5wel",
+      "date": "1984",
+      "label": "Ballroom Blitz — original release",
+      "detail": "Original album: The Blitz",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-qef68u",
+      "date": "1984",
+      "label": "The Blitz",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1984",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR530475",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL160984/RVAL160984__krokus__the-blitz.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "729cc73652c4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR530475&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-4vhxr3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "356ccca475ca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR530475&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-4vhxr3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c9be0a5520b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR530475&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-4vhxr3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "731f64009a32",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR530475&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-4vhxr3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ce94a0fb2178",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR530475&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-4vhxr3",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-4vhxr3",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1984,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Krokus - Ballroom Blitz.mp4",
+        "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR530475-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR530475"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Krokus"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Krokus"
+    },
+    {
+      "id": "rel-RVTR530475-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR530475"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-t8icew"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Blitz"
+    },
+    {
+      "id": "rel-RVTR530475-tl-tl-jj5wel",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR530475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jj5wel"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Ballroom Blitz — original release"
+    },
+    {
+      "id": "rel-RVTR530475-tl-tl-qef68u",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR530475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qef68u"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Blitz"
+    },
+    {
+      "id": "rel-RVTR530475-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR530475"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR530475-perf-perf-4vhxr3",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR530475"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-4vhxr3"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-4vhxr3-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4vhxr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Krokus - Ballroom Blitz.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-729cc73652c4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4vhxr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "729cc73652c4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-356ccca475ca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4vhxr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "356ccca475ca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c9be0a5520b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4vhxr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c9be0a5520b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-731f64009a32-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4vhxr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "731f64009a32"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ce94a0fb2178-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4vhxr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ce94a0fb2178"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR530475. \"Ballroom Blitz\" by Krokus. Album: The Blitz (1984).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL160984/RVAL160984__krokus__the-blitz.jpg",
+      "excerpt": "Canonical cover assignment for RVTR530475 (Ballroom Blitz). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Blitz (1984)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Krokus · Title: Ballroom Blitz · Album: Ballroom Blitz · Year: 1984 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Krokus - Ballroom Blitz.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1984.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-35e7a480",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Krokus - Ballroom Blitz.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d5db3f96-763f-4a32-8038-6124e41a7908",
+      "category": "artist",
+      "text": "Ballroom Blitz is performed by Krokus.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ee964204-1420-44f8-be91-26a860f72afa",
+      "category": "album",
+      "text": "The song appears on the album \"The Blitz\" (1984).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3371939d-ba67-456d-887e-5f33a3fa368b",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR530475.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL160984/RVAL160984__krokus__the-blitz.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6f6467fc-ae99-42d6-910c-1448e5fa5be2",
+      "category": "recording",
+      "text": "Ballroom Blitz was released in 1984.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5869b390-dcf2-4ea0-bd3d-97e27c0358e5",
+      "category": "trivia",
+      "text": "Artist: Krokus · Title: Ballroom Blitz · Album: Ballroom Blitz · Year: 1984 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Krokus - Ballroom Blitz.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "571d6be3-1ded-44dd-aa9e-ea1aed2eb4b8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Krokus - Ballroom Blitz.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Krokus - Ballroom Blitz.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

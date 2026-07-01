@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR300627",
+    "kind": "song",
+    "rvtr": "RVTR300627",
+    "generatedAt": "2026-06-28T22:50:12.768Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR300627",
+    "artist": "Dmx",
+    "title": "How's It Goin' Down",
+    "year": 2016,
+    "albumTitle": "The Best Of DMX",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dmx",
+    "relatedArtists": [
+      "Dmx"
+    ]
+  },
+  "album": {
+    "title": "The Best Of DMX",
+    "releaseYear": 2016,
+    "recordings": [
+      {
+        "id": "rec-fdaq96",
+        "title": "The Best Of DMX",
+        "releaseDate": 2016,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-6kew1q",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/DMX - How's It Goin' Down.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 70,
+    "chartWeeks": 10,
+    "albumTitle": "The Best Of DMX",
+    "summary": "Hot 100 peak #70 · 10 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-nl721p",
+      "date": "2010",
+      "label": "How's It Goin' Down — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.58,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3kv",
+      "date": "2010",
+      "label": "Billboard Hot 100 peak #70",
+      "detail": "10 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-afqjvx",
+      "date": "2016",
+      "label": "The Best Of DMX",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.82,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "2288f3493ae6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300627&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6kew1q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6246f1d26502",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300627&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6kew1q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "26a10f2618ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300627&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6kew1q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "129578a6198d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300627&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6kew1q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a5823f35b7e1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300627&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6kew1q",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6kew1q",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/DMX - How's It Goin' Down.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR300627-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300627"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dmx"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dmx"
+    },
+    {
+      "id": "rel-RVTR300627-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300627"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-fdaq96"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Best Of DMX"
+    },
+    {
+      "id": "rel-RVTR300627-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300627"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #70"
+    },
+    {
+      "id": "rel-RVTR300627-tl-tl-nl721p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300627"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nl721p"
+      },
+      "confidence": 0.58,
+      "source": "song entity",
+      "label": "How's It Goin' Down — original release"
+    },
+    {
+      "id": "rel-RVTR300627-tl-tl-fcm3kv",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300627"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3kv"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #70"
+    },
+    {
+      "id": "rel-RVTR300627-tl-tl-afqjvx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300627"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-afqjvx"
+      },
+      "confidence": 0.82,
+      "source": "Retroverse graph",
+      "label": "The Best Of DMX"
+    },
+    {
+      "id": "rel-RVTR300627-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300627"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR300627-perf-perf-6kew1q",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300627"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6kew1q"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6kew1q-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6kew1q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/DMX - How's It Goin' Down.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-2288f3493ae6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6kew1q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2288f3493ae6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6246f1d26502-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6kew1q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6246f1d26502"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-26a10f2618ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6kew1q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "26a10f2618ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-129578a6198d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6kew1q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "129578a6198d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a5823f35b7e1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6kew1q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a5823f35b7e1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR300627. \"How's It Goin' Down\" by Dmx. Album: The Best Of DMX (2016).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Best Of DMX (2016). Billboard Hot 100 peak: #70. 10 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: DMX · Title: How's It Goin' Down · Album: The Best Of · Year: 2010 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/DMX - How's It Goin' Down.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2016.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c502295b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/DMX - How's It Goin' Down.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "78eb9e04-365b-4bed-80e6-06e38f36ae75",
+      "category": "artist",
+      "text": "How's It Goin' Down is performed by Dmx.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4600fac0-6b18-400d-ad07-2e2827b45843",
+      "category": "album",
+      "text": "The song appears on the album \"The Best Of DMX\" (2016).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "10849e85-ec05-4128-98a4-d2b2d1b6fd4e",
+      "category": "chart",
+      "text": "The song peaked at #70 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0e992697-a095-4ab3-aa8a-d9a421bb2b50",
+      "category": "album",
+      "text": "Graph compilation anchor: \"The Best Of DMX\" (2016) — not the song's original release year.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2e8fd6e1-e404-4857-a4d7-5f5dca1e27d5",
+      "category": "trivia",
+      "text": "Artist: DMX · Title: How's It Goin' Down · Album: The Best Of · Year: 2010 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/DMX - How's It Goin' Down.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "52fd9cff-af90-4ede-9b80-7e897be96e11",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/DMX - How's It Goin' Down.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/DMX - How's It Goin' Down.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

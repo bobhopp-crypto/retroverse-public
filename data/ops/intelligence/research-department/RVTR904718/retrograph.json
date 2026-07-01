@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR904718",
+    "kind": "song",
+    "rvtr": "RVTR904718",
+    "generatedAt": "2026-06-28T23:06:43.301Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR904718",
+    "artist": "Coldplay",
+    "title": "Higher Power",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Coldplay",
+    "relatedArtists": [
+      "Coldplay"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-d89vb1",
+        "title": "Higher Power — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-i70zsr",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Coldplay - Higher Power.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 53,
+    "chartWeeks": 2,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #53 · 2 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-7rcxuw",
+      "date": "2021",
+      "label": "Higher Power — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3j8",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #53",
+      "detail": "2 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bvpet7",
+      "date": "2021",
+      "label": "Higher Power — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9624e7bd8313",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904718&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-i70zsr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "52293bf741bd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904718&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-i70zsr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2cf82faf5b36",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904718&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-i70zsr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f3b7e86573ae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904718&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-i70zsr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "836f8959b86e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR904718&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-i70zsr",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-i70zsr",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Coldplay - Higher Power.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR904718-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904718"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Coldplay"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Coldplay"
+    },
+    {
+      "id": "rel-RVTR904718-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904718"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #53"
+    },
+    {
+      "id": "rel-RVTR904718-tl-tl-7rcxuw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904718"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7rcxuw"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Higher Power — original release"
+    },
+    {
+      "id": "rel-RVTR904718-tl-tl-fcm3j8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904718"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3j8"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #53"
+    },
+    {
+      "id": "rel-RVTR904718-tl-tl-bvpet7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904718"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bvpet7"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Higher Power — graph recording"
+    },
+    {
+      "id": "rel-RVTR904718-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904718"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR904718-perf-perf-i70zsr",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR904718"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-i70zsr"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-i70zsr-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i70zsr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Coldplay - Higher Power.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9624e7bd8313-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i70zsr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9624e7bd8313"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-52293bf741bd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i70zsr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "52293bf741bd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2cf82faf5b36-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i70zsr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2cf82faf5b36"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f3b7e86573ae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i70zsr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f3b7e86573ae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-836f8959b86e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i70zsr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "836f8959b86e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR904718. \"Higher Power\" by Coldplay.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #53. 2 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Coldplay · Title: Higher Power · Album: Higher Power · Year: 2021 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Coldplay - Higher Power.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-67f7af2a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Coldplay - Higher Power.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "cc28e93b-a2e1-4ce1-bd68-5f48f24e7ca2",
+      "category": "artist",
+      "text": "Higher Power is performed by Coldplay.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cb51cee4-9d4f-434a-b223-8d35f465804a",
+      "category": "chart",
+      "text": "The song peaked at #53 on the Billboard Hot 100 and spent 2 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2a6e1a6d-2d20-409c-9741-f673f35fa372",
+      "category": "recording",
+      "text": "Higher Power was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f5e9211f-9700-48fe-b845-bab1e348d0c0",
+      "category": "trivia",
+      "text": "Artist: Coldplay · Title: Higher Power · Album: Higher Power · Year: 2021 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Coldplay - Higher Power.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "64387415-ea17-41b4-a8ed-ef34a66a9da2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Coldplay - Higher Power.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Coldplay - Higher Power.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

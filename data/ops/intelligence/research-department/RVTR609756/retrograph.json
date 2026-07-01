@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR609756",
+    "kind": "song",
+    "rvtr": "RVTR609756",
+    "generatedAt": "2026-06-28T22:57:24.286Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR609756",
+    "artist": "Jp Cooper",
+    "title": "September Song",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jp Cooper",
+    "relatedArtists": [
+      "Jp Cooper"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-x3d064",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2016,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JP Cooper - September Song.mp4",
+      "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-w5e0g8",
+      "date": "2016",
+      "label": "September Song — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2016",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "14bc2a6973a5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR609756&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-x3d064",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6e233be5cb29",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR609756&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-x3d064",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4c369da3e032",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR609756&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-x3d064",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0273ad0f3371",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR609756&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-x3d064",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "82466a3d53fc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR609756&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-x3d064",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-x3d064",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2016,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JP Cooper - September Song.mp4",
+        "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR609756-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR609756"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jp Cooper"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jp Cooper"
+    },
+    {
+      "id": "rel-RVTR609756-tl-tl-w5e0g8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR609756"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-w5e0g8"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "September Song — original release"
+    },
+    {
+      "id": "rel-RVTR609756-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR609756"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR609756-perf-perf-x3d064",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR609756"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-x3d064"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-x3d064-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3d064"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JP Cooper - September Song.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-14bc2a6973a5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3d064"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "14bc2a6973a5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6e233be5cb29-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3d064"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6e233be5cb29"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4c369da3e032-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3d064"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4c369da3e032"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-0273ad0f3371-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3d064"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0273ad0f3371"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-82466a3d53fc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3d064"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "82466a3d53fc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR609756. \"September Song\" by Jp Cooper.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: JP Cooper · Title: September Song · Album: JP. Cooper - September Song · Year: 2016 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/JP Cooper - September Song.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a5d9b90c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JP Cooper - September Song.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "7b79b6cc-6c92-4eec-bea9-db9a22aa517f",
+      "category": "artist",
+      "text": "September Song is performed by Jp Cooper.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "005fab20-8224-4e3b-b2e0-ca24e7bc5210",
+      "category": "trivia",
+      "text": "Artist: JP Cooper · Title: September Song · Album: JP.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b620910b-baca-472f-8e1f-662050427039",
+      "category": "trivia",
+      "text": "Cooper - September Song · Year: 2016 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/JP Cooper - September Song.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "93e21cdb-6bda-49d4-a0d0-8344096da3ff",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JP Cooper - September Song.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JP Cooper - September Song.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

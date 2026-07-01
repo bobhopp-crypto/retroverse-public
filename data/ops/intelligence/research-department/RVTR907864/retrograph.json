@@ -1,0 +1,522 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR907864",
+    "kind": "song",
+    "rvtr": "RVTR907864",
+    "generatedAt": "2026-06-28T22:42:12.897Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR907864",
+    "artist": "Kenny Loggins",
+    "title": "Whenever I Call You Friend",
+    "year": 1978,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kenny Loggins",
+    "relatedArtists": [
+      "Kenny Loggins"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1978,
+    "recordings": [
+      {
+        "id": "rec-hiujmn",
+        "title": "Whenever I Call You Friend — graph recording",
+        "releaseDate": 1978,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-2kgezm",
+      "title": "Whenever I Call You  Friend",
+      "kind": "performance",
+      "year": 1978,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kenny Loggins - Whenever I Call You  Friend.mp4",
+      "notes": "Detected year: 1978. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 5,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #5 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-2yneui",
+      "date": "1978",
+      "label": "Whenever I Call You Friend — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2n",
+      "date": "1978",
+      "label": "Billboard Hot 100 peak #5",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ev0rzd",
+      "date": "1978",
+      "label": "Whenever I Call You Friend — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-2i2sna",
+      "date": "1978",
+      "label": "Whenever I Call You  Friend",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "8b8a93004e6b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907864&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-2kgezm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9e26f9b139cb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907864&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-2kgezm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "933d692bdbd5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907864&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-2kgezm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d2f95a80ed8d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907864&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-2kgezm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cfb083ea3bed",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907864&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-2kgezm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-2kgezm",
+        "title": "Whenever I Call You  Friend",
+        "kind": "performance",
+        "year": 1978,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kenny Loggins - Whenever I Call You  Friend.mp4",
+        "notes": "Detected year: 1978. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR907864-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907864"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kenny Loggins"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kenny Loggins"
+    },
+    {
+      "id": "rel-RVTR907864-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907864"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #5"
+    },
+    {
+      "id": "rel-RVTR907864-tl-tl-2yneui",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907864"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2yneui"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Whenever I Call You Friend — original release"
+    },
+    {
+      "id": "rel-RVTR907864-tl-tl-l47p2n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907864"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2n"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #5"
+    },
+    {
+      "id": "rel-RVTR907864-tl-tl-ev0rzd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907864"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ev0rzd"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Whenever I Call You Friend — graph recording"
+    },
+    {
+      "id": "rel-RVTR907864-tl-tl-2i2sna",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907864"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2i2sna"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Whenever I Call You  Friend"
+    },
+    {
+      "id": "rel-RVTR907864-perf-perf-2kgezm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907864"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-2kgezm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Whenever I Call You  Friend"
+    },
+    {
+      "id": "rel-perf-2kgezm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2kgezm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kenny Loggins - Whenever I Call You  Friend.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Whenever I Call You  Friend"
+    },
+    {
+      "id": "rel-8b8a93004e6b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2kgezm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8b8a93004e6b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9e26f9b139cb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2kgezm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9e26f9b139cb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-933d692bdbd5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2kgezm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "933d692bdbd5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d2f95a80ed8d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2kgezm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d2f95a80ed8d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-cfb083ea3bed-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2kgezm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cfb083ea3bed"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR907864. \"Whenever I Call You Friend\" by Kenny Loggins.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #5. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kenny Loggins · Title: Whenever I Call You  Friend · Album: Whenever I Call You \"Friend\" · Year: 1978 · Genre: Rock · PlayCount: 1 · LastPlayed: 1772425422 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kenny Loggins - Whenever I Call You  Friend.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1978.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-2e1ab1a4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kenny Loggins - Whenever I Call You  Friend.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "de8a3a9b-1d1d-4973-adbd-90b2a2a12c49",
+      "category": "artist",
+      "text": "Whenever I Call You Friend is performed by Kenny Loggins.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0b3e9636-e950-4314-b3e3-8e1d982903ee",
+      "category": "chart",
+      "text": "The song peaked at #5 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "42d4fafb-f389-4544-b07c-28cd98500873",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1fbf5cba-73af-4455-bdd3-8f90d7db67fd",
+      "category": "recording",
+      "text": "Whenever I Call You Friend was released in 1978.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "565a625e-37ae-4378-8980-8b5f04e21998",
+      "category": "trivia",
+      "text": "\"Whenever I Call You Friend\" by Kenny Loggins.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6ab79048-7a54-4c2f-8c0a-be4c9f7fa0e8",
+      "category": "trivia",
+      "text": "Artist: Kenny Loggins · Title: Whenever I Call You  Friend · Album: Whenever I Call You \"Friend\" · Year: 1978 · Genre: Rock · PlayCount: 1 · LastPlayed: 1772425422 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kenny Loggins - Whenever I Call You  Friend.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6f6207c0-fb67-47c3-af66-4a5b143f1202",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kenny Loggins - Whenever I Call You  Friend.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kenny Loggins - Whenever I Call You  Friend.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

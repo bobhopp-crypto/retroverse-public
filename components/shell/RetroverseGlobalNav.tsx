@@ -8,9 +8,9 @@ import {
   adminMenuZones,
   detectAppZone,
   type AppZone,
-  visibleNavZones,
   zoneHref,
 } from "@/lib/navigation/app-zones";
+import { detectPublicNavLink, PUBLIC_NAV_LINKS } from "@/lib/navigation/public-nav";
 
 import "./retroverse-global-nav.css";
 
@@ -133,7 +133,7 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
   const pathname = usePathname() ?? "/";
   const onGalleryRoute = pathname.startsWith("/retroverse/experiences");
   const activeZone = detectAppZone(pathname);
-  const navZones = visibleNavZones({ opsEnabled, opsAuthenticated });
+  const activePublicLink = detectPublicNavLink(pathname);
 
   useEffect(() => {
     if (!onGalleryRoute) return;
@@ -153,14 +153,13 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
           Retroverse
         </Link>
 
-        <nav className="rv-global-nav__zones" aria-label="Application zones">
-          {navZones.map((zone) => {
-            const href = zoneHref(zone, opsAuthenticated);
-            const isActive = activeZone === zone.id;
+        <nav className="rv-global-nav__zones" aria-label="Public navigation">
+          {PUBLIC_NAV_LINKS.map((link) => {
+            const isActive = activePublicLink === link.id;
             return (
               <Link
-                key={zone.id}
-                href={href}
+                key={link.id}
+                href={link.href}
                 aria-current={isActive ? "page" : undefined}
                 className={
                   isActive
@@ -168,7 +167,7 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
                     : "rv-global-nav__zone"
                 }
               >
-                {zone.label}
+                {link.label}
               </Link>
             );
           })}

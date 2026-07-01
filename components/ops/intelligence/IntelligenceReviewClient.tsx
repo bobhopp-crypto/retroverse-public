@@ -11,6 +11,7 @@ import type {
   SongPackage,
   StoryCard,
 } from "@/lib/ops/intelligence/song-package-types";
+import { resolveHeroFromSongPackage } from "@/lib/visual-profile/hero-resolver";
 
 type Props = {
   rvtr: string;
@@ -118,6 +119,7 @@ export function IntelligenceReviewClient({ rvtr }: Props) {
   }
 
   const meta = pkg.metadata;
+  const heroUrl = resolveHeroFromSongPackage(pkg).url;
   const cards = pkg.storyCards;
   const activeCard = cards[cardIndex] ?? null;
   const song = pkg;
@@ -247,9 +249,9 @@ export function IntelligenceReviewClient({ rvtr }: Props) {
   return (
     <div className="intel-review">
       <header className="intel-review__header">
-        {meta.coverUrl ? (
+        {heroUrl ? (
           <Image
-            src={meta.coverUrl}
+            src={heroUrl}
             alt=""
             width={56}
             height={56}

@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR386899",
+    "kind": "song",
+    "rvtr": "RVTR386899",
+    "generatedAt": "2026-06-28T22:51:49.534Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR386899",
+    "artist": "Madonna",
+    "title": "Love Profusion",
+    "year": 2003,
+    "albumTitle": "American Life",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg"
+  },
+  "artist": {
+    "name": "Madonna",
+    "relatedArtists": [
+      "Madonna"
+    ]
+  },
+  "album": {
+    "title": "American Life",
+    "releaseYear": 2003,
+    "recordings": [
+      {
+        "id": "rec-319b41",
+        "title": "American Life",
+        "releaseDate": 2003,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-qsafwh",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Love Profusion.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "American Life",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-8rxex",
+      "date": "2003",
+      "label": "Love Profusion — original release",
+      "detail": "Original album: American Life",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-aizopk",
+      "date": "2003",
+      "label": "American Life",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR386899",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5e52082f4e8a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR386899&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-qsafwh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5c07190162bf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR386899&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-qsafwh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2a57f8edddcd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR386899&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-qsafwh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c9d9c7840887",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR386899&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-qsafwh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9812018dd56a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR386899&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-qsafwh",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-qsafwh",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Love Profusion.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR386899-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR386899"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Madonna"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Madonna"
+    },
+    {
+      "id": "rel-RVTR386899-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR386899"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-319b41"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "American Life"
+    },
+    {
+      "id": "rel-RVTR386899-tl-tl-8rxex",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR386899"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8rxex"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Love Profusion — original release"
+    },
+    {
+      "id": "rel-RVTR386899-tl-tl-aizopk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR386899"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aizopk"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "American Life"
+    },
+    {
+      "id": "rel-RVTR386899-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR386899"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR386899-perf-perf-qsafwh",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR386899"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-qsafwh"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-qsafwh-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qsafwh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Love Profusion.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-5e52082f4e8a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qsafwh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5e52082f4e8a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5c07190162bf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qsafwh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5c07190162bf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-2a57f8edddcd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qsafwh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a57f8edddcd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c9d9c7840887-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qsafwh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c9d9c7840887"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9812018dd56a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qsafwh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9812018dd56a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR386899. \"Love Profusion\" by Madonna. Album: American Life (2003).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+      "excerpt": "Canonical cover assignment for RVTR386899 (Love Profusion). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: American Life (2003)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Madonna · Title: Love Profusion · Album: American Life · Year: 2003 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Love Profusion.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2003.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-cac33895",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Love Profusion.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "a841d57e-8c3b-4190-bbc2-4ac1464e81b0",
+      "category": "artist",
+      "text": "Love Profusion is performed by Madonna.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "357a311e-56a8-49c3-b58c-57d0bd2a841e",
+      "category": "album",
+      "text": "The song appears on the album \"American Life\" (2003).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "85d1653c-1845-4bda-8da6-69f4ecdb6b7b",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR386899.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL205660/RVAL205660__madonna__american-life.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ce1f2d75-5928-411d-9b1a-239456c8a68b",
+      "category": "recording",
+      "text": "Love Profusion was released in 2003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4dcd94d9-c27a-4ab4-87d6-c2209d48705a",
+      "category": "trivia",
+      "text": "Artist: Madonna · Title: Love Profusion · Album: American Life · Year: 2003 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Love Profusion.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fce12f5c-1e5e-4f99-a6c9-5f1fdd826f9d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Love Profusion.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Madonna - Love Profusion.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

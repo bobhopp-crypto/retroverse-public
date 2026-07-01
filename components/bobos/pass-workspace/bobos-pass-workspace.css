@@ -1,0 +1,258 @@
+/* BobOS Pass Workspace — additive only. Reuses the .ps-* appliance theme from
+   pass-studio.css; nothing in that file is edited. */
+
+.pzw-workspace {
+  gap: 2.5rem;
+}
+
+/* Reused wizard steps (Preview, Print) still render a "Step X of Y" eyebrow —
+   stale now that there is no step sequence. Hide it without touching those files. */
+.pzw-panel .ps-step__eyebrow {
+  display: none;
+}
+
+.pzw-context {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  border: 3px solid var(--ps-border);
+  border-radius: 16px;
+  background: var(--ps-surface);
+}
+
+.pzw-context__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pzw-context__label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ps-muted);
+}
+
+.pzw-context__value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--ps-ink);
+}
+
+.pzw-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--ps-border);
+}
+
+.pzw-qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0 0.25rem;
+}
+
+.pzw-qty span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ps-dim);
+}
+
+.pzw-qty input {
+  width: 4.5rem;
+  min-height: var(--ps-touch-min);
+  padding: 0 0.75rem;
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 10px;
+  background: var(--ps-surface-raised);
+  color: var(--ps-ink);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pzw-totals {
+  display: flex;
+  gap: 2.5rem;
+  padding: 1.25rem 2rem;
+  border: 3px solid var(--ps-border);
+  border-radius: 16px;
+  background: var(--ps-surface);
+  align-self: flex-start;
+}
+
+.pzw-totals__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pzw-totals__label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ps-muted);
+}
+
+.pzw-totals__value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ps-accent);
+}
+
+.pzw-artwork-card__version {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.pzw-artwork-card__actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.pzw-artwork-card__actions .ps-card__secondary {
+  flex: 1;
+}
+
+.pzw-artwork-card__history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 14rem;
+  overflow-y: auto;
+}
+
+.pzw-artwork-card__history-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--ps-border);
+  border-radius: 10px;
+  background: var(--ps-surface);
+}
+
+.pzw-artwork-card__history-thumb {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pzw-artwork-card__history-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pzw-artwork-card__history-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.85rem;
+}
+
+.pzw-artwork-card__history-meta span:first-child {
+  font-weight: 700;
+  color: var(--ps-ink);
+}
+
+.pzw-artwork-card__history-meta span:last-child {
+  color: var(--ps-muted);
+}
+
+.pzw-preview__spec {
+  margin: -0.5rem 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ps-muted);
+}
+
+.pzw-preview__face-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pzw-preview__card {
+  width: min(60vw, 420px);
+  border-radius: 14px;
+  border: 3px solid var(--ps-border-strong);
+  overflow: hidden;
+  background: var(--ps-surface-raised);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.pzw-preview__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pzw-preview__missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--ps-muted);
+  font-weight: 700;
+}
+
+.pzw-sheets {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pzw-sheets__pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.pzw-sheets__sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 3px solid var(--ps-border);
+  border-radius: 14px;
+  background: var(--ps-surface);
+}
+
+.pzw-sheets__label {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ps-muted);
+}
+
+.pzw-sheets__image {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid var(--ps-border);
+  background: #f8f8f8;
+}

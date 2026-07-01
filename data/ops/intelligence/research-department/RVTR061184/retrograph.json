@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR061184",
+    "kind": "song",
+    "rvtr": "RVTR061184",
+    "generatedAt": "2026-06-28T22:44:43.286Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR061184",
+    "artist": "Jennifer Lopez",
+    "title": "Alive",
+    "year": 2003,
+    "albumTitle": "The Reel Me",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL820736/RVAL820736__jennifer-lopez__the-reel-me.jpg"
+  },
+  "artist": {
+    "name": "Jennifer Lopez",
+    "relatedArtists": [
+      "Jennifer Lopez"
+    ]
+  },
+  "album": {
+    "title": "The Reel Me",
+    "releaseYear": 2003,
+    "recordings": [
+      {
+        "id": "rec-bme5e4",
+        "title": "The Reel Me",
+        "releaseDate": 2003,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-igmpkk",
+      "title": "Live",
+      "kind": "performance",
+      "year": 2002,
+      "venue": "Live",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jennifer Lopez - Alive.mp4",
+      "notes": "Performance label: Live. Detected year: 2002. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "The Reel Me",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-qdnbtd",
+      "date": "2003",
+      "label": "Alive — original release",
+      "detail": "Original album: The Reel Me",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-5fgt6j",
+      "date": "2003",
+      "label": "The Reel Me",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k42geu",
+      "date": "2002",
+      "label": "Live",
+      "detail": "Live",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR061184",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL820736/RVAL820736__jennifer-lopez__the-reel-me.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e823bffaf54b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR061184&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-igmpkk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c7da0a8985f5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR061184&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-igmpkk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "045729fc3972",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR061184&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-igmpkk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3eca8a3b6f62",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR061184&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-igmpkk",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "96ba5d17fbb5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR061184&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-igmpkk",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-igmpkk",
+        "title": "Live",
+        "kind": "performance",
+        "year": 2002,
+        "venue": "Live",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jennifer Lopez - Alive.mp4",
+        "notes": "Performance label: Live. Detected year: 2002. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR061184-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR061184"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jennifer Lopez"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jennifer Lopez"
+    },
+    {
+      "id": "rel-RVTR061184-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR061184"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-bme5e4"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Reel Me"
+    },
+    {
+      "id": "rel-RVTR061184-tl-tl-qdnbtd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR061184"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qdnbtd"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Alive — original release"
+    },
+    {
+      "id": "rel-RVTR061184-tl-tl-5fgt6j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR061184"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5fgt6j"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Reel Me"
+    },
+    {
+      "id": "rel-RVTR061184-tl-tl-k42geu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR061184"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k42geu"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "Live"
+    },
+    {
+      "id": "rel-RVTR061184-perf-perf-igmpkk",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR061184"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-igmpkk"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Live"
+    },
+    {
+      "id": "rel-perf-igmpkk-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igmpkk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jennifer Lopez - Alive.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Live"
+    },
+    {
+      "id": "rel-e823bffaf54b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igmpkk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e823bffaf54b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-c7da0a8985f5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igmpkk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c7da0a8985f5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-045729fc3972-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igmpkk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "045729fc3972"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-3eca8a3b6f62-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igmpkk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3eca8a3b6f62"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-96ba5d17fbb5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-igmpkk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "96ba5d17fbb5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR061184. \"Alive\" by Jennifer Lopez. Album: The Reel Me (2003).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL820736/RVAL820736__jennifer-lopez__the-reel-me.jpg",
+      "excerpt": "Canonical cover assignment for RVTR061184 (Alive). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Reel Me (2003)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jennifer Lopez · Title: Alive · Album: Alive · Year: 2002 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jennifer Lopez - Alive.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2003.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-2d538e99",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jennifer Lopez - Alive.mp4 · Performance: Live",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-aed14ced",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Jennifer Lopez - Alive.mp4 · Performance: Live",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b858f7a7-7851-41e9-a89a-d4411ddf28fc",
+      "category": "artist",
+      "text": "Alive is performed by Jennifer Lopez.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d841c2c1-fcdc-4fdb-9d99-a0421a5daf5d",
+      "category": "album",
+      "text": "The song appears on the album \"The Reel Me\" (2003).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6b1521c8-31d2-4bdc-8a9a-9b3d6d0b20a2",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR061184.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL820736/RVAL820736__jennifer-lopez__the-reel-me.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ba72e0d3-d8da-4933-8247-eab3fc05b946",
+      "category": "recording",
+      "text": "Alive was released in 2003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b86f22fa-3a70-40f8-bf68-863ac45fc63e",
+      "category": "trivia",
+      "text": "Artist: Jennifer Lopez · Title: Alive · Album: Alive · Year: 2002 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jennifer Lopez - Alive.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "60f3f09b-37b1-4c62-a687-d83a4a642dc8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jennifer Lopez - Alive.mp4 · Performance: Live",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "214e52e3-5740-43af-8bc1-0475dd99a9e4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Jennifer Lopez - Alive.mp4 · Performance: Live",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Jennifer Lopez - Alive.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

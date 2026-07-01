@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR884649",
+    "kind": "song",
+    "rvtr": "RVTR884649",
+    "generatedAt": "2026-06-28T22:41:58.688Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR884649",
+    "artist": "Jule Styne",
+    "title": "Hellzapoppin",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jule Styne",
+    "relatedArtists": [
+      "Jule Styne"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-grlcn9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1950,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4",
+      "notes": "Detected year: 1950. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-32h6zo",
+      "date": "1950",
+      "label": "Hellzapoppin — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1950",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f52508543fd9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR884649&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-grlcn9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "88107f0ca9e8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR884649&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-grlcn9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d2e9d0372cd7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR884649&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-grlcn9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bc6a11dad430",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR884649&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-grlcn9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "33ed0d3f5ba5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR884649&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-grlcn9",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-grlcn9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1950,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4",
+        "notes": "Detected year: 1950. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR884649-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR884649"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jule Styne"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jule Styne"
+    },
+    {
+      "id": "rel-RVTR884649-tl-tl-32h6zo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR884649"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-32h6zo"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Hellzapoppin — original release"
+    },
+    {
+      "id": "rel-RVTR884649-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR884649"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR884649-perf-perf-grlcn9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR884649"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-grlcn9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-grlcn9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-grlcn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f52508543fd9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-grlcn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f52508543fd9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-88107f0ca9e8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-grlcn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "88107f0ca9e8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d2e9d0372cd7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-grlcn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d2e9d0372cd7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-bc6a11dad430-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-grlcn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bc6a11dad430"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-33ed0d3f5ba5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-grlcn9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "33ed0d3f5ba5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR884649. \"Hellzapoppin\" by Jule Styne.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jule Styne · Title: Hellzapoppin · Album: Dancing · Year: 1950 · Genre: Big Band · PlayCount: 1 · LastPlayed: 1762761264 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-acb92874",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "61c8adb0-b811-49ad-ad84-c174bd4fd204",
+      "category": "artist",
+      "text": "Hellzapoppin is performed by Jule Styne.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d9a2e61c-8c74-4428-a1b0-514848256164",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f50a4fe7-a2a5-42ab-90d5-cfcf51f48eae",
+      "category": "trivia",
+      "text": "Artist: Jule Styne · Title: Hellzapoppin · Album: Dancing · Year: 1950 · Genre: Big Band · PlayCount: 1 · LastPlayed: 1762761264 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5de9cabe-104e-4760-907f-9da110698683",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,29 +1,35 @@
-/* Graph inspector — local dev, Retroverse public palette (not search UI) */
+/* Database Explorer — Command Center dark blue (local dev only) */
 
-.inspect-page {
-  --ink: #12343a;
-  --paper: #f4ead8;
-  --cream: #faf4e8;
-  --card: #f7edd8;
-  --teal: #0d6e7a;
-  --teal-soft: #c5e8e8;
-  --orange: #e85d1a;
-  --orange-soft: #ffd4b8;
-  --purple: #5c3d9e;
-  --purple-soft: #ddd0ff;
-  --muted: #5a7378;
-  --border: 3px solid rgba(18, 52, 58, 0.22);
+.inspect-page.ops-command-surface,
+.ops-command-surface.inspect-page {
+  --ink: #f5fbff;
+  --paper: #07142f;
+  --cream: rgba(9, 27, 57, 0.92);
+  --card: rgba(13, 36, 85, 0.94);
+  --teal: #4fd5ff;
+  --teal-soft: rgba(79, 213, 255, 0.18);
+  --orange: #ffb020;
+  --orange-soft: rgba(255, 176, 32, 0.18);
+  --purple: #9ec7ef;
+  --purple-soft: rgba(158, 199, 239, 0.15);
+  --muted: #9db4df;
+  --border: 2px solid rgba(138, 197, 255, 0.28);
 
+  position: relative;
   min-height: 100vh;
-  background: var(--paper);
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(80, 167, 255, 0.35), transparent 55%),
+    linear-gradient(180deg, #07142f 0%, #06122d 45%, #0b1f49 100%);
   color: var(--ink);
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
 }
 
 .inspect-page__inner {
-  max-width: 36rem;
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
   margin: 0 auto;
-  padding: 1rem 1rem 2.5rem;
+  padding: 1.25rem 1rem 2.5rem;
 }
 
 .inspect-banner {
@@ -31,19 +37,20 @@
   padding: 0.65rem 0.85rem;
   background: var(--teal-soft);
   border: var(--border);
-  border-radius: 0.35rem;
+  border-radius: 0.65rem;
   font-size: 0.95rem;
   font-weight: 600;
 }
 
 .inspect-banner--warn {
   background: var(--orange-soft);
+  border-color: rgba(255, 176, 32, 0.45);
 }
 
 .inspect-header h1 {
   margin: 0 0 0.25rem;
-  font-size: 1.65rem;
-  font-weight: 800;
+  font-size: clamp(1.65rem, 4vw, 2.25rem);
+  font-weight: 900;
   letter-spacing: -0.02em;
 }
 
@@ -64,6 +71,7 @@
 .inspect-form label {
   font-size: 0.95rem;
   font-weight: 700;
+  color: #9ec7ef;
 }
 
 .inspect-form__row {
@@ -78,8 +86,8 @@
   padding: 0.65rem 0.85rem;
   font-size: 1.1rem;
   border: var(--border);
-  border-radius: 0.35rem;
-  background: var(--cream);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.06);
   color: var(--ink);
 }
 
@@ -88,10 +96,10 @@
   padding: 0.65rem 1.1rem;
   font-size: 1rem;
   font-weight: 700;
-  border: var(--border);
-  border-radius: 0.35rem;
-  background: var(--teal);
-  color: #fff;
+  border: 2px solid rgba(107, 200, 255, 0.55);
+  border-radius: 0.65rem;
+  background: rgba(79, 213, 255, 0.22);
+  color: #f5fbff;
   cursor: pointer;
 }
 
@@ -107,8 +115,8 @@
   font-weight: 600;
   text-decoration: none;
   color: var(--ink);
-  background: var(--card);
-  border: 2px solid rgba(18, 52, 58, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(138, 197, 255, 0.22);
   border-radius: 999px;
 }
 
@@ -123,7 +131,7 @@
   padding: 0.75rem 0.85rem;
   background: var(--cream);
   border: var(--border);
-  border-radius: 0.35rem;
+  border-radius: 0.65rem;
 }
 
 .inspect-stat__label {
@@ -132,7 +140,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--muted);
+  color: #9ec7ef;
   margin-bottom: 0.2rem;
 }
 
@@ -147,20 +155,20 @@
   padding: 0.85rem 0.9rem 1rem;
   background: var(--cream);
   border: var(--border);
-  border-radius: 0.4rem;
+  border-radius: 0.75rem;
 }
 
 .inspect-section--resolved {
-  border-color: var(--teal);
-  background: linear-gradient(180deg, var(--cream) 0%, var(--teal-soft) 120%);
+  border-color: rgba(79, 213, 255, 0.45);
+  background: linear-gradient(180deg, rgba(18, 55, 119, 0.85), rgba(13, 36, 85, 0.92));
 }
 
 .inspect-section--tracks {
-  border-color: var(--orange);
+  border-color: rgba(255, 176, 32, 0.45);
 }
 
 .inspect-section--charts {
-  border-color: var(--purple);
+  border-color: rgba(158, 199, 239, 0.45);
 }
 
 .inspect-section h2 {
@@ -193,8 +201,8 @@
 .inspect-card {
   padding: 0.7rem 0.75rem;
   background: var(--card);
-  border: 2px solid rgba(18, 52, 58, 0.12);
-  border-radius: 0.35rem;
+  border: 2px solid rgba(138, 197, 255, 0.18);
+  border-radius: 0.65rem;
 }
 
 .inspect-card__title {
@@ -222,13 +230,14 @@
   padding: 0.2rem 0.5rem;
   font-size: 0.78rem;
   font-weight: 700;
-  border-radius: 0.25rem;
-  border: 2px solid rgba(18, 52, 58, 0.12);
-  background: #fff;
+  border-radius: 0.35rem;
+  border: 2px solid rgba(138, 197, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .inspect-badge--ok {
-  background: var(--teal-soft);
+  background: rgba(66, 241, 135, 0.15);
+  border-color: rgba(66, 241, 135, 0.35);
 }
 
 .inspect-badge--warn {
@@ -236,7 +245,7 @@
 }
 
 .inspect-badge--muted {
-  background: #e8e4dc;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .inspect-notes {
@@ -262,9 +271,9 @@
   padding: 0.65rem;
   font-size: 0.8rem;
   font-family: ui-monospace, monospace;
-  background: #ebe6dc;
-  border: 2px solid rgba(18, 52, 58, 0.1);
-  border-radius: 0.3rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(138, 197, 255, 0.18);
+  border-radius: 0.45rem;
   overflow-x: auto;
   white-space: pre-wrap;
   word-break: break-word;
@@ -274,6 +283,7 @@
   padding: 1rem;
   font-size: 1.05rem;
   font-weight: 600;
+  color: #9ec7ef;
 }
 
 .inspect-footer {
@@ -282,6 +292,6 @@
 }
 
 .inspect-footer a {
-  color: var(--teal);
+  color: #4fd5ff;
   font-weight: 700;
 }

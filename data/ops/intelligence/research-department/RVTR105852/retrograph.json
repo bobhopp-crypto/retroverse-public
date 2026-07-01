@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR105852",
+    "kind": "song",
+    "rvtr": "RVTR105852",
+    "generatedAt": "2026-06-28T22:45:51.984Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR105852",
+    "artist": "Guy",
+    "title": "Spend The Night",
+    "year": 1988,
+    "albumTitle": "Guy",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL467451/RVAL467451__guy__guy.jpg"
+  },
+  "artist": {
+    "name": "Guy",
+    "relatedArtists": [
+      "Guy"
+    ]
+  },
+  "album": {
+    "title": "Guy",
+    "releaseYear": 1988,
+    "recordings": [
+      {
+        "id": "rec-dr3949",
+        "title": "Guy",
+        "releaseDate": 1988,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-whcktt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1988,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Guy - Spend The Night.mp4",
+      "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Guy",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-1mmdd7",
+      "date": "1988",
+      "label": "Spend The Night — original release",
+      "detail": "Original album: Guy",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-cewlux",
+      "date": "1988",
+      "label": "Guy",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1988",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR105852",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL467451/RVAL467451__guy__guy.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1b09dd1f7114",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105852&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-whcktt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6f5bef452265",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105852&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-whcktt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "645ef1b543e3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105852&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-whcktt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a723b512002f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105852&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-whcktt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b43146057c82",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105852&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-whcktt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-whcktt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1988,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Guy - Spend The Night.mp4",
+        "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR105852-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105852"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Guy"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Guy"
+    },
+    {
+      "id": "rel-RVTR105852-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105852"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-dr3949"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Guy"
+    },
+    {
+      "id": "rel-RVTR105852-tl-tl-1mmdd7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105852"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-1mmdd7"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Spend The Night — original release"
+    },
+    {
+      "id": "rel-RVTR105852-tl-tl-cewlux",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105852"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cewlux"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Guy"
+    },
+    {
+      "id": "rel-RVTR105852-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105852"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR105852-perf-perf-whcktt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105852"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-whcktt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-whcktt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-whcktt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Guy - Spend The Night.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-1b09dd1f7114-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-whcktt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1b09dd1f7114"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6f5bef452265-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-whcktt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6f5bef452265"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-645ef1b543e3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-whcktt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "645ef1b543e3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a723b512002f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-whcktt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a723b512002f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b43146057c82-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-whcktt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b43146057c82"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR105852. \"Spend The Night\" by Guy. Album: Guy (1988).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL467451/RVAL467451__guy__guy.jpg",
+      "excerpt": "Canonical cover assignment for RVTR105852 (Spend The Night). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Guy (1988)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Guy · Title: Spend The Night · Album: Guy · Year: 1988 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Guy - Spend The Night.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1988.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-1e3422ff",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Guy - Spend The Night.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "afc66a1b-bb8a-41f8-b716-cab035006d79",
+      "category": "artist",
+      "text": "Spend The Night is performed by Guy.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "861ff2c3-5ccb-42ce-b8f3-2803f5e9c8d9",
+      "category": "album",
+      "text": "The song appears on the album \"Guy\" (1988).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "27b4f667-483a-43d3-a496-49d6b38b01c9",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR105852.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL467451/RVAL467451__guy__guy.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bf272211-fd7c-472b-a0ba-a0125c253e43",
+      "category": "recording",
+      "text": "Spend The Night was released in 1988.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c626b982-eb06-4c89-b19c-64e35f6e9dd2",
+      "category": "trivia",
+      "text": "Artist: Guy · Title: Spend The Night · Album: Guy · Year: 1988 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Guy - Spend The Night.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6a64fddf-1b32-477e-afc4-2d028f90f50e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Guy - Spend The Night.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Guy - Spend The Night.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

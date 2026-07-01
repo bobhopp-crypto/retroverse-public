@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR494036",
+    "kind": "song",
+    "rvtr": "RVTR494036",
+    "generatedAt": "2026-06-28T22:54:10.280Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR494036",
+    "artist": "Jay-z",
+    "title": "Big Pimpin'",
+    "year": 2000,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jay-z",
+    "relatedArtists": [
+      "Jay-z"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2000,
+    "recordings": [
+      {
+        "id": "rec-nwfiy6",
+        "title": "Big Pimpin' — graph recording",
+        "releaseDate": 2000,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-vbrhlc",
+      "title": "Big Pimpin",
+      "kind": "performance",
+      "year": 1999,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jay Z - Big Pimpin.mp4",
+      "notes": "Detected year: 1999. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 18,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #18 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-1oolpm",
+      "date": "2000",
+      "label": "Big Pimpin' — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fx",
+      "date": "2000",
+      "label": "Billboard Hot 100 peak #18",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-6wgxvf",
+      "date": "2000",
+      "label": "Big Pimpin' — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-sf1xx",
+      "date": "1999",
+      "label": "Big Pimpin",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "a3db5c2f73d3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494036&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-vbrhlc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "62537b18ac84",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494036&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-vbrhlc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "45a7fffbbd31",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494036&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-vbrhlc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "df6089e83a7a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494036&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-vbrhlc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6f3b29c2c617",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494036&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-vbrhlc",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-vbrhlc",
+        "title": "Big Pimpin",
+        "kind": "performance",
+        "year": 1999,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jay Z - Big Pimpin.mp4",
+        "notes": "Detected year: 1999. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR494036-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494036"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jay-z"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jay-z"
+    },
+    {
+      "id": "rel-RVTR494036-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494036"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #18"
+    },
+    {
+      "id": "rel-RVTR494036-tl-tl-1oolpm",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494036"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-1oolpm"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Big Pimpin' — original release"
+    },
+    {
+      "id": "rel-RVTR494036-tl-tl-fcm3fx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494036"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fx"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #18"
+    },
+    {
+      "id": "rel-RVTR494036-tl-tl-6wgxvf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494036"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6wgxvf"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Big Pimpin' — graph recording"
+    },
+    {
+      "id": "rel-RVTR494036-tl-tl-sf1xx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494036"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sf1xx"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Big Pimpin"
+    },
+    {
+      "id": "rel-RVTR494036-perf-perf-vbrhlc",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494036"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-vbrhlc"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Big Pimpin"
+    },
+    {
+      "id": "rel-perf-vbrhlc-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vbrhlc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jay Z - Big Pimpin.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Big Pimpin"
+    },
+    {
+      "id": "rel-a3db5c2f73d3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vbrhlc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a3db5c2f73d3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-62537b18ac84-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vbrhlc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "62537b18ac84"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-45a7fffbbd31-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vbrhlc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "45a7fffbbd31"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-df6089e83a7a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vbrhlc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "df6089e83a7a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6f3b29c2c617-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vbrhlc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6f3b29c2c617"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR494036. \"Big Pimpin'\" by Jay-z.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #18. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jay Z · Title: Big Pimpin · Album: Jay-Z - Things That U Do · Year: 1999 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jay Z - Big Pimpin.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2000.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-0e7c9d60",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jay Z - Big Pimpin.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0c977e2d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Jay Z - Big Pimpin.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e86264fb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Jay Z - Big Pimpin'.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "3a35a303-f168-413a-96ca-5168593aab1e",
+      "category": "artist",
+      "text": "Big Pimpin' is performed by Jay-z.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "730ea19c-a28b-4e78-9031-658bf74b7c49",
+      "category": "chart",
+      "text": "The song peaked at #18 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7582df88-d3c2-4593-85e4-ce65c121d60c",
+      "category": "recording",
+      "text": "Big Pimpin' was released in 2000.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "839fb522-d783-4aef-ba99-dc098c3185a9",
+      "category": "trivia",
+      "text": "Artist: Jay Z · Title: Big Pimpin · Album: Jay-Z - Things That U Do · Year: 1999 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jay Z - Big Pimpin.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c41e2958-21c8-4ab7-bdcc-a8f7b70ea721",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jay Z - Big Pimpin.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "07e0a7bb-5d24-488e-a24d-86d68d7636b8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Jay Z - Big Pimpin.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3b1d9a23-3694-4298-8add-8c8fc73a7da3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Jay Z - Big Pimpin'.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 3,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jay Z - Big Pimpin.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

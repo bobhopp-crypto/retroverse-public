@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR536601",
+    "kind": "song",
+    "rvtr": "RVTR536601",
+    "generatedAt": "2026-06-28T22:55:22.994Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR536601",
+    "artist": "Porn Kings",
+    "title": "Up To No Good",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Porn Kings",
+    "relatedArtists": [
+      "Porn Kings"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-skqq3",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1996,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Porn Kings - Up To No Good.mp4",
+      "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fbpkao",
+      "date": "1996",
+      "label": "Up To No Good — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1996",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "44b3ca714991",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536601&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-skqq3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5b991255c630",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536601&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-skqq3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "87fc79e620d7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536601&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-skqq3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "13b11189a609",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536601&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-skqq3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "71acfe5866cf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536601&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-skqq3",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-skqq3",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1996,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Porn Kings - Up To No Good.mp4",
+        "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR536601-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536601"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Porn Kings"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Porn Kings"
+    },
+    {
+      "id": "rel-RVTR536601-tl-tl-fbpkao",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536601"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fbpkao"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Up To No Good — original release"
+    },
+    {
+      "id": "rel-RVTR536601-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536601"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR536601-perf-perf-skqq3",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536601"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-skqq3"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-skqq3-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-skqq3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Porn Kings - Up To No Good.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-44b3ca714991-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-skqq3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "44b3ca714991"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-5b991255c630-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-skqq3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5b991255c630"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-87fc79e620d7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-skqq3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "87fc79e620d7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-13b11189a609-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-skqq3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "13b11189a609"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-71acfe5866cf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-skqq3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "71acfe5866cf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR536601. \"Up To No Good\" by Porn Kings.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Porn Kings · Title: Up To No Good · Album: Up To No Good · Year: 1996 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Porn Kings - Up To No Good.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-37fe1180",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Porn Kings - Up To No Good.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-38446bd6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Porn Kings - Up To No Good.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "55d62417-a14b-4323-8d72-1dcb608ff456",
+      "category": "artist",
+      "text": "Up To No Good is performed by Porn Kings.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c8023797-b8f2-469f-a1f0-51dd05706fc8",
+      "category": "trivia",
+      "text": "Artist: Porn Kings · Title: Up To No Good · Album: Up To No Good · Year: 1996 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Porn Kings - Up To No Good.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6975b0e3-eba0-4501-aee9-16e56aa08558",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Porn Kings - Up To No Good.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "98bac85b-33c5-4c1e-9c6d-471e6a8505d0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Porn Kings - Up To No Good.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Porn Kings - Up To No Good.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

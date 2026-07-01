@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR425604",
+    "kind": "song",
+    "rvtr": "RVTR425604",
+    "generatedAt": "2026-06-28T22:52:34.520Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR425604",
+    "artist": "Chelley",
+    "title": "Took The Night",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Chelley",
+    "relatedArtists": [
+      "Chelley"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-8kdvme",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chelley - Took the Night.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ujpvt8",
+      "date": "2009",
+      "label": "Took The Night — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "be433b4e1255",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425604&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-8kdvme",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "31ee6fe79c0b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425604&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-8kdvme",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "70de7f220d72",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425604&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-8kdvme",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "66e329606463",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425604&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-8kdvme",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e73ace18f8b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR425604&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-8kdvme",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-8kdvme",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chelley - Took the Night.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR425604-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425604"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Chelley"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Chelley"
+    },
+    {
+      "id": "rel-RVTR425604-tl-tl-ujpvt8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425604"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ujpvt8"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Took The Night — original release"
+    },
+    {
+      "id": "rel-RVTR425604-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425604"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR425604-perf-perf-8kdvme",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR425604"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-8kdvme"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-8kdvme-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8kdvme"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chelley - Took the Night.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-be433b4e1255-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8kdvme"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "be433b4e1255"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-31ee6fe79c0b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8kdvme"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "31ee6fe79c0b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-70de7f220d72-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8kdvme"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "70de7f220d72"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-66e329606463-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8kdvme"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "66e329606463"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e73ace18f8b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8kdvme"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e73ace18f8b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR425604. \"Took The Night\" by Chelley.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Chelley · Title: Took the Night · Album: Took The Night · Year: 2009 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chelley - Took the Night.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-45c437e6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chelley - Took the Night.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2f4e6ec5-53be-4832-9fec-7b97b88d46d7",
+      "category": "artist",
+      "text": "Took The Night is performed by Chelley.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "91726729-ff09-451d-a5fa-91d2010726ca",
+      "category": "trivia",
+      "text": "Artist: Chelley · Title: Took the Night · Album: Took The Night · Year: 2009 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chelley - Took the Night.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9ea60bd9-3b30-4997-b2a6-1769d7a6327e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chelley - Took the Night.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chelley - Took the Night.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

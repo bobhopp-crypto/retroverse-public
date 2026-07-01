@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR862376",
+    "kind": "song",
+    "rvtr": "RVTR862376",
+    "generatedAt": "2026-06-28T23:05:07.459Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR862376",
+    "artist": "The Goodmen",
+    "title": "Give It Up",
+    "year": 1993,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "The Goodmen",
+    "relatedArtists": [
+      "The Goodmen"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1993,
+    "recordings": [
+      {
+        "id": "rec-lbhhqz",
+        "title": "Give It Up — graph recording",
+        "releaseDate": 1993,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-lo6jci",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Goodmen - Give It Up.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 71,
+    "chartWeeks": 14,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #71 · 14 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-3brawb",
+      "date": "1993",
+      "label": "Give It Up — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3kw",
+      "date": "1993",
+      "label": "Billboard Hot 100 peak #71",
+      "detail": "14 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-c2zibc",
+      "date": "1993",
+      "label": "Give It Up — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1993",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0e8f2bf4ad31",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR862376&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lo6jci",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f04b6503bff3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR862376&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-lo6jci",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7fb52840bbf1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR862376&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lo6jci",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a326d674114b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR862376&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lo6jci",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d08e89aaa886",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR862376&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lo6jci",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lo6jci",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Goodmen - Give It Up.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR862376-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR862376"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Goodmen"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Goodmen"
+    },
+    {
+      "id": "rel-RVTR862376-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR862376"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #71"
+    },
+    {
+      "id": "rel-RVTR862376-tl-tl-3brawb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR862376"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3brawb"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Give It Up — original release"
+    },
+    {
+      "id": "rel-RVTR862376-tl-tl-fcm3kw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR862376"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3kw"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #71"
+    },
+    {
+      "id": "rel-RVTR862376-tl-tl-c2zibc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR862376"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-c2zibc"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Give It Up — graph recording"
+    },
+    {
+      "id": "rel-RVTR862376-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR862376"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR862376-perf-perf-lo6jci",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR862376"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lo6jci"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-lo6jci-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lo6jci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Goodmen - Give It Up.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0e8f2bf4ad31-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lo6jci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0e8f2bf4ad31"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f04b6503bff3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lo6jci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f04b6503bff3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7fb52840bbf1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lo6jci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7fb52840bbf1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a326d674114b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lo6jci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a326d674114b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d08e89aaa886-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lo6jci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d08e89aaa886"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR862376. \"Give It Up\" by The Goodmen.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #71. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Goodmen · Title: Give It Up · Album: Skate Board - 5 · Year: 1993 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Goodmen - Give It Up.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1993.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-39851be6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Goodmen - Give It Up.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-54e6a636",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/The Goodmen - Give It Up.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f0fd411b-3654-465f-b625-3b4ad4690574",
+      "category": "artist",
+      "text": "Give It Up is performed by The Goodmen.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1e1503b5-c5ae-4375-b921-cc39987fcd66",
+      "category": "chart",
+      "text": "The song peaked at #71 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "81ff1e87-892f-4ee9-b948-8a74e939db31",
+      "category": "recording",
+      "text": "Give It Up was released in 1993.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "67217ff1-b7a6-49d2-8d77-508a28f670c6",
+      "category": "trivia",
+      "text": "Artist: Goodmen · Title: Give It Up · Album: Skate Board - 5 · Year: 1993 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Goodmen - Give It Up.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ccab28b5-3434-414e-942e-1da36602be58",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Goodmen - Give It Up.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d15de34f-348b-4dab-89f3-20d77a9d749c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/The Goodmen - Give It Up.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Goodmen - Give It Up.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

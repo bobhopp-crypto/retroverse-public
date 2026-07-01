@@ -1,0 +1,425 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR034895",
+    "kind": "song",
+    "rvtr": "RVTR034895",
+    "generatedAt": "2026-06-28T22:44:07.888Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR034895",
+    "artist": "The Weeknd",
+    "title": "Take My Breath",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "The Weeknd",
+    "relatedArtists": [
+      "The Weeknd"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-h7y77g",
+        "title": "Take My Breath — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-43oq67",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/The Weeknd - Take My Breath.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 6,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #6 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-frme7j",
+      "date": "2021",
+      "label": "Take My Breath — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2o",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #6",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ek3qhq",
+      "date": "2021",
+      "label": "Take My Breath — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f2f425e612f8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR034895&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-43oq67",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "09362db24395",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR034895&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-43oq67",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-43oq67",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/The Weeknd - Take My Breath.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR034895-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034895"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Weeknd"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Weeknd"
+    },
+    {
+      "id": "rel-RVTR034895-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034895"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #6"
+    },
+    {
+      "id": "rel-RVTR034895-tl-tl-frme7j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034895"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-frme7j"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Take My Breath — original release"
+    },
+    {
+      "id": "rel-RVTR034895-tl-tl-l47p2o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034895"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2o"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #6"
+    },
+    {
+      "id": "rel-RVTR034895-tl-tl-ek3qhq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034895"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ek3qhq"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Take My Breath — graph recording"
+    },
+    {
+      "id": "rel-RVTR034895-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034895"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR034895-perf-perf-43oq67",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034895"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-43oq67"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-43oq67-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-43oq67"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/The Weeknd - Take My Breath.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f2f425e612f8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-43oq67"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f2f425e612f8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-09362db24395-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-43oq67"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "09362db24395"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR034895. \"Take My Breath\" by The Weeknd.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #6. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Weeknd · Title: Take My Breath · Album: Take My Breath · Year: 2021 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/The Weeknd - Take My Breath.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-e412abd1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/The Weeknd - Take My Breath.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8a956803-ade1-4629-828e-fc1ab23df30a",
+      "category": "artist",
+      "text": "Take My Breath is performed by The Weeknd.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "81baca2d-c384-4846-b55d-138ef92344e6",
+      "category": "chart",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c3422550-902b-4b55-b528-c946a895fb15",
+      "category": "recording",
+      "text": "Take My Breath was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f50e72dd-e052-459b-9f9d-84819c565998",
+      "category": "trivia",
+      "text": "Artist: The Weeknd · Title: Take My Breath · Album: Take My Breath · Year: 2021 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/The Weeknd - Take My Breath.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "773ce14b-0a0c-477b-a0e7-931aa1c92363",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/The Weeknd - Take My Breath.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/The Weeknd - Take My Breath.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

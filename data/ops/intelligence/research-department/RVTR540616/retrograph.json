@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR540616",
+    "kind": "song",
+    "rvtr": "RVTR540616",
+    "generatedAt": "2026-06-28T22:55:28.560Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR540616",
+    "artist": "Pink",
+    "title": "All I Know So Far",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pink",
+    "relatedArtists": [
+      "Pink"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-7nji5t",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Pink - All I Know So Far.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-z9psui",
+      "date": "2021",
+      "label": "All I Know So Far — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "238f95c94932",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR540616&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-7nji5t",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c9476dcd4402",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR540616&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-7nji5t",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1b4bfb733787",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR540616&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-7nji5t",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "76571a669bdf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR540616&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-7nji5t",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "07a50998da5d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR540616&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-7nji5t",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-7nji5t",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Pink - All I Know So Far.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR540616-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR540616"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pink"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pink"
+    },
+    {
+      "id": "rel-RVTR540616-tl-tl-z9psui",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR540616"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z9psui"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "All I Know So Far — original release"
+    },
+    {
+      "id": "rel-RVTR540616-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR540616"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR540616-perf-perf-7nji5t",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR540616"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-7nji5t"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-7nji5t-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7nji5t"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Pink - All I Know So Far.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-238f95c94932-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7nji5t"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "238f95c94932"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c9476dcd4402-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7nji5t"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c9476dcd4402"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1b4bfb733787-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7nji5t"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1b4bfb733787"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-76571a669bdf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7nji5t"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "76571a669bdf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-07a50998da5d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7nji5t"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "07a50998da5d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR540616. \"All I Know So Far\" by Pink.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pink · Title: All I Know So Far · Album: Teenage Bottlerocket - Teenage Bottlerocket · Year: 2021 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Pink - All I Know So Far.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-163e869e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Pink - All I Know So Far.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "72ddb466-c6f9-4fa4-8127-255c1441505f",
+      "category": "artist",
+      "text": "All I Know So Far is performed by Pink.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "0b448eb9-9728-4fd2-ad62-baed7554b536",
+      "category": "trivia",
+      "text": "Artist: Pink · Title: All I Know So Far · Album: Teenage Bottlerocket - Teenage Bottlerocket · Year: 2021 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Pink - All I Know So Far.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "79acf57c-7271-4c63-9609-260af5578733",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Pink - All I Know So Far.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Pink - All I Know So Far.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

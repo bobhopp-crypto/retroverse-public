@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR396672",
+    "kind": "song",
+    "rvtr": "RVTR396672",
+    "generatedAt": "2026-06-28T22:52:04.698Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR396672",
+    "artist": "Xscape",
+    "title": "Just Kickin' It",
+    "year": 1993,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Xscape",
+    "relatedArtists": [
+      "Xscape"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1993,
+    "recordings": [
+      {
+        "id": "rec-7401if",
+        "title": "Just Kickin' It — graph recording",
+        "releaseDate": 1993,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-nqq9ds",
+      "title": "Just Kickin It",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Xscape - Just Kickin It.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 21,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 21 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-7gnycn",
+      "date": "1993",
+      "label": "Just Kickin' It — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "1993",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "21 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ud4k66",
+      "date": "1993",
+      "label": "Just Kickin' It — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-tt7qqo",
+      "date": "1993",
+      "label": "Just Kickin It",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "8979be3742be",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR396672&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-nqq9ds",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0eb20035aa3a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR396672&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-nqq9ds",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "577d5881286e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR396672&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-nqq9ds",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c53f6ea5d9c4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR396672&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-nqq9ds",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "28f049e115f8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR396672&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-nqq9ds",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-nqq9ds",
+        "title": "Just Kickin It",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Xscape - Just Kickin It.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR396672-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR396672"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Xscape"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Xscape"
+    },
+    {
+      "id": "rel-RVTR396672-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR396672"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR396672-tl-tl-7gnycn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR396672"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7gnycn"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Just Kickin' It — original release"
+    },
+    {
+      "id": "rel-RVTR396672-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR396672"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR396672-tl-tl-ud4k66",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR396672"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ud4k66"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Just Kickin' It — graph recording"
+    },
+    {
+      "id": "rel-RVTR396672-tl-tl-tt7qqo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR396672"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tt7qqo"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Just Kickin It"
+    },
+    {
+      "id": "rel-RVTR396672-perf-perf-nqq9ds",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR396672"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-nqq9ds"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Just Kickin It"
+    },
+    {
+      "id": "rel-perf-nqq9ds-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nqq9ds"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Xscape - Just Kickin It.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Just Kickin It"
+    },
+    {
+      "id": "rel-8979be3742be-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nqq9ds"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8979be3742be"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0eb20035aa3a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nqq9ds"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0eb20035aa3a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-577d5881286e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nqq9ds"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "577d5881286e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-c53f6ea5d9c4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nqq9ds"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c53f6ea5d9c4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-28f049e115f8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nqq9ds"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "28f049e115f8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR396672. \"Just Kickin' It\" by Xscape.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 21 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Xscape · Title: Just Kickin It · Album: Just Kickin' It · Year: 1993 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Xscape - Just Kickin It.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1993.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ab6e7c6b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Xscape - Just Kickin It.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5527b742",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Xscape - Just Kickin It.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "622ab841-e9e5-459a-8f6b-b6da3d629741",
+      "category": "artist",
+      "text": "Just Kickin' It is performed by Xscape.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "20506184-2f97-42d8-9735-f7b6ca890430",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a07d9bf5-1e2b-4116-9710-84c75d2c8bc3",
+      "category": "recording",
+      "text": "Just Kickin' It was released in 1993.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "51e53f45-5425-4ca8-9218-803331e330ae",
+      "category": "trivia",
+      "text": "Artist: Xscape · Title: Just Kickin It · Album: Just Kickin' It · Year: 1993 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Xscape - Just Kickin It.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3cc61ace-b96a-4dd5-b141-c859bd6c6224",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Xscape - Just Kickin It.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "159e6f09-4d04-4e67-af67-9ac451c4f28e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Xscape - Just Kickin It.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Xscape - Just Kickin It.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR560710",
+    "kind": "song",
+    "rvtr": "RVTR560710",
+    "generatedAt": "2026-06-28T22:55:58.806Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR560710",
+    "artist": "Sting",
+    "title": "Roxanne '97",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Sting",
+    "relatedArtists": [
+      "Sting"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-8p2059",
+      "title": "Roxanne",
+      "kind": "performance",
+      "year": 1985,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Sting - Roxanne.mp4",
+      "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-wfjnco",
+      "date": "1985",
+      "label": "Roxanne '97 — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-83cjvv",
+      "date": "1985",
+      "label": "Roxanne",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c1a1af83aeeb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR560710&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-8p2059",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8b832ae32267",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR560710&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-8p2059",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bbc1f401da3b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR560710&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-8p2059",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b6818ae6352d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR560710&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-8p2059",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4ee956560f13",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR560710&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-8p2059",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-8p2059",
+        "title": "Roxanne",
+        "kind": "performance",
+        "year": 1985,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Sting - Roxanne.mp4",
+        "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR560710-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR560710"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Sting"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Sting"
+    },
+    {
+      "id": "rel-RVTR560710-tl-tl-wfjnco",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR560710"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wfjnco"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Roxanne '97 — original release"
+    },
+    {
+      "id": "rel-RVTR560710-tl-tl-83cjvv",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR560710"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-83cjvv"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Roxanne"
+    },
+    {
+      "id": "rel-RVTR560710-perf-perf-8p2059",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR560710"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-8p2059"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Roxanne"
+    },
+    {
+      "id": "rel-perf-8p2059-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8p2059"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Sting - Roxanne.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Roxanne"
+    },
+    {
+      "id": "rel-c1a1af83aeeb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8p2059"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c1a1af83aeeb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-8b832ae32267-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8p2059"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8b832ae32267"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-bbc1f401da3b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8p2059"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bbc1f401da3b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b6818ae6352d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8p2059"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b6818ae6352d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4ee956560f13-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8p2059"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4ee956560f13"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR560710. \"Roxanne '97\" by Sting.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Sting · Title: Roxanne · Album: Live Aid 1985 · Year: 1985 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Sting - Roxanne.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b0587d2e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Sting - Roxanne.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f168a27c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Sting - Roxanne '97.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "04fc64a8-739d-4b4d-9a06-faf56b4f2bcf",
+      "category": "artist",
+      "text": "Roxanne '97 is performed by Sting.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a2fc1b26-e95b-4eb3-a24d-17a67dbf738e",
+      "category": "trivia",
+      "text": "Artist: Sting · Title: Roxanne · Album: Live Aid 1985 · Year: 1985 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Sting - Roxanne.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f1e841d4-c834-47a5-afdd-9d5f6bc5dc3c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Sting - Roxanne.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9c485577-6cf6-4703-80f0-a3745ad72f6b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Sting - Roxanne '97.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Sting - Roxanne.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR785515",
+    "kind": "song",
+    "rvtr": "RVTR785515",
+    "generatedAt": "2026-06-28T23:02:33.060Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR785515",
+    "artist": "Clay Walker",
+    "title": "Easy Goin'",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Clay Walker",
+    "relatedArtists": [
+      "Clay Walker"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-no9940",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1969,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - Easy Goin'.mp4",
+      "notes": "Detected year: 1969. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-erdeds",
+      "date": "1969",
+      "label": "Easy Goin' — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1969",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "8b0c6a2f7462",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR785515&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-no9940",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f3867b02d600",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR785515&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-no9940",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fbb26acd2726",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR785515&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-no9940",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "589bbff22a05",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR785515&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-no9940",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fcac74266c97",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR785515&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-no9940",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-no9940",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1969,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - Easy Goin'.mp4",
+        "notes": "Detected year: 1969. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR785515-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR785515"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Clay Walker"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Clay Walker"
+    },
+    {
+      "id": "rel-RVTR785515-tl-tl-erdeds",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR785515"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-erdeds"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Easy Goin' — original release"
+    },
+    {
+      "id": "rel-RVTR785515-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR785515"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR785515-perf-perf-no9940",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR785515"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-no9940"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-no9940-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no9940"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - Easy Goin'.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-8b0c6a2f7462-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no9940"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8b0c6a2f7462"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-f3867b02d600-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no9940"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f3867b02d600"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-fbb26acd2726-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no9940"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fbb26acd2726"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-589bbff22a05-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no9940"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "589bbff22a05"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fcac74266c97-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no9940"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fcac74266c97"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR785515. \"Easy Goin'\" by Clay Walker.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Clay Walker · Title: Easy Goin' · Album: Electric Blues · Year: 1969 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - Easy Goin'.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e506516e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - Easy Goin'.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2cda96d3-ff85-405a-aff1-768cabfffac1",
+      "category": "artist",
+      "text": "Easy Goin' is performed by Clay Walker.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e3ad7b49-7032-4a6a-bf06-9bf778395003",
+      "category": "trivia",
+      "text": "Artist: Clay Walker · Title: Easy Goin' · Album: Electric Blues · Year: 1969 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - Easy Goin'.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "037adac0-5f0f-40c6-bf85-8f53cb6ff9b4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - Easy Goin'.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - Easy Goin'.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

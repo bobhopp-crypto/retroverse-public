@@ -1,0 +1,527 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR865041",
+    "kind": "song",
+    "rvtr": "RVTR865041",
+    "generatedAt": "2026-06-28T22:41:47.178Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR865041",
+    "artist": "The Charlie Daniels Band",
+    "title": "Simple Man",
+    "year": 1989,
+    "albumTitle": "Simple Man",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL026594/RVAL026594__the-charlie-daniels-band__simple-man.jpg"
+  },
+  "artist": {
+    "name": "The Charlie Daniels Band",
+    "relatedArtists": [
+      "The Charlie Daniels Band"
+    ]
+  },
+  "album": {
+    "title": "Simple Man",
+    "releaseYear": 1989,
+    "recordings": [
+      {
+        "id": "rec-wchqev",
+        "title": "Simple Man",
+        "releaseDate": 1989,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-lohott",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1989,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Charlie Daniels Band - Simple Man.mp4",
+      "notes": "Detected year: 1989. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Simple Man",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-4h44io",
+      "date": "1989",
+      "label": "Simple Man — original release",
+      "detail": "Original album: Simple Man",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-b8druo",
+      "date": "1989",
+      "label": "Simple Man",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1989",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR865041",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL026594/RVAL026594__the-charlie-daniels-band__simple-man.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7b8afe1b3705",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR865041&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lohott",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8f5d435c6ebc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR865041&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lohott",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fa404dabbfa1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR865041&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lohott",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9d8206ff6653",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR865041&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-lohott",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7fe8691a08d3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR865041&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lohott",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lohott",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1989,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Charlie Daniels Band - Simple Man.mp4",
+        "notes": "Detected year: 1989. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR865041-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR865041"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Charlie Daniels Band"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Charlie Daniels Band"
+    },
+    {
+      "id": "rel-RVTR865041-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR865041"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-wchqev"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Simple Man"
+    },
+    {
+      "id": "rel-RVTR865041-tl-tl-4h44io",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR865041"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4h44io"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Simple Man — original release"
+    },
+    {
+      "id": "rel-RVTR865041-tl-tl-b8druo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR865041"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-b8druo"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Simple Man"
+    },
+    {
+      "id": "rel-RVTR865041-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR865041"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR865041-perf-perf-lohott",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR865041"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lohott"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-lohott-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lohott"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Charlie Daniels Band - Simple Man.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-7b8afe1b3705-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lohott"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7b8afe1b3705"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-8f5d435c6ebc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lohott"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8f5d435c6ebc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-fa404dabbfa1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lohott"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fa404dabbfa1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9d8206ff6653-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lohott"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9d8206ff6653"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7fe8691a08d3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lohott"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7fe8691a08d3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR865041. \"Simple Man\" by The Charlie Daniels Band. Album: Simple Man (1989).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL026594/RVAL026594__the-charlie-daniels-band__simple-man.jpg",
+      "excerpt": "Canonical cover assignment for RVTR865041 (Simple Man). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Simple Man (1989)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Charlie Daniels Band · Title: Simple Man · Album: Simple Man · Year: 1989 · Genre: Country · PlayCount: 1 · LastPlayed: 1775456085 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Charlie Daniels Band - Simple Man.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1989.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-7af869da",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Charlie Daniels Band - Simple Man.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "65e852d7-7813-4e60-b1e8-1c3281c56012",
+      "category": "artist",
+      "text": "Simple Man is performed by The Charlie Daniels Band.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "55b7fa04-cfd3-4c56-a43d-da47048e1aca",
+      "category": "album",
+      "text": "The song appears on the album \"Simple Man\" (1989).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "27eabebc-3626-4a6d-8c4d-d5488db07724",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR865041.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL026594/RVAL026594__the-charlie-daniels-band__simple-man.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aaa2f058-4171-48b3-a6a6-3194909fb5b8",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c5eddf8d-f3b3-412a-81b4-d4b37f6c2dce",
+      "category": "recording",
+      "text": "Simple Man was released in 1989.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b3895bfd-2142-43c5-9b2a-6ed3ba2cb437",
+      "category": "trivia",
+      "text": "\"Simple Man\" by The Charlie Daniels Band.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "fd6ec9eb-9e9f-413d-ad66-f454300d72d0",
+      "category": "trivia",
+      "text": "Artist: The Charlie Daniels Band · Title: Simple Man · Album: Simple Man · Year: 1989 · Genre: Country · PlayCount: 1 · LastPlayed: 1775456085 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Charlie Daniels Band - Simple Man.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "14ebec23-f03c-472f-9251-2bbd35dc98fd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Charlie Daniels Band - Simple Man.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 6,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Charlie Daniels Band - Simple Man.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

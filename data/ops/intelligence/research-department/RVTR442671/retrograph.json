@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR442671",
+    "kind": "song",
+    "rvtr": "RVTR442671",
+    "generatedAt": "2026-06-28T22:52:59.724Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR442671",
+    "artist": "Mötley Crüe",
+    "title": "Dr Feelgood",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mötley Crüe",
+    "relatedArtists": [
+      "Mötley Crüe"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-zc09pl",
+      "title": "Dr. Feelgood",
+      "kind": "performance",
+      "year": 1989,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Mötley Crüe - Dr. Feelgood.mp4",
+      "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-2zhcvb",
+      "date": "1989",
+      "label": "Dr Feelgood — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-pa7b3d",
+      "date": "1989",
+      "label": "Dr. Feelgood",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "1fc136d49139",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR442671&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-zc09pl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fd823d27575e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR442671&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-zc09pl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8eb71055b85f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR442671&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-zc09pl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4a0bb4d1b7c0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR442671&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-zc09pl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fda785c44d81",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR442671&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-zc09pl",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-zc09pl",
+        "title": "Dr. Feelgood",
+        "kind": "performance",
+        "year": 1989,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Mötley Crüe - Dr. Feelgood.mp4",
+        "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR442671-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR442671"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mötley Crüe"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mötley Crüe"
+    },
+    {
+      "id": "rel-RVTR442671-tl-tl-2zhcvb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR442671"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2zhcvb"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Dr Feelgood — original release"
+    },
+    {
+      "id": "rel-RVTR442671-tl-tl-pa7b3d",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR442671"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-pa7b3d"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Dr. Feelgood"
+    },
+    {
+      "id": "rel-RVTR442671-perf-perf-zc09pl",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR442671"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-zc09pl"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Dr. Feelgood"
+    },
+    {
+      "id": "rel-perf-zc09pl-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zc09pl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Mötley Crüe - Dr. Feelgood.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Dr. Feelgood"
+    },
+    {
+      "id": "rel-1fc136d49139-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zc09pl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1fc136d49139"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-fd823d27575e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zc09pl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fd823d27575e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-8eb71055b85f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zc09pl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8eb71055b85f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4a0bb4d1b7c0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zc09pl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a0bb4d1b7c0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-fda785c44d81-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zc09pl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fda785c44d81"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR442671. \"Dr Feelgood\" by Mötley Crüe.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mötley Crüe · Title: Dr. Feelgood · Album: Dr. Feelgood · Year: 1989 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Mötley Crüe - Dr. Feelgood.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9b0f3c98",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Mötley Crüe - Dr. Feelgood.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4584750b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Motley Crue - Dr. Feelgood.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "87e0e08a-c3f4-4ffb-8280-3d2450899cd0",
+      "category": "artist",
+      "text": "Dr Feelgood is performed by Mötley Crüe.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e2f6ca9f-fe1d-4dd8-b703-0b2a6752e67f",
+      "category": "trivia",
+      "text": "Feelgood · Year: 1989 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Mötley Crüe - Dr.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "05289777-305f-414a-8777-476bf16af1a7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Mötley Crüe - Dr.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "01823c03-168c-44a8-82a4-1e41defe5168",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Motley Crue - Dr.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Mötley Crüe - Dr. Feelgood.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

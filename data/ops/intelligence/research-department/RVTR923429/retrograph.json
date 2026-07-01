@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR923429",
+    "kind": "song",
+    "rvtr": "RVTR923429",
+    "generatedAt": "2026-06-28T22:42:25.144Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR923429",
+    "artist": "Kool Moe Dee",
+    "title": "Wild Wild West",
+    "year": 1988,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kool Moe Dee",
+    "relatedArtists": [
+      "Kool Moe Dee"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1988,
+    "recordings": [
+      {
+        "id": "rec-ogaucz",
+        "title": "Wild Wild West — graph recording",
+        "releaseDate": 1988,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-xzrxrq",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1987,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool Moe Dee - Wild Wild West.mp4",
+      "notes": "Detected year: 1987. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 62,
+    "chartWeeks": 11,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #62 · 11 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ovk5er",
+      "date": "1988",
+      "label": "Wild Wild West — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k2",
+      "date": "1988",
+      "label": "Billboard Hot 100 peak #62",
+      "detail": "11 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-x6kyui",
+      "date": "1988",
+      "label": "Wild Wild West — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1987",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "01f4d6cd8996",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923429&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-xzrxrq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6b0ef34cb16b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923429&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-xzrxrq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3544568c7824",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923429&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-xzrxrq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "85d79fa67d8e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923429&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-xzrxrq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "549b68679d30",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR923429&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-xzrxrq",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-xzrxrq",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1987,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool Moe Dee - Wild Wild West.mp4",
+        "notes": "Detected year: 1987. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR923429-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923429"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kool Moe Dee"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kool Moe Dee"
+    },
+    {
+      "id": "rel-RVTR923429-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923429"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #62"
+    },
+    {
+      "id": "rel-RVTR923429-tl-tl-ovk5er",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923429"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ovk5er"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Wild Wild West — original release"
+    },
+    {
+      "id": "rel-RVTR923429-tl-tl-fcm3k2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923429"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k2"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #62"
+    },
+    {
+      "id": "rel-RVTR923429-tl-tl-x6kyui",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923429"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-x6kyui"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Wild Wild West — graph recording"
+    },
+    {
+      "id": "rel-RVTR923429-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923429"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR923429-perf-perf-xzrxrq",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR923429"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-xzrxrq"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-xzrxrq-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xzrxrq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool Moe Dee - Wild Wild West.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-01f4d6cd8996-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xzrxrq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "01f4d6cd8996"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6b0ef34cb16b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xzrxrq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6b0ef34cb16b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-3544568c7824-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xzrxrq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3544568c7824"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-85d79fa67d8e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xzrxrq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "85d79fa67d8e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-549b68679d30-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xzrxrq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "549b68679d30"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR923429. \"Wild Wild West\" by Kool Moe Dee.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #62. 11 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kool Moe Dee · Title: Wild Wild West · Album: Wild, Wild West · Year: 1987 · Genre: Hip Hop · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool Moe Dee - Wild Wild West.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1988.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c070e55a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool Moe Dee - Wild Wild West.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "25f603fd-f4b8-4562-bee7-223cee6413fe",
+      "category": "artist",
+      "text": "Wild Wild West is performed by Kool Moe Dee.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4c2eadb6-6ac1-4606-9603-4c117f7d3df4",
+      "category": "chart",
+      "text": "The song peaked at #62 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9e48c43c-b799-48a2-aeb9-c464d94d330e",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d7c92342-12b0-4823-94bf-5a87edb139ec",
+      "category": "recording",
+      "text": "Wild Wild West was released in 1988.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "355594d9-8ed9-404a-bf86-ea1b7cb55a28",
+      "category": "trivia",
+      "text": "Artist: Kool Moe Dee · Title: Wild Wild West · Album: Wild, Wild West · Year: 1987 · Genre: Hip Hop · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool Moe Dee - Wild Wild West.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "217e1371-37db-4ae2-bc0f-0c5327973511",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool Moe Dee - Wild Wild West.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool Moe Dee - Wild Wild West.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

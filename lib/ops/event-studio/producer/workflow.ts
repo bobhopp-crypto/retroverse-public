@@ -96,7 +96,7 @@ function buildCards(
       description: "Generate collectible passes and print sheets from the analyzed plan.",
       uses: passUses(plan),
       actionLabel: statuses.passes === "GENERATED" ? "Open Pass Generator" : "Generate Passes",
-      href: "/ops/event-studio/create/pass-generator",
+      href: "/bobos/passes",
       ready: true,
     },
     {

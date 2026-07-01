@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR086149",
+    "kind": "song",
+    "rvtr": "RVTR086149",
+    "generatedAt": "2026-06-28T22:45:11.899Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR086149",
+    "artist": "Lady Gaga",
+    "title": "You And I",
+    "year": 2011,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Lady Gaga",
+    "relatedArtists": [
+      "Lady Gaga"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-z1yoqh",
+        "title": "You And I — graph recording",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-tr3ikd",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - You And I.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 6,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #6 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-sk250j",
+      "date": "2011",
+      "label": "You And I — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2o",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #6",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-q41ace",
+      "date": "2011",
+      "label": "You And I — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "09eda551d74c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR086149&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-tr3ikd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2fedd4686ec6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR086149&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-tr3ikd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a4df177fa94f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR086149&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-tr3ikd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2e146b7eb02f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR086149&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-tr3ikd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f6150525a44d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR086149&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-tr3ikd",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-tr3ikd",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - You And I.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR086149-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR086149"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lady Gaga"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lady Gaga"
+    },
+    {
+      "id": "rel-RVTR086149-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR086149"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #6"
+    },
+    {
+      "id": "rel-RVTR086149-tl-tl-sk250j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR086149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sk250j"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "You And I — original release"
+    },
+    {
+      "id": "rel-RVTR086149-tl-tl-l47p2o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR086149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2o"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #6"
+    },
+    {
+      "id": "rel-RVTR086149-tl-tl-q41ace",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR086149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-q41ace"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "You And I — graph recording"
+    },
+    {
+      "id": "rel-RVTR086149-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR086149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR086149-perf-perf-tr3ikd",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR086149"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-tr3ikd"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-tr3ikd-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tr3ikd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - You And I.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-09eda551d74c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tr3ikd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "09eda551d74c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2fedd4686ec6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tr3ikd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2fedd4686ec6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a4df177fa94f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tr3ikd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a4df177fa94f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2e146b7eb02f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tr3ikd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2e146b7eb02f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f6150525a44d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tr3ikd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f6150525a44d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR086149. \"You And I\" by Lady Gaga.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #6. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lady GaGa · Title: You And I · Album: HV 11-11 · Year: 2011 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - You And I.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ca0bd3b3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - You And I.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ac27a868-43ab-40ad-ab37-59d160b1fd52",
+      "category": "artist",
+      "text": "You And I is performed by Lady Gaga.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c33847bd-6b88-4f14-8050-9d8fb958764a",
+      "category": "chart",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9b8dbada-62de-48c0-b918-1fa70a0bdd86",
+      "category": "recording",
+      "text": "You And I was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "7bbb2f00-910f-4349-8325-17ffdccd35b8",
+      "category": "trivia",
+      "text": "Artist: Lady GaGa · Title: You And I · Album: HV 11-11 · Year: 2011 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - You And I.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "97f0c81f-3d58-482a-b7e3-c8fed0527a44",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - You And I.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - You And I.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,456 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR853661",
+    "kind": "song",
+    "rvtr": "RVTR853661",
+    "generatedAt": "2026-06-28T22:41:35.863Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR853661",
+    "artist": "Usher F./will.i.am",
+    "title": "Omg",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Usher F./will.i.am",
+    "relatedArtists": [
+      "Usher F./will.i.am"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-1fs8by",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Usher f._Will.I.Am - OMG.mp4",
+      "notes": "Detected year: 2010. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ehib2l",
+      "date": "2010",
+      "label": "Omg — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "24282dfe1e83",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853661&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-1fs8by",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a709f71a78b8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853661&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-1fs8by",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d53d0c083276",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853661&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-1fs8by",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "941cc48a60a3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853661&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-1fs8by",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e0731012ed84",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853661&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-1fs8by",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-1fs8by",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Usher f._Will.I.Am - OMG.mp4",
+        "notes": "Detected year: 2010. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR853661-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853661"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Usher F./will.i.am"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Usher F./will.i.am"
+    },
+    {
+      "id": "rel-RVTR853661-tl-tl-ehib2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853661"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ehib2l"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Omg — original release"
+    },
+    {
+      "id": "rel-RVTR853661-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853661"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR853661-perf-perf-1fs8by",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853661"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1fs8by"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-1fs8by-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1fs8by"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Usher f._Will.I.Am - OMG.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-24282dfe1e83-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1fs8by"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "24282dfe1e83"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a709f71a78b8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1fs8by"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a709f71a78b8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d53d0c083276-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1fs8by"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d53d0c083276"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-941cc48a60a3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1fs8by"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "941cc48a60a3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e0731012ed84-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1fs8by"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e0731012ed84"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR853661. \"Omg\" by Usher F./will.i.am.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Usher f./Will.I.Am · Title: OMG · Album: HV 6-10 · Year: 2010 · Genre: Top 40 · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Usher f._Will.I.Am - OMG.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8cf37909",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Usher f._Will.I.Am - OMG.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a7590ad0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Usher - Omg.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6cddb9ac",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Usher - Omg.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d7b1eb1a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Usher Ft Will.I.Am - OMG.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2b6ab41e-fdef-4cff-a4f9-c51b8bea5870",
+      "category": "artist",
+      "text": "Omg is performed by Usher F./will.i.am.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4cc681a1-84d8-4a11-88d9-ad8c386a04f4",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "186b06c3-6782-42f0-bc2c-444db9478742",
+      "category": "trivia",
+      "text": "Artist: Usher f./Will.I.Am · Title: OMG · Album: HV 6-10 · Year: 2010 · Genre: Top 40 · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Usher f._Will.I.Am - OMG.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6c3de4fb-36be-4ee7-8ca7-23996ffe88fc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Usher f._Will.I.Am - OMG.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6e60c8eb-3a3e-4574-86d1-66baa357e71c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Usher - Omg.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "06c4fe12-92e8-4138-a16b-fcaff959eeae",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Usher - Omg.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e9db1265-5508-4dd1-90ab-17278d2324de",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Usher Ft Will.I.Am - OMG.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 2,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Usher f._Will.I.Am - OMG.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

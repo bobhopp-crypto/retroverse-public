@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR123079",
+    "kind": "song",
+    "rvtr": "RVTR123079",
+    "generatedAt": "2026-06-28T22:46:12.589Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR123079",
+    "artist": "Metro Station",
+    "title": "Kelsey",
+    "year": 2008,
+    "albumTitle": "Metro Station",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL026458/RVAL026458__metro-station__metro-station-chart-essentials-2000s.jpg"
+  },
+  "artist": {
+    "name": "Metro Station",
+    "relatedArtists": [
+      "Metro Station"
+    ]
+  },
+  "album": {
+    "title": "Metro Station",
+    "releaseYear": 2008,
+    "recordings": [
+      {
+        "id": "rec-5oy40d",
+        "title": "Metro Station",
+        "releaseDate": 2008,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-yubk12",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Metro Station - Kelsey.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Metro Station",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ggeirt",
+      "date": "2008",
+      "label": "Kelsey — original release",
+      "detail": "Original album: Metro Station",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-2hq9k7",
+      "date": "2008",
+      "label": "Metro Station",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR123079",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL026458/RVAL026458__metro-station__metro-station-chart-essentials-2000s.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6499d9a70a27",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR123079&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yubk12",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "89a0b801ff9e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR123079&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yubk12",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f59a396b812b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR123079&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yubk12",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "02dec0c1bb7b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR123079&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yubk12",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2801816e7fab",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR123079&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yubk12",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yubk12",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Metro Station - Kelsey.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR123079-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR123079"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Metro Station"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Metro Station"
+    },
+    {
+      "id": "rel-RVTR123079-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR123079"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-5oy40d"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Metro Station"
+    },
+    {
+      "id": "rel-RVTR123079-tl-tl-ggeirt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR123079"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ggeirt"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Kelsey — original release"
+    },
+    {
+      "id": "rel-RVTR123079-tl-tl-2hq9k7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR123079"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2hq9k7"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Metro Station"
+    },
+    {
+      "id": "rel-RVTR123079-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR123079"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR123079-perf-perf-yubk12",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR123079"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yubk12"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yubk12-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yubk12"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Metro Station - Kelsey.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6499d9a70a27-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yubk12"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6499d9a70a27"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-89a0b801ff9e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yubk12"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "89a0b801ff9e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f59a396b812b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yubk12"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f59a396b812b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-02dec0c1bb7b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yubk12"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "02dec0c1bb7b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-2801816e7fab-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yubk12"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2801816e7fab"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR123079. \"Kelsey\" by Metro Station. Album: Metro Station (2008).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL026458/RVAL026458__metro-station__metro-station-chart-essentials-2000s.jpg",
+      "excerpt": "Canonical cover assignment for RVTR123079 (Kelsey). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Metro Station (2008)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Metro Station · Title: Kelsey · Album: Metro Station · Year: 2007 · Genre: Pop Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Metro Station - Kelsey.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2008.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-7abc0495",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Metro Station - Kelsey.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "779d7693-b026-48cc-b436-5ac37a13bd70",
+      "category": "artist",
+      "text": "Kelsey is performed by Metro Station.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2195309e-c300-408e-8875-3395b39b00cf",
+      "category": "album",
+      "text": "The song appears on the album \"Metro Station\" (2008).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f9a3feeb-c1a6-41f8-9663-dc73c06591ac",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR123079.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL026458/RVAL026458__metro-station__metro-station-chart-essentials-2000s.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "234ceb88-77be-4fbd-b1d3-0b29c64ff2a4",
+      "category": "recording",
+      "text": "Kelsey was released in 2008.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "efd98919-8f8a-47ec-95fd-52640b50fe94",
+      "category": "trivia",
+      "text": "Artist: Metro Station · Title: Kelsey · Album: Metro Station · Year: 2007 · Genre: Pop Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Metro Station - Kelsey.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b5005469-72cd-4539-a46a-5924bb6158e6",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Metro Station - Kelsey.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Metro Station - Kelsey.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

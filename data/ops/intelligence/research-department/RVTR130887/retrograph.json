@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR130887",
+    "kind": "song",
+    "rvtr": "RVTR130887",
+    "generatedAt": "2026-06-28T22:46:24.349Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR130887",
+    "artist": "Jennifer Lopez",
+    "title": "Play",
+    "year": 2001,
+    "albumTitle": "J.Lo",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL337323/RVAL337323__jennifer-lopez__j-lo.jpg"
+  },
+  "artist": {
+    "name": "Jennifer Lopez",
+    "relatedArtists": [
+      "Jennifer Lopez"
+    ]
+  },
+  "album": {
+    "title": "J.Lo",
+    "releaseYear": 2001,
+    "recordings": [
+      {
+        "id": "rec-1b1e9a",
+        "title": "J.Lo",
+        "releaseDate": 2001,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-e2ysky",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2001,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jennifer Lopez - Play.mp4",
+      "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 18,
+    "chartWeeks": 20,
+    "albumTitle": "J.Lo",
+    "summary": "Hot 100 peak #18 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-9t2yq0",
+      "date": "2001",
+      "label": "Play — original release",
+      "detail": "Original album: J.Lo",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fx",
+      "date": "2001",
+      "label": "Billboard Hot 100 peak #18",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-toi4f9",
+      "date": "2001",
+      "label": "J.Lo",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2001",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR130887",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL337323/RVAL337323__jennifer-lopez__j-lo.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "36ad5e2ca29d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR130887&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-e2ysky",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c9d4c722b3be",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR130887&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-e2ysky",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "af2b6ca3e3c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR130887&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-e2ysky",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5244e20a7258",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR130887&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-e2ysky",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "37352c8dade4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR130887&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-e2ysky",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-e2ysky",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2001,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jennifer Lopez - Play.mp4",
+        "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR130887-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR130887"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jennifer Lopez"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jennifer Lopez"
+    },
+    {
+      "id": "rel-RVTR130887-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR130887"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-1b1e9a"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "J.Lo"
+    },
+    {
+      "id": "rel-RVTR130887-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR130887"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #18"
+    },
+    {
+      "id": "rel-RVTR130887-tl-tl-9t2yq0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR130887"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9t2yq0"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Play — original release"
+    },
+    {
+      "id": "rel-RVTR130887-tl-tl-fcm3fx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR130887"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fx"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #18"
+    },
+    {
+      "id": "rel-RVTR130887-tl-tl-toi4f9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR130887"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-toi4f9"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "J.Lo"
+    },
+    {
+      "id": "rel-RVTR130887-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR130887"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR130887-perf-perf-e2ysky",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR130887"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-e2ysky"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-e2ysky-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e2ysky"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jennifer Lopez - Play.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-36ad5e2ca29d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e2ysky"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "36ad5e2ca29d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c9d4c722b3be-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e2ysky"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c9d4c722b3be"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-af2b6ca3e3c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e2ysky"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "af2b6ca3e3c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5244e20a7258-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e2ysky"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5244e20a7258"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-37352c8dade4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e2ysky"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "37352c8dade4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR130887. \"Play\" by Jennifer Lopez. Album: J.Lo (2001).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL337323/RVAL337323__jennifer-lopez__j-lo.jpg",
+      "excerpt": "Canonical cover assignment for RVTR130887 (Play). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: J.Lo (2001). Billboard Hot 100 peak: #18. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jennifer Lopez · Title: Play · Album: J-Lo - Play · Year: 2001 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jennifer Lopez - Play.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2001.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-1d25001e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jennifer Lopez - Play.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-82117a84",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Jennifer Lopez - Play.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e529fc20-8b0f-4933-9b96-b88bdb760ff9",
+      "category": "artist",
+      "text": "Play is performed by Jennifer Lopez.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d30ab1c8-e900-414a-9141-1e8ae9d18e2d",
+      "category": "album",
+      "text": "The song appears on the album \"J.Lo\" (2001).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "dbb98dc6-94f6-4a30-92ee-e0ca6aa0b28b",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR130887.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL337323/RVAL337323__jennifer-lopez__j-lo.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "603b53e4-676e-4948-8b1a-c48f6d31d222",
+      "category": "chart",
+      "text": "The song peaked at #18 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "217c9bb5-c246-4326-993b-7ce161d690cd",
+      "category": "recording",
+      "text": "Play was released in 2001.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a6a95af5-6c91-4041-8a21-c9d9951bb279",
+      "category": "trivia",
+      "text": "Artist: Jennifer Lopez · Title: Play · Album: J-Lo - Play · Year: 2001 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jennifer Lopez - Play.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c53e152f-5f2d-40d2-b522-9386adefad83",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jennifer Lopez - Play.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ecb0709d-9e76-4e1d-b92f-224bb65b9cbd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Jennifer Lopez - Play.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jennifer Lopez - Play.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

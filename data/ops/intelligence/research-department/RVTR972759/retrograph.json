@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR972759",
+    "kind": "song",
+    "rvtr": "RVTR972759",
+    "generatedAt": "2026-06-28T23:08:58.745Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR972759",
+    "artist": "Dio",
+    "title": "Holy Diver",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dio",
+    "relatedArtists": [
+      "Dio"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ebitrl",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1983,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dio - Holy Diver.mp4",
+      "notes": "Detected year: 1983. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-uyqkka",
+      "date": "1983",
+      "label": "Holy Diver — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1983",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f59dd4e6fb24",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR972759&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ebitrl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8ed8fa979933",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR972759&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ebitrl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7dda1b3951aa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR972759&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ebitrl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1984b15cd463",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR972759&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ebitrl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "99d36501bcda",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR972759&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ebitrl",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ebitrl",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1983,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dio - Holy Diver.mp4",
+        "notes": "Detected year: 1983. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR972759-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR972759"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dio"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dio"
+    },
+    {
+      "id": "rel-RVTR972759-tl-tl-uyqkka",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR972759"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-uyqkka"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Holy Diver — original release"
+    },
+    {
+      "id": "rel-RVTR972759-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR972759"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR972759-perf-perf-ebitrl",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR972759"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ebitrl"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ebitrl-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebitrl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dio - Holy Diver.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f59dd4e6fb24-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebitrl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f59dd4e6fb24"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-8ed8fa979933-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebitrl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8ed8fa979933"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7dda1b3951aa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebitrl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7dda1b3951aa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1984b15cd463-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebitrl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1984b15cd463"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-99d36501bcda-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebitrl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "99d36501bcda"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR972759. \"Holy Diver\" by Dio.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dio · Title: Holy Diver · Album: Holy Diver · Year: 1983 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dio - Holy Diver.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a07de0d3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dio - Holy Diver.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "41266415-d091-413f-a40b-8056efcd928f",
+      "category": "artist",
+      "text": "Holy Diver is performed by Dio.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5445e118-0bb2-4dda-aa1c-a4bd587d482c",
+      "category": "trivia",
+      "text": "Artist: Dio · Title: Holy Diver · Album: Holy Diver · Year: 1983 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dio - Holy Diver.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "53dd3b5d-133f-4217-8a91-ac13131ec76f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dio - Holy Diver.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dio - Holy Diver.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

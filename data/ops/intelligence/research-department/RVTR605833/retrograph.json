@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR605833",
+    "kind": "song",
+    "rvtr": "RVTR605833",
+    "generatedAt": "2026-06-28T22:57:16.402Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR605833",
+    "artist": "Yazoo",
+    "title": "Don't Go",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Yazoo",
+    "relatedArtists": [
+      "Yazoo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-3ch14h",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1982,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Don't Go.mp4",
+      "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-351ng4",
+      "date": "1982",
+      "label": "Don't Go — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1982",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "564866f782a0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605833&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-3ch14h",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2705f08f921b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605833&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-3ch14h",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "252f3a2f7220",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605833&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-3ch14h",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bfa9f643b046",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605833&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-3ch14h",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "751bd6554126",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605833&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-3ch14h",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-3ch14h",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1982,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Don't Go.mp4",
+        "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR605833-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR605833"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Yazoo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Yazoo"
+    },
+    {
+      "id": "rel-RVTR605833-tl-tl-351ng4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR605833"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-351ng4"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Don't Go — original release"
+    },
+    {
+      "id": "rel-RVTR605833-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR605833"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR605833-perf-perf-3ch14h",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR605833"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-3ch14h"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-3ch14h-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ch14h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Don't Go.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-564866f782a0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ch14h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "564866f782a0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2705f08f921b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ch14h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2705f08f921b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-252f3a2f7220-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ch14h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "252f3a2f7220"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-bfa9f643b046-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ch14h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bfa9f643b046"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-751bd6554126-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ch14h"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "751bd6554126"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR605833. \"Don't Go\" by Yazoo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Yazoo · Title: Don't Go · Album: Don't Go · Year: 1982 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Don't Go.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-43cb3fab",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Don't Go.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-034f716e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Yazoo - Don't Go.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0c369d5e-022d-4112-bc20-8be8964c09e1",
+      "category": "artist",
+      "text": "Don't Go is performed by Yazoo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "259cd241-9296-4dc0-b9a5-004e341130ba",
+      "category": "trivia",
+      "text": "Artist: Yazoo · Title: Don't Go · Album: Don't Go · Year: 1982 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Don't Go.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b654e66f-3101-47cb-8fbc-0f3b129c54ae",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Don't Go.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "02d81765-ca46-4dad-93ed-3872a86a3158",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Yazoo - Don't Go.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Yazoo - Don't Go.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

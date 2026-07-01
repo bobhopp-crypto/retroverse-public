@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR688161",
+    "kind": "song",
+    "rvtr": "RVTR688161",
+    "generatedAt": "2026-06-28T22:59:36.699Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR688161",
+    "artist": "Lifehouse",
+    "title": "Breathing",
+    "year": 2000,
+    "albumTitle": "No Name Face",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL574887/RVAL574887__lifehouse__no-name-face.jpg"
+  },
+  "artist": {
+    "name": "Lifehouse",
+    "relatedArtists": [
+      "Lifehouse"
+    ]
+  },
+  "album": {
+    "title": "No Name Face",
+    "releaseYear": 2000,
+    "recordings": [
+      {
+        "id": "rec-sytwn9",
+        "title": "No Name Face",
+        "releaseDate": 2000,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-tls19d",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2000,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - Breathing.mp4",
+      "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "No Name Face",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-b64viy",
+      "date": "2000",
+      "label": "Breathing — original release",
+      "detail": "Original album: No Name Face",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-feehcp",
+      "date": "2000",
+      "label": "No Name Face",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2000",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR688161",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL574887/RVAL574887__lifehouse__no-name-face.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c2d24321c76e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688161&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-tls19d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1b4c606e2e2a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688161&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-tls19d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "96fc97ee2c70",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688161&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-tls19d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c9199ff41fee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688161&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-tls19d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "839e4bb05376",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688161&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-tls19d",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-tls19d",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2000,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - Breathing.mp4",
+        "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR688161-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688161"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lifehouse"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lifehouse"
+    },
+    {
+      "id": "rel-RVTR688161-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688161"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-sytwn9"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "No Name Face"
+    },
+    {
+      "id": "rel-RVTR688161-tl-tl-b64viy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688161"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-b64viy"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Breathing — original release"
+    },
+    {
+      "id": "rel-RVTR688161-tl-tl-feehcp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688161"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-feehcp"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "No Name Face"
+    },
+    {
+      "id": "rel-RVTR688161-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688161"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR688161-perf-perf-tls19d",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688161"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-tls19d"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-tls19d-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tls19d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - Breathing.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c2d24321c76e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tls19d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c2d24321c76e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1b4c606e2e2a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tls19d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1b4c606e2e2a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-96fc97ee2c70-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tls19d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "96fc97ee2c70"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-c9199ff41fee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tls19d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c9199ff41fee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-839e4bb05376-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tls19d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "839e4bb05376"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR688161. \"Breathing\" by Lifehouse. Album: No Name Face (2000).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL574887/RVAL574887__lifehouse__no-name-face.jpg",
+      "excerpt": "Canonical cover assignment for RVTR688161 (Breathing). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: No Name Face (2000)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lifehouse · Title: Breathing · Album: No Name Face · Year: 2000 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - Breathing.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2000.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-16ff790e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - Breathing.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6766986a-f6c4-4bdd-bf38-9e9571cb1393",
+      "category": "artist",
+      "text": "Breathing is performed by Lifehouse.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aaa5a4d3-4aa1-46e9-923a-b805d6614c06",
+      "category": "album",
+      "text": "The song appears on the album \"No Name Face\" (2000).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5375b56b-cc07-422e-aefe-d371875089e6",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR688161.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL574887/RVAL574887__lifehouse__no-name-face.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "125dd7e1-d1db-4661-9423-9b32a45b172c",
+      "category": "recording",
+      "text": "Breathing was released in 2000.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9ab0e32d-ba21-4fe6-a8f1-800be57cd4e0",
+      "category": "trivia",
+      "text": "Artist: Lifehouse · Title: Breathing · Album: No Name Face · Year: 2000 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - Breathing.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d058eab2-28dc-46bf-a637-51667e6a852a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - Breathing.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Lifehouse - Breathing.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

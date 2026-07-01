@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR096302",
+    "kind": "song",
+    "rvtr": "RVTR096302",
+    "generatedAt": "2026-06-28T22:45:34.010Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR096302",
+    "artist": "Pat Benatar",
+    "title": "Anxiety",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pat Benatar",
+    "relatedArtists": [
+      "Pat Benatar"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-9o48ed",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1982,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Pat Benatar - Anxiety.mp4",
+      "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fucpbk",
+      "date": "1982",
+      "label": "Anxiety — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1982",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "79da00c8cb51",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096302&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-9o48ed",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "383359e6d202",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096302&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-9o48ed",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9a8788d89917",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096302&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-9o48ed",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4140ea225810",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096302&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-9o48ed",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "af2e811ad4b1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096302&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-9o48ed",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-9o48ed",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1982,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Pat Benatar - Anxiety.mp4",
+        "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR096302-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR096302"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pat Benatar"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pat Benatar"
+    },
+    {
+      "id": "rel-RVTR096302-tl-tl-fucpbk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR096302"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fucpbk"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Anxiety — original release"
+    },
+    {
+      "id": "rel-RVTR096302-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR096302"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR096302-perf-perf-9o48ed",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR096302"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-9o48ed"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-9o48ed-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9o48ed"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Pat Benatar - Anxiety.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-79da00c8cb51-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9o48ed"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "79da00c8cb51"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-383359e6d202-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9o48ed"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "383359e6d202"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-9a8788d89917-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9o48ed"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9a8788d89917"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-4140ea225810-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9o48ed"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4140ea225810"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-af2e811ad4b1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9o48ed"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "af2e811ad4b1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR096302. \"Anxiety\" by Pat Benatar.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pat Benatar · Title: Anxiety · Album: Shadows Of The Night · Year: 1982 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Pat Benatar - Anxiety.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7b5db5c5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Pat Benatar - Anxiety.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e16dd489-a718-443d-974b-d7b79ab8c950",
+      "category": "artist",
+      "text": "Anxiety is performed by Pat Benatar.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "faf9771e-c183-4c9e-baf5-72437c101115",
+      "category": "trivia",
+      "text": "Artist: Pat Benatar · Title: Anxiety · Album: Shadows Of The Night · Year: 1982 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Pat Benatar - Anxiety.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2de727eb-a7f2-4388-8ebc-d6ea61b54a4d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Pat Benatar - Anxiety.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Pat Benatar - Anxiety.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

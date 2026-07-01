@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR295846",
+    "kind": "song",
+    "rvtr": "RVTR295846",
+    "generatedAt": "2026-06-28T22:50:07.571Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR295846",
+    "artist": "Black Eyed Peas",
+    "title": "Hit It",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Black Eyed Peas",
+    "relatedArtists": [
+      "Black Eyed Peas"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-5s3yuq",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Black Eyed Peas - Hit It.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-2xcp70",
+      "date": "2021",
+      "label": "Hit It — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "638a550a697b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR295846&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-5s3yuq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aa9a32579465",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR295846&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-5s3yuq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4d728fa8cc4e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR295846&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-5s3yuq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dad2a8a620f5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR295846&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-5s3yuq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0d9c47d29db6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR295846&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-5s3yuq",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-5s3yuq",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Black Eyed Peas - Hit It.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR295846-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR295846"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Black Eyed Peas"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Black Eyed Peas"
+    },
+    {
+      "id": "rel-RVTR295846-tl-tl-2xcp70",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR295846"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2xcp70"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Hit It — original release"
+    },
+    {
+      "id": "rel-RVTR295846-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR295846"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR295846-perf-perf-5s3yuq",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR295846"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-5s3yuq"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-5s3yuq-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5s3yuq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Black Eyed Peas - Hit It.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-638a550a697b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5s3yuq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "638a550a697b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-aa9a32579465-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5s3yuq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aa9a32579465"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4d728fa8cc4e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5s3yuq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4d728fa8cc4e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-dad2a8a620f5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5s3yuq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dad2a8a620f5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-0d9c47d29db6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5s3yuq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0d9c47d29db6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR295846. \"Hit It\" by Black Eyed Peas.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Black Eyed Peas · Title: Hit It · Album: Bridging The Gap · Year: 2021 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Black Eyed Peas - Hit It.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-31e9577d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Black Eyed Peas - Hit It.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8e8cd1a3-0f0e-4627-984b-07a66534525c",
+      "category": "artist",
+      "text": "Hit It is performed by Black Eyed Peas.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2edab45b-7f28-4134-9f8c-21d749f43a0d",
+      "category": "trivia",
+      "text": "Artist: Black Eyed Peas · Title: Hit It · Album: Bridging The Gap · Year: 2021 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Black Eyed Peas - Hit It.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8c8714f0-f5c5-4341-a60c-9f2de7d9a7de",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Black Eyed Peas - Hit It.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Black Eyed Peas - Hit It.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

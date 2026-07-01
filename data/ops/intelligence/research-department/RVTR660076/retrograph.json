@@ -1,0 +1,521 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR660076",
+    "kind": "song",
+    "rvtr": "RVTR660076",
+    "generatedAt": "2026-06-28T22:58:48.939Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR660076",
+    "artist": "Chickenfoot",
+    "title": "Oh Yeah",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Chickenfoot",
+    "relatedArtists": [
+      "Chickenfoot"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-nv818l",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chickenfoot - Oh Yeah.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-e4lwbm",
+      "date": "2009",
+      "label": "Oh Yeah — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-cr9ak1",
+      "date": "—",
+      "label": "\"Oh Yeah!\" is the first single and fourth track from rock band Chickenfoot's debut album Chickenfoot",
+      "detail": ".",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-m6cthv",
+      "date": "—",
+      "label": "Information\nIn a video on the band's website, Joe Satriani said it was \"the typical Chickenfoot arra",
+      "detail": "ngement where the song starts out with a riff and the band kicks in, then going on all these changes and when the main r",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-cr9ak1",
+      "date": "—",
+      "label": "\"Oh Yeah!\" is the first single and fourth track from rock band Chickenfoot's debut album Chickenfoot",
+      "detail": ".",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "The video shows the band performing on a scene and in a studio."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "54e10b48e9b9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR660076&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-nv818l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bc861c950eb4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR660076&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-nv818l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "10778424a5f5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR660076&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-nv818l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "490d0ce4b5d5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR660076&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-nv818l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "98f75ddd6261",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR660076&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-nv818l",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-nv818l",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chickenfoot - Oh Yeah.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR660076-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR660076"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Chickenfoot"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Chickenfoot"
+    },
+    {
+      "id": "rel-RVTR660076-tl-tl-e4lwbm",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR660076"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-e4lwbm"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Oh Yeah — original release"
+    },
+    {
+      "id": "rel-RVTR660076-tl-tl-cr9ak1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR660076"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cr9ak1"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Oh Yeah!\" is the first single and fourth track from rock band Chickenfoot's debut album Chickenfoot"
+    },
+    {
+      "id": "rel-RVTR660076-tl-tl-m6cthv",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR660076"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-m6cthv"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Information\nIn a video on the band's website, Joe Satriani said it was \"the typical Chickenfoot arra"
+    },
+    {
+      "id": "rel-RVTR660076-tl-tl-cr9ak1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR660076"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cr9ak1"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Oh Yeah!\" is the first single and fourth track from rock band Chickenfoot's debut album Chickenfoot"
+    },
+    {
+      "id": "rel-RVTR660076-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR660076"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR660076-perf-perf-nv818l",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR660076"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-nv818l"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-nv818l-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nv818l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chickenfoot - Oh Yeah.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-54e10b48e9b9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nv818l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "54e10b48e9b9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-bc861c950eb4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nv818l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bc861c950eb4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-10778424a5f5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nv818l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "10778424a5f5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-490d0ce4b5d5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nv818l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "490d0ce4b5d5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-98f75ddd6261-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nv818l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "98f75ddd6261"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR660076. \"Oh Yeah\" by Chickenfoot.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Chickenfoot · Title: Oh Yeah · Album: Chickenfoot · Year: 2009 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chickenfoot - Oh Yeah.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9719d161",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chickenfoot - Oh Yeah.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-184ac1b1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Chickenfoot - Oh Yeah.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-oh-yeah-chickenfoot-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Oh_Yeah_(Chickenfoot_song)",
+      "excerpt": "\"Oh Yeah!\" is the first single and fourth track from rock band Chickenfoot's debut album Chickenfoot. It was released on 13 April 2009.\n\n\nInformation\nIn a video on the band's website, Joe Satriani said it was \"the typical Chickenfoot arrangement where the song starts out with a riff and the band kicks in, then going on all these changes and when the main riff starts again, the listeners have forgotten it because of the musical journey\". He also told that it got started very simple with him and Sammy talking about old blues songs and artists, and that it would be great if they could fuse what they did naturally as a band with old blues songwriting.\n\n\nMusic video\nThe music video for the single premiered at YouTube on June 11, 2009. The video shows the band performing on a scene and in a studio. There are also shots of the band playing at a basketball court. Satriani joked that the video would win many awards as \"best barbecue video\".\n\n\nTrack listing\n\"Oh Yeah!\" (radio edit) -4:13\n\"Get It Up\" - 4:42\n\"Learning to Fall\" - 5:14\n\n\nChart positions",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "ec3abe12-3bc8-45c3-a524-e16d35fe7662",
+      "category": "artist",
+      "text": "Oh Yeah is performed by Chickenfoot.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c807fcb1-8555-4cae-8558-b7e99ec2a333",
+      "category": "cultural_impact",
+      "text": "\"Oh Yeah!\" is the first single and fourth track from rock band Chickenfoot's debut album Chickenfoot.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Oh_Yeah_(Chickenfoot_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b403307b-5e20-49ea-99e6-f28061317291",
+      "category": "cultural_impact",
+      "text": "Information\nIn a video on the band's website, Joe Satriani said it was \"the typical Chickenfoot arrangement where the song starts out with a riff and the band kicks in, then going on all these changes and when the main riff starts again, the listeners have forgotten it because of the musical journey\".",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Oh_Yeah_(Chickenfoot_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "40cbcc47-2687-4035-9e2d-e95e408ba6fc",
+      "category": "cultural_impact",
+      "text": "He also told that it got started very simple with him and Sammy talking about old blues songs and artists, and that it would be great if they could fuse what they did naturally as a band with old blues songwriting.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Oh_Yeah_(Chickenfoot_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "cd04b0fc-17c0-49ea-bb41-67dc0522c216",
+      "category": "trivia",
+      "text": "Artist: Chickenfoot · Title: Oh Yeah · Album: Chickenfoot · Year: 2009 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chickenfoot - Oh Yeah.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b209a384-755a-4b06-9c86-ab549fbdb749",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chickenfoot - Oh Yeah.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0a857ce7-6885-433f-8c4e-2a394f8ad797",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Chickenfoot - Oh Yeah.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 70,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 61
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Chickenfoot - Oh Yeah.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

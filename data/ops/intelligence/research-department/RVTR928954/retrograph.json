@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR928954",
+    "kind": "song",
+    "rvtr": "RVTR928954",
+    "generatedAt": "2026-06-28T23:07:39.865Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR928954",
+    "artist": "Nle Choppa",
+    "title": "Mmm Hmm",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Nle Choppa",
+    "relatedArtists": [
+      "Nle Choppa"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-rmqud0",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/NLE Choppa - Mmm Hmm.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-5m2ac9",
+      "date": "2021",
+      "label": "Mmm Hmm — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "aead7e341484",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR928954&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-rmqud0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7137c984a769",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR928954&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-rmqud0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d40e2612f406",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR928954&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-rmqud0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fa64d313d099",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR928954&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-rmqud0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "edb95f5dc79a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR928954&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-rmqud0",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-rmqud0",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/NLE Choppa - Mmm Hmm.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR928954-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR928954"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Nle Choppa"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Nle Choppa"
+    },
+    {
+      "id": "rel-RVTR928954-tl-tl-5m2ac9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR928954"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5m2ac9"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Mmm Hmm — original release"
+    },
+    {
+      "id": "rel-RVTR928954-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR928954"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR928954-perf-perf-rmqud0",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR928954"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-rmqud0"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-rmqud0-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rmqud0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/NLE Choppa - Mmm Hmm.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-aead7e341484-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rmqud0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aead7e341484"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7137c984a769-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rmqud0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7137c984a769"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d40e2612f406-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rmqud0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d40e2612f406"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-fa64d313d099-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rmqud0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fa64d313d099"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-edb95f5dc79a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-rmqud0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "edb95f5dc79a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR928954. \"Mmm Hmm\" by Nle Choppa.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: NLE Choppa · Title: Mmm Hmm · Album: Me Vs. Me · Year: 2021 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/NLE Choppa - Mmm Hmm.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c697a09f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/NLE Choppa - Mmm Hmm.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8d9281b6-0649-45b0-9411-8f93fd831d64",
+      "category": "artist",
+      "text": "Mmm Hmm is performed by Nle Choppa.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4613fecb-6c28-49bd-bb5e-eb197b47f45f",
+      "category": "trivia",
+      "text": "Artist: NLE Choppa · Title: Mmm Hmm · Album: Me Vs.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a8942175-16d7-4f3a-8d99-8b8926062218",
+      "category": "trivia",
+      "text": "Me · Year: 2021 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/NLE Choppa - Mmm Hmm.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e321d21b-5815-4c7c-827e-18ecda77b9ca",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/NLE Choppa - Mmm Hmm.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/NLE Choppa - Mmm Hmm.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

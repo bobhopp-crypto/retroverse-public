@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR523111",
+    "kind": "song",
+    "rvtr": "RVTR523111",
+    "generatedAt": "2026-06-28T22:54:57.990Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR523111",
+    "artist": "Abba",
+    "title": "Voulez Vous",
+    "year": 1979,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Abba",
+    "relatedArtists": [
+      "Abba"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1979,
+    "recordings": [
+      {
+        "id": "rec-5fq9e6",
+        "title": "Voulez Vous — graph recording",
+        "releaseDate": 1979,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-yq8pjo",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Voulez Vous.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 80,
+    "chartWeeks": 3,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #80 · 3 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-2ymyqy",
+      "date": "1979",
+      "label": "Voulez Vous — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3lq",
+      "date": "1979",
+      "label": "Billboard Hot 100 peak #80",
+      "detail": "3 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-i7idsf",
+      "date": "1979",
+      "label": "Voulez Vous — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "18e89348f193",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523111&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yq8pjo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "20b1fd9e084f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523111&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yq8pjo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "34b57fb03f85",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523111&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yq8pjo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7847fffa85fd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523111&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yq8pjo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dc845d0dea97",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523111&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yq8pjo",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yq8pjo",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Voulez Vous.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR523111-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523111"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Abba"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Abba"
+    },
+    {
+      "id": "rel-RVTR523111-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523111"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #80"
+    },
+    {
+      "id": "rel-RVTR523111-tl-tl-2ymyqy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523111"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2ymyqy"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Voulez Vous — original release"
+    },
+    {
+      "id": "rel-RVTR523111-tl-tl-fcm3lq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523111"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3lq"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #80"
+    },
+    {
+      "id": "rel-RVTR523111-tl-tl-i7idsf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523111"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i7idsf"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Voulez Vous — graph recording"
+    },
+    {
+      "id": "rel-RVTR523111-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523111"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR523111-perf-perf-yq8pjo",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523111"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yq8pjo"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yq8pjo-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq8pjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Voulez Vous.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-18e89348f193-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq8pjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "18e89348f193"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-20b1fd9e084f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq8pjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "20b1fd9e084f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-34b57fb03f85-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq8pjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "34b57fb03f85"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7847fffa85fd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq8pjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7847fffa85fd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-dc845d0dea97-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yq8pjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dc845d0dea97"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR523111. \"Voulez Vous\" by Abba.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #80. 3 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: ABBA · Title: Voulez Vous · Album: Voulez-Vous · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Voulez Vous.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1979.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-702f6bd4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Voulez Vous.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-fb854c94",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/ Abba - Voulez-Vous.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "7813fa5f-b3f8-47f4-9032-16e3ed3ee3ac",
+      "category": "artist",
+      "text": "Voulez Vous is performed by Abba.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fad21cc0-df30-4a3c-9378-e34b3e8d07e9",
+      "category": "chart",
+      "text": "The song peaked at #80 on the Billboard Hot 100 and spent 3 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2e28a246-9874-4e0a-a29a-4af23210a294",
+      "category": "recording",
+      "text": "Voulez Vous was released in 1979.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "35cc3e7a-545d-40d4-90f1-b9225c8b650f",
+      "category": "trivia",
+      "text": "Artist: ABBA · Title: Voulez Vous · Album: Voulez-Vous · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Voulez Vous.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e0ca2500-b015-40d5-946b-40102d2533ce",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Voulez Vous.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "88ac82ce-bc5d-485f-aad8-36795a5ff38e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/ Abba - Voulez-Vous.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/ABBA - Voulez Vous.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

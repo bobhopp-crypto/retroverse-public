@@ -1,0 +1,434 @@
+{
+  "version": 1,
+  "rvtr": "RVTR986424",
+  "artist": "Devo",
+  "title": "Girl U Want",
+  "generatedAt": "2026-06-28T23:09:34.037Z",
+  "directorGeneratedAt": "2026-06-28T23:09:34.035Z",
+  "executiveSummary": {
+    "overallScore": 72,
+    "publishReadiness": "ready_with_changes",
+    "publishReadinessLabel": "Ready after minor revisions",
+    "strengths": [
+      "Strong performance section"
+    ],
+    "weaknesses": [
+      "Ending could be stronger",
+      "1 repetition issue detected"
+    ],
+    "recommendedFixes": [
+      "Add chart journey or legacy timeline for historical anchor",
+      "Reduce image reuse (1 repeated frame)",
+      "Use official cover or alternate performance frame on one beat"
+    ],
+    "narrativeParagraph": "Strong performance section. Ending could be stronger. 1 repetition issue detected. Overall readiness: 72%. Ready after minor revisions."
+  },
+  "storyFlow": {
+    "beats": [
+      {
+        "order": 1,
+        "beatId": "beat-1",
+        "pageId": "page-hero:identity-0",
+        "storyId": "hero",
+        "label": "Hero",
+        "purpose": "Introduce the song identity — who, what, when.",
+        "templateId": "hero",
+        "interestScore": 68,
+        "visualScore": 95,
+        "informationDensity": 55,
+        "audienceAttention": 63,
+        "transitionQuality": 90,
+        "hasMedia": true,
+        "copyLength": 31
+      },
+      {
+        "order": 2,
+        "beatId": "beat-2",
+        "pageId": "page-introduction:opening_hook-1",
+        "storyId": "introduction",
+        "label": "Why this song matters",
+        "purpose": "Frame the documentary before diving into chapters.",
+        "templateId": "quote",
+        "interestScore": 68,
+        "visualScore": 55,
+        "informationDensity": 55,
+        "audienceAttention": 55,
+        "transitionQuality": 82,
+        "hasMedia": false,
+        "copyLength": 33
+      },
+      {
+        "order": 3,
+        "beatId": "beat-3",
+        "pageId": "page-performance_history:official_video-4",
+        "storyId": "performance_history",
+        "label": "Official music video",
+        "purpose": "Visual performance history brings the song to life.",
+        "templateId": "performance",
+        "interestScore": 80,
+        "visualScore": 100,
+        "informationDensity": 55,
+        "audienceAttention": 67,
+        "transitionQuality": 82,
+        "hasMedia": true,
+        "copyLength": 27
+      },
+      {
+        "order": 4,
+        "beatId": "beat-4",
+        "pageId": "page-performance_history:live_moments-5",
+        "storyId": "performance_history",
+        "label": "Live on stage",
+        "purpose": "Visual performance history brings the song to life.",
+        "templateId": "gallery",
+        "interestScore": 68,
+        "visualScore": 100,
+        "informationDensity": 55,
+        "audienceAttention": 55,
+        "transitionQuality": 72,
+        "hasMedia": true,
+        "copyLength": 22
+      },
+      {
+        "order": 5,
+        "beatId": "beat-5",
+        "pageId": "page-performance_history:video_gallery-6",
+        "storyId": "performance_history",
+        "label": "Video gallery",
+        "purpose": "Visual performance history brings the song to life.",
+        "templateId": "performance",
+        "interestScore": 80,
+        "visualScore": 98,
+        "informationDensity": 55,
+        "audienceAttention": 67,
+        "transitionQuality": 72,
+        "hasMedia": true,
+        "copyLength": 36
+      },
+      {
+        "order": 6,
+        "beatId": "beat-6",
+        "pageId": "page-album_story:album_context-2",
+        "storyId": "album_story",
+        "label": "The song appears on the album \"Freedom Of Choice\" (19…",
+        "purpose": "Place the song on its album and release context.",
+        "templateId": "gallery",
+        "interestScore": 68,
+        "visualScore": 95,
+        "informationDensity": 48,
+        "audienceAttention": 48,
+        "transitionQuality": 82,
+        "hasMedia": true,
+        "copyLength": 635
+      },
+      {
+        "order": 7,
+        "beatId": "beat-7",
+        "pageId": "page-artist_journey:the_band-3",
+        "storyId": "artist_journey",
+        "label": "\"Girl U Want\" is a 1980 single by American new wave b…",
+        "purpose": "Connect the song to the artist's identity and trajectory.",
+        "templateId": "quote",
+        "interestScore": 68,
+        "visualScore": 55,
+        "informationDensity": 88,
+        "audienceAttention": 88,
+        "transitionQuality": 88,
+        "hasMedia": false,
+        "copyLength": 62
+      },
+      {
+        "order": 8,
+        "beatId": "beat-8",
+        "pageId": "page-song_dna:musical_fingerprint-7",
+        "storyId": "song_dna",
+        "label": "Song DNA",
+        "purpose": "Musical identity as a visual story beat.",
+        "templateId": "gallery",
+        "interestScore": 68,
+        "visualScore": 70,
+        "informationDensity": 88,
+        "audienceAttention": 88,
+        "transitionQuality": 82,
+        "hasMedia": false,
+        "copyLength": 63
+      }
+    ],
+    "averageInterest": 71,
+    "averageVisual": 84,
+    "flowScore": 79
+  },
+  "pacing": {
+    "score": 76,
+    "textHeavyBeats": 1,
+    "imageHeavyBeats": 6,
+    "longestTextRun": 1,
+    "longestMediaGap": 2,
+    "longestStoryGap": 1,
+    "issues": [
+      {
+        "kind": "no_historical_movement",
+        "message": "No chart or timeline beats in a long experience",
+        "beatRange": "full sequence",
+        "recommendation": "Add chart journey or legacy timeline for historical anchor"
+      }
+    ],
+    "recommendations": [
+      "Add chart journey or legacy timeline for historical anchor"
+    ]
+  },
+  "variety": {
+    "diversityScore": 48,
+    "slots": [
+      {
+        "id": "chart",
+        "label": "Charts",
+        "count": 0,
+        "present": false
+      },
+      {
+        "id": "timeline",
+        "label": "Timelines",
+        "count": 0,
+        "present": false
+      },
+      {
+        "id": "dna",
+        "label": "Song DNA",
+        "count": 1,
+        "present": true
+      },
+      {
+        "id": "album",
+        "label": "Album",
+        "count": 1,
+        "present": true
+      },
+      {
+        "id": "performance",
+        "label": "Performance",
+        "count": 3,
+        "present": true
+      },
+      {
+        "id": "quote",
+        "label": "Quote cards",
+        "count": 2,
+        "present": true
+      },
+      {
+        "id": "story",
+        "label": "Story cards",
+        "count": 0,
+        "present": false
+      },
+      {
+        "id": "hero",
+        "label": "Hero",
+        "count": 1,
+        "present": true
+      }
+    ],
+    "imagesReused": 1,
+    "uniqueTemplates": 4,
+    "recommendations": [
+      "Reduce image reuse (1 repeated frame)",
+      "Consider a timeline beat for historical movement"
+    ]
+  },
+  "repetition": {
+    "score": 86,
+    "items": [
+      {
+        "kind": "media",
+        "message": "Same image on Hero and The song appears on the album \"Freedom Of Choice\" (19…",
+        "beatLabels": [
+          "Hero",
+          "The song appears on the album \"Freedom Of Choice\" (19…"
+        ],
+        "recommendation": "Use official cover or alternate performance frame on one beat"
+      }
+    ]
+  },
+  "narrative": {
+    "arcScore": 62,
+    "phases": [
+      {
+        "phase": "opening",
+        "label": "Strong opening",
+        "present": true,
+        "strength": 85,
+        "beatLabel": "Hero",
+        "recommendation": null
+      },
+      {
+        "phase": "discovery",
+        "label": "Discovery",
+        "present": false,
+        "strength": 45,
+        "beatLabel": null,
+        "recommendation": "Add a dedicated discovery beat"
+      },
+      {
+        "phase": "momentum",
+        "label": "Momentum",
+        "present": false,
+        "strength": 50,
+        "beatLabel": null,
+        "recommendation": "Add a dedicated momentum beat"
+      },
+      {
+        "phase": "surprise",
+        "label": "Surprise",
+        "present": true,
+        "strength": 84,
+        "beatLabel": "Song DNA",
+        "recommendation": null
+      },
+      {
+        "phase": "payoff",
+        "label": "Payoff",
+        "present": true,
+        "strength": 82,
+        "beatLabel": "Official music video",
+        "recommendation": null
+      },
+      {
+        "phase": "ending",
+        "label": "Ending",
+        "present": true,
+        "strength": 52,
+        "beatLabel": null,
+        "recommendation": "Strengthen ending with media or sharper copy"
+      }
+    ],
+    "recommendations": [
+      "Add a dedicated discovery beat",
+      "Add a dedicated momentum beat",
+      "Strengthen ending with media or sharper copy",
+      "Ending feels abrupt — close on Legacy or a performance reprise"
+    ]
+  },
+  "audience": {
+    "personas": [
+      {
+        "persona": "Music fan",
+        "interesting": 71,
+        "educational": 53,
+        "emotional": 77,
+        "entertaining": 80,
+        "replayValue": 70,
+        "overall": 70
+      },
+      {
+        "persona": "Casual listener",
+        "interesting": 67,
+        "educational": 43,
+        "emotional": 72,
+        "entertaining": 84,
+        "replayValue": 60,
+        "overall": 65
+      },
+      {
+        "persona": "DJ",
+        "interesting": 90,
+        "educational": 62,
+        "emotional": 55,
+        "entertaining": 67,
+        "replayValue": 74,
+        "overall": 70
+      },
+      {
+        "persona": "Museum visitor",
+        "interesting": 58,
+        "educational": 78,
+        "emotional": 88,
+        "entertaining": 66,
+        "replayValue": 56,
+        "overall": 69
+      },
+      {
+        "persona": "Retroverse collector",
+        "interesting": 64,
+        "educational": 57,
+        "emotional": 68,
+        "entertaining": 71,
+        "replayValue": 76,
+        "overall": 67
+      }
+    ],
+    "averageEngagement": 68
+  },
+  "missingOpportunities": [
+    {
+      "id": "related_songs",
+      "label": "Related songs",
+      "reason": "Director skipped related-song discovery paths"
+    },
+    {
+      "id": "timeline",
+      "label": "Historical timeline",
+      "reason": "Retrograph timeline exists but no timeline beat"
+    },
+    {
+      "id": "personnel",
+      "label": "Personnel page",
+      "reason": "Recording credits could be a dedicated beat"
+    },
+    {
+      "id": "cultural_context",
+      "label": "Historical context",
+      "reason": "Cultural impact story not in final sequence"
+    }
+  ],
+  "publishGate": {
+    "decision": "ready_with_changes",
+    "label": "Ready after minor revisions",
+    "reasons": [
+      "Overall creative score: 72%",
+      "8 beats in audience sequence",
+      "Repetition score: 86%",
+      "1 repetition item(s) flagged"
+    ],
+    "blockers": []
+  },
+  "directorFeedback": [
+    {
+      "id": "rep-media-Hero",
+      "beatRefs": [
+        "Hero",
+        "The song appears on the album \"Freedom Of Choice\" (19…"
+      ],
+      "message": "Same image on Hero and The song appears on the album \"Freedom Of Choice\" (19…. Use official cover or alternate performance frame on one beat",
+      "priority": "high"
+    },
+    {
+      "id": "pace-no_historical_movement",
+      "beatRefs": [
+        "full sequence"
+      ],
+      "message": "No chart or timeline beats in a long experience (full sequence). Add chart journey or legacy timeline for historical anchor",
+      "priority": "medium"
+    },
+    {
+      "id": "ending-abrupt",
+      "beatRefs": [
+        "Song DNA"
+      ],
+      "message": "Ending feels abrupt — add legacy coda or performance reprise after Song DNA",
+      "priority": "medium"
+    },
+    {
+      "id": "missing-related_songs",
+      "beatRefs": [],
+      "message": "Consider adding Related songs: Director skipped related-song discovery paths",
+      "priority": "low"
+    },
+    {
+      "id": "missing-timeline",
+      "beatRefs": [],
+      "message": "Consider adding Historical timeline: Retrograph timeline exists but no timeline beat",
+      "priority": "low"
+    }
+  ]
+}

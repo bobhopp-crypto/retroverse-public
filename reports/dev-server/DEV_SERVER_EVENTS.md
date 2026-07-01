@@ -173,3 +173,135 @@ Events below are appended automatically at runtime.
 - **signal:** —
 - **command:** node tools/next-dev.mjs (npm-dev)
 - **note:** next child exited
+## 2026-06-29T00:56:35.566Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 87355
+- **childPid:** 87365
+- **port:** 3005
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-06-29T00:56:35.573Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 22856
+- **childPid:** 22859
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-06-30T00:18:41.461Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 24008
+- **childPid:** 24011
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-06-30T19:28:31.808Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 85878
+- **childPid:** 85881
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-06-30T19:58:26.143Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 19840
+- **childPid:** 19843
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-06-30T20:00:46.304Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 37877
+- **childPid:** 37887
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-06-30T20:05:03.850Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 41295
+- **childPid:** 41298
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-06-30T20:09:05.268Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 44832
+- **childPid:** 44835
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-01T13:33:32.887Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 34050
+- **childPid:** 34053
+- **port:** 3011
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-01T13:42:01.410Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 46744
+- **childPid:** 46754
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-01T20:48:59.107Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 33411
+- **childPid:** 33414
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-01T21:23:36.896Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 80667
+- **childPid:** 80670
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited

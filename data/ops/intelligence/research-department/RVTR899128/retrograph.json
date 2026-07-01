@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR899128",
+    "kind": "song",
+    "rvtr": "RVTR899128",
+    "generatedAt": "2026-06-28T22:42:09.356Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR899128",
+    "artist": "Postmodern Jukebox Version",
+    "title": "All About That Bass",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Postmodern Jukebox Version",
+    "relatedArtists": [
+      "Postmodern Jukebox Version"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-nechuf",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2015,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Postmodern Jukebox Version - All About That Bass.MP4",
+      "notes": "Detected year: 2015. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-9ihjyu",
+      "date": "2015",
+      "label": "All About That Bass — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2015",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "95bbd1671c23",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899128&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-nechuf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ebc9654ace2c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899128&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-nechuf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2a6a91bd568e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899128&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-nechuf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d2eb5d5976ed",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899128&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-nechuf",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "70bc3b435b62",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899128&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-nechuf",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-nechuf",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2015,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Postmodern Jukebox Version - All About That Bass.MP4",
+        "notes": "Detected year: 2015. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR899128-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR899128"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Postmodern Jukebox Version"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Postmodern Jukebox Version"
+    },
+    {
+      "id": "rel-RVTR899128-tl-tl-9ihjyu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR899128"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9ihjyu"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "All About That Bass — original release"
+    },
+    {
+      "id": "rel-RVTR899128-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR899128"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR899128-perf-perf-nechuf",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR899128"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-nechuf"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-nechuf-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nechuf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Postmodern Jukebox Version - All About That Bass.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-95bbd1671c23-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nechuf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "95bbd1671c23"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-ebc9654ace2c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nechuf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ebc9654ace2c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2a6a91bd568e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nechuf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a6a91bd568e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d2eb5d5976ed-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nechuf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d2eb5d5976ed"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-70bc3b435b62-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nechuf"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "70bc3b435b62"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR899128. \"All About That Bass\" by Postmodern Jukebox Version.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Postmodern Jukebox Version · Title: All About That Bass · Album: Scott Bradlee's Postmodern Jukebox - The Essentials II · Year: 2015 · Genre: Jazz · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Postmodern Jukebox Version - All About That Bass.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5609228b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Postmodern Jukebox Version - All About That Bass.MP4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "20cf8d22-1516-4a5a-a9c1-f8c70c576dd3",
+      "category": "artist",
+      "text": "All About That Bass is performed by Postmodern Jukebox Version.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "06a23f38-cb87-4df0-842c-e958f0292353",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0aba0d29-0d6a-44e4-bb85-7359af5db698",
+      "category": "trivia",
+      "text": "\"All About That Bass\" by Postmodern Jukebox Version.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "26c90820-9afe-4d96-933a-92274d760a7c",
+      "category": "trivia",
+      "text": "Artist: Postmodern Jukebox Version · Title: All About That Bass · Album: Scott Bradlee's Postmodern Jukebox - The Essentials II · Year: 2015 · Genre: Jazz · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Postmodern Jukebox Version - All About That Bass.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6c83eebf-4e20-4684-ba4a-e3825d6ffe73",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Postmodern Jukebox Version - All About That Bass.MP4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Postmodern Jukebox Version - All About That Bass.MP4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

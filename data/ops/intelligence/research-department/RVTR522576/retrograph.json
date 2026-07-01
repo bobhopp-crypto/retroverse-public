@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR522576",
+    "kind": "song",
+    "rvtr": "RVTR522576",
+    "generatedAt": "2026-06-28T22:54:55.585Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR522576",
+    "artist": "Mickey Avalon",
+    "title": "Jane Fonda",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mickey Avalon",
+    "relatedArtists": [
+      "Mickey Avalon"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-20vhfd",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mickey Avalon - Jane Fonda.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-2gwx6s",
+      "date": "2005",
+      "label": "Jane Fonda — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "01e31b0d62ac",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522576&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-20vhfd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "410b22acc434",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522576&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-20vhfd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4e86ac8d29a6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522576&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-20vhfd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5a7a8b96b57a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522576&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-20vhfd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1fca3608d102",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR522576&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-20vhfd",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-20vhfd",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mickey Avalon - Jane Fonda.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR522576-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522576"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mickey Avalon"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mickey Avalon"
+    },
+    {
+      "id": "rel-RVTR522576-tl-tl-2gwx6s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522576"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2gwx6s"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Jane Fonda — original release"
+    },
+    {
+      "id": "rel-RVTR522576-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522576"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR522576-perf-perf-20vhfd",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR522576"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-20vhfd"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-20vhfd-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-20vhfd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mickey Avalon - Jane Fonda.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-01e31b0d62ac-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-20vhfd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "01e31b0d62ac"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-410b22acc434-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-20vhfd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "410b22acc434"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-4e86ac8d29a6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-20vhfd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4e86ac8d29a6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5a7a8b96b57a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-20vhfd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5a7a8b96b57a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1fca3608d102-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-20vhfd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1fca3608d102"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR522576. \"Jane Fonda\" by Mickey Avalon.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mickey Avalon · Title: Jane Fonda · Album: Mickey Avalon · Year: 2005 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mickey Avalon - Jane Fonda.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-52270d01",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mickey Avalon - Jane Fonda.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "281008bb-d70d-4e4f-aa2e-40f442c71ef3",
+      "category": "artist",
+      "text": "Jane Fonda is performed by Mickey Avalon.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "260cbad8-8c59-4782-b95e-b11682219741",
+      "category": "trivia",
+      "text": "Artist: Mickey Avalon · Title: Jane Fonda · Album: Mickey Avalon · Year: 2005 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mickey Avalon - Jane Fonda.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "30b04ae9-bcb9-4075-9e84-94228be9bb20",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mickey Avalon - Jane Fonda.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Mickey Avalon - Jane Fonda.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

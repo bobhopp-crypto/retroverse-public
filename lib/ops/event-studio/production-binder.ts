@@ -110,13 +110,13 @@ function buildChecklist(
       id: "pass-artwork",
       label: "Pass Artwork",
       done: passArtworkDone,
-      href: "/ops/event-studio/create/pass-generator",
+      href: "/bobos/passes",
     },
     {
       id: "pass-sheet",
       label: "Pass Sheet",
       done: passSheetDone,
-      href: "/ops/event-studio/create/pass-generator",
+      href: "/bobos/passes",
     },
     {
       id: "landing-page",

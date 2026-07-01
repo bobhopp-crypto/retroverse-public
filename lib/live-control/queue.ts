@@ -7,6 +7,7 @@ import {
 } from "@/lib/ops/intelligence/song-package-store";
 import { isSongExperienceRenderable } from "@/lib/ops/intelligence/song-experience-renderability";
 import type { SongPackageStatus } from "@/lib/ops/intelligence/song-package-types";
+import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 import { loadTrackPage } from "@/lib/track/load-track-page";
 
 const READY_STATUSES = new Set<SongPackageStatus>([
@@ -54,21 +55,21 @@ async function enrichCandidate(rvtr: string): Promise<QueueCandidate | null> {
   const normalized = normalizePackageRvtr(rvtr);
   if (!normalized) return null;
 
-  const [pkg, track] = await Promise.all([
+  const [pkg, track, hero] = await Promise.all([
     loadSongPackage(normalized).catch(() => null),
     loadTrackPage(normalized).catch(() => null),
+    resolveHeroForRvtr(normalized).catch(() => ({ url: null, tier: null })),
   ]);
 
   if (!pkg && !track) return null;
 
-  const coverUrl = pkg?.metadata.coverUrl ?? track?.coverUrl ?? null;
   return {
     rvtr: normalized,
     year: pkg?.metadata.year ?? track?.releaseYear ?? null,
     playCount: pkg?.metadata.playCount ?? 0,
     artist: pkg?.metadata.artist ?? track?.artistName ?? "",
     title: pkg?.metadata.title ?? track?.title ?? normalized,
-    hasCover: Boolean(coverUrl?.trim()),
+    hasCover: Boolean(hero.url?.trim()),
     hasExperience: Boolean(pkg && isSongExperienceRenderable(pkg.status)),
     hasSongSheet: Boolean(pkg),
   };

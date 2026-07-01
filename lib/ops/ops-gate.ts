@@ -1,4 +1,6 @@
 /** Local dev ops gate — cookie session after PIN entry. */
+import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
+
 export const OPS_GATE_COOKIE = "retroverse_ops_gate";
 
 /** Temporary local PIN (override with RETROVERSE_OPS_PIN). */
@@ -8,7 +10,8 @@ export function opsGateCookieValue(request: { cookies: { get: (name: string) => 
   return request.cookies.get(OPS_GATE_COOKIE)?.value === "ok";
 }
 
-export function isOpsEnabled(): boolean {
+export function isOpsEnabled(host?: string | null): boolean {
+  if (!shouldAllowOpsRoutes(host)) return false;
   return process.env.RETROVERSE_OPS === "1";
 }
 

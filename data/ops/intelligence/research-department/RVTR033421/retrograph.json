@@ -1,0 +1,530 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR033421",
+    "kind": "song",
+    "rvtr": "RVTR033421",
+    "generatedAt": "2026-06-28T22:44:04.679Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR033421",
+    "artist": "Nickelback",
+    "title": "Never Again",
+    "year": 2001,
+    "albumTitle": "Silver Side Up",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL886941/RVAL886941__nickelback__silver-side-up.jpg"
+  },
+  "artist": {
+    "name": "Nickelback",
+    "relatedArtists": [
+      "Nickelback"
+    ]
+  },
+  "album": {
+    "title": "Silver Side Up",
+    "releaseYear": 2001,
+    "recordings": [
+      {
+        "id": "rec-3o7iig",
+        "title": "Silver Side Up",
+        "releaseDate": 2001,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-wwmc9q",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2001,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nickelback - Never Again.mp4",
+      "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Silver Side Up",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-obnnsg",
+      "date": "2001",
+      "label": "Never Again — original release",
+      "detail": "Original album: Silver Side Up",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-z7x8rf",
+      "date": "2001",
+      "label": "Silver Side Up",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2001",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR033421",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL886941/RVAL886941__nickelback__silver-side-up.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "564ab001abd3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR033421&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-wwmc9q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "53fa83f1f81d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR033421&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-wwmc9q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bf0f72f9b678",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR033421&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-wwmc9q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7eb861a61b0f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR033421&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-wwmc9q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7c3ef2ce6b10",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR033421&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-wwmc9q",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-wwmc9q",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2001,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nickelback - Never Again.mp4",
+        "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR033421-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR033421"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Nickelback"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Nickelback"
+    },
+    {
+      "id": "rel-RVTR033421-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR033421"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-3o7iig"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Silver Side Up"
+    },
+    {
+      "id": "rel-RVTR033421-tl-tl-obnnsg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR033421"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-obnnsg"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Never Again — original release"
+    },
+    {
+      "id": "rel-RVTR033421-tl-tl-z7x8rf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR033421"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z7x8rf"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Silver Side Up"
+    },
+    {
+      "id": "rel-RVTR033421-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR033421"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR033421-perf-perf-wwmc9q",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR033421"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-wwmc9q"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-wwmc9q-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wwmc9q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nickelback - Never Again.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-564ab001abd3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wwmc9q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "564ab001abd3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-53fa83f1f81d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wwmc9q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "53fa83f1f81d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-bf0f72f9b678-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wwmc9q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bf0f72f9b678"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7eb861a61b0f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wwmc9q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7eb861a61b0f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7c3ef2ce6b10-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wwmc9q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7c3ef2ce6b10"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR033421. \"Never Again\" by Nickelback. Album: Silver Side Up (2001).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL886941/RVAL886941__nickelback__silver-side-up.jpg",
+      "excerpt": "Canonical cover assignment for RVTR033421 (Never Again). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Silver Side Up (2001)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Nickelback · Title: Never Again · Album: Silver Side Up · Year: 2001 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nickelback - Never Again.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2001.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c140b9dc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nickelback - Never Again.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-280183c7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "netsearch://td704524",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-dab9e1e2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Nickelback - Never Again (clean radio edit).mp3 · Performance: clean radio edit",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "001cc614-e23d-44dd-a7ed-47cb9cdd9d1b",
+      "category": "artist",
+      "text": "Never Again is performed by Nickelback.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "accf1ca8-583c-4ad7-80ca-4286f06d3448",
+      "category": "album",
+      "text": "The song appears on the album \"Silver Side Up\" (2001).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "127719dd-098d-49a1-b054-287c820b86ba",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR033421.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL886941/RVAL886941__nickelback__silver-side-up.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d23d7d0d-9dfb-41ee-8803-c6c82f3f101d",
+      "category": "recording",
+      "text": "Never Again was released in 2001.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a0d665be-e2ee-46fd-80b1-8f2e257151e4",
+      "category": "trivia",
+      "text": "Artist: Nickelback · Title: Never Again · Album: Silver Side Up · Year: 2001 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nickelback - Never Again.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a9cf2df1-2520-4e0f-96ce-6c6d36acc31f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nickelback - Never Again.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "31814ca0-43d3-4882-b5dc-85d20fa768e0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Nickelback - Never Again (clean radio edit).mp3 · Performance: clean radio edit",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nickelback - Never Again.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

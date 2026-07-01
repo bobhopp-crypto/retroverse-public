@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR339805",
+    "kind": "song",
+    "rvtr": "RVTR339805",
+    "generatedAt": "2026-06-28T22:51:00.436Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR339805",
+    "artist": "Psy",
+    "title": "Gentleman",
+    "year": 2013,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Psy",
+    "relatedArtists": [
+      "Psy"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2013,
+    "recordings": [
+      {
+        "id": "rec-6g9871",
+        "title": "Gentleman — graph recording",
+        "releaseDate": 2013,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-7eqmh9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2013,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Psy - Gentleman.mp4",
+      "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 5,
+    "chartWeeks": 15,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #5 · 15 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-8pyy5d",
+      "date": "2013",
+      "label": "Gentleman — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2n",
+      "date": "2013",
+      "label": "Billboard Hot 100 peak #5",
+      "detail": "15 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-3u71ss",
+      "date": "2013",
+      "label": "Gentleman — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2013",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "50cf9805e3a1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339805&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-7eqmh9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8de62666da0a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339805&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-7eqmh9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "46d894eb9be9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339805&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-7eqmh9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bcf1b308337a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339805&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-7eqmh9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f477da668d47",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR339805&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-7eqmh9",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-7eqmh9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2013,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Psy - Gentleman.mp4",
+        "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR339805-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339805"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Psy"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Psy"
+    },
+    {
+      "id": "rel-RVTR339805-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339805"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #5"
+    },
+    {
+      "id": "rel-RVTR339805-tl-tl-8pyy5d",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339805"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8pyy5d"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Gentleman — original release"
+    },
+    {
+      "id": "rel-RVTR339805-tl-tl-l47p2n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339805"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2n"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #5"
+    },
+    {
+      "id": "rel-RVTR339805-tl-tl-3u71ss",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339805"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3u71ss"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Gentleman — graph recording"
+    },
+    {
+      "id": "rel-RVTR339805-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339805"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR339805-perf-perf-7eqmh9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR339805"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-7eqmh9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-7eqmh9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7eqmh9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Psy - Gentleman.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-50cf9805e3a1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7eqmh9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "50cf9805e3a1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8de62666da0a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7eqmh9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8de62666da0a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-46d894eb9be9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7eqmh9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "46d894eb9be9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-bcf1b308337a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7eqmh9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bcf1b308337a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f477da668d47-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7eqmh9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f477da668d47"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR339805. \"Gentleman\" by Psy.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #5. 15 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Psy · Title: Gentleman · Album: Gentleman · Year: 2013 · Genre: Electro House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Psy - Gentleman.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2013.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-77fad185",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Psy - Gentleman.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-73cfde8f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Psy - Gentleman.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "369e7695-080f-451f-bf81-ca648720f5d9",
+      "category": "artist",
+      "text": "Gentleman is performed by Psy.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "90b76bf9-a839-44cf-a770-26ddaf89b314",
+      "category": "chart",
+      "text": "The song peaked at #5 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d589f966-b609-467c-84ed-eecff6057e68",
+      "category": "recording",
+      "text": "Gentleman was released in 2013.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c3bc08c3-117b-470c-b817-e585eebe4429",
+      "category": "trivia",
+      "text": "Artist: Psy · Title: Gentleman · Album: Gentleman · Year: 2013 · Genre: Electro House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Psy - Gentleman.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "24b1233f-99c0-4152-9655-535b4f434165",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Psy - Gentleman.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "137a9653-03ba-462d-8abf-78314d583014",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Psy - Gentleman.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Psy - Gentleman.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

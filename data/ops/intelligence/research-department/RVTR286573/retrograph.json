@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR286573",
+    "kind": "song",
+    "rvtr": "RVTR286573",
+    "generatedAt": "2026-06-28T22:49:59.961Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR286573",
+    "artist": "Gorillaz",
+    "title": "Dirty Harry",
+    "year": 2005,
+    "albumTitle": "Demon Days",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL714859/RVAL714859__gorillaz__demon-days.jpg"
+  },
+  "artist": {
+    "name": "Gorillaz",
+    "relatedArtists": [
+      "Gorillaz"
+    ]
+  },
+  "album": {
+    "title": "Demon Days",
+    "releaseYear": 2005,
+    "recordings": [
+      {
+        "id": "rec-6euazz",
+        "title": "Demon Days",
+        "releaseDate": 2005,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-xculm9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Dirty Harry.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Demon Days",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-6aluui",
+      "date": "2005",
+      "label": "Dirty Harry — original release",
+      "detail": "Original album: Demon Days",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-mpzthc",
+      "date": "2005",
+      "label": "Demon Days",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR286573",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL714859/RVAL714859__gorillaz__demon-days.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d64b88bfad7c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR286573&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-xculm9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "af503a26b8fe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR286573&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-xculm9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b8bcda53be69",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR286573&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-xculm9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "82c5039ceab6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR286573&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-xculm9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9592b8f537ba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR286573&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-xculm9",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-xculm9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Dirty Harry.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR286573-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR286573"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Gorillaz"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Gorillaz"
+    },
+    {
+      "id": "rel-RVTR286573-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR286573"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-6euazz"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Demon Days"
+    },
+    {
+      "id": "rel-RVTR286573-tl-tl-6aluui",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR286573"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6aluui"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Dirty Harry — original release"
+    },
+    {
+      "id": "rel-RVTR286573-tl-tl-mpzthc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR286573"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mpzthc"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Demon Days"
+    },
+    {
+      "id": "rel-RVTR286573-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR286573"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR286573-perf-perf-xculm9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR286573"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-xculm9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-xculm9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xculm9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Dirty Harry.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d64b88bfad7c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xculm9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d64b88bfad7c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-af503a26b8fe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xculm9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "af503a26b8fe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b8bcda53be69-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xculm9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b8bcda53be69"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-82c5039ceab6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xculm9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "82c5039ceab6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-9592b8f537ba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xculm9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9592b8f537ba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR286573. \"Dirty Harry\" by Gorillaz. Album: Demon Days (2005).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL714859/RVAL714859__gorillaz__demon-days.jpg",
+      "excerpt": "Canonical cover assignment for RVTR286573 (Dirty Harry). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Demon Days (2005)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Gorillaz · Title: Dirty Harry · Album: Dirty Harry · Year: 2005 · Genre: Lo-Fi · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Dirty Harry.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2005.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-bbcb7fee",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Dirty Harry.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-33b9f545",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Gorillaz - Dirty Harry.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "95175d83-5b9f-4d9c-af78-85c19abadce6",
+      "category": "artist",
+      "text": "Dirty Harry is performed by Gorillaz.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ebe67a83-5eee-4f81-885f-e62d22651093",
+      "category": "album",
+      "text": "The song appears on the album \"Demon Days\" (2005).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "932dd3f8-c188-41f6-85e8-13ea99cb78bb",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR286573.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL714859/RVAL714859__gorillaz__demon-days.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4e923030-74f0-48ab-982f-696c9ce94fb7",
+      "category": "recording",
+      "text": "Dirty Harry was released in 2005.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c63b8445-a3cb-41d9-b019-1fb95eb869b4",
+      "category": "trivia",
+      "text": "Artist: Gorillaz · Title: Dirty Harry · Album: Dirty Harry · Year: 2005 · Genre: Lo-Fi · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Dirty Harry.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1af6cd2c-8894-4431-b962-ddc6e1b9b42a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Dirty Harry.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fe231c2f-75e8-4460-8057-13d2e14f55b7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Gorillaz - Dirty Harry.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Dirty Harry.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR200442",
+    "kind": "song",
+    "rvtr": "RVTR200442",
+    "generatedAt": "2026-06-28T22:47:57.399Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR200442",
+    "artist": "Milk Inc.",
+    "title": "Tainted Love",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Milk Inc.",
+    "relatedArtists": [
+      "Milk Inc."
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ecusme",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Milk Inc. - Tainted Love.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ni0tfp",
+      "date": "2006",
+      "label": "Tainted Love — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2006",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "2a4c43874ca6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR200442&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ecusme",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ecusme",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Milk Inc. - Tainted Love.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR200442-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR200442"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Milk Inc."
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Milk Inc."
+    },
+    {
+      "id": "rel-RVTR200442-tl-tl-ni0tfp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR200442"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ni0tfp"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Tainted Love — original release"
+    },
+    {
+      "id": "rel-RVTR200442-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR200442"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR200442-perf-perf-ecusme",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR200442"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ecusme"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ecusme-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ecusme"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Milk Inc. - Tainted Love.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-2a4c43874ca6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ecusme"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a4c43874ca6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR200442. \"Tainted Love\" by Milk Inc..",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Milk Inc. · Title: Tainted Love · Album: Tainted Love · Year: 2006 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Milk Inc. - Tainted Love.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b6074a2c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Milk Inc. - Tainted Love.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e46444e3-4015-4146-8c1e-a134beb1667f",
+      "category": "artist",
+      "text": "Tainted Love is performed by Milk Inc..",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0b55300c-14e6-4919-a572-7b242f7461eb",
+      "category": "trivia",
+      "text": "· Title: Tainted Love · Album: Tainted Love · Year: 2006 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Milk Inc.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9fe20179-b520-483b-8213-7478499c4271",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Milk Inc.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 2,
+    "pending": 1,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Milk Inc. - Tainted Love.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

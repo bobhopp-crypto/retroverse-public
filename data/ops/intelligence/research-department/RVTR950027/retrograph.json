@@ -1,0 +1,438 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR950027",
+    "kind": "song",
+    "rvtr": "RVTR950027",
+    "generatedAt": "2026-06-28T22:42:46.435Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR950027",
+    "artist": "Paul Simon",
+    "title": "Boy In The Bubble",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Paul Simon",
+    "relatedArtists": [
+      "Paul Simon"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-azbizn",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1986,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Simon - Boy In The Bubble.mp4",
+      "notes": "Detected year: 1986. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-wbqiqi",
+      "date": "1986",
+      "label": "Boy In The Bubble — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1986",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "fde3e9788322",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR950027&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-azbizn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "134ca347ceba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR950027&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-azbizn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "856833f3c7cd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR950027&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-azbizn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c0ade2b544c5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR950027&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-azbizn",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a64cf680bdcd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR950027&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-azbizn",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-azbizn",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1986,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Simon - Boy In The Bubble.mp4",
+        "notes": "Detected year: 1986. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR950027-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR950027"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Paul Simon"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Paul Simon"
+    },
+    {
+      "id": "rel-RVTR950027-tl-tl-wbqiqi",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR950027"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wbqiqi"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Boy In The Bubble — original release"
+    },
+    {
+      "id": "rel-RVTR950027-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR950027"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR950027-perf-perf-azbizn",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR950027"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-azbizn"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-azbizn-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-azbizn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Simon - Boy In The Bubble.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-fde3e9788322-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-azbizn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fde3e9788322"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-134ca347ceba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-azbizn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "134ca347ceba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-856833f3c7cd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-azbizn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "856833f3c7cd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-c0ade2b544c5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-azbizn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c0ade2b544c5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a64cf680bdcd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-azbizn"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a64cf680bdcd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR950027. \"Boy In The Bubble\" by Paul Simon.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Paul Simon · Title: Boy In The Bubble · Album: The Boy In The Bubble (Remix) · Year: 1986 · Genre: Rock · PlayCount: 1 · LastPlayed: 1760327955 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Simon - Boy In The Bubble.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-61d9ca70",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Simon - Boy In The Bubble.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5b8b8bfd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Paul Simon discography/Paul Simon - (1986) - Graceland [Bonus Tracks]/01.  The Boy In The Bubble.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-aed647a5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Paul Simon discography/Paul Simon - (1991) - Paul Simon's Concert in the Park, August 15, 1991/102.  The Boy In The Bubble.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "78951316-c333-4b16-ab2f-38ab70360efb",
+      "category": "artist",
+      "text": "Boy In The Bubble is performed by Paul Simon.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bc666be7-32b7-499a-83df-88122dc2412d",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f1e195f1-3ffc-48d1-898b-f5f748bdb21f",
+      "category": "trivia",
+      "text": "Artist: Paul Simon · Title: Boy In The Bubble · Album: The Boy In The Bubble (Remix) · Year: 1986 · Genre: Rock · PlayCount: 1 · LastPlayed: 1760327955 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Simon - Boy In The Bubble.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6ac72183-27a3-4827-be7c-3545b94a1d35",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Simon - Boy In The Bubble.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1b992af6-fd79-4911-a4b7-d2d84205ac2f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Paul Simon discography/Paul Simon - (1986) - Graceland [Bonus Tracks]/01.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7471746d-bb47-4831-845e-c695500892bf",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Paul Simon discography/Paul Simon - (1991) - Paul Simon's Concert in the Park, August 15, 1991/102.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 2,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Simon - Boy In The Bubble.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

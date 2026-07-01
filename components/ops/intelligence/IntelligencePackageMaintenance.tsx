@@ -104,6 +104,12 @@ export function IntelligencePackageMaintenance({ rvtr, diagnostics }: Props) {
         <Field label="VDJ Title" value={diagnostics.vdjTitle ?? "—"} />
         <Field label="Match Method" value={diagnostics.matchMethod} />
         <Field label="Cover Present" value={diagnostics.coverPresent ? "Y" : "N"} />
+        <Field label="Visual Status" value={diagnostics.visualStatus} />
+        <Field label="Primary Hero" value={diagnostics.primaryHeroUrl ? "Set" : "Empty"} />
+        <Field
+          label="Secondary Hero"
+          value={diagnostics.secondaryHeroUrl ? "Set (album cover)" : "Empty"}
+        />
       </div>
     </section>
   );

@@ -19,8 +19,9 @@ export function resolveActiveLiveRvtr(input: {
 }
 
 /**
- * Public entry redirect for /, /live, and /sunday-nights.
+ * Public entry redirect for /live and /sunday-nights (and /retroverse-2/live).
  * Returns Song Experience href when the live channel has a resolved RVTR.
+ * Do not call from `/` — the homepage stays on `/`.
  */
 export async function getPublicLiveRedirectUrl(): Promise<string | null> {
   await maybeAdvanceLiveChannel();

@@ -1,0 +1,502 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR282466",
+    "kind": "song",
+    "rvtr": "RVTR282466",
+    "generatedAt": "2026-06-28T22:49:56.930Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR282466",
+    "artist": "Robbie Williams",
+    "title": "Feel",
+    "year": 2003,
+    "albumTitle": "Escapology",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Robbie Williams",
+    "relatedArtists": [
+      "Robbie Williams"
+    ]
+  },
+  "album": {
+    "title": "Escapology",
+    "releaseYear": 2003,
+    "recordings": [
+      {
+        "id": "rec-szbeg5",
+        "title": "Escapology",
+        "releaseDate": 2003,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-bxzkw6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2002,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robbie Williams - Feel.mp4",
+      "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Escapology",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-jww8vu",
+      "date": "2003",
+      "label": "Feel — original release",
+      "detail": "Original album: Escapology",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-wuccok",
+      "date": "2003",
+      "label": "Escapology",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2002",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f125b778a5f7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR282466&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-bxzkw6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1414cc8b6ccb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR282466&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-bxzkw6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4f5f9bff1e5d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR282466&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-bxzkw6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "331bf902cbd2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR282466&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-bxzkw6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1e49f9b82a84",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR282466&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-bxzkw6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-bxzkw6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2002,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robbie Williams - Feel.mp4",
+        "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR282466-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR282466"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Robbie Williams"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Robbie Williams"
+    },
+    {
+      "id": "rel-RVTR282466-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR282466"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-szbeg5"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Escapology"
+    },
+    {
+      "id": "rel-RVTR282466-tl-tl-jww8vu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR282466"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jww8vu"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Feel — original release"
+    },
+    {
+      "id": "rel-RVTR282466-tl-tl-wuccok",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR282466"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wuccok"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Escapology"
+    },
+    {
+      "id": "rel-RVTR282466-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR282466"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR282466-perf-perf-bxzkw6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR282466"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-bxzkw6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-bxzkw6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bxzkw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robbie Williams - Feel.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f125b778a5f7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bxzkw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f125b778a5f7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1414cc8b6ccb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bxzkw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1414cc8b6ccb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4f5f9bff1e5d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bxzkw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4f5f9bff1e5d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-331bf902cbd2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bxzkw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "331bf902cbd2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-1e49f9b82a84-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bxzkw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1e49f9b82a84"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR282466. \"Feel\" by Robbie Williams. Album: Escapology (2003).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Escapology (2003)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Robbie Williams · Title: Feel · Album: Feel · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robbie Williams - Feel.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2003.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-2a6d0185",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robbie Williams - Feel.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2561bfcc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "netsearch://td154010",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b5fbd92a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Robbie Williams - Feel.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5ec4371c-08b6-4595-a4f8-ddd31f1a2c38",
+      "category": "artist",
+      "text": "Feel is performed by Robbie Williams.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4f78dc44-2ed0-4eb7-a03b-c895e67e2518",
+      "category": "album",
+      "text": "The song appears on the album \"Escapology\" (2003).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5e9a91d1-a746-41f6-a086-da3b71d7a23d",
+      "category": "recording",
+      "text": "Feel was released in 2003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5b33a472-d4db-4281-9fdb-517d105d9852",
+      "category": "trivia",
+      "text": "Artist: Robbie Williams · Title: Feel · Album: Feel · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robbie Williams - Feel.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6c01376f-9537-4598-8840-ac50696b69c2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robbie Williams - Feel.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "66fb4124-e411-4b30-9cce-8860ae7c975b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Robbie Williams - Feel.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robbie Williams - Feel.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

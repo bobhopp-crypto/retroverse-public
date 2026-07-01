@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR268551",
+    "kind": "song",
+    "rvtr": "RVTR268551",
+    "generatedAt": "2026-06-28T22:49:36.462Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR268551",
+    "artist": "Foo Fighters",
+    "title": "Best Of You",
+    "year": 2009,
+    "albumTitle": "Greatest Hits",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880469/RVAL880469__foo-fighters__greatest-hits.jpg"
+  },
+  "artist": {
+    "name": "Foo Fighters",
+    "relatedArtists": [
+      "Foo Fighters"
+    ]
+  },
+  "album": {
+    "title": "Greatest Hits",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-vd5yyi",
+        "title": "Greatest Hits",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-g099eh",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Best Of You.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 18,
+    "chartWeeks": 21,
+    "albumTitle": "Greatest Hits",
+    "summary": "Hot 100 peak #18 · 21 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-el4rna",
+      "date": "2005",
+      "label": "Best Of You — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.58,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fx",
+      "date": "2005",
+      "label": "Billboard Hot 100 peak #18",
+      "detail": "21 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-6ag293",
+      "date": "2009",
+      "label": "Greatest Hits",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.82,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR268551",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880469/RVAL880469__foo-fighters__greatest-hits.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f4a884920a8e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR268551&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-g099eh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d6240a941f72",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR268551&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-g099eh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3517d995fa0b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR268551&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-g099eh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "71dd11aade78",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR268551&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-g099eh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fa3ddf8ec18f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR268551&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-g099eh",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-g099eh",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Best Of You.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR268551-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR268551"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Foo Fighters"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Foo Fighters"
+    },
+    {
+      "id": "rel-RVTR268551-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR268551"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-vd5yyi"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Greatest Hits"
+    },
+    {
+      "id": "rel-RVTR268551-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR268551"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #18"
+    },
+    {
+      "id": "rel-RVTR268551-tl-tl-el4rna",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR268551"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-el4rna"
+      },
+      "confidence": 0.58,
+      "source": "song entity",
+      "label": "Best Of You — original release"
+    },
+    {
+      "id": "rel-RVTR268551-tl-tl-fcm3fx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR268551"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fx"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #18"
+    },
+    {
+      "id": "rel-RVTR268551-tl-tl-6ag293",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR268551"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6ag293"
+      },
+      "confidence": 0.82,
+      "source": "Retroverse graph",
+      "label": "Greatest Hits"
+    },
+    {
+      "id": "rel-RVTR268551-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR268551"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR268551-perf-perf-g099eh",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR268551"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-g099eh"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-g099eh-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g099eh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Best Of You.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f4a884920a8e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g099eh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f4a884920a8e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d6240a941f72-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g099eh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d6240a941f72"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-3517d995fa0b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g099eh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3517d995fa0b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-71dd11aade78-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g099eh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "71dd11aade78"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-fa3ddf8ec18f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g099eh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fa3ddf8ec18f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR268551. \"Best Of You\" by Foo Fighters. Album: Greatest Hits (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880469/RVAL880469__foo-fighters__greatest-hits.jpg",
+      "excerpt": "Canonical cover assignment for RVTR268551 (Best Of You). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Greatest Hits (2009). Billboard Hot 100 peak: #18. 21 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Foo Fighters · Title: Best Of You · Album: DOA · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Best Of You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-9761d3f1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Best Of You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-12afeef5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Foo Fighters - Best Of You.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b7fabc5c-1d0c-4c34-91a2-dab7dfd78a5f",
+      "category": "artist",
+      "text": "Best Of You is performed by Foo Fighters.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7d988847-f91e-47ee-9835-80cb58af644e",
+      "category": "album",
+      "text": "The song appears on the album \"Greatest Hits\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ae8da077-80df-4de4-94bc-2bcd345c53b6",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR268551.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL880469/RVAL880469__foo-fighters__greatest-hits.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "46fe678c-0cff-47e2-9098-de9323f1078a",
+      "category": "chart",
+      "text": "The song peaked at #18 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f50b01b0-b686-4843-91f1-6c92d57ff9fa",
+      "category": "album",
+      "text": "Graph compilation anchor: \"Greatest Hits\" (2009) — not the song's original release year.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "0e374dd8-cc31-4602-a359-3f5c06eb8647",
+      "category": "trivia",
+      "text": "Artist: Foo Fighters · Title: Best Of You · Album: DOA · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Best Of You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b4a09cdb-a192-49e6-8ee4-a066de13474f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Best Of You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f5f71d8c-231a-4d49-b473-92fb9d7c1cbd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Foo Fighters - Best Of You.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Best Of You.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

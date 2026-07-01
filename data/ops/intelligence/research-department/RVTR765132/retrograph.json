@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR765132",
+    "kind": "song",
+    "rvtr": "RVTR765132",
+    "generatedAt": "2026-06-28T23:01:54.527Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR765132",
+    "artist": "Pop Evil",
+    "title": "Trenches",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pop Evil",
+    "relatedArtists": [
+      "Pop Evil"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ywzppl",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2013,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pop Evil - Trenches.mp4",
+      "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-7dc9fy",
+      "date": "2013",
+      "label": "Trenches — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2013",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "7cab72ef6874",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR765132&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ywzppl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9ccf4dea2299",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR765132&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ywzppl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "69d9888d96cd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR765132&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ywzppl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d6e68116b868",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR765132&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ywzppl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "806000d8e2c5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR765132&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ywzppl",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ywzppl",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2013,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pop Evil - Trenches.mp4",
+        "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR765132-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR765132"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pop Evil"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pop Evil"
+    },
+    {
+      "id": "rel-RVTR765132-tl-tl-7dc9fy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR765132"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7dc9fy"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Trenches — original release"
+    },
+    {
+      "id": "rel-RVTR765132-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR765132"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR765132-perf-perf-ywzppl",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR765132"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ywzppl"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ywzppl-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ywzppl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pop Evil - Trenches.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-7cab72ef6874-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ywzppl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7cab72ef6874"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9ccf4dea2299-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ywzppl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9ccf4dea2299"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-69d9888d96cd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ywzppl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "69d9888d96cd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d6e68116b868-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ywzppl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d6e68116b868"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-806000d8e2c5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ywzppl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "806000d8e2c5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR765132. \"Trenches\" by Pop Evil.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pop Evil · Title: Trenches · Album: Onyx · Year: 2013 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pop Evil - Trenches.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-29428cb4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pop Evil - Trenches.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "a28cbee6-8445-4ee6-84d1-017de6dcd3ca",
+      "category": "artist",
+      "text": "Trenches is performed by Pop Evil.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "756b56ea-868a-4ddb-b03f-cc061dc35b76",
+      "category": "trivia",
+      "text": "Artist: Pop Evil · Title: Trenches · Album: Onyx · Year: 2013 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pop Evil - Trenches.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c73046a7-3e84-4605-b229-35b566ffdbb3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pop Evil - Trenches.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pop Evil - Trenches.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR217204",
+    "kind": "song",
+    "rvtr": "RVTR217204",
+    "generatedAt": "2026-06-28T22:48:27.024Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR217204",
+    "artist": "Toby Keith",
+    "title": "Old School",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Toby Keith",
+    "relatedArtists": [
+      "Toby Keith"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-g926x7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Toby Keith - Old School.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-i55qqn",
+      "date": "2021",
+      "label": "Old School — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "5cb6d3ffefe6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217204&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-g926x7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b8af83bfb00a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217204&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-g926x7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a9c7ea76bd4e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217204&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-g926x7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0ab9f1104b83",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217204&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-g926x7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bea7bcaaec49",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR217204&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-g926x7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-g926x7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Toby Keith - Old School.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR217204-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR217204"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Toby Keith"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Toby Keith"
+    },
+    {
+      "id": "rel-RVTR217204-tl-tl-i55qqn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR217204"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i55qqn"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Old School — original release"
+    },
+    {
+      "id": "rel-RVTR217204-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR217204"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR217204-perf-perf-g926x7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR217204"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-g926x7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-g926x7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g926x7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Toby Keith - Old School.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-5cb6d3ffefe6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g926x7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5cb6d3ffefe6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b8af83bfb00a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g926x7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b8af83bfb00a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a9c7ea76bd4e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g926x7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a9c7ea76bd4e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-0ab9f1104b83-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g926x7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0ab9f1104b83"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-bea7bcaaec49-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g926x7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bea7bcaaec49"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR217204. \"Old School\" by Toby Keith.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Toby Keith · Title: Old School · Album: Peso In My Pocket · Year: 2021 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Toby Keith - Old School.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b75656e8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Toby Keith - Old School.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ecf7eabe-a7d1-46b7-86a6-51d89224d0af",
+      "category": "artist",
+      "text": "Old School is performed by Toby Keith.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "67da4e6b-857a-470c-b1a1-26c477255422",
+      "category": "trivia",
+      "text": "Artist: Toby Keith · Title: Old School · Album: Peso In My Pocket · Year: 2021 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Toby Keith - Old School.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bc980ffd-1083-46f7-91c8-bc075f12275a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Toby Keith - Old School.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Toby Keith - Old School.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

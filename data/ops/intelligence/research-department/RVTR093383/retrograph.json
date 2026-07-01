@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR093383",
+    "kind": "song",
+    "rvtr": "RVTR093383",
+    "generatedAt": "2026-06-28T22:45:24.083Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR093383",
+    "artist": "Foreigner",
+    "title": "Head Games",
+    "year": 2011,
+    "albumTitle": "Extended Versions",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Foreigner",
+    "relatedArtists": [
+      "Foreigner"
+    ]
+  },
+  "album": {
+    "title": "Extended Versions",
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-99pinq",
+        "title": "Extended Versions",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-jhp52g",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Head Games.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 14,
+    "chartWeeks": 14,
+    "albumTitle": "Extended Versions",
+    "summary": "Hot 100 peak #14 · 14 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-fykvhn",
+      "date": "2011",
+      "label": "Head Games — original release",
+      "detail": "Original album: Extended Versions",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ft",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #14",
+      "detail": "14 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-7078z6",
+      "date": "2011",
+      "label": "Extended Versions",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4bb6520ac3af",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093383&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-jhp52g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3124715bff33",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093383&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-jhp52g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "70ed077d55e6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093383&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-jhp52g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c4e5d108205d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093383&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-jhp52g",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a7c7b3de06f8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093383&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-jhp52g",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-jhp52g",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Head Games.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR093383-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093383"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Foreigner"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Foreigner"
+    },
+    {
+      "id": "rel-RVTR093383-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093383"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-99pinq"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Extended Versions"
+    },
+    {
+      "id": "rel-RVTR093383-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093383"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #14"
+    },
+    {
+      "id": "rel-RVTR093383-tl-tl-fykvhn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093383"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fykvhn"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Head Games — original release"
+    },
+    {
+      "id": "rel-RVTR093383-tl-tl-fcm3ft",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093383"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ft"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #14"
+    },
+    {
+      "id": "rel-RVTR093383-tl-tl-7078z6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093383"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7078z6"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Extended Versions"
+    },
+    {
+      "id": "rel-RVTR093383-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093383"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR093383-perf-perf-jhp52g",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093383"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-jhp52g"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-jhp52g-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jhp52g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Head Games.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4bb6520ac3af-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jhp52g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4bb6520ac3af"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-3124715bff33-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jhp52g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3124715bff33"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-70ed077d55e6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jhp52g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "70ed077d55e6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c4e5d108205d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jhp52g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c4e5d108205d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a7c7b3de06f8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jhp52g"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a7c7b3de06f8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR093383. \"Head Games\" by Foreigner. Album: Extended Versions (2011).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Extended Versions (2011). Billboard Hot 100 peak: #14. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Foreigner · Title: Head Games · Album: Head Games  · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Head Games.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-b14226b0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Head Games.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4fbafe9b-bb92-4a20-8b7b-9e4a243745af",
+      "category": "artist",
+      "text": "Head Games is performed by Foreigner.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "49d7b6c2-8942-4943-9560-3fb7edd5535b",
+      "category": "album",
+      "text": "The song appears on the album \"Extended Versions\" (2011).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a1f1d6d8-7b59-4c4e-bd25-e3deebfc4cda",
+      "category": "chart",
+      "text": "The song peaked at #14 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "66aa3cff-35d6-47e6-ba4e-2b4bd3d13bef",
+      "category": "recording",
+      "text": "Head Games was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "bc650b45-cb54-4352-bd04-f7fd63e829dd",
+      "category": "trivia",
+      "text": "Artist: Foreigner · Title: Head Games · Album: Head Games  · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Head Games.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6189604c-c161-47df-b4c9-b000e3b6ff7d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Head Games.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Head Games.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

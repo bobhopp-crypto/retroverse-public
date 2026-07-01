@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR773680",
+    "kind": "song",
+    "rvtr": "RVTR773680",
+    "generatedAt": "2026-06-28T23:02:13.406Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR773680",
+    "artist": "Matchbox Twenty",
+    "title": "Push",
+    "year": 2007,
+    "albumTitle": "Exile On Mainstream",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL347929/RVAL347929__matchbox-twenty__exile-on-mainstream.jpg"
+  },
+  "artist": {
+    "name": "Matchbox Twenty",
+    "relatedArtists": [
+      "Matchbox Twenty"
+    ]
+  },
+  "album": {
+    "title": "Exile On Mainstream",
+    "releaseYear": 2007,
+    "recordings": [
+      {
+        "id": "rec-5zu1ca",
+        "title": "Exile On Mainstream",
+        "releaseDate": 2007,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-g53x7d",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1997,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - Push.mp4",
+      "notes": "Detected year: 1997. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Exile On Mainstream",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-6rc5ci",
+      "date": "2007",
+      "label": "Push — original release",
+      "detail": "Original album: Exile On Mainstream",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-3cx991",
+      "date": "2007",
+      "label": "Exile On Mainstream",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1997",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR773680",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL347929/RVAL347929__matchbox-twenty__exile-on-mainstream.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "18659bf2f697",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773680&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-g53x7d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6c6bafa4e876",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773680&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-g53x7d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ba553e99b29b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773680&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-g53x7d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c61e3afb8271",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773680&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-g53x7d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "73630f339eef",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773680&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-g53x7d",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-g53x7d",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1997,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - Push.mp4",
+        "notes": "Detected year: 1997. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR773680-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR773680"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Matchbox Twenty"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Matchbox Twenty"
+    },
+    {
+      "id": "rel-RVTR773680-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR773680"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-5zu1ca"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Exile On Mainstream"
+    },
+    {
+      "id": "rel-RVTR773680-tl-tl-6rc5ci",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR773680"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6rc5ci"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Push — original release"
+    },
+    {
+      "id": "rel-RVTR773680-tl-tl-3cx991",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR773680"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3cx991"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Exile On Mainstream"
+    },
+    {
+      "id": "rel-RVTR773680-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR773680"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR773680-perf-perf-g53x7d",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR773680"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-g53x7d"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-g53x7d-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g53x7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - Push.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-18659bf2f697-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g53x7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "18659bf2f697"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6c6bafa4e876-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g53x7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6c6bafa4e876"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ba553e99b29b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g53x7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ba553e99b29b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c61e3afb8271-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g53x7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c61e3afb8271"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-73630f339eef-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g53x7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "73630f339eef"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR773680. \"Push\" by Matchbox Twenty. Album: Exile On Mainstream (2007).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL347929/RVAL347929__matchbox-twenty__exile-on-mainstream.jpg",
+      "excerpt": "Canonical cover assignment for RVTR773680 (Push). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Exile On Mainstream (2007)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Matchbox Twenty · Title: Push · Album: Matchbox 20 - Push · Year: 1997 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - Push.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2007.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-955f75b2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - Push.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "a48cb02c-3d75-4629-8ff2-e7da3fade383",
+      "category": "artist",
+      "text": "Push is performed by Matchbox Twenty.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8ed7bc7a-0bb7-4680-a76b-d211a7d11457",
+      "category": "album",
+      "text": "The song appears on the album \"Exile On Mainstream\" (2007).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "28f2725c-5640-469a-93d7-ad80bd16282f",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR773680.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL347929/RVAL347929__matchbox-twenty__exile-on-mainstream.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "50c1700a-2948-414c-9387-3c7447a9404f",
+      "category": "recording",
+      "text": "Push was released in 2007.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "733e6bca-f433-4933-9670-502df3e2c04f",
+      "category": "trivia",
+      "text": "Artist: Matchbox Twenty · Title: Push · Album: Matchbox 20 - Push · Year: 1997 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - Push.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "936776a9-1265-4cde-9767-f0607da671dc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - Push.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - Push.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

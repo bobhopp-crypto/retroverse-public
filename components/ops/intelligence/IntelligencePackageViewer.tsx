@@ -10,6 +10,7 @@ import {
 } from "@/lib/ops/intelligence/package-view-model";
 import type { CandidateFact, ResearchVaultEntry } from "@/lib/ops/intelligence/song-package-types";
 import type { PackageDiagnostics } from "@/lib/ops/intelligence/package-diagnostics";
+import { resolveHeroFromSongPackage } from "@/lib/visual-profile/hero-resolver";
 
 import { IntelligencePackageMaintenance } from "./IntelligencePackageMaintenance";
 import { IntelligenceReviewClient } from "./IntelligenceReviewClient";
@@ -71,6 +72,7 @@ function SourceCard({ entry }: { entry: ResearchVaultEntry }) {
 export function IntelligencePackageViewer({ view, diagnostics }: Props) {
   const { pkg, stats, health, artifacts, factGroups, stories, relationships } = view;
   const meta = pkg.metadata;
+  const hero = resolveHeroFromSongPackage(pkg);
 
   const factGroupEntries = (
     Object.entries(factGroups) as Array<[keyof typeof factGroups, CandidateFact[]]>
@@ -83,9 +85,9 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
       </Link>
 
       <header className="intel-package-hero">
-        {meta.coverUrl ? (
+        {hero.url ? (
           <Image
-            src={meta.coverUrl}
+            src={hero.url}
             alt=""
             width={160}
             height={160}

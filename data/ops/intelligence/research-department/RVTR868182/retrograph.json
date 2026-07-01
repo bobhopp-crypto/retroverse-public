@@ -1,0 +1,420 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR868182",
+    "kind": "song",
+    "rvtr": "RVTR868182",
+    "generatedAt": "2026-06-28T22:41:48.839Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR868182",
+    "artist": "Jay Z",
+    "title": "Hard Knock Life",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jay Z",
+    "relatedArtists": [
+      "Jay Z"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-6p262d",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1999,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jay Z - Hard Knock Life.mp4",
+      "notes": "Detected year: 1999. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-iz9of3",
+      "date": "1999",
+      "label": "Hard Knock Life — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1999",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "44a243a9d399",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR868182&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6p262d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0d698bcde96c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR868182&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6p262d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f46fb0962ed8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR868182&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6p262d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c5d146674265",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR868182&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6p262d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6f319f102b41",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR868182&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6p262d",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6p262d",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1999,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jay Z - Hard Knock Life.mp4",
+        "notes": "Detected year: 1999. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR868182-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR868182"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jay Z"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jay Z"
+    },
+    {
+      "id": "rel-RVTR868182-tl-tl-iz9of3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR868182"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-iz9of3"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Hard Knock Life — original release"
+    },
+    {
+      "id": "rel-RVTR868182-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR868182"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR868182-perf-perf-6p262d",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR868182"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6p262d"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6p262d-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6p262d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jay Z - Hard Knock Life.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-44a243a9d399-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6p262d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "44a243a9d399"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-0d698bcde96c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6p262d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0d698bcde96c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-f46fb0962ed8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6p262d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f46fb0962ed8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c5d146674265-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6p262d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c5d146674265"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6f319f102b41-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6p262d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6f319f102b41"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR868182. \"Hard Knock Life\" by Jay Z.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jay Z · Title: Hard Knock Life · Album: Jay-Z - Hard Knock Life (Ghetto Anthem) · Year: 1999 · Genre: Hip Hop · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jay Z - Hard Knock Life.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-90a6be83",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jay Z - Hard Knock Life.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f08f6b64",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Jay Z - Hard Knock Life.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5905bda2-e99d-4f3c-9027-242595a59cd0",
+      "category": "artist",
+      "text": "Hard Knock Life is performed by Jay Z.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3a1fea0f-7283-4eee-8fdc-e5186b94ce56",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d5e46fb3-40f6-47b0-b51f-8ecf62e38e50",
+      "category": "trivia",
+      "text": "Artist: Jay Z · Title: Hard Knock Life · Album: Jay-Z - Hard Knock Life (Ghetto Anthem) · Year: 1999 · Genre: Hip Hop · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jay Z - Hard Knock Life.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2a29e5b1-baef-4444-acc0-1ce151e909dd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jay Z - Hard Knock Life.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fb3cd6fd-6963-48a4-9588-cb3cb8cb8b27",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Jay Z - Hard Knock Life.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 2,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jay Z - Hard Knock Life.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

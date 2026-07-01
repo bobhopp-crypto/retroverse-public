@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR729350",
+    "kind": "song",
+    "rvtr": "RVTR729350",
+    "generatedAt": "2026-06-28T23:00:34.446Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR729350",
+    "artist": "The Happenings",
+    "title": "I Got Rhythm",
+    "year": 1967,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "The Happenings",
+    "relatedArtists": [
+      "The Happenings"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1967,
+    "recordings": [
+      {
+        "id": "rec-sqcp0i",
+        "title": "I Got Rhythm — graph recording",
+        "releaseDate": 1967,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-dzumcl",
+      "title": "2",
+      "kind": "performance",
+      "year": 1967,
+      "venue": "2",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Happenings - I Got Rhythm  - 1967 Smothers Bros. Show (2).mp4",
+      "notes": "Performance label: 2. Detected year: 1967. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 13,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #3 · 13 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-pahya3",
+      "date": "1967",
+      "label": "I Got Rhythm — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "1967",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "13 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-saopy0",
+      "date": "1967",
+      "label": "I Got Rhythm — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-l1rnsc",
+      "date": "1967",
+      "label": "2",
+      "detail": "2",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ad363611cddc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729350&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dzumcl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a13392f5b5c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729350&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dzumcl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "22230ec57796",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729350&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dzumcl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4c22f513613b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729350&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dzumcl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f5bb7c9f5401",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729350&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dzumcl",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dzumcl",
+        "title": "2",
+        "kind": "performance",
+        "year": 1967,
+        "venue": "2",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Happenings - I Got Rhythm  - 1967 Smothers Bros. Show (2).mp4",
+        "notes": "Performance label: 2. Detected year: 1967. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR729350-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729350"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Happenings"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Happenings"
+    },
+    {
+      "id": "rel-RVTR729350-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729350"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR729350-tl-tl-pahya3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729350"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-pahya3"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "I Got Rhythm — original release"
+    },
+    {
+      "id": "rel-RVTR729350-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729350"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR729350-tl-tl-saopy0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729350"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-saopy0"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "I Got Rhythm — graph recording"
+    },
+    {
+      "id": "rel-RVTR729350-tl-tl-l1rnsc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729350"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l1rnsc"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "2"
+    },
+    {
+      "id": "rel-RVTR729350-perf-perf-dzumcl",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729350"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dzumcl"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "2"
+    },
+    {
+      "id": "rel-perf-dzumcl-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzumcl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Happenings - I Got Rhythm  - 1967 Smothers Bros. Show (2).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "2"
+    },
+    {
+      "id": "rel-ad363611cddc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzumcl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ad363611cddc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a13392f5b5c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzumcl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a13392f5b5c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-22230ec57796-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzumcl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "22230ec57796"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-4c22f513613b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzumcl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4c22f513613b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f5bb7c9f5401-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzumcl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f5bb7c9f5401"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR729350. \"I Got Rhythm\" by The Happenings.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #3. 13 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Happenings · Title: I Got Got Rhythm · Year: 1967 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Happenings - I Got Rhythm  - 1967 Smothers Bros. Show (2).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1967.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-6382cdb9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Happenings - I Got Rhythm  - 1967 Smothers Bros. Show (2).mp4 · Performance: 2",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c462a4f5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Happenings - I Got Rhythm.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "879fb9e7-b40d-4c00-8a76-34dd98d8693d",
+      "category": "artist",
+      "text": "I Got Rhythm is performed by The Happenings.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cec106cd-325c-472e-a993-074b95f487ca",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 13 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2f765398-37c7-44bf-bc33-b02e48c70f23",
+      "category": "recording",
+      "text": "I Got Rhythm was released in 1967.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3edbf74c-6ee9-4da6-9ea8-10d2837efd99",
+      "category": "trivia",
+      "text": "Artist: The Happenings · Title: I Got Got Rhythm · Year: 1967 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Happenings - I Got Rhythm  - 1967 Smothers Bros.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "fda6fc60-3139-46a2-82fe-4edad2b0b9f7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Happenings - I Got Rhythm  - 1967 Smothers Bros.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2763f978-15f5-4037-8c1b-9c884bd8f7b8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Happenings - I Got Rhythm.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Happenings - I Got Rhythm  - 1967 Smothers Bros. Show (2).mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

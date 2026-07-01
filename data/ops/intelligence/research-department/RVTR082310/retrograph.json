@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR082310",
+    "kind": "song",
+    "rvtr": "RVTR082310",
+    "generatedAt": "2026-06-28T22:45:07.821Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR082310",
+    "artist": "Yung Joc",
+    "title": "It's Goin' Down",
+    "year": 2006,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Yung Joc",
+    "relatedArtists": [
+      "Yung Joc"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2006,
+    "recordings": [
+      {
+        "id": "rec-t48rg3",
+        "title": "It's Goin' Down — graph recording",
+        "releaseDate": 2006,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-88s1wm",
+      "title": "It's Goin Down",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Yung Joc - It's Goin Down.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 28,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #3 · 28 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-6r7ks5",
+      "date": "2006",
+      "label": "It's Goin' Down — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "2006",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "28 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-9px1qo",
+      "date": "2006",
+      "label": "It's Goin' Down — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-78dtgg",
+      "date": "2006",
+      "label": "It's Goin Down",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "5772006860b7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR082310&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-88s1wm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "756987cfa808",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR082310&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-88s1wm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "207c41ab55e1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR082310&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-88s1wm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ae2958b20172",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR082310&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-88s1wm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "36b2321ccff5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR082310&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-88s1wm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-88s1wm",
+        "title": "It's Goin Down",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Yung Joc - It's Goin Down.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR082310-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR082310"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Yung Joc"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Yung Joc"
+    },
+    {
+      "id": "rel-RVTR082310-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR082310"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR082310-tl-tl-6r7ks5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR082310"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6r7ks5"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "It's Goin' Down — original release"
+    },
+    {
+      "id": "rel-RVTR082310-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR082310"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR082310-tl-tl-9px1qo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR082310"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9px1qo"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "It's Goin' Down — graph recording"
+    },
+    {
+      "id": "rel-RVTR082310-tl-tl-78dtgg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR082310"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-78dtgg"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "It's Goin Down"
+    },
+    {
+      "id": "rel-RVTR082310-perf-perf-88s1wm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR082310"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-88s1wm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "It's Goin Down"
+    },
+    {
+      "id": "rel-perf-88s1wm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-88s1wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Yung Joc - It's Goin Down.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "It's Goin Down"
+    },
+    {
+      "id": "rel-5772006860b7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-88s1wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5772006860b7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-756987cfa808-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-88s1wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "756987cfa808"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-207c41ab55e1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-88s1wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "207c41ab55e1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ae2958b20172-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-88s1wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ae2958b20172"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-36b2321ccff5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-88s1wm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "36b2321ccff5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR082310. \"It's Goin' Down\" by Yung Joc.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #3. 28 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Yung Joc · Title: It's Goin Down · Album: New Joc City · Year: 2006 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Yung Joc - It's Goin Down.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2006.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-4d716ce6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Yung Joc - It's Goin Down.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9db0ce23",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Yung Joc - It's Going Down.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5a7cfe4a-4baa-4c5f-8af6-a2f61f1f254c",
+      "category": "artist",
+      "text": "It's Goin' Down is performed by Yung Joc.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "28099dee-1b9e-46c1-afca-ab002541fb9c",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 28 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "47a262ae-7fb5-4b4d-b922-6a64a7d06d7f",
+      "category": "recording",
+      "text": "It's Goin' Down was released in 2006.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d371834c-5b8d-4d8c-9162-756d16ed4827",
+      "category": "trivia",
+      "text": "Artist: Yung Joc · Title: It's Goin Down · Album: New Joc City · Year: 2006 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Yung Joc - It's Goin Down.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "90eab8f2-dc33-4924-81c6-84968fabd1e7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Yung Joc - It's Goin Down.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1b8de502-9cbc-4eec-b637-316312d67fcd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Yung Joc - It's Going Down.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Yung Joc - It's Goin Down.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

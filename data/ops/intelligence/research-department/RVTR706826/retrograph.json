@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR706826",
+    "kind": "song",
+    "rvtr": "RVTR706826",
+    "generatedAt": "2026-06-28T23:00:09.193Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR706826",
+    "artist": "Kasey Chambers",
+    "title": "Pony",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kasey Chambers",
+    "relatedArtists": [
+      "Kasey Chambers"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-11uft3",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kasey Chambers - Pony.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-5jn0o2",
+      "date": "2004",
+      "label": "Pony — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b2d625f65a19",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706826&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-11uft3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ce174fb98feb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706826&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-11uft3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "254a6c7cde8b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706826&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-11uft3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f83a90e9f83d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706826&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-11uft3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3d1ff4ca7feb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706826&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-11uft3",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-11uft3",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kasey Chambers - Pony.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR706826-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706826"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kasey Chambers"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kasey Chambers"
+    },
+    {
+      "id": "rel-RVTR706826-tl-tl-5jn0o2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706826"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5jn0o2"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Pony — original release"
+    },
+    {
+      "id": "rel-RVTR706826-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706826"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR706826-perf-perf-11uft3",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706826"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-11uft3"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-11uft3-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-11uft3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kasey Chambers - Pony.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b2d625f65a19-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-11uft3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2d625f65a19"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-ce174fb98feb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-11uft3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ce174fb98feb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-254a6c7cde8b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-11uft3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "254a6c7cde8b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f83a90e9f83d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-11uft3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f83a90e9f83d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-3d1ff4ca7feb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-11uft3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3d1ff4ca7feb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR706826. \"Pony\" by Kasey Chambers.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kasey Chambers · Title: Pony · Album: Pony · Year: 2004 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kasey Chambers - Pony.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2501a782",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kasey Chambers - Pony.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e918a054",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Kasey Chambers - Pony.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "9ed76d3a-870d-496e-b2a9-1b607543fa77",
+      "category": "artist",
+      "text": "Pony is performed by Kasey Chambers.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a93f39eb-47ca-4326-82b4-89ae4bf877bc",
+      "category": "trivia",
+      "text": "Artist: Kasey Chambers · Title: Pony · Album: Pony · Year: 2004 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kasey Chambers - Pony.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "da0a3bf9-1a39-41dd-94bc-1cf737b61f67",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kasey Chambers - Pony.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7718a355-cc7d-43ca-a8ee-4bf51f190231",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Kasey Chambers - Pony.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kasey Chambers - Pony.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

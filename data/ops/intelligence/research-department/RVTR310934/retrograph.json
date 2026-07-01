@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR310934",
+    "kind": "song",
+    "rvtr": "RVTR310934",
+    "generatedAt": "2026-06-28T22:50:23.393Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR310934",
+    "artist": "Robin Beck",
+    "title": "The First Time",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Robin Beck",
+    "relatedArtists": [
+      "Robin Beck"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-2enns7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1989,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Robin Beck - The First Time.mp4",
+      "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-owy5k0",
+      "date": "1989",
+      "label": "The First Time — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1989",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9a84d2c5a6d4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR310934&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-2enns7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9475da8fc02b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR310934&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-2enns7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ebad80154de1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR310934&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-2enns7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2e3230b46113",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR310934&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-2enns7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2bbf47d924f2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR310934&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-2enns7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-2enns7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1989,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Robin Beck - The First Time.mp4",
+        "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR310934-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR310934"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Robin Beck"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Robin Beck"
+    },
+    {
+      "id": "rel-RVTR310934-tl-tl-owy5k0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR310934"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-owy5k0"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "The First Time — original release"
+    },
+    {
+      "id": "rel-RVTR310934-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR310934"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR310934-perf-perf-2enns7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR310934"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-2enns7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-2enns7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2enns7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Robin Beck - The First Time.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9a84d2c5a6d4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2enns7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9a84d2c5a6d4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9475da8fc02b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2enns7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9475da8fc02b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ebad80154de1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2enns7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ebad80154de1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2e3230b46113-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2enns7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2e3230b46113"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-2bbf47d924f2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2enns7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2bbf47d924f2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR310934. \"The First Time\" by Robin Beck.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Robin Beck · Title: The First Time · Album: Trouble Or Nothin' · Year: 1989 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Robin Beck - The First Time.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b92bf4ea",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Robin Beck - The First Time.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cf94be5b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Robin Beck - First Time.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-094edeb2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Robin Beck - The First Time.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ef872a87",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Sunblock Feat. Robin Beck - First Time.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "bd8ae8a1-c047-4843-a08f-18665b5687a5",
+      "category": "artist",
+      "text": "The First Time is performed by Robin Beck.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "541427c4-f60c-4eca-affe-ec07ba9395bd",
+      "category": "trivia",
+      "text": "Artist: Robin Beck · Title: The First Time · Album: Trouble Or Nothin' · Year: 1989 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Robin Beck - The First Time.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "be589283-e109-41f8-bbf0-817c026ea76e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Robin Beck - The First Time.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "86981c96-cc5b-48d9-b036-0021d666ef74",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Robin Beck - First Time.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2b64c77e-d9af-41ed-a8f6-bf3b72b697fc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Robin Beck - The First Time.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "220eb3fb-5288-4607-9c2f-f3d086885100",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Sunblock Feat.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 1,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Robin Beck - The First Time.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

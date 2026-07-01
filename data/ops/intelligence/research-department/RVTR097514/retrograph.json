@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR097514",
+    "kind": "song",
+    "rvtr": "RVTR097514",
+    "generatedAt": "2026-06-28T22:45:37.487Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR097514",
+    "artist": "Chris Brown",
+    "title": "She Ain't You",
+    "year": 2011,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Chris Brown",
+    "relatedArtists": [
+      "Chris Brown"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-2nzxai",
+        "title": "She Ain't You — graph recording",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-mhkuc7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Chris Brown - She Ain't You.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 27,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #27 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-quhwo6",
+      "date": "2011",
+      "label": "She Ain't You — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gr",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #27",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-jwciip",
+      "date": "2011",
+      "label": "She Ain't You — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e1727604ed20",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097514&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mhkuc7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1137d04ab444",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097514&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mhkuc7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0f56ca618b44",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097514&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mhkuc7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5a5cb883987b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097514&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mhkuc7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "32f967c45f32",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097514&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mhkuc7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mhkuc7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Chris Brown - She Ain't You.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR097514-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097514"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Chris Brown"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Chris Brown"
+    },
+    {
+      "id": "rel-RVTR097514-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097514"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #27"
+    },
+    {
+      "id": "rel-RVTR097514-tl-tl-quhwo6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097514"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-quhwo6"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "She Ain't You — original release"
+    },
+    {
+      "id": "rel-RVTR097514-tl-tl-fcm3gr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097514"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gr"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #27"
+    },
+    {
+      "id": "rel-RVTR097514-tl-tl-jwciip",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097514"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jwciip"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "She Ain't You — graph recording"
+    },
+    {
+      "id": "rel-RVTR097514-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097514"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR097514-perf-perf-mhkuc7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097514"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mhkuc7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mhkuc7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhkuc7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Chris Brown - She Ain't You.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e1727604ed20-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhkuc7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e1727604ed20"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1137d04ab444-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhkuc7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1137d04ab444"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-0f56ca618b44-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhkuc7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0f56ca618b44"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5a5cb883987b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhkuc7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5a5cb883987b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-32f967c45f32-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mhkuc7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "32f967c45f32"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR097514. \"She Ain't You\" by Chris Brown.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #27. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Chris Brown · Title: She Ain't You · Album: HV 07-11 · Year: 2011 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Chris Brown - She Ain't You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-944e0ddd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Chris Brown - She Ain't You.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "55f0aee6-817f-40d0-acca-94a0250edd6d",
+      "category": "artist",
+      "text": "She Ain't You is performed by Chris Brown.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c928c5e9-6c29-465f-8cbb-d7c31fc17f11",
+      "category": "chart",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1a82c7bd-047a-4df9-a1ac-602e1a1eedf4",
+      "category": "recording",
+      "text": "She Ain't You was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "73c37b44-8130-4732-b8ac-7ae7cd3be932",
+      "category": "trivia",
+      "text": "Artist: Chris Brown · Title: She Ain't You · Album: HV 07-11 · Year: 2011 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Chris Brown - She Ain't You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f4a5abfd-78d8-4415-832d-8053473f9d43",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Chris Brown - She Ain't You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Chris Brown - She Ain't You.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

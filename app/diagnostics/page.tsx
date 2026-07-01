@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { isControlCenterEnabled } from "@/lib/control-center/dev-gate";
 import { isInspectEnabled } from "@/lib/inspect/dev-gate";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
@@ -17,16 +16,10 @@ export const metadata: Metadata = {
 
 const TOOLS = [
   {
-    title: "Graph Inspector",
-    href: "/inspect",
+    title: "Database Explorer",
+    href: "/database-explorer",
     description: "Read-only Postgres graph explorer for local development.",
     enabled: isInspectEnabled(),
-  },
-  {
-    title: "Control Center",
-    href: "/control-center",
-    description: "Dev launchpad for routes, canonical links, and inspectors.",
-    enabled: isControlCenterEnabled(),
   },
   {
     title: "Command Center",
@@ -49,8 +42,8 @@ export default function DiagnosticsPage() {
           <p className="ops-command__kicker">Retroverse Diagnostics</p>
           <h1 className="ops-command__title">Diagnostics</h1>
           <p className="ops-command__lead">
-            Inspectors, dev tools, and system health — separate from public discovery and live
-            shows.
+            Inspectors and system health — separate from public discovery and the Command Center
+            hub.
           </p>
         </header>
 

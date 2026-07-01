@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR817284",
+    "kind": "song",
+    "rvtr": "RVTR817284",
+    "generatedAt": "2026-06-28T23:03:31.218Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR817284",
+    "artist": "Post Malone",
+    "title": "Motley Crew",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Post Malone",
+    "relatedArtists": [
+      "Post Malone"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-wvt1gk",
+        "title": "Motley Crew — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-moyoli",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Post Malone - Motley Crew.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 13,
+    "chartWeeks": 9,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #13 · 9 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-wv7oq1",
+      "date": "2021",
+      "label": "Motley Crew — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fs",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #13",
+      "detail": "9 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-17dbce",
+      "date": "2021",
+      "label": "Motley Crew — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "aa3aadb4c9e5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817284&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-moyoli",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d87f2009c421",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817284&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-moyoli",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4d3b0fde30d1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817284&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-moyoli",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7226ca80ed8c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817284&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-moyoli",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5380dce6c6c1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817284&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-moyoli",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-moyoli",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Post Malone - Motley Crew.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR817284-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817284"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Post Malone"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Post Malone"
+    },
+    {
+      "id": "rel-RVTR817284-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817284"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #13"
+    },
+    {
+      "id": "rel-RVTR817284-tl-tl-wv7oq1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817284"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wv7oq1"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Motley Crew — original release"
+    },
+    {
+      "id": "rel-RVTR817284-tl-tl-fcm3fs",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817284"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fs"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #13"
+    },
+    {
+      "id": "rel-RVTR817284-tl-tl-17dbce",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817284"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-17dbce"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Motley Crew — graph recording"
+    },
+    {
+      "id": "rel-RVTR817284-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817284"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR817284-perf-perf-moyoli",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817284"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-moyoli"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-moyoli-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-moyoli"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Post Malone - Motley Crew.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-aa3aadb4c9e5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-moyoli"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aa3aadb4c9e5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d87f2009c421-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-moyoli"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d87f2009c421"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4d3b0fde30d1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-moyoli"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4d3b0fde30d1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7226ca80ed8c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-moyoli"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7226ca80ed8c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5380dce6c6c1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-moyoli"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5380dce6c6c1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR817284. \"Motley Crew\" by Post Malone.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #13. 9 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Post Malone · Title: Motley Crew · Album: Motley Crew · Year: 2021 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Post Malone - Motley Crew.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-3e9bad08",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Post Malone - Motley Crew.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "23f51ddc-95e7-4176-a2b2-33ac8dae4356",
+      "category": "artist",
+      "text": "Motley Crew is performed by Post Malone.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aeebfd07-f445-402f-8b07-1721dd2d1043",
+      "category": "chart",
+      "text": "The song peaked at #13 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b460c1e6-efbe-4117-b578-df4624e4ae72",
+      "category": "recording",
+      "text": "Motley Crew was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "fe78ff59-0cdb-4ec6-a9b5-81066a4e93c0",
+      "category": "trivia",
+      "text": "Artist: Post Malone · Title: Motley Crew · Album: Motley Crew · Year: 2021 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Post Malone - Motley Crew.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a84fc34c-5846-4b70-ac65-bd657590fec0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Post Malone - Motley Crew.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Post Malone - Motley Crew.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

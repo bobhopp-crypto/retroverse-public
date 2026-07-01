@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR852195",
+    "kind": "song",
+    "rvtr": "RVTR852195",
+    "generatedAt": "2026-06-28T22:41:34.467Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR852195",
+    "artist": "B.o.b Aka Bobby Ray F./hayley Williams",
+    "title": "Airplanes",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "B.o.b Aka Bobby Ray F./hayley Williams",
+    "relatedArtists": [
+      "B.o.b Aka Bobby Ray F./hayley Williams"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-g6bcu4",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/B.o.B aka Bobby Ray f._Hayley Williams - Airplanes.mp4",
+      "notes": "Detected year: 2010. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-cq840r",
+      "date": "2010",
+      "label": "Airplanes — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "5ea450324331",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR852195&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-g6bcu4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f22aa6106373",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR852195&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-g6bcu4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cbbae9788924",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR852195&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-g6bcu4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e5acb2e50f5c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR852195&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-g6bcu4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9280b81b3077",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR852195&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-g6bcu4",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-g6bcu4",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/B.o.B aka Bobby Ray f._Hayley Williams - Airplanes.mp4",
+        "notes": "Detected year: 2010. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR852195-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR852195"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "B.o.b Aka Bobby Ray F./hayley Williams"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "B.o.b Aka Bobby Ray F./hayley Williams"
+    },
+    {
+      "id": "rel-RVTR852195-tl-tl-cq840r",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR852195"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cq840r"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Airplanes — original release"
+    },
+    {
+      "id": "rel-RVTR852195-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR852195"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR852195-perf-perf-g6bcu4",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR852195"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-g6bcu4"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-g6bcu4-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g6bcu4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/B.o.B aka Bobby Ray f._Hayley Williams - Airplanes.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-5ea450324331-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g6bcu4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5ea450324331"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f22aa6106373-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g6bcu4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f22aa6106373"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-cbbae9788924-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g6bcu4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cbbae9788924"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e5acb2e50f5c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g6bcu4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e5acb2e50f5c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9280b81b3077-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g6bcu4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9280b81b3077"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR852195. \"Airplanes\" by B.o.b Aka Bobby Ray F./hayley Williams.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: B.o.B aka Bobby Ray f./Hayley Williams · Title: Airplanes · Album: HV 8-10 · Year: 2010 · Genre: Urban · PlayCount: 1 · LastPlayed: 1753681865 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/B.o.B aka Bobby Ray f._Hayley Williams - Airplanes.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a8f736b8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/B.o.B aka Bobby Ray f._Hayley Williams - Airplanes.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "281bbb97-0ba1-42bd-9eed-8324db242c8c",
+      "category": "artist",
+      "text": "Airplanes is performed by B.o.b Aka Bobby Ray F./hayley Williams.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b6ac41d9-ad19-4cc5-aa4a-a28d1abc144d",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "45ec3c07-249b-4e58-8955-9a8a594718dd",
+      "category": "trivia",
+      "text": "\"Airplanes\" by B.o.b Aka Bobby Ray F./hayley Williams.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "98c4a87f-bd05-4a4f-a465-c5b3546fca29",
+      "category": "trivia",
+      "text": "Artist: B.o.B aka Bobby Ray f./Hayley Williams · Title: Airplanes · Album: HV 8-10 · Year: 2010 · Genre: Urban · PlayCount: 1 · LastPlayed: 1753681865 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/B.o.B aka Bobby Ray f._Hayley Williams - Airplanes.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6ea80c27-4f1b-4b5c-9ce7-19575eaf6c73",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/B.o.B aka Bobby Ray f._Hayley Williams - Airplanes.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/B.o.B aka Bobby Ray f._Hayley Williams - Airplanes.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR874373",
+    "kind": "song",
+    "rvtr": "RVTR874373",
+    "generatedAt": "2026-06-28T23:05:35.560Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR874373",
+    "artist": "Mary J Blige With U2",
+    "title": "One",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mary J Blige With U2",
+    "relatedArtists": [
+      "Mary J Blige With U2"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-6deapo",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2000,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mary J Blige With U2 - One.mp4",
+      "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-c3cehl",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1992,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/U2 - One.mp4",
+      "notes": "Detected year: 1992. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "2000",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1992",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "dfddf795e5d1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR874373&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6deapo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "353f80b8a365",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR874373&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6deapo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8171dd6751ef",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR874373&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6deapo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bd79febd3f57",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR874373&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6deapo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "63a423e271dc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR874373&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6deapo",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6deapo",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2000,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mary J Blige With U2 - One.mp4",
+        "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-c3cehl",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1992,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/U2 - One.mp4",
+        "notes": "Detected year: 1992. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR874373-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR874373"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mary J Blige With U2"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mary J Blige With U2"
+    },
+    {
+      "id": "rel-RVTR874373-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR874373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR874373-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR874373"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR874373-perf-perf-6deapo",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR874373"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6deapo"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6deapo-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6deapo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mary J Blige With U2 - One.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR874373-perf-perf-c3cehl",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR874373"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-c3cehl"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-c3cehl-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-c3cehl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/U2 - One.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-dfddf795e5d1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6deapo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dfddf795e5d1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-353f80b8a365-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6deapo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "353f80b8a365"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8171dd6751ef-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6deapo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8171dd6751ef"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-bd79febd3f57-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6deapo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bd79febd3f57"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-63a423e271dc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6deapo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "63a423e271dc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR874373. \"One\" by Mary J Blige With U2.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mary J Blige With U2 · Title: One · Album: Lil' Kim - The Notorious KIM · Year: 2000 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mary J Blige With U2 - One.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-01eaec6e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mary J Blige With U2 - One.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-399cc098",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/U2 - One.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0c63eb64",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/U2 - One.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cdf3d40b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/U2 - One.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b1c0214b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/U2 - One.mp3e.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6d9a0acf-7092-4e89-ba88-09be1f40f34e",
+      "category": "artist",
+      "text": "One is performed by Mary J Blige With U2.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "adc2a586-5605-4e09-a7bc-70be397bff39",
+      "category": "trivia",
+      "text": "Artist: Mary J Blige With U2 · Title: One · Album: Lil' Kim - The Notorious KIM · Year: 2000 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mary J Blige With U2 - One.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "46b99140-a6b8-46fa-9cef-054b9fc045f3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mary J Blige With U2 - One.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3a722c47-314d-4722-80a4-afa0a55163e5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/U2 - One.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1f8810c8-8eff-48c1-9ca2-e7b4e532f232",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/U2 - One.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c432d0f4-cb58-4a52-9564-9d7a82676147",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/U2 - One.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e1169a4a-9111-4915-aeb6-56c5ca6ac7ec",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/U2 - One.mp3e.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 1,
+    "pending": 6,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mary J Blige With U2 - One.mp4",
+    "tags": [],
+    "mediaItemCount": 5
+  },
+  "relatedSongs": []
+}

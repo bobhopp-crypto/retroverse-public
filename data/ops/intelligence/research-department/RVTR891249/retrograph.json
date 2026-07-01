@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR891249",
+    "kind": "song",
+    "rvtr": "RVTR891249",
+    "generatedAt": "2026-06-28T23:06:19.265Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR891249",
+    "artist": "Berlin",
+    "title": "No More Words",
+    "year": 1984,
+    "albumTitle": "Love Life",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Berlin",
+    "relatedArtists": [
+      "Berlin"
+    ]
+  },
+  "album": {
+    "title": "Love Life",
+    "releaseYear": 1984,
+    "recordings": [
+      {
+        "id": "rec-mh830s",
+        "title": "Love Life",
+        "releaseDate": 1984,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-w49cwy",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1984,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Berlin - No More Words.mp4",
+      "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 23,
+    "chartWeeks": 17,
+    "albumTitle": "Love Life",
+    "summary": "Hot 100 peak #23 · 17 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-p8nm8v",
+      "date": "1984",
+      "label": "No More Words — original release",
+      "detail": "Original album: Love Life",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gn",
+      "date": "1984",
+      "label": "Billboard Hot 100 peak #23",
+      "detail": "17 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-e5oxd6",
+      "date": "1984",
+      "label": "Love Life",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1984",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "2a08099b848e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR891249&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-w49cwy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "382aa4c3bc64",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR891249&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-w49cwy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fa0b0dbbc6ab",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR891249&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-w49cwy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cb9f9dfe90a0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR891249&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-w49cwy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2981a16c30ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR891249&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-w49cwy",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-w49cwy",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1984,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Berlin - No More Words.mp4",
+        "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR891249-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR891249"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Berlin"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Berlin"
+    },
+    {
+      "id": "rel-RVTR891249-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR891249"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-mh830s"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Love Life"
+    },
+    {
+      "id": "rel-RVTR891249-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR891249"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #23"
+    },
+    {
+      "id": "rel-RVTR891249-tl-tl-p8nm8v",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR891249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p8nm8v"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "No More Words — original release"
+    },
+    {
+      "id": "rel-RVTR891249-tl-tl-fcm3gn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR891249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gn"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #23"
+    },
+    {
+      "id": "rel-RVTR891249-tl-tl-e5oxd6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR891249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-e5oxd6"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Love Life"
+    },
+    {
+      "id": "rel-RVTR891249-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR891249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR891249-perf-perf-w49cwy",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR891249"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-w49cwy"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-w49cwy-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w49cwy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Berlin - No More Words.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-2a08099b848e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w49cwy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a08099b848e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-382aa4c3bc64-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w49cwy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "382aa4c3bc64"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-fa0b0dbbc6ab-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w49cwy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fa0b0dbbc6ab"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-cb9f9dfe90a0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w49cwy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cb9f9dfe90a0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-2981a16c30ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w49cwy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2981a16c30ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR891249. \"No More Words\" by Berlin. Album: Love Life (1984).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Love Life (1984). Billboard Hot 100 peak: #23. 17 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Berlin · Title: No More Words · Album: No More Words · Year: 1984 · Genre: New Wave · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Berlin - No More Words.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1984.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-02c676a3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Berlin - No More Words.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d828638b-3649-408e-98bf-89df8f2cf48c",
+      "category": "artist",
+      "text": "No More Words is performed by Berlin.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "39ed52c2-e584-4355-b54f-58a7a1943664",
+      "category": "album",
+      "text": "The song appears on the album \"Love Life\" (1984).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "02a9ffb7-ce80-480a-8ca2-4d2e893f6009",
+      "category": "chart",
+      "text": "The song peaked at #23 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0de53991-cda0-4694-a254-8c66a82abe35",
+      "category": "recording",
+      "text": "No More Words was released in 1984.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "129b4bd9-5af6-46b7-8329-3bc7f49af6d9",
+      "category": "trivia",
+      "text": "Artist: Berlin · Title: No More Words · Album: No More Words · Year: 1984 · Genre: New Wave · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Berlin - No More Words.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e9d285e1-0255-4fd1-80df-2a288ec4a31e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Berlin - No More Words.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Berlin - No More Words.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

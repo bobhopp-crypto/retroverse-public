@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR502200",
+    "kind": "song",
+    "rvtr": "RVTR502200",
+    "generatedAt": "2026-06-28T22:54:20.885Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR502200",
+    "artist": "Beck",
+    "title": "E Pro",
+    "year": 2005,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Beck",
+    "relatedArtists": [
+      "Beck"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2005,
+    "recordings": [
+      {
+        "id": "rec-aiyrrf",
+        "title": "E Pro — graph recording",
+        "releaseDate": 2005,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-i836d",
+      "title": "EPro",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beck - E-Pro.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 65,
+    "chartWeeks": 10,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #65 · 10 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-i29kui",
+      "date": "2005",
+      "label": "E Pro — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k5",
+      "date": "2005",
+      "label": "Billboard Hot 100 peak #65",
+      "detail": "10 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-dv3j5b",
+      "date": "2005",
+      "label": "E Pro — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bvwn30",
+      "date": "2005",
+      "label": "EPro",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b1341c6dc0fc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502200&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-i836d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1d5eef9a2c70",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502200&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-i836d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "03855d607d2f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502200&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-i836d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f48c8b7a5fa0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502200&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-i836d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "73a92368d2c9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR502200&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-i836d",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-i836d",
+        "title": "EPro",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beck - E-Pro.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR502200-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502200"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Beck"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Beck"
+    },
+    {
+      "id": "rel-RVTR502200-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502200"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #65"
+    },
+    {
+      "id": "rel-RVTR502200-tl-tl-i29kui",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502200"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i29kui"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "E Pro — original release"
+    },
+    {
+      "id": "rel-RVTR502200-tl-tl-fcm3k5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502200"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k5"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #65"
+    },
+    {
+      "id": "rel-RVTR502200-tl-tl-dv3j5b",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502200"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dv3j5b"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "E Pro — graph recording"
+    },
+    {
+      "id": "rel-RVTR502200-tl-tl-bvwn30",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502200"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bvwn30"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "EPro"
+    },
+    {
+      "id": "rel-RVTR502200-perf-perf-i836d",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR502200"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-i836d"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "EPro"
+    },
+    {
+      "id": "rel-perf-i836d-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i836d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beck - E-Pro.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "EPro"
+    },
+    {
+      "id": "rel-b1341c6dc0fc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i836d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b1341c6dc0fc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1d5eef9a2c70-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i836d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1d5eef9a2c70"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-03855d607d2f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i836d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "03855d607d2f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f48c8b7a5fa0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i836d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f48c8b7a5fa0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-73a92368d2c9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-i836d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "73a92368d2c9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR502200. \"E Pro\" by Beck.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #65. 10 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Beck · Title: E-Pro · Album: E-Pro · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beck - E-Pro.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2005.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-6f5639ab",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beck - E-Pro.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d860ade5-22c9-4ae5-ac86-02648828ba3e",
+      "category": "artist",
+      "text": "E Pro is performed by Beck.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "53990284-9f38-494b-be3a-79a28e91d26e",
+      "category": "chart",
+      "text": "The song peaked at #65 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ba6be5c1-b800-4ebc-9303-9070d77a8757",
+      "category": "recording",
+      "text": "E Pro was released in 2005.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4bb21226-1554-4db1-8331-10cafbb1d978",
+      "category": "trivia",
+      "text": "Artist: Beck · Title: E-Pro · Album: E-Pro · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beck - E-Pro.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f836f369-83ae-41ca-82e7-d7e4e5820cb1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beck - E-Pro.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beck - E-Pro.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

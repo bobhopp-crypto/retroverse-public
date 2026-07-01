@@ -1,0 +1,591 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR916013",
+    "kind": "song",
+    "rvtr": "RVTR916013",
+    "generatedAt": "2026-06-28T23:07:03.159Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR916013",
+    "artist": "Atc",
+    "title": "Around The World La La La La La",
+    "year": 2001,
+    "albumTitle": "Planet Pop",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Atc",
+    "relatedArtists": [
+      "Atc"
+    ]
+  },
+  "album": {
+    "title": "Planet Pop",
+    "releaseYear": 2001,
+    "recordings": [
+      {
+        "id": "rec-cf7umo",
+        "title": "Planet Pop",
+        "releaseDate": 2001,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-eqo4mi",
+      "title": "Around The World",
+      "kind": "performance",
+      "year": 2000,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ATC - Around The World.mp4",
+      "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 28,
+    "chartWeeks": 18,
+    "albumTitle": "Planet Pop",
+    "summary": "Hot 100 peak #28 · 18 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-x839t5",
+      "date": "2001",
+      "label": "Around The World La La La La La — original release",
+      "detail": "Original album: Planet Pop",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gs",
+      "date": "2001",
+      "label": "Billboard Hot 100 peak #28",
+      "detail": "18 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ktmorn",
+      "date": "2001",
+      "label": "Planet Pop",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-iuuwgs",
+      "date": "2000",
+      "label": "Around The World",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "91b353133ff1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR916013&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-eqo4mi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "68e08cbebf61",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR916013&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-eqo4mi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "376b53d4c2b5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR916013&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-eqo4mi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "55243b0d4112",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR916013&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-eqo4mi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "55e264cd89ec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR916013&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-eqo4mi",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-eqo4mi",
+        "title": "Around The World",
+        "kind": "performance",
+        "year": 2000,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ATC - Around The World.mp4",
+        "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR916013-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR916013"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Atc"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Atc"
+    },
+    {
+      "id": "rel-RVTR916013-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR916013"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-cf7umo"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Planet Pop"
+    },
+    {
+      "id": "rel-RVTR916013-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR916013"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #28"
+    },
+    {
+      "id": "rel-RVTR916013-tl-tl-x839t5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR916013"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-x839t5"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Around The World La La La La La — original release"
+    },
+    {
+      "id": "rel-RVTR916013-tl-tl-fcm3gs",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR916013"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gs"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #28"
+    },
+    {
+      "id": "rel-RVTR916013-tl-tl-ktmorn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR916013"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ktmorn"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Planet Pop"
+    },
+    {
+      "id": "rel-RVTR916013-tl-tl-iuuwgs",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR916013"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-iuuwgs"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Around The World"
+    },
+    {
+      "id": "rel-RVTR916013-perf-perf-eqo4mi",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR916013"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-eqo4mi"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Around The World"
+    },
+    {
+      "id": "rel-perf-eqo4mi-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-eqo4mi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ATC - Around The World.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Around The World"
+    },
+    {
+      "id": "rel-91b353133ff1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-eqo4mi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "91b353133ff1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-68e08cbebf61-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-eqo4mi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "68e08cbebf61"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-376b53d4c2b5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-eqo4mi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "376b53d4c2b5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-55243b0d4112-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-eqo4mi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "55243b0d4112"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-55e264cd89ec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-eqo4mi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "55e264cd89ec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR916013. \"Around The World La La La La La\" by Atc. Album: Planet Pop (2001).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Planet Pop (2001). Billboard Hot 100 peak: #28. 18 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: ATC · Title: Around The World · Album: Around The World (La La La La La) · Year: 2000 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/ATC - Around The World.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2001.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-671ee928",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ATC - Around The World.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f45b8ac0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/ATC - Around The World.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-fe04d69a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/ATC - Around The World (Dance Mix).mp3 · Performance: Dance Mix",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-dd7fdf94",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/ATC - Around The World (dance Mix).MP3 · Performance: dance Mix",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c984d182-e729-4fc0-a4b7-9947000f507b",
+      "category": "artist",
+      "text": "Around The World La La La La La is performed by Atc.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7719d184-2a04-4c3e-9c61-0c1f99cc0ce4",
+      "category": "album",
+      "text": "The song appears on the album \"Planet Pop\" (2001).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d7978b68-4ade-4820-ac9e-e95fdb6a760a",
+      "category": "chart",
+      "text": "The song peaked at #28 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cc7867e1-beb3-4cbe-9b97-c81b51d46bd9",
+      "category": "recording",
+      "text": "Around The World La La La La La was released in 2001.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "14e0dac5-76a7-4f75-aaec-9d985221f312",
+      "category": "trivia",
+      "text": "\"Around The World La La La La La\" by Atc.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "95799a44-6308-4602-9b8d-1a207e9c3dd5",
+      "category": "trivia",
+      "text": "Artist: ATC · Title: Around The World · Album: Around The World (La La La La La) · Year: 2000 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/ATC - Around The World.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "84b7f606-c867-4871-a1d0-846eb83bdd52",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ATC - Around The World.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e91a7e46-68e0-4357-bae0-ccdfbf7796e1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/ATC - Around The World.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9a8d1cc3-85b7-4065-98e2-31427dfdcfe9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/ATC - Around The World (Dance Mix).mp3 · Performance: Dance Mix",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6dbcf262-0e9c-46f3-a81a-d7d3fc18702a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/ATC - Around The World (dance Mix).MP3 · Performance: dance Mix",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 10,
+    "accepted": 5,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/ATC - Around The World.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR053151",
+    "kind": "song",
+    "rvtr": "RVTR053151",
+    "generatedAt": "2026-06-28T22:44:30.751Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR053151",
+    "artist": "Three 6 Mafia",
+    "title": "Shake My",
+    "year": 2009,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Three 6 Mafia",
+    "relatedArtists": [
+      "Three 6 Mafia"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-dd1ocb",
+        "title": "Shake My — graph recording",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-zbqzmb",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Three 6 Mafia - Shake My.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 75,
+    "chartWeeks": 3,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #75 · 3 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-u7wn7e",
+      "date": "2009",
+      "label": "Shake My — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3l0",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #75",
+      "detail": "3 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-3qtyfh",
+      "date": "2009",
+      "label": "Shake My — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "16ecb37092c9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR053151&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-zbqzmb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "353c5a5e52dd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR053151&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-zbqzmb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "25cb9e617f9b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR053151&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-zbqzmb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1ef2b20f3a2a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR053151&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-zbqzmb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "db61fb8944b0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR053151&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-zbqzmb",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-zbqzmb",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Three 6 Mafia - Shake My.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR053151-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR053151"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Three 6 Mafia"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Three 6 Mafia"
+    },
+    {
+      "id": "rel-RVTR053151-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR053151"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #75"
+    },
+    {
+      "id": "rel-RVTR053151-tl-tl-u7wn7e",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR053151"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-u7wn7e"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Shake My — original release"
+    },
+    {
+      "id": "rel-RVTR053151-tl-tl-fcm3l0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR053151"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3l0"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #75"
+    },
+    {
+      "id": "rel-RVTR053151-tl-tl-3qtyfh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR053151"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3qtyfh"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Shake My — graph recording"
+    },
+    {
+      "id": "rel-RVTR053151-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR053151"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR053151-perf-perf-zbqzmb",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR053151"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-zbqzmb"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-zbqzmb-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zbqzmb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Three 6 Mafia - Shake My.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-16ecb37092c9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zbqzmb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "16ecb37092c9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-353c5a5e52dd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zbqzmb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "353c5a5e52dd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-25cb9e617f9b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zbqzmb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "25cb9e617f9b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1ef2b20f3a2a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zbqzmb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1ef2b20f3a2a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-db61fb8944b0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zbqzmb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "db61fb8944b0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR053151. \"Shake My\" by Three 6 Mafia.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #75. 3 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Three 6 Mafia · Title: Shake My · Album: Da Unbreakables · Year: 2003 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Three 6 Mafia - Shake My.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-0b1661b8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Three 6 Mafia - Shake My.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b516355d-430f-4f31-8bbf-9e40341d995d",
+      "category": "artist",
+      "text": "Shake My is performed by Three 6 Mafia.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "046dfd85-bd17-43da-9e6b-d249855b8ce9",
+      "category": "chart",
+      "text": "The song peaked at #75 on the Billboard Hot 100 and spent 3 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c4e7a10b-f822-4311-a2d5-90a5e798f3ff",
+      "category": "recording",
+      "text": "Shake My was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d848e13b-4bb3-454b-b859-3644487727f0",
+      "category": "trivia",
+      "text": "Artist: Three 6 Mafia · Title: Shake My · Album: Da Unbreakables · Year: 2003 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Three 6 Mafia - Shake My.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1273bd73-7879-4b84-bb22-47fb039994a3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Three 6 Mafia - Shake My.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Three 6 Mafia - Shake My.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

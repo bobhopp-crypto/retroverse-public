@@ -1,0 +1,185 @@
+/* Pass registration — public, mobile-first, Retroverse editorial palette. */
+
+.pass-reg {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: #f4ead8;
+  color: #2d3e46;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: clamp(1rem, 4vw, 3rem) 1rem;
+}
+
+.pass-reg__card {
+  width: 100%;
+  max-width: 480px;
+  background: #fffaf0;
+  border: 3px solid #2d3e46;
+  border-radius: 18px;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  box-shadow: 6px 6px 0 rgba(45, 62, 70, 0.12);
+}
+
+.pass-reg__kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e07a4f;
+}
+
+.pass-reg__event {
+  margin: 0.3rem 0 1.1rem;
+  font-size: clamp(1.5rem, 6vw, 2.1rem);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.pass-reg__meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  padding: 0.9rem;
+  border: 2px solid rgba(45, 62, 70, 0.18);
+  border-radius: 12px;
+  background: rgba(31, 94, 99, 0.05);
+}
+
+.pass-reg__meta dt {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.55);
+}
+
+.pass-reg__meta dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.pass-reg__status {
+  display: inline-block;
+}
+
+.pass-reg__status--available {
+  color: #1f5e63;
+}
+
+.pass-reg__status--registered {
+  color: #e07a4f;
+}
+
+.pass-reg__status--checked_in,
+.pass-reg__status--archived {
+  color: #9b4d3a;
+}
+
+/* ── Form ── */
+
+.pass-reg__form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.pass-reg__form label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.pass-reg__form input,
+.pass-reg__form textarea {
+  padding: 0.8rem 0.85rem;
+  border: 2px solid rgba(45, 62, 70, 0.25);
+  border-radius: 10px;
+  background: #fff;
+  color: #2d3e46;
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.pass-reg__form input:focus,
+.pass-reg__form textarea:focus {
+  outline: none;
+  border-color: #1f5e63;
+}
+
+.pass-reg__checkbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+}
+
+.pass-reg__checkbox input {
+  width: 1.3rem;
+  height: 1.3rem;
+  flex-shrink: 0;
+}
+
+.pass-reg__form button {
+  margin-top: 0.4rem;
+  padding: 1rem;
+  border: 3px solid #2d3e46;
+  border-radius: 999px;
+  background: #e07a4f;
+  color: #fffaf0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.pass-reg__form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pass-reg__error {
+  margin: 0;
+  color: #a63d32;
+  font-weight: 700;
+}
+
+/* ── Already registered / confirmed ── */
+
+.pass-reg__already,
+.pass-reg__confirmed {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 2px dashed rgba(45, 62, 70, 0.3);
+  border-radius: 12px;
+}
+
+.pass-reg__already-title,
+.pass-reg__confirmed-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #1f5e63;
+}
+
+.pass-reg__already-detail,
+.pass-reg__confirmed-detail {
+  margin: 0.5rem 0 0;
+  font-weight: 600;
+}
+
+.pass-reg__confirmed-message {
+  margin: 0.75rem 0 0;
+  color: rgba(45, 62, 70, 0.7);
+}
+
+@media (max-width: 420px) {
+  .pass-reg__meta {
+    grid-template-columns: 1fr;
+  }
+}

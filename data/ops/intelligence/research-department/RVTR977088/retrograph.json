@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR977088",
+    "kind": "song",
+    "rvtr": "RVTR977088",
+    "generatedAt": "2026-06-28T23:09:14.465Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR977088",
+    "artist": "Ray Lamontagne",
+    "title": "Trouble",
+    "year": 2005,
+    "albumTitle": "Trouble",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL060332/RVAL060332__ray-lamontagne__trouble.jpg"
+  },
+  "artist": {
+    "name": "Ray Lamontagne",
+    "relatedArtists": [
+      "Ray Lamontagne"
+    ]
+  },
+  "album": {
+    "title": "Trouble",
+    "releaseYear": 2005,
+    "recordings": [
+      {
+        "id": "rec-k1c41y",
+        "title": "Trouble",
+        "releaseDate": 2005,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-orcz1o",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Ray LaMontagne - Trouble.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Trouble",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-xa08aj",
+      "date": "2005",
+      "label": "Trouble — original release",
+      "detail": "Original album: Trouble",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-dx43yb",
+      "date": "2005",
+      "label": "Trouble",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR977088",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL060332/RVAL060332__ray-lamontagne__trouble.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "856644a53882",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977088&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-orcz1o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d2dbed9850f1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977088&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-orcz1o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "721d3f0c2fcf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977088&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-orcz1o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a31fea93676a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977088&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-orcz1o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8b4326a8bf62",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977088&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-orcz1o",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-orcz1o",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Ray LaMontagne - Trouble.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR977088-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977088"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ray Lamontagne"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ray Lamontagne"
+    },
+    {
+      "id": "rel-RVTR977088-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977088"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-k1c41y"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Trouble"
+    },
+    {
+      "id": "rel-RVTR977088-tl-tl-xa08aj",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977088"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-xa08aj"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Trouble — original release"
+    },
+    {
+      "id": "rel-RVTR977088-tl-tl-dx43yb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977088"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dx43yb"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Trouble"
+    },
+    {
+      "id": "rel-RVTR977088-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977088"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR977088-perf-perf-orcz1o",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR977088"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-orcz1o"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-orcz1o-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-orcz1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Ray LaMontagne - Trouble.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-856644a53882-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-orcz1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "856644a53882"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d2dbed9850f1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-orcz1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d2dbed9850f1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-721d3f0c2fcf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-orcz1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "721d3f0c2fcf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a31fea93676a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-orcz1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a31fea93676a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-8b4326a8bf62-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-orcz1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8b4326a8bf62"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR977088. \"Trouble\" by Ray Lamontagne. Album: Trouble (2005).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL060332/RVAL060332__ray-lamontagne__trouble.jpg",
+      "excerpt": "Canonical cover assignment for RVTR977088 (Trouble). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Trouble (2005)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ray LaMontagne · Title: Trouble · Album: Trouble · Year: 2005 · Genre: Folk, World, & Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Ray LaMontagne - Trouble.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2005.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-299e87e6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Ray LaMontagne - Trouble.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "aa1a9a82-a6cd-42b9-8b8c-f3cff43e78e6",
+      "category": "artist",
+      "text": "Trouble is performed by Ray Lamontagne.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4fa47701-e50b-4334-8e8d-16d99e0ce39b",
+      "category": "album",
+      "text": "The song appears on the album \"Trouble\" (2005).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aa6dc49b-f7db-42dd-8801-86e98cc4a9de",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR977088.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL060332/RVAL060332__ray-lamontagne__trouble.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8451a002-9d30-4068-9da8-066591ac2fd2",
+      "category": "recording",
+      "text": "Trouble was released in 2005.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "759891dd-b14d-494e-ac8f-384d8e68b14f",
+      "category": "trivia",
+      "text": "Artist: Ray LaMontagne · Title: Trouble · Album: Trouble · Year: 2005 · Genre: Folk, World, & Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Ray LaMontagne - Trouble.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "597f85fe-533b-4f51-ba49-8487d091e668",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Ray LaMontagne - Trouble.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Ray LaMontagne - Trouble.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

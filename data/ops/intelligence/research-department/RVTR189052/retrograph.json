@@ -1,0 +1,564 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR189052",
+    "kind": "song",
+    "rvtr": "RVTR189052",
+    "generatedAt": "2026-06-28T22:47:37.475Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR189052",
+    "artist": "Madonna",
+    "title": "Die Another Day",
+    "year": 2006,
+    "albumTitle": "I'm Going To Tell You A Secret (Soundtrack)",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Madonna",
+    "relatedArtists": [
+      "Madonna"
+    ]
+  },
+  "album": {
+    "title": "I'm Going To Tell You A Secret (Soundtrack)",
+    "releaseYear": 2006,
+    "recordings": [
+      {
+        "id": "rec-mua9u2",
+        "title": "I'm Going To Tell You A Secret (Soundtrack)",
+        "releaseDate": 2006,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-hoaam4",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2002,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - Die Another Day.mp4",
+      "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 8,
+    "chartWeeks": 17,
+    "albumTitle": "I'm Going To Tell You A Secret (Soundtrack)",
+    "summary": "Hot 100 peak #8 · 17 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-881jc3",
+      "date": "2006",
+      "label": "Die Another Day — original release",
+      "detail": "Original album: I'm Going To Tell You A Secret (Soundtrack)",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2q",
+      "date": "2006",
+      "label": "Billboard Hot 100 peak #8",
+      "detail": "17 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ge6gm8",
+      "date": "2006",
+      "label": "I'm Going To Tell You A Secret (Soundtrack)",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2002",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "8776895cb0b1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR189052&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hoaam4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b86e133810ee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR189052&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hoaam4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a22a037853b3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR189052&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hoaam4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fc58675d6cca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR189052&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hoaam4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ac5246bc15dc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR189052&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hoaam4",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hoaam4",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2002,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - Die Another Day.mp4",
+        "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR189052-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR189052"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Madonna"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Madonna"
+    },
+    {
+      "id": "rel-RVTR189052-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR189052"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-mua9u2"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "I'm Going To Tell You A Secret (Soundtrack)"
+    },
+    {
+      "id": "rel-RVTR189052-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR189052"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #8"
+    },
+    {
+      "id": "rel-RVTR189052-tl-tl-881jc3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR189052"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-881jc3"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Die Another Day — original release"
+    },
+    {
+      "id": "rel-RVTR189052-tl-tl-l47p2q",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR189052"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2q"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #8"
+    },
+    {
+      "id": "rel-RVTR189052-tl-tl-ge6gm8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR189052"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ge6gm8"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "I'm Going To Tell You A Secret (Soundtrack)"
+    },
+    {
+      "id": "rel-RVTR189052-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR189052"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR189052-perf-perf-hoaam4",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR189052"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hoaam4"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hoaam4-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hoaam4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - Die Another Day.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-8776895cb0b1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hoaam4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8776895cb0b1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b86e133810ee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hoaam4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b86e133810ee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a22a037853b3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hoaam4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a22a037853b3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-fc58675d6cca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hoaam4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fc58675d6cca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-ac5246bc15dc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hoaam4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ac5246bc15dc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR189052. \"Die Another Day\" by Madonna. Album: I'm Going To Tell You A Secret (Soundtrack) (2006).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: I'm Going To Tell You A Secret (Soundtrack) (2006). Billboard Hot 100 peak: #8. 17 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Madonna · Title: Die Another Day · Album: Die Another Day · Year: 2002 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - Die Another Day.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2006.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-dbc19012",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - Die Another Day.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8197ff7c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Madonna - Die Another Day.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d4bcc6e9-2b51-4a61-a4ba-6d82f4567a7a",
+      "category": "artist",
+      "text": "Die Another Day is performed by Madonna.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4e926926-6a8f-4292-96b7-2016c40c8b56",
+      "category": "album",
+      "text": "The song appears on the album \"I'm Going To Tell You A Secret (Soundtrack)\" (2006).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6c4e3852-7d89-42e4-abb1-482f886cc374",
+      "category": "chart",
+      "text": "The song peaked at #8 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8435dfc8-c583-4461-bdbc-f659f0b71f2d",
+      "category": "recording",
+      "text": "Die Another Day was released in 2006.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0f391d39-e791-4cf3-a66a-225cf26b0ef2",
+      "category": "trivia",
+      "text": "Album: I'm Going To Tell You A Secret (Soundtrack) (2006).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f3839295-cae4-4df6-8576-3debcac6c582",
+      "category": "trivia",
+      "text": "Artist: Madonna · Title: Die Another Day · Album: Die Another Day · Year: 2002 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - Die Another Day.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6bc33c44-8bb3-455b-a132-744c345e2787",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - Die Another Day.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a1b3c4dd-99f4-436d-bc34-6b11c76e1b2e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Madonna - Die Another Day.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 1,
+    "clusters": [
+      {
+        "clusterId": "cluster-0f391d39",
+        "keptFactId": "0f391d39-e791-4cf3-a66a-225cf26b0ef2",
+        "memberIds": [
+          "516ed7c7-2b5d-4b24-8267-52d78a778dd8"
+        ],
+        "reason": "Duplicate cluster (2) — kept highest confidence"
+      }
+    ]
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 1,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Madonna - Die Another Day.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

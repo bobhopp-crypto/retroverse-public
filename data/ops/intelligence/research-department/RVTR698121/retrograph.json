@@ -1,0 +1,398 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR698121",
+    "kind": "song",
+    "rvtr": "RVTR698121",
+    "generatedAt": "2026-06-28T22:59:49.411Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR698121",
+    "artist": "Hilltop Hoods",
+    "title": "1955",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Hilltop Hoods",
+    "relatedArtists": [
+      "Hilltop Hoods"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-r3hjex",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2016,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hilltop Hoods - 1955.mp4",
+      "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-re5hok",
+      "date": "1955",
+      "label": "1955 — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2016",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e7198bff8b36",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR698121&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-r3hjex",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6df5579d7a9f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR698121&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-r3hjex",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "61eff653951b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR698121&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-r3hjex",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dbed88ccc441",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR698121&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-r3hjex",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "91839fb9e972",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR698121&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-r3hjex",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-r3hjex",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2016,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hilltop Hoods - 1955.mp4",
+        "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR698121-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR698121"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Hilltop Hoods"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Hilltop Hoods"
+    },
+    {
+      "id": "rel-RVTR698121-tl-tl-re5hok",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR698121"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-re5hok"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "1955 — original release"
+    },
+    {
+      "id": "rel-RVTR698121-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR698121"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR698121-perf-perf-r3hjex",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR698121"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-r3hjex"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-r3hjex-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r3hjex"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hilltop Hoods - 1955.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e7198bff8b36-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r3hjex"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e7198bff8b36"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6df5579d7a9f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r3hjex"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6df5579d7a9f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-61eff653951b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r3hjex"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "61eff653951b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-dbed88ccc441-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r3hjex"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dbed88ccc441"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-91839fb9e972-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r3hjex"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "91839fb9e972"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR698121. \"1955\" by Hilltop Hoods.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Hilltop Hoods · Title: 1955 · Album: Drinking From The Sun, Walking Under Stars Restrung · Year: 2016 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hilltop Hoods - 1955.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b69d1fd5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hilltop Hoods - 1955.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-603e0250",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "netsearch://td56835542",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5b27f117-9556-4918-b2d6-3efacb388b9a",
+      "category": "artist",
+      "text": "1955 is performed by Hilltop Hoods.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "25706e29-03fa-4f06-a453-5f8b76e25c24",
+      "category": "trivia",
+      "text": "Artist: Hilltop Hoods · Title: 1955 · Album: Drinking From The Sun, Walking Under Stars Restrung · Year: 2016 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hilltop Hoods - 1955.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "07c7143a-b79b-4ed2-bb11-cfb7e6e7cd59",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hilltop Hoods - 1955.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Hilltop Hoods - 1955.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

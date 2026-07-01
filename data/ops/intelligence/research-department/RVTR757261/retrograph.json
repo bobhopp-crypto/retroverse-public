@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR757261",
+    "kind": "song",
+    "rvtr": "RVTR757261",
+    "generatedAt": "2026-06-28T23:01:41.817Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR757261",
+    "artist": "Cassie",
+    "title": "Me U",
+    "year": 2006,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Cassie",
+    "relatedArtists": [
+      "Cassie"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2006,
+    "recordings": [
+      {
+        "id": "rec-g80q1b",
+        "title": "Me U — graph recording",
+        "releaseDate": 2006,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-je8khm",
+      "title": "Me & U",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Cassie - Me & U.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 27,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #3 · 27 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-wihsw1",
+      "date": "2006",
+      "label": "Me U — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "2006",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "27 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-a5owwc",
+      "date": "2006",
+      "label": "Me U — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-96dtjt",
+      "date": "2006",
+      "label": "Me & U",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0b8252e3ac16",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757261&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-je8khm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "59f0ee798a46",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757261&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-je8khm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "eea65faa9f08",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757261&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-je8khm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a69b1eb11aed",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757261&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-je8khm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e1a6008df7b3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR757261&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-je8khm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-je8khm",
+        "title": "Me & U",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Cassie - Me & U.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR757261-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757261"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Cassie"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Cassie"
+    },
+    {
+      "id": "rel-RVTR757261-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757261"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR757261-tl-tl-wihsw1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757261"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wihsw1"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Me U — original release"
+    },
+    {
+      "id": "rel-RVTR757261-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757261"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR757261-tl-tl-a5owwc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757261"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-a5owwc"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Me U — graph recording"
+    },
+    {
+      "id": "rel-RVTR757261-tl-tl-96dtjt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757261"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-96dtjt"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Me & U"
+    },
+    {
+      "id": "rel-RVTR757261-perf-perf-je8khm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR757261"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-je8khm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Me & U"
+    },
+    {
+      "id": "rel-perf-je8khm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-je8khm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Cassie - Me & U.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Me & U"
+    },
+    {
+      "id": "rel-0b8252e3ac16-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-je8khm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0b8252e3ac16"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-59f0ee798a46-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-je8khm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "59f0ee798a46"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-eea65faa9f08-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-je8khm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "eea65faa9f08"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a69b1eb11aed-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-je8khm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a69b1eb11aed"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e1a6008df7b3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-je8khm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e1a6008df7b3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR757261. \"Me U\" by Cassie.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #3. 27 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Cassie · Title: Me & U · Album: Me & U · Year: 2006 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Cassie - Me & U.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2006.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-2eaf2dd0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Cassie - Me & U.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1052efab",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Cassie - Me & U.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e096e249",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Cassie - Me & U.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "089c63ac-d301-4b2e-a043-31bfcdfe5d7f",
+      "category": "artist",
+      "text": "Me U is performed by Cassie.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5c380560-93fa-4c8b-b696-c595eea3da25",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e91c9c77-105f-4190-9802-f28f3b802381",
+      "category": "recording",
+      "text": "Me U was released in 2006.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6c57db70-6812-4d92-b09d-98a443820b9d",
+      "category": "trivia",
+      "text": "Artist: Cassie · Title: Me & U · Album: Me & U · Year: 2006 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Cassie - Me & U.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4cab80b9-6dea-4d2d-881c-98d15a1fdc66",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Cassie - Me & U.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "acea35b4-77f0-49e0-a661-24f82fe17f74",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Cassie - Me & U.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5cbe26f0-6fbc-406b-92db-81adb5114fee",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Cassie - Me & U.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 3,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Cassie - Me & U.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

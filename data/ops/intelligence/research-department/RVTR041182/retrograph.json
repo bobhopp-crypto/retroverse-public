@@ -1,0 +1,541 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR041182",
+    "kind": "song",
+    "rvtr": "RVTR041182",
+    "generatedAt": "2026-06-28T22:44:16.030Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR041182",
+    "artist": "Erasure",
+    "title": "Sometimes",
+    "year": 1992,
+    "albumTitle": "Pop! The First 20 Hits",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL259012/RVAL259012__erasure__pop-the-first-20-hits.jpg"
+  },
+  "artist": {
+    "name": "Erasure",
+    "relatedArtists": [
+      "Erasure"
+    ]
+  },
+  "album": {
+    "title": "Pop! The First 20 Hits",
+    "releaseYear": 1992,
+    "recordings": [
+      {
+        "id": "rec-xyx47c",
+        "title": "Pop! The First 20 Hits",
+        "releaseDate": 1992,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-wvlso",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1986,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Sometimes.mp4",
+      "notes": "Detected year: 1986. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Pop! The First 20 Hits",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-sx3osq",
+      "date": "1992",
+      "label": "Sometimes — original release",
+      "detail": "Original album: Pop! The First 20 Hits",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-7o9gdj",
+      "date": "1992",
+      "label": "Pop! The First 20 Hits",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1986",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR041182",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL259012/RVAL259012__erasure__pop-the-first-20-hits.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f1aae9563746",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR041182&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-wvlso",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "99cc1b3ba078",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR041182&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-wvlso",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "188d15a5454d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR041182&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-wvlso",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "900b962ede0a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR041182&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-wvlso",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c51d5c5932ad",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR041182&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-wvlso",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-wvlso",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1986,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Sometimes.mp4",
+        "notes": "Detected year: 1986. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR041182-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR041182"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Erasure"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Erasure"
+    },
+    {
+      "id": "rel-RVTR041182-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR041182"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-xyx47c"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Pop! The First 20 Hits"
+    },
+    {
+      "id": "rel-RVTR041182-tl-tl-sx3osq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR041182"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sx3osq"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Sometimes — original release"
+    },
+    {
+      "id": "rel-RVTR041182-tl-tl-7o9gdj",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR041182"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7o9gdj"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Pop! The First 20 Hits"
+    },
+    {
+      "id": "rel-RVTR041182-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR041182"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR041182-perf-perf-wvlso",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR041182"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-wvlso"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-wvlso-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wvlso"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Sometimes.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f1aae9563746-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wvlso"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f1aae9563746"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-99cc1b3ba078-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wvlso"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "99cc1b3ba078"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-188d15a5454d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wvlso"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "188d15a5454d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-900b962ede0a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wvlso"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "900b962ede0a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c51d5c5932ad-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wvlso"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c51d5c5932ad"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR041182. \"Sometimes\" by Erasure. Album: Pop! The First 20 Hits (1992).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL259012/RVAL259012__erasure__pop-the-first-20-hits.jpg",
+      "excerpt": "Canonical cover assignment for RVTR041182 (Sometimes). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Pop! The First 20 Hits (1992)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Erasure · Title: Sometimes · Album: Sometimes · Year: 1986 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Sometimes.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1992.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-d84dec03",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Sometimes.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3f73390f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Erasure - Sometimes.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-18916c38",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Erasure - Sometimes.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "eb9f48dd-f06f-4497-a60f-35630a9c9164",
+      "category": "artist",
+      "text": "Sometimes is performed by Erasure.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f6047538-cbc1-4437-9ddc-0f7eb38aaa34",
+      "category": "album",
+      "text": "The song appears on the album \"Pop! The First 20 Hits\" (1992).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ab3094f6-d2bc-491d-a04d-58a21c2b1c09",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR041182.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL259012/RVAL259012__erasure__pop-the-first-20-hits.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d58f4753-50b4-4829-99e6-8219af3cb066",
+      "category": "recording",
+      "text": "Sometimes was released in 1992.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "556e9320-f362-43aa-9640-97d0a990492c",
+      "category": "trivia",
+      "text": "Artist: Erasure · Title: Sometimes · Album: Sometimes · Year: 1986 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Sometimes.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "71a67508-ca44-4302-a888-c1bf10f83b5c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Sometimes.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "978406f9-241f-4520-ab92-c6ec914b89ae",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Erasure - Sometimes.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "801a0a3a-79a7-4c24-b43d-814ea4d325c9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Erasure - Sometimes.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 4,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Sometimes.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

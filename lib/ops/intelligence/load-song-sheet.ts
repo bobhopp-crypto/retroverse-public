@@ -9,6 +9,7 @@ import {
 import { hydratePackageIntel } from "./package-intel";
 import { loadSongPackage, normalizePackageRvtr } from "./song-package-store";
 import type { CandidateFact, FactCategory, SongPackage } from "./song-package-types";
+import { resolveHeroFromSongPackage } from "@/lib/visual-profile/hero-resolver";
 
 const GROUP_LABELS: Record<FactGroupKey, string> = {
   Origin: "Origin",
@@ -137,13 +138,14 @@ export async function loadSongSheet(rvtrParam: string): Promise<SongSheetModel |
 
   const view = buildPackageViewModel(pkg, relationships);
   const artifact = buildArtifactStudioModel(pkg);
+  const hero = resolveHeroFromSongPackage(pkg);
 
   return {
     rvtr,
     title: pkg.metadata.title,
     artist: pkg.metadata.artist,
     year: pkg.metadata.year,
-    coverUrl: pkg.metadata.coverUrl,
+    coverUrl: hero.url,
     publishedAt: pkg.publishedAt ?? pkg.updatedAt,
     artifact,
     topFacts: selectTopFacts(pkg),

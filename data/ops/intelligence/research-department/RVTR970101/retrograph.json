@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR970101",
+    "kind": "song",
+    "rvtr": "RVTR970101",
+    "generatedAt": "2026-06-28T22:43:04.687Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR970101",
+    "artist": "Robert Palmer",
+    "title": "Pressure Drop",
+    "year": 1975,
+    "albumTitle": "Pressure Drop",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL448190/RVAL448190__robert-palmer__pressure-drop.jpg"
+  },
+  "artist": {
+    "name": "Robert Palmer",
+    "relatedArtists": [
+      "Robert Palmer"
+    ]
+  },
+  "album": {
+    "title": "Pressure Drop",
+    "releaseYear": 1975,
+    "recordings": [
+      {
+        "id": "rec-ftxz12",
+        "title": "Pressure Drop",
+        "releaseDate": 1975,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-b4erqd",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1975,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Robert Palmer - Pressure Drop.mp4",
+      "notes": "Detected year: 1975. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Pressure Drop",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-pghtsi",
+      "date": "1975",
+      "label": "Pressure Drop — original release",
+      "detail": "Original album: Pressure Drop",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-y3rh92",
+      "date": "1975",
+      "label": "Pressure Drop",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1975",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR970101",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL448190/RVAL448190__robert-palmer__pressure-drop.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "136d154f94d7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR970101&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-b4erqd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "58778e99a1e2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR970101&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-b4erqd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bab5a14c83ee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR970101&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-b4erqd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4ba702031b0f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR970101&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-b4erqd",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8d01af04464f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR970101&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-b4erqd",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-b4erqd",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1975,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Robert Palmer - Pressure Drop.mp4",
+        "notes": "Detected year: 1975. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR970101-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR970101"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Robert Palmer"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Robert Palmer"
+    },
+    {
+      "id": "rel-RVTR970101-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR970101"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-ftxz12"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Pressure Drop"
+    },
+    {
+      "id": "rel-RVTR970101-tl-tl-pghtsi",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR970101"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-pghtsi"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Pressure Drop — original release"
+    },
+    {
+      "id": "rel-RVTR970101-tl-tl-y3rh92",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR970101"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-y3rh92"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Pressure Drop"
+    },
+    {
+      "id": "rel-RVTR970101-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR970101"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR970101-perf-perf-b4erqd",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR970101"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-b4erqd"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-b4erqd-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b4erqd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Robert Palmer - Pressure Drop.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-136d154f94d7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b4erqd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "136d154f94d7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-58778e99a1e2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b4erqd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "58778e99a1e2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-bab5a14c83ee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b4erqd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bab5a14c83ee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4ba702031b0f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b4erqd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4ba702031b0f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8d01af04464f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-b4erqd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8d01af04464f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR970101. \"Pressure Drop\" by Robert Palmer. Album: Pressure Drop (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL448190/RVAL448190__robert-palmer__pressure-drop.jpg",
+      "excerpt": "Canonical cover assignment for RVTR970101 (Pressure Drop). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Pressure Drop (1975)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Robert Palmer · Title: Pressure Drop · Album: Give Me An Inch · Year: 1975 · Genre: Rock · PlayCount: 1 · LastPlayed: 1758521795 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Robert Palmer - Pressure Drop.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-11483dba",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Robert Palmer - Pressure Drop.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "598b4635-0241-40bd-9090-c179cd479917",
+      "category": "artist",
+      "text": "Pressure Drop is performed by Robert Palmer.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d44390e7-f6c4-4c1a-8a12-bc92f68d3474",
+      "category": "album",
+      "text": "The song appears on the album \"Pressure Drop\" (1975).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d7cc4b77-2d62-4a50-b3c1-bac1f6ab93a7",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR970101.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL448190/RVAL448190__robert-palmer__pressure-drop.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "73b3ed7f-c757-4b06-9e0d-93024e2f9f52",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a8956d8b-b841-4409-b777-c36b5d3b00dd",
+      "category": "recording",
+      "text": "Pressure Drop was released in 1975.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "932810d1-de0a-4ab0-8cce-5f6b7a907fba",
+      "category": "trivia",
+      "text": "Artist: Robert Palmer · Title: Pressure Drop · Album: Give Me An Inch · Year: 1975 · Genre: Rock · PlayCount: 1 · LastPlayed: 1758521795 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Robert Palmer - Pressure Drop.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "96fc8329-db08-48f8-bfdd-b36adc11bedd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Robert Palmer - Pressure Drop.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Robert Palmer - Pressure Drop.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

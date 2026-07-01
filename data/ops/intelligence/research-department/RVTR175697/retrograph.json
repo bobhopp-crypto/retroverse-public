@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR175697",
+    "kind": "song",
+    "rvtr": "RVTR175697",
+    "generatedAt": "2026-06-28T22:47:22.722Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR175697",
+    "artist": "Billie Eilish",
+    "title": "Bad Guy",
+    "year": 2019,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Billie Eilish",
+    "relatedArtists": [
+      "Billie Eilish"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2019,
+    "recordings": [
+      {
+        "id": "rec-bouvn4",
+        "title": "Bad Guy — graph recording",
+        "releaseDate": 2019,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-5e21lp",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2019,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Billie Eilish - Bad Guy.mp4",
+      "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 49,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 49 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-yp0j04",
+      "date": "2019",
+      "label": "Bad Guy — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2019",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "49 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-7zfdv5",
+      "date": "2019",
+      "label": "Bad Guy — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2019",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "93ca4d7a0f63",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR175697&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-5e21lp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "917cd449ca7e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR175697&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-5e21lp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "448787cc456b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR175697&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-5e21lp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "93ac24d996ee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR175697&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-5e21lp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "08b4dc70b613",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR175697&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-5e21lp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-5e21lp",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2019,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Billie Eilish - Bad Guy.mp4",
+        "notes": "Detected year: 2019. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR175697-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR175697"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Billie Eilish"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Billie Eilish"
+    },
+    {
+      "id": "rel-RVTR175697-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR175697"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR175697-tl-tl-yp0j04",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR175697"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yp0j04"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Bad Guy — original release"
+    },
+    {
+      "id": "rel-RVTR175697-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR175697"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR175697-tl-tl-7zfdv5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR175697"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7zfdv5"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Bad Guy — graph recording"
+    },
+    {
+      "id": "rel-RVTR175697-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR175697"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR175697-perf-perf-5e21lp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR175697"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-5e21lp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-5e21lp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5e21lp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Billie Eilish - Bad Guy.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-93ca4d7a0f63-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5e21lp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "93ca4d7a0f63"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-917cd449ca7e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5e21lp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "917cd449ca7e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-448787cc456b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5e21lp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "448787cc456b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-93ac24d996ee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5e21lp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "93ac24d996ee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-08b4dc70b613-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-5e21lp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "08b4dc70b613"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR175697. \"Bad Guy\" by Billie Eilish.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #1. 49 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Billie Eilish · Title: Bad Guy · Album: Bad Guy · Year: 2019 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Billie Eilish - Bad Guy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2019.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c1a800e0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Billie Eilish - Bad Guy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-63cf63f8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Billie Eilish - Bad Guy.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2ad61a19-de36-42a4-8ab5-645d2fd687dc",
+      "category": "artist",
+      "text": "Bad Guy is performed by Billie Eilish.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4b95e445-8ed5-4a2f-85f6-6aa98cc4e024",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 49 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d755b1f8-faaa-430a-89fb-29107672626c",
+      "category": "recording",
+      "text": "Bad Guy was released in 2019.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5a3757af-2519-43b5-a471-1915150efe22",
+      "category": "trivia",
+      "text": "Artist: Billie Eilish · Title: Bad Guy · Album: Bad Guy · Year: 2019 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Billie Eilish - Bad Guy.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "70ace0c4-4e3e-4b5f-aa46-c40187b3cb64",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Billie Eilish - Bad Guy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4ea93277-31f2-4ca1-818a-493b3d0fff7b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Billie Eilish - Bad Guy.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Billie Eilish - Bad Guy.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

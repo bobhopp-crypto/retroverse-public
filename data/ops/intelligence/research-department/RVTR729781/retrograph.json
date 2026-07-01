@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR729781",
+    "kind": "song",
+    "rvtr": "RVTR729781",
+    "generatedAt": "2026-06-28T23:00:36.533Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR729781",
+    "artist": "Ida Mae",
+    "title": "Little Liars",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ida Mae",
+    "relatedArtists": [
+      "Ida Mae"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-k7mr5",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ida Mae - Little Liars.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-rb5fgx",
+      "date": "2021",
+      "label": "Little Liars — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "6a1a15f91996",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729781&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-k7mr5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a1891a4dedaa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729781&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-k7mr5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b9dcb962847a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729781&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-k7mr5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "278593470274",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729781&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-k7mr5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "959eb43fb373",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR729781&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-k7mr5",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-k7mr5",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ida Mae - Little Liars.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR729781-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729781"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ida Mae"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ida Mae"
+    },
+    {
+      "id": "rel-RVTR729781-tl-tl-rb5fgx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729781"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-rb5fgx"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Little Liars — original release"
+    },
+    {
+      "id": "rel-RVTR729781-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729781"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR729781-perf-perf-k7mr5",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR729781"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-k7mr5"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-k7mr5-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k7mr5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ida Mae - Little Liars.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6a1a15f91996-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k7mr5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6a1a15f91996"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a1891a4dedaa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k7mr5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a1891a4dedaa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b9dcb962847a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k7mr5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b9dcb962847a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-278593470274-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k7mr5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "278593470274"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-959eb43fb373-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k7mr5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "959eb43fb373"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR729781. \"Little Liars\" by Ida Mae.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ida Mae · Title: Little Liars · Album: Click Click Domino · Year: 2021 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ida Mae - Little Liars.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-57b66620",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ida Mae - Little Liars.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c0a3be2a-bef1-4ee8-8fba-7245219758f2",
+      "category": "artist",
+      "text": "Little Liars is performed by Ida Mae.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4234ff9f-daa6-4642-8bbc-3761d2e3610d",
+      "category": "trivia",
+      "text": "Artist: Ida Mae · Title: Little Liars · Album: Click Click Domino · Year: 2021 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ida Mae - Little Liars.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5dde4e88-98b3-4a3c-a21b-d86bbc79ba65",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ida Mae - Little Liars.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Ida Mae - Little Liars.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

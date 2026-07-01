@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR688551",
+    "kind": "song",
+    "rvtr": "RVTR688551",
+    "generatedAt": "2026-06-28T22:59:38.634Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR688551",
+    "artist": "Buckcherry",
+    "title": "Everything",
+    "year": 2006,
+    "albumTitle": "15",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL906563/RVAL906563__buckcherry__15.jpg"
+  },
+  "artist": {
+    "name": "Buckcherry",
+    "relatedArtists": [
+      "Buckcherry"
+    ]
+  },
+  "album": {
+    "title": "15",
+    "releaseYear": 2006,
+    "recordings": [
+      {
+        "id": "rec-ywicm2",
+        "title": "15",
+        "releaseDate": 2006,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-fe6an4",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Buckcherry - Everything.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "15",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-z600yh",
+      "date": "2006",
+      "label": "Everything — original release",
+      "detail": "Original album: 15",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-nbai6g",
+      "date": "2006",
+      "label": "15",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2006",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR688551",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL906563/RVAL906563__buckcherry__15.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b45026995e7f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688551&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-fe6an4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6da11d2eb5c2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688551&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-fe6an4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "46ffbd36fec0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688551&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-fe6an4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "89cc93c008b1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688551&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-fe6an4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9e64b5a8ed46",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR688551&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-fe6an4",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-fe6an4",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Buckcherry - Everything.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR688551-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688551"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Buckcherry"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Buckcherry"
+    },
+    {
+      "id": "rel-RVTR688551-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688551"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-ywicm2"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "15"
+    },
+    {
+      "id": "rel-RVTR688551-tl-tl-z600yh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688551"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z600yh"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Everything — original release"
+    },
+    {
+      "id": "rel-RVTR688551-tl-tl-nbai6g",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688551"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nbai6g"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "15"
+    },
+    {
+      "id": "rel-RVTR688551-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688551"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR688551-perf-perf-fe6an4",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR688551"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-fe6an4"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-fe6an4-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fe6an4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Buckcherry - Everything.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b45026995e7f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fe6an4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b45026995e7f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6da11d2eb5c2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fe6an4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6da11d2eb5c2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-46ffbd36fec0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fe6an4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "46ffbd36fec0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-89cc93c008b1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fe6an4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "89cc93c008b1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9e64b5a8ed46-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fe6an4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9e64b5a8ed46"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR688551. \"Everything\" by Buckcherry. Album: 15 (2006).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL906563/RVAL906563__buckcherry__15.jpg",
+      "excerpt": "Canonical cover assignment for RVTR688551 (Everything). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: 15 (2006)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Buckcherry · Title: Everything · Album: 15 · Year: 2006 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Buckcherry - Everything.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2006.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-8a316990",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Buckcherry - Everything.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ceb91396",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Buckcherry - Everything.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d85d213e-9f7b-4a20-ac39-d4bb60f8e217",
+      "category": "artist",
+      "text": "Everything is performed by Buckcherry.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "39b86250-2e35-426f-8246-f0e31781b3b3",
+      "category": "album",
+      "text": "The song appears on the album \"15\" (2006).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6bcc484f-6a98-41fe-b18a-481883284e63",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR688551.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL906563/RVAL906563__buckcherry__15.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3ecbabaa-c11e-4610-9573-81a69c62b47e",
+      "category": "recording",
+      "text": "Everything was released in 2006.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c22ba54f-128a-4416-9712-3830c668ecba",
+      "category": "trivia",
+      "text": "Artist: Buckcherry · Title: Everything · Album: 15 · Year: 2006 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Buckcherry - Everything.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7d8fdab4-75ae-4f11-80e6-9bb5fbd0a929",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Buckcherry - Everything.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c80c6859-c1cc-4572-b247-14d2537245c0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Buckcherry - Everything.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Buckcherry - Everything.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR348836",
+    "kind": "song",
+    "rvtr": "RVTR348836",
+    "generatedAt": "2026-06-28T22:51:09.761Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR348836",
+    "artist": "Jewel",
+    "title": "Foolish Games You Were Meant For Me",
+    "year": 1996,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jewel",
+    "relatedArtists": [
+      "Jewel"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1996,
+    "recordings": [
+      {
+        "id": "rec-8ou78o",
+        "title": "Foolish Games You Were Meant For Me — graph recording",
+        "releaseDate": 1996,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-hfvfag",
+      "title": "Foolish Games",
+      "kind": "performance",
+      "year": 1995,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jewel - Foolish Games.mp4",
+      "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 65,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 65 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-dsa7mt",
+      "date": "1996",
+      "label": "Foolish Games You Were Meant For Me — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "1996",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "65 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-o6cxau",
+      "date": "1996",
+      "label": "Foolish Games You Were Meant For Me — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-8ujq85",
+      "date": "1995",
+      "label": "Foolish Games",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0239de6d6b32",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR348836&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hfvfag",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ff68dbbbde17",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR348836&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hfvfag",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3919340c8775",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR348836&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hfvfag",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "57fb2941a0b0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR348836&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hfvfag",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f451adcd35ad",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR348836&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hfvfag",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hfvfag",
+        "title": "Foolish Games",
+        "kind": "performance",
+        "year": 1995,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jewel - Foolish Games.mp4",
+        "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR348836-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR348836"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jewel"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jewel"
+    },
+    {
+      "id": "rel-RVTR348836-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR348836"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR348836-tl-tl-dsa7mt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR348836"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dsa7mt"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Foolish Games You Were Meant For Me — original release"
+    },
+    {
+      "id": "rel-RVTR348836-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR348836"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR348836-tl-tl-o6cxau",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR348836"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-o6cxau"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Foolish Games You Were Meant For Me — graph recording"
+    },
+    {
+      "id": "rel-RVTR348836-tl-tl-8ujq85",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR348836"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8ujq85"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Foolish Games"
+    },
+    {
+      "id": "rel-RVTR348836-perf-perf-hfvfag",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR348836"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hfvfag"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Foolish Games"
+    },
+    {
+      "id": "rel-perf-hfvfag-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hfvfag"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jewel - Foolish Games.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Foolish Games"
+    },
+    {
+      "id": "rel-0239de6d6b32-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hfvfag"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0239de6d6b32"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-ff68dbbbde17-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hfvfag"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ff68dbbbde17"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-3919340c8775-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hfvfag"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3919340c8775"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-57fb2941a0b0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hfvfag"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "57fb2941a0b0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f451adcd35ad-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hfvfag"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f451adcd35ad"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR348836. \"Foolish Games You Were Meant For Me\" by Jewel.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 65 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jewel · Title: Foolish Games · Album: Pieces Of You · Year: 1995 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jewel - Foolish Games.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1996.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-cb32910b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jewel - Foolish Games.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b10c30a9-ef03-49dd-b74f-20d689972ba3",
+      "category": "artist",
+      "text": "Foolish Games You Were Meant For Me is performed by Jewel.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b5c7b218-cf08-4648-8d9b-e472bf1b8009",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 65 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "14d39aa5-a0d5-4a58-8ed5-816052b037f5",
+      "category": "recording",
+      "text": "Foolish Games You Were Meant For Me was released in 1996.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b794cae1-3e10-42b1-8aa0-30d0655dfb5a",
+      "category": "trivia",
+      "text": "\"Foolish Games You Were Meant For Me\" by Jewel.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "10f65f69-7c6f-4eea-93f4-e1df34ef59ae",
+      "category": "trivia",
+      "text": "Artist: Jewel · Title: Foolish Games · Album: Pieces Of You · Year: 1995 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jewel - Foolish Games.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "218b9c16-d194-483e-ac74-9b88ce8d9267",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jewel - Foolish Games.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Jewel - Foolish Games.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

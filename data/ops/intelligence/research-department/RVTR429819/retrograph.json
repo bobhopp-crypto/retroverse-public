@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR429819",
+    "kind": "song",
+    "rvtr": "RVTR429819",
+    "generatedAt": "2026-06-28T22:52:40.572Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR429819",
+    "artist": "Billie Eilish",
+    "title": "Lost Cause",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Billie Eilish",
+    "relatedArtists": [
+      "Billie Eilish"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-7o0b2u",
+        "title": "Lost Cause — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-cule87",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Lost Cause.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 27,
+    "chartWeeks": 4,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #27 · 4 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-kka58h",
+      "date": "2021",
+      "label": "Lost Cause — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gr",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #27",
+      "detail": "4 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-q3k35g",
+      "date": "2021",
+      "label": "Lost Cause — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "256ad9f8f87e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429819&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-cule87",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9c617fab54ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429819&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-cule87",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1c2aa17d1f1e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429819&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-cule87",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "273e659a6845",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429819&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-cule87",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7077ca658acc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429819&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-cule87",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-cule87",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Lost Cause.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR429819-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR429819"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Billie Eilish"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Billie Eilish"
+    },
+    {
+      "id": "rel-RVTR429819-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR429819"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #27"
+    },
+    {
+      "id": "rel-RVTR429819-tl-tl-kka58h",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR429819"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kka58h"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Lost Cause — original release"
+    },
+    {
+      "id": "rel-RVTR429819-tl-tl-fcm3gr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR429819"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gr"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #27"
+    },
+    {
+      "id": "rel-RVTR429819-tl-tl-q3k35g",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR429819"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-q3k35g"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Lost Cause — graph recording"
+    },
+    {
+      "id": "rel-RVTR429819-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR429819"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR429819-perf-perf-cule87",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR429819"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-cule87"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-cule87-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cule87"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Lost Cause.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-256ad9f8f87e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cule87"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "256ad9f8f87e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9c617fab54ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cule87"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9c617fab54ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1c2aa17d1f1e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cule87"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1c2aa17d1f1e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-273e659a6845-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cule87"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "273e659a6845"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-7077ca658acc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cule87"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7077ca658acc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR429819. \"Lost Cause\" by Billie Eilish.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #27. 4 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Billie Eilish · Title: Lost Cause · Album: Happier Than Ever · Year: 2021 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Lost Cause.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-623ab6cd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Lost Cause.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c0dd2e6a-5e1a-4133-9360-0831858d9bb1",
+      "category": "artist",
+      "text": "Lost Cause is performed by Billie Eilish.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b6689481-f146-49b8-982b-da55f30b3ec9",
+      "category": "chart",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 4 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9f69cb97-b256-44cf-98fd-8c3dde01ed80",
+      "category": "recording",
+      "text": "Lost Cause was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6e57b677-7f1f-4f5d-8007-c26d4a65d862",
+      "category": "trivia",
+      "text": "Artist: Billie Eilish · Title: Lost Cause · Album: Happier Than Ever · Year: 2021 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Lost Cause.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9a609c7b-3ea5-4535-8cf8-9820fe8ea805",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Lost Cause.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - Lost Cause.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

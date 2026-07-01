@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR982291",
+    "kind": "song",
+    "rvtr": "RVTR982291",
+    "generatedAt": "2026-06-28T23:09:26.663Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR982291",
+    "artist": "Gza",
+    "title": "Liquid Swords",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Gza",
+    "relatedArtists": [
+      "Gza"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-avhjqc",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1995,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/GZA - Liquid Swords.mp4",
+      "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-1zja82",
+      "date": "1995",
+      "label": "Liquid Swords — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1995",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4f06db35de2f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR982291&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-avhjqc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f67d282c99a5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR982291&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-avhjqc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d9eeb341351c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR982291&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-avhjqc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bae245c5553e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR982291&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-avhjqc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "647338390c7a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR982291&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-avhjqc",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-avhjqc",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1995,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/GZA - Liquid Swords.mp4",
+        "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR982291-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR982291"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Gza"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Gza"
+    },
+    {
+      "id": "rel-RVTR982291-tl-tl-1zja82",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR982291"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-1zja82"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Liquid Swords — original release"
+    },
+    {
+      "id": "rel-RVTR982291-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR982291"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR982291-perf-perf-avhjqc",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR982291"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-avhjqc"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-avhjqc-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-avhjqc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/GZA - Liquid Swords.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4f06db35de2f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-avhjqc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4f06db35de2f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-f67d282c99a5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-avhjqc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f67d282c99a5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d9eeb341351c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-avhjqc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d9eeb341351c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-bae245c5553e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-avhjqc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bae245c5553e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-647338390c7a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-avhjqc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "647338390c7a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR982291. \"Liquid Swords\" by Gza.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: GZA · Title: Liquid Swords · Album: Genius* / GZA - Liquid Swords · Year: 1995 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/GZA - Liquid Swords.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b5d1fc62",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/GZA - Liquid Swords.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5eb0405d-ecbc-4f3e-ad19-ca957830b363",
+      "category": "artist",
+      "text": "Liquid Swords is performed by Gza.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "fa154e96-759a-429d-9d36-68e50eecb00c",
+      "category": "trivia",
+      "text": "Artist: GZA · Title: Liquid Swords · Album: Genius* / GZA - Liquid Swords · Year: 1995 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/GZA - Liquid Swords.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f66b3de4-af08-4d07-883f-2b9f37f41fb4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/GZA - Liquid Swords.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/GZA - Liquid Swords.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

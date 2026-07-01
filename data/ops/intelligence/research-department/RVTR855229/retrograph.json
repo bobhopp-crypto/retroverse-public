@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR855229",
+    "kind": "song",
+    "rvtr": "RVTR855229",
+    "generatedAt": "2026-06-28T23:04:52.479Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR855229",
+    "artist": "Michael Gray",
+    "title": "The Weekend",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Michael Gray",
+    "relatedArtists": [
+      "Michael Gray"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-z4jeok",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - The Weekend.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ixl64c",
+      "date": "2004",
+      "label": "The Weekend — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "aa14a8fdcd71",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR855229&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-z4jeok",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "65fe3aed7a9e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR855229&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-z4jeok",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "092c17d80c50",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR855229&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-z4jeok",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e76af82895b2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR855229&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-z4jeok",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a58d027d48dc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR855229&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-z4jeok",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-z4jeok",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - The Weekend.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR855229-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR855229"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Michael Gray"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Michael Gray"
+    },
+    {
+      "id": "rel-RVTR855229-tl-tl-ixl64c",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR855229"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ixl64c"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "The Weekend — original release"
+    },
+    {
+      "id": "rel-RVTR855229-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR855229"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR855229-perf-perf-z4jeok",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR855229"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-z4jeok"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-z4jeok-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z4jeok"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - The Weekend.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-aa14a8fdcd71-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z4jeok"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aa14a8fdcd71"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-65fe3aed7a9e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z4jeok"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "65fe3aed7a9e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-092c17d80c50-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z4jeok"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "092c17d80c50"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e76af82895b2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z4jeok"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e76af82895b2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a58d027d48dc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z4jeok"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a58d027d48dc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR855229. \"The Weekend\" by Michael Gray.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Michael Gray · Title: The Weekend · Album: The Weekend · Year: 2004 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - The Weekend.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-71cef5ca",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - The Weekend.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-293cb842",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Michael Gray - Weekend.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-264bcedc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Michael Gray - The Weekend.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c44aa6b1-74fd-415c-9415-b84e480fad38",
+      "category": "artist",
+      "text": "The Weekend is performed by Michael Gray.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "148fe436-278b-41ea-81cd-9d301613c05f",
+      "category": "trivia",
+      "text": "Artist: Michael Gray · Title: The Weekend · Album: The Weekend · Year: 2004 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - The Weekend.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "419fe63a-9f11-4c46-9c96-b4c4d2ef3b70",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - The Weekend.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5508cfd7-c165-4495-bb65-4bf37ddceadd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Michael Gray - Weekend.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "34699fd6-1b52-49e7-96a4-79f86da3f8e7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Michael Gray - The Weekend.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Michael Gray - The Weekend.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

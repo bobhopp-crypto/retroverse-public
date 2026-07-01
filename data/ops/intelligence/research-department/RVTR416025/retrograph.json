@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR416025",
+    "kind": "song",
+    "rvtr": "RVTR416025",
+    "generatedAt": "2026-06-28T22:52:23.835Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR416025",
+    "artist": "Jimmy Eat World",
+    "title": "Pain",
+    "year": 2004,
+    "albumTitle": "Futures",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL499018/RVAL499018__jimmy-eat-world__futures.jpg"
+  },
+  "artist": {
+    "name": "Jimmy Eat World",
+    "relatedArtists": [
+      "Jimmy Eat World"
+    ]
+  },
+  "album": {
+    "title": "Futures",
+    "releaseYear": 2004,
+    "recordings": [
+      {
+        "id": "rec-ybs0l0",
+        "title": "Futures",
+        "releaseDate": 2004,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-dp2919",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jimmy Eat World - Pain.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 93,
+    "chartWeeks": 2,
+    "albumTitle": "Futures",
+    "summary": "Hot 100 peak #93 · 2 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-xxaxbe",
+      "date": "2004",
+      "label": "Pain — original release",
+      "detail": "Original album: Futures",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3mo",
+      "date": "2004",
+      "label": "Billboard Hot 100 peak #93",
+      "detail": "2 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-n0sgm4",
+      "date": "2004",
+      "label": "Futures",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR416025",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL499018/RVAL499018__jimmy-eat-world__futures.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "27c624f8e726",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR416025&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dp2919",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ba2adb6534b7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR416025&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dp2919",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "73571e91b706",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR416025&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dp2919",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0001aa8b803b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR416025&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dp2919",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "97fd50b2311a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR416025&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dp2919",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dp2919",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jimmy Eat World - Pain.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR416025-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR416025"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jimmy Eat World"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jimmy Eat World"
+    },
+    {
+      "id": "rel-RVTR416025-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR416025"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-ybs0l0"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Futures"
+    },
+    {
+      "id": "rel-RVTR416025-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR416025"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #93"
+    },
+    {
+      "id": "rel-RVTR416025-tl-tl-xxaxbe",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR416025"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-xxaxbe"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Pain — original release"
+    },
+    {
+      "id": "rel-RVTR416025-tl-tl-fcm3mo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR416025"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3mo"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #93"
+    },
+    {
+      "id": "rel-RVTR416025-tl-tl-n0sgm4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR416025"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-n0sgm4"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Futures"
+    },
+    {
+      "id": "rel-RVTR416025-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR416025"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR416025-perf-perf-dp2919",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR416025"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dp2919"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dp2919-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dp2919"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jimmy Eat World - Pain.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-27c624f8e726-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dp2919"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "27c624f8e726"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ba2adb6534b7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dp2919"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ba2adb6534b7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-73571e91b706-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dp2919"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "73571e91b706"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-0001aa8b803b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dp2919"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0001aa8b803b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-97fd50b2311a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dp2919"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "97fd50b2311a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR416025. \"Pain\" by Jimmy Eat World. Album: Futures (2004).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL499018/RVAL499018__jimmy-eat-world__futures.jpg",
+      "excerpt": "Canonical cover assignment for RVTR416025 (Pain). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Futures (2004). Billboard Hot 100 peak: #93. 2 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jimmy Eat World · Title: Pain · Album: Pain · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jimmy Eat World - Pain.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2004.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-07566e2c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jimmy Eat World - Pain.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c8135585-7710-4f96-b842-710bac760b4e",
+      "category": "artist",
+      "text": "Pain is performed by Jimmy Eat World.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "af385e83-8b89-4a94-a3e8-92ab2d85adf8",
+      "category": "album",
+      "text": "The song appears on the album \"Futures\" (2004).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "34ced2f7-df87-4306-a9fd-40a995521306",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR416025.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL499018/RVAL499018__jimmy-eat-world__futures.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "631fc4ad-1f3e-44c3-9622-d1a8479912f1",
+      "category": "chart",
+      "text": "The song peaked at #93 on the Billboard Hot 100 and spent 2 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7e240cf8-4a3e-4edc-b8c0-1ba25db5d8d4",
+      "category": "recording",
+      "text": "Pain was released in 2004.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "862feb48-c3f6-4e14-bfe3-4febe6efa754",
+      "category": "trivia",
+      "text": "Artist: Jimmy Eat World · Title: Pain · Album: Pain · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jimmy Eat World - Pain.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "dac0d38c-fc88-4f31-b408-1427bfcfbf7a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jimmy Eat World - Pain.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jimmy Eat World - Pain.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,450 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR290687",
+    "kind": "song",
+    "rvtr": "RVTR290687",
+    "generatedAt": "2026-06-28T22:50:04.508Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR290687",
+    "artist": "Billie Eilish",
+    "title": "Nda",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Billie Eilish",
+    "relatedArtists": [
+      "Billie Eilish"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-1uf6t0",
+        "title": "Nda — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-q2aa8n",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - NDA.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 39,
+    "chartWeeks": 5,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #39 · 5 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-sbtlap",
+      "date": "2021",
+      "label": "Nda — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ho",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #39",
+      "detail": "5 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-e5ox5i",
+      "date": "2021",
+      "label": "Nda — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "bd12baa0d8ae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR290687&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-q2aa8n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c8722228c6e0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR290687&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-q2aa8n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "363dff52b31d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR290687&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-q2aa8n",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-q2aa8n",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - NDA.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR290687-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR290687"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Billie Eilish"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Billie Eilish"
+    },
+    {
+      "id": "rel-RVTR290687-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR290687"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #39"
+    },
+    {
+      "id": "rel-RVTR290687-tl-tl-sbtlap",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR290687"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sbtlap"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Nda — original release"
+    },
+    {
+      "id": "rel-RVTR290687-tl-tl-fcm3ho",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR290687"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ho"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #39"
+    },
+    {
+      "id": "rel-RVTR290687-tl-tl-e5ox5i",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR290687"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-e5ox5i"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Nda — graph recording"
+    },
+    {
+      "id": "rel-RVTR290687-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR290687"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR290687-perf-perf-q2aa8n",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR290687"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-q2aa8n"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-q2aa8n-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q2aa8n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - NDA.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-bd12baa0d8ae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q2aa8n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bd12baa0d8ae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c8722228c6e0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q2aa8n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c8722228c6e0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-363dff52b31d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-q2aa8n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "363dff52b31d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR290687. \"Nda\" by Billie Eilish.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #39. 5 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Billie Eilish · Title: NDA · Album: Happier Than Ever · Year: 2021 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - NDA.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-d540b522",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - NDA.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "dd441a1c-3193-4523-b9b1-da6298a0d7d9",
+      "category": "artist",
+      "text": "Nda is performed by Billie Eilish.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "041b3d30-2203-4572-b9bd-ff329e4415bd",
+      "category": "chart",
+      "text": "The song peaked at #39 on the Billboard Hot 100 and spent 5 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "81cd95cf-703f-4883-a48e-754239ee3b2d",
+      "category": "recording",
+      "text": "Nda was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "fabd6f84-45bf-429a-a7ea-a1ec4cbf6bf8",
+      "category": "trivia",
+      "text": "Artist: Billie Eilish · Title: NDA · Album: Happier Than Ever · Year: 2021 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - NDA.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "95b7b721-1d2a-4da7-839e-c774a1a6ebf3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - NDA.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Billie Eilish - NDA.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

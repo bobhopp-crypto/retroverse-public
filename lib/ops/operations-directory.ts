@@ -105,10 +105,10 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
       },
       {
         id: "pass-generator",
-        name: "Event Studio · Pass Generator",
-        href: "/ops/event-studio/create/pass-generator",
-        description: "Event production hub — passes, print, digital, and assets for the current show.",
-        purpose: "Generate collectible passes from Event Studio Print suite.",
+        name: "Pass Studio",
+        href: "/bobos/passes",
+        description: "Producer-driven pass production — designs, print, and QR registration for the current show.",
+        purpose: "Generate collectible passes from BobOS Pass Studio.",
         status: "SUNDAY NIGHTS",
       },
       {
@@ -278,11 +278,19 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         status: "IN PROGRESS",
       },
       {
+        id: "event-hub",
+        name: "Event Hub",
+        href: "/bobos/event",
+        description: "BobOS Sunday production hub — Producer, Pass Studio, giveaway, and homepage.",
+        purpose: "Start here for tonight's show: binder, checklist, and one-click production tools.",
+        status: "SUNDAY NIGHTS",
+      },
+      {
         id: "event-studio",
         name: "Event Studio",
         href: "/ops/event-studio",
-        description: "Central production hub for a live event — passes, print, digital, assets, AI.",
-        purpose: "One event owns landing pages, passes, social graphics, giveaways, and prompt profiles.",
+        description: "Legacy Event Studio routes — Producer, assets, publish, and archive.",
+        purpose: "Older ops shell; Event Hub at /bobos/event is the primary BobOS entry.",
         status: "IN PROGRESS",
       },
       {
@@ -384,6 +392,8 @@ export const OPS_PUBLIC_QUICK_LINKS: OpsQuickLink[] = [
 export const OPS_CONSOLE_QUICK_LINKS: OpsQuickLink[] = [
   { label: "Operations Hub", href: "/ops/hub" },
   { label: "Sunday Nights", href: "/ops/sunday-nights" },
+  { label: "Event Hub", href: "/bobos/event" },
+  { label: "Pass Studio", href: "/bobos/passes" },
   { label: "Event Studio", href: "/ops/event-studio" },
   { label: "Content Creator", href: "/ops/content-creator" },
   { label: "Pass Registrations", href: "/ops/pass-registrations" },

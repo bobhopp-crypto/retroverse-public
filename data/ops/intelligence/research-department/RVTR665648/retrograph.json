@@ -1,0 +1,285 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR665648",
+    "kind": "song",
+    "rvtr": "RVTR665648",
+    "generatedAt": "2026-06-28T22:58:58.359Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR665648",
+    "artist": "Crash Kings",
+    "title": "Mountain Man",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Crash Kings",
+    "relatedArtists": [
+      "Crash Kings"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-u3gntd",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2000,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Crash Kings - Mountain Man.mp4",
+      "notes": "Detected year: 2000. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-77o1sr",
+      "date": "2000",
+      "label": "Mountain Man — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2000",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [],
+    "videos": [
+      {
+        "id": "perf-u3gntd",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2000,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Crash Kings - Mountain Man.mp4",
+        "notes": "Detected year: 2000. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR665648-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR665648"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Crash Kings"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Crash Kings"
+    },
+    {
+      "id": "rel-RVTR665648-tl-tl-77o1sr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR665648"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-77o1sr"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Mountain Man — original release"
+    },
+    {
+      "id": "rel-RVTR665648-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR665648"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR665648-perf-perf-u3gntd",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR665648"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-u3gntd"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-u3gntd-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-u3gntd"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Crash Kings - Mountain Man.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR665648. \"Mountain Man\" by Crash Kings.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Crash Kings · Title: Mountain Man · Album: HV 6-10 · Year: 2000 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Crash Kings - Mountain Man.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-288787d8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Crash Kings - Mountain Man.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-018026aa",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Crash Kings - Mountain Man.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1e1d84c9-c288-44f3-9cf6-b49bdcf294ec",
+      "category": "artist",
+      "text": "Mountain Man is performed by Crash Kings.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b953685b-5ebe-40a1-a2be-24bb4d51f572",
+      "category": "trivia",
+      "text": "Artist: Crash Kings · Title: Mountain Man · Album: HV 6-10 · Year: 2000 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Crash Kings - Mountain Man.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "74d7f39f-0819-48ca-8a89-cb7be1f88c8f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Crash Kings - Mountain Man.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d062cef9-9ebb-4749-a66f-0bf0c1cee306",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Crash Kings - Mountain Man.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Visual reference library",
+    "Canonical cover art",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 60,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 41
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Crash Kings - Mountain Man.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

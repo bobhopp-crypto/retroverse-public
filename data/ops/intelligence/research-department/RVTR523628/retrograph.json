@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR523628",
+    "kind": "song",
+    "rvtr": "RVTR523628",
+    "generatedAt": "2026-06-28T22:54:58.855Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR523628",
+    "artist": "Lisa Scott Lee",
+    "title": "Electric",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Lisa Scott Lee",
+    "relatedArtists": [
+      "Lisa Scott Lee"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-v3p6az",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Lisa Scott Lee - Electric.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-upkixd",
+      "date": "2005",
+      "label": "Electric — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "a6e9e7b7b9a8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523628&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-v3p6az",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9739a254cf0a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523628&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-v3p6az",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4eb18c5d3962",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523628&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-v3p6az",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cad9de89c2dc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523628&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-v3p6az",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "96f8ba53e871",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR523628&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-v3p6az",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-v3p6az",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Lisa Scott Lee - Electric.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR523628-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523628"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lisa Scott Lee"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lisa Scott Lee"
+    },
+    {
+      "id": "rel-RVTR523628-tl-tl-upkixd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523628"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-upkixd"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Electric — original release"
+    },
+    {
+      "id": "rel-RVTR523628-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523628"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR523628-perf-perf-v3p6az",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR523628"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-v3p6az"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-v3p6az-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v3p6az"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Lisa Scott Lee - Electric.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-a6e9e7b7b9a8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v3p6az"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a6e9e7b7b9a8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9739a254cf0a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v3p6az"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9739a254cf0a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4eb18c5d3962-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v3p6az"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4eb18c5d3962"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-cad9de89c2dc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v3p6az"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cad9de89c2dc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-96f8ba53e871-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v3p6az"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "96f8ba53e871"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR523628. \"Electric\" by Lisa Scott Lee.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lisa Scott Lee · Title: Electric · Album: Lisa Scott-Lee - Electric · Year: 2005 · Genre: Euro House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Lisa Scott Lee - Electric.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-35cf4bcf",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Lisa Scott Lee - Electric.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8835153d-c8c7-4ce3-8b6d-64f5fba7313b",
+      "category": "artist",
+      "text": "Electric is performed by Lisa Scott Lee.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5a3308c1-3bcc-46e7-903e-8fc5310e0130",
+      "category": "trivia",
+      "text": "Artist: Lisa Scott Lee · Title: Electric · Album: Lisa Scott-Lee - Electric · Year: 2005 · Genre: Euro House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Lisa Scott Lee - Electric.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "66c0e353-db91-497c-9044-7b5dfb7ecafa",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Lisa Scott Lee - Electric.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Lisa Scott Lee - Electric.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

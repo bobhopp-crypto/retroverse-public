@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR087696",
+    "kind": "song",
+    "rvtr": "RVTR087696",
+    "generatedAt": "2026-06-28T22:45:15.219Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR087696",
+    "artist": "Angel City",
+    "title": "Touch Me",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Angel City",
+    "relatedArtists": [
+      "Angel City"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-318qeo",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Angel City - Touch Me.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-59v79v",
+      "date": "2004",
+      "label": "Touch Me — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "6ced57a5d6aa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087696&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-318qeo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c91111a6bdfe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087696&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-318qeo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "17f8850ac821",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087696&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-318qeo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c21bd025f03c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087696&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-318qeo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e8daceabcbdd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087696&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-318qeo",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-318qeo",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Angel City - Touch Me.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR087696-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087696"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Angel City"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Angel City"
+    },
+    {
+      "id": "rel-RVTR087696-tl-tl-59v79v",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087696"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-59v79v"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Touch Me — original release"
+    },
+    {
+      "id": "rel-RVTR087696-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087696"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR087696-perf-perf-318qeo",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087696"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-318qeo"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-318qeo-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-318qeo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Angel City - Touch Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6ced57a5d6aa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-318qeo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6ced57a5d6aa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c91111a6bdfe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-318qeo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c91111a6bdfe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-17f8850ac821-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-318qeo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "17f8850ac821"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c21bd025f03c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-318qeo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c21bd025f03c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e8daceabcbdd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-318qeo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e8daceabcbdd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR087696. \"Touch Me\" by Angel City.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Angel City · Title: Touch Me · Album: Touch Me · Year: 2004 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Angel City - Touch Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-565ad256",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Angel City - Touch Me.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "049ad83e-71df-4860-837a-579a7088a5eb",
+      "category": "artist",
+      "text": "Touch Me is performed by Angel City.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "03c8da47-5962-46d8-b4f7-f80b5e926267",
+      "category": "trivia",
+      "text": "Artist: Angel City · Title: Touch Me · Album: Touch Me · Year: 2004 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Angel City - Touch Me.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b477628d-06ef-4c57-a926-1edfa494fe3e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Angel City - Touch Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Angel City - Touch Me.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

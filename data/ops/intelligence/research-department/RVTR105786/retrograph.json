@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR105786",
+    "kind": "song",
+    "rvtr": "RVTR105786",
+    "generatedAt": "2026-06-28T22:45:51.267Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR105786",
+    "artist": "Small Faces",
+    "title": "Sha La La La",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Small Faces",
+    "relatedArtists": [
+      "Small Faces"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-x6o0c3",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1966,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Small Faces - Sha La La La.mp4",
+      "notes": "Detected year: 1966. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-36owmb",
+      "date": "1966",
+      "label": "Sha La La La — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1966",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9bcd96ec5bab",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105786&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-x6o0c3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a646db7c0cd6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105786&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-x6o0c3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d6d6c0603968",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105786&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-x6o0c3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e2b9f21c4892",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105786&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-x6o0c3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e0acb0644786",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR105786&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-x6o0c3",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-x6o0c3",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1966,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Small Faces - Sha La La La.mp4",
+        "notes": "Detected year: 1966. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR105786-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105786"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Small Faces"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Small Faces"
+    },
+    {
+      "id": "rel-RVTR105786-tl-tl-36owmb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105786"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-36owmb"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Sha La La La — original release"
+    },
+    {
+      "id": "rel-RVTR105786-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105786"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR105786-perf-perf-x6o0c3",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR105786"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-x6o0c3"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-x6o0c3-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x6o0c3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Small Faces - Sha La La La.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9bcd96ec5bab-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x6o0c3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9bcd96ec5bab"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a646db7c0cd6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x6o0c3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a646db7c0cd6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d6d6c0603968-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x6o0c3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d6d6c0603968"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e2b9f21c4892-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x6o0c3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e2b9f21c4892"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-e0acb0644786-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x6o0c3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e0acb0644786"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR105786. \"Sha La La La\" by Small Faces.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Small Faces · Title: Sha La La La · Album: Sha La La La Lee / Itchycoo Park · Year: 1966 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Small Faces - Sha La La La.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-54b7744c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Small Faces - Sha La La La.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4b82ddb9-2baa-4c1e-a249-f21383a6d823",
+      "category": "artist",
+      "text": "Sha La La La is performed by Small Faces.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6e3452b4-ac19-4b70-85b3-77aeaeb5415c",
+      "category": "trivia",
+      "text": "Artist: Small Faces · Title: Sha La La La · Album: Sha La La La Lee / Itchycoo Park · Year: 1966 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Small Faces - Sha La La La.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "01ccfaf0-f40c-46db-90bb-8d7bb3732d62",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Small Faces - Sha La La La.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Small Faces - Sha La La La.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

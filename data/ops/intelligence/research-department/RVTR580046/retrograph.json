@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR580046",
+    "kind": "song",
+    "rvtr": "RVTR580046",
+    "generatedAt": "2026-06-28T22:56:27.705Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR580046",
+    "artist": "Korn",
+    "title": "Word Up",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Korn",
+    "relatedArtists": [
+      "Korn"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-99nf3j",
+      "title": "!",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Korn - Word Up!.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-c2jrjf",
+      "date": "2004",
+      "label": "Word Up — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-vuecyb",
+      "date": "2004",
+      "label": "!",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9ab83858c04b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR580046&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-99nf3j",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0f38f59bce71",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR580046&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-99nf3j",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1975f86e3103",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR580046&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-99nf3j",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7ae61db1e708",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR580046&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-99nf3j",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a777f20bba75",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR580046&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-99nf3j",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-99nf3j",
+        "title": "!",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Korn - Word Up!.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR580046-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR580046"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Korn"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Korn"
+    },
+    {
+      "id": "rel-RVTR580046-tl-tl-c2jrjf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR580046"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-c2jrjf"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Word Up — original release"
+    },
+    {
+      "id": "rel-RVTR580046-tl-tl-vuecyb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR580046"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vuecyb"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "!"
+    },
+    {
+      "id": "rel-RVTR580046-perf-perf-99nf3j",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR580046"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-99nf3j"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "!"
+    },
+    {
+      "id": "rel-perf-99nf3j-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99nf3j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Korn - Word Up!.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "!"
+    },
+    {
+      "id": "rel-9ab83858c04b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99nf3j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9ab83858c04b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-0f38f59bce71-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99nf3j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0f38f59bce71"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1975f86e3103-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99nf3j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1975f86e3103"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7ae61db1e708-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99nf3j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7ae61db1e708"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a777f20bba75-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99nf3j"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a777f20bba75"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR580046. \"Word Up\" by Korn.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Korn · Title: Word Up! · Album: Korn Kobblers - The \"Pick\" Song / Paw's Word Is Law Up In The Hills · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Korn - Word Up!.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6ee3d81a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Korn - Word Up!.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9aeae6d8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Korn- Word Up.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c9107bc0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Korn - Word Up.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1f6a9dda-b726-4220-a4a8-7830b22ffa55",
+      "category": "artist",
+      "text": "Word Up is performed by Korn.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b0efe08c-45c5-42f1-b6ea-20a9956afbcf",
+      "category": "trivia",
+      "text": "· Album: Korn Kobblers - The \"Pick\" Song / Paw's Word Is Law Up In The Hills · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Korn - Word Up!.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a1d1bb12-3a0c-4912-8673-90ea7db5b616",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Korn - Word Up!.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5437d53d-3b4e-4f21-a451-645e1ae0f960",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Korn- Word Up.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e8fd8805-a63c-4fb6-a713-16be0ae75cd7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Korn - Word Up.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Korn - Word Up!.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

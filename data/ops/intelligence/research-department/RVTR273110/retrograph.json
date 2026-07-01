@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR273110",
+    "kind": "song",
+    "rvtr": "RVTR273110",
+    "generatedAt": "2026-06-28T22:49:44.158Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR273110",
+    "artist": "Europe",
+    "title": "Open Your Heart",
+    "year": 1988,
+    "albumTitle": "Out Of This World",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL933916/RVAL933916__europe__out-of-this-world.jpg"
+  },
+  "artist": {
+    "name": "Europe",
+    "relatedArtists": [
+      "Europe"
+    ]
+  },
+  "album": {
+    "title": "Out Of This World",
+    "releaseYear": 1988,
+    "recordings": [
+      {
+        "id": "rec-q3orol",
+        "title": "Out Of This World",
+        "releaseDate": 1988,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-r928s4",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1988,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Open Your Heart.mp4",
+      "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Out Of This World",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k1btf7",
+      "date": "1988",
+      "label": "Open Your Heart — original release",
+      "detail": "Original album: Out Of This World",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-48myoj",
+      "date": "1988",
+      "label": "Out Of This World",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1988",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR273110",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL933916/RVAL933916__europe__out-of-this-world.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "60f68724eba3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR273110&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-r928s4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "02071ec19df8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR273110&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-r928s4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4739a931522b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR273110&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-r928s4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6c52de2ef425",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR273110&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-r928s4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f5e97e6a6bec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR273110&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-r928s4",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-r928s4",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1988,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Open Your Heart.mp4",
+        "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR273110-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR273110"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Europe"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Europe"
+    },
+    {
+      "id": "rel-RVTR273110-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR273110"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-q3orol"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Out Of This World"
+    },
+    {
+      "id": "rel-RVTR273110-tl-tl-k1btf7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR273110"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k1btf7"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Open Your Heart — original release"
+    },
+    {
+      "id": "rel-RVTR273110-tl-tl-48myoj",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR273110"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-48myoj"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Out Of This World"
+    },
+    {
+      "id": "rel-RVTR273110-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR273110"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR273110-perf-perf-r928s4",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR273110"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-r928s4"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-r928s4-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r928s4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Open Your Heart.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-60f68724eba3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r928s4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "60f68724eba3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-02071ec19df8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r928s4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "02071ec19df8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-4739a931522b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r928s4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4739a931522b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6c52de2ef425-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r928s4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6c52de2ef425"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f5e97e6a6bec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-r928s4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f5e97e6a6bec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR273110. \"Open Your Heart\" by Europe. Album: Out Of This World (1988).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL933916/RVAL933916__europe__out-of-this-world.jpg",
+      "excerpt": "Canonical cover assignment for RVTR273110 (Open Your Heart). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Out Of This World (1988)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Europe · Title: Open Your Heart · Year: 1988 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Open Your Heart.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1988.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-aa73862e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Open Your Heart.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6a32012f-587e-4328-bff2-612fa59e8864",
+      "category": "artist",
+      "text": "Open Your Heart is performed by Europe.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "74f5f601-71e2-4b13-9dae-84e9f06e2cc7",
+      "category": "album",
+      "text": "The song appears on the album \"Out Of This World\" (1988).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "dde7004b-fe03-4654-b60a-b2d00ac09718",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR273110.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL933916/RVAL933916__europe__out-of-this-world.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7d14fc72-9122-4192-b037-e369f3f69a33",
+      "category": "recording",
+      "text": "Open Your Heart was released in 1988.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8672b55e-e028-4072-93b4-263da497f562",
+      "category": "trivia",
+      "text": "Artist: Europe · Title: Open Your Heart · Year: 1988 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Open Your Heart.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "18da9b8a-c1c1-4a9d-99d5-9a88e7d937b9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Open Your Heart.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Europe - Open Your Heart.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

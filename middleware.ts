@@ -1,13 +1,40 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { isOpsEnabled, opsGateCookieValue } from "@/lib/ops/ops-gate";
+import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 
-export function middleware(request: NextRequest) {
-  if (!isOpsEnabled()) {
+function blockLocalOnlyRoute(request: NextRequest): NextResponse {
+  const { pathname } = request.nextUrl;
+  if (pathname.startsWith("/api/")) {
     return new NextResponse("Not found", { status: 404 });
   }
+  return NextResponse.redirect(new URL("/", request.url));
+}
 
+export function middleware(request: NextRequest) {
+  const host = request.headers.get("host");
   const { pathname } = request.nextUrl;
+
+  if (
+    pathname === "/local" ||
+    pathname.startsWith("/local/") ||
+    pathname === "/bobos" ||
+    pathname.startsWith("/bobos/") ||
+    pathname.startsWith("/api/ops/content-creator/library/files/")
+  ) {
+    if (!shouldAllowOpsRoutes(host)) {
+      return blockLocalOnlyRoute(request);
+    }
+    return NextResponse.next();
+  }
+
+  if (!shouldAllowOpsRoutes(host)) {
+    return blockLocalOnlyRoute(request);
+  }
+
+  if (!isOpsEnabled(host)) {
+    return new NextResponse("Not found", { status: 404 });
+  }
 
   if (
     pathname === "/internal/ops-pin" ||
@@ -33,6 +60,10 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/local",
+    "/local/:path*",
+    "/bobos",
+    "/bobos/:path*",
     "/ops",
     "/ops/:path*",
     "/diagnostics",

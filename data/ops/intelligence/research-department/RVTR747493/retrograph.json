@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR747493",
+    "kind": "song",
+    "rvtr": "RVTR747493",
+    "generatedAt": "2026-06-28T23:01:17.705Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR747493",
+    "artist": "Brooks",
+    "title": "Neon Moon",
+    "year": 2024,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Brooks",
+    "relatedArtists": [
+      "Brooks"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2024,
+    "recordings": [
+      {
+        "id": "rec-6bk2dr",
+        "title": "Neon Moon — graph recording",
+        "releaseDate": 2024,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-j53hwa",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1991,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Brooks & Dunn - Neon Moon.mp4",
+      "notes": "Detected year: 1991. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 97,
+    "chartWeeks": 1,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #97 · 1 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-o7zk9d",
+      "date": "2024",
+      "label": "Neon Moon — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ms",
+      "date": "2024",
+      "label": "Billboard Hot 100 peak #97",
+      "detail": "1 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-piu8ru",
+      "date": "2024",
+      "label": "Neon Moon — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1991",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "80cd96f9fe86",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR747493&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-j53hwa",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9732b0f830f4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR747493&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-j53hwa",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cebe550fccf6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR747493&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-j53hwa",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e9691995613a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR747493&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-j53hwa",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3e3b51a8bec1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR747493&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-j53hwa",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-j53hwa",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1991,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Brooks & Dunn - Neon Moon.mp4",
+        "notes": "Detected year: 1991. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR747493-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR747493"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Brooks"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Brooks"
+    },
+    {
+      "id": "rel-RVTR747493-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR747493"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #97"
+    },
+    {
+      "id": "rel-RVTR747493-tl-tl-o7zk9d",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR747493"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-o7zk9d"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Neon Moon — original release"
+    },
+    {
+      "id": "rel-RVTR747493-tl-tl-fcm3ms",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR747493"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ms"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #97"
+    },
+    {
+      "id": "rel-RVTR747493-tl-tl-piu8ru",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR747493"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-piu8ru"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Neon Moon — graph recording"
+    },
+    {
+      "id": "rel-RVTR747493-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR747493"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR747493-perf-perf-j53hwa",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR747493"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-j53hwa"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-j53hwa-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j53hwa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Brooks & Dunn - Neon Moon.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-80cd96f9fe86-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j53hwa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "80cd96f9fe86"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9732b0f830f4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j53hwa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9732b0f830f4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-cebe550fccf6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j53hwa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cebe550fccf6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-e9691995613a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j53hwa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e9691995613a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-3e3b51a8bec1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j53hwa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3e3b51a8bec1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR747493. \"Neon Moon\" by Brooks.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #97. 1 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Brooks & Dunn · Title: Neon Moon · Album: Brand New Man · Year: 1991 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Brooks & Dunn - Neon Moon.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2024.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-0c1c852b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Brooks & Dunn - Neon Moon.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "198231db-8dba-4aed-be62-55fa37352578",
+      "category": "artist",
+      "text": "Neon Moon is performed by Brooks.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "115380b8-8b76-4fd1-8b77-ffceab6c9b65",
+      "category": "chart",
+      "text": "The song peaked at #97 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "27075187-129a-4b6d-b244-2da07e950852",
+      "category": "recording",
+      "text": "Neon Moon was released in 2024.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "aa8ec1b7-1b49-4965-a341-d7fbb17a3d1a",
+      "category": "trivia",
+      "text": "Artist: Brooks & Dunn · Title: Neon Moon · Album: Brand New Man · Year: 1991 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Brooks & Dunn - Neon Moon.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2285d754-53e8-42aa-9e13-f7f4c80071e1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Brooks & Dunn - Neon Moon.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Brooks & Dunn - Neon Moon.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

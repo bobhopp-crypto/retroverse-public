@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR395087",
+    "kind": "song",
+    "rvtr": "RVTR395087",
+    "generatedAt": "2026-06-28T22:52:02.198Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR395087",
+    "artist": "Seether",
+    "title": "Country Song",
+    "year": 2011,
+    "albumTitle": "Holding Onto Strings Better Left To Fray",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Seether",
+    "relatedArtists": [
+      "Seether"
+    ]
+  },
+  "album": {
+    "title": "Holding Onto Strings Better Left To Fray",
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-10gztr",
+        "title": "Holding Onto Strings Better Left To Fray",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-srt0yx",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Seether - Country Song.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 72,
+    "chartWeeks": 18,
+    "albumTitle": "Holding Onto Strings Better Left To Fray",
+    "summary": "Hot 100 peak #72 · 18 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-pu8qr7",
+      "date": "2011",
+      "label": "Country Song — original release",
+      "detail": "Original album: Holding Onto Strings Better Left To Fray",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3kx",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #72",
+      "detail": "18 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ml1kr7",
+      "date": "2011",
+      "label": "Holding Onto Strings Better Left To Fray",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d5fc12ae6241",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR395087&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-srt0yx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5e95c300e84a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR395087&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-srt0yx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "46177ada9b7a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR395087&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-srt0yx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ab890f7ef04a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR395087&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-srt0yx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fe154cdfca04",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR395087&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-srt0yx",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-srt0yx",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Seether - Country Song.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR395087-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR395087"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Seether"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Seether"
+    },
+    {
+      "id": "rel-RVTR395087-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR395087"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-10gztr"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Holding Onto Strings Better Left To Fray"
+    },
+    {
+      "id": "rel-RVTR395087-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR395087"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #72"
+    },
+    {
+      "id": "rel-RVTR395087-tl-tl-pu8qr7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR395087"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-pu8qr7"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Country Song — original release"
+    },
+    {
+      "id": "rel-RVTR395087-tl-tl-fcm3kx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR395087"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3kx"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #72"
+    },
+    {
+      "id": "rel-RVTR395087-tl-tl-ml1kr7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR395087"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ml1kr7"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Holding Onto Strings Better Left To Fray"
+    },
+    {
+      "id": "rel-RVTR395087-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR395087"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR395087-perf-perf-srt0yx",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR395087"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-srt0yx"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-srt0yx-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-srt0yx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Seether - Country Song.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d5fc12ae6241-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-srt0yx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d5fc12ae6241"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5e95c300e84a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-srt0yx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5e95c300e84a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-46177ada9b7a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-srt0yx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "46177ada9b7a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ab890f7ef04a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-srt0yx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ab890f7ef04a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-fe154cdfca04-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-srt0yx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fe154cdfca04"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR395087. \"Country Song\" by Seether. Album: Holding Onto Strings Better Left To Fray (2011).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Holding Onto Strings Better Left To Fray (2011). Billboard Hot 100 peak: #72. 18 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Seether · Title: Country Song · Album: HV 06-11 · Year: 2011 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Seether - Country Song.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ed736ae0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Seether - Country Song.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e7f6c74f-65a0-4656-82de-e1d1a077f498",
+      "category": "artist",
+      "text": "Country Song is performed by Seether.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9bb2c2a3-795b-4168-82d1-cd4986fef0ea",
+      "category": "album",
+      "text": "The song appears on the album \"Holding Onto Strings Better Left To Fray\" (2011).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bc63657b-9d47-44c1-97e5-192f40a038a9",
+      "category": "chart",
+      "text": "The song peaked at #72 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a830f801-b145-49a3-8298-c47edf1398be",
+      "category": "recording",
+      "text": "Country Song was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3f21a3a1-b53c-4b95-855d-dbff82e9d0de",
+      "category": "trivia",
+      "text": "Album: Holding Onto Strings Better Left To Fray (2011).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8e5ac61b-93e1-4959-b680-6d43e1291768",
+      "category": "trivia",
+      "text": "Artist: Seether · Title: Country Song · Album: HV 06-11 · Year: 2011 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Seether - Country Song.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8c105c8b-a0af-4997-867c-884762432653",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Seether - Country Song.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 1,
+    "clusters": [
+      {
+        "clusterId": "cluster-3f21a3a1",
+        "keptFactId": "3f21a3a1-b53c-4b95-855d-dbff82e9d0de",
+        "memberIds": [
+          "f8f67acf-81ef-4338-a537-a8c02f56d047"
+        ],
+        "reason": "Duplicate cluster (2) — kept highest confidence"
+      }
+    ]
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 1,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Seether - Country Song.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

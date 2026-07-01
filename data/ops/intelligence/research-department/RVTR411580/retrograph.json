@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR411580",
+    "kind": "song",
+    "rvtr": "RVTR411580",
+    "generatedAt": "2026-06-28T22:52:20.561Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR411580",
+    "artist": "Judds",
+    "title": "Mama He's Crazy",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Judds",
+    "relatedArtists": [
+      "Judds"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-jcjryw",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1984,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/The Judds - Mama He's Crazy.mp4",
+      "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fgac96",
+      "date": "1984",
+      "label": "Mama He's Crazy — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1984",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ffaee9a8c869",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR411580&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-jcjryw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a1b06ea7ce12",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR411580&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-jcjryw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "19e5950d0d89",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR411580&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-jcjryw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aceb02d7724a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR411580&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-jcjryw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3f132cc5ce4c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR411580&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-jcjryw",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-jcjryw",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1984,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/The Judds - Mama He's Crazy.mp4",
+        "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR411580-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR411580"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Judds"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Judds"
+    },
+    {
+      "id": "rel-RVTR411580-tl-tl-fgac96",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR411580"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fgac96"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Mama He's Crazy — original release"
+    },
+    {
+      "id": "rel-RVTR411580-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR411580"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR411580-perf-perf-jcjryw",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR411580"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-jcjryw"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-jcjryw-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jcjryw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/The Judds - Mama He's Crazy.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ffaee9a8c869-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jcjryw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ffaee9a8c869"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a1b06ea7ce12-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jcjryw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a1b06ea7ce12"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-19e5950d0d89-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jcjryw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "19e5950d0d89"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-aceb02d7724a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jcjryw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aceb02d7724a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-3f132cc5ce4c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jcjryw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3f132cc5ce4c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR411580. \"Mama He's Crazy\" by Judds.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Judds · Title: Mama He's Crazy · Album: Wynonna And Naomi · Year: 1984 · Genre: Folk, World, & Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/The Judds - Mama He's Crazy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ec3fbc74",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/The Judds - Mama He's Crazy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3ba27b3e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1970's-80's/Judds - Mama He's Crazy.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "91452352-d038-4cf2-9fba-9d7c8cb5b1f4",
+      "category": "artist",
+      "text": "Mama He's Crazy is performed by Judds.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "916d43ff-9d69-4dc4-ad51-86448abea3b8",
+      "category": "trivia",
+      "text": "Artist: The Judds · Title: Mama He's Crazy · Album: Wynonna And Naomi · Year: 1984 · Genre: Folk, World, & Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/The Judds - Mama He's Crazy.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "450d3a64-255d-4248-847a-197c6f1da593",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/The Judds - Mama He's Crazy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ea67dd3b-2e19-4666-b7ce-d300a4fb29e8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1970's-80's/Judds - Mama He's Crazy.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/The Judds - Mama He's Crazy.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

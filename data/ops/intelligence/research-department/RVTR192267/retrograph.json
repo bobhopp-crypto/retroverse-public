@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR192267",
+    "kind": "song",
+    "rvtr": "RVTR192267",
+    "generatedAt": "2026-06-28T22:47:42.984Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR192267",
+    "artist": "Mr. Probz",
+    "title": "Waves",
+    "year": 2014,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mr. Probz",
+    "relatedArtists": [
+      "Mr. Probz"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2014,
+    "recordings": [
+      {
+        "id": "rec-j4uf4v",
+        "title": "Waves — graph recording",
+        "releaseDate": 2014,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-uhk3ue",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mr Probz - Waves.MP4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 14,
+    "chartWeeks": 25,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #14 · 25 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-h35pxa",
+      "date": "2014",
+      "label": "Waves — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ft",
+      "date": "2014",
+      "label": "Billboard Hot 100 peak #14",
+      "detail": "25 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-zet1nd",
+      "date": "2014",
+      "label": "Waves — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2014",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e885b86e1589",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR192267&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-uhk3ue",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "06edd243d723",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR192267&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-uhk3ue",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ce9cc371da9b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR192267&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-uhk3ue",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "63cdb0ad0f4d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR192267&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-uhk3ue",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "11fbecab9297",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR192267&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-uhk3ue",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-uhk3ue",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mr Probz - Waves.MP4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR192267-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR192267"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mr. Probz"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mr. Probz"
+    },
+    {
+      "id": "rel-RVTR192267-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR192267"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #14"
+    },
+    {
+      "id": "rel-RVTR192267-tl-tl-h35pxa",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR192267"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-h35pxa"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Waves — original release"
+    },
+    {
+      "id": "rel-RVTR192267-tl-tl-fcm3ft",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR192267"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ft"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #14"
+    },
+    {
+      "id": "rel-RVTR192267-tl-tl-zet1nd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR192267"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-zet1nd"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Waves — graph recording"
+    },
+    {
+      "id": "rel-RVTR192267-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR192267"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR192267-perf-perf-uhk3ue",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR192267"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-uhk3ue"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-uhk3ue-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uhk3ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mr Probz - Waves.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e885b86e1589-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uhk3ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e885b86e1589"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-06edd243d723-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uhk3ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "06edd243d723"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ce9cc371da9b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uhk3ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ce9cc371da9b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-63cdb0ad0f4d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uhk3ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "63cdb0ad0f4d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-11fbecab9297-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uhk3ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "11fbecab9297"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR192267. \"Waves\" by Mr. Probz.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #14. 25 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mr Probz · Title: Waves · Album: Waves · Year: 2014 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mr Probz - Waves.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2014.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ae817218",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mr Probz - Waves.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ce0c4a2d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Mr. Probz - Waves.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c5500fb5-8c93-44c5-b22e-e51bd9d9be09",
+      "category": "artist",
+      "text": "Waves is performed by Mr. Probz.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c2083400-2802-4d95-af7a-74977bc69b8c",
+      "category": "chart",
+      "text": "The song peaked at #14 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b3117898-b111-4043-bd73-b08604ae4196",
+      "category": "recording",
+      "text": "Waves was released in 2014.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a8a8d511-c1a2-4b80-9e30-a4d32189e393",
+      "category": "trivia",
+      "text": "Artist: Mr Probz · Title: Waves · Album: Waves · Year: 2014 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mr Probz - Waves.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4f4a7bb2-c9b1-443d-a462-2aeefe33177c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mr Probz - Waves.MP4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "94b1925e-ed3d-4564-b95b-650edbdc2123",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Mr.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mr Probz - Waves.MP4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR920387",
+    "kind": "song",
+    "rvtr": "RVTR920387",
+    "generatedAt": "2026-06-28T22:42:24.065Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR920387",
+    "artist": "Matchbox Twenty",
+    "title": "3 A M",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Matchbox Twenty",
+    "relatedArtists": [
+      "Matchbox Twenty"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-37yguy",
+      "title": "3 A.M",
+      "kind": "performance",
+      "year": 1998,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - 3 A.M.mp4",
+      "notes": "Detected year: 1998. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-acx1r9",
+      "date": "1998",
+      "label": "3 A M — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-d0rltr",
+      "date": "1998",
+      "label": "3 A.M",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "1753267648bf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920387&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-37yguy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "528bf440d37f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920387&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-37yguy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "55ad31f522e6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920387&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-37yguy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1c7df0a709fb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920387&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-37yguy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6eb4cfd505da",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920387&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-37yguy",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-37yguy",
+        "title": "3 A.M",
+        "kind": "performance",
+        "year": 1998,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - 3 A.M.mp4",
+        "notes": "Detected year: 1998. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR920387-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920387"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Matchbox Twenty"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Matchbox Twenty"
+    },
+    {
+      "id": "rel-RVTR920387-tl-tl-acx1r9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920387"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-acx1r9"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "3 A M — original release"
+    },
+    {
+      "id": "rel-RVTR920387-tl-tl-d0rltr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920387"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-d0rltr"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "3 A.M"
+    },
+    {
+      "id": "rel-RVTR920387-perf-perf-37yguy",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920387"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-37yguy"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "3 A.M"
+    },
+    {
+      "id": "rel-perf-37yguy-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-37yguy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - 3 A.M.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "3 A.M"
+    },
+    {
+      "id": "rel-1753267648bf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-37yguy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1753267648bf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-528bf440d37f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-37yguy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "528bf440d37f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-55ad31f522e6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-37yguy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "55ad31f522e6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1c7df0a709fb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-37yguy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1c7df0a709fb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6eb4cfd505da-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-37yguy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6eb4cfd505da"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR920387. \"3 A M\" by Matchbox Twenty.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Matchbox Twenty · Title: 3 A.M · Album: Now! 3 · Year: 1998 · Genre: Alternative Rock · PlayCount: 1 · LastPlayed: 1759697891 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - 3 A.M.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4ec743ba",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - 3 A.M.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6e528a8c-17ad-430d-b84b-53d0de8bbcb6",
+      "category": "artist",
+      "text": "3 A M is performed by Matchbox Twenty.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "686267bf-3baa-476b-b173-a4bf82fa280f",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "910481e0-4732-4145-9a58-80507f3d99c1",
+      "category": "trivia",
+      "text": "Artist: Matchbox Twenty · Title: 3 A.M · Album: Now!",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "dd34904f-583a-424e-bfd2-5586399295b2",
+      "category": "trivia",
+      "text": "3 · Year: 1998 · Genre: Alternative Rock · PlayCount: 1 · LastPlayed: 1759697891 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - 3 A.M.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "70c6d7ee-a1a5-4f9f-b5a7-a4da25f1c43e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - 3 A.M.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Matchbox Twenty - 3 A.M.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

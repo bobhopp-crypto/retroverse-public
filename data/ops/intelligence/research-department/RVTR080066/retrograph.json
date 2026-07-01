@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR080066",
+    "kind": "song",
+    "rvtr": "RVTR080066",
+    "generatedAt": "2026-06-28T22:45:04.410Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR080066",
+    "artist": "Exposé",
+    "title": "What You Don't Know",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Exposé",
+    "relatedArtists": [
+      "Exposé"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-lh0mv7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1989,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - What You Don't Know.mp4",
+      "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-t9aqh0",
+      "date": "1989",
+      "label": "What You Don't Know — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1989",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "22bdbeec5b7f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR080066&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lh0mv7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8a73836b9575",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR080066&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lh0mv7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1da2ba9e4b1f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR080066&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lh0mv7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bb2833a0f98b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR080066&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-lh0mv7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bc87d010fc85",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR080066&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lh0mv7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lh0mv7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1989,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - What You Don't Know.mp4",
+        "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR080066-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR080066"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Exposé"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Exposé"
+    },
+    {
+      "id": "rel-RVTR080066-tl-tl-t9aqh0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR080066"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-t9aqh0"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "What You Don't Know — original release"
+    },
+    {
+      "id": "rel-RVTR080066-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR080066"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR080066-perf-perf-lh0mv7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR080066"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lh0mv7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-lh0mv7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh0mv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - What You Don't Know.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-22bdbeec5b7f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh0mv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "22bdbeec5b7f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-8a73836b9575-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh0mv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8a73836b9575"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-1da2ba9e4b1f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh0mv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1da2ba9e4b1f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-bb2833a0f98b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh0mv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bb2833a0f98b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-bc87d010fc85-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lh0mv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bc87d010fc85"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR080066. \"What You Don't Know\" by Exposé.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Exposé · Title: What You Don't Know · Album: What You Don't Know · Year: 1989 · Genre: Freestyle · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - What You Don't Know.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e7a2e962",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - What You Don't Know.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0cc193b7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Expose - What You Don't Know.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "330e77f6-ffe3-49fa-b345-d5bca4688137",
+      "category": "artist",
+      "text": "What You Don't Know is performed by Exposé.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ff0480e2-f814-461f-9aef-f1c00b81789f",
+      "category": "trivia",
+      "text": "Artist: Exposé · Title: What You Don't Know · Album: What You Don't Know · Year: 1989 · Genre: Freestyle · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - What You Don't Know.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8dcc577f-5382-4d2c-a3a4-e1f8c0604775",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - What You Don't Know.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "69662bab-b1ca-4034-aa3c-1cc574eaea8a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Expose - What You Don't Know.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - What You Don't Know.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

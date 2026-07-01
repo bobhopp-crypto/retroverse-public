@@ -1,0 +1,420 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR870440",
+    "kind": "song",
+    "rvtr": "RVTR870440",
+    "generatedAt": "2026-06-28T22:41:51.660Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR870440",
+    "artist": "Semisonic",
+    "title": "Closing Time",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Semisonic",
+    "relatedArtists": [
+      "Semisonic"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-nw5mxw",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1996,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Semisonic - Closing Time.mp4",
+      "notes": "Detected year: 1996. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-a9s8p8",
+      "date": "1996",
+      "label": "Closing Time — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1996",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "36c346192f1e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR870440&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-nw5mxw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "74368eb4749a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR870440&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-nw5mxw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5b578d00af12",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR870440&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-nw5mxw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4a79b5b5b7aa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR870440&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-nw5mxw",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "76070388b664",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR870440&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-nw5mxw",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-nw5mxw",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1996,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Semisonic - Closing Time.mp4",
+        "notes": "Detected year: 1996. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR870440-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR870440"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Semisonic"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Semisonic"
+    },
+    {
+      "id": "rel-RVTR870440-tl-tl-a9s8p8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR870440"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-a9s8p8"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Closing Time — original release"
+    },
+    {
+      "id": "rel-RVTR870440-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR870440"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR870440-perf-perf-nw5mxw",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR870440"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-nw5mxw"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-nw5mxw-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nw5mxw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Semisonic - Closing Time.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-36c346192f1e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nw5mxw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "36c346192f1e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-74368eb4749a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nw5mxw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "74368eb4749a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5b578d00af12-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nw5mxw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5b578d00af12"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4a79b5b5b7aa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nw5mxw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a79b5b5b7aa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-76070388b664-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-nw5mxw"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "76070388b664"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR870440. \"Closing Time\" by Semisonic.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Semisonic · Title: Closing Time · Album: Closing Time · Year: 1996 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Semisonic - Closing Time.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7d66891a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Semisonic - Closing Time.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-06e81151",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Semisonic - Closing Time.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "efc9ed04-29ce-4813-a74c-14aed047f018",
+      "category": "artist",
+      "text": "Closing Time is performed by Semisonic.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "233cf9b3-2e35-4903-b057-429d29432e43",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ecde6f08-65b4-4488-9d87-8a5e3e7fb97b",
+      "category": "trivia",
+      "text": "Artist: Semisonic · Title: Closing Time · Album: Closing Time · Year: 1996 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Semisonic - Closing Time.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9373597d-0a76-4297-9fe2-d244c2be7bb5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Semisonic - Closing Time.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ae6c5093-303c-4fcd-bf6c-bab9eb0e78e1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Semisonic - Closing Time.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 2,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Semisonic - Closing Time.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

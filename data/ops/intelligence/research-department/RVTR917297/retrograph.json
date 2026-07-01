@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR917297",
+    "kind": "song",
+    "rvtr": "RVTR917297",
+    "generatedAt": "2026-06-28T23:07:05.660Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR917297",
+    "artist": "DJ Dean",
+    "title": "Protect Your Ass",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "DJ Dean",
+    "relatedArtists": [
+      "DJ Dean"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-os7sxx",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Dean - Protect Your Ass.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-t3ei9z",
+      "date": "2003",
+      "label": "Protect Your Ass — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c83bed5d2f85",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR917297&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-os7sxx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6807f8bf9900",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR917297&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-os7sxx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "76bfcfe18cc8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR917297&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-os7sxx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7da988155bc8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR917297&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-os7sxx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "89a2b2131d15",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR917297&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-os7sxx",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-os7sxx",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Dean - Protect Your Ass.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR917297-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR917297"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "DJ Dean"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "DJ Dean"
+    },
+    {
+      "id": "rel-RVTR917297-tl-tl-t3ei9z",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR917297"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-t3ei9z"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Protect Your Ass — original release"
+    },
+    {
+      "id": "rel-RVTR917297-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR917297"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR917297-perf-perf-os7sxx",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR917297"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-os7sxx"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-os7sxx-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-os7sxx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Dean - Protect Your Ass.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c83bed5d2f85-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-os7sxx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c83bed5d2f85"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6807f8bf9900-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-os7sxx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6807f8bf9900"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-76bfcfe18cc8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-os7sxx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "76bfcfe18cc8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7da988155bc8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-os7sxx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7da988155bc8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-89a2b2131d15-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-os7sxx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "89a2b2131d15"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR917297. \"Protect Your Ass\" by DJ Dean.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: DJ Dean · Title: Protect Your Ass · Album: Housemeister XVIII · Year: 2003 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Dean - Protect Your Ass.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a4f75a22",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Dean - Protect Your Ass.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f58d9bb7-2a86-4070-9ef2-70401d533549",
+      "category": "artist",
+      "text": "Protect Your Ass is performed by DJ Dean.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2f0db5be-3fca-43b6-8b50-8e7ab81196a5",
+      "category": "trivia",
+      "text": "Artist: DJ Dean · Title: Protect Your Ass · Album: Housemeister XVIII · Year: 2003 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Dean - Protect Your Ass.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ec39b585-da4c-44fd-abd9-f868b2aca2ec",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Dean - Protect Your Ass.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/DJ Dean - Protect Your Ass.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

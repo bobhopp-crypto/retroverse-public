@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR296391",
+    "kind": "song",
+    "rvtr": "RVTR296391",
+    "generatedAt": "2026-06-28T22:50:08.586Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR296391",
+    "artist": "Young Love",
+    "title": "Find A New Way",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Young Love",
+    "relatedArtists": [
+      "Young Love"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-9luv9f",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Young Love - Find A New Way.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-l8pi3h",
+      "date": "2007",
+      "label": "Find A New Way — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ff8c9c60a840",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR296391&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-9luv9f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "23bf92f6467c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR296391&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-9luv9f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7265805dd59b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR296391&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-9luv9f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "74e9b1769293",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR296391&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-9luv9f",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9f8f42da2abd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR296391&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-9luv9f",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-9luv9f",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Young Love - Find A New Way.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR296391-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR296391"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Young Love"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Young Love"
+    },
+    {
+      "id": "rel-RVTR296391-tl-tl-l8pi3h",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR296391"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l8pi3h"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Find A New Way — original release"
+    },
+    {
+      "id": "rel-RVTR296391-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR296391"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR296391-perf-perf-9luv9f",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR296391"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-9luv9f"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-9luv9f-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9luv9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Young Love - Find A New Way.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ff8c9c60a840-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9luv9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ff8c9c60a840"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-23bf92f6467c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9luv9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "23bf92f6467c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7265805dd59b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9luv9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7265805dd59b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-74e9b1769293-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9luv9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "74e9b1769293"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9f8f42da2abd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9luv9f"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9f8f42da2abd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR296391. \"Find A New Way\" by Young Love.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Young Love · Title: Find A New Way · Album: Find A New Way · Year: 2007 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Young Love - Find A New Way.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e7b9c070",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Young Love - Find A New Way.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "eb91a511-7673-411a-a440-3744b82d2dd5",
+      "category": "artist",
+      "text": "Find A New Way is performed by Young Love.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d53177e5-1a8b-432d-a600-32ca28a57969",
+      "category": "trivia",
+      "text": "Artist: Young Love · Title: Find A New Way · Album: Find A New Way · Year: 2007 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Young Love - Find A New Way.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9120377f-e7f1-4a41-a22b-79774e179012",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Young Love - Find A New Way.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Young Love - Find A New Way.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

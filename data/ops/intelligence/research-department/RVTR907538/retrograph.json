@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR907538",
+    "kind": "song",
+    "rvtr": "RVTR907538",
+    "generatedAt": "2026-06-28T23:06:48.232Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR907538",
+    "artist": "Mocedades",
+    "title": "Eres Tu Touch The Wind",
+    "year": 1974,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mocedades",
+    "relatedArtists": [
+      "Mocedades"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1974,
+    "recordings": [
+      {
+        "id": "rec-qtxp3h",
+        "title": "Eres Tu Touch The Wind — graph recording",
+        "releaseDate": 1974,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-l19lit",
+      "title": "Eres Tu",
+      "kind": "performance",
+      "year": 1973,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mocedades - Eres Tu.mp4",
+      "notes": "Detected year: 1973. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 9,
+    "chartWeeks": 17,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #9 · 17 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-lbena",
+      "date": "1974",
+      "label": "Eres Tu Touch The Wind — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2r",
+      "date": "1974",
+      "label": "Billboard Hot 100 peak #9",
+      "detail": "17 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-nuv98n",
+      "date": "1974",
+      "label": "Eres Tu Touch The Wind — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-viho4y",
+      "date": "1973",
+      "label": "Eres Tu",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b9aa1e7fb94e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907538&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-l19lit",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "344bedb8f53a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907538&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-l19lit",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9d4cce6361df",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907538&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-l19lit",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "24f2247bca1d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907538&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-l19lit",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "807ceefa6273",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR907538&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-l19lit",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-l19lit",
+        "title": "Eres Tu",
+        "kind": "performance",
+        "year": 1973,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mocedades - Eres Tu.mp4",
+        "notes": "Detected year: 1973. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR907538-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907538"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mocedades"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mocedades"
+    },
+    {
+      "id": "rel-RVTR907538-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907538"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #9"
+    },
+    {
+      "id": "rel-RVTR907538-tl-tl-lbena",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907538"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-lbena"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Eres Tu Touch The Wind — original release"
+    },
+    {
+      "id": "rel-RVTR907538-tl-tl-l47p2r",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907538"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2r"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #9"
+    },
+    {
+      "id": "rel-RVTR907538-tl-tl-nuv98n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907538"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nuv98n"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Eres Tu Touch The Wind — graph recording"
+    },
+    {
+      "id": "rel-RVTR907538-tl-tl-viho4y",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907538"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-viho4y"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Eres Tu"
+    },
+    {
+      "id": "rel-RVTR907538-perf-perf-l19lit",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR907538"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-l19lit"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Eres Tu"
+    },
+    {
+      "id": "rel-perf-l19lit-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-l19lit"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mocedades - Eres Tu.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Eres Tu"
+    },
+    {
+      "id": "rel-b9aa1e7fb94e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-l19lit"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b9aa1e7fb94e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-344bedb8f53a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-l19lit"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "344bedb8f53a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9d4cce6361df-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-l19lit"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9d4cce6361df"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-24f2247bca1d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-l19lit"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "24f2247bca1d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-807ceefa6273-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-l19lit"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "807ceefa6273"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR907538. \"Eres Tu Touch The Wind\" by Mocedades.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #9. 17 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mocedades · Title: Eres Tu · Album: Eres Tu (Touch The Wind) / Touch The Wind (Eres Tu) · Year: 1973 · Genre: Latin · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mocedades - Eres Tu.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1974.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c10e5cc9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mocedades - Eres Tu.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-744d6939",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Mocedades - Eres Tu (Touch The Wind).mp3 · Performance: Touch The Wind",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ab0e6cd8-f748-4b38-a557-a9386e1ae7b8",
+      "category": "artist",
+      "text": "Eres Tu Touch The Wind is performed by Mocedades.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bee3344c-b33b-4dee-ad90-fa4e026fbaf1",
+      "category": "chart",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "691195e9-fb18-441b-b6ca-6648179ed894",
+      "category": "recording",
+      "text": "Eres Tu Touch The Wind was released in 1974.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4240ae79-e6ee-4c98-a733-4fe0cb7c5b9f",
+      "category": "trivia",
+      "text": "Artist: Mocedades · Title: Eres Tu · Album: Eres Tu (Touch The Wind) / Touch The Wind (Eres Tu) · Year: 1973 · Genre: Latin · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mocedades - Eres Tu.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7290b22a-0d93-47ce-a23a-578f045f88eb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mocedades - Eres Tu.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0cea17d5-9ed0-4bc5-a191-d0f1e8de22f2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Mocedades - Eres Tu (Touch The Wind).mp3 · Performance: Touch The Wind",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Mocedades - Eres Tu.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

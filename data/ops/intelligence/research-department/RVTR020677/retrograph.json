@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR020677",
+    "kind": "song",
+    "rvtr": "RVTR020677",
+    "generatedAt": "2026-06-28T22:43:51.460Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR020677",
+    "artist": "Walker Hayes",
+    "title": "Aa",
+    "year": 2022,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Walker Hayes",
+    "relatedArtists": [
+      "Walker Hayes"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2022,
+    "recordings": [
+      {
+        "id": "rec-6ge1o8",
+        "title": "Aa — graph recording",
+        "releaseDate": 2022,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-kwcblx",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2022,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Walker Hayes - AA.mp4",
+      "notes": "Detected year: 2022. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 28,
+    "chartWeeks": 24,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #28 · 24 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-jnplf8",
+      "date": "2022",
+      "label": "Aa — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gs",
+      "date": "2022",
+      "label": "Billboard Hot 100 peak #28",
+      "detail": "24 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-13ns3r",
+      "date": "2022",
+      "label": "Aa — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2022",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "260a14ff41b5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR020677&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kwcblx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0d8390ff569f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR020677&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kwcblx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7bc167f3c9ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR020677&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kwcblx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5f72dbcf8803",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR020677&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kwcblx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e0ca5157d835",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR020677&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kwcblx",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kwcblx",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2022,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Walker Hayes - AA.mp4",
+        "notes": "Detected year: 2022. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR020677-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR020677"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Walker Hayes"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Walker Hayes"
+    },
+    {
+      "id": "rel-RVTR020677-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR020677"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #28"
+    },
+    {
+      "id": "rel-RVTR020677-tl-tl-jnplf8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR020677"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jnplf8"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Aa — original release"
+    },
+    {
+      "id": "rel-RVTR020677-tl-tl-fcm3gs",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR020677"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gs"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #28"
+    },
+    {
+      "id": "rel-RVTR020677-tl-tl-13ns3r",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR020677"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-13ns3r"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Aa — graph recording"
+    },
+    {
+      "id": "rel-RVTR020677-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR020677"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR020677-perf-perf-kwcblx",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR020677"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kwcblx"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-kwcblx-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kwcblx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Walker Hayes - AA.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-260a14ff41b5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kwcblx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "260a14ff41b5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0d8390ff569f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kwcblx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0d8390ff569f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7bc167f3c9ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kwcblx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7bc167f3c9ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5f72dbcf8803-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kwcblx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5f72dbcf8803"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e0ca5157d835-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kwcblx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e0ca5157d835"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR020677. \"Aa\" by Walker Hayes.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #28. 24 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Walker Hayes · Title: AA · Album: Country Stuff The Album · Year: 2022 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Walker Hayes - AA.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2022.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-02a6d54c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Walker Hayes - AA.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "dac922ae-9e5b-4aed-912e-eff57cac4672",
+      "category": "artist",
+      "text": "Aa is performed by Walker Hayes.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b5b813a2-f674-4a6a-8a15-7df7eb5bc2ea",
+      "category": "chart",
+      "text": "The song peaked at #28 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7b7de16f-1d1f-402e-9b15-f7d7e4918606",
+      "category": "recording",
+      "text": "Aa was released in 2022.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4636e961-0de0-4b02-aed6-bd6edc94ecd8",
+      "category": "trivia",
+      "text": "Artist: Walker Hayes · Title: AA · Album: Country Stuff The Album · Year: 2022 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Walker Hayes - AA.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ea29293d-d559-43b8-9db0-7bcef7c97479",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Walker Hayes - AA.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Walker Hayes - AA.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

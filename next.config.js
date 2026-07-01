@@ -67,7 +67,7 @@ const nextConfig = {
       { source: "/ops/event-studio/print", destination: "/ops/event-studio/create", permanent: false },
       {
         source: "/ops/event-studio/print/pass-generator",
-        destination: "/ops/event-studio/create/pass-generator",
+        destination: "/bobos/passes",
         permanent: false,
       },
       { source: "/ops/event-studio/branding", destination: "/ops/event-studio/identity", permanent: false },
@@ -76,12 +76,12 @@ const nextConfig = {
       { source: "/ops/event-studio/ai", destination: "/ops/event-studio/identity", permanent: false },
       {
         source: "/ops/content-creator/create",
-        destination: "/ops/event-studio/create/pass-generator",
+        destination: "/bobos/passes",
         permanent: false,
       },
       {
         source: "/ops/content-creator/create/:path*",
-        destination: "/ops/event-studio/create/pass-generator",
+        destination: "/bobos/passes",
         permanent: false,
       },
     ];

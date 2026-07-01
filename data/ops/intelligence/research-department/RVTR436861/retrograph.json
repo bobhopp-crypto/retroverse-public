@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR436861",
+    "kind": "song",
+    "rvtr": "RVTR436861",
+    "generatedAt": "2026-06-28T22:52:50.042Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR436861",
+    "artist": "Kris Kristofferson & Johnny Cash",
+    "title": "Sunday Morning Coming Down",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kris Kristofferson & Johnny Cash",
+    "relatedArtists": [
+      "Kris Kristofferson & Johnny Cash"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-lusoxg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1978,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kris Kristofferson & Johnny Cash - Sunday Morning Coming Down.mp4",
+      "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-xffx4n",
+      "date": "1978",
+      "label": "Sunday Morning Coming Down — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1978",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4d9cf9a6c33f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR436861&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lusoxg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "90287ff982f9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR436861&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lusoxg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "78b964f3faeb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR436861&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lusoxg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a68fa281da24",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR436861&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lusoxg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0aa911813e85",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR436861&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-lusoxg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lusoxg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1978,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kris Kristofferson & Johnny Cash - Sunday Morning Coming Down.mp4",
+        "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR436861-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR436861"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kris Kristofferson & Johnny Cash"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kris Kristofferson & Johnny Cash"
+    },
+    {
+      "id": "rel-RVTR436861-tl-tl-xffx4n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR436861"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-xffx4n"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Sunday Morning Coming Down — original release"
+    },
+    {
+      "id": "rel-RVTR436861-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR436861"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR436861-perf-perf-lusoxg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR436861"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lusoxg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-lusoxg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lusoxg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kris Kristofferson & Johnny Cash - Sunday Morning Coming Down.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4d9cf9a6c33f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lusoxg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4d9cf9a6c33f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-90287ff982f9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lusoxg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "90287ff982f9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-78b964f3faeb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lusoxg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "78b964f3faeb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-a68fa281da24-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lusoxg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a68fa281da24"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-0aa911813e85-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lusoxg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0aa911813e85"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR436861. \"Sunday Morning Coming Down\" by Kris Kristofferson & Johnny Cash.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kris Kristofferson & Johnny Cash · Title: Sunday Morning Coming Down · Album: Johnny Cash * Willie Nelson * Merle Haggard * Kris Kristofferson - Four Star Country - The Very Best Of Four Of Today's Biggest Stars · Year: 1978 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kris Kristofferson & Johnny Cash - Sunday Morning Coming Down.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d3baede4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kris Kristofferson & Johnny Cash - Sunday Morning Coming Down.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-96a6da51",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1950's-60's/Johnny Cash - Sunday Morning Coming Down.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5b32728c-07ea-4e88-9ea5-1de099461b13",
+      "category": "artist",
+      "text": "Sunday Morning Coming Down is performed by Kris Kristofferson & Johnny Cash.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "50d71ad5-0b7d-4014-90cd-e59eb72298e7",
+      "category": "trivia",
+      "text": "\"Sunday Morning Coming Down\" by Kris Kristofferson & Johnny Cash.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "937904f4-72cc-4540-a70c-50dc2e7d1553",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kris Kristofferson & Johnny Cash - Sunday Morning Coming Down.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9af58b0e-921e-43f7-bb19-e52797167185",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1950's-60's/Johnny Cash - Sunday Morning Coming Down.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Kris Kristofferson & Johnny Cash - Sunday Morning Coming Down.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

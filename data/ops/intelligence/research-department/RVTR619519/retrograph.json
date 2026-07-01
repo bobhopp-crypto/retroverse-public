@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR619519",
+    "kind": "song",
+    "rvtr": "RVTR619519",
+    "generatedAt": "2026-06-28T22:57:39.338Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR619519",
+    "artist": "Natalie La Rose",
+    "title": "Somebody",
+    "year": 2015,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Natalie La Rose",
+    "relatedArtists": [
+      "Natalie La Rose"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2015,
+    "recordings": [
+      {
+        "id": "rec-jlcd7e",
+        "title": "Somebody — graph recording",
+        "releaseDate": 2015,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-dbf9c0",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2015,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Natalie La Rose - Somebody.MP4",
+      "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 10,
+    "chartWeeks": 26,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #10 · 26 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-m08yqy",
+      "date": "2015",
+      "label": "Somebody — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fp",
+      "date": "2015",
+      "label": "Billboard Hot 100 peak #10",
+      "detail": "26 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-9qk003",
+      "date": "2015",
+      "label": "Somebody — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2015",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "60055f1f77b0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR619519&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dbf9c0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f2c62a5c3ca8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR619519&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dbf9c0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aca3c7ae4a20",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR619519&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dbf9c0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f87cf3d90b9e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR619519&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dbf9c0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0a8810ab135a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR619519&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dbf9c0",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dbf9c0",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2015,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Natalie La Rose - Somebody.MP4",
+        "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR619519-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR619519"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Natalie La Rose"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Natalie La Rose"
+    },
+    {
+      "id": "rel-RVTR619519-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR619519"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #10"
+    },
+    {
+      "id": "rel-RVTR619519-tl-tl-m08yqy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR619519"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-m08yqy"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Somebody — original release"
+    },
+    {
+      "id": "rel-RVTR619519-tl-tl-fcm3fp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR619519"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fp"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #10"
+    },
+    {
+      "id": "rel-RVTR619519-tl-tl-9qk003",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR619519"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9qk003"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Somebody — graph recording"
+    },
+    {
+      "id": "rel-RVTR619519-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR619519"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR619519-perf-perf-dbf9c0",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR619519"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dbf9c0"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dbf9c0-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbf9c0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Natalie La Rose - Somebody.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-60055f1f77b0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbf9c0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "60055f1f77b0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f2c62a5c3ca8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbf9c0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f2c62a5c3ca8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-aca3c7ae4a20-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbf9c0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aca3c7ae4a20"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f87cf3d90b9e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbf9c0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f87cf3d90b9e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-0a8810ab135a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbf9c0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0a8810ab135a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR619519. \"Somebody\" by Natalie La Rose.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #10. 26 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Natalie La Rose · Title: Somebody · Album: Natalie La Rose Feat. Jeremih - Somebody · Year: 2015 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Natalie La Rose - Somebody.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2015.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-7a6ea5b8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Natalie La Rose - Somebody.MP4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "78efe586-cfcf-4a1a-97af-b791823b49fa",
+      "category": "artist",
+      "text": "Somebody is performed by Natalie La Rose.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "232e4ec5-f4e9-4fdf-92b5-2779cd7826d3",
+      "category": "chart",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 26 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0a2f9e22-4ac5-427e-897e-f0b2282bff5e",
+      "category": "recording",
+      "text": "Somebody was released in 2015.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f2e376fc-bfea-42a5-9ec7-54d5b563711b",
+      "category": "trivia",
+      "text": "Artist: Natalie La Rose · Title: Somebody · Album: Natalie La Rose Feat.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d0259f69-83c7-4617-8004-902ae0d53c27",
+      "category": "trivia",
+      "text": "Jeremih - Somebody · Year: 2015 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Natalie La Rose - Somebody.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1fe8ca24-b24f-45b6-8963-52464d73f198",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Natalie La Rose - Somebody.MP4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Natalie La Rose - Somebody.MP4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

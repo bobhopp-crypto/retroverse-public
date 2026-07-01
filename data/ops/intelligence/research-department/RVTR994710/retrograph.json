@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR994710",
+    "kind": "song",
+    "rvtr": "RVTR994710",
+    "generatedAt": "2026-06-28T23:09:52.611Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR994710",
+    "artist": "Rush",
+    "title": "Closer To The Heart",
+    "year": 1990,
+    "albumTitle": "Chronicles",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL099806/RVAL099806__rush__chronicles.jpg"
+  },
+  "artist": {
+    "name": "Rush",
+    "relatedArtists": [
+      "Rush"
+    ]
+  },
+  "album": {
+    "title": "Chronicles",
+    "releaseYear": 1990,
+    "recordings": [
+      {
+        "id": "rec-dkdfkr",
+        "title": "Chronicles",
+        "releaseDate": 1990,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-z0ef1u",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1977,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - Closer To The Heart.mp4",
+      "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 69,
+    "chartWeeks": 11,
+    "albumTitle": "Chronicles",
+    "summary": "Hot 100 peak #69 · 11 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-pbbpyc",
+      "date": "1990",
+      "label": "Closer To The Heart — original release",
+      "detail": "Original album: Chronicles",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k9",
+      "date": "1990",
+      "label": "Billboard Hot 100 peak #69",
+      "detail": "11 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-aid0tk",
+      "date": "1990",
+      "label": "Chronicles",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1977",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR994710",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL099806/RVAL099806__rush__chronicles.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1981fc6386db",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR994710&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-z0ef1u",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "177b25426c45",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR994710&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-z0ef1u",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "107e5f1ee2fe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR994710&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-z0ef1u",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e06895eedb53",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR994710&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-z0ef1u",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f63474a91a43",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR994710&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-z0ef1u",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-z0ef1u",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1977,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - Closer To The Heart.mp4",
+        "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR994710-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR994710"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Rush"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Rush"
+    },
+    {
+      "id": "rel-RVTR994710-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR994710"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-dkdfkr"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Chronicles"
+    },
+    {
+      "id": "rel-RVTR994710-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR994710"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #69"
+    },
+    {
+      "id": "rel-RVTR994710-tl-tl-pbbpyc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR994710"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-pbbpyc"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Closer To The Heart — original release"
+    },
+    {
+      "id": "rel-RVTR994710-tl-tl-fcm3k9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR994710"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k9"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #69"
+    },
+    {
+      "id": "rel-RVTR994710-tl-tl-aid0tk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR994710"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-aid0tk"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Chronicles"
+    },
+    {
+      "id": "rel-RVTR994710-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR994710"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR994710-perf-perf-z0ef1u",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR994710"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-z0ef1u"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-z0ef1u-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z0ef1u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - Closer To The Heart.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-1981fc6386db-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z0ef1u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1981fc6386db"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-177b25426c45-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z0ef1u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "177b25426c45"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-107e5f1ee2fe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z0ef1u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "107e5f1ee2fe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e06895eedb53-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z0ef1u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e06895eedb53"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f63474a91a43-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-z0ef1u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f63474a91a43"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR994710. \"Closer To The Heart\" by Rush. Album: Chronicles (1990).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL099806/RVAL099806__rush__chronicles.jpg",
+      "excerpt": "Canonical cover assignment for RVTR994710 (Closer To The Heart). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Chronicles (1990). Billboard Hot 100 peak: #69. 11 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Rush · Title: Closer To The Heart · Album: A Farewell To Kings · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - Closer To The Heart.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1990.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-029e3969",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - Closer To The Heart.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2593e36e-0d8f-4e10-b6a5-7b40e1f53c56",
+      "category": "artist",
+      "text": "Closer To The Heart is performed by Rush.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e36afcd5-76fd-40a5-ace3-50ca20632aac",
+      "category": "album",
+      "text": "The song appears on the album \"Chronicles\" (1990).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "67ffd697-6e56-4dae-b4c2-0f8c02e72d6b",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR994710.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL099806/RVAL099806__rush__chronicles.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3daeec36-e9ad-47f1-b40a-7afba1b55837",
+      "category": "chart",
+      "text": "The song peaked at #69 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "42dfee2e-02b3-4931-ade5-b3acdf6b56d5",
+      "category": "recording",
+      "text": "Closer To The Heart was released in 1990.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "db4746b6-f78a-48f6-b743-015af3aace06",
+      "category": "trivia",
+      "text": "Artist: Rush · Title: Closer To The Heart · Album: A Farewell To Kings · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - Closer To The Heart.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "732ef253-d985-4ae8-bd23-0812db42ec41",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - Closer To The Heart.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Rush - Closer To The Heart.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

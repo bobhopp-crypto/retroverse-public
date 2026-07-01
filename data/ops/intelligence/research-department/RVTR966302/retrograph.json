@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR966302",
+    "kind": "song",
+    "rvtr": "RVTR966302",
+    "generatedAt": "2026-06-28T22:43:00.231Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR966302",
+    "artist": "The Cure",
+    "title": "Love Song",
+    "year": 1989,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "The Cure",
+    "relatedArtists": [
+      "The Cure"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1989,
+    "recordings": [
+      {
+        "id": "rec-bg3xkw",
+        "title": "Love Song — graph recording",
+        "releaseDate": 1989,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-f2fsiz",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1989,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Cure - Love Song.mp4",
+      "notes": "Detected year: 1989. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 17,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 17 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-witsgp",
+      "date": "1989",
+      "label": "Love Song — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "1989",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "17 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-psha76",
+      "date": "1989",
+      "label": "Love Song — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1989",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d763311baa87",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966302&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-f2fsiz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f92fe7fafd3f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966302&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-f2fsiz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "080ce465041d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966302&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-f2fsiz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6992fc58d2a9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966302&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-f2fsiz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fddc6cbfa1f6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR966302&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-f2fsiz",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-f2fsiz",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1989,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Cure - Love Song.mp4",
+        "notes": "Detected year: 1989. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR966302-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966302"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Cure"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Cure"
+    },
+    {
+      "id": "rel-RVTR966302-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966302"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR966302-tl-tl-witsgp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966302"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-witsgp"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Love Song — original release"
+    },
+    {
+      "id": "rel-RVTR966302-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966302"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR966302-tl-tl-psha76",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966302"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-psha76"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Love Song — graph recording"
+    },
+    {
+      "id": "rel-RVTR966302-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966302"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR966302-perf-perf-f2fsiz",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR966302"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-f2fsiz"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-f2fsiz-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-f2fsiz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Cure - Love Song.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d763311baa87-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-f2fsiz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d763311baa87"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f92fe7fafd3f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-f2fsiz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f92fe7fafd3f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-080ce465041d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-f2fsiz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "080ce465041d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6992fc58d2a9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-f2fsiz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6992fc58d2a9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-fddc6cbfa1f6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-f2fsiz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fddc6cbfa1f6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR966302. \"Love Song\" by The Cure.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 17 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Cure · Title: Love Song · Album: The Cure - Love Song / Fascination Street · Year: 1989 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Cure - Love Song.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1989.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c7bbae9f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Cure - Love Song.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-24a36356",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Cure - Love Song.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-178fc393",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/The Cure - Love Song.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "48307ae0-6123-4059-b84f-04e33f65d8a7",
+      "category": "artist",
+      "text": "Love Song is performed by The Cure.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7b57d5a8-8be0-4c5f-b1cd-f5fd0f9e1dc8",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4e8bb29c-3433-4259-b1d6-b9ee1392759e",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f6aa1ed6-31c0-4d10-8b52-64c750a9fe54",
+      "category": "recording",
+      "text": "Love Song was released in 1989.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "bd7bd329-22e8-428c-9728-c3b59bb29289",
+      "category": "trivia",
+      "text": "Artist: Cure · Title: Love Song · Album: The Cure - Love Song / Fascination Street · Year: 1989 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Cure - Love Song.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "35e922e3-97eb-4702-892f-3379a08f7480",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Cure - Love Song.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8c564e7f-88a8-4beb-a8e5-75bdf3b7785f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Cure - Love Song.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d9e5726a-ab90-4e4a-ac07-968110325f51",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/The Cure - Love Song.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 8,
+    "accepted": 4,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Cure - Love Song.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

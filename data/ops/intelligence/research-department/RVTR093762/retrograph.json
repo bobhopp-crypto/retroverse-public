@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR093762",
+    "kind": "song",
+    "rvtr": "RVTR093762",
+    "generatedAt": "2026-06-28T22:45:24.826Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR093762",
+    "artist": "Cat Clyde",
+    "title": "Like A Wave",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Cat Clyde",
+    "relatedArtists": [
+      "Cat Clyde"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-dbsqm",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2017,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Cat Clyde - Like a Wave.mp4",
+      "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-wgf2bf",
+      "date": "2017",
+      "label": "Like A Wave — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2017",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f6c33e84aab0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093762&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dbsqm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1b6e8f3c3b6e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093762&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dbsqm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "09b23c787c7d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093762&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dbsqm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "10b7e1200a43",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093762&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dbsqm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c4f02f3bec3b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093762&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dbsqm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dbsqm",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2017,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Cat Clyde - Like a Wave.mp4",
+        "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR093762-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093762"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Cat Clyde"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Cat Clyde"
+    },
+    {
+      "id": "rel-RVTR093762-tl-tl-wgf2bf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093762"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wgf2bf"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Like A Wave — original release"
+    },
+    {
+      "id": "rel-RVTR093762-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093762"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR093762-perf-perf-dbsqm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR093762"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dbsqm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dbsqm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbsqm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Cat Clyde - Like a Wave.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f6c33e84aab0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbsqm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f6c33e84aab0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-1b6e8f3c3b6e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbsqm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1b6e8f3c3b6e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-09b23c787c7d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbsqm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "09b23c787c7d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-10b7e1200a43-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbsqm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "10b7e1200a43"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c4f02f3bec3b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dbsqm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c4f02f3bec3b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR093762. \"Like A Wave\" by Cat Clyde.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Cat Clyde · Title: Like a Wave · Album: Ivory Castanets · Year: 2017 · Genre: Blues · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Cat Clyde - Like a Wave.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e0d52465",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Cat Clyde - Like a Wave.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e9e4b7f7-7150-4bba-8a2b-f7458d4a24d3",
+      "category": "artist",
+      "text": "Like A Wave is performed by Cat Clyde.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "14f11eeb-895d-4c2e-908b-cb2d6fc02ee1",
+      "category": "trivia",
+      "text": "Artist: Cat Clyde · Title: Like a Wave · Album: Ivory Castanets · Year: 2017 · Genre: Blues · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Cat Clyde - Like a Wave.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ead7de00-da39-4214-8e55-1f006d2792dc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Cat Clyde - Like a Wave.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Cat Clyde - Like a Wave.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR546420",
+    "kind": "song",
+    "rvtr": "RVTR546420",
+    "generatedAt": "2026-06-28T22:55:34.077Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR546420",
+    "artist": "Brainbug",
+    "title": "Nightmare",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Brainbug",
+    "relatedArtists": [
+      "Brainbug"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-pbsmy3",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1996,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brainbug - Nightmare.mp4",
+      "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-lvp6g3",
+      "date": "1996",
+      "label": "Nightmare — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1996",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d4c4d8c48363",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR546420&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-pbsmy3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cbc789deef09",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR546420&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-pbsmy3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b4d0a670f70a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR546420&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-pbsmy3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fedc75bd0098",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR546420&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-pbsmy3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0c5fb2a6824d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR546420&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-pbsmy3",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-pbsmy3",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1996,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brainbug - Nightmare.mp4",
+        "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR546420-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR546420"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Brainbug"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Brainbug"
+    },
+    {
+      "id": "rel-RVTR546420-tl-tl-lvp6g3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR546420"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-lvp6g3"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Nightmare — original release"
+    },
+    {
+      "id": "rel-RVTR546420-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR546420"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR546420-perf-perf-pbsmy3",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR546420"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-pbsmy3"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-pbsmy3-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pbsmy3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brainbug - Nightmare.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-d4c4d8c48363-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pbsmy3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d4c4d8c48363"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-cbc789deef09-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pbsmy3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cbc789deef09"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b4d0a670f70a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pbsmy3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b4d0a670f70a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-fedc75bd0098-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pbsmy3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fedc75bd0098"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-0c5fb2a6824d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pbsmy3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0c5fb2a6824d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR546420. \"Nightmare\" by Brainbug.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Brainbug · Title: Nightmare · Album: Nightmare · Year: 1996 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brainbug - Nightmare.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4514a102",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brainbug - Nightmare.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c5bc17d1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Brainbug - Nightmare.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f8039bf6-0ad3-459f-a78a-3c9e6b8ee012",
+      "category": "artist",
+      "text": "Nightmare is performed by Brainbug.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b3ce5688-5a67-4389-984c-62f74d76f799",
+      "category": "trivia",
+      "text": "Artist: Brainbug · Title: Nightmare · Album: Nightmare · Year: 1996 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brainbug - Nightmare.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c399d0ac-86eb-44ad-b5ad-610f5ef98d67",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brainbug - Nightmare.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "57804e31-b479-4cfe-87de-1d0357689aec",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Brainbug - Nightmare.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Brainbug - Nightmare.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

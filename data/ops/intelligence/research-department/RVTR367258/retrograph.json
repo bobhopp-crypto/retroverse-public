@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR367258",
+    "kind": "song",
+    "rvtr": "RVTR367258",
+    "generatedAt": "2026-06-28T22:51:28.940Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR367258",
+    "artist": "Hard Fi",
+    "title": "Cash Machine",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Hard Fi",
+    "relatedArtists": [
+      "Hard Fi"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-cfzgcg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hard Fi - Cash Machine.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-hbql0y",
+      "date": "2005",
+      "label": "Cash Machine — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "3ce116f68d07",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR367258&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-cfzgcg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "853a7cc26fd4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR367258&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-cfzgcg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8d1f8e0147b8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR367258&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-cfzgcg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "446d7523db65",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR367258&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-cfzgcg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c9110e38e854",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR367258&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-cfzgcg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-cfzgcg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hard Fi - Cash Machine.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR367258-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR367258"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Hard Fi"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Hard Fi"
+    },
+    {
+      "id": "rel-RVTR367258-tl-tl-hbql0y",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR367258"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hbql0y"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Cash Machine — original release"
+    },
+    {
+      "id": "rel-RVTR367258-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR367258"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR367258-perf-perf-cfzgcg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR367258"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-cfzgcg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-cfzgcg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cfzgcg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hard Fi - Cash Machine.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3ce116f68d07-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cfzgcg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3ce116f68d07"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-853a7cc26fd4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cfzgcg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "853a7cc26fd4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-8d1f8e0147b8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cfzgcg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8d1f8e0147b8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-446d7523db65-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cfzgcg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "446d7523db65"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c9110e38e854-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cfzgcg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c9110e38e854"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR367258. \"Cash Machine\" by Hard Fi.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Hard Fi · Title: Cash Machine · Album: Hard-Fi - Cash Machine · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hard Fi - Cash Machine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e5329c7f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hard Fi - Cash Machine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6ae6c6da",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Hard Fi - Cash Machine.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0271c4b7-089b-4d50-8c11-538c758edb69",
+      "category": "artist",
+      "text": "Cash Machine is performed by Hard Fi.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c2a49cbe-88d7-400c-a848-4563c31a0b49",
+      "category": "trivia",
+      "text": "Artist: Hard Fi · Title: Cash Machine · Album: Hard-Fi - Cash Machine · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hard Fi - Cash Machine.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5672df43-b2cd-4812-a1a3-0ac31b86d776",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hard Fi - Cash Machine.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "67f76eaf-65c1-4e9f-8a09-03b0af19b1e6",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Hard Fi - Cash Machine.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Hard Fi - Cash Machine.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

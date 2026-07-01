@@ -1,0 +1,544 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR469930",
+    "kind": "song",
+    "rvtr": "RVTR469930",
+    "generatedAt": "2026-06-28T22:53:37.860Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR469930",
+    "artist": "Pitbull",
+    "title": "Go Girl",
+    "year": 2007,
+    "albumTitle": "The Boatlift",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pitbull",
+    "relatedArtists": [
+      "Pitbull"
+    ]
+  },
+  "album": {
+    "title": "The Boatlift",
+    "releaseYear": 2007,
+    "recordings": [
+      {
+        "id": "rec-hz3ztn",
+        "title": "The Boatlift",
+        "releaseDate": 2007,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-7i27q",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pitbull - Go Girl.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 83,
+    "chartWeeks": 9,
+    "albumTitle": "The Boatlift",
+    "summary": "Hot 100 peak #83 · 9 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-6v2uw8",
+      "date": "2007",
+      "label": "Go Girl — original release",
+      "detail": "Original album: The Boatlift",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3lt",
+      "date": "2007",
+      "label": "Billboard Hot 100 peak #83",
+      "detail": "9 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-5qqj4i",
+      "date": "2007",
+      "label": "The Boatlift",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9a6345874edc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR469930&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-7i27q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a5970fffcc95",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR469930&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-7i27q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9053b7d2e31b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR469930&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-7i27q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "828a3fd74eb8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR469930&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-7i27q",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "31906ee312c9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR469930&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-7i27q",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-7i27q",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pitbull - Go Girl.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR469930-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR469930"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pitbull"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pitbull"
+    },
+    {
+      "id": "rel-RVTR469930-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR469930"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-hz3ztn"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Boatlift"
+    },
+    {
+      "id": "rel-RVTR469930-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR469930"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #83"
+    },
+    {
+      "id": "rel-RVTR469930-tl-tl-6v2uw8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR469930"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6v2uw8"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Go Girl — original release"
+    },
+    {
+      "id": "rel-RVTR469930-tl-tl-fcm3lt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR469930"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3lt"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #83"
+    },
+    {
+      "id": "rel-RVTR469930-tl-tl-5qqj4i",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR469930"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5qqj4i"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Boatlift"
+    },
+    {
+      "id": "rel-RVTR469930-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR469930"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR469930-perf-perf-7i27q",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR469930"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-7i27q"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-7i27q-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7i27q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pitbull - Go Girl.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9a6345874edc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7i27q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9a6345874edc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a5970fffcc95-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7i27q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a5970fffcc95"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9053b7d2e31b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7i27q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9053b7d2e31b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-828a3fd74eb8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7i27q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "828a3fd74eb8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-31906ee312c9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-7i27q"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "31906ee312c9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR469930. \"Go Girl\" by Pitbull. Album: The Boatlift (2007).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Boatlift (2007). Billboard Hot 100 peak: #83. 9 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pitbull · Title: Go Girl · Album: Go Girl · Year: 2007 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pitbull - Go Girl.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2007.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f9a14c27",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pitbull - Go Girl.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f617f7e6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Pitbull - Go Girl.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "77edf73c-c312-45de-9b57-00ef81c2fc70",
+      "category": "artist",
+      "text": "Go Girl is performed by Pitbull.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5a3c9019-6492-426e-a571-5c79e1007598",
+      "category": "album",
+      "text": "The song appears on the album \"The Boatlift\" (2007).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "faa92173-ec59-4e25-879d-af3bfeb25461",
+      "category": "chart",
+      "text": "The song peaked at #83 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9d3efa4a-6aee-47bf-9215-cb4c5c4ce9e5",
+      "category": "recording",
+      "text": "Go Girl was released in 2007.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f151169a-c443-48ac-a2db-de1750053fd5",
+      "category": "trivia",
+      "text": "Artist: Pitbull · Title: Go Girl · Album: Go Girl · Year: 2007 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pitbull - Go Girl.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f9a76437-7045-4cfa-b0b3-30494911d30e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pitbull - Go Girl.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2fbe5a21-9382-4006-aa1f-9bdf99d69fbd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Pitbull - Go Girl.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pitbull - Go Girl.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

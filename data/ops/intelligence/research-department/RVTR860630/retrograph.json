@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR860630",
+    "kind": "song",
+    "rvtr": "RVTR860630",
+    "generatedAt": "2026-06-28T22:41:41.552Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR860630",
+    "artist": "Taylor Swift",
+    "title": "Lover",
+    "year": 2019,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Taylor Swift",
+    "relatedArtists": [
+      "Taylor Swift"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2019,
+    "recordings": [
+      {
+        "id": "rec-nu7lz4",
+        "title": "Lover — graph recording",
+        "releaseDate": 2019,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-ht9gg4",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2019,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Lover.mp4",
+      "notes": "Detected year: 2019. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 10,
+    "chartWeeks": 22,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #10 · 22 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-5y1d0c",
+      "date": "2019",
+      "label": "Lover — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fp",
+      "date": "2019",
+      "label": "Billboard Hot 100 peak #10",
+      "detail": "22 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-9o70ox",
+      "date": "2019",
+      "label": "Lover — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2019",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c198296db96b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860630&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ht9gg4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a67e710f7a9d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860630&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ht9gg4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e627e2912ddc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860630&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ht9gg4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6a8da08de389",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860630&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ht9gg4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c3d6a28710ca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860630&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ht9gg4",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ht9gg4",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2019,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Lover.mp4",
+        "notes": "Detected year: 2019. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR860630-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860630"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Taylor Swift"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Taylor Swift"
+    },
+    {
+      "id": "rel-RVTR860630-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860630"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #10"
+    },
+    {
+      "id": "rel-RVTR860630-tl-tl-5y1d0c",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860630"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5y1d0c"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Lover — original release"
+    },
+    {
+      "id": "rel-RVTR860630-tl-tl-fcm3fp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860630"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fp"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #10"
+    },
+    {
+      "id": "rel-RVTR860630-tl-tl-9o70ox",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860630"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9o70ox"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Lover — graph recording"
+    },
+    {
+      "id": "rel-RVTR860630-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860630"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR860630-perf-perf-ht9gg4",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR860630"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ht9gg4"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ht9gg4-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ht9gg4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Lover.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c198296db96b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ht9gg4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c198296db96b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a67e710f7a9d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ht9gg4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a67e710f7a9d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e627e2912ddc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ht9gg4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e627e2912ddc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6a8da08de389-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ht9gg4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6a8da08de389"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c3d6a28710ca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ht9gg4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c3d6a28710ca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR860630. \"Lover\" by Taylor Swift.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #10. 22 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Taylor Swift · Title: Lover · Album: Lover · Year: 2019 · Genre: Pop · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Lover.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2019.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-962c327e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Lover.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "bdc78d1b-5b91-4856-b6df-455105ad8b69",
+      "category": "artist",
+      "text": "Lover is performed by Taylor Swift.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "84cabdc4-b994-4825-9170-9bdf1852d716",
+      "category": "chart",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5fbff42b-30b6-409c-96c2-d93872e6d874",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "29927db5-3a0e-4748-8331-9d37d74ca58a",
+      "category": "recording",
+      "text": "Lover was released in 2019.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "13c43021-2c3b-46d9-9c55-277459c77391",
+      "category": "trivia",
+      "text": "Artist: Taylor Swift · Title: Lover · Album: Lover · Year: 2019 · Genre: Pop · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Lover.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3eed7164-a209-468e-a63f-9e61b167869b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Lover.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Lover.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

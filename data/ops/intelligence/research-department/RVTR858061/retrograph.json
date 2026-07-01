@@ -1,0 +1,554 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR858061",
+    "kind": "song",
+    "rvtr": "RVTR858061",
+    "generatedAt": "2026-06-28T23:04:57.057Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR858061",
+    "artist": "Pharrell Williams",
+    "title": "Happy",
+    "year": 2014,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pharrell Williams",
+    "relatedArtists": [
+      "Pharrell Williams"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2014,
+    "recordings": [
+      {
+        "id": "rec-kz136j",
+        "title": "Happy — graph recording",
+        "releaseDate": 2014,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-vllxqq",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pharrell Williams - Happy.mp4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 47,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 47 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-dfwo78",
+      "date": "2014",
+      "label": "Happy — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2014",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "47 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-qc4dy9",
+      "date": "2014",
+      "label": "Happy — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2014",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0f2e95e01ffa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR858061&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-vllxqq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "57881f676f8f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR858061&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-vllxqq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "96883de2b21b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR858061&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-vllxqq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c5770d611ffb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR858061&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-vllxqq",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d250d59c8d21",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR858061&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-vllxqq",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-vllxqq",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pharrell Williams - Happy.mp4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR858061-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR858061"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pharrell Williams"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pharrell Williams"
+    },
+    {
+      "id": "rel-RVTR858061-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR858061"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR858061-tl-tl-dfwo78",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR858061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dfwo78"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Happy — original release"
+    },
+    {
+      "id": "rel-RVTR858061-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR858061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR858061-tl-tl-qc4dy9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR858061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qc4dy9"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Happy — graph recording"
+    },
+    {
+      "id": "rel-RVTR858061-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR858061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR858061-perf-perf-vllxqq",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR858061"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-vllxqq"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-vllxqq-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vllxqq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pharrell Williams - Happy.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0f2e95e01ffa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vllxqq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0f2e95e01ffa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-57881f676f8f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vllxqq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "57881f676f8f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-96883de2b21b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vllxqq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "96883de2b21b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c5770d611ffb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vllxqq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c5770d611ffb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d250d59c8d21-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vllxqq"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d250d59c8d21"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR858061. \"Happy\" by Pharrell Williams.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #1. 47 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pharrell Williams · Title: Happy · Album: Happy · Year: 2014 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pharrell Williams - Happy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2014.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-984c3e87",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pharrell Williams - Happy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a052d57c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Happy - Pharell Williams.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-73a3458f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Pharrell Williams - Happy.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-098a46fb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Pharrell Williams - Happy.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "af571bce-1030-4ad2-9318-6469b9bce8fe",
+      "category": "artist",
+      "text": "Happy is performed by Pharrell Williams.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eea5be91-c50f-4555-b560-e12a4bfbe0d5",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 47 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "83965790-f501-44c5-ade6-ef57d420529a",
+      "category": "recording",
+      "text": "Happy was released in 2014.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2d092da5-34a2-4fd3-924f-03d788653e4f",
+      "category": "trivia",
+      "text": "Artist: Pharrell Williams · Title: Happy · Album: Happy · Year: 2014 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pharrell Williams - Happy.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "580eb0f5-3ead-432b-a269-f600ee1376b9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pharrell Williams - Happy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7da9acea-d7b8-4113-a6ab-9a056dc933b3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Happy - Pharell Williams.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fbaf78ec-f58d-4023-943f-0f35b4ca199c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Pharrell Williams - Happy.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c30ce457-68a7-4dc9-aa5f-c4523f2aca80",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Pharrell Williams - Happy.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 8,
+    "accepted": 3,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Pharrell Williams - Happy.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

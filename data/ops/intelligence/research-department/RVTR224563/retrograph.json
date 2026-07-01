@@ -1,0 +1,561 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR224563",
+    "kind": "song",
+    "rvtr": "RVTR224563",
+    "generatedAt": "2026-06-28T22:48:43.142Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR224563",
+    "artist": "Andy Gibb",
+    "title": "Shadow Dancing",
+    "year": 1978,
+    "albumTitle": "Shadow Dancing",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL955370/RVAL955370__andy-gibb__shadow-dancing.jpg"
+  },
+  "artist": {
+    "name": "Andy Gibb",
+    "relatedArtists": [
+      "Andy Gibb"
+    ]
+  },
+  "album": {
+    "title": "Shadow Dancing",
+    "releaseYear": 1978,
+    "recordings": [
+      {
+        "id": "rec-fctt2l",
+        "title": "Shadow Dancing",
+        "releaseDate": 1978,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-3ljhy1",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1978,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Andy Gibb - Shadow Dancing.mp4",
+      "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 25,
+    "albumTitle": "Shadow Dancing",
+    "summary": "Hot 100 peak #1 · 25 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-jlaaqk",
+      "date": "1978",
+      "label": "Shadow Dancing — original release",
+      "detail": "Original album: Shadow Dancing",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "1978",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "25 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-4ad72c",
+      "date": "1978",
+      "label": "Shadow Dancing",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1978",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR224563",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL955370/RVAL955370__andy-gibb__shadow-dancing.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2ae1b7a24d98",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR224563&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-3ljhy1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dbbd26f5aabb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR224563&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-3ljhy1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d6907ad3f515",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR224563&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-3ljhy1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2a4a4876bf05",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR224563&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-3ljhy1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9649b6cde393",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR224563&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-3ljhy1",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-3ljhy1",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1978,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Andy Gibb - Shadow Dancing.mp4",
+        "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR224563-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR224563"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Andy Gibb"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Andy Gibb"
+    },
+    {
+      "id": "rel-RVTR224563-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR224563"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-fctt2l"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Shadow Dancing"
+    },
+    {
+      "id": "rel-RVTR224563-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR224563"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR224563-tl-tl-jlaaqk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR224563"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jlaaqk"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Shadow Dancing — original release"
+    },
+    {
+      "id": "rel-RVTR224563-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR224563"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR224563-tl-tl-4ad72c",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR224563"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4ad72c"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Shadow Dancing"
+    },
+    {
+      "id": "rel-RVTR224563-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR224563"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR224563-perf-perf-3ljhy1",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR224563"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-3ljhy1"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-3ljhy1-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ljhy1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Andy Gibb - Shadow Dancing.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-2ae1b7a24d98-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ljhy1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2ae1b7a24d98"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-dbbd26f5aabb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ljhy1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dbbd26f5aabb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d6907ad3f515-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ljhy1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d6907ad3f515"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2a4a4876bf05-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ljhy1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2a4a4876bf05"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9649b6cde393-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3ljhy1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9649b6cde393"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR224563. \"Shadow Dancing\" by Andy Gibb. Album: Shadow Dancing (1978).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL955370/RVAL955370__andy-gibb__shadow-dancing.jpg",
+      "excerpt": "Canonical cover assignment for RVTR224563 (Shadow Dancing). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Shadow Dancing (1978). Billboard Hot 100 peak: #1. 25 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Andy Gibb · Title: Shadow Dancing · Album: Shadow Dancing · Year: 1978 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Andy Gibb - Shadow Dancing.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1978.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f2860637",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Andy Gibb - Shadow Dancing.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1ef94ff3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "netsearch://bs56213",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "38c23f51-f0e3-4337-942c-aaf575e42cca",
+      "category": "artist",
+      "text": "Shadow Dancing is performed by Andy Gibb.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bef464ab-d467-46cb-98fd-bd9839bd30ee",
+      "category": "album",
+      "text": "The song appears on the album \"Shadow Dancing\" (1978).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8a1321d8-0daa-4e99-abf6-574b72842d46",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR224563.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL955370/RVAL955370__andy-gibb__shadow-dancing.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d9c917a8-cb77-4da4-89a3-d3a711585b35",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6ba951a8-8011-43ff-81a3-eb8bd1c595bd",
+      "category": "recording",
+      "text": "Shadow Dancing was released in 1978.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5d3f6095-19c1-4c08-b901-e0f07f0016bf",
+      "category": "trivia",
+      "text": "Artist: Andy Gibb · Title: Shadow Dancing · Album: Shadow Dancing · Year: 1978 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Andy Gibb - Shadow Dancing.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "97aebc31-6321-41bc-ae65-2ce3d72d5287",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Andy Gibb - Shadow Dancing.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Andy Gibb - Shadow Dancing.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

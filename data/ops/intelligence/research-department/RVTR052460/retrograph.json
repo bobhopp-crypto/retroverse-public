@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR052460",
+    "kind": "song",
+    "rvtr": "RVTR052460",
+    "generatedAt": "2026-06-28T22:44:29.425Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR052460",
+    "artist": "Dokken",
+    "title": "Walk Away",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dokken",
+    "relatedArtists": [
+      "Dokken"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-dh3bcs",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1989,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Walk Away.mp4",
+      "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ni51rr",
+      "date": "1989",
+      "label": "Walk Away — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1989",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "60d0140e2797",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR052460&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dh3bcs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c0decb12e6d1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR052460&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dh3bcs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "04d9b30d6cd8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR052460&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dh3bcs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b303b3e8732b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR052460&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dh3bcs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1ebb09f95bfd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR052460&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dh3bcs",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dh3bcs",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1989,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Walk Away.mp4",
+        "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR052460-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR052460"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dokken"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dokken"
+    },
+    {
+      "id": "rel-RVTR052460-tl-tl-ni51rr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR052460"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ni51rr"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Walk Away — original release"
+    },
+    {
+      "id": "rel-RVTR052460-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR052460"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR052460-perf-perf-dh3bcs",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR052460"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dh3bcs"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dh3bcs-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dh3bcs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Walk Away.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-60d0140e2797-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dh3bcs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "60d0140e2797"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c0decb12e6d1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dh3bcs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c0decb12e6d1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-04d9b30d6cd8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dh3bcs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "04d9b30d6cd8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b303b3e8732b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dh3bcs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b303b3e8732b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1ebb09f95bfd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dh3bcs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1ebb09f95bfd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR052460. \"Walk Away\" by Dokken.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dokken · Title: Walk Away · Year: 1989 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Walk Away.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7593b059",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Walk Away.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "3e8076fa-836c-403f-81a5-4163b836e970",
+      "category": "artist",
+      "text": "Walk Away is performed by Dokken.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "60afccf1-aa3c-4baa-b65f-2f2f787feabf",
+      "category": "trivia",
+      "text": "Artist: Dokken · Title: Walk Away · Year: 1989 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Walk Away.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b3cbcd62-2fec-4cf4-8d12-615dd652c8fd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Walk Away.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Dokken - Walk Away.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR991676",
+    "kind": "song",
+    "rvtr": "RVTR991676",
+    "generatedAt": "2026-06-28T23:09:48.781Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR991676",
+    "artist": "Foo Fighters",
+    "title": "Big Me",
+    "year": 1995,
+    "albumTitle": "Foo Fighters",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL493705/RVAL493705__foo-fighters__foo-fighters.jpg"
+  },
+  "artist": {
+    "name": "Foo Fighters",
+    "relatedArtists": [
+      "Foo Fighters"
+    ]
+  },
+  "album": {
+    "title": "Foo Fighters",
+    "releaseYear": 1995,
+    "recordings": [
+      {
+        "id": "rec-5toez2",
+        "title": "Foo Fighters",
+        "releaseDate": 1995,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-erinwp",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2002,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Big Me.mp4",
+      "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Foo Fighters",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k2397w",
+      "date": "1995",
+      "label": "Big Me — original release",
+      "detail": "Original album: Foo Fighters",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-x6elmk",
+      "date": "1995",
+      "label": "Foo Fighters",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2002",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR991676",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL493705/RVAL493705__foo-fighters__foo-fighters.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9f587915c29d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991676&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-erinwp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6810efa58f6f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991676&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-erinwp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e82ad0535ad3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991676&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-erinwp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "80b73a71cfdf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991676&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-erinwp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "db8d7d2388ef",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991676&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-erinwp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-erinwp",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2002,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Big Me.mp4",
+        "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR991676-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991676"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Foo Fighters"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Foo Fighters"
+    },
+    {
+      "id": "rel-RVTR991676-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991676"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-5toez2"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Foo Fighters"
+    },
+    {
+      "id": "rel-RVTR991676-tl-tl-k2397w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991676"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k2397w"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Big Me — original release"
+    },
+    {
+      "id": "rel-RVTR991676-tl-tl-x6elmk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991676"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-x6elmk"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Foo Fighters"
+    },
+    {
+      "id": "rel-RVTR991676-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991676"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR991676-perf-perf-erinwp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991676"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-erinwp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-erinwp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-erinwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Big Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9f587915c29d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-erinwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9f587915c29d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6810efa58f6f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-erinwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6810efa58f6f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e82ad0535ad3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-erinwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e82ad0535ad3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-80b73a71cfdf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-erinwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "80b73a71cfdf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-db8d7d2388ef-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-erinwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "db8d7d2388ef"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR991676. \"Big Me\" by Foo Fighters. Album: Foo Fighters (1995).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL493705/RVAL493705__foo-fighters__foo-fighters.jpg",
+      "excerpt": "Canonical cover assignment for RVTR991676 (Big Me). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Foo Fighters (1995)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Foo Fighters · Title: Big Me · Album: Phighting Phooey At The Reading Phestival - August 1995 · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Big Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1995.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-76ce9f0a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Big Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-17a578a2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Foo Fighters - Big Me.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8e0e1313-b30b-49d4-bf0b-c7468d735abd",
+      "category": "artist",
+      "text": "Big Me is performed by Foo Fighters.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2a61174d-1234-4ad7-9dc0-3dba7d3732f9",
+      "category": "album",
+      "text": "The song appears on the album \"Foo Fighters\" (1995).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3b5f9f2c-802d-4c97-be69-efb18244487c",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR991676.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL493705/RVAL493705__foo-fighters__foo-fighters.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6bcc3d70-9e03-44e4-b9f5-6bd28c6f09b3",
+      "category": "recording",
+      "text": "Big Me was released in 1995.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "41629486-f99d-4017-b9fb-c4f00f8883d1",
+      "category": "trivia",
+      "text": "Artist: Foo Fighters · Title: Big Me · Album: Phighting Phooey At The Reading Phestival - August 1995 · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Big Me.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "97027384-7b7a-41a3-baee-d666987ab41e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Big Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9faa77d8-1bbf-47a4-b94d-05cc81e282ec",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Foo Fighters - Big Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Foo Fighters - Big Me.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

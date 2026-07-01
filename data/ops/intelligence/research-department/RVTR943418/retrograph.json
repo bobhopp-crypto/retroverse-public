@@ -1,0 +1,580 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR943418",
+    "kind": "song",
+    "rvtr": "RVTR943418",
+    "generatedAt": "2026-06-28T23:08:13.599Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR943418",
+    "artist": "Jace Everett",
+    "title": "Bad Things",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jace Everett",
+    "relatedArtists": [
+      "Jace Everett"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-hinsu9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jace Everett - Bad Things.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-3czvck",
+      "date": "2005",
+      "label": "Bad Things — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-q55tg5",
+      "date": "—",
+      "label": "\"Bad Things\" is a song written and recorded by American singer Jace Everett.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-li11ul",
+      "date": "—",
+      "label": "It is included on his only album for Epic Records Nashville, the self-titled Jace Everett.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-c4ppww",
+      "date": "1972",
+      "label": "Jace Everett Beasley (born May 27, 1972) is an American singer-songwriter and musician.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "\"Bad Things\" is a song written and recorded by American singer Jace Everett.",
+      "It is included on his only album for Epic Records Nashville, the self-titled Jace Everett.",
+      "Signed to Epic Records in 2005, he released his debut single \"That's the Kind of Love I'm In\" in 2005, which peaked at No.",
+      "In 2005, Everett was signed to Epic Records."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cca313e20b69",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR943418&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hinsu9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "be8ceb487147",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR943418&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hinsu9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f95fc697da4f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR943418&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hinsu9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "efd3135669a3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR943418&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hinsu9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f23e8e19fcab",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR943418&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hinsu9",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hinsu9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jace Everett - Bad Things.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR943418-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR943418"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jace Everett"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jace Everett"
+    },
+    {
+      "id": "rel-RVTR943418-tl-tl-3czvck",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR943418"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3czvck"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Bad Things — original release"
+    },
+    {
+      "id": "rel-RVTR943418-tl-tl-q55tg5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR943418"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-q55tg5"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Bad Things\" is a song written and recorded by American singer Jace Everett."
+    },
+    {
+      "id": "rel-RVTR943418-tl-tl-li11ul",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR943418"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-li11ul"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It is included on his only album for Epic Records Nashville, the self-titled Jace Everett."
+    },
+    {
+      "id": "rel-RVTR943418-tl-tl-c4ppww",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR943418"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-c4ppww"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Jace Everett Beasley (born May 27, 1972) is an American singer-songwriter and musician."
+    },
+    {
+      "id": "rel-RVTR943418-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR943418"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR943418-perf-perf-hinsu9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR943418"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hinsu9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hinsu9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hinsu9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jace Everett - Bad Things.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-cca313e20b69-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hinsu9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cca313e20b69"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-be8ceb487147-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hinsu9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "be8ceb487147"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f95fc697da4f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hinsu9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f95fc697da4f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-efd3135669a3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hinsu9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "efd3135669a3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f23e8e19fcab-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hinsu9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f23e8e19fcab"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR943418. \"Bad Things\" by Jace Everett.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jace Everett · Title: Bad Things · Album: Bad Things · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jace Everett - Bad Things.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0f72df9a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jace Everett - Bad Things.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d9089a0d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1990's-00's/Jace Everett - Bad Things.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-bad-things-jace-everett-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Bad_Things_(Jace_Everett_song)",
+      "excerpt": "\"Bad Things\" is a song written and recorded by American singer Jace Everett. It is included on his only album for Epic Records Nashville, the self-titled Jace Everett. Although released as a single in 2005, it did not chart on the Hot Country Songs charts that year. The song charted in the United Kingdom, Norway, Sweden, and Finland in 2009 after it was selected as the theme song for the HBO series True Blood.\n\n\nCritical reception\nStephen Thomas Erlewine, in his review of the album for Allmusic, compared the song in theme to Chris Isaak's \"Baby Did a Bad, Bad Thing\", saying that it was \"less menacing and a little rowdier\" than that song.\n\n\nUse in media\nIn 2008, it was selected as the theme song for HBO's vampire series True Blood. It won a 2009 Broadcast Music Incorporated award in the cable television category and was nominated for a 2009 Scream Award for \"Best Scream Song of the Year\".\n\n\nChart performance\n\n\nCertifications\n\n\nReferences",
+      "confidence": 0.85
+    },
+    {
+      "id": "wiki-album-jace-everett",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Jace_Everett",
+      "excerpt": "Jace Everett Beasley (born May 27, 1972) is an American singer-songwriter and musician. Signed to Epic Records in 2005, he released his debut single \"That's the Kind of Love I'm In\" in 2005, which peaked at No. 52 on the Billboard Hot Country Songs charts, and was the first single from his self-titled debut album. He also co-wrote Josh Turner's Number One single \"Your Man\".  His song \"Bad Things\" is the theme for the HBO series True Blood and peaked No. 2 in Norway in 2009. In the same year, he released his third album, Red Revelations, under the Weston Boys label that peaked No. 12 in Norway.\n\n\nBiography\nJace Everett was born in Evansville, Indiana in 1972. His father's jobs kept them on the move through Indianapolis and then St. Louis, MO before moving to Fort Worth, TX at the age of six. He started playing music in his church and in school concerts. He later moved to Nashville, TN to attend Belmont University.\nIn 2005, Everett was signed to Epic Records. He released his first single, \"That's The Kind of Love I'm In\", in June 2005. This song charted at No. 52 on the country charts, and was followed in early 2006 by the release of his self-titled debut album. Also in 2006, Josh Turner charted at Number One on the country charts with the song \"Your Man\", which Everett co-wrote, and for which Everett received a Broadcast Music Incorporated award. The album's other singles — \"Bad Things,\" \"Nowhere in the Neighborhood\" and \"Everything I Want\" — did not chart in the United States, although \"Bad Things\" reached No. 2 in Norway, No. 30 in Sweden and No. 49 in UK in 2009.\n\"Bad Things\" is used as the theme song for the HBO TV series True Blood. Charlaine Harris pays homage to the song by including \"Bad Things\" playing at Merlotte's in the 2010 Sookie Stackhouse mystery Dead in the Family. It won a 2009 Broadcast Music Incorporated award in the cable television category and was nominated for a 2009 Scream Award for \"Best Scream Song of the Year.\" His album, entitled Red Revelations, was released in June 2009. His duet Evil (Is Going On), a cover of the song written by Willie Dixon, with C. C. Adcock is part of the True Blood season 2 soundtrack. A new album, \"Mr. Good Times\" was released in 2011. His latest album, \"Terra Rosa\" was released digitally on July 23, 2013.\n\n\nDiscography\n\n\nAlbums\n\n\nSingles\n\n\nMusic videos\n\n\nReferences\n\n\nExternal links\nOfficial website",
+      "confidence": 0.75
+    }
+  ],
+  "facts": [
+    {
+      "id": "280833e0-0d1e-41ca-8566-2b5581e187ef",
+      "category": "artist",
+      "text": "Bad Things is performed by Jace Everett.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7bacb788-8602-445d-b788-c7f328de18cc",
+      "category": "cultural_impact",
+      "text": "\"Bad Things\" is a song written and recorded by American singer Jace Everett.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Bad_Things_(Jace_Everett_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "766472da-1b68-4caf-84fe-417cf496c0f0",
+      "category": "cultural_impact",
+      "text": "It is included on his only album for Epic Records Nashville, the self-titled Jace Everett.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Bad_Things_(Jace_Everett_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "30b04449-59f6-48d1-9742-e3fea3a7ac4e",
+      "category": "cultural_impact",
+      "text": "Although released as a single in 2005, it did not chart on the Hot Country Songs charts that year.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Bad_Things_(Jace_Everett_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "716ff277-5d5d-41ea-8d1b-817451e79556",
+      "category": "cultural_impact",
+      "text": "Jace Everett Beasley (born May 27, 1972) is an American singer-songwriter and musician.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jace_Everett",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "51163973-4145-4f81-83fd-b703a923b609",
+      "category": "cultural_impact",
+      "text": "Signed to Epic Records in 2005, he released his debut single \"That's the Kind of Love I'm In\" in 2005, which peaked at No.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jace_Everett",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eb943e62-6933-48b0-ada1-355216370d21",
+      "category": "cultural_impact",
+      "text": "52 on the Billboard Hot Country Songs charts, and was the first single from his self-titled debut album.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jace_Everett",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "91ccc429-4fb4-414b-8c1b-5c8d941be9f9",
+      "category": "trivia",
+      "text": "Artist: Jace Everett · Title: Bad Things · Album: Bad Things · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jace Everett - Bad Things.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "62fc5f26-cc3b-46d3-83b5-099cd68e539f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jace Everett - Bad Things.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "67d3cb3f-0f3b-4897-9126-4779b0a89bcd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1990's-00's/Jace Everett - Bad Things.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 90,
+    "relationships": 40,
+    "overall": 67
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": [
+      {
+        "id": "conflict-0",
+        "text": "Verify: Jace Everett Beasley (born May 27, 1972) is an American singer-songwriter and musician.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-1",
+        "text": "Verify: Signed to Epic Records in 2005, he released his debut single \"That's the Kind of Love I'm In\" in 2005, which peaked at N… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-2",
+        "text": "Verify: 52 on the Billboard Hot Country Songs charts, and was the first single from his self-titled debut album.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      }
+    ]
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 10,
+    "accepted": 7,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Jace Everett - Bad Things.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

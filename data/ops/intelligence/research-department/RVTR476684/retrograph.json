@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR476684",
+    "kind": "song",
+    "rvtr": "RVTR476684",
+    "generatedAt": "2026-06-28T22:53:48.408Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR476684",
+    "artist": "Janet Jackson",
+    "title": "All Nite",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Janet Jackson",
+    "relatedArtists": [
+      "Janet Jackson"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-2xeuj4",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Janet Jackson - All Nite.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-48gaan",
+      "date": "2004",
+      "label": "All Nite — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e2b50d985c5f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR476684&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-2xeuj4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "09ce630d3199",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR476684&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-2xeuj4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "011163496ff5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR476684&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-2xeuj4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e908b4f4279c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR476684&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-2xeuj4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1f39cd849850",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR476684&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-2xeuj4",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-2xeuj4",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Janet Jackson - All Nite.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR476684-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR476684"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Janet Jackson"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Janet Jackson"
+    },
+    {
+      "id": "rel-RVTR476684-tl-tl-48gaan",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR476684"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-48gaan"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "All Nite — original release"
+    },
+    {
+      "id": "rel-RVTR476684-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR476684"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR476684-perf-perf-2xeuj4",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR476684"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-2xeuj4"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-2xeuj4-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2xeuj4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Janet Jackson - All Nite.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e2b50d985c5f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2xeuj4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e2b50d985c5f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-09ce630d3199-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2xeuj4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "09ce630d3199"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-011163496ff5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2xeuj4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "011163496ff5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e908b4f4279c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2xeuj4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e908b4f4279c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-1f39cd849850-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2xeuj4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1f39cd849850"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR476684. \"All Nite\" by Janet Jackson.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Janet Jackson · Title: All Nite · Album: Janet - All Nite (Don't Stop) · Year: 2004 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Janet Jackson - All Nite.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5a7fbc5d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Janet Jackson - All Nite.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c57b7dd1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Janet Jackson - All Nite (Don't Stop).mp3 · Performance: Don't Stop",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0df88a64",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Janet Jackson - All Nite (Don't Stop).mp4 · Performance: Don't Stop",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c375dbe0-6b7c-41fc-b5e5-c3ceccc3a28f",
+      "category": "artist",
+      "text": "All Nite is performed by Janet Jackson.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a1c03b80-2adb-47bb-9561-d0cc600f4f50",
+      "category": "trivia",
+      "text": "Artist: Janet Jackson · Title: All Nite · Album: Janet - All Nite (Don't Stop) · Year: 2004 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Janet Jackson - All Nite.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "00630e82-7a2e-4457-9758-69fd83300084",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Janet Jackson - All Nite.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4679c730-b07c-4752-ab78-17649ff6f1b4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Janet Jackson - All Nite (Don't Stop).mp3 · Performance: Don't Stop",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0a3024df-6f0a-45fc-b83d-743bf00e8cbd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Janet Jackson - All Nite (Don't Stop).mp4 · Performance: Don't Stop",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Janet Jackson - All Nite.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

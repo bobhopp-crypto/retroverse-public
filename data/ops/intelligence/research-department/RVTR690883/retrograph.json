@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR690883",
+    "kind": "song",
+    "rvtr": "RVTR690883",
+    "generatedAt": "2026-06-28T22:59:41.538Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR690883",
+    "artist": "Saint Jhn",
+    "title": "Roses",
+    "year": 2020,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Saint Jhn",
+    "relatedArtists": [
+      "Saint Jhn"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2020,
+    "recordings": [
+      {
+        "id": "rec-amhxke",
+        "title": "Roses — graph recording",
+        "releaseDate": 2020,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-s7ry1d",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2018,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Saint JHN - Roses.mp4",
+      "notes": "Detected year: 2018. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 4,
+    "chartWeeks": 34,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #4 · 34 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-mmdioo",
+      "date": "2020",
+      "label": "Roses — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2m",
+      "date": "2020",
+      "label": "Billboard Hot 100 peak #4",
+      "detail": "34 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-id0qyr",
+      "date": "2020",
+      "label": "Roses — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2018",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "347cf0eaa47e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690883&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-s7ry1d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "21df9f00991c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690883&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-s7ry1d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ded8f7cfe402",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690883&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-s7ry1d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d1c13cb394d0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690883&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-s7ry1d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7bc71c42787d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690883&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-s7ry1d",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-s7ry1d",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2018,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Saint JHN - Roses.mp4",
+        "notes": "Detected year: 2018. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR690883-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR690883"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Saint Jhn"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Saint Jhn"
+    },
+    {
+      "id": "rel-RVTR690883-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR690883"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #4"
+    },
+    {
+      "id": "rel-RVTR690883-tl-tl-mmdioo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR690883"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mmdioo"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Roses — original release"
+    },
+    {
+      "id": "rel-RVTR690883-tl-tl-l47p2m",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR690883"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2m"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #4"
+    },
+    {
+      "id": "rel-RVTR690883-tl-tl-id0qyr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR690883"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-id0qyr"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Roses — graph recording"
+    },
+    {
+      "id": "rel-RVTR690883-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR690883"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR690883-perf-perf-s7ry1d",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR690883"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-s7ry1d"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-s7ry1d-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7ry1d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Saint JHN - Roses.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-347cf0eaa47e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7ry1d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "347cf0eaa47e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-21df9f00991c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7ry1d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "21df9f00991c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ded8f7cfe402-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7ry1d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ded8f7cfe402"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d1c13cb394d0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7ry1d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d1c13cb394d0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7bc71c42787d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s7ry1d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7bc71c42787d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR690883. \"Roses\" by Saint Jhn.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #4. 34 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Saint JHN · Title: Roses · Album: Collection One · Year: 2018 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Saint JHN - Roses.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2020.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-9cc81b00",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Saint JHN - Roses.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4ce5116c-c46a-4ba5-a23a-092d376f95ff",
+      "category": "artist",
+      "text": "Roses is performed by Saint Jhn.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5bb34afa-9565-4020-9e78-e9eb7b858cc2",
+      "category": "chart",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 34 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d5b310c3-8c07-4d48-954a-305afb78fc6e",
+      "category": "recording",
+      "text": "Roses was released in 2020.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "0df9003c-7a31-4d9c-988f-ff8f9140953b",
+      "category": "trivia",
+      "text": "Artist: Saint JHN · Title: Roses · Album: Collection One · Year: 2018 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Saint JHN - Roses.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fd3b8a12-ae3e-48b3-8541-cb67bd49c4f6",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Saint JHN - Roses.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Saint JHN - Roses.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR048322",
+    "kind": "song",
+    "rvtr": "RVTR048322",
+    "generatedAt": "2026-06-28T22:44:24.301Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR048322",
+    "artist": "Faithless",
+    "title": "Insomnia",
+    "year": 1997,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Faithless",
+    "relatedArtists": [
+      "Faithless"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1997,
+    "recordings": [
+      {
+        "id": "rec-hlc0h2",
+        "title": "Insomnia — graph recording",
+        "releaseDate": 1997,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-x3ytwp",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1995,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Faithless - Insomnia.mp4",
+      "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 62,
+    "chartWeeks": 19,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #62 · 19 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-tvwxe6",
+      "date": "1997",
+      "label": "Insomnia — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k2",
+      "date": "1997",
+      "label": "Billboard Hot 100 peak #62",
+      "detail": "19 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-3r7vs1",
+      "date": "1997",
+      "label": "Insomnia — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1995",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "111b19635468",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048322&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-x3ytwp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "09061debbcc6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048322&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-x3ytwp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5ad382481408",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048322&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-x3ytwp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7d4d125023ac",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048322&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-x3ytwp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bc7fcff8b071",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR048322&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-x3ytwp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-x3ytwp",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1995,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Faithless - Insomnia.mp4",
+        "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR048322-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048322"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Faithless"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Faithless"
+    },
+    {
+      "id": "rel-RVTR048322-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048322"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #62"
+    },
+    {
+      "id": "rel-RVTR048322-tl-tl-tvwxe6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048322"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tvwxe6"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Insomnia — original release"
+    },
+    {
+      "id": "rel-RVTR048322-tl-tl-fcm3k2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048322"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k2"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #62"
+    },
+    {
+      "id": "rel-RVTR048322-tl-tl-3r7vs1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048322"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3r7vs1"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Insomnia — graph recording"
+    },
+    {
+      "id": "rel-RVTR048322-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048322"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR048322-perf-perf-x3ytwp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR048322"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-x3ytwp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-x3ytwp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3ytwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Faithless - Insomnia.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-111b19635468-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3ytwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "111b19635468"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-09061debbcc6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3ytwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "09061debbcc6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5ad382481408-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3ytwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5ad382481408"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-7d4d125023ac-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3ytwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7d4d125023ac"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-bc7fcff8b071-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x3ytwp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bc7fcff8b071"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR048322. \"Insomnia\" by Faithless.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #62. 19 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Faithless · Title: Insomnia · Album: Insomnia · Year: 1995 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Faithless - Insomnia.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1997.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-2d4a8f57",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Faithless - Insomnia.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d5cc51be",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Faithless - Insomnia.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "cfd3a42f-242f-4b7b-920a-fdf90b1a31a9",
+      "category": "artist",
+      "text": "Insomnia is performed by Faithless.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "982d7b43-fe52-41e7-b3fb-e903b5b6975c",
+      "category": "chart",
+      "text": "The song peaked at #62 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "75e4c43a-1056-4289-bbe0-288166eebf64",
+      "category": "recording",
+      "text": "Insomnia was released in 1997.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "774a27f2-7d57-4209-875e-d21489ae1112",
+      "category": "trivia",
+      "text": "Artist: Faithless · Title: Insomnia · Album: Insomnia · Year: 1995 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Faithless - Insomnia.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "562b1ccc-e977-46e1-b8d2-db8c5a7553e2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Faithless - Insomnia.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9fae93b4-25f3-445e-8350-0508aef57a2b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Faithless - Insomnia.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Faithless - Insomnia.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR236240",
+    "kind": "song",
+    "rvtr": "RVTR236240",
+    "generatedAt": "2026-06-28T22:49:05.614Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR236240",
+    "artist": "Boogie Pimps",
+    "title": "Sunny",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Boogie Pimps",
+    "relatedArtists": [
+      "Boogie Pimps"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-t67vvr",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Boogie Pimps - Sunny.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-kbqnz9",
+      "date": "2003",
+      "label": "Sunny — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ed1ab085be50",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236240&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-t67vvr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "65679a487316",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236240&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-t67vvr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5ba0f0b8daa5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236240&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-t67vvr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "78f3f767102d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236240&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-t67vvr",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "969bc920c120",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236240&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-t67vvr",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-t67vvr",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Boogie Pimps - Sunny.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR236240-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236240"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Boogie Pimps"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Boogie Pimps"
+    },
+    {
+      "id": "rel-RVTR236240-tl-tl-kbqnz9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236240"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-kbqnz9"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Sunny — original release"
+    },
+    {
+      "id": "rel-RVTR236240-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236240"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR236240-perf-perf-t67vvr",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236240"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-t67vvr"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-t67vvr-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t67vvr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Boogie Pimps - Sunny.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ed1ab085be50-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t67vvr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ed1ab085be50"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-65679a487316-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t67vvr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "65679a487316"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5ba0f0b8daa5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t67vvr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5ba0f0b8daa5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-78f3f767102d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t67vvr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "78f3f767102d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-969bc920c120-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t67vvr"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "969bc920c120"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR236240. \"Sunny\" by Boogie Pimps.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Boogie Pimps · Title: Sunny · Album: Sunny · Year: 2003 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Boogie Pimps - Sunny.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a237eb6b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Boogie Pimps - Sunny.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b58b2165-ad88-467e-ad29-1686d02ea27a",
+      "category": "artist",
+      "text": "Sunny is performed by Boogie Pimps.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9b6d0f1b-b467-4bb4-bf68-0f681782c1d9",
+      "category": "trivia",
+      "text": "Artist: Boogie Pimps · Title: Sunny · Album: Sunny · Year: 2003 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Boogie Pimps - Sunny.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "00985640-02e2-4e50-bedb-3cf91b6cda51",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Boogie Pimps - Sunny.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Boogie Pimps - Sunny.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

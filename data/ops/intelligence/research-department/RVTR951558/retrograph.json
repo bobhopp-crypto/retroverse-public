@@ -1,0 +1,538 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR951558",
+    "kind": "song",
+    "rvtr": "RVTR951558",
+    "generatedAt": "2026-06-28T22:42:46.949Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR951558",
+    "artist": "Johnny Cash",
+    "title": "Hurt",
+    "year": 2002,
+    "albumTitle": "American IV: The Man Comes Around",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL489122/RVAL489122__johnny-cash__american-iv-the-man-comes-around.jpg"
+  },
+  "artist": {
+    "name": "Johnny Cash",
+    "relatedArtists": [
+      "Johnny Cash"
+    ]
+  },
+  "album": {
+    "title": "American IV: The Man Comes Around",
+    "releaseYear": 2002,
+    "recordings": [
+      {
+        "id": "rec-wofbjg",
+        "title": "American IV: The Man Comes Around",
+        "releaseDate": 2002,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-g7yvzp",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1978,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Johnny Cash - Hurt.mp4",
+      "notes": "Detected year: 1978. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "American IV: The Man Comes Around",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-tgswzn",
+      "date": "2002",
+      "label": "Hurt — original release",
+      "detail": "Original album: American IV: The Man Comes Around",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-mh5d66",
+      "date": "2002",
+      "label": "American IV: The Man Comes Around",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1978",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR951558",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL489122/RVAL489122__johnny-cash__american-iv-the-man-comes-around.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4b63d2db0766",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR951558&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-g7yvzp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4cae7bf52203",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR951558&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-g7yvzp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7a90f4846d46",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR951558&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-g7yvzp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "73772268736b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR951558&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-g7yvzp",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bdd480218bee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR951558&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-g7yvzp",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-g7yvzp",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1978,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Johnny Cash - Hurt.mp4",
+        "notes": "Detected year: 1978. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR951558-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR951558"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Johnny Cash"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Johnny Cash"
+    },
+    {
+      "id": "rel-RVTR951558-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR951558"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-wofbjg"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "American IV: The Man Comes Around"
+    },
+    {
+      "id": "rel-RVTR951558-tl-tl-tgswzn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR951558"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tgswzn"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hurt — original release"
+    },
+    {
+      "id": "rel-RVTR951558-tl-tl-mh5d66",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR951558"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mh5d66"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "American IV: The Man Comes Around"
+    },
+    {
+      "id": "rel-RVTR951558-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR951558"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR951558-perf-perf-g7yvzp",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR951558"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-g7yvzp"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-g7yvzp-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g7yvzp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Johnny Cash - Hurt.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4b63d2db0766-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g7yvzp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4b63d2db0766"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4cae7bf52203-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g7yvzp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4cae7bf52203"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7a90f4846d46-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g7yvzp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7a90f4846d46"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-73772268736b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g7yvzp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "73772268736b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-bdd480218bee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-g7yvzp"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bdd480218bee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR951558. \"Hurt\" by Johnny Cash. Album: American IV: The Man Comes Around (2002).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL489122/RVAL489122__johnny-cash__american-iv-the-man-comes-around.jpg",
+      "excerpt": "Canonical cover assignment for RVTR951558 (Hurt). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: American IV: The Man Comes Around (2002)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Johnny Cash · Title: Hurt · Album: I Would Like To See You Again · Year: 1978 · Genre: Country · PlayCount: 1 · LastPlayed: 1768031569 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Johnny Cash - Hurt.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2002.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-35145063",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Johnny Cash - Hurt.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ba7c200c-2952-4f6f-a6f7-0fe809a632b2",
+      "category": "artist",
+      "text": "Hurt is performed by Johnny Cash.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0ab5d830-f1db-4147-a04e-fb5634ce9838",
+      "category": "album",
+      "text": "The song appears on the album \"American IV: The Man Comes Around\" (2002).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bcf6479d-73a5-4b1e-97d6-7b6265efb392",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR951558.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL489122/RVAL489122__johnny-cash__american-iv-the-man-comes-around.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ae827691-2db1-46d9-a98a-5cbb4ec7adac",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b245197b-4421-489c-b5ac-8d92c8422794",
+      "category": "recording",
+      "text": "Hurt was released in 2002.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a2981214-3a0d-4f17-a08a-62e99c9d7e4f",
+      "category": "trivia",
+      "text": "Album: American IV: The Man Comes Around (2002).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b19e7b55-1d36-4b34-a162-25055b7d826f",
+      "category": "trivia",
+      "text": "Album: American IV: The Man Comes Around (2002)",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "407defe7-3f51-40ab-8c84-994e42139475",
+      "category": "trivia",
+      "text": "Artist: Johnny Cash · Title: Hurt · Album: I Would Like To See You Again · Year: 1978 · Genre: Country · PlayCount: 1 · LastPlayed: 1768031569 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Johnny Cash - Hurt.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3069ca29-7add-4abb-a99c-938daf3764fb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Johnny Cash - Hurt.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 9,
+    "accepted": 7,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Johnny Cash - Hurt.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

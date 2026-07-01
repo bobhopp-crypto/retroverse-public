@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR096206",
+    "kind": "song",
+    "rvtr": "RVTR096206",
+    "generatedAt": "2026-06-28T22:45:33.287Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR096206",
+    "artist": "Agnes",
+    "title": "Release Me",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Agnes",
+    "relatedArtists": [
+      "Agnes"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-y0i116",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Agnes - Release Me.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-2gl84b",
+      "date": "2008",
+      "label": "Release Me — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b3d036758529",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096206&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-y0i116",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fcbe192ad0c5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096206&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-y0i116",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f45c015a1259",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096206&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-y0i116",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6bb58d6fb52f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096206&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-y0i116",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fec61d32b038",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR096206&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-y0i116",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-y0i116",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Agnes - Release Me.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR096206-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR096206"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Agnes"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Agnes"
+    },
+    {
+      "id": "rel-RVTR096206-tl-tl-2gl84b",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR096206"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2gl84b"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Release Me — original release"
+    },
+    {
+      "id": "rel-RVTR096206-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR096206"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR096206-perf-perf-y0i116",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR096206"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-y0i116"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-y0i116-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y0i116"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Agnes - Release Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b3d036758529-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y0i116"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b3d036758529"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-fcbe192ad0c5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y0i116"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fcbe192ad0c5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f45c015a1259-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y0i116"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f45c015a1259"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6bb58d6fb52f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y0i116"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6bb58d6fb52f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-fec61d32b038-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y0i116"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fec61d32b038"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR096206. \"Release Me\" by Agnes.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Agnes · Title: Release Me · Album: Dance Love Pop · Year: 2008 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Agnes - Release Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0289f7e9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Agnes - Release Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-af3c916e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Agnes - Release Me.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-dce8d573",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Agnes - Release Me.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "593475d9-ee0e-4d9e-8f92-75a5e3dd999d",
+      "category": "artist",
+      "text": "Release Me is performed by Agnes.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "35c32cac-bc70-4441-be76-e2c4dd52ddda",
+      "category": "trivia",
+      "text": "Artist: Agnes · Title: Release Me · Album: Dance Love Pop · Year: 2008 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Agnes - Release Me.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e9f9c2f0-8412-423e-9988-910ff44dba34",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Agnes - Release Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b84e528c-f83a-4949-a428-ae64758edb17",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Agnes - Release Me.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ec2d1032-6d14-4335-8246-1d6a192bbcdc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Agnes - Release Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Agnes - Release Me.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

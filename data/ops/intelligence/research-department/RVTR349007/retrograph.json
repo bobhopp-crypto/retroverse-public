@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR349007",
+    "kind": "song",
+    "rvtr": "RVTR349007",
+    "generatedAt": "2026-06-28T22:51:10.359Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR349007",
+    "artist": "Meg Myers",
+    "title": "Numb",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Meg Myers",
+    "relatedArtists": [
+      "Meg Myers"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-gz68u7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2018,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Numb.mp4",
+      "notes": "Detected year: 2018. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-etfv74",
+      "date": "2018",
+      "label": "Numb — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2018",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "618bd899e7c7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR349007&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-gz68u7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4981f70d8e03",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR349007&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-gz68u7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b0a08f5ff1e6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR349007&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-gz68u7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "864406dee07d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR349007&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-gz68u7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "66324b92682f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR349007&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-gz68u7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-gz68u7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2018,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Numb.mp4",
+        "notes": "Detected year: 2018. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR349007-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR349007"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Meg Myers"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Meg Myers"
+    },
+    {
+      "id": "rel-RVTR349007-tl-tl-etfv74",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR349007"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-etfv74"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Numb — original release"
+    },
+    {
+      "id": "rel-RVTR349007-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR349007"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR349007-perf-perf-gz68u7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR349007"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-gz68u7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-gz68u7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gz68u7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Numb.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-618bd899e7c7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gz68u7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "618bd899e7c7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4981f70d8e03-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gz68u7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4981f70d8e03"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b0a08f5ff1e6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gz68u7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b0a08f5ff1e6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-864406dee07d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gz68u7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "864406dee07d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-66324b92682f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gz68u7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "66324b92682f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR349007. \"Numb\" by Meg Myers.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Meg Myers · Title: Numb · Album: Take Me To The Disco · Year: 2018 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Numb.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-fde01611",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Numb.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "a7cf9948-6cac-4433-afd2-5867b4bd0938",
+      "category": "artist",
+      "text": "Numb is performed by Meg Myers.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "bfdf7b56-6075-4095-be0e-67abae3c9a1b",
+      "category": "trivia",
+      "text": "Artist: Meg Myers · Title: Numb · Album: Take Me To The Disco · Year: 2018 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Numb.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "da9d7c31-c34e-4c1f-9e5c-3bcbe8e4ce20",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Numb.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Meg Myers - Numb.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

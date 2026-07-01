@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR945240",
+    "kind": "song",
+    "rvtr": "RVTR945240",
+    "generatedAt": "2026-06-28T22:42:44.850Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR945240",
+    "artist": "Ronnie Mcdowell",
+    "title": "The King Is Gone",
+    "year": 1977,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ronnie Mcdowell",
+    "relatedArtists": [
+      "Ronnie Mcdowell"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1977,
+    "recordings": [
+      {
+        "id": "rec-syk5h5",
+        "title": "The King Is Gone — graph recording",
+        "releaseDate": 1977,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-suhlwz",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1977,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ronnie McDowell - The King Is Gone.mp4",
+      "notes": "Detected year: 1977. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 13,
+    "chartWeeks": 12,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #13 · 12 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-yqghm7",
+      "date": "1977",
+      "label": "The King Is Gone — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fs",
+      "date": "1977",
+      "label": "Billboard Hot 100 peak #13",
+      "detail": "12 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-4ttpum",
+      "date": "1977",
+      "label": "The King Is Gone — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1977",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "2dc2e45a785a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945240&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-suhlwz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c219286bb4c5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945240&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-suhlwz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cb4a38d5947b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945240&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-suhlwz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "31fd907a6c8c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945240&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-suhlwz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0b2e4f58086c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR945240&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-suhlwz",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-suhlwz",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1977,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ronnie McDowell - The King Is Gone.mp4",
+        "notes": "Detected year: 1977. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR945240-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945240"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ronnie Mcdowell"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ronnie Mcdowell"
+    },
+    {
+      "id": "rel-RVTR945240-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945240"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #13"
+    },
+    {
+      "id": "rel-RVTR945240-tl-tl-yqghm7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945240"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yqghm7"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "The King Is Gone — original release"
+    },
+    {
+      "id": "rel-RVTR945240-tl-tl-fcm3fs",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945240"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fs"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #13"
+    },
+    {
+      "id": "rel-RVTR945240-tl-tl-4ttpum",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945240"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4ttpum"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The King Is Gone — graph recording"
+    },
+    {
+      "id": "rel-RVTR945240-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945240"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR945240-perf-perf-suhlwz",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR945240"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-suhlwz"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-suhlwz-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-suhlwz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ronnie McDowell - The King Is Gone.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-2dc2e45a785a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-suhlwz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2dc2e45a785a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c219286bb4c5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-suhlwz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c219286bb4c5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-cb4a38d5947b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-suhlwz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cb4a38d5947b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-31fd907a6c8c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-suhlwz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "31fd907a6c8c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-0b2e4f58086c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-suhlwz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0b2e4f58086c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR945240. \"The King Is Gone\" by Ronnie Mcdowell.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #13. 12 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ronnie McDowell · Title: The King Is Gone · Album: The King Is Gone · Year: 1977 · Genre: Rock · PlayCount: 1 · LastPlayed: 1765778695 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ronnie McDowell - The King Is Gone.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1977.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-21d039e1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ronnie McDowell - The King Is Gone.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "991078a6-e433-466f-90f5-cc0089cbc360",
+      "category": "artist",
+      "text": "The King Is Gone is performed by Ronnie Mcdowell.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0db1b387-8b51-42f5-a7f8-642dcdcb7835",
+      "category": "chart",
+      "text": "The song peaked at #13 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a9652374-d693-491d-8bc4-7f69c7e2aa20",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5860b7bc-8dd6-4dbd-80ca-dcbd5809f2cc",
+      "category": "recording",
+      "text": "The King Is Gone was released in 1977.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5b03edc7-ce6a-43f4-99a9-a1abc1960c53",
+      "category": "trivia",
+      "text": "Artist: Ronnie McDowell · Title: The King Is Gone · Album: The King Is Gone · Year: 1977 · Genre: Rock · PlayCount: 1 · LastPlayed: 1765778695 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ronnie McDowell - The King Is Gone.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8b00a43c-a301-42a4-b67f-ecf9acf640ea",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ronnie McDowell - The King Is Gone.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ronnie McDowell - The King Is Gone.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

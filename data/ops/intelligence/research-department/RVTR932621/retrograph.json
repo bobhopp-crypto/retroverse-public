@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR932621",
+    "kind": "song",
+    "rvtr": "RVTR932621",
+    "generatedAt": "2026-06-28T23:07:46.069Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR932621",
+    "artist": "Ksi X Lil Wayne",
+    "title": "Lose",
+    "year": 2021,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ksi X Lil Wayne",
+    "relatedArtists": [
+      "Ksi X Lil Wayne"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2021,
+    "recordings": [
+      {
+        "id": "rec-yyhn8e",
+        "title": "Lose — graph recording",
+        "releaseDate": 2021,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-bz6bzg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/KSI x Lil Wayne - Lose.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 86,
+    "chartWeeks": 1,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #86 · 1 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-4vctvb",
+      "date": "2021",
+      "label": "Lose — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3lw",
+      "date": "2021",
+      "label": "Billboard Hot 100 peak #86",
+      "detail": "1 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ftqn2c",
+      "date": "2021",
+      "label": "Lose — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "55986c30ed36",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR932621&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-bz6bzg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f46a104374ce",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR932621&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-bz6bzg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1758aeb15517",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR932621&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-bz6bzg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1329a54fece1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR932621&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-bz6bzg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b1704a32354a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR932621&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-bz6bzg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-bz6bzg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/KSI x Lil Wayne - Lose.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR932621-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR932621"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ksi X Lil Wayne"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ksi X Lil Wayne"
+    },
+    {
+      "id": "rel-RVTR932621-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR932621"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #86"
+    },
+    {
+      "id": "rel-RVTR932621-tl-tl-4vctvb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR932621"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4vctvb"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Lose — original release"
+    },
+    {
+      "id": "rel-RVTR932621-tl-tl-fcm3lw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR932621"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3lw"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #86"
+    },
+    {
+      "id": "rel-RVTR932621-tl-tl-ftqn2c",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR932621"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ftqn2c"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Lose — graph recording"
+    },
+    {
+      "id": "rel-RVTR932621-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR932621"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR932621-perf-perf-bz6bzg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR932621"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-bz6bzg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-bz6bzg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bz6bzg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/KSI x Lil Wayne - Lose.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-55986c30ed36-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bz6bzg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "55986c30ed36"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f46a104374ce-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bz6bzg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f46a104374ce"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1758aeb15517-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bz6bzg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1758aeb15517"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1329a54fece1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bz6bzg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1329a54fece1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b1704a32354a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-bz6bzg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b1704a32354a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR932621. \"Lose\" by Ksi X Lil Wayne.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #86. 1 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: KSI x Lil Wayne · Title: Lose · Album: KSI - All Over The Place · Year: 2021 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/KSI x Lil Wayne - Lose.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2021.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-82f066da",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/KSI x Lil Wayne - Lose.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "efc59f92-1ea9-49d7-97e8-97b8f4562850",
+      "category": "artist",
+      "text": "Lose is performed by Ksi X Lil Wayne.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "50f3ad16-c72e-4bb5-9a86-c86131d46632",
+      "category": "chart",
+      "text": "The song peaked at #86 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e1c57755-2734-49e2-805e-7ccfac8926ca",
+      "category": "recording",
+      "text": "Lose was released in 2021.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "90492bdc-eedc-4e3b-a2dd-29a96511fca9",
+      "category": "trivia",
+      "text": "Artist: KSI x Lil Wayne · Title: Lose · Album: KSI - All Over The Place · Year: 2021 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/KSI x Lil Wayne - Lose.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5216bc9e-1994-4621-8e16-0d94bf437663",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/KSI x Lil Wayne - Lose.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/KSI x Lil Wayne - Lose.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

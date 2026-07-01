@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR453996",
+    "kind": "song",
+    "rvtr": "RVTR453996",
+    "generatedAt": "2026-06-28T22:53:14.617Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR453996",
+    "artist": "Carla Thomas",
+    "title": "Comfort Me",
+    "year": 1966,
+    "albumTitle": "Comfort Me",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL080700/RVAL080700__carla-thomas__comfort-me.jpg"
+  },
+  "artist": {
+    "name": "Carla Thomas",
+    "relatedArtists": [
+      "Carla Thomas"
+    ]
+  },
+  "album": {
+    "title": "Comfort Me",
+    "releaseYear": 1966,
+    "recordings": [
+      {
+        "id": "rec-cs4e7q",
+        "title": "Comfort Me",
+        "releaseDate": 1966,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-mwk7t6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1965,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Carla Thomas - Comfort Me.mp4",
+      "notes": "Detected year: 1965. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Comfort Me",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-b2y5r4",
+      "date": "1966",
+      "label": "Comfort Me — original release",
+      "detail": "Original album: Comfort Me",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-mvxdds",
+      "date": "1966",
+      "label": "Comfort Me",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1965",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR453996",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL080700/RVAL080700__carla-thomas__comfort-me.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e6ae5cf720e3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR453996&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mwk7t6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c8e5d1427c4d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR453996&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mwk7t6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6fcfa69b85a9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR453996&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mwk7t6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d015a2b7477c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR453996&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mwk7t6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2121d1db46a2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR453996&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mwk7t6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mwk7t6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1965,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Carla Thomas - Comfort Me.mp4",
+        "notes": "Detected year: 1965. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR453996-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR453996"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Carla Thomas"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Carla Thomas"
+    },
+    {
+      "id": "rel-RVTR453996-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR453996"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-cs4e7q"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Comfort Me"
+    },
+    {
+      "id": "rel-RVTR453996-tl-tl-b2y5r4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR453996"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-b2y5r4"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Comfort Me — original release"
+    },
+    {
+      "id": "rel-RVTR453996-tl-tl-mvxdds",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR453996"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mvxdds"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Comfort Me"
+    },
+    {
+      "id": "rel-RVTR453996-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR453996"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR453996-perf-perf-mwk7t6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR453996"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mwk7t6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mwk7t6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mwk7t6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Carla Thomas - Comfort Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e6ae5cf720e3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mwk7t6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e6ae5cf720e3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-c8e5d1427c4d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mwk7t6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c8e5d1427c4d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6fcfa69b85a9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mwk7t6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6fcfa69b85a9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d015a2b7477c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mwk7t6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d015a2b7477c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2121d1db46a2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mwk7t6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2121d1db46a2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR453996. \"Comfort Me\" by Carla Thomas. Album: Comfort Me (1966).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL080700/RVAL080700__carla-thomas__comfort-me.jpg",
+      "excerpt": "Canonical cover assignment for RVTR453996 (Comfort Me). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Comfort Me (1966)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Carla Thomas · Title: Comfort Me · Album: Comfort Me · Year: 1965 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Carla Thomas - Comfort Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1966.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-a235e88d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Carla Thomas - Comfort Me.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "36ac7a90-01a3-4163-8c7e-181057663499",
+      "category": "artist",
+      "text": "Comfort Me is performed by Carla Thomas.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c9c13bfa-834e-41cd-a86d-1689189052be",
+      "category": "album",
+      "text": "The song appears on the album \"Comfort Me\" (1966).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f5ab0ab3-895f-4d69-b4e8-dcc38d8de796",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR453996.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL080700/RVAL080700__carla-thomas__comfort-me.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "71aa99d4-2a6e-4c5e-90a2-0fb9d712e033",
+      "category": "recording",
+      "text": "Comfort Me was released in 1966.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "807d0e1c-5487-471f-a58d-fc57cc17a516",
+      "category": "trivia",
+      "text": "Artist: Carla Thomas · Title: Comfort Me · Album: Comfort Me · Year: 1965 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Carla Thomas - Comfort Me.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bfe5ad37-63d8-4da0-b215-61c36fa126f0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Carla Thomas - Comfort Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Carla Thomas - Comfort Me.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

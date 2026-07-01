@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR391513",
+    "kind": "song",
+    "rvtr": "RVTR391513",
+    "generatedAt": "2026-06-28T22:51:57.066Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR391513",
+    "artist": "Lana Del Rey",
+    "title": "Ride",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Lana Del Rey",
+    "relatedArtists": [
+      "Lana Del Rey"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-pybye7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2012,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Rey - Ride.mp4",
+      "notes": "Detected year: 2012. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-5xjouk",
+      "date": "2012",
+      "label": "Ride — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2012",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "36224bfa6551",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR391513&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-pybye7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3ebba8fcb7f1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR391513&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-pybye7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c67598c3ed83",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR391513&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-pybye7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ea3c53b7e6e1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR391513&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-pybye7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5714b2b87c9d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR391513&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-pybye7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-pybye7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2012,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Rey - Ride.mp4",
+        "notes": "Detected year: 2012. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR391513-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR391513"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lana Del Rey"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lana Del Rey"
+    },
+    {
+      "id": "rel-RVTR391513-tl-tl-5xjouk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR391513"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5xjouk"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Ride — original release"
+    },
+    {
+      "id": "rel-RVTR391513-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR391513"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR391513-perf-perf-pybye7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR391513"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-pybye7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-pybye7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pybye7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Rey - Ride.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-36224bfa6551-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pybye7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "36224bfa6551"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-3ebba8fcb7f1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pybye7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3ebba8fcb7f1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-c67598c3ed83-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pybye7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c67598c3ed83"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ea3c53b7e6e1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pybye7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ea3c53b7e6e1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-5714b2b87c9d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pybye7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5714b2b87c9d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR391513. \"Ride\" by Lana Del Rey.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lana Del Rey · Title: Ride · Album: Ride · Year: 2012 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Rey - Ride.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e7d6fc3e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Rey - Ride.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "aa830ee1-4477-4d20-ba0a-576b80ca9f0e",
+      "category": "artist",
+      "text": "Ride is performed by Lana Del Rey.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8f40b004-d9c5-4795-8b38-73828e3bbb27",
+      "category": "trivia",
+      "text": "Artist: Lana Del Rey · Title: Ride · Album: Ride · Year: 2012 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Rey - Ride.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9666dd5e-a789-4883-a4c1-940240e4c600",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Rey - Ride.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lana Del Rey - Ride.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

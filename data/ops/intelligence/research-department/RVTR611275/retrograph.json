@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR611275",
+    "kind": "song",
+    "rvtr": "RVTR611275",
+    "generatedAt": "2026-06-28T22:57:26.906Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR611275",
+    "artist": "Sam Hunt",
+    "title": "Hard To Forget",
+    "year": 2020,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Sam Hunt",
+    "relatedArtists": [
+      "Sam Hunt"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2020,
+    "recordings": [
+      {
+        "id": "rec-dqynzt",
+        "title": "Hard To Forget — graph recording",
+        "releaseDate": 2020,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-6bj2dg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2020,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sam Hunt - Hard To Forget.mp4",
+      "notes": "Detected year: 2020. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 26,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #26 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-3spfxt",
+      "date": "2020",
+      "label": "Hard To Forget — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gq",
+      "date": "2020",
+      "label": "Billboard Hot 100 peak #26",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-1v7j6s",
+      "date": "2020",
+      "label": "Hard To Forget — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2020",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "bb47106d5971",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR611275&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6bj2dg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f41df91f8dd5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR611275&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6bj2dg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a3a4563e85d8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR611275&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6bj2dg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c7e3062d3e6f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR611275&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6bj2dg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "37d3bb421aa5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR611275&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6bj2dg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6bj2dg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2020,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sam Hunt - Hard To Forget.mp4",
+        "notes": "Detected year: 2020. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR611275-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR611275"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Sam Hunt"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Sam Hunt"
+    },
+    {
+      "id": "rel-RVTR611275-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR611275"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #26"
+    },
+    {
+      "id": "rel-RVTR611275-tl-tl-3spfxt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR611275"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3spfxt"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hard To Forget — original release"
+    },
+    {
+      "id": "rel-RVTR611275-tl-tl-fcm3gq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR611275"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gq"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #26"
+    },
+    {
+      "id": "rel-RVTR611275-tl-tl-1v7j6s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR611275"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-1v7j6s"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Hard To Forget — graph recording"
+    },
+    {
+      "id": "rel-RVTR611275-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR611275"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR611275-perf-perf-6bj2dg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR611275"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6bj2dg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6bj2dg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6bj2dg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sam Hunt - Hard To Forget.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-bb47106d5971-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6bj2dg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bb47106d5971"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f41df91f8dd5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6bj2dg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f41df91f8dd5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a3a4563e85d8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6bj2dg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a3a4563e85d8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-c7e3062d3e6f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6bj2dg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c7e3062d3e6f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-37d3bb421aa5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6bj2dg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "37d3bb421aa5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR611275. \"Hard To Forget\" by Sam Hunt.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #26. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Sam Hunt · Title: Hard To Forget · Album: Southside · Year: 2020 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sam Hunt - Hard To Forget.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2020.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-cff963b1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sam Hunt - Hard To Forget.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "00a10055-2c5b-4a4d-a359-426f75379548",
+      "category": "artist",
+      "text": "Hard To Forget is performed by Sam Hunt.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f84313eb-99b1-40ea-9483-58aa0e3658c2",
+      "category": "chart",
+      "text": "The song peaked at #26 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "77c992a0-fe34-4f31-bd1e-050259fabb42",
+      "category": "recording",
+      "text": "Hard To Forget was released in 2020.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ba213455-d622-419d-ba7a-2c56536d9155",
+      "category": "trivia",
+      "text": "Artist: Sam Hunt · Title: Hard To Forget · Album: Southside · Year: 2020 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sam Hunt - Hard To Forget.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "54caac08-5e2c-4e56-827d-16abf27ad2d7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sam Hunt - Hard To Forget.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sam Hunt - Hard To Forget.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

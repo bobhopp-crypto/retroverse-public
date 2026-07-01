@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR002311",
+    "kind": "song",
+    "rvtr": "RVTR002311",
+    "generatedAt": "2026-06-28T22:43:27.940Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR002311",
+    "artist": "Crowbar",
+    "title": "All I Had I Gave",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Crowbar",
+    "relatedArtists": [
+      "Crowbar"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-sv1stj",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Crowbar - All I Had I Gave.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-tujpkx",
+      "date": "1993",
+      "label": "All I Had I Gave — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-umazo8",
+      "date": "1993",
+      "label": "Crowbar is the second studio album by American sludge metal band Crowbar, released on October 12, 19",
+      "detail": "93.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-axuej7",
+      "date": "—",
+      "label": "It sold 100,000 copies on the now defunct independent label Pavement Music.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-umazo8",
+      "date": "1993",
+      "label": "Crowbar is the second studio album by American sludge metal band Crowbar, released on October 12, 19",
+      "detail": "93.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1993",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "Crowbar is the second studio album by American sludge metal band Crowbar, released on October 12, 1993.",
+      "Crowbar was recorded in New Orleans in 1992 and produced by Phil Anselmo, the frontman of Pantera and a childhood friend of Crowbar founder Kirk Windstein."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "52e529a75250",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR002311&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-sv1stj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7273056b5df3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR002311&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-sv1stj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e31aea9cd3e3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR002311&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-sv1stj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ce84c9b9ed63",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR002311&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-sv1stj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f6516b3bc387",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR002311&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-sv1stj",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-sv1stj",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Crowbar - All I Had I Gave.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR002311-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR002311"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Crowbar"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Crowbar"
+    },
+    {
+      "id": "rel-RVTR002311-tl-tl-tujpkx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR002311"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tujpkx"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "All I Had I Gave — original release"
+    },
+    {
+      "id": "rel-RVTR002311-tl-tl-umazo8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR002311"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-umazo8"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Crowbar is the second studio album by American sludge metal band Crowbar, released on October 12, 19"
+    },
+    {
+      "id": "rel-RVTR002311-tl-tl-axuej7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR002311"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-axuej7"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It sold 100,000 copies on the now defunct independent label Pavement Music."
+    },
+    {
+      "id": "rel-RVTR002311-tl-tl-umazo8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR002311"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-umazo8"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "Crowbar is the second studio album by American sludge metal band Crowbar, released on October 12, 19"
+    },
+    {
+      "id": "rel-RVTR002311-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR002311"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR002311-perf-perf-sv1stj",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR002311"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-sv1stj"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-sv1stj-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sv1stj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Crowbar - All I Had I Gave.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-52e529a75250-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sv1stj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "52e529a75250"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7273056b5df3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sv1stj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7273056b5df3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e31aea9cd3e3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sv1stj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e31aea9cd3e3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ce84c9b9ed63-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sv1stj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ce84c9b9ed63"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f6516b3bc387-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sv1stj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f6516b3bc387"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR002311. \"All I Had I Gave\" by Crowbar.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Crowbar · Title: All I Had I Gave · Album: Crowbar · Year: 1993 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Crowbar - All I Had I Gave.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-cbef3884",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Crowbar - All I Had I Gave.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-crowbar-album-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Crowbar_(album)",
+      "excerpt": "Crowbar is the second studio album by American sludge metal band Crowbar, released on October 12, 1993. It sold 100,000 copies on the now defunct independent label Pavement Music. The singles \"All I Had (I Gave)\" and \"Existence Is Punishment\" were played on MTV and received international attention. Crowbar was recorded in New Orleans in 1992 and produced by Phil Anselmo, the frontman of Pantera and a childhood friend of Crowbar founder Kirk Windstein.\n\n\nTrack listing\nAll songs written by Crowbar, except where noted.\n\n\nPersonnel\nKirk Windstein – guitar, vocals\nMatt Thomas – guitar\nTodd Strange – bass\nCraig Nunenmacher – drums\n\n\nMusic videos\n\"All I Had (I Gave)\"\n\"Existence Is Punishment\"\nBoth videos appeared on Beavis and Butt-Head. Butt-Head commented that in \"All I Had (I Gave)\", vocalist Kirk Windstein looked like he was defecating on the toilet and that the band's music sounded \"slow and fat\". \"Existence Is Punishment\" appears on the Beavis and Butt-Head: The Mike Judge Collection #3 DVD, originally in \"Safe House\".\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "a364e4e4-b885-43e1-849b-36884db5216a",
+      "category": "artist",
+      "text": "All I Had I Gave is performed by Crowbar.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b677fc85-d2db-4b1e-b881-7ec82d8184c0",
+      "category": "cultural_impact",
+      "text": "Crowbar is the second studio album by American sludge metal band Crowbar, released on October 12, 1993.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Crowbar_(album)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b4b527d5-8ee1-478f-8007-ee75c61aed82",
+      "category": "cultural_impact",
+      "text": "It sold 100,000 copies on the now defunct independent label Pavement Music.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Crowbar_(album)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "522ee1bf-205b-4aa8-94a9-0f2e3d7e878a",
+      "category": "cultural_impact",
+      "text": "The singles \"All I Had (I Gave)\" and \"Existence Is Punishment\" were played on MTV and received international attention.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Crowbar_(album)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9feec51a-db25-4765-b622-ef52d0c48b97",
+      "category": "trivia",
+      "text": "Artist: Crowbar · Title: All I Had I Gave · Album: Crowbar · Year: 1993 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Crowbar - All I Had I Gave.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6733462a-ba04-4048-85e2-7cf415e88614",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Crowbar - All I Had I Gave.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Crowbar - All I Had I Gave.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

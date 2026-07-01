@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR988121",
+    "kind": "song",
+    "rvtr": "RVTR988121",
+    "generatedAt": "2026-06-28T23:09:40.142Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR988121",
+    "artist": "Liz Phair",
+    "title": "Supernova",
+    "year": 1994,
+    "albumTitle": "Whip-Smart",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Liz Phair",
+    "relatedArtists": [
+      "Liz Phair"
+    ]
+  },
+  "album": {
+    "title": "Whip-Smart",
+    "releaseYear": 1994,
+    "recordings": [
+      {
+        "id": "rec-ljlcaf",
+        "title": "Whip-Smart",
+        "releaseDate": 1994,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-j8l3ji",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1994,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Liz Phair - Supernova.mp4",
+      "notes": "Detected year: 1994. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 78,
+    "chartWeeks": 14,
+    "albumTitle": "Whip-Smart",
+    "summary": "Hot 100 peak #78 · 14 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-af1a23",
+      "date": "1994",
+      "label": "Supernova — original release",
+      "detail": "Original album: Whip-Smart",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3l3",
+      "date": "1994",
+      "label": "Billboard Hot 100 peak #78",
+      "detail": "14 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-otv8w8",
+      "date": "1994",
+      "label": "Whip-Smart",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1994",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "607eb915d899",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR988121&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-j8l3ji",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bcb5a4cb6d46",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR988121&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-j8l3ji",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fe68cbf98541",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR988121&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-j8l3ji",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c0ad18828147",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR988121&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-j8l3ji",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "101d174fba39",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR988121&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-j8l3ji",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-j8l3ji",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1994,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Liz Phair - Supernova.mp4",
+        "notes": "Detected year: 1994. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR988121-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR988121"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Liz Phair"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Liz Phair"
+    },
+    {
+      "id": "rel-RVTR988121-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR988121"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-ljlcaf"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Whip-Smart"
+    },
+    {
+      "id": "rel-RVTR988121-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR988121"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #78"
+    },
+    {
+      "id": "rel-RVTR988121-tl-tl-af1a23",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR988121"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-af1a23"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Supernova — original release"
+    },
+    {
+      "id": "rel-RVTR988121-tl-tl-fcm3l3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR988121"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3l3"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #78"
+    },
+    {
+      "id": "rel-RVTR988121-tl-tl-otv8w8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR988121"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-otv8w8"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Whip-Smart"
+    },
+    {
+      "id": "rel-RVTR988121-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR988121"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR988121-perf-perf-j8l3ji",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR988121"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-j8l3ji"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-j8l3ji-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j8l3ji"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Liz Phair - Supernova.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-607eb915d899-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j8l3ji"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "607eb915d899"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-bcb5a4cb6d46-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j8l3ji"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bcb5a4cb6d46"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-fe68cbf98541-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j8l3ji"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fe68cbf98541"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c0ad18828147-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j8l3ji"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c0ad18828147"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-101d174fba39-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-j8l3ji"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "101d174fba39"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR988121. \"Supernova\" by Liz Phair. Album: Whip-Smart (1994).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Whip-Smart (1994). Billboard Hot 100 peak: #78. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Liz Phair · Title: Supernova · Album: Supernova · Year: 1994 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Liz Phair - Supernova.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1994.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-daaa4e84",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Liz Phair - Supernova.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f46351ce-d93f-4246-be70-67c075a828dc",
+      "category": "artist",
+      "text": "Supernova is performed by Liz Phair.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2be3cfd7-a311-46d6-97da-ab58a6856308",
+      "category": "album",
+      "text": "The song appears on the album \"Whip-Smart\" (1994).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ee5ffd9c-3a74-4d16-97a0-5583e82811fe",
+      "category": "chart",
+      "text": "The song peaked at #78 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e9cdfd98-37ea-48d2-945e-1d69c03ffbf5",
+      "category": "recording",
+      "text": "Supernova was released in 1994.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "936e6e67-e0c7-45e9-a5b5-9b8887f7721f",
+      "category": "trivia",
+      "text": "Artist: Liz Phair · Title: Supernova · Album: Supernova · Year: 1994 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Liz Phair - Supernova.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8d127103-af5f-4c2b-a713-3a22bcb8465f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Liz Phair - Supernova.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Liz Phair - Supernova.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

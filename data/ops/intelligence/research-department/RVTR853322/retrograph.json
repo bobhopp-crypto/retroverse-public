@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR853322",
+    "kind": "song",
+    "rvtr": "RVTR853322",
+    "generatedAt": "2026-06-28T23:04:46.750Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR853322",
+    "artist": "Sugarland",
+    "title": "Settlin'",
+    "year": 2007,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Sugarland",
+    "relatedArtists": [
+      "Sugarland"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2007,
+    "recordings": [
+      {
+        "id": "rec-mcfu3t",
+        "title": "Settlin' — graph recording",
+        "releaseDate": 2007,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-vhg2io",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sugarland - Settlin'.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 54,
+    "chartWeeks": 18,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #54 · 18 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-2xd010",
+      "date": "2007",
+      "label": "Settlin' — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3j9",
+      "date": "2007",
+      "label": "Billboard Hot 100 peak #54",
+      "detail": "18 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-4tboq7",
+      "date": "2007",
+      "label": "Settlin' — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2006",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ff50e5191d44",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853322&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-vhg2io",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "328d5ae4f42d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853322&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-vhg2io",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e879422ae490",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853322&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-vhg2io",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b566512b1bf0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853322&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-vhg2io",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "90e9ed5d3d13",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR853322&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-vhg2io",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-vhg2io",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sugarland - Settlin'.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR853322-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853322"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Sugarland"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Sugarland"
+    },
+    {
+      "id": "rel-RVTR853322-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853322"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #54"
+    },
+    {
+      "id": "rel-RVTR853322-tl-tl-2xd010",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853322"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2xd010"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Settlin' — original release"
+    },
+    {
+      "id": "rel-RVTR853322-tl-tl-fcm3j9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853322"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3j9"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #54"
+    },
+    {
+      "id": "rel-RVTR853322-tl-tl-4tboq7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853322"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4tboq7"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Settlin' — graph recording"
+    },
+    {
+      "id": "rel-RVTR853322-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853322"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR853322-perf-perf-vhg2io",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR853322"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-vhg2io"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-vhg2io-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vhg2io"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sugarland - Settlin'.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ff50e5191d44-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vhg2io"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ff50e5191d44"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-328d5ae4f42d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vhg2io"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "328d5ae4f42d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e879422ae490-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vhg2io"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e879422ae490"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b566512b1bf0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vhg2io"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b566512b1bf0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-90e9ed5d3d13-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vhg2io"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "90e9ed5d3d13"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR853322. \"Settlin'\" by Sugarland.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #54. 18 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Sugarland · Title: Settlin' · Album: Enjoy The Ride · Year: 2006 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sugarland - Settlin'.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2007.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-7d29bd4e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sugarland - Settlin'.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0a2abfef",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1990's-00's/Sugarland - Settlin'.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0846eb60",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Sugarland - Settlin'.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "081ce230-3f4d-4b2c-88ef-2734789be300",
+      "category": "artist",
+      "text": "Settlin' is performed by Sugarland.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "89fa4a03-d004-41b6-8137-8761736f2926",
+      "category": "chart",
+      "text": "The song peaked at #54 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a853bbf9-4b4b-490f-b153-eddf3df92022",
+      "category": "recording",
+      "text": "Settlin' was released in 2007.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "95e33ceb-7745-4985-876e-0ffa565c0183",
+      "category": "trivia",
+      "text": "Artist: Sugarland · Title: Settlin' · Album: Enjoy The Ride · Year: 2006 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sugarland - Settlin'.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "43603aac-25d8-463b-9475-58896bf1f55a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sugarland - Settlin'.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "66cead02-4dbf-402b-b138-e1de891457d0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1990's-00's/Sugarland - Settlin'.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d7ec5204-1bd9-4f6b-96e8-f79da38f2d20",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Sugarland - Settlin'.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 3,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Sugarland - Settlin'.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

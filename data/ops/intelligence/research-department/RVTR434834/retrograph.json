@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR434834",
+    "kind": "song",
+    "rvtr": "RVTR434834",
+    "generatedAt": "2026-06-28T22:52:45.977Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR434834",
+    "artist": "Ac/dc",
+    "title": "Witch's Spell",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ac/dc",
+    "relatedArtists": [
+      "Ac/dc"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-t01fda",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2020,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/AC_DC - Witch's Spell.mp4",
+      "notes": "Detected year: 2020. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-33qtw9",
+      "title": "I",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kendrick Lamar - I.mp4",
+      "notes": "Detected year: 2014. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "2020",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-vuecx7",
+      "date": "2014",
+      "label": "I",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d554c7bd21b3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR434834&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-t01fda",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "14e0a5fc9622",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR434834&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-t01fda",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0568602fa627",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR434834&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-t01fda",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "60dfc335a2ce",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR434834&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-t01fda",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cc7f4ee04505",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR434834&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-t01fda",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-t01fda",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2020,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/AC_DC - Witch's Spell.mp4",
+        "notes": "Detected year: 2020. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-33qtw9",
+        "title": "I",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kendrick Lamar - I.mp4",
+        "notes": "Detected year: 2014. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR434834-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR434834"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ac/dc"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ac/dc"
+    },
+    {
+      "id": "rel-RVTR434834-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR434834"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR434834-tl-tl-vuecx7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR434834"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vuecx7"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "I"
+    },
+    {
+      "id": "rel-RVTR434834-perf-perf-t01fda",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR434834"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-t01fda"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-t01fda-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t01fda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/AC_DC - Witch's Spell.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR434834-perf-perf-33qtw9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR434834"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-33qtw9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "I"
+    },
+    {
+      "id": "rel-perf-33qtw9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-33qtw9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kendrick Lamar - I.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "I"
+    },
+    {
+      "id": "rel-d554c7bd21b3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t01fda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d554c7bd21b3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-14e0a5fc9622-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t01fda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "14e0a5fc9622"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-0568602fa627-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t01fda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0568602fa627"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-60dfc335a2ce-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t01fda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "60dfc335a2ce"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-cc7f4ee04505-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t01fda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cc7f4ee04505"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR434834. \"Witch's Spell\" by Ac/dc.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: AC/DC · Title: Witch's Spell · Album: AC/DC - PWR/UP · Year: 2020 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/AC_DC - Witch's Spell.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-61cb9ec3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/AC_DC - Witch's Spell.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b38d379b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kendrick Lamar - I.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "24de62c6-7e35-41cb-a0ea-2ecf5c9e0982",
+      "category": "artist",
+      "text": "Witch's Spell is performed by Ac/dc.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e8734940-291e-4c6b-bde0-0a79c41dc825",
+      "category": "trivia",
+      "text": "Artist: AC/DC · Title: Witch's Spell · Album: AC/DC - PWR/UP · Year: 2020 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/AC_DC - Witch's Spell.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "310d3de4-b9c8-4875-b272-5788699b4b12",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/AC_DC - Witch's Spell.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4ce2ffd3-33ae-49f3-993a-36e4b9542b65",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Kendrick Lamar - I.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/AC_DC - Witch's Spell.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

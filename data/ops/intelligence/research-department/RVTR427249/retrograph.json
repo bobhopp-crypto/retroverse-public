@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR427249",
+    "kind": "song",
+    "rvtr": "RVTR427249",
+    "generatedAt": "2026-06-28T22:52:36.562Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR427249",
+    "artist": "The Beatles",
+    "title": "Rain",
+    "year": 1970,
+    "albumTitle": "Hey Jude",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "The Beatles",
+    "relatedArtists": [
+      "The Beatles"
+    ]
+  },
+  "album": {
+    "title": "Hey Jude",
+    "releaseYear": 1970,
+    "recordings": [
+      {
+        "id": "rec-kefgyd",
+        "title": "Hey Jude",
+        "releaseDate": 1970,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-k36xza",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1966,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Rain.mp4",
+      "notes": "Detected year: 1966. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 23,
+    "chartWeeks": 7,
+    "albumTitle": "Hey Jude",
+    "summary": "Hot 100 peak #23 · 7 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-78wbiw",
+      "date": "1970",
+      "label": "Rain — original release",
+      "detail": "Original album: Hey Jude",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gn",
+      "date": "1970",
+      "label": "Billboard Hot 100 peak #23",
+      "detail": "7 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-uppckc",
+      "date": "1970",
+      "label": "Hey Jude",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1966",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "3500428de6dc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427249&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-k36xza",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "11a3ca52c6bd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427249&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-k36xza",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "47a998d5c227",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427249&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-k36xza",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a02c8e6accf4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427249&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-k36xza",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ca17d6d61f06",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427249&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-k36xza",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-k36xza",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1966,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Rain.mp4",
+        "notes": "Detected year: 1966. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR427249-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR427249"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Beatles"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Beatles"
+    },
+    {
+      "id": "rel-RVTR427249-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR427249"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-kefgyd"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hey Jude"
+    },
+    {
+      "id": "rel-RVTR427249-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR427249"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #23"
+    },
+    {
+      "id": "rel-RVTR427249-tl-tl-78wbiw",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR427249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-78wbiw"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Rain — original release"
+    },
+    {
+      "id": "rel-RVTR427249-tl-tl-fcm3gn",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR427249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gn"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #23"
+    },
+    {
+      "id": "rel-RVTR427249-tl-tl-uppckc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR427249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-uppckc"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Hey Jude"
+    },
+    {
+      "id": "rel-RVTR427249-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR427249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR427249-perf-perf-k36xza",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR427249"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-k36xza"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-k36xza-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k36xza"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Rain.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3500428de6dc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k36xza"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3500428de6dc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-11a3ca52c6bd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k36xza"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "11a3ca52c6bd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-47a998d5c227-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k36xza"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "47a998d5c227"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-a02c8e6accf4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k36xza"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a02c8e6accf4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-ca17d6d61f06-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k36xza"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ca17d6d61f06"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR427249. \"Rain\" by The Beatles. Album: Hey Jude (1970).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Hey Jude (1970). Billboard Hot 100 peak: #23. 7 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Beatles · Title: Rain · Album: Paperback Writer · Year: 1966 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Rain.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1970.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ed79fc04",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Rain.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f342c746-1fda-4159-b4fa-f67ecc537554",
+      "category": "artist",
+      "text": "Rain is performed by The Beatles.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9afc91e2-2207-4bf7-aa26-44521b07aa6e",
+      "category": "album",
+      "text": "The song appears on the album \"Hey Jude\" (1970).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5ce44abb-7be8-471b-895e-4fe50c61e4f3",
+      "category": "chart",
+      "text": "The song peaked at #23 on the Billboard Hot 100 and spent 7 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "39418c47-b73f-47cb-a23a-51e47b5d5c45",
+      "category": "recording",
+      "text": "Rain was released in 1970.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5fb8385d-cf80-464d-898e-622cdfc1372b",
+      "category": "trivia",
+      "text": "Artist: The Beatles · Title: Rain · Album: Paperback Writer · Year: 1966 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Rain.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "48e705c8-eb1d-475b-a7ae-8a5b26a42436",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Rain.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Rain.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

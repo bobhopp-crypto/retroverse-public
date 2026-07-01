@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR158658",
+    "kind": "song",
+    "rvtr": "RVTR158658",
+    "generatedAt": "2026-06-28T22:47:05.060Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR158658",
+    "artist": "Max-a-million",
+    "title": "Fat Boy",
+    "year": 1995,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Max-a-million",
+    "relatedArtists": [
+      "Max-a-million"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1995,
+    "recordings": [
+      {
+        "id": "rec-k67vkp",
+        "title": "Fat Boy — graph recording",
+        "releaseDate": 1995,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-hk4hda",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1995,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Max A Million - Fat Boy.mp4",
+      "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 69,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #69 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-q5h2c7",
+      "date": "1995",
+      "label": "Fat Boy — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k9",
+      "date": "1995",
+      "label": "Billboard Hot 100 peak #69",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-60rlb0",
+      "date": "1995",
+      "label": "Fat Boy — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1995",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b3cff9770a9d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR158658&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hk4hda",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f1a86d2763e6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR158658&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hk4hda",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7829f7486202",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR158658&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hk4hda",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7ca641787fcb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR158658&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hk4hda",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f9cb8e51fcf5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR158658&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hk4hda",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hk4hda",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1995,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Max A Million - Fat Boy.mp4",
+        "notes": "Detected year: 1995. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR158658-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR158658"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Max-a-million"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Max-a-million"
+    },
+    {
+      "id": "rel-RVTR158658-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR158658"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #69"
+    },
+    {
+      "id": "rel-RVTR158658-tl-tl-q5h2c7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR158658"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-q5h2c7"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Fat Boy — original release"
+    },
+    {
+      "id": "rel-RVTR158658-tl-tl-fcm3k9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR158658"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k9"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #69"
+    },
+    {
+      "id": "rel-RVTR158658-tl-tl-60rlb0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR158658"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-60rlb0"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Fat Boy — graph recording"
+    },
+    {
+      "id": "rel-RVTR158658-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR158658"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR158658-perf-perf-hk4hda",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR158658"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hk4hda"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hk4hda-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hk4hda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Max A Million - Fat Boy.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b3cff9770a9d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hk4hda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b3cff9770a9d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f1a86d2763e6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hk4hda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f1a86d2763e6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7829f7486202-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hk4hda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7829f7486202"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7ca641787fcb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hk4hda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7ca641787fcb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f9cb8e51fcf5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hk4hda"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f9cb8e51fcf5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR158658. \"Fat Boy\" by Max-a-million.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #69. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Max A Million · Title: Fat Boy · Album: MaxAmillion - Take Your Time · Year: 1995 · Genre: Reggae-Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Max A Million - Fat Boy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1995.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-9ce747da",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Max A Million - Fat Boy.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "9ddcd0a7-df18-46e5-872c-4037707711a6",
+      "category": "artist",
+      "text": "Fat Boy is performed by Max-a-million.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f3237d35-af71-47a3-a4be-8c5e44b00089",
+      "category": "chart",
+      "text": "The song peaked at #69 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5b37f6e9-221f-4e57-86be-50d6b804b517",
+      "category": "recording",
+      "text": "Fat Boy was released in 1995.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2e3d4454-20ee-4e5b-a41a-2ff45fedfaed",
+      "category": "trivia",
+      "text": "Artist: Max A Million · Title: Fat Boy · Album: MaxAmillion - Take Your Time · Year: 1995 · Genre: Reggae-Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Max A Million - Fat Boy.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2cbc6b6d-a63e-4de2-9591-2a259daae433",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Max A Million - Fat Boy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Max A Million - Fat Boy.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

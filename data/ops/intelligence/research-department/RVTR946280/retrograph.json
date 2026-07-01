@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR946280",
+    "kind": "song",
+    "rvtr": "RVTR946280",
+    "generatedAt": "2026-06-28T22:42:45.373Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR946280",
+    "artist": "Hunter Root",
+    "title": "Town Rat Heathen",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Hunter Root",
+    "relatedArtists": [
+      "Hunter Root"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-cpf9fh",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2023,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Hunter Root - Town Rat Heathen.mp4",
+      "notes": "Detected year: 2023. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-79yeb0",
+      "date": "2023",
+      "label": "Town Rat Heathen — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2023",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4c45995771f6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR946280&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-cpf9fh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c3dd254ff509",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR946280&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-cpf9fh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4f1bbb00d003",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR946280&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-cpf9fh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "589ac6126d74",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR946280&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-cpf9fh",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "74dc08d8bd2a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR946280&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-cpf9fh",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-cpf9fh",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2023,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Hunter Root - Town Rat Heathen.mp4",
+        "notes": "Detected year: 2023. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR946280-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR946280"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Hunter Root"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Hunter Root"
+    },
+    {
+      "id": "rel-RVTR946280-tl-tl-79yeb0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR946280"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-79yeb0"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Town Rat Heathen — original release"
+    },
+    {
+      "id": "rel-RVTR946280-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR946280"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR946280-perf-perf-cpf9fh",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR946280"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-cpf9fh"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-cpf9fh-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cpf9fh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Hunter Root - Town Rat Heathen.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4c45995771f6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cpf9fh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4c45995771f6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c3dd254ff509-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cpf9fh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c3dd254ff509"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4f1bbb00d003-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cpf9fh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4f1bbb00d003"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-589ac6126d74-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cpf9fh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "589ac6126d74"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-74dc08d8bd2a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-cpf9fh"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "74dc08d8bd2a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR946280. \"Town Rat Heathen\" by Hunter Root.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Hunter Root · Title: Town Rat Heathen · Year: 2023 · Genre: Folk · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Hunter Root - Town Rat Heathen.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f2358b07",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Hunter Root - Town Rat Heathen.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8c3b3c5e-3162-48f2-949e-3c402545d061",
+      "category": "artist",
+      "text": "Town Rat Heathen is performed by Hunter Root.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fdbdea73-4355-4f41-92a2-a748d2b472cb",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c0b2ecc2-5880-40f1-b12a-1e470a7b12a8",
+      "category": "trivia",
+      "text": "Artist: Hunter Root · Title: Town Rat Heathen · Year: 2023 · Genre: Folk · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Hunter Root - Town Rat Heathen.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e1cee84e-1048-4e70-82e4-68cc06b7b0dc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Hunter Root - Town Rat Heathen.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Hunter Root - Town Rat Heathen.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

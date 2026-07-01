@@ -1,0 +1,544 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR351554",
+    "kind": "song",
+    "rvtr": "RVTR351554",
+    "generatedAt": "2026-06-28T22:51:13.873Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR351554",
+    "artist": "Mariah Carey",
+    "title": "Hero",
+    "year": 2009,
+    "albumTitle": "The Ballads",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mariah Carey",
+    "relatedArtists": [
+      "Mariah Carey"
+    ]
+  },
+  "album": {
+    "title": "The Ballads",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-iax8m7",
+        "title": "The Ballads",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-mqngsi",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Mariah Carey - Hero.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 30,
+    "albumTitle": "The Ballads",
+    "summary": "Hot 100 peak #1 · 30 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-om6u32",
+      "date": "2009",
+      "label": "Hero — original release",
+      "detail": "Original album: The Ballads",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "30 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-i3u54i",
+      "date": "2009",
+      "label": "The Ballads",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1993",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "563e5326b38b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR351554&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mqngsi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d0e3a58eaaec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR351554&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mqngsi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "edbaab70dd46",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR351554&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mqngsi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "147437c9fe6b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR351554&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mqngsi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d132479ff499",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR351554&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mqngsi",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mqngsi",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Mariah Carey - Hero.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR351554-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR351554"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mariah Carey"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mariah Carey"
+    },
+    {
+      "id": "rel-RVTR351554-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR351554"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-iax8m7"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Ballads"
+    },
+    {
+      "id": "rel-RVTR351554-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR351554"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR351554-tl-tl-om6u32",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR351554"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-om6u32"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hero — original release"
+    },
+    {
+      "id": "rel-RVTR351554-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR351554"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR351554-tl-tl-i3u54i",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR351554"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i3u54i"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Ballads"
+    },
+    {
+      "id": "rel-RVTR351554-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR351554"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR351554-perf-perf-mqngsi",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR351554"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mqngsi"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mqngsi-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqngsi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Mariah Carey - Hero.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-563e5326b38b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqngsi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "563e5326b38b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d0e3a58eaaec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqngsi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d0e3a58eaaec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-edbaab70dd46-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqngsi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "edbaab70dd46"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-147437c9fe6b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqngsi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "147437c9fe6b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d132479ff499-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mqngsi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d132479ff499"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR351554. \"Hero\" by Mariah Carey. Album: The Ballads (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Ballads (2009). Billboard Hot 100 peak: #1. 30 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mariah Carey · Title: Hero · Album: Hero · Year: 1993 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Mariah Carey - Hero.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f2b5e32c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Mariah Carey - Hero.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6d8e6c91",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Mariah Carey - Hero.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "028661d2-4fb1-4107-9df5-ee976b552196",
+      "category": "artist",
+      "text": "Hero is performed by Mariah Carey.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a24d003c-768f-4612-a640-57f2e7cb9f92",
+      "category": "album",
+      "text": "The song appears on the album \"The Ballads\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "15f3d6dc-0f14-4a88-99cf-960f86d79ddf",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 30 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1c198008-dace-45b7-95f9-ec9fd08770ea",
+      "category": "recording",
+      "text": "Hero was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c1cd896d-9d58-4d15-b730-00dcc5268513",
+      "category": "trivia",
+      "text": "Artist: Mariah Carey · Title: Hero · Album: Hero · Year: 1993 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Mariah Carey - Hero.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "046eaf56-0c88-41cc-a208-4c63836d61e9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Mariah Carey - Hero.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a6d88b2a-d0a0-49f0-ad8e-e892320e473e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Mariah Carey - Hero.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Mariah Carey - Hero.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,560 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR394852",
+    "kind": "song",
+    "rvtr": "RVTR394852",
+    "generatedAt": "2026-06-28T22:52:01.555Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR394852",
+    "artist": "Robin Gibb",
+    "title": "Juliet",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Robin Gibb",
+    "relatedArtists": [
+      "Robin Gibb"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-hatuoy",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1983,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Robin Gibb - Juliet.mp4",
+      "notes": "Detected year: 1983. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fvited",
+      "date": "1983",
+      "label": "Juliet — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-wdqwxz",
+      "date": "1983",
+      "label": "\"Juliet\" is a 1983 single by Australian singer-songwriter Robin Gibb, from his second solo album How",
+      "detail": " Old Are You?.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-rxk8j2",
+      "date": "—",
+      "label": "The song was a huge hit in various countries in Europe, hitting the No.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-dqan79",
+      "date": "—",
+      "label": "This is a discography of works by British singer-songwriter Robin Gibb as a solo artist.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1983",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "For information about recordings made by the Bee Gees see Bee Gees discography.",
+      "Albums\n\n\nStudio albums\n\n\nLive albums\n\n\nExtended plays\n\n\nSingles\n\n\nOther credits\nThe Titanic Requiem - Credited as \"Composed by Robin Gibb and RJ Gibb\" by Royal Philharmonic Orchestra\n\n\nReferences\n\n\nExternal links\nRobin Gibb discography at Discogs"
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ad1fa2b91008",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394852&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hatuoy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "21ac7127e1e3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394852&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hatuoy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bee1bbb193e8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394852&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hatuoy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aad3644fc2e7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394852&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hatuoy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c44368419816",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR394852&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hatuoy",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hatuoy",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1983,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Robin Gibb - Juliet.mp4",
+        "notes": "Detected year: 1983. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR394852-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394852"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Robin Gibb"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Robin Gibb"
+    },
+    {
+      "id": "rel-RVTR394852-tl-tl-fvited",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394852"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fvited"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Juliet — original release"
+    },
+    {
+      "id": "rel-RVTR394852-tl-tl-wdqwxz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394852"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wdqwxz"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Juliet\" is a 1983 single by Australian singer-songwriter Robin Gibb, from his second solo album How"
+    },
+    {
+      "id": "rel-RVTR394852-tl-tl-rxk8j2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394852"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-rxk8j2"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "The song was a huge hit in various countries in Europe, hitting the No."
+    },
+    {
+      "id": "rel-RVTR394852-tl-tl-dqan79",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394852"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dqan79"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "This is a discography of works by British singer-songwriter Robin Gibb as a solo artist."
+    },
+    {
+      "id": "rel-RVTR394852-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394852"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR394852-perf-perf-hatuoy",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR394852"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hatuoy"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hatuoy-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hatuoy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Robin Gibb - Juliet.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ad1fa2b91008-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hatuoy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ad1fa2b91008"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-21ac7127e1e3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hatuoy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "21ac7127e1e3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-bee1bbb193e8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hatuoy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bee1bbb193e8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-aad3644fc2e7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hatuoy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aad3644fc2e7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-c44368419816-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hatuoy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c44368419816"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR394852. \"Juliet\" by Robin Gibb.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Robin Gibb · Title: Juliet · Album: Juliet · Year: 1983 · Genre: Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Robin Gibb - Juliet.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-46b0a480",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Robin Gibb - Juliet.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-juliet-robin-gibb-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Juliet_(Robin_Gibb_song)",
+      "excerpt": "\"Juliet\" is a 1983 single by Australian singer-songwriter Robin Gibb, from his second solo album How Old Are You?. The song was a huge hit in various countries in Europe, hitting the No. 1 spot in Germany, Italy, and Switzerland and peaking at No. 2 in Austria. In addition, the single was certified gold by the German Bundesverband Musikindustrie in 1983. A music video was also made for this song.\n\n\nCharts and certifications\n\n\nWeekly charts\n\n\nYear-end charts\n\n\nCertifications\n\n\nReferences",
+      "confidence": 0.85
+    },
+    {
+      "id": "wiki-album-robin-gibb-discography",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Robin_Gibb_discography",
+      "excerpt": "This is a discography of works by British singer-songwriter Robin Gibb as a solo artist. For information about recordings made by the Bee Gees see Bee Gees discography. Gibb's entire song catalogue is published by Universal Music Publishing Group.\n\n\nAlbums\n\n\nStudio albums\n\n\nLive albums\n\n\nExtended plays\n\n\nSingles\n\n\nOther credits\nThe Titanic Requiem - Credited as \"Composed by Robin Gibb and RJ Gibb\" by Royal Philharmonic Orchestra\n\n\nReferences\n\n\nExternal links\nRobin Gibb discography at Discogs",
+      "confidence": 0.75
+    }
+  ],
+  "facts": [
+    {
+      "id": "dddb204e-550a-40fb-8c55-503f4e1214e4",
+      "category": "artist",
+      "text": "Juliet is performed by Robin Gibb.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6cabceac-495a-4838-a82b-64308203a1e8",
+      "category": "cultural_impact",
+      "text": "\"Juliet\" is a 1983 single by Australian singer-songwriter Robin Gibb, from his second solo album How Old Are You?.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Juliet_(Robin_Gibb_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "08e7254c-0238-4d0b-9a19-8e4e8605be6f",
+      "category": "cultural_impact",
+      "text": "The song was a huge hit in various countries in Europe, hitting the No.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Juliet_(Robin_Gibb_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "10603e81-0b1b-44df-961d-10c5ee15b820",
+      "category": "cultural_impact",
+      "text": "1 spot in Germany, Italy, and Switzerland and peaking at No.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Juliet_(Robin_Gibb_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "425c800a-13a3-47f4-afec-323ceec0201a",
+      "category": "cultural_impact",
+      "text": "This is a discography of works by British singer-songwriter Robin Gibb as a solo artist.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Robin_Gibb_discography",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c5b72657-c523-4a98-8fb9-866ed56104dd",
+      "category": "cultural_impact",
+      "text": "For information about recordings made by the Bee Gees see Bee Gees discography.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Robin_Gibb_discography",
+      "confidence": 0.75,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8a1d61c4-b088-418c-af58-b7c001195d02",
+      "category": "trivia",
+      "text": "Artist: Robin Gibb · Title: Juliet · Album: Juliet · Year: 1983 · Genre: Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Robin Gibb - Juliet.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0b96f785-7bf2-4f5e-8851-d7371b629b06",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Robin Gibb - Juliet.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6b7ded0c-c8b6-43fe-81bb-7604bc7232b1",
+      "category": "cultural_impact",
+      "text": "Gibb's entire song catalogue is published by Universal Music Publishing Group.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Robin_Gibb_discography",
+      "confidence": 0.75,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 90,
+    "relationships": 40,
+    "overall": 67
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": [
+      {
+        "id": "conflict-0",
+        "text": "Verify: This is a discography of works by British singer-songwriter Robin Gibb as a solo artist.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-1",
+        "text": "Verify: For information about recordings made by the Bee Gees see Bee Gees discography.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      },
+      {
+        "id": "conflict-2",
+        "text": "Verify: Gibb's entire song catalogue is published by Universal Music Publishing Group.… (Wikipedia)",
+        "reason": "Editor flagged for verification"
+      }
+    ]
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 9,
+    "accepted": 6,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Robin Gibb - Juliet.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

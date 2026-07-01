@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR987715",
+    "kind": "song",
+    "rvtr": "RVTR987715",
+    "generatedAt": "2026-06-28T23:09:37.656Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR987715",
+    "artist": "Kungs",
+    "title": "Never Going Home",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kungs",
+    "relatedArtists": [
+      "Kungs"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-akq5sa",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2021,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Kungs - Never Going Home.mp4",
+      "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-nceu5v",
+      "date": "2021",
+      "label": "Never Going Home — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-543cz3",
+      "date": "2021",
+      "label": "It was released on 21 May 2021 via Island Records from his upcoming second studio album.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-bkcnak",
+      "date": "2017",
+      "label": "The song prominently samples the 2017 single \"Idol\" by Italian producer Mind Enterprises.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-hypans",
+      "date": "—",
+      "label": "\"Never Going Home\" is a song by French DJ Kungs.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2021",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "It was released on 21 May 2021 via Island Records from his upcoming second studio album.",
+      "The song prominently samples the 2017 single \"Idol\" by Italian producer Mind Enterprises."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "1e111b85eced",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR987715&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-akq5sa",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ec48de3acb96",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR987715&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-akq5sa",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6bf3124a37e9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR987715&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-akq5sa",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "24caee053a60",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR987715&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-akq5sa",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7b6de0884694",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR987715&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-akq5sa",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-akq5sa",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2021,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Kungs - Never Going Home.mp4",
+        "notes": "Detected year: 2021. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR987715-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR987715"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kungs"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kungs"
+    },
+    {
+      "id": "rel-RVTR987715-tl-tl-nceu5v",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR987715"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nceu5v"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "Never Going Home — original release"
+    },
+    {
+      "id": "rel-RVTR987715-tl-tl-543cz3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR987715"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-543cz3"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It was released on 21 May 2021 via Island Records from his upcoming second studio album."
+    },
+    {
+      "id": "rel-RVTR987715-tl-tl-bkcnak",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR987715"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bkcnak"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "The song prominently samples the 2017 single \"Idol\" by Italian producer Mind Enterprises."
+    },
+    {
+      "id": "rel-RVTR987715-tl-tl-hypans",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR987715"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hypans"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Never Going Home\" is a song by French DJ Kungs."
+    },
+    {
+      "id": "rel-RVTR987715-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR987715"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR987715-perf-perf-akq5sa",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR987715"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-akq5sa"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-akq5sa-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-akq5sa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Kungs - Never Going Home.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-1e111b85eced-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-akq5sa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1e111b85eced"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ec48de3acb96-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-akq5sa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ec48de3acb96"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6bf3124a37e9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-akq5sa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6bf3124a37e9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-24caee053a60-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-akq5sa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "24caee053a60"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-7b6de0884694-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-akq5sa"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7b6de0884694"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR987715. \"Never Going Home\" by Kungs.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kungs · Title: Never Going Home · Album: Never Going Home · Year: 2021 · Genre: Nu-Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Kungs - Never Going Home.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b6bbbf91",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Kungs - Never Going Home.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-never-going-home",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Never_Going_Home",
+      "excerpt": "\"Never Going Home\" is a song by French DJ Kungs. It was released on 21 May 2021 via Island Records from his upcoming second studio album. The song prominently samples the 2017 single \"Idol\" by Italian producer Mind Enterprises. It reached top 10 in France, Poland, Croatia, Dutch Top 40 and Flanders, and number one in Wallonia.\n\n\nMusic video\nThe music video was released on 21 May 2021 via YouTube, The video was filmed at Cercle des Nageurs in Marseille, France. It features people from several generations \"letting themselves be carried away by the music\".\n\n\nCredits and personnel\nCredits adapted from All Music.\n\nKungs – producer, composer, primary artist,\nMike Marsh – mastering engineer\nMartin Picandet – composer, vocal\nAlexander Ridha – producer, mixing\nAndrea Tirone – composer\n\n\nCharts\n\n\nCertifications\n\n\nRelease history\n\n\nSee also\nList of Ultratop 50 number-one singles of 2021\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "94d67f10-5d60-4790-80c2-deb0ec63cff9",
+      "category": "artist",
+      "text": "Never Going Home is performed by Kungs.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f0c6f82f-0cde-42bb-8e9c-77971e18576d",
+      "category": "cultural_impact",
+      "text": "\"Never Going Home\" is a song by French DJ Kungs.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Never_Going_Home",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "10e92914-dda0-48c4-8f44-7e9128cc94f6",
+      "category": "cultural_impact",
+      "text": "It was released on 21 May 2021 via Island Records from his upcoming second studio album.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Never_Going_Home",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f75adf31-8d06-45e6-b971-60a5eb82d58d",
+      "category": "cultural_impact",
+      "text": "The song prominently samples the 2017 single \"Idol\" by Italian producer Mind Enterprises.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Never_Going_Home",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ce7428ed-e7ab-42fe-9a50-a104c45c1d13",
+      "category": "trivia",
+      "text": "Artist: Kungs · Title: Never Going Home · Album: Never Going Home · Year: 2021 · Genre: Nu-Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Kungs - Never Going Home.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "908c4955-f556-4ead-a401-690e45598214",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Kungs - Never Going Home.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Kungs - Never Going Home.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

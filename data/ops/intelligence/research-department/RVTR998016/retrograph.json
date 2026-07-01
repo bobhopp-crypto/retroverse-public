@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR998016",
+    "kind": "song",
+    "rvtr": "RVTR998016",
+    "generatedAt": "2026-06-28T23:10:02.638Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR998016",
+    "artist": "Primus",
+    "title": "Lacquer Head",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Primus",
+    "relatedArtists": [
+      "Primus"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-tk3qg2",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Primus - Lacquer Head.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-242gk5",
+      "date": "2003",
+      "label": "Lacquer Head — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "281258bf9a4c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR998016&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-tk3qg2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2eef8ec72342",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR998016&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-tk3qg2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b2399d15ee11",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR998016&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-tk3qg2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f3a8c791ae37",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR998016&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-tk3qg2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "668571bd1ea0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR998016&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-tk3qg2",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-tk3qg2",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Primus - Lacquer Head.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR998016-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR998016"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Primus"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Primus"
+    },
+    {
+      "id": "rel-RVTR998016-tl-tl-242gk5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR998016"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-242gk5"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Lacquer Head — original release"
+    },
+    {
+      "id": "rel-RVTR998016-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR998016"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR998016-perf-perf-tk3qg2",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR998016"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-tk3qg2"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-tk3qg2-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tk3qg2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Primus - Lacquer Head.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-281258bf9a4c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tk3qg2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "281258bf9a4c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-2eef8ec72342-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tk3qg2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2eef8ec72342"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b2399d15ee11-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tk3qg2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2399d15ee11"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f3a8c791ae37-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tk3qg2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f3a8c791ae37"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-668571bd1ea0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tk3qg2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "668571bd1ea0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR998016. \"Lacquer Head\" by Primus.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Primus · Title: Lacquer Head · Album: Animals Should Not Try To Act Like People · Year: 2003 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Primus - Lacquer Head.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ea43e22e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Primus - Lacquer Head.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "51628676-ec0d-4815-9afd-26e85adbc740",
+      "category": "artist",
+      "text": "Lacquer Head is performed by Primus.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4245e844-9ca5-4f5d-b701-d09a3167f2eb",
+      "category": "trivia",
+      "text": "Artist: Primus · Title: Lacquer Head · Album: Animals Should Not Try To Act Like People · Year: 2003 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Primus - Lacquer Head.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8e1990fe-0f32-4950-a7f6-1c4f7c7f57b8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Primus - Lacquer Head.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Primus - Lacquer Head.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

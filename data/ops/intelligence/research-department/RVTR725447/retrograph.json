@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR725447",
+    "kind": "song",
+    "rvtr": "RVTR725447",
+    "generatedAt": "2026-06-28T23:00:28.306Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR725447",
+    "artist": "Barry Manilow",
+    "title": "Stay",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Barry Manilow",
+    "relatedArtists": [
+      "Barry Manilow"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-iv38il",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1982,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Barry Manilow - Stay.mp4",
+      "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-4lovwt",
+      "date": "1982",
+      "label": "Stay — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1982",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b74e990ef4fc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725447&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-iv38il",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0b48ccfc5ebb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725447&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-iv38il",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "70672b1a50a9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725447&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-iv38il",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "535e76a961be",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725447&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-iv38il",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3e1af081893e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725447&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-iv38il",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-iv38il",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1982,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Barry Manilow - Stay.mp4",
+        "notes": "Detected year: 1982. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR725447-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR725447"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Barry Manilow"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Barry Manilow"
+    },
+    {
+      "id": "rel-RVTR725447-tl-tl-4lovwt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR725447"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4lovwt"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Stay — original release"
+    },
+    {
+      "id": "rel-RVTR725447-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR725447"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR725447-perf-perf-iv38il",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR725447"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-iv38il"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-iv38il-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iv38il"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Barry Manilow - Stay.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b74e990ef4fc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iv38il"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b74e990ef4fc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-0b48ccfc5ebb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iv38il"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0b48ccfc5ebb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-70672b1a50a9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iv38il"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "70672b1a50a9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-535e76a961be-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iv38il"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "535e76a961be"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-3e1af081893e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-iv38il"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3e1af081893e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR725447. \"Stay\" by Barry Manilow.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Barry Manilow · Title: Stay · Album: Stay · Year: 1982 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Barry Manilow - Stay.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f47f0235",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Barry Manilow - Stay.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8db77593-404d-42ab-98ee-cca790710007",
+      "category": "artist",
+      "text": "Stay is performed by Barry Manilow.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5c741af2-f771-448b-b146-01ae9635217a",
+      "category": "trivia",
+      "text": "Artist: Barry Manilow · Title: Stay · Album: Stay · Year: 1982 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Barry Manilow - Stay.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "86e02808-d782-4e60-86fa-64a78830b27f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Barry Manilow - Stay.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Barry Manilow - Stay.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,492 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR925107",
+    "kind": "song",
+    "rvtr": "RVTR925107",
+    "generatedAt": "2026-06-28T22:42:27.770Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR925107",
+    "artist": "Steve Miller Band",
+    "title": "Rockin Me 1976",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Steve Miller Band",
+    "relatedArtists": [
+      "Steve Miller Band"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-sywm23",
+      "title": "1976",
+      "kind": "performance",
+      "year": 1976,
+      "venue": "1976",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me (1976).mp4",
+      "notes": "Performance label: 1976. Detected year: 1976. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-kbiwr9",
+      "title": "Rockin Me",
+      "kind": "performance",
+      "year": 1976,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me.mp4",
+      "notes": "Detected year: 1976. VirtualDJ play count: 1. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-awbj65",
+      "date": "1976",
+      "label": "Rockin Me 1976 — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-bvjcu3",
+      "date": "1976",
+      "label": "1976",
+      "detail": "1976",
+      "domain": "performance",
+      "confidence": 1,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-fkkz5m",
+      "date": "1976",
+      "label": "Rockin Me",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.6,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "30c4276dd36e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR925107&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-sywm23",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "db01ded61d4e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR925107&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-sywm23",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9d4d26cbce0d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR925107&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-sywm23",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e47318a21225",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR925107&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-sywm23",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f8bd455171b8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR925107&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-sywm23",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-sywm23",
+        "title": "1976",
+        "kind": "performance",
+        "year": 1976,
+        "venue": "1976",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me (1976).mp4",
+        "notes": "Performance label: 1976. Detected year: 1976. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-kbiwr9",
+        "title": "Rockin Me",
+        "kind": "performance",
+        "year": 1976,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me.mp4",
+        "notes": "Detected year: 1976. VirtualDJ play count: 1. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR925107-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR925107"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Steve Miller Band"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Steve Miller Band"
+    },
+    {
+      "id": "rel-RVTR925107-tl-tl-awbj65",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR925107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-awbj65"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Rockin Me 1976 — original release"
+    },
+    {
+      "id": "rel-RVTR925107-tl-tl-bvjcu3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR925107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bvjcu3"
+      },
+      "confidence": 1,
+      "source": "owned video",
+      "label": "1976"
+    },
+    {
+      "id": "rel-RVTR925107-tl-tl-fkkz5m",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR925107"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fkkz5m"
+      },
+      "confidence": 0.6,
+      "source": "owned video",
+      "label": "Rockin Me"
+    },
+    {
+      "id": "rel-RVTR925107-perf-perf-sywm23",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR925107"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-sywm23"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "1976"
+    },
+    {
+      "id": "rel-perf-sywm23-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sywm23"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me (1976).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "1976"
+    },
+    {
+      "id": "rel-RVTR925107-perf-perf-kbiwr9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR925107"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kbiwr9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Rockin Me"
+    },
+    {
+      "id": "rel-perf-kbiwr9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kbiwr9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Rockin Me"
+    },
+    {
+      "id": "rel-30c4276dd36e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sywm23"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "30c4276dd36e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-db01ded61d4e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sywm23"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "db01ded61d4e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9d4d26cbce0d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sywm23"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9d4d26cbce0d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e47318a21225-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sywm23"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e47318a21225"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f8bd455171b8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-sywm23"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f8bd455171b8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR925107. \"Rockin Me 1976\" by Steve Miller Band.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Steve Miller Band · Title: Rockin Me (1976) · Album: Greatest Hits 1976-1986 · Year: 1976 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me (1976).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c4b4401b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me (1976).mp4 · Plays: 1 · Performance: 1976",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-8c1df9a7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1496252a-2cdd-4d60-919c-91d430859b6c",
+      "category": "artist",
+      "text": "Rockin Me 1976 is performed by Steve Miller Band.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2a89580c-577d-4c0e-a2ac-f4acdd58306c",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c0fd61ca-bbdd-4ac1-b8f5-d1556d196184",
+      "category": "trivia",
+      "text": "Artist: Steve Miller Band · Title: Rockin Me (1976) · Album: Greatest Hits 1976-1986 · Year: 1976 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me (1976).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8e6b27cb-ede9-419c-884e-3639c0b14a60",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me (1976).mp4 · Plays: 1 · Performance: 1976",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3c8b627e-003a-4c6a-93be-1f8fcb09fc77",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 2,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Steve Miller Band - Rockin Me (1976).mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

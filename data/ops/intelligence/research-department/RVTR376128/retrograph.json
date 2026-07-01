@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR376128",
+    "kind": "song",
+    "rvtr": "RVTR376128",
+    "generatedAt": "2026-06-28T22:51:34.970Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR376128",
+    "artist": "Nelly",
+    "title": "Number One",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Nelly",
+    "relatedArtists": [
+      "Nelly"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-yvapyg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1959,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - Number One.mp4",
+      "notes": "Detected year: 1959. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-3cwly5",
+      "date": "2002",
+      "label": "Number One — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-8n9woy",
+      "date": "2001",
+      "label": "It was released on August 21, 2001, as the lead single from the soundtrack to the 2001 film Training",
+      "detail": " Day.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-yt2ln0",
+      "date": "2002",
+      "label": "It was also included on Nelly's second studio album Nellyville (2002).",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-z4kxgf",
+      "date": "—",
+      "label": "\"#1\" is a song by American rapper Nelly.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1959",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "It was also included on Nelly's second studio album Nellyville (2002).",
+      "The song is most known for igniting the feud between Nelly and KRS-One, for which KRS-One perceived it as a diss track for being too similar to \"I'm Still #1\" by his group, Boogie Down Productions."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e3b1624adc89",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR376128&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yvapyg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ea4a5e56bbac",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR376128&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yvapyg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "68fbdfdfc139",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR376128&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yvapyg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f5f82fdf8cf9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR376128&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yvapyg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "35ebb8b6f9e7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR376128&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yvapyg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yvapyg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1959,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - Number One.mp4",
+        "notes": "Detected year: 1959. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR376128-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR376128"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Nelly"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Nelly"
+    },
+    {
+      "id": "rel-RVTR376128-tl-tl-3cwly5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR376128"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3cwly5"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "Number One — original release"
+    },
+    {
+      "id": "rel-RVTR376128-tl-tl-8n9woy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR376128"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8n9woy"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It was released on August 21, 2001, as the lead single from the soundtrack to the 2001 film Training"
+    },
+    {
+      "id": "rel-RVTR376128-tl-tl-yt2ln0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR376128"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yt2ln0"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It was also included on Nelly's second studio album Nellyville (2002)."
+    },
+    {
+      "id": "rel-RVTR376128-tl-tl-z4kxgf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR376128"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z4kxgf"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"#1\" is a song by American rapper Nelly."
+    },
+    {
+      "id": "rel-RVTR376128-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR376128"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR376128-perf-perf-yvapyg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR376128"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yvapyg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yvapyg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yvapyg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - Number One.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e3b1624adc89-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yvapyg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e3b1624adc89"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ea4a5e56bbac-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yvapyg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ea4a5e56bbac"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-68fbdfdfc139-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yvapyg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "68fbdfdfc139"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f5f82fdf8cf9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yvapyg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f5f82fdf8cf9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-35ebb8b6f9e7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yvapyg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "35ebb8b6f9e7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR376128. \"Number One\" by Nelly.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Nelly · Title: Number One · Album: Chris Barber's Jazz Band With Ottilie Patterson - Chris Barber Band Box Volume One · Year: 1959 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - Number One.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-58d150dd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - Number One.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-number-1-nelly-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Number_1_(Nelly_song)",
+      "excerpt": "\"#1\" is a song by American rapper Nelly. It was released on August 21, 2001, as the lead single from the soundtrack to the 2001 film Training Day. It was also included on Nelly's second studio album Nellyville (2002). The song is most known for igniting the feud between Nelly and KRS-One, for which KRS-One perceived it as a diss track for being too similar to \"I'm Still #1\" by his group, Boogie Down Productions.\n\n\nMusic video\nThe music video for the song features Joe Perry of Aerosmith on guitar. The plot of the video closely follows Training Day with Nelly playing a dual role as both Ethan Hawke and Denzel Washington's characters of a rookie cop and a corrupt veteran cop.\n\n\nRemix\nThe official remix features the group Clipse and Postaboy, and the song is on Nelly's remix album, Da Derrty Versions: The Reinvention.\n\n\nCharts\n\n\nWeekly charts\n\n\nYear-end charts\n\n\nRelease history\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "75bc0ee5-0a93-4c93-b518-beefa970831f",
+      "category": "artist",
+      "text": "Number One is performed by Nelly.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5d4c20b8-224a-4fa7-9da2-f3c859dcbd0a",
+      "category": "cultural_impact",
+      "text": "\"#1\" is a song by American rapper Nelly.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Number_1_(Nelly_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "85406d02-b641-4925-875d-bd9667149ce2",
+      "category": "cultural_impact",
+      "text": "It was released on August 21, 2001, as the lead single from the soundtrack to the 2001 film Training Day.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Number_1_(Nelly_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "255c747a-72dc-450e-8a98-6f84a8a9bfda",
+      "category": "cultural_impact",
+      "text": "It was also included on Nelly's second studio album Nellyville (2002).",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Number_1_(Nelly_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e0b61390-43c4-42d2-8493-f55f19d80d38",
+      "category": "trivia",
+      "text": "Artist: Nelly · Title: Number One · Album: Chris Barber's Jazz Band With Ottilie Patterson - Chris Barber Band Box Volume One · Year: 1959 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - Number One.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ced6b71e-9034-4a2c-822a-2256bad4901f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - Number One.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Nelly - Number One.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

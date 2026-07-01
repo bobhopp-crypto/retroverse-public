@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR163162",
+    "kind": "song",
+    "rvtr": "RVTR163162",
+    "generatedAt": "2026-06-28T22:47:11.886Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR163162",
+    "artist": "Simple Plan",
+    "title": "Save You",
+    "year": 2008,
+    "albumTitle": "Simple Plan",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL584492/RVAL584492__simple-plan__simple-plan.jpg"
+  },
+  "artist": {
+    "name": "Simple Plan",
+    "relatedArtists": [
+      "Simple Plan"
+    ]
+  },
+  "album": {
+    "title": "Simple Plan",
+    "releaseYear": 2008,
+    "recordings": [
+      {
+        "id": "rec-1dvrlj",
+        "title": "Simple Plan",
+        "releaseDate": 2008,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-zfbta5",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Simple Plan - Save You.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Simple Plan",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-xd9uz4",
+      "date": "2008",
+      "label": "Save You — original release",
+      "detail": "Original album: Simple Plan",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-6xn5kt",
+      "date": "2008",
+      "label": "Simple Plan",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR163162",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL584492/RVAL584492__simple-plan__simple-plan.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "80bb823f799d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR163162&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-zfbta5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "88d356215409",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR163162&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-zfbta5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ba6bb2344653",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR163162&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-zfbta5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "39e221aec72d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR163162&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-zfbta5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bf13dab93cb8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR163162&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-zfbta5",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-zfbta5",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Simple Plan - Save You.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR163162-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR163162"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Simple Plan"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Simple Plan"
+    },
+    {
+      "id": "rel-RVTR163162-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR163162"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-1dvrlj"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Simple Plan"
+    },
+    {
+      "id": "rel-RVTR163162-tl-tl-xd9uz4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR163162"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-xd9uz4"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Save You — original release"
+    },
+    {
+      "id": "rel-RVTR163162-tl-tl-6xn5kt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR163162"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6xn5kt"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Simple Plan"
+    },
+    {
+      "id": "rel-RVTR163162-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR163162"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR163162-perf-perf-zfbta5",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR163162"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-zfbta5"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-zfbta5-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zfbta5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Simple Plan - Save You.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-80bb823f799d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zfbta5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "80bb823f799d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-88d356215409-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zfbta5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "88d356215409"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ba6bb2344653-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zfbta5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ba6bb2344653"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-39e221aec72d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zfbta5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "39e221aec72d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-bf13dab93cb8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zfbta5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bf13dab93cb8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR163162. \"Save You\" by Simple Plan. Album: Simple Plan (2008).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL584492/RVAL584492__simple-plan__simple-plan.jpg",
+      "excerpt": "Canonical cover assignment for RVTR163162 (Save You). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Simple Plan (2008)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Simple Plan · Title: Save You · Album: Save You · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Simple Plan - Save You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2008.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-3d0d7e09",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Simple Plan - Save You.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d2c4fd6a-e596-4c11-82a2-1a406a88420b",
+      "category": "artist",
+      "text": "Save You is performed by Simple Plan.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e4d71c53-aa75-4efb-a7bb-b3b161e0d1f5",
+      "category": "album",
+      "text": "The song appears on the album \"Simple Plan\" (2008).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "56922f1a-5d67-4fbd-9eb3-0872c477720c",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR163162.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL584492/RVAL584492__simple-plan__simple-plan.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "020d4b20-b645-4824-8ae9-37e2ca0340b7",
+      "category": "recording",
+      "text": "Save You was released in 2008.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9373cc9f-8bf8-4b3b-8c38-387766a094f8",
+      "category": "trivia",
+      "text": "Artist: Simple Plan · Title: Save You · Album: Save You · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Simple Plan - Save You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "69bc3b31-ba98-4508-9b7c-a7799c7e440b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Simple Plan - Save You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Simple Plan - Save You.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

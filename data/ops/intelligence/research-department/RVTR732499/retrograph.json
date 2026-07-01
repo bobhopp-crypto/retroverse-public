@@ -1,0 +1,477 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR732499",
+    "kind": "song",
+    "rvtr": "RVTR732499",
+    "generatedAt": "2026-06-28T23:00:42.740Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR732499",
+    "artist": "Duncan Sheik",
+    "title": "On A High",
+    "year": 2002,
+    "albumTitle": "Daylight",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Duncan Sheik",
+    "relatedArtists": [
+      "Duncan Sheik"
+    ]
+  },
+  "album": {
+    "title": "Daylight",
+    "releaseYear": 2002,
+    "recordings": [
+      {
+        "id": "rec-t8lckg",
+        "title": "Daylight",
+        "releaseDate": 2002,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-tqsyfz",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2002,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Duncan Sheik - On A High.mp4",
+      "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Daylight",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-4n4tq2",
+      "date": "2002",
+      "label": "On A High — original release",
+      "detail": "Original album: Daylight",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-9jvnn2",
+      "date": "2002",
+      "label": "Daylight",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2002",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "6289e6c0b649",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR732499&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-tqsyfz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b7d5c2af099f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR732499&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-tqsyfz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5a4ad97eba70",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR732499&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-tqsyfz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a61093ef75c5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR732499&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-tqsyfz",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4aabdea68d00",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR732499&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-tqsyfz",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-tqsyfz",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2002,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Duncan Sheik - On A High.mp4",
+        "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR732499-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR732499"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Duncan Sheik"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Duncan Sheik"
+    },
+    {
+      "id": "rel-RVTR732499-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR732499"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-t8lckg"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Daylight"
+    },
+    {
+      "id": "rel-RVTR732499-tl-tl-4n4tq2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR732499"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4n4tq2"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "On A High — original release"
+    },
+    {
+      "id": "rel-RVTR732499-tl-tl-9jvnn2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR732499"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9jvnn2"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Daylight"
+    },
+    {
+      "id": "rel-RVTR732499-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR732499"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR732499-perf-perf-tqsyfz",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR732499"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-tqsyfz"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-tqsyfz-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tqsyfz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Duncan Sheik - On A High.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6289e6c0b649-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tqsyfz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6289e6c0b649"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b7d5c2af099f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tqsyfz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b7d5c2af099f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5a4ad97eba70-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tqsyfz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5a4ad97eba70"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a61093ef75c5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tqsyfz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a61093ef75c5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4aabdea68d00-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-tqsyfz"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4aabdea68d00"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR732499. \"On A High\" by Duncan Sheik. Album: Daylight (2002).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Daylight (2002)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Duncan Sheik · Title: On A High · Album: Daylight · Year: 2002 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Duncan Sheik - On A High.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2002.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-243305b2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Duncan Sheik - On A High.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0a9852b4-7bf6-4c56-ab29-a7c6347846f5",
+      "category": "artist",
+      "text": "On A High is performed by Duncan Sheik.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d04e95c1-baaa-4510-b915-09978e1ace1f",
+      "category": "album",
+      "text": "The song appears on the album \"Daylight\" (2002).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "99901561-8e29-4c80-b47e-b13d2b7d13be",
+      "category": "recording",
+      "text": "On A High was released in 2002.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6cd07497-2758-4d5b-b622-dbd7e8c4dead",
+      "category": "trivia",
+      "text": "Artist: Duncan Sheik · Title: On A High · Album: Daylight · Year: 2002 · Genre: Trance · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Duncan Sheik - On A High.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8ae540c5-6b04-462b-9b9c-9df57a77a373",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Duncan Sheik - On A High.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Duncan Sheik - On A High.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

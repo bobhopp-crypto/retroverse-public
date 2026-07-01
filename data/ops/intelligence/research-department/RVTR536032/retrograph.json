@@ -1,0 +1,475 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR536032",
+    "kind": "song",
+    "rvtr": "RVTR536032",
+    "generatedAt": "2026-06-28T22:55:19.646Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR536032",
+    "artist": "Pink",
+    "title": "You Make Me Sick",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pink",
+    "relatedArtists": [
+      "Pink"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-h1tubc",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2001,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/P!Nk - You Make Me Sick.mp4",
+      "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-dycpnk",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1984,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - You Make Me Sick.mp4",
+      "notes": "Detected year: 1984. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "2001",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1984",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9b6463aabe32",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536032&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-h1tubc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "31a0e1a497b4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536032&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-h1tubc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b935b7bf4c67",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536032&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-h1tubc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b3be886dfcb9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536032&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-h1tubc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dd1c170a979f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR536032&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-h1tubc",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-h1tubc",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2001,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/P!Nk - You Make Me Sick.mp4",
+        "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-dycpnk",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1984,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - You Make Me Sick.mp4",
+        "notes": "Detected year: 1984. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR536032-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536032"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pink"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pink"
+    },
+    {
+      "id": "rel-RVTR536032-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536032"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR536032-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536032"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR536032-perf-perf-h1tubc",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536032"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-h1tubc"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-h1tubc-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-h1tubc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/P!Nk - You Make Me Sick.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR536032-perf-perf-dycpnk",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR536032"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dycpnk"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dycpnk-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dycpnk"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - You Make Me Sick.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9b6463aabe32-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-h1tubc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9b6463aabe32"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-31a0e1a497b4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-h1tubc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "31a0e1a497b4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b935b7bf4c67-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-h1tubc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b935b7bf4c67"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b3be886dfcb9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-h1tubc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b3be886dfcb9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-dd1c170a979f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-h1tubc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dd1c170a979f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR536032. \"You Make Me Sick\" by Pink.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pink · Title: You Make Me Sick · Album: You Make Me Sick · Year: 2001 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/P!Nk - You Make Me Sick.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4082bbed",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/P!Nk - You Make Me Sick.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ee58e361",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - You Make Me Sick.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-89e580c6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Pink - You Make Me Sick.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "49484182-d1fb-467d-a9f4-e17060090f43",
+      "category": "artist",
+      "text": "You Make Me Sick is performed by Pink.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "9976e8f3-d035-4dba-acd0-34f8b686496d",
+      "category": "trivia",
+      "text": "Artist: Pink · Title: You Make Me Sick · Album: You Make Me Sick · Year: 2001 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/P!Nk - You Make Me Sick.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4bc1daf5-2143-4a5c-8946-19d51a76292d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/P!Nk - You Make Me Sick.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c8bebf0b-3e1c-4052-89e4-640baf2a256e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - You Make Me Sick.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "173e4b81-8e0c-4fba-8d6d-208b09a621cc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Pink - You Make Me Sick.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/P!Nk - You Make Me Sick.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

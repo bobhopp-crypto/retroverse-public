@@ -1,0 +1,581 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR850139",
+    "kind": "song",
+    "rvtr": "RVTR850139",
+    "generatedAt": "2026-06-28T22:41:32.599Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR850139",
+    "artist": "Tommy James",
+    "title": "Crystal Blue Persuasion",
+    "year": 1969,
+    "albumTitle": "Crimson & Clover",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL398140/RVAL398140__tommy-james__crimson-clover.jpg"
+  },
+  "artist": {
+    "name": "Tommy James",
+    "relatedArtists": [
+      "Tommy James"
+    ]
+  },
+  "album": {
+    "title": "Crimson & Clover",
+    "releaseYear": 1969,
+    "recordings": [
+      {
+        "id": "rec-tc6nn7",
+        "title": "Crimson & Clover",
+        "releaseDate": 1969,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-ay5n0p",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1969,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tommy James & The Shondells - Crystal Blue Persuasion.mp4",
+      "notes": "Detected year: 1969. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Crimson & Clover",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-5gn1lj",
+      "date": "1969",
+      "label": "Crystal Blue Persuasion — original release",
+      "detail": "Original album: Crimson & Clover",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-p6ahck",
+      "date": "1969",
+      "label": "Crimson & Clover",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1969",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR850139",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL398140/RVAL398140__tommy-james__crimson-clover.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a081996e2d3d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR850139&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ay5n0p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "78b78ae78e37",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR850139&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ay5n0p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "005c153495be",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR850139&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ay5n0p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "72e84ea50a06",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR850139&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ay5n0p",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7ac32aa94c25",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR850139&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ay5n0p",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ay5n0p",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1969,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tommy James & The Shondells - Crystal Blue Persuasion.mp4",
+        "notes": "Detected year: 1969. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR850139-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR850139"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Tommy James"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Tommy James"
+    },
+    {
+      "id": "rel-RVTR850139-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR850139"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-tc6nn7"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Crimson & Clover"
+    },
+    {
+      "id": "rel-RVTR850139-tl-tl-5gn1lj",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR850139"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5gn1lj"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Crystal Blue Persuasion — original release"
+    },
+    {
+      "id": "rel-RVTR850139-tl-tl-p6ahck",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR850139"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p6ahck"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Crimson & Clover"
+    },
+    {
+      "id": "rel-RVTR850139-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR850139"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR850139-perf-perf-ay5n0p",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR850139"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ay5n0p"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ay5n0p-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ay5n0p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tommy James & The Shondells - Crystal Blue Persuasion.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-a081996e2d3d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ay5n0p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a081996e2d3d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-78b78ae78e37-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ay5n0p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "78b78ae78e37"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-005c153495be-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ay5n0p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "005c153495be"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-72e84ea50a06-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ay5n0p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "72e84ea50a06"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7ac32aa94c25-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ay5n0p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7ac32aa94c25"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR850139. \"Crystal Blue Persuasion\" by Tommy James. Album: Crimson & Clover (1969).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL398140/RVAL398140__tommy-james__crimson-clover.jpg",
+      "excerpt": "Canonical cover assignment for RVTR850139 (Crystal Blue Persuasion). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Crimson & Clover (1969)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Tommy James & The Shondells · Title: Crystal Blue Persuasion · Album: Mony Mony / Crystal Blue Persuasion · Year: 1969 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tommy James & The Shondells - Crystal Blue Persuasion.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1969.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-59b2a4fd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tommy James & The Shondells - Crystal Blue Persuasion.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4534438f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/1960'S/CD 7/09 - Tommy James and the Shondells - Crystal Blue Persuasion.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4404c2d9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1960/Tommy James - Crystal Blue Persuasion.mp3 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7628df33",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Tommy James & the Shondells - Crystal Blue Persuasion.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "2cf4c0ee-d174-4aab-94ab-dc4869f6545b",
+      "category": "artist",
+      "text": "Crystal Blue Persuasion is performed by Tommy James.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d52df22b-36b8-46e6-95be-1f94b3be2d89",
+      "category": "album",
+      "text": "The song appears on the album \"Crimson & Clover\" (1969).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f39d0ead-a0c8-46c2-8d36-b280de28d813",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR850139.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL398140/RVAL398140__tommy-james__crimson-clover.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7a2fcbde-f4ee-4adb-b0b1-37ee78f86e8a",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a1ae1b22-0487-465d-a43f-b3265945364f",
+      "category": "recording",
+      "text": "Crystal Blue Persuasion was released in 1969.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "173abfcf-5e7a-49e9-b8a3-efcc9693e4f9",
+      "category": "trivia",
+      "text": "\"Crystal Blue Persuasion\" by Tommy James.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b0116284-661d-4a68-bb3c-c761de69c204",
+      "category": "trivia",
+      "text": "Artist: Tommy James & The Shondells · Title: Crystal Blue Persuasion · Album: Mony Mony / Crystal Blue Persuasion · Year: 1969 · Genre: Rock · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tommy James & The Shondells - Crystal Blue Persuasion.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "456732a7-9a11-4121-bf66-fd70c032a7c5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tommy James & The Shondells - Crystal Blue Persuasion.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b86a1b04-22bb-4bfc-b26f-0ece93b38608",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/1960'S/CD 7/09 - Tommy James and the Shondells - Crystal Blue Persuasion.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "757b7cc5-15f6-4f23-b736-eeda68aa02e4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1960/Tommy James - Crystal Blue Persuasion.mp3 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2294fd38-4349-4a2a-befa-3cf3eee6d043",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Tommy James & the Shondells - Crystal Blue Persuasion.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 14,
+    "preserved": 11,
+    "accepted": 6,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tommy James & The Shondells - Crystal Blue Persuasion.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

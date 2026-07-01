@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR991453",
+    "kind": "song",
+    "rvtr": "RVTR991453",
+    "generatedAt": "2026-06-28T23:09:47.539Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR991453",
+    "artist": "Paul Hardcastle",
+    "title": "19",
+    "year": 1985,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Paul Hardcastle",
+    "relatedArtists": [
+      "Paul Hardcastle"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1985,
+    "recordings": [
+      {
+        "id": "rec-y8fnwp",
+        "title": "19 — graph recording",
+        "releaseDate": 1985,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-o2av9m",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1985,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Hardcastle - 19.mp4",
+      "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 15,
+    "chartWeeks": 14,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #15 · 14 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-i88m8s",
+      "date": "1985",
+      "label": "19 — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fu",
+      "date": "1985",
+      "label": "Billboard Hot 100 peak #15",
+      "detail": "14 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-sn65m7",
+      "date": "1985",
+      "label": "19 — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1985",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "a2f93585ad59",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991453&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-o2av9m",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9bc0df0f3b2f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991453&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-o2av9m",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5073bddbf4c7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991453&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-o2av9m",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "35b363124ab2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991453&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-o2av9m",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "47282b548f35",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR991453&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-o2av9m",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-o2av9m",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1985,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Hardcastle - 19.mp4",
+        "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR991453-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991453"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Paul Hardcastle"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Paul Hardcastle"
+    },
+    {
+      "id": "rel-RVTR991453-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991453"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #15"
+    },
+    {
+      "id": "rel-RVTR991453-tl-tl-i88m8s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991453"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i88m8s"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "19 — original release"
+    },
+    {
+      "id": "rel-RVTR991453-tl-tl-fcm3fu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991453"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fu"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #15"
+    },
+    {
+      "id": "rel-RVTR991453-tl-tl-sn65m7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991453"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sn65m7"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "19 — graph recording"
+    },
+    {
+      "id": "rel-RVTR991453-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991453"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR991453-perf-perf-o2av9m",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR991453"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-o2av9m"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-o2av9m-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o2av9m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Hardcastle - 19.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-a2f93585ad59-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o2av9m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a2f93585ad59"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9bc0df0f3b2f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o2av9m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9bc0df0f3b2f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5073bddbf4c7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o2av9m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5073bddbf4c7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-35b363124ab2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o2av9m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "35b363124ab2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-47282b548f35-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-o2av9m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "47282b548f35"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR991453. \"19\" by Paul Hardcastle.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #15. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Paul Hardcastle · Title: 19 · Album: 19 (The 30th Anniversary Mixes) · Year: 1985 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Hardcastle - 19.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1985.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-59a67afc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Hardcastle - 19.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-595f5cf9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Paul Hardcastle - 19 .mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6d2e3ce8-8574-45a9-a98e-27441d114148",
+      "category": "artist",
+      "text": "19 is performed by Paul Hardcastle.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fca646cb-85be-40cd-9fbb-1f5d841a95ad",
+      "category": "chart",
+      "text": "The song peaked at #15 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "00a1c5ba-b5ad-447f-bded-6467117a53f9",
+      "category": "recording",
+      "text": "19 was released in 1985.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ddadd3ad-5723-4163-bea8-eeb0a9b89bd1",
+      "category": "trivia",
+      "text": "Artist: Paul Hardcastle · Title: 19 · Album: 19 (The 30th Anniversary Mixes) · Year: 1985 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Hardcastle - 19.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b31e3d81-8f3e-4f2a-a7bd-667aca36cff0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Hardcastle - 19.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9088b29d-9139-43ac-b0b8-e5082a5e25a9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Paul Hardcastle - 19 .mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Paul Hardcastle - 19.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

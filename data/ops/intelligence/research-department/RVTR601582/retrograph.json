@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR601582",
+    "kind": "song",
+    "rvtr": "RVTR601582",
+    "generatedAt": "2026-06-28T22:57:07.706Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR601582",
+    "artist": "Myself Beyonce",
+    "title": "Me I",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Myself Beyonce",
+    "relatedArtists": [
+      "Myself Beyonce"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-lu73ye",
+      "title": "Me & I",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Myself Beyonce - Me & I.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-merldh",
+      "date": "2003",
+      "label": "Me I — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-tnh0pi",
+      "date": "2003",
+      "label": "\"Me, Myself and I\" is a song by American singer Beyoncé from her debut solo album Dangerously in Lov",
+      "detail": "e (2003).",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-dfzz4l",
+      "date": "—",
+      "label": "It was written by Beyoncé, Scott Storch and Robert Waller and produced by Storch with guitar played ",
+      "detail": "by Aaron Fishbein.",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-tnh0pi",
+      "date": "2003",
+      "label": "\"Me, Myself and I\" is a song by American singer Beyoncé from her debut solo album Dangerously in Lov",
+      "detail": "e (2003).",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-96dtk5",
+      "date": "2003",
+      "label": "Me & I",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "It was written by Beyoncé, Scott Storch and Robert Waller and produced by Storch with guitar played by Aaron Fishbein.",
+      "Beyoncé decided that she wanted a deeper and more personal song as the third single; the song was sent by Columbia Records and Music World Entertainment to contemporary hit radio in the United States on October 19, 2003."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "951fbadf3bf0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601582&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lu73ye",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f37fba8b033b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601582&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lu73ye",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "58ef6d43ebb2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601582&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-lu73ye",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ce429e847e6a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601582&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lu73ye",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e5f1f72458fb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601582&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lu73ye",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lu73ye",
+        "title": "Me & I",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Myself Beyonce - Me & I.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR601582-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR601582"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Myself Beyonce"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Myself Beyonce"
+    },
+    {
+      "id": "rel-RVTR601582-tl-tl-merldh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR601582"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-merldh"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "Me I — original release"
+    },
+    {
+      "id": "rel-RVTR601582-tl-tl-tnh0pi",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR601582"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tnh0pi"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Me, Myself and I\" is a song by American singer Beyoncé from her debut solo album Dangerously in Lov"
+    },
+    {
+      "id": "rel-RVTR601582-tl-tl-dfzz4l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR601582"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dfzz4l"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It was written by Beyoncé, Scott Storch and Robert Waller and produced by Storch with guitar played "
+    },
+    {
+      "id": "rel-RVTR601582-tl-tl-tnh0pi",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR601582"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tnh0pi"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Me, Myself and I\" is a song by American singer Beyoncé from her debut solo album Dangerously in Lov"
+    },
+    {
+      "id": "rel-RVTR601582-tl-tl-96dtk5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR601582"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-96dtk5"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Me & I"
+    },
+    {
+      "id": "rel-RVTR601582-perf-perf-lu73ye",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR601582"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lu73ye"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Me & I"
+    },
+    {
+      "id": "rel-perf-lu73ye-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lu73ye"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Myself Beyonce - Me & I.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Me & I"
+    },
+    {
+      "id": "rel-951fbadf3bf0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lu73ye"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "951fbadf3bf0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-f37fba8b033b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lu73ye"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f37fba8b033b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-58ef6d43ebb2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lu73ye"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "58ef6d43ebb2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-ce429e847e6a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lu73ye"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ce429e847e6a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e5f1f72458fb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lu73ye"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e5f1f72458fb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR601582. \"Me I\" by Myself Beyonce.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Myself Beyonce · Title: Me & I · Album: Beyoncé - Me, Myself And I · Year: 2003 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Myself Beyonce - Me & I.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c9a4e183",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Myself Beyonce - Me & I.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-me-myself-and-i-beyonc-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Me%2C_Myself_and_I_(Beyonc%C3%A9_song)",
+      "excerpt": "\"Me, Myself and I\" is a song by American singer Beyoncé from her debut solo album Dangerously in Love (2003). It was written by Beyoncé, Scott Storch and Robert Waller and produced by Storch with guitar played by Aaron Fishbein. Beyoncé decided that she wanted a deeper and more personal song as the third single; the song was sent by Columbia Records and Music World Entertainment to contemporary hit radio in the United States on October 19, 2003. \"Me, Myself and I\" is an R&B song about dealing with a philandering partner and learning from the consequences.\n\"Me, Myself and I\" peaked at number four on the US Billboard Hot 100, becoming Beyoncé's fourth consecutive top-five single in the United States. It was certified gold by the Recording Industry Association of America (RIAA). The single reached the top twenty in Australia, the Netherlands, Scotland and the United Kingdom. The live performance of the song from The Beyoncé Experience Live was nominated for a Grammy Award for Best Female R&B Vocal Performance at the 51st Annual Grammy Awards in 2009, and the original version earned Beyoncé, Storch and Waller an ASCAP Pop Music Award.\nDirected by Johan Renck, the accompanying music video premiered on December 10, 2003, and follows the plot of the song's theme and the events in the video are played in reverse. It would later be nominated in the Best R&B Video at the 2004 MTV Video Music Awards. \"Me, Myself and I\" was part of Beyoncé's set lists on the Dangerously in Love Tour (2003), Verizon Ladies First Tour (2004), The Beyoncé Experience (2007), the I Am... World Tour (2009–10) and The Formation World Tour (2016).\n\n\nBackground and release\nAfter the release of her former group Destiny's Child's third studio album Survivor (2001), Beyoncé worked on her debut solo studio album, Dangerously in Love. She stated that it was more personal than her previous records because she only had to write for herself. She contacted various musical collaborators, including Scott Storch and Robert Waller. The musical style of \"Me, Myself and I\" is different from the style of her previous singles; Beyoncé decided that she wanted a deeper and more personal song for the next single. Following the release of the song, Beyoncé told Corey Moss of MTV News: \"['Me, Myself and I'] is really powerful. It talks about women basically listening to their inner voice and knowing that they will never disappoint themselves.\"\n\"Me, Myself and I\" was the third single released from Dangerously in Love, which followed \"Crazy in Love\" featuring Jay-Z and \"Baby Boy\" featuring Sean Paul. It was sent to rhythmic contemporary and urban contemporary radio on October 19, 2003. A CD single was released on October 21, 2003, in the United States, which contained Junior Vasquez's dance radio mix of \"Krazy in Luv\" as its B-side. It officially impacted contemporary hit radio in the United States on November 12, 2003. On December 16, 2003, a 12-inch single was released in the United States. The single was released in selected European countries in January 2004, including Austria, Belgium, Ireland, the Netherlands, Sweden, and Switzerland.\n\"Me, Myself and I\" was released in the United Kingdom as a maxi single on January 12, 2004, as two CD singles and a 12-inch vinyl single; the first disc included a radio edit of the song and \"Dangerously in Love 2\" (2003), and the second one contained two remixes of \"Me, Myself and I\"; one of the remixes, the \"J'Ty\" remix, features a sample of Lord Tariq and Peter Gunz' \"Deja Vu (Uptown Baby)\", which itself was based on an uncleared sample of Steely Dan's \"Black Cow\". In 2004, the single was also released in the United Kingdom on an enhanced CD that included videos of live performances of \"Naughty Girl\" (2003) and \"Work It Out\" (2002). In Canada, a CD single was released on December 30, 2003, featuring the album version and two remixes of the track. A CD single was released in Australia on January 16, 2004, which included the radio edit and three remixes of the track. The song was also released as a maxi single on January 19, 2004, and later as a three-track single in Germany.\n\n\nComposition\nAccording to the sheet music published at Musicnotes.com by Alfred Music Publishing, \"Me, Myself and I\" is an R&B song performed in a moderately slow manner. It is written in the key of D♭ major; the tempo is set to eighty-four beats per minute, in common time. The chord follows the E♭m9-Fm7-G♭Maj7 keys, appearing every other bar, and the song has a string arrangement. According to Ryan Schreiber of Pitchfork Media, the song's instrumentation consists of a blending of funk keyboards, a slippery bass and minimal, programmed R&B percussion instruments.\n\n\"Me, Myself and I\" is \" ... replete with strong woman lyrics about holding one's head up high after a traumatic break-up.\" The lyrics are constructed in the common verse-chorus form, each written in two stanzas. The song includes an intro and a bridge that appears between the second and final choruses. In an interview with Corey Moss of MTV News, Beyoncé explained the lyrical content of the song:\n\n... [Me, Myself and I] basically talks about a girl who the guy's not right for her and he's cheating and whatever. And usually women feel stupid and silly and they blame themselves 'cause you have all the signs most of the time, but you love the guy so you don't want to see them go. And in this song, it's kind of like a celebration of the breakup ...\n\nAccording to Neil Drumming of Entertainment Weekly, \"Me, Myself and I\" is similar to the Destiny's Child song \"Say My Name\" (2000), in terms of \" ... its specificity and earnestness ... \" and the way Beyoncé defends \" ... her chastity [a]gainst some greedy boy ... .\" This was echoed by James Poletti of Yahoo! Music who wrote that the song hints at what is to come as the warbling begins to move into overdrive on \" ... a faintly sickly, if admirably slick, ode to that old Destiny's Child staple ... \", independence and self-belief in the fa",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "1dd72a2c-730e-4a41-b72d-184e03e8ff29",
+      "category": "artist",
+      "text": "Me I is performed by Myself Beyonce.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3939c924-9519-47ab-94b5-75abe9cb5ba2",
+      "category": "cultural_impact",
+      "text": "\"Me, Myself and I\" is a song by American singer Beyoncé from her debut solo album Dangerously in Love (2003).",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Me%2C_Myself_and_I_(Beyonc%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1edeb209-43a0-49a9-8070-ad9ad87f0b81",
+      "category": "cultural_impact",
+      "text": "It was written by Beyoncé, Scott Storch and Robert Waller and produced by Storch with guitar played by Aaron Fishbein.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Me%2C_Myself_and_I_(Beyonc%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0e0eccf8-421b-470e-a428-b8c57e47895f",
+      "category": "cultural_impact",
+      "text": "Beyoncé decided that she wanted a deeper and more personal song as the third single; the song was sent by Columbia Records and Music World Entertainment to contemporary hit radio in the United States on October 19, 2003.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Me%2C_Myself_and_I_(Beyonc%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e012591e-70a3-4733-ad1c-978a02f02c20",
+      "category": "trivia",
+      "text": "Artist: Myself Beyonce · Title: Me & I · Album: Beyoncé - Me, Myself And I · Year: 2003 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Myself Beyonce - Me & I.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0400088e-f415-48d8-8c8a-b5cabef1a137",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Myself Beyonce - Me & I.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Myself Beyonce - Me & I.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

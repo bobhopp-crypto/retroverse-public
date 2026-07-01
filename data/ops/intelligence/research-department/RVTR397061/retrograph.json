@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR397061",
+    "kind": "song",
+    "rvtr": "RVTR397061",
+    "generatedAt": "2026-06-28T22:52:05.331Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR397061",
+    "artist": "You Found Me",
+    "title": "Fray The",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "You Found Me",
+    "relatedArtists": [
+      "You Found Me"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-6eocew",
+      "title": "Fray, The",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/You Found Me - Fray, The.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-5i27fb",
+      "date": "2008",
+      "label": "Fray The — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-av2b2d",
+      "date": "2008",
+      "label": "Fray, The",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "08617abeddc2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR397061&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6eocew",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "77500d7422ab",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR397061&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6eocew",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e1e1f9ff5b4d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR397061&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6eocew",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "06e133827207",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR397061&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6eocew",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "793d25351bbc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR397061&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6eocew",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6eocew",
+        "title": "Fray, The",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/You Found Me - Fray, The.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR397061-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR397061"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "You Found Me"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "You Found Me"
+    },
+    {
+      "id": "rel-RVTR397061-tl-tl-5i27fb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR397061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5i27fb"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Fray The — original release"
+    },
+    {
+      "id": "rel-RVTR397061-tl-tl-av2b2d",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR397061"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-av2b2d"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Fray, The"
+    },
+    {
+      "id": "rel-RVTR397061-perf-perf-6eocew",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR397061"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6eocew"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Fray, The"
+    },
+    {
+      "id": "rel-perf-6eocew-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6eocew"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/You Found Me - Fray, The.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Fray, The"
+    },
+    {
+      "id": "rel-08617abeddc2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6eocew"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "08617abeddc2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-77500d7422ab-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6eocew"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "77500d7422ab"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e1e1f9ff5b4d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6eocew"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e1e1f9ff5b4d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-06e133827207-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6eocew"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "06e133827207"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-793d25351bbc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6eocew"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "793d25351bbc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR397061. \"Fray The\" by You Found Me.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: You Found Me · Title: Fray, The · Album: The Fray - You Found Me · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/You Found Me - Fray, The.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f9b5169d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/You Found Me - Fray, The.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6265aa95-5ad8-4b20-9bd4-b1f818990f4c",
+      "category": "artist",
+      "text": "Fray The is performed by You Found Me.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "235e80a7-a8a5-415c-bfa1-314c58b94901",
+      "category": "trivia",
+      "text": "Artist: You Found Me · Title: Fray, The · Album: The Fray - You Found Me · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/You Found Me - Fray, The.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c0e7b884-7ad5-47ab-8b9c-9aac5697e0b8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/You Found Me - Fray, The.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/You Found Me - Fray, The.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

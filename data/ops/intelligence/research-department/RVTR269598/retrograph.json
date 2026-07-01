@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR269598",
+    "kind": "song",
+    "rvtr": "RVTR269598",
+    "generatedAt": "2026-06-28T22:49:39.316Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR269598",
+    "artist": "Pearl Jam",
+    "title": "I Am Mine",
+    "year": 2007,
+    "albumTitle": "Live At The Gorge 05/06",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pearl Jam",
+    "relatedArtists": [
+      "Pearl Jam"
+    ]
+  },
+  "album": {
+    "title": "Live At The Gorge 05/06",
+    "releaseYear": 2007,
+    "recordings": [
+      {
+        "id": "rec-pb7yi9",
+        "title": "Live At The Gorge 05/06",
+        "releaseDate": 2007,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-gzijrt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2002,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pearl Jam - I Am Mine.mp4",
+      "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 43,
+    "chartWeeks": 8,
+    "albumTitle": "Live At The Gorge 05/06",
+    "summary": "Hot 100 peak #43 · 8 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-cxvw4",
+      "date": "2007",
+      "label": "I Am Mine — original release",
+      "detail": "Original album: Live At The Gorge 05/06",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3id",
+      "date": "2007",
+      "label": "Billboard Hot 100 peak #43",
+      "detail": "8 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-7hurms",
+      "date": "2007",
+      "label": "Live At The Gorge 05/06",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2002",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "f5a587c6ac9f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR269598&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-gzijrt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8944a5971fae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR269598&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-gzijrt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "52627e474d28",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR269598&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-gzijrt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "18610594cd08",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR269598&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-gzijrt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8f386071e67a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR269598&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-gzijrt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-gzijrt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2002,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pearl Jam - I Am Mine.mp4",
+        "notes": "Detected year: 2002. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR269598-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR269598"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pearl Jam"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pearl Jam"
+    },
+    {
+      "id": "rel-RVTR269598-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR269598"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-pb7yi9"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Live At The Gorge 05/06"
+    },
+    {
+      "id": "rel-RVTR269598-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR269598"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #43"
+    },
+    {
+      "id": "rel-RVTR269598-tl-tl-cxvw4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR269598"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cxvw4"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "I Am Mine — original release"
+    },
+    {
+      "id": "rel-RVTR269598-tl-tl-fcm3id",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR269598"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3id"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #43"
+    },
+    {
+      "id": "rel-RVTR269598-tl-tl-7hurms",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR269598"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7hurms"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Live At The Gorge 05/06"
+    },
+    {
+      "id": "rel-RVTR269598-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR269598"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR269598-perf-perf-gzijrt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR269598"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-gzijrt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-gzijrt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gzijrt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pearl Jam - I Am Mine.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f5a587c6ac9f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gzijrt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f5a587c6ac9f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-8944a5971fae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gzijrt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8944a5971fae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-52627e474d28-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gzijrt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "52627e474d28"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-18610594cd08-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gzijrt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "18610594cd08"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-8f386071e67a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gzijrt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8f386071e67a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR269598. \"I Am Mine\" by Pearl Jam. Album: Live At The Gorge 05/06 (2007).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Live At The Gorge 05/06 (2007). Billboard Hot 100 peak: #43. 8 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pearl Jam · Title: I Am Mine · Album: I Am Mine · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pearl Jam - I Am Mine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2007.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-681296fc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pearl Jam - I Am Mine.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d83f3ee2-1a90-4402-9d8f-d9dba8e3edfb",
+      "category": "artist",
+      "text": "I Am Mine is performed by Pearl Jam.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9fd722b1-5732-4310-a646-1e47188f7276",
+      "category": "album",
+      "text": "The song appears on the album \"Live At The Gorge 05/06\" (2007).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "96042784-3e4e-4ad6-9d6d-0361e06dca18",
+      "category": "chart",
+      "text": "The song peaked at #43 on the Billboard Hot 100 and spent 8 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "94e3e42f-d4f2-4c23-a6e9-d3460ae96ce2",
+      "category": "recording",
+      "text": "I Am Mine was released in 2007.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "24634170-5016-444d-987d-f1c9be2676d9",
+      "category": "trivia",
+      "text": "Artist: Pearl Jam · Title: I Am Mine · Album: I Am Mine · Year: 2002 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pearl Jam - I Am Mine.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ff833f16-e038-439d-b5b0-bb894c3996d8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pearl Jam - I Am Mine.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pearl Jam - I Am Mine.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

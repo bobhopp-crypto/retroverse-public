@@ -20,6 +20,7 @@ __pycache__/
 
 # caches / local artifacts
 .cache/
+data/ops/atlas/system-map-cache.json
 *.tsbuildinfo
 tsconfig.tsbuildinfo
 
@@ -32,7 +33,8 @@ tsconfig.tsbuildinfo
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/logs/studio.log
+/logs/
+/tmp/
 
 # typescript
 next-env.d.ts

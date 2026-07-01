@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR300948",
+    "kind": "song",
+    "rvtr": "RVTR300948",
+    "generatedAt": "2026-06-28T22:50:13.270Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR300948",
+    "artist": "Bon Jovi",
+    "title": "Say It Isn't So",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Bon Jovi",
+    "relatedArtists": [
+      "Bon Jovi"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-qx05x5",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2000,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bon Jovi - Say It Isn't So.mp4",
+      "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-dnua27",
+      "date": "2000",
+      "label": "Say It Isn't So — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2000",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c2b74f8ceda0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300948&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-qx05x5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7aa7cdb698f4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300948&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-qx05x5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4999695edcec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300948&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-qx05x5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d3acdd2ff97a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300948&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-qx05x5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "48c8c7badee1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300948&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-qx05x5",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-qx05x5",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2000,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bon Jovi - Say It Isn't So.mp4",
+        "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR300948-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300948"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Bon Jovi"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Bon Jovi"
+    },
+    {
+      "id": "rel-RVTR300948-tl-tl-dnua27",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300948"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dnua27"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Say It Isn't So — original release"
+    },
+    {
+      "id": "rel-RVTR300948-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300948"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR300948-perf-perf-qx05x5",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR300948"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-qx05x5"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-qx05x5-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx05x5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bon Jovi - Say It Isn't So.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c2b74f8ceda0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx05x5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c2b74f8ceda0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-7aa7cdb698f4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx05x5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7aa7cdb698f4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4999695edcec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx05x5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4999695edcec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d3acdd2ff97a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx05x5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d3acdd2ff97a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-48c8c7badee1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx05x5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "48c8c7badee1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR300948. \"Say It Isn't So\" by Bon Jovi.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Bon Jovi · Title: Say It Isn't So · Album: Say It Isn't So · Year: 2000 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bon Jovi - Say It Isn't So.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d4bcc5da",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bon Jovi - Say It Isn't So.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a3cff953",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Bon Jovi - Say It Isn't So.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b90d9b38-9891-4c38-8e73-af2494fcf6c3",
+      "category": "artist",
+      "text": "Say It Isn't So is performed by Bon Jovi.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "12ec5455-95b1-4c9d-8208-ae9d113936e0",
+      "category": "trivia",
+      "text": "Artist: Bon Jovi · Title: Say It Isn't So · Album: Say It Isn't So · Year: 2000 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bon Jovi - Say It Isn't So.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e0c0b548-c458-48e6-8a3d-ee385baf81e9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bon Jovi - Say It Isn't So.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4f4a8cdd-81e4-43b4-958d-45f34b1e5f76",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Bon Jovi - Say It Isn't So.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bon Jovi - Say It Isn't So.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR813261",
+    "kind": "song",
+    "rvtr": "RVTR813261",
+    "generatedAt": "2026-06-28T23:03:17.897Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR813261",
+    "artist": "Exposé",
+    "title": "Seasons Change",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Exposé",
+    "relatedArtists": [
+      "Exposé"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-gkjd3v",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1987,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - Seasons Change.mp4",
+      "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-55xhm4",
+      "date": "1987",
+      "label": "Seasons Change — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1987",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "34e938eb2b17",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR813261&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-gkjd3v",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1a3606e77b36",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR813261&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-gkjd3v",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6c0a18d503ef",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR813261&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-gkjd3v",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b8cddcf39d77",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR813261&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-gkjd3v",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b2f4bd7f9004",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR813261&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-gkjd3v",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-gkjd3v",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1987,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - Seasons Change.mp4",
+        "notes": "Detected year: 1987. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR813261-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR813261"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Exposé"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Exposé"
+    },
+    {
+      "id": "rel-RVTR813261-tl-tl-55xhm4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR813261"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-55xhm4"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Seasons Change — original release"
+    },
+    {
+      "id": "rel-RVTR813261-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR813261"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR813261-perf-perf-gkjd3v",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR813261"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-gkjd3v"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-gkjd3v-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gkjd3v"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - Seasons Change.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-34e938eb2b17-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gkjd3v"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "34e938eb2b17"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-1a3606e77b36-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gkjd3v"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1a3606e77b36"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-6c0a18d503ef-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gkjd3v"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6c0a18d503ef"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-b8cddcf39d77-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gkjd3v"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b8cddcf39d77"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b2f4bd7f9004-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gkjd3v"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b2f4bd7f9004"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR813261. \"Seasons Change\" by Exposé.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Exposé · Title: Seasons Change · Album: Seasons Change · Year: 1987 · Genre: Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - Seasons Change.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-080a29f0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - Seasons Change.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6256a3a2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Expose - Seasons Change.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c104a521-1e13-4112-84db-b11d1016cd19",
+      "category": "artist",
+      "text": "Seasons Change is performed by Exposé.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "eb953dca-8ae0-454c-a6cd-d8c61a649265",
+      "category": "trivia",
+      "text": "Artist: Exposé · Title: Seasons Change · Album: Seasons Change · Year: 1987 · Genre: Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - Seasons Change.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "637104e1-7aea-42c0-8eb9-de5c44f38190",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - Seasons Change.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b05184af-2a54-4125-8366-d68c91275f84",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Expose - Seasons Change.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Exposé - Seasons Change.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

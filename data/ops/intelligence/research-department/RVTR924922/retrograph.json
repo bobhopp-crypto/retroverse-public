@@ -1,0 +1,438 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR924922",
+    "kind": "song",
+    "rvtr": "RVTR924922",
+    "generatedAt": "2026-06-28T22:42:27.187Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR924922",
+    "artist": "Jackie Wilson",
+    "title": "Higher Higher",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jackie Wilson",
+    "relatedArtists": [
+      "Jackie Wilson"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-xf023a",
+      "title": "Higher & Higher",
+      "kind": "performance",
+      "year": 1967,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jackie Wilson - Higher & Higher.mp4",
+      "notes": "Detected year: 1967. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-i9aol8",
+      "date": "1967",
+      "label": "Higher Higher — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fuexa2",
+      "date": "1967",
+      "label": "Higher & Higher",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "abdca0752a6c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924922&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-xf023a",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5cf807f5e2b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924922&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-xf023a",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "322712609828",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924922&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-xf023a",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5ff4f68c251b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924922&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-xf023a",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "70b07e9a65bf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924922&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-xf023a",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-xf023a",
+        "title": "Higher & Higher",
+        "kind": "performance",
+        "year": 1967,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jackie Wilson - Higher & Higher.mp4",
+        "notes": "Detected year: 1967. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR924922-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR924922"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jackie Wilson"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jackie Wilson"
+    },
+    {
+      "id": "rel-RVTR924922-tl-tl-i9aol8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR924922"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i9aol8"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Higher Higher — original release"
+    },
+    {
+      "id": "rel-RVTR924922-tl-tl-fuexa2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR924922"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fuexa2"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Higher & Higher"
+    },
+    {
+      "id": "rel-RVTR924922-perf-perf-xf023a",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR924922"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-xf023a"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Higher & Higher"
+    },
+    {
+      "id": "rel-perf-xf023a-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xf023a"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jackie Wilson - Higher & Higher.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Higher & Higher"
+    },
+    {
+      "id": "rel-abdca0752a6c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xf023a"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "abdca0752a6c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5cf807f5e2b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xf023a"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5cf807f5e2b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-322712609828-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xf023a"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "322712609828"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5ff4f68c251b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xf023a"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5ff4f68c251b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-70b07e9a65bf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xf023a"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "70b07e9a65bf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR924922. \"Higher Higher\" by Jackie Wilson.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jackie Wilson · Title: Higher & Higher · Album: (Your Love Keeps Lifting Me) Higher And Higher · Year: 1967 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1761541179 · User2/Tags: #Soul #DanceFloor #PartyStarter · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jackie Wilson - Higher & Higher.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d6427056",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jackie Wilson - Higher & Higher.mp4 · Plays: 1 · Tags: #Soul #DanceFloor #PartyStarter",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f3148fdd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Jackie Wilson - Higher and Higher.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e2c5cfbd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/Jackie Wilson - Higher and Higher.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "9880f5a7-5481-4421-9dd9-6eb209ff59a4",
+      "category": "artist",
+      "text": "Higher Higher is performed by Jackie Wilson.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "29d686e9-96ba-402a-a620-cfac2f2683d6",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8eb4f7b6-ce14-43a0-9dc9-43cf3eb1ae67",
+      "category": "trivia",
+      "text": "Artist: Jackie Wilson · Title: Higher & Higher · Album: (Your Love Keeps Lifting Me) Higher And Higher · Year: 1967 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1761541179 · User2/Tags: #Soul #DanceFloor #PartyStarter · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jackie Wilson - Higher & Higher.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f8830b4f-723d-4340-a08e-1d7aa7694d90",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jackie Wilson - Higher & Higher.mp4 · Plays: 1 · Tags: #Soul #DanceFloor #PartyStarter",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6c31e809-a1e6-43d1-b548-42a751f8c7c4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Jackie Wilson - Higher and Higher.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "df46e52d-c46a-4e6b-881c-f384282099bb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/Jackie Wilson - Higher and Higher.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 2,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jackie Wilson - Higher & Higher.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR626020",
+    "kind": "song",
+    "rvtr": "RVTR626020",
+    "generatedAt": "2026-06-28T22:57:54.758Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR626020",
+    "artist": "Cartel",
+    "title": "Say Anything",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Cartel",
+    "relatedArtists": [
+      "Cartel"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-no6w5e",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cartel - Say Anything.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-p3chcl",
+      "date": "2005",
+      "label": "Say Anything — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e1184377972f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626020&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-no6w5e",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d37e130d90a0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626020&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-no6w5e",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "de9d97bfc3b7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626020&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-no6w5e",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f67d871908e7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626020&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-no6w5e",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "52a609e3cfaa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR626020&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-no6w5e",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-no6w5e",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cartel - Say Anything.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR626020-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626020"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Cartel"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Cartel"
+    },
+    {
+      "id": "rel-RVTR626020-tl-tl-p3chcl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626020"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p3chcl"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Say Anything — original release"
+    },
+    {
+      "id": "rel-RVTR626020-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626020"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR626020-perf-perf-no6w5e",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR626020"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-no6w5e"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-no6w5e-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no6w5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cartel - Say Anything.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e1184377972f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no6w5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e1184377972f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d37e130d90a0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no6w5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d37e130d90a0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-de9d97bfc3b7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no6w5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "de9d97bfc3b7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f67d871908e7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no6w5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f67d871908e7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-52a609e3cfaa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-no6w5e"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "52a609e3cfaa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR626020. \"Say Anything\" by Cartel.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Cartel · Title: Say Anything · Album: Chroma · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cartel - Say Anything.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e225024d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cartel - Say Anything.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-345f6ce3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Cartel - Say Anything (Else).mp4 · Performance: Else",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "abb6b141-323a-45ab-8ae5-c2561a8f60b1",
+      "category": "artist",
+      "text": "Say Anything is performed by Cartel.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "cde6e714-0ba5-4569-8980-6764ffe48a85",
+      "category": "trivia",
+      "text": "Artist: Cartel · Title: Say Anything · Album: Chroma · Year: 2005 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cartel - Say Anything.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b496099c-9880-491a-9ab0-0697514338ff",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cartel - Say Anything.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "56525233-0a97-4043-80bf-3601fdd78310",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Cartel - Say Anything (Else).mp4 · Performance: Else",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Cartel - Say Anything.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

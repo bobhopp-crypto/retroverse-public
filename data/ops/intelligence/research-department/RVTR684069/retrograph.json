@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR684069",
+    "kind": "song",
+    "rvtr": "RVTR684069",
+    "generatedAt": "2026-06-28T22:59:31.880Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR684069",
+    "artist": "Scandal",
+    "title": "Beat Of A Heart",
+    "year": 1985,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Scandal",
+    "relatedArtists": [
+      "Scandal"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1985,
+    "recordings": [
+      {
+        "id": "rec-6qrfqv",
+        "title": "Beat Of A Heart — graph recording",
+        "releaseDate": 1985,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-egu11z",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1984,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Scandal - Beat Of A Heart.mp4",
+      "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 41,
+    "chartWeeks": 14,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #41 · 14 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-7dwzmc",
+      "date": "1985",
+      "label": "Beat Of A Heart — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ib",
+      "date": "1985",
+      "label": "Billboard Hot 100 peak #41",
+      "detail": "14 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-tvvr7d",
+      "date": "1985",
+      "label": "Beat Of A Heart — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1984",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "eaf83d16c5e3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR684069&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-egu11z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "281e50bd46d0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR684069&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-egu11z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "18c70daea3ec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR684069&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-egu11z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "104d7027ffbf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR684069&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-egu11z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bd96c199abfc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR684069&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-egu11z",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-egu11z",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1984,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Scandal - Beat Of A Heart.mp4",
+        "notes": "Detected year: 1984. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR684069-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR684069"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Scandal"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Scandal"
+    },
+    {
+      "id": "rel-RVTR684069-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR684069"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #41"
+    },
+    {
+      "id": "rel-RVTR684069-tl-tl-7dwzmc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR684069"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7dwzmc"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Beat Of A Heart — original release"
+    },
+    {
+      "id": "rel-RVTR684069-tl-tl-fcm3ib",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR684069"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ib"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #41"
+    },
+    {
+      "id": "rel-RVTR684069-tl-tl-tvvr7d",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR684069"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-tvvr7d"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Beat Of A Heart — graph recording"
+    },
+    {
+      "id": "rel-RVTR684069-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR684069"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR684069-perf-perf-egu11z",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR684069"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-egu11z"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-egu11z-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-egu11z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Scandal - Beat Of A Heart.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-eaf83d16c5e3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-egu11z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "eaf83d16c5e3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-281e50bd46d0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-egu11z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "281e50bd46d0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-18c70daea3ec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-egu11z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "18c70daea3ec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-104d7027ffbf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-egu11z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "104d7027ffbf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-bd96c199abfc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-egu11z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bd96c199abfc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR684069. \"Beat Of A Heart\" by Scandal.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #41. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Scandal · Title: Beat Of A Heart · Album: Scandal (4) Featuring Patty Smyth - Beat Of A Heart · Year: 1984 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Scandal - Beat Of A Heart.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1985.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-e486c6f3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Scandal - Beat Of A Heart.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "208fd8f0-9046-4768-9c23-3186ad8afc8c",
+      "category": "artist",
+      "text": "Beat Of A Heart is performed by Scandal.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ca6be329-14f5-466b-972d-7da5a6fe052d",
+      "category": "chart",
+      "text": "The song peaked at #41 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "86afba1f-1d53-4ec1-bab1-02e18c4af91f",
+      "category": "recording",
+      "text": "Beat Of A Heart was released in 1985.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e1213c9a-1741-449e-8086-dd697395d6c8",
+      "category": "trivia",
+      "text": "Artist: Scandal · Title: Beat Of A Heart · Album: Scandal (4) Featuring Patty Smyth - Beat Of A Heart · Year: 1984 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Scandal - Beat Of A Heart.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f40fb2ff-ef4e-4cfb-b058-3ffca8281107",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Scandal - Beat Of A Heart.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Scandal - Beat Of A Heart.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

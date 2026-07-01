@@ -1,0 +1,450 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR989856",
+    "kind": "song",
+    "rvtr": "RVTR989856",
+    "generatedAt": "2026-06-28T23:09:42.630Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR989856",
+    "artist": "Aloe Blacc",
+    "title": "I Need A Dollar",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Aloe Blacc",
+    "relatedArtists": [
+      "Aloe Blacc"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-lp9hos",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need A Dollar.mp4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-u5d0h9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need a Dollar - OFFICIAL VIDEO.mp4",
+      "notes": "Detected year: 2010. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "2014",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "59d4487898a7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR989856&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-lp9hos",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c8f5748ecadb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR989856&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-lp9hos",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d722bfc24ae8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR989856&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-lp9hos",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b8bd23241e60",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR989856&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-lp9hos",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-lp9hos",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need A Dollar.mp4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-u5d0h9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need a Dollar - OFFICIAL VIDEO.mp4",
+        "notes": "Detected year: 2010. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR989856-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR989856"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Aloe Blacc"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Aloe Blacc"
+    },
+    {
+      "id": "rel-RVTR989856-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR989856"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR989856-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR989856"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR989856-perf-perf-lp9hos",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR989856"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-lp9hos"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-lp9hos-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lp9hos"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need A Dollar.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR989856-perf-perf-u5d0h9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR989856"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-u5d0h9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-u5d0h9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-u5d0h9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need a Dollar - OFFICIAL VIDEO.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-59d4487898a7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lp9hos"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "59d4487898a7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c8f5748ecadb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lp9hos"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c8f5748ecadb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d722bfc24ae8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lp9hos"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d722bfc24ae8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-b8bd23241e60-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-lp9hos"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b8bd23241e60"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR989856. \"I Need A Dollar\" by Aloe Blacc.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Aloe Blacc · Title: I Need A Dollar · Album: HV 7-10 · Year: 2014 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need A Dollar.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1f42124d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need A Dollar.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-dd08c22a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need a Dollar - OFFICIAL VIDEO.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6893f64e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Aloe Blacc - I Need a Dollar.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ead080f6-d97f-4d4d-9274-a4e66e9f8f15",
+      "category": "artist",
+      "text": "I Need A Dollar is performed by Aloe Blacc.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c8a8b655-5bcb-45da-9097-91053c8e52f1",
+      "category": "trivia",
+      "text": "Artist: Aloe Blacc · Title: I Need A Dollar · Album: HV 7-10 · Year: 2014 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need A Dollar.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4645aa8d-4b5d-4ee9-804b-88ba66faeb0a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need A Dollar.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ad411cc5-733a-429c-8b31-8538509de178",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need a Dollar - OFFICIAL VIDEO.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aceb906b-77c0-48df-b192-95b3dd9521d8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Aloe Blacc - I Need a Dollar.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Aloe Blacc - I Need A Dollar.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

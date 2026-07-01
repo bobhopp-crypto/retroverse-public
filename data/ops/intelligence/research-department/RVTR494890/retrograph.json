@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR494890",
+    "kind": "song",
+    "rvtr": "RVTR494890",
+    "generatedAt": "2026-06-28T22:54:11.808Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR494890",
+    "artist": "Mis-teeq",
+    "title": "Scandalous",
+    "year": 2004,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mis-teeq",
+    "relatedArtists": [
+      "Mis-teeq"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2004,
+    "recordings": [
+      {
+        "id": "rec-ulrmap",
+        "title": "Scandalous — graph recording",
+        "releaseDate": 2004,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-syty46",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mis Teeq - Scandalous.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 35,
+    "chartWeeks": 16,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #35 · 16 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-5ef53j",
+      "date": "2004",
+      "label": "Scandalous — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3hk",
+      "date": "2004",
+      "label": "Billboard Hot 100 peak #35",
+      "detail": "16 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-f4q8n6",
+      "date": "2004",
+      "label": "Scandalous — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "abca00d6c6a5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494890&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-syty46",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7edd8dfc644b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494890&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-syty46",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f2187a1d728b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494890&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-syty46",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0467244536f5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494890&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-syty46",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1dee0ae3a37c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR494890&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-syty46",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-syty46",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mis Teeq - Scandalous.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR494890-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494890"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mis-teeq"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mis-teeq"
+    },
+    {
+      "id": "rel-RVTR494890-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494890"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #35"
+    },
+    {
+      "id": "rel-RVTR494890-tl-tl-5ef53j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494890"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5ef53j"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Scandalous — original release"
+    },
+    {
+      "id": "rel-RVTR494890-tl-tl-fcm3hk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494890"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3hk"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #35"
+    },
+    {
+      "id": "rel-RVTR494890-tl-tl-f4q8n6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494890"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-f4q8n6"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Scandalous — graph recording"
+    },
+    {
+      "id": "rel-RVTR494890-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494890"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR494890-perf-perf-syty46",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR494890"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-syty46"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-syty46-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syty46"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mis Teeq - Scandalous.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-abca00d6c6a5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syty46"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "abca00d6c6a5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-7edd8dfc644b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syty46"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7edd8dfc644b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f2187a1d728b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syty46"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f2187a1d728b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-0467244536f5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syty46"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0467244536f5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1dee0ae3a37c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syty46"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1dee0ae3a37c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR494890. \"Scandalous\" by Mis-teeq.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #35. 16 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mis Teeq · Title: Scandalous · Album: Mis-Teeq - Scandalous · Year: 2003 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mis Teeq - Scandalous.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2004.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-46888fa3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mis Teeq - Scandalous.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-00b7e75d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Miss Teeq - Scandalus .mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e0b05048-a6a5-4605-9a7a-e4a59e14b138",
+      "category": "artist",
+      "text": "Scandalous is performed by Mis-teeq.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f18193f4-0090-4c5d-8c61-16bc128c21aa",
+      "category": "chart",
+      "text": "The song peaked at #35 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a59ae820-626a-45b0-b50b-62b5e3c578d8",
+      "category": "recording",
+      "text": "Scandalous was released in 2004.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "2ff8840d-6e3c-43ee-81ab-d1a2f7ac0483",
+      "category": "trivia",
+      "text": "Artist: Mis Teeq · Title: Scandalous · Album: Mis-Teeq - Scandalous · Year: 2003 · Genre: Contemporary R&B · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mis Teeq - Scandalous.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c1d9da9b-8265-4257-9153-74a82cfe0afc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mis Teeq - Scandalous.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fe2f7ade-1eb9-44d2-ad9a-d4f981b0ccd0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Miss Teeq - Scandalus .mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Mis Teeq - Scandalous.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

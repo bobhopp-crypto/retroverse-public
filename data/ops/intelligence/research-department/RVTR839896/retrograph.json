@@ -1,0 +1,522 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR839896",
+    "kind": "song",
+    "rvtr": "RVTR839896",
+    "generatedAt": "2026-06-28T23:04:14.486Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR839896",
+    "artist": "Pink",
+    "title": "I Don't Believe You",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pink",
+    "relatedArtists": [
+      "Pink"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-k1yjqx",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - I Don't Believe You.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k392k0",
+      "date": "2008",
+      "label": "I Don't Believe You — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-v8u9pt",
+      "date": "—",
+      "label": "\"I Don't Believe You\" is a song by American recording artist Pink.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-9yo6u6",
+      "date": "—",
+      "label": "It was released as the sixth single from her fifth studio album, Funhouse.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-v8u9pt",
+      "date": "—",
+      "label": "\"I Don't Believe You\" is a song by American recording artist Pink.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "\"I Don't Believe You\" is a song by American recording artist Pink.",
+      "It was released as the sixth single from her fifth studio album, Funhouse."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "5bbf34e742eb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR839896&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-k1yjqx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6cbe264319d6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR839896&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-k1yjqx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e1e6ea8c9eff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR839896&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-k1yjqx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a6063ebaf5dd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR839896&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-k1yjqx",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a347f9cbb0fe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR839896&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-k1yjqx",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-k1yjqx",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - I Don't Believe You.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR839896-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR839896"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pink"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pink"
+    },
+    {
+      "id": "rel-RVTR839896-tl-tl-k392k0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR839896"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k392k0"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "I Don't Believe You — original release"
+    },
+    {
+      "id": "rel-RVTR839896-tl-tl-v8u9pt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR839896"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-v8u9pt"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"I Don't Believe You\" is a song by American recording artist Pink."
+    },
+    {
+      "id": "rel-RVTR839896-tl-tl-9yo6u6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR839896"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9yo6u6"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "It was released as the sixth single from her fifth studio album, Funhouse."
+    },
+    {
+      "id": "rel-RVTR839896-tl-tl-v8u9pt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR839896"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-v8u9pt"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"I Don't Believe You\" is a song by American recording artist Pink."
+    },
+    {
+      "id": "rel-RVTR839896-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR839896"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR839896-perf-perf-k1yjqx",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR839896"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-k1yjqx"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-k1yjqx-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k1yjqx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - I Don't Believe You.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-5bbf34e742eb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k1yjqx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5bbf34e742eb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6cbe264319d6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k1yjqx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6cbe264319d6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e1e6ea8c9eff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k1yjqx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e1e6ea8c9eff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-a6063ebaf5dd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k1yjqx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a6063ebaf5dd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a347f9cbb0fe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k1yjqx"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a347f9cbb0fe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR839896. \"I Don't Believe You\" by Pink.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pink · Title: I Don't Believe You · Album: Jimmy Rushing - Rushing Lullabies · Year: 2008 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - I Don't Believe You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-35af072b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - I Don't Believe You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9870a56d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Pink - I Don't Believe You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-i-don-t-believe-you",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/I_Don't_Believe_You",
+      "excerpt": "\"I Don't Believe You\" is a song by American recording artist Pink. It was released as the sixth single from her fifth studio album, Funhouse.\n\n\nMusic and lyrics\n\"I Don't Believe You\" is set in common time and played in the key of A-flat major. The guitar and piano are used for the background music, while Pink's voice follows the A♭ —Fm7—Cm—D♭—A♭  chord progression. Pink explained on her website that, lyrically, the song is about pleading for reconciliation, and is her favourite song from Funhouse \"because it's just so naked. It's like taking a deep breathe and saying, 'Here I am. Take me. Take your best shot'.\" She went on to explain that:\"The first thing that comes to my mind with I Don't Believe You is me standing in the vocal booth listening... Actually in the control room listening to this song, tears running down my face, just like 'fuck, really?' It's the vulnerable weak side of me that I don't let out very often. And it's [sighs], yeah it's that song. And I love it, I love it. I just love it, it's very near and dear to me.\"\n\n\nCritical reception\nJonathan Keefe from Slant Magazine praised the song, notably its sparse electric guitar riff and Pink's \"phenomenal vocal turn that is both vulnerable and accusatory\", while New York Times reporter Jon Caramanica claimed \"I Don't Believe You\" swells like a classic soul ballad, as Pink pleads for a lover to reconsider walking away. On another side, Christian Hoard of Rolling Stone magazine gave a negative review, claiming the song is a \"goopy ballad\", which makes the singer sound like \"just another big-voiced chart-buster\", and that she has shown more personality on previous singles.\n\n\nMusic video\nThe music video for \"I Don't Believe You\", directed by Sophie Muller, was shot in September 2009 in Los Angeles, California. The music video premiered in October 2009. The video is in black and white, it features Pink in the wedding dress she wore to her actual wedding to Carey Hart in 2006, and a diamond encrusted wedding gown as she searches for her lover, to no avail. Scenes include her lying down in the dress, rollerblading around what appears to be the inside of a church (The Los Angeles Theater), singing to an empty wedding dining room, crying over an empty wedding album and singing to herself in front of the mirror.\n\n\nLive performances\nOn September 16, 2009, Pink performed \"I Don't Believe You\" along with \"Funhouse\" on Jimmy Kimmel Live! She also performed the song on February 5, 2010, on The Oprah Winfrey Show. The song was also performed on the Funhouse Tour.\n\n\nTrack listing\nDigital download and Australian CD single\n\n\"I Don't Believe You\" (album version) – 4:35\n\"I Don't Believe You\" (music video)\nGerman CD single\n\n\"I Don't Believe You\" (album version) – 4:35\n\"I Don't Believe You\" (live in Australia) – 4:14\n\n\nCredits and personnel\nCredits adapted from CD single line cover and Tidal.\n\nPersonnel\n\nManagement\nPink – A&R\nCraig Logan – A&R\nRogen Davies – management\n\n\nCharts\n\n\nCertifications\n\n\nRelease history\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "f2681c28-c60d-4c76-bba2-f71db737e903",
+      "category": "artist",
+      "text": "I Don't Believe You is performed by Pink.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "70758ab5-ad8b-49b4-a4ed-a2d8430d109b",
+      "category": "cultural_impact",
+      "text": "\"I Don't Believe You\" is a song by American recording artist Pink.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/I_Don't_Believe_You",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2d255f2b-62d1-4dcb-85bf-2d40514a483b",
+      "category": "cultural_impact",
+      "text": "It was released as the sixth single from her fifth studio album, Funhouse.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/I_Don't_Believe_You",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5045a0c1-6e63-4363-a1a7-2b116552d75f",
+      "category": "cultural_impact",
+      "text": "Music and lyrics\n\"I Don't Believe You\" is set in common time and played in the key of A-flat major.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/I_Don't_Believe_You",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6843fe41-b102-472f-bdaa-cc3a2e15076b",
+      "category": "trivia",
+      "text": "Artist: Pink · Title: I Don't Believe You · Album: Jimmy Rushing - Rushing Lullabies · Year: 2008 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - I Don't Believe You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "68ae8be1-2918-4ee5-b4e7-0419020a2874",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - I Don't Believe You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "584672ca-6e64-4e50-b809-47825a43fe3b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Pink - I Don't Believe You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - I Don't Believe You.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

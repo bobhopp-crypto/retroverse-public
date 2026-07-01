@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR091389",
+    "kind": "song",
+    "rvtr": "RVTR091389",
+    "generatedAt": "2026-06-28T22:45:20.643Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR091389",
+    "artist": "Loudness",
+    "title": "Crazy Nights",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Loudness",
+    "relatedArtists": [
+      "Loudness"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-8ra11r",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1985,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Loudness - Crazy Nights.mp4",
+      "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-beyqf6",
+      "date": "1985",
+      "label": "Crazy Nights — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1985",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4a91a4932de3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR091389&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-8ra11r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "16fdff3f5460",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR091389&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-8ra11r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "389ffd09925e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR091389&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-8ra11r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cec03efe9c0e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR091389&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-8ra11r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4fc47980fd73",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR091389&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-8ra11r",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-8ra11r",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1985,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Loudness - Crazy Nights.mp4",
+        "notes": "Detected year: 1985. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR091389-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR091389"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Loudness"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Loudness"
+    },
+    {
+      "id": "rel-RVTR091389-tl-tl-beyqf6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR091389"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-beyqf6"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Crazy Nights — original release"
+    },
+    {
+      "id": "rel-RVTR091389-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR091389"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR091389-perf-perf-8ra11r",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR091389"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-8ra11r"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-8ra11r-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8ra11r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Loudness - Crazy Nights.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4a91a4932de3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8ra11r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a91a4932de3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-16fdff3f5460-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8ra11r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "16fdff3f5460"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-389ffd09925e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8ra11r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "389ffd09925e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-cec03efe9c0e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8ra11r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cec03efe9c0e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4fc47980fd73-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8ra11r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4fc47980fd73"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR091389. \"Crazy Nights\" by Loudness.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Loudness · Title: Crazy Nights · Album: Thunder In The East Vol.I · Year: 1985 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Loudness - Crazy Nights.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d08b3bdb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Loudness - Crazy Nights.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e0becb83",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Loudness - Crazy Nights.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "864ad2c2-2f13-45a2-b37d-c7c1823ee995",
+      "category": "artist",
+      "text": "Crazy Nights is performed by Loudness.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "30120079-c3a1-4b36-bdc5-884063725ef3",
+      "category": "trivia",
+      "text": "Artist: Loudness · Title: Crazy Nights · Album: Thunder In The East Vol.I · Year: 1985 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Loudness - Crazy Nights.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1d540284-b6b3-4737-aae3-355b2970cf2d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Loudness - Crazy Nights.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1c1acfb0-28da-4132-9897-7f5494681ab7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Loudness - Crazy Nights.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Loudness - Crazy Nights.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

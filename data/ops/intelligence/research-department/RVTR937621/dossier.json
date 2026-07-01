@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "rvtr": "RVTR937621",
+  "artist": "David Bowie",
+  "title": "Life On Mars",
+  "generatedAt": "2026-06-28T23:07:53.593Z",
+  "editorDistillVersion": "2026-06-26.a4",
+  "identity": {
+    "rvtr": "RVTR937621",
+    "artist": "David Bowie",
+    "title": "Life On Mars",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "recordings": [],
+  "performances": [
+    {
+      "id": "perf-m892ao",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1971,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/David Bowie - Life On Mars.mp4",
+      "notes": "Detected year: 1971. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "facts": [
+    {
+      "id": "f1ad9a36-967c-4abc-ad2c-f12763c1b790",
+      "category": "artist",
+      "text": "Life On Mars is performed by David Bowie.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "40d3278f-3e72-43ac-a82f-bd17a205fc06",
+      "category": "trivia",
+      "text": "Artist: David Bowie · Title: Life On Mars · Album: Life On Mars?",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "57d530ad-337d-4498-9a75-0cd782abfcaa",
+      "category": "trivia",
+      "text": "/ Amsterdam · Year: 1971 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/David Bowie - Life On Mars.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "58bc8b7a-846b-4825-b2b3-aaeccad41888",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/David Bowie - Life On Mars.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "images": [
+    {
+      "assetId": "62f2cc9c1d8e",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR937621&file=close-up.jpg",
+      "caption": "Sharpest close-up in sequence",
+      "label": "Close-up",
+      "category": "Close-up",
+      "performanceId": "perf-m892ao",
+      "status": "available",
+      "unusedReason": null
+    }
+  ],
+  "timelines": [
+    {
+      "id": "tl-m66yhy",
+      "date": "1971",
+      "label": "Life On Mars — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1971",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR937621. \"Life On Mars\" by David Bowie.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: David Bowie · Title: Life On Mars · Album: Life On Mars? / Amsterdam · Year: 1971 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/David Bowie - Life On Mars.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c72c268d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/David Bowie - Life On Mars.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/David Bowie - Life On Mars.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedArtists": [
+    "David Bowie"
+  ],
+  "relatedSongs": [],
+  "missingAreas": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  }
+}

@@ -1,0 +1,522 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR514666",
+    "kind": "song",
+    "rvtr": "RVTR514666",
+    "generatedAt": "2026-06-28T22:54:44.398Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR514666",
+    "artist": "Emeli Sandé",
+    "title": "Next To Me",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Emeli Sandé",
+    "relatedArtists": [
+      "Emeli Sandé"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-99ypml",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2013,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Emeli Sandé - Next To Me.mp4",
+      "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-6dwn0",
+      "date": "2012",
+      "label": "Next To Me — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.88,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-nn5z1j",
+      "date": "—",
+      "label": "\"Next to Me\" is a song by Scottish recording artist Emeli Sandé.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-52tw95",
+      "date": "2012",
+      "label": "The single was first released in Ireland on 10 February 2012 as the third single from her debut stud",
+      "detail": "io album, Our Version of Events (2012).",
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-nn5z1j",
+      "date": "—",
+      "label": "\"Next to Me\" is a song by Scottish recording artist Emeli Sandé.",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.7,
+      "source": "cultural research"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2013",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": [
+      "\"Next to Me\" is a song by Scottish recording artist Emeli Sandé.",
+      "The single was first released in Ireland on 10 February 2012 as the third single from her debut studio album, Our Version of Events (2012)."
+    ]
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "973e5a446236",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR514666&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-99ypml",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "534214246350",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR514666&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-99ypml",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d3c36c25a960",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR514666&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-99ypml",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "90fc2f701750",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR514666&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-99ypml",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "42cf76042143",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR514666&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-99ypml",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-99ypml",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2013,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Emeli Sandé - Next To Me.mp4",
+        "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR514666-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR514666"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Emeli Sandé"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Emeli Sandé"
+    },
+    {
+      "id": "rel-RVTR514666-tl-tl-6dwn0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR514666"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6dwn0"
+      },
+      "confidence": 0.88,
+      "source": "song entity",
+      "label": "Next To Me — original release"
+    },
+    {
+      "id": "rel-RVTR514666-tl-tl-nn5z1j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR514666"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nn5z1j"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Next to Me\" is a song by Scottish recording artist Emeli Sandé."
+    },
+    {
+      "id": "rel-RVTR514666-tl-tl-52tw95",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR514666"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-52tw95"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "The single was first released in Ireland on 10 February 2012 as the third single from her debut stud"
+    },
+    {
+      "id": "rel-RVTR514666-tl-tl-nn5z1j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR514666"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nn5z1j"
+      },
+      "confidence": 0.7,
+      "source": "cultural research",
+      "label": "\"Next to Me\" is a song by Scottish recording artist Emeli Sandé."
+    },
+    {
+      "id": "rel-RVTR514666-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR514666"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR514666-perf-perf-99ypml",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR514666"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-99ypml"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-99ypml-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99ypml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Emeli Sandé - Next To Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-973e5a446236-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99ypml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "973e5a446236"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-534214246350-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99ypml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "534214246350"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d3c36c25a960-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99ypml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d3c36c25a960"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-90fc2f701750-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99ypml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "90fc2f701750"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-42cf76042143-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-99ypml"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "42cf76042143"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR514666. \"Next To Me\" by Emeli Sandé.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Emeli Sandé · Title: Next To Me · Album: Next To Me · Year: 2013 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Emeli Sandé - Next To Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1beb3af6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Emeli Sandé - Next To Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6104a262",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Emeli Sande - Next To Me.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "wiki-song-next-to-me-emeli-sand-song-",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Next_to_Me_(Emeli_Sand%C3%A9_song)",
+      "excerpt": "\"Next to Me\" is a song by Scottish recording artist Emeli Sandé. The single was first released in Ireland on 10 February 2012 as the third single from her debut studio album, Our Version of Events (2012). \"Next to Me\" was written by Sandé and co-written by Hugo Chegwin, Harry Craze and A. K. Paul. The recording was also produced by Craze and Chegwin.\nOn the week ending 23 February 2012, the track debuted at number one on the Irish Singles Chart, also topping the Scottish Singles Chart and peaking at number two on the UK Singles Chart. \"Next to Me\" was also the first single from the album in the US, released on 17 April 2012, and it became her first to reach the top 40 in the US Billboard Hot 100, charting at number 25. It was the 14th best-selling single of 2012 in the UK.\n\n\nReception\nLewis Corner of Digital Spy gave the song a positive review stating: \"Sandé insists of her morally righteous right-hand man over head-nodding beats and gospel-choir harmonies. Whether this mysterious entity is a lover, her faith or the music itself is never clarified, but one thing is for certain; if it inspires Sandé to write music of this standard, then her claims of perfection are rightly justified.\"\n\n\nMusic video\nA music video to accompany the release of \"Next to Me\" was first released onto YouTube on 18 January 2012 at a total length of 3:31.\n\n\nIn popular culture\n\n\nMedia\n\"Next to Me\" was used the Chilean commercial Top+Shoes in Almacenes Paris, and was featured in the soundtrack of Chilean soap opera Soltera otra vez (2nd season) and the Portuguese telenovela Doida Por Ti. The song was performed by Rachel Berry (Lea Michele) and her mother, Shelby Corcoran (Idina Menzel), in the 2013 Glee episode \"Sweet Dreams\". It was also used in video games Zumba Fitness: World Party and Dance Central Spotlight.\n\n\nTrack listing\n\n\nPersonnel\nEmeli Sande - lead vocals\nCraze & Hoax, James Murray, Mustafa Omer: Production, all instruments and programming (except piano and bass)\nAbeeku \"Beyku\" Ribeiro -  backing vocals\nAnup Paul - bass guitar\nNeil Cowley - piano\nPatsy McKay, Jenny La Touche, Awsa Bergstrom, Rebecca Jones, Charlene Jones, Crystal Jones, Lorraine Barnes, John Gibbons, Jack Vasiliou, Roxy Harris - choir backing vocals\n\n\nProduction\nProduced by Craze & Hoax for Method Music Mgmt. and Delirious Blacksmith Music Mgmt. Ltd., with additional production by Mojam Music (for Delirious Blacksmith Music Mgmt.)\nRecorded by Craze & Hoax\nMixed by Tom Elmhirst, with assistance by Ben Baptie\nMastered by Simon Davey\nPublished by Stellar Songs Ltd./EMI Music Publishing Ltd./Naughty Words/Sony-ATV Music Publishing Ltd.\n\n\nCharts\n\n\nCertifications\n\n\nRelease history\n\n\nSee also\nList of number-one dance singles of 2013 (U.S.)\n\n\nReferences",
+      "confidence": 0.85
+    }
+  ],
+  "facts": [
+    {
+      "id": "5b593b39-0a0b-47e0-a1ee-2710d8b0ad10",
+      "category": "artist",
+      "text": "Next To Me is performed by Emeli Sandé.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "040eca5a-7a00-4288-a0f5-dac5f2ffb782",
+      "category": "cultural_impact",
+      "text": "\"Next to Me\" is a song by Scottish recording artist Emeli Sandé.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Next_to_Me_(Emeli_Sand%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c46e1394-d500-4bc4-bd11-158ec1d4321c",
+      "category": "cultural_impact",
+      "text": "The single was first released in Ireland on 10 February 2012 as the third single from her debut studio album, Our Version of Events (2012).",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Next_to_Me_(Emeli_Sand%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6a1994d1-bce9-42a1-bbd6-16f4aeacdf92",
+      "category": "cultural_impact",
+      "text": "\"Next to Me\" was written by Sandé and co-written by Hugo Chegwin, Harry Craze and A.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Next_to_Me_(Emeli_Sand%C3%A9_song)",
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "715e592e-25db-4f9a-a5c6-2b04159be9b1",
+      "category": "trivia",
+      "text": "Artist: Emeli Sandé · Title: Next To Me · Album: Next To Me · Year: 2013 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Emeli Sandé - Next To Me.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "720100a4-5015-4731-af88-0a44d8c561ec",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Emeli Sandé - Next To Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "38e2a6f6-aad2-443d-8b5a-1c7e8acc699b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Emeli Sande - Next To Me.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Emeli Sandé - Next To Me.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

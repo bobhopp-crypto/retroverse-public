@@ -1,0 +1,680 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR848500",
+    "kind": "song",
+    "rvtr": "RVTR848500",
+    "generatedAt": "2026-06-28T23:04:33.060Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR848500",
+    "artist": "Lady Gaga",
+    "title": "Born This Way",
+    "year": 2011,
+    "albumTitle": "Born This Way",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL667722/RVAL667722__lady-gaga__born-this-way.jpg"
+  },
+  "artist": {
+    "name": "Lady Gaga",
+    "relatedArtists": [
+      "Lady Gaga"
+    ]
+  },
+  "album": {
+    "title": "Born This Way",
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-bazgz0",
+        "title": "Born This Way",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-ex2bzs",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - Born This Way.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-oyh9r",
+      "title": "Always Remember Us This Way",
+      "kind": "performance",
+      "year": 2018,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady Gaga - Always Remember Us This Way.mp4",
+      "notes": "Detected year: 2018. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 20,
+    "albumTitle": "Born This Way",
+    "summary": "Hot 100 peak #1 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-2xzd6w",
+      "date": "2011",
+      "label": "Born This Way — original release",
+      "detail": "Original album: Born This Way",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-opb5w0",
+      "date": "2011",
+      "label": "Born This Way",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-umi2pz",
+      "date": "2018",
+      "label": "Always Remember Us This Way",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR848500",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL667722/RVAL667722__lady-gaga__born-this-way.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7d28dcb71b64",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848500&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ex2bzs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "91036c204be6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848500&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ex2bzs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9fd7548eb5e0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848500&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ex2bzs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "67e95f93cfaa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848500&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ex2bzs",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "29fd5ef877b3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848500&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ex2bzs",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ex2bzs",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - Born This Way.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-oyh9r",
+        "title": "Always Remember Us This Way",
+        "kind": "performance",
+        "year": 2018,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady Gaga - Always Remember Us This Way.mp4",
+        "notes": "Detected year: 2018. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR848500-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lady Gaga"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lady Gaga"
+    },
+    {
+      "id": "rel-RVTR848500-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-bazgz0"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Born This Way"
+    },
+    {
+      "id": "rel-RVTR848500-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR848500-tl-tl-2xzd6w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2xzd6w"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Born This Way — original release"
+    },
+    {
+      "id": "rel-RVTR848500-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR848500-tl-tl-opb5w0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-opb5w0"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Born This Way"
+    },
+    {
+      "id": "rel-RVTR848500-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR848500-tl-tl-umi2pz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-umi2pz"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Always Remember Us This Way"
+    },
+    {
+      "id": "rel-RVTR848500-perf-perf-ex2bzs",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ex2bzs"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ex2bzs-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ex2bzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - Born This Way.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR848500-perf-perf-oyh9r",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR848500"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-oyh9r"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Always Remember Us This Way"
+    },
+    {
+      "id": "rel-perf-oyh9r-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-oyh9r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady Gaga - Always Remember Us This Way.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Always Remember Us This Way"
+    },
+    {
+      "id": "rel-7d28dcb71b64-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ex2bzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7d28dcb71b64"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-91036c204be6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ex2bzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "91036c204be6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9fd7548eb5e0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ex2bzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9fd7548eb5e0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-67e95f93cfaa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ex2bzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "67e95f93cfaa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-29fd5ef877b3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ex2bzs"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "29fd5ef877b3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR848500. \"Born This Way\" by Lady Gaga. Album: Born This Way (2011).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL667722/RVAL667722__lady-gaga__born-this-way.jpg",
+      "excerpt": "Canonical cover assignment for RVTR848500 (Born This Way). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Born This Way (2011). Billboard Hot 100 peak: #1. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lady GaGa · Title: Born This Way · Album: HV 04-11 · Year: 2011 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - Born This Way.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-216ab473",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - Born This Way.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-54bfb592",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady Gaga - Always Remember Us This Way.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-e2eaf355",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Lady Gaga - Born This Way (New Single) Feb 2011.mp3 · Performance: New Single",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-508d6133",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Lady Gaga - Born This Way (Radio Edit Version).mp3 · Performance: Radio Edit Version",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "bd0c415a-b0ce-4b24-a154-2826265aa645",
+      "category": "artist",
+      "text": "Born This Way is performed by Lady Gaga.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "805dfcd5-4e7d-4b2a-ba79-79ba7c982e6a",
+      "category": "album",
+      "text": "The song appears on the album \"Born This Way\" (2011).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "26fbdbc2-4a33-41c1-80c6-a592efdb8eab",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR848500.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL667722/RVAL667722__lady-gaga__born-this-way.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5f80e969-c40f-4b39-bc45-03cc912d7c5f",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9c8d44b0-bfea-4a00-9d49-ad4bffb4c43e",
+      "category": "recording",
+      "text": "Born This Way was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "cdebf2c3-764b-4265-9459-40d09709c282",
+      "category": "trivia",
+      "text": "Artist: Lady GaGa · Title: Born This Way · Album: HV 04-11 · Year: 2011 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - Born This Way.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "076dc2af-4a14-4257-8b9b-7aed2a0e2856",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - Born This Way.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e63f2b7b-6f2f-49c1-b6b9-f5ebeff5dd40",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady Gaga - Always Remember Us This Way.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fbb9ec43-0c38-4619-82df-267604ba0f8f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Lady Gaga - Born This Way (New Single) Feb 2011.mp3 · Performance: New Single",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0871c1fe-c4d3-4dc2-b117-3aeb43f394d2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Lady Gaga - Born This Way (Radio Edit Version).mp3 · Performance: Radio Edit Version",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 65
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 13,
+    "preserved": 10,
+    "accepted": 5,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Lady GaGa - Born This Way.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

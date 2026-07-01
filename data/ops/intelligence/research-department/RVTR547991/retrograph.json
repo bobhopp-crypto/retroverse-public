@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR547991",
+    "kind": "song",
+    "rvtr": "RVTR547991",
+    "generatedAt": "2026-06-28T22:55:35.641Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR547991",
+    "artist": "Instrumentallyinsane",
+    "title": "Metallica Turn The Page Uncensored",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Instrumentallyinsane",
+    "relatedArtists": [
+      "Instrumentallyinsane"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-aiztko",
+      "title": "uncensored",
+      "kind": "performance",
+      "year": 1998,
+      "venue": "uncensored",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Instrumentallyinsane - Metallica - Turn the Page (uncensored).mp4",
+      "notes": "Performance label: uncensored. Detected year: 1998. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-rqyqct",
+      "date": "1998",
+      "label": "Metallica Turn The Page Uncensored — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-t5ru46",
+      "date": "1998",
+      "label": "uncensored",
+      "detail": "uncensored",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "2c2c4764384c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547991&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-aiztko",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "88b644ba594c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547991&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-aiztko",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "73db6c3aa03b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547991&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-aiztko",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5d62d0fdf680",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547991&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-aiztko",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6ee758403f50",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547991&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-aiztko",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-aiztko",
+        "title": "uncensored",
+        "kind": "performance",
+        "year": 1998,
+        "venue": "uncensored",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Instrumentallyinsane - Metallica - Turn the Page (uncensored).mp4",
+        "notes": "Performance label: uncensored. Detected year: 1998. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR547991-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR547991"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Instrumentallyinsane"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Instrumentallyinsane"
+    },
+    {
+      "id": "rel-RVTR547991-tl-tl-rqyqct",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR547991"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-rqyqct"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Metallica Turn The Page Uncensored — original release"
+    },
+    {
+      "id": "rel-RVTR547991-tl-tl-t5ru46",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR547991"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-t5ru46"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "uncensored"
+    },
+    {
+      "id": "rel-RVTR547991-perf-perf-aiztko",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR547991"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-aiztko"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "uncensored"
+    },
+    {
+      "id": "rel-perf-aiztko-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aiztko"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Instrumentallyinsane - Metallica - Turn the Page (uncensored).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "uncensored"
+    },
+    {
+      "id": "rel-2c2c4764384c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aiztko"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2c2c4764384c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-88b644ba594c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aiztko"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "88b644ba594c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-73db6c3aa03b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aiztko"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "73db6c3aa03b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5d62d0fdf680-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aiztko"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5d62d0fdf680"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6ee758403f50-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-aiztko"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6ee758403f50"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR547991. \"Metallica Turn The Page Uncensored\" by Instrumentallyinsane.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Instrumentallyinsane · Title: Metallica - Turn the Page (uncensored) · Album: Metallica - Turn The Page · Year: 1998 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Instrumentallyinsane - Metallica - Turn the Page (uncensored).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-adfb0968",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Instrumentallyinsane - Metallica - Turn the Page (uncensored).mp4 · Performance: uncensored",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0050f0b7-687d-4f56-bcd7-b3bac7d37503",
+      "category": "artist",
+      "text": "Metallica Turn The Page Uncensored is performed by Instrumentallyinsane.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "17110bdf-160a-45c7-9576-c385a332846b",
+      "category": "trivia",
+      "text": "\"Metallica Turn The Page Uncensored\" by Instrumentallyinsane.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "96c82dd0-6aae-4811-bc51-d5995762cdaa",
+      "category": "trivia",
+      "text": "Artist: Instrumentallyinsane · Title: Metallica - Turn the Page (uncensored) · Album: Metallica - Turn The Page · Year: 1998 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Instrumentallyinsane - Metallica - Turn the Page (uncensored).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0f1e95fa-2999-4789-ad9f-a47d56979a38",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Instrumentallyinsane - Metallica - Turn the Page (uncensored).mp4 · Performance: uncensored",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Instrumentallyinsane - Metallica - Turn the Page (uncensored).mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

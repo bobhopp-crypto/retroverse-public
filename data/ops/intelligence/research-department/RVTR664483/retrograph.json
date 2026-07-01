@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR664483",
+    "kind": "song",
+    "rvtr": "RVTR664483",
+    "generatedAt": "2026-06-28T22:58:54.534Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR664483",
+    "artist": "Plies F.akon",
+    "title": "Hypnotized",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Plies F.akon",
+    "relatedArtists": [
+      "Plies F.akon"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-y58fdb",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Plies F.Akon - Hypnotized.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-9qwh9k",
+      "date": "2007",
+      "label": "Hypnotized — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "58fe6101356b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR664483&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-y58fdb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5c1f443a8aa5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR664483&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-y58fdb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "94712aed37ce",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR664483&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-y58fdb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ed67cff90de7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR664483&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-y58fdb",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7897b6819e13",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR664483&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-y58fdb",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-y58fdb",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Plies F.Akon - Hypnotized.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR664483-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR664483"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Plies F.akon"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Plies F.akon"
+    },
+    {
+      "id": "rel-RVTR664483-tl-tl-9qwh9k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR664483"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9qwh9k"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Hypnotized — original release"
+    },
+    {
+      "id": "rel-RVTR664483-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR664483"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR664483-perf-perf-y58fdb",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR664483"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-y58fdb"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-y58fdb-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y58fdb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Plies F.Akon - Hypnotized.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-58fe6101356b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y58fdb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "58fe6101356b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-5c1f443a8aa5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y58fdb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5c1f443a8aa5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-94712aed37ce-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y58fdb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "94712aed37ce"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-ed67cff90de7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y58fdb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ed67cff90de7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7897b6819e13-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-y58fdb"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7897b6819e13"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR664483. \"Hypnotized\" by Plies F.akon.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Plies F.Akon · Title: Hypnotized · Album: Promo Only Rhythm Radio: January 08 · Year: 2007 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Plies F.Akon - Hypnotized.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9811d476",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Plies F.Akon - Hypnotized.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "bf52cec3-89f5-4c38-8b6b-36bc572d7f52",
+      "category": "artist",
+      "text": "Hypnotized is performed by Plies F.akon.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "26cd7f37-1d7a-45b8-8d28-a27491e6d091",
+      "category": "trivia",
+      "text": "Artist: Plies F.Akon · Title: Hypnotized · Album: Promo Only Rhythm Radio: January 08 · Year: 2007 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Plies F.Akon - Hypnotized.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ee7755f1-2124-4b32-91d9-ddfd280c5dcb",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Plies F.Akon - Hypnotized.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Plies F.Akon - Hypnotized.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

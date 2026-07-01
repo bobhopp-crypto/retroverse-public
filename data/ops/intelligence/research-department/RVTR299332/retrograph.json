@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR299332",
+    "kind": "song",
+    "rvtr": "RVTR299332",
+    "generatedAt": "2026-06-28T22:50:11.752Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR299332",
+    "artist": "Boney M",
+    "title": "Gotta Go Home",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Boney M",
+    "relatedArtists": [
+      "Boney M"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-fedxb6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Boney M. - Gotta Go Home.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-3pzdlg",
+      "date": "1979",
+      "label": "Gotta Go Home — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c7ca12aefdf1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299332&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-fedxb6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d646a1116f45",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299332&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-fedxb6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5a5338590785",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299332&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-fedxb6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1375edb2cb90",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299332&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-fedxb6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a2a71b0dfc18",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR299332&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-fedxb6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-fedxb6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Boney M. - Gotta Go Home.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR299332-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR299332"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Boney M"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Boney M"
+    },
+    {
+      "id": "rel-RVTR299332-tl-tl-3pzdlg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR299332"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3pzdlg"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Gotta Go Home — original release"
+    },
+    {
+      "id": "rel-RVTR299332-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR299332"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR299332-perf-perf-fedxb6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR299332"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-fedxb6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-fedxb6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fedxb6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Boney M. - Gotta Go Home.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c7ca12aefdf1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fedxb6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c7ca12aefdf1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d646a1116f45-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fedxb6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d646a1116f45"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5a5338590785-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fedxb6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5a5338590785"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-1375edb2cb90-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fedxb6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1375edb2cb90"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a2a71b0dfc18-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-fedxb6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a2a71b0dfc18"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR299332. \"Gotta Go Home\" by Boney M.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Boney M. · Title: Gotta Go Home · Album: El Lute / Gotta Go Home · Year: 1979 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Boney M. - Gotta Go Home.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-bd64bf20",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Boney M. - Gotta Go Home.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-255bfcbb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Bone - Homegurl He Gotta.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4fb0c7d1-5b0f-494c-a851-a85796147d0e",
+      "category": "artist",
+      "text": "Gotta Go Home is performed by Boney M.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f4f6a59c-f742-4627-89b4-0a93d3fa4290",
+      "category": "trivia",
+      "text": "· Title: Gotta Go Home · Album: El Lute / Gotta Go Home · Year: 1979 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Boney M.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "15c01840-fed0-4a7a-b364-ec2aa806edbe",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Boney M.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2a89e623-720e-4e2f-8a4c-9ee3d38e1153",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Bone - Homegurl He Gotta.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Boney M. - Gotta Go Home.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

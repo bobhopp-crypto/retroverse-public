@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR567430",
+    "kind": "song",
+    "rvtr": "RVTR567430",
+    "generatedAt": "2026-06-28T22:56:09.441Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR567430",
+    "artist": "Jane Wiedlin",
+    "title": "Rush Hour",
+    "year": 1988,
+    "albumTitle": "Fur",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL990944/RVAL990944__jane-wiedlin__fur.jpg"
+  },
+  "artist": {
+    "name": "Jane Wiedlin",
+    "relatedArtists": [
+      "Jane Wiedlin"
+    ]
+  },
+  "album": {
+    "title": "Fur",
+    "releaseYear": 1988,
+    "recordings": [
+      {
+        "id": "rec-p52z1b",
+        "title": "Fur",
+        "releaseDate": 1988,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-e7pisj",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1988,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jane Wiedlin - Rush Hour.mp4",
+      "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 9,
+    "chartWeeks": 19,
+    "albumTitle": "Fur",
+    "summary": "Hot 100 peak #9 · 19 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-5u5bps",
+      "date": "1988",
+      "label": "Rush Hour — original release",
+      "detail": "Original album: Fur",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2r",
+      "date": "1988",
+      "label": "Billboard Hot 100 peak #9",
+      "detail": "19 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-cewmlt",
+      "date": "1988",
+      "label": "Fur",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1988",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR567430",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL990944/RVAL990944__jane-wiedlin__fur.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "67b386d87e06",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567430&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-e7pisj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "31b24dc63804",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567430&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-e7pisj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ef8fe5bee051",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567430&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-e7pisj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9eaf79e2aa03",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567430&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-e7pisj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1abb522e2ae1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567430&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-e7pisj",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-e7pisj",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1988,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jane Wiedlin - Rush Hour.mp4",
+        "notes": "Detected year: 1988. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR567430-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR567430"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jane Wiedlin"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jane Wiedlin"
+    },
+    {
+      "id": "rel-RVTR567430-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR567430"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-p52z1b"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Fur"
+    },
+    {
+      "id": "rel-RVTR567430-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR567430"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #9"
+    },
+    {
+      "id": "rel-RVTR567430-tl-tl-5u5bps",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR567430"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5u5bps"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Rush Hour — original release"
+    },
+    {
+      "id": "rel-RVTR567430-tl-tl-l47p2r",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR567430"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2r"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #9"
+    },
+    {
+      "id": "rel-RVTR567430-tl-tl-cewmlt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR567430"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cewmlt"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Fur"
+    },
+    {
+      "id": "rel-RVTR567430-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR567430"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR567430-perf-perf-e7pisj",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR567430"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-e7pisj"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-e7pisj-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7pisj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jane Wiedlin - Rush Hour.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-67b386d87e06-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7pisj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "67b386d87e06"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-31b24dc63804-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7pisj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "31b24dc63804"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ef8fe5bee051-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7pisj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ef8fe5bee051"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9eaf79e2aa03-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7pisj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9eaf79e2aa03"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1abb522e2ae1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e7pisj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1abb522e2ae1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR567430. \"Rush Hour\" by Jane Wiedlin. Album: Fur (1988).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL990944/RVAL990944__jane-wiedlin__fur.jpg",
+      "excerpt": "Canonical cover assignment for RVTR567430 (Rush Hour). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Fur (1988). Billboard Hot 100 peak: #9. 19 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Jane Wiedlin · Title: Rush Hour · Album: Rush Hour · Year: 1988 · Genre: Hi NRG · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jane Wiedlin - Rush Hour.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1988.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-79a8b1c6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jane Wiedlin - Rush Hour.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-504fcea8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Jane Wiedlin - Rush Hour.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "af1fb45f-d244-4bd3-b6c7-e7b969e8187a",
+      "category": "artist",
+      "text": "Rush Hour is performed by Jane Wiedlin.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cd0f38a7-8a7c-4299-9d7c-0a27afaa9f30",
+      "category": "album",
+      "text": "The song appears on the album \"Fur\" (1988).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5937cb29-3caf-4a7a-9f5f-ec70217ce27e",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR567430.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL990944/RVAL990944__jane-wiedlin__fur.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "08905c45-037f-44f3-b2aa-e02a52d92c14",
+      "category": "chart",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9be5f14a-d4f9-4350-83f3-427a7ac15499",
+      "category": "recording",
+      "text": "Rush Hour was released in 1988.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "20330f12-3570-4820-a06b-7f5de6a39b43",
+      "category": "trivia",
+      "text": "Artist: Jane Wiedlin · Title: Rush Hour · Album: Rush Hour · Year: 1988 · Genre: Hi NRG · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jane Wiedlin - Rush Hour.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9b4a3471-eaf2-47cf-8495-c583135f581a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jane Wiedlin - Rush Hour.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "51eeec61-d6e8-4486-ab12-b08d8592558c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Jane Wiedlin - Rush Hour.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Jane Wiedlin - Rush Hour.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

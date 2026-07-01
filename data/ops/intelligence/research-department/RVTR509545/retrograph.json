@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR509545",
+    "kind": "song",
+    "rvtr": "RVTR509545",
+    "generatedAt": "2026-06-28T22:54:31.492Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR509545",
+    "artist": "Danielle Bradbery",
+    "title": "Sway",
+    "year": 2017,
+    "albumTitle": "I Don't Believe We've Met",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL035092/RVAL035092__danielle-bradbery__i-don-t-believe-we-ve-met.jpg"
+  },
+  "artist": {
+    "name": "Danielle Bradbery",
+    "relatedArtists": [
+      "Danielle Bradbery"
+    ]
+  },
+  "album": {
+    "title": "I Don't Believe We've Met",
+    "releaseYear": 2017,
+    "recordings": [
+      {
+        "id": "rec-it0foz",
+        "title": "I Don't Believe We've Met",
+        "releaseDate": 2017,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-6lexy5",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2017,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Danielle Bradbery - Sway.mp4",
+      "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "I Don't Believe We've Met",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-yosots",
+      "date": "2017",
+      "label": "Sway — original release",
+      "detail": "Original album: I Don't Believe We've Met",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-8utu8t",
+      "date": "2017",
+      "label": "I Don't Believe We've Met",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2017",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR509545",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL035092/RVAL035092__danielle-bradbery__i-don-t-believe-we-ve-met.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7eefdb22ceb1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR509545&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6lexy5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "92758cf9c379",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR509545&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6lexy5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fa68ffcb47da",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR509545&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6lexy5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cbf481e052d2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR509545&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6lexy5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c91f4e63cbf2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR509545&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6lexy5",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6lexy5",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2017,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Danielle Bradbery - Sway.mp4",
+        "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR509545-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR509545"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Danielle Bradbery"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Danielle Bradbery"
+    },
+    {
+      "id": "rel-RVTR509545-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR509545"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-it0foz"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "I Don't Believe We've Met"
+    },
+    {
+      "id": "rel-RVTR509545-tl-tl-yosots",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR509545"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yosots"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Sway — original release"
+    },
+    {
+      "id": "rel-RVTR509545-tl-tl-8utu8t",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR509545"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8utu8t"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "I Don't Believe We've Met"
+    },
+    {
+      "id": "rel-RVTR509545-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR509545"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR509545-perf-perf-6lexy5",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR509545"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6lexy5"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6lexy5-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6lexy5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Danielle Bradbery - Sway.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-7eefdb22ceb1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6lexy5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7eefdb22ceb1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-92758cf9c379-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6lexy5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "92758cf9c379"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fa68ffcb47da-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6lexy5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fa68ffcb47da"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-cbf481e052d2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6lexy5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cbf481e052d2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c91f4e63cbf2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6lexy5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c91f4e63cbf2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR509545. \"Sway\" by Danielle Bradbery. Album: I Don't Believe We've Met (2017).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL035092/RVAL035092__danielle-bradbery__i-don-t-believe-we-ve-met.jpg",
+      "excerpt": "Canonical cover assignment for RVTR509545 (Sway). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: I Don't Believe We've Met (2017)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Danielle Bradbery · Title: Sway · Album: I Don't Believe We've Met · Year: 2017 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Danielle Bradbery - Sway.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2017.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-43a86abe",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Danielle Bradbery - Sway.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "85e2b2ea-f756-4302-9068-73246a52b192",
+      "category": "artist",
+      "text": "Sway is performed by Danielle Bradbery.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a7553e19-a03b-42b5-addb-ca1e2316c00d",
+      "category": "album",
+      "text": "The song appears on the album \"I Don't Believe We've Met\" (2017).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c7525714-c2c1-407e-9e0f-916e3a8ca6a8",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR509545.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL035092/RVAL035092__danielle-bradbery__i-don-t-believe-we-ve-met.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "614c4395-8cfa-4391-84d0-3fc85bc7c9dc",
+      "category": "recording",
+      "text": "Sway was released in 2017.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "58cea2c0-2660-4634-ad2c-6b999ee66d9d",
+      "category": "trivia",
+      "text": "Album: I Don't Believe We've Met (2017).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d29ccefc-e1fe-48c3-835e-d28af57ca4bc",
+      "category": "trivia",
+      "text": "Artist: Danielle Bradbery · Title: Sway · Album: I Don't Believe We've Met · Year: 2017 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Danielle Bradbery - Sway.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8a35b931-1143-4ee6-8c86-bffcf20fe424",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Danielle Bradbery - Sway.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Danielle Bradbery - Sway.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

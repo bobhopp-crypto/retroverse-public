@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR095672",
+    "kind": "song",
+    "rvtr": "RVTR095672",
+    "generatedAt": "2026-06-28T22:45:30.403Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR095672",
+    "artist": "Studio B",
+    "title": "I See Girls",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Studio B",
+    "relatedArtists": [
+      "Studio B"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-t2jr7n",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2003,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Studio B - I See Girls.mp4",
+      "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-iz910p",
+      "date": "2003",
+      "label": "I See Girls — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2003",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "fed9ee82a1bd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR095672&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-t2jr7n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3ea0d815ff84",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR095672&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-t2jr7n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "972a71f8a3af",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR095672&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-t2jr7n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c309331d34a3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR095672&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-t2jr7n",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9eedd61eb0af",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR095672&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-t2jr7n",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-t2jr7n",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2003,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Studio B - I See Girls.mp4",
+        "notes": "Detected year: 2003. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR095672-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR095672"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Studio B"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Studio B"
+    },
+    {
+      "id": "rel-RVTR095672-tl-tl-iz910p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR095672"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-iz910p"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "I See Girls — original release"
+    },
+    {
+      "id": "rel-RVTR095672-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR095672"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR095672-perf-perf-t2jr7n",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR095672"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-t2jr7n"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-t2jr7n-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t2jr7n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Studio B - I See Girls.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-fed9ee82a1bd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t2jr7n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fed9ee82a1bd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-3ea0d815ff84-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t2jr7n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3ea0d815ff84"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-972a71f8a3af-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t2jr7n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "972a71f8a3af"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-c309331d34a3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t2jr7n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c309331d34a3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9eedd61eb0af-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-t2jr7n"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9eedd61eb0af"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR095672. \"I See Girls\" by Studio B.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Studio B · Title: I See Girls · Album: Studio B Feat Romeo & Harry Brooks - I See Girls (Crazy) · Year: 2003 · Genre: Hardstyle · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Studio B - I See Girls.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-9b72d220",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Studio B - I See Girls.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-00204ba6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Studio B - I See Girls Crazy (DJ Funkouse Edit).mp3 · Performance: DJ Funkouse Edit",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f12d530a-dc74-46b2-9c1d-e8a048e1d0bb",
+      "category": "artist",
+      "text": "I See Girls is performed by Studio B.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "14e0a125-ba63-4c32-802d-da6cfa9dd148",
+      "category": "trivia",
+      "text": "Artist: Studio B · Title: I See Girls · Album: Studio B Feat Romeo & Harry Brooks - I See Girls (Crazy) · Year: 2003 · Genre: Hardstyle · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Studio B - I See Girls.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0d86dee3-9ce3-4ffa-bab3-f3baa8694416",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Studio B - I See Girls.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "68a95c06-b831-4275-ad7f-c6661ba76caf",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Studio B - I See Girls Crazy (DJ Funkouse Edit).mp3 · Performance: DJ Funkouse Edit",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Studio B - I See Girls.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

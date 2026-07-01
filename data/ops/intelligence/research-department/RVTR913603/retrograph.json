@@ -1,0 +1,341 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR913603",
+    "kind": "song",
+    "rvtr": "RVTR913603",
+    "generatedAt": "2026-06-28T23:06:58.222Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR913603",
+    "artist": "Beyoncé",
+    "title": "Texas Hold 'Em",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Beyoncé",
+    "relatedArtists": [
+      "Beyoncé"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-dzjqk9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2024,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Beyoncé - Texas Hold 'em.mp4",
+      "notes": "Detected year: 2024. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ilccon",
+      "date": "2024",
+      "label": "Texas Hold 'Em — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2024",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "dd228ded0b4b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR913603&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dzjqk9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8e92356f9012",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR913603&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dzjqk9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2524243e49c0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR913603&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dzjqk9",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dzjqk9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2024,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Beyoncé - Texas Hold 'em.mp4",
+        "notes": "Detected year: 2024. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR913603-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR913603"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Beyoncé"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Beyoncé"
+    },
+    {
+      "id": "rel-RVTR913603-tl-tl-ilccon",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR913603"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ilccon"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Texas Hold 'Em — original release"
+    },
+    {
+      "id": "rel-RVTR913603-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR913603"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR913603-perf-perf-dzjqk9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR913603"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dzjqk9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dzjqk9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzjqk9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Beyoncé - Texas Hold 'em.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-dd228ded0b4b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzjqk9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dd228ded0b4b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-8e92356f9012-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzjqk9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8e92356f9012"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-2524243e49c0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dzjqk9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2524243e49c0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR913603. \"Texas Hold 'Em\" by Beyoncé.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Beyoncé · Title: Texas Hold 'em · Album: Texas Hold 'Em (Explicit Digital Bundle) · Year: 2024 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Beyoncé - Texas Hold 'em.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-43c32b77",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Beyoncé - Texas Hold 'em.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "fd2c583d-9567-4d42-b08a-f5f89ac8b295",
+      "category": "artist",
+      "text": "Texas Hold 'Em is performed by Beyoncé.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1e67b0a7-d909-4152-86b9-81aeed9a2361",
+      "category": "trivia",
+      "text": "Artist: Beyoncé · Title: Texas Hold 'em · Album: Texas Hold 'Em (Explicit Digital Bundle) · Year: 2024 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Beyoncé - Texas Hold 'em.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0eb28215-30a4-431d-b326-aaf98de1159e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Beyoncé - Texas Hold 'em.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Beyoncé - Texas Hold 'em.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

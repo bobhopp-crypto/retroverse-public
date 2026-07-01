@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR387477",
+    "kind": "song",
+    "rvtr": "RVTR387477",
+    "generatedAt": "2026-06-28T22:51:50.791Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR387477",
+    "artist": "Fischerspooner",
+    "title": "Emerge",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Fischerspooner",
+    "relatedArtists": [
+      "Fischerspooner"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ac1nuj",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2000,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Fischerspooner - Emerge.mp4",
+      "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-h5opz",
+      "date": "2000",
+      "label": "Emerge — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2000",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "043c1b831f97",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR387477&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ac1nuj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9db27cda67ee",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR387477&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ac1nuj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "390795a1c905",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR387477&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ac1nuj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7bfc071e2968",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR387477&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ac1nuj",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6d38bd7a44eb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR387477&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ac1nuj",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ac1nuj",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2000,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Fischerspooner - Emerge.mp4",
+        "notes": "Detected year: 2000. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR387477-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR387477"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Fischerspooner"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Fischerspooner"
+    },
+    {
+      "id": "rel-RVTR387477-tl-tl-h5opz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR387477"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-h5opz"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Emerge — original release"
+    },
+    {
+      "id": "rel-RVTR387477-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR387477"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR387477-perf-perf-ac1nuj",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR387477"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ac1nuj"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ac1nuj-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ac1nuj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Fischerspooner - Emerge.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-043c1b831f97-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ac1nuj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "043c1b831f97"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9db27cda67ee-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ac1nuj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9db27cda67ee"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-390795a1c905-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ac1nuj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "390795a1c905"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-7bfc071e2968-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ac1nuj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7bfc071e2968"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-6d38bd7a44eb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ac1nuj"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6d38bd7a44eb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR387477. \"Emerge\" by Fischerspooner.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Fischerspooner · Title: Emerge · Album: Emerge · Year: 2000 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Fischerspooner - Emerge.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0feb1131",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Fischerspooner - Emerge.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8c452fe3-8f3c-4d7f-9e83-514f3149f377",
+      "category": "artist",
+      "text": "Emerge is performed by Fischerspooner.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "1d37b1c1-2ea7-4797-a278-26a44ed23d8d",
+      "category": "trivia",
+      "text": "Artist: Fischerspooner · Title: Emerge · Album: Emerge · Year: 2000 · Genre: Techno · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Fischerspooner - Emerge.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f41d4323-3042-461b-8814-315f4ad2318b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Fischerspooner - Emerge.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Fischerspooner - Emerge.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

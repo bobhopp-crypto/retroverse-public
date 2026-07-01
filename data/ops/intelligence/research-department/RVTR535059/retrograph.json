@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR535059",
+    "kind": "song",
+    "rvtr": "RVTR535059",
+    "generatedAt": "2026-06-28T22:55:17.658Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR535059",
+    "artist": "Pink Floyd",
+    "title": "Us And Them",
+    "year": 1973,
+    "albumTitle": "The Dark Side Of The Moon",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL695796/canonical.jpg"
+  },
+  "artist": {
+    "name": "Pink Floyd",
+    "relatedArtists": [
+      "Pink Floyd"
+    ]
+  },
+  "album": {
+    "title": "The Dark Side Of The Moon",
+    "releaseYear": 1973,
+    "recordings": [
+      {
+        "id": "rec-zi7kz7",
+        "title": "The Dark Side Of The Moon",
+        "releaseDate": 1973,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-ipryct",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1973,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Pink Floyd - Us And Them.mp4",
+      "notes": "Detected year: 1973. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "The Dark Side Of The Moon",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ne9h9x",
+      "date": "1973",
+      "label": "Us And Them — original release",
+      "detail": "Original album: The Dark Side Of The Moon",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-429wev",
+      "date": "1973",
+      "label": "The Dark Side Of The Moon",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1973",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR535059",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL695796/canonical.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bd1fb67be546",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR535059&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ipryct",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b7d6aaed02d5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR535059&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ipryct",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9458630f0c37",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR535059&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ipryct",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aafe2205411e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR535059&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ipryct",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "88ca9dd868e9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR535059&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ipryct",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ipryct",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1973,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Pink Floyd - Us And Them.mp4",
+        "notes": "Detected year: 1973. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR535059-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR535059"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pink Floyd"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pink Floyd"
+    },
+    {
+      "id": "rel-RVTR535059-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR535059"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-zi7kz7"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "The Dark Side Of The Moon"
+    },
+    {
+      "id": "rel-RVTR535059-tl-tl-ne9h9x",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR535059"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ne9h9x"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Us And Them — original release"
+    },
+    {
+      "id": "rel-RVTR535059-tl-tl-429wev",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR535059"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-429wev"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Dark Side Of The Moon"
+    },
+    {
+      "id": "rel-RVTR535059-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR535059"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR535059-perf-perf-ipryct",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR535059"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ipryct"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ipryct-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ipryct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Pink Floyd - Us And Them.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-bd1fb67be546-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ipryct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bd1fb67be546"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b7d6aaed02d5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ipryct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b7d6aaed02d5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-9458630f0c37-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ipryct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9458630f0c37"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-aafe2205411e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ipryct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aafe2205411e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-88ca9dd868e9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ipryct"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "88ca9dd868e9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR535059. \"Us And Them\" by Pink Floyd. Album: The Dark Side Of The Moon (1973).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL695796/canonical.jpg",
+      "excerpt": "Canonical cover assignment for RVTR535059 (Us And Them). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: The Dark Side Of The Moon (1973)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pink Floyd · Title: Us And Them · Year: 1973 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Pink Floyd - Us And Them.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1973.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-9d8f2492",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Pink Floyd - Us And Them.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "56d14e96-bc12-478a-9a64-a00ee6c23927",
+      "category": "artist",
+      "text": "Us And Them is performed by Pink Floyd.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "46b4d6b2-fcd6-41bf-ab52-28e847b876c9",
+      "category": "album",
+      "text": "The song appears on the album \"The Dark Side Of The Moon\" (1973).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8d6fedaa-f77a-4c45-affd-c2d12b9d7ebf",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR535059.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL695796/canonical.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "393c52c5-3d7a-4d64-87e8-d30b9c91c8b1",
+      "category": "recording",
+      "text": "Us And Them was released in 1973.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a151f8a3-f8a3-4f20-b0b1-13d301f3fb46",
+      "category": "trivia",
+      "text": "Album: The Dark Side Of The Moon (1973).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "eab164ea-f342-4295-84c2-6607dcdfe741",
+      "category": "trivia",
+      "text": "Artist: Pink Floyd · Title: Us And Them · Year: 1973 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Pink Floyd - Us And Them.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b618bcad-8008-469c-91eb-ac383b17ed61",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Pink Floyd - Us And Them.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Pink Floyd - Us And Them.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

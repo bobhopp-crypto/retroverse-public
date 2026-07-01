@@ -1,0 +1,436 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR894930",
+    "kind": "song",
+    "rvtr": "RVTR894930",
+    "generatedAt": "2026-06-28T22:42:06.014Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR894930",
+    "artist": "Leo Sayer",
+    "title": "The Show Must Go On",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Leo Sayer",
+    "relatedArtists": [
+      "Leo Sayer"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-uq94lc",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1973,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Leo Sayer - The Show Must Go On.mp4",
+      "notes": "Detected year: 1973. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ucqsoo",
+      "date": "1973",
+      "label": "The Show Must Go On — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1973",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "1cf68f17ca18",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR894930&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-uq94lc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3f5a3c2e2245",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR894930&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-uq94lc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c460a7e4b619",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR894930&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-uq94lc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4383bb1dff95",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR894930&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-uq94lc",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c2f38ab90a39",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR894930&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-uq94lc",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-uq94lc",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1973,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Leo Sayer - The Show Must Go On.mp4",
+        "notes": "Detected year: 1973. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR894930-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR894930"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Leo Sayer"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Leo Sayer"
+    },
+    {
+      "id": "rel-RVTR894930-tl-tl-ucqsoo",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR894930"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ucqsoo"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "The Show Must Go On — original release"
+    },
+    {
+      "id": "rel-RVTR894930-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR894930"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR894930-perf-perf-uq94lc",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR894930"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-uq94lc"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-uq94lc-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uq94lc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Leo Sayer - The Show Must Go On.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-1cf68f17ca18-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uq94lc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1cf68f17ca18"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-3f5a3c2e2245-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uq94lc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3f5a3c2e2245"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c460a7e4b619-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uq94lc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c460a7e4b619"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4383bb1dff95-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uq94lc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4383bb1dff95"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-c2f38ab90a39-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uq94lc"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c2f38ab90a39"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR894930. \"The Show Must Go On\" by Leo Sayer.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Leo Sayer · Title: The Show Must Go On · Album: レオ・セイヤー* = Leo Sayer - タキシード・ボディ = Tuxedo Body · Year: 1973 · Genre: Rock · PlayCount: 1 · LastPlayed: 1778477847 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Leo Sayer - The Show Must Go On.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-0e7d3689",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Leo Sayer - The Show Must Go On.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f943b89c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/Leo Sayer - The Show Must Go On.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-560695c1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/Leo Sayer - The Show Must Go On [1973 Excerpt].mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "83aa43c7-141e-407e-a9fd-8a1a1fe8e30f",
+      "category": "artist",
+      "text": "The Show Must Go On is performed by Leo Sayer.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0ae8ffb1-1bbe-4b98-97a0-8aac2c94c958",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "513998fe-e795-4ad8-9c44-6b01f05341c4",
+      "category": "trivia",
+      "text": "Artist: Leo Sayer · Title: The Show Must Go On · Album: レオ・セイヤー* = Leo Sayer - タキシード・ボディ = Tuxedo Body · Year: 1973 · Genre: Rock · PlayCount: 1 · LastPlayed: 1778477847 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Leo Sayer - The Show Must Go On.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "52671e3b-402c-485e-a66a-e51720903f50",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Leo Sayer - The Show Must Go On.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c1a92e9e-5369-4564-b6c6-ec7619056283",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/TV Performances/Midnight Special/Leo Sayer - The Show Must Go On.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 1,
+    "clusters": [
+      {
+        "clusterId": "cluster-c1a92e9e",
+        "keptFactId": "c1a92e9e-5369-4564-b6c6-ec7619056283",
+        "memberIds": [
+          "8574596b-7593-42bc-9415-1a1a5ba7f9b1"
+        ],
+        "reason": "Duplicate cluster (2) — kept highest confidence"
+      }
+    ]
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 5,
+    "accepted": 2,
+    "pending": 3,
+    "duplicate": 1,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Leo Sayer - The Show Must Go On.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

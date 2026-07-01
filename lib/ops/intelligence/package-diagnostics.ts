@@ -1,6 +1,8 @@
 import { normVdjPath, type VdjLibraryEntry } from "./vdj-database";
 import { resolveRvtrsForVdjLibrary } from "./vdj-rvtr-resolve";
 import type { SongPackage } from "./song-package-types";
+import { buildVisualProfileFromPackage } from "@/lib/visual-profile/build-visual-profile";
+import type { VisualProfileStatus } from "@/lib/visual-profile/types";
 
 export type PackageDiagnostics = {
   rvtr: string;
@@ -10,6 +12,9 @@ export type PackageDiagnostics = {
   vdjTitle: string | null;
   matchMethod: "path_link" | "title_artist" | "unknown";
   coverPresent: boolean;
+  visualStatus: VisualProfileStatus;
+  primaryHeroUrl: string | null;
+  secondaryHeroUrl: string | null;
 };
 
 export async function loadPackageDiagnostics(pkg: SongPackage): Promise<PackageDiagnostics> {
@@ -41,6 +46,8 @@ export async function loadPackageDiagnostics(pkg: SongPackage): Promise<PackageD
     if (hit?.rvtr === pkg.rvtr) matchMethod = hit.method;
   }
 
+  const visualProfile = pkg.visualProfile ?? buildVisualProfileFromPackage(pkg);
+
   return {
     rvtr: pkg.rvtr,
     canonicalArtist: pkg.metadata.artist,
@@ -49,5 +56,8 @@ export async function loadPackageDiagnostics(pkg: SongPackage): Promise<PackageD
     vdjTitle,
     matchMethod,
     coverPresent: Boolean(pkg.metadata.coverUrl),
+    visualStatus: visualProfile.status,
+    primaryHeroUrl: visualProfile.primaryHero.url,
+    secondaryHeroUrl: visualProfile.secondaryHero.url,
   };
 }

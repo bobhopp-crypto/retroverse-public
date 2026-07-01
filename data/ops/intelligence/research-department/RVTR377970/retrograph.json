@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR377970",
+    "kind": "song",
+    "rvtr": "RVTR377970",
+    "generatedAt": "2026-06-28T22:51:38.021Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR377970",
+    "artist": "Gorillaz",
+    "title": "Feel Good Inc",
+    "year": 2005,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Gorillaz",
+    "relatedArtists": [
+      "Gorillaz"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2005,
+    "recordings": [
+      {
+        "id": "rec-imhxiw",
+        "title": "Feel Good Inc — graph recording",
+        "releaseDate": 2005,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-s28vam",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2005,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Feel Good Inc.mp4",
+      "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 14,
+    "chartWeeks": 45,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #14 · 45 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-gwlq7t",
+      "date": "2005",
+      "label": "Feel Good Inc — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ft",
+      "date": "2005",
+      "label": "Billboard Hot 100 peak #14",
+      "detail": "45 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-nbdbik",
+      "date": "2005",
+      "label": "Feel Good Inc — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2005",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "8bdd244186d1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377970&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-s28vam",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b71f2d37d375",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377970&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-s28vam",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ca7c3ecd45b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377970&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-s28vam",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0e7d7b4ce56c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377970&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-s28vam",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7da2619f7274",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377970&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-s28vam",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-s28vam",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2005,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Feel Good Inc.mp4",
+        "notes": "Detected year: 2005. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR377970-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377970"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Gorillaz"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Gorillaz"
+    },
+    {
+      "id": "rel-RVTR377970-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377970"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #14"
+    },
+    {
+      "id": "rel-RVTR377970-tl-tl-gwlq7t",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377970"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-gwlq7t"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Feel Good Inc — original release"
+    },
+    {
+      "id": "rel-RVTR377970-tl-tl-fcm3ft",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377970"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ft"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #14"
+    },
+    {
+      "id": "rel-RVTR377970-tl-tl-nbdbik",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377970"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nbdbik"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Feel Good Inc — graph recording"
+    },
+    {
+      "id": "rel-RVTR377970-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377970"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR377970-perf-perf-s28vam",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377970"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-s28vam"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-s28vam-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s28vam"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Feel Good Inc.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-8bdd244186d1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s28vam"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8bdd244186d1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b71f2d37d375-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s28vam"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b71f2d37d375"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-ca7c3ecd45b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s28vam"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ca7c3ecd45b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-0e7d7b4ce56c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s28vam"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0e7d7b4ce56c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-7da2619f7274-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-s28vam"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7da2619f7274"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR377970. \"Feel Good Inc\" by Gorillaz.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #14. 45 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Gorillaz · Title: Feel Good Inc · Album: Feel Good Inc · Year: 2005 · Genre: Breaks · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Feel Good Inc.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2005.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-0fdb9ac5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Feel Good Inc.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a5784fb5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Gorillaz - Feel Good Inc.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-41cd75e3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Gorillaz - Feel Good Inc..mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-aa3d6f9f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Gorillaz - Feel Good Inc..mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f59f1b1f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Gorillaz - Feel Good, Inc..mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4661d52d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Gorillaz feat. De La Soul - Feel Good Inc.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "7c14b170-9d64-4c95-813c-31b52e713f84",
+      "category": "artist",
+      "text": "Feel Good Inc is performed by Gorillaz.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "984d3463-6d3d-4e1b-819a-9d81b4630600",
+      "category": "chart",
+      "text": "The song peaked at #14 on the Billboard Hot 100 and spent 45 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ca73aa61-958c-4ca5-a931-64c88dd9c913",
+      "category": "recording",
+      "text": "Feel Good Inc was released in 2005.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a133a1d8-23a4-419e-bcec-b796f090b87d",
+      "category": "trivia",
+      "text": "Artist: Gorillaz · Title: Feel Good Inc · Album: Feel Good Inc · Year: 2005 · Genre: Breaks · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Feel Good Inc.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6db9fb16-bf9a-4974-8a2b-af20ffd0a37f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Feel Good Inc.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "59b3c560-204c-41fe-a68c-f7dc9632acfd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Gorillaz - Feel Good Inc.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cab08d37-e08d-4fa8-bc0b-215cd677ee79",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Gorillaz - Feel Good Inc..mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "32eaaa7c-82e3-4e29-bf89-1cfdb9b97f2e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Gorillaz - Feel Good Inc..mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7631338a-be05-49e0-b555-5c4edda1a9e0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Gorillaz - Feel Good, Inc..mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3252a9de-0334-42d8-8b9b-82f88202c858",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Gorillaz feat.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 10,
+    "accepted": 3,
+    "pending": 7,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Gorillaz - Feel Good Inc.mp4",
+    "tags": [],
+    "mediaItemCount": 6
+  },
+  "relatedSongs": []
+}

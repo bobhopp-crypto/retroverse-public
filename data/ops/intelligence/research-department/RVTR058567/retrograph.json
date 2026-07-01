@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR058567",
+    "kind": "song",
+    "rvtr": "RVTR058567",
+    "generatedAt": "2026-06-28T22:44:38.675Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR058567",
+    "artist": "Beyoncé",
+    "title": "Halo",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Beyoncé",
+    "relatedArtists": [
+      "Beyoncé"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-2dvltg",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Halo.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-i7boog",
+      "date": "2009",
+      "label": "Halo — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c8284533f225",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR058567&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-2dvltg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4ff0ff1fd6b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR058567&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-2dvltg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d5c1d74ec354",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR058567&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-2dvltg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5822dcb1fb67",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR058567&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-2dvltg",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4abb285e2ade",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR058567&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-2dvltg",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-2dvltg",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Halo.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR058567-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR058567"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Beyoncé"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Beyoncé"
+    },
+    {
+      "id": "rel-RVTR058567-tl-tl-i7boog",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR058567"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i7boog"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Halo — original release"
+    },
+    {
+      "id": "rel-RVTR058567-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR058567"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR058567-perf-perf-2dvltg",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR058567"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-2dvltg"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-2dvltg-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2dvltg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Halo.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c8284533f225-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2dvltg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c8284533f225"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4ff0ff1fd6b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2dvltg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4ff0ff1fd6b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d5c1d74ec354-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2dvltg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d5c1d74ec354"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5822dcb1fb67-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2dvltg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5822dcb1fb67"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4abb285e2ade-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2dvltg"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4abb285e2ade"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR058567. \"Halo\" by Beyoncé.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Beyoncé · Title: Halo · Album: Halo · Year: 2009 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Halo.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-fcd506c5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Halo.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-30d5ee0d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Beyonce - Halo.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a3fad3b1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Beyonce - Halo.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-796e3257",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Beyoncé Knowles - Halo.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "abfd5b72-ca82-42ea-abe8-62fd0a8e246b",
+      "category": "artist",
+      "text": "Halo is performed by Beyoncé.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "63dded98-12d7-4277-95d9-481b96666a7c",
+      "category": "trivia",
+      "text": "Artist: Beyoncé · Title: Halo · Album: Halo · Year: 2009 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Halo.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d720c068-764a-447f-ac9d-851d9f567ef5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Halo.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7dd39b76-9cea-4afe-85a5-bb3e49d5f7e6",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Beyonce - Halo.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "09308266-3edf-4eb6-98b5-7ec6280eab75",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Beyonce - Halo.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "53a4f7fc-c95b-401a-a65d-9248a8ddde3d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Beyoncé Knowles - Halo.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 1,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyoncé - Halo.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

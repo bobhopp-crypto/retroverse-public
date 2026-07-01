@@ -1,0 +1,461 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR393337",
+    "kind": "song",
+    "rvtr": "RVTR393337",
+    "generatedAt": "2026-06-28T22:51:59.644Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR393337",
+    "artist": "Myles Smith",
+    "title": "Stargazing",
+    "year": 2024,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Myles Smith",
+    "relatedArtists": [
+      "Myles Smith"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2024,
+    "recordings": [
+      {
+        "id": "rec-vehw3q",
+        "title": "Stargazing — graph recording",
+        "releaseDate": 2024,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-uzszow",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2025,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Myles Smith - Stargazing.mp4",
+      "notes": "Detected year: 2025. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 19,
+    "chartWeeks": 52,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #19 · 52 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-dxbbx4",
+      "date": "2024",
+      "label": "Stargazing — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3fy",
+      "date": "2024",
+      "label": "Billboard Hot 100 peak #19",
+      "detail": "52 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-8vpjgb",
+      "date": "2024",
+      "label": "Stargazing — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2025",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "312ce3a5102f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR393337&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-uzszow",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dc7830b0b279",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR393337&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-uzszow",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "603c60e1cc56",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR393337&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-uzszow",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-uzszow",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2025,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Myles Smith - Stargazing.mp4",
+        "notes": "Detected year: 2025. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR393337-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR393337"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Myles Smith"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Myles Smith"
+    },
+    {
+      "id": "rel-RVTR393337-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR393337"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #19"
+    },
+    {
+      "id": "rel-RVTR393337-tl-tl-dxbbx4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR393337"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dxbbx4"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Stargazing — original release"
+    },
+    {
+      "id": "rel-RVTR393337-tl-tl-fcm3fy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR393337"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3fy"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #19"
+    },
+    {
+      "id": "rel-RVTR393337-tl-tl-8vpjgb",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR393337"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8vpjgb"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Stargazing — graph recording"
+    },
+    {
+      "id": "rel-RVTR393337-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR393337"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR393337-perf-perf-uzszow",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR393337"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-uzszow"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-uzszow-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uzszow"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Myles Smith - Stargazing.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-312ce3a5102f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uzszow"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "312ce3a5102f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-dc7830b0b279-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uzszow"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dc7830b0b279"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-603c60e1cc56-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uzszow"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "603c60e1cc56"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR393337. \"Stargazing\" by Myles Smith.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #19. 52 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Myles Smith · Title: Stargazing · Album: A Minute... · Year: 2025 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Myles Smith - Stargazing.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2024.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ae448633",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Myles Smith - Stargazing.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "9d7211df-79d8-4049-97ad-6228078acd4d",
+      "category": "artist",
+      "text": "Stargazing is performed by Myles Smith.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4daec88d-fdf5-462a-964d-1014d3e9354a",
+      "category": "chart",
+      "text": "The song peaked at #19 on the Billboard Hot 100 and spent 52 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "36c5568e-7c15-4b7b-9408-8fd4772b4be5",
+      "category": "recording",
+      "text": "Stargazing was released in 2024.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0eedb89f-a48e-473a-bf3f-96278486cd9b",
+      "category": "trivia",
+      "text": "Artist: Myles Smith · Title: Stargazing · Album: A Minute...",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f263a1fe-c027-4226-bc89-685e4eaf4524",
+      "category": "trivia",
+      "text": "· Year: 2025 · Genre: Pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Myles Smith - Stargazing.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4c67c466-0377-4876-aa27-e4c483347f9f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Myles Smith - Stargazing.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Myles Smith - Stargazing.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR242808",
+    "kind": "song",
+    "rvtr": "RVTR242808",
+    "generatedAt": "2026-06-28T22:49:14.407Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR242808",
+    "artist": "French Affair",
+    "title": "Sexy",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "French Affair",
+    "relatedArtists": [
+      "French Affair"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-6jjtc2",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2001,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+      "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-9n0p6p",
+      "title": "Boy",
+      "kind": "performance",
+      "year": 1998,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+      "notes": "Detected year: 1998. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "2001",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-bu8mt4",
+      "date": "1998",
+      "label": "Boy",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ac7234867c23",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR242808&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6jjtc2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ef9e1af511ca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR242808&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6jjtc2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "470c0f00ccba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR242808&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6jjtc2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f9c87a4cc507",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR242808&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6jjtc2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d434452c39a3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR242808&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6jjtc2",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6jjtc2",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2001,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+        "notes": "Detected year: 2001. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-9n0p6p",
+        "title": "Boy",
+        "kind": "performance",
+        "year": 1998,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+        "notes": "Detected year: 1998. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR242808-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR242808"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "French Affair"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "French Affair"
+    },
+    {
+      "id": "rel-RVTR242808-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR242808"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR242808-tl-tl-bu8mt4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR242808"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bu8mt4"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Boy"
+    },
+    {
+      "id": "rel-RVTR242808-perf-perf-6jjtc2",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR242808"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6jjtc2-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR242808-perf-perf-9n0p6p",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR242808"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Boy"
+    },
+    {
+      "id": "rel-perf-9n0p6p-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9n0p6p"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Boy"
+    },
+    {
+      "id": "rel-ac7234867c23-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ac7234867c23"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-ef9e1af511ca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ef9e1af511ca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-470c0f00ccba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "470c0f00ccba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f9c87a4cc507-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f9c87a4cc507"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d434452c39a3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6jjtc2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d434452c39a3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR242808. \"Sexy\" by French Affair.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: French Affair · Title: Sexy · Album: Sexy · Year: 2001 · Genre: Euro House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-87991863",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d28bdae3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c6d2b3d3-a4e1-417e-beed-a27a81336a72",
+      "category": "artist",
+      "text": "Sexy is performed by French Affair.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "53e44b66-3cc8-444a-9282-1f0b2d3f57f8",
+      "category": "trivia",
+      "text": "Artist: French Affair · Title: Sexy · Album: Sexy · Year: 2001 · Genre: Euro House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8b480ba1-3092-470d-bfc7-90a840b37a27",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ad0ca527-b5df-47ab-a1b8-bb0fe46f5053",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Air - Sexy Boy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/French Affair - Sexy.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

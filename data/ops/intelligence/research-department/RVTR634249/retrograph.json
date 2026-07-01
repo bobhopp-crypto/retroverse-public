@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR634249",
+    "kind": "song",
+    "rvtr": "RVTR634249",
+    "generatedAt": "2026-06-28T22:58:06.514Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR634249",
+    "artist": "Jojo",
+    "title": "Disaster",
+    "year": 2011,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Jojo",
+    "relatedArtists": [
+      "Jojo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-jlqwtz",
+        "title": "Disaster — graph recording",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-yjsrs9",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JoJo - Disaster.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 87,
+    "chartWeeks": 1,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #87 · 1 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-jywt91",
+      "date": "2011",
+      "label": "Disaster — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3lx",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #87",
+      "detail": "1 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-9o6u0o",
+      "date": "2011",
+      "label": "Disaster — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "a5682d5493c4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR634249&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yjsrs9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6b7dddd8bbd1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR634249&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yjsrs9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "39f969cdb07b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR634249&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yjsrs9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "17fbf152e24a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR634249&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yjsrs9",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7850307615ad",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR634249&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yjsrs9",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yjsrs9",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JoJo - Disaster.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR634249-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR634249"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Jojo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Jojo"
+    },
+    {
+      "id": "rel-RVTR634249-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR634249"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #87"
+    },
+    {
+      "id": "rel-RVTR634249-tl-tl-jywt91",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR634249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-jywt91"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Disaster — original release"
+    },
+    {
+      "id": "rel-RVTR634249-tl-tl-fcm3lx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR634249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3lx"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #87"
+    },
+    {
+      "id": "rel-RVTR634249-tl-tl-9o6u0o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR634249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9o6u0o"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Disaster — graph recording"
+    },
+    {
+      "id": "rel-RVTR634249-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR634249"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR634249-perf-perf-yjsrs9",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR634249"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yjsrs9"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yjsrs9-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yjsrs9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JoJo - Disaster.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-a5682d5493c4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yjsrs9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a5682d5493c4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6b7dddd8bbd1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yjsrs9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6b7dddd8bbd1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-39f969cdb07b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yjsrs9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "39f969cdb07b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-17fbf152e24a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yjsrs9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "17fbf152e24a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7850307615ad-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yjsrs9"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7850307615ad"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR634249. \"Disaster\" by Jojo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #87. 1 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: JoJo · Title: Disaster · Album: HV 01-12 · Year: 2011 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/JoJo - Disaster.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-8ce625f5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JoJo - Disaster.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "07c2ee63-0982-44e5-a283-09afcd2f2896",
+      "category": "artist",
+      "text": "Disaster is performed by Jojo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ab0e769e-df11-4fee-bb94-0a93a7721325",
+      "category": "chart",
+      "text": "The song peaked at #87 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "309686fb-42db-4806-8218-ab5f9936f9db",
+      "category": "recording",
+      "text": "Disaster was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "53577ef6-53bb-46f8-bfc3-fb4339c58d36",
+      "category": "trivia",
+      "text": "Artist: JoJo · Title: Disaster · Album: HV 01-12 · Year: 2011 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/JoJo - Disaster.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7ff0a7ec-e7e8-47c3-bb16-28191309f489",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JoJo - Disaster.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/JoJo - Disaster.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

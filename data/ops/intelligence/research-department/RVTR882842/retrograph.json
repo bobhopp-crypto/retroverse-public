@@ -1,0 +1,377 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR882842",
+    "kind": "song",
+    "rvtr": "RVTR882842",
+    "generatedAt": "2026-06-28T23:06:06.276Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR882842",
+    "artist": "Judy Garland & Liza Minnelli",
+    "title": "Together Wherever We Go 1963",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Judy Garland & Liza Minnelli",
+    "relatedArtists": [
+      "Judy Garland & Liza Minnelli"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-qx6w80",
+      "title": "1963",
+      "kind": "performance",
+      "year": 1963,
+      "venue": "1963",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Judy Garland & Liza Minnelli - Together Wherever We Go (1963).mp4",
+      "notes": "Performance label: 1963. Detected year: 1963. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-wquklf",
+      "date": "1963",
+      "label": "Together Wherever We Go 1963 — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-bvjct5",
+      "date": "1963",
+      "label": "1963",
+      "detail": "1963",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4470f41b9651",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR882842&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-qx6w80",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "538802a22d26",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR882842&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-qx6w80",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8e1e77f6a8ab",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR882842&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-qx6w80",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b8bc1eabd702",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR882842&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-qx6w80",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-qx6w80",
+        "title": "1963",
+        "kind": "performance",
+        "year": 1963,
+        "venue": "1963",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Judy Garland & Liza Minnelli - Together Wherever We Go (1963).mp4",
+        "notes": "Performance label: 1963. Detected year: 1963. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR882842-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR882842"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Judy Garland & Liza Minnelli"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Judy Garland & Liza Minnelli"
+    },
+    {
+      "id": "rel-RVTR882842-tl-tl-wquklf",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR882842"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wquklf"
+      },
+      "confidence": 0.55,
+      "source": "song entity",
+      "label": "Together Wherever We Go 1963 — original release"
+    },
+    {
+      "id": "rel-RVTR882842-tl-tl-bvjct5",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR882842"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bvjct5"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "1963"
+    },
+    {
+      "id": "rel-RVTR882842-perf-perf-qx6w80",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR882842"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-qx6w80"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "1963"
+    },
+    {
+      "id": "rel-perf-qx6w80-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx6w80"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Judy Garland & Liza Minnelli - Together Wherever We Go (1963).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "1963"
+    },
+    {
+      "id": "rel-4470f41b9651-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx6w80"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4470f41b9651"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-538802a22d26-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx6w80"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "538802a22d26"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-8e1e77f6a8ab-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx6w80"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8e1e77f6a8ab"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b8bc1eabd702-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-qx6w80"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b8bc1eabd702"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR882842. \"Together Wherever We Go 1963\" by Judy Garland & Liza Minnelli.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Judy Garland & Liza Minnelli · Title: Together Wherever We Go (1963) · Album: Judy Garland - Judy Duets / Judy At The Palace · Year: 1963 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Judy Garland & Liza Minnelli - Together Wherever We Go (1963).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a9ec2a86",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Judy Garland & Liza Minnelli - Together Wherever We Go (1963).mp4 · Performance: 1963",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6db931ca-f28e-46cc-bee1-528c4d451eaa",
+      "category": "artist",
+      "text": "Together Wherever We Go 1963 is performed by Judy Garland & Liza Minnelli.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a5326715-238f-40f7-93a9-d32728ff1f11",
+      "category": "trivia",
+      "text": "\"Together Wherever We Go 1963\" by Judy Garland & Liza Minnelli.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "18dfb7f3-3068-469e-b8b0-e9c4b30808ad",
+      "category": "trivia",
+      "text": "Artist: Judy Garland & Liza Minnelli · Title: Together Wherever We Go (1963) · Album: Judy Garland - Judy Duets / Judy At The Palace · Year: 1963 · Genre: Jazz · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Judy Garland & Liza Minnelli - Together Wherever We Go (1963).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a00b1cb8-ead9-452e-851f-87ae91a2dd53",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Judy Garland & Liza Minnelli - Together Wherever We Go (1963).mp4 · Performance: 1963",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Judy Garland & Liza Minnelli - Together Wherever We Go (1963).mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

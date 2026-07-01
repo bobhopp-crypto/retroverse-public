@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR905190",
+    "kind": "song",
+    "rvtr": "RVTR905190",
+    "generatedAt": "2026-06-28T23:06:45.720Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR905190",
+    "artist": "Roy Clark On Fiddle & Jimmie Henley 12 Yrs Old On Banjo",
+    "title": "Orange Blossom Special",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Roy Clark On Fiddle & Jimmie Henley 12 Yrs Old On Banjo",
+    "relatedArtists": [
+      "Roy Clark On Fiddle & Jimmie Henley 12 Yrs Old On Banjo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-ryaeni",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1975,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo - Orange Blossom Special.mp4",
+      "notes": "Detected year: 1975. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-knk0gu",
+      "date": "1975",
+      "label": "Orange Blossom Special — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1975",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "a4b30326f5f1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905190&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ryaeni",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "86277c8361e8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905190&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ryaeni",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6c0de2c87960",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905190&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ryaeni",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "48f453ba51d7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905190&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ryaeni",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "db6d3b84dc1a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR905190&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ryaeni",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ryaeni",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1975,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo - Orange Blossom Special.mp4",
+        "notes": "Detected year: 1975. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR905190-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905190"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Roy Clark On Fiddle & Jimmie Henley 12 Yrs Old On Banjo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Roy Clark On Fiddle & Jimmie Henley 12 Yrs Old On Banjo"
+    },
+    {
+      "id": "rel-RVTR905190-tl-tl-knk0gu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905190"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-knk0gu"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Orange Blossom Special — original release"
+    },
+    {
+      "id": "rel-RVTR905190-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905190"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR905190-perf-perf-ryaeni",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR905190"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ryaeni"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-ryaeni-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ryaeni"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo - Orange Blossom Special.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-a4b30326f5f1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ryaeni"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a4b30326f5f1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-86277c8361e8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ryaeni"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "86277c8361e8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6c0de2c87960-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ryaeni"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6c0de2c87960"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-48f453ba51d7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ryaeni"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "48f453ba51d7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-db6d3b84dc1a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ryaeni"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "db6d3b84dc1a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR905190. \"Orange Blossom Special\" by Roy Clark On Fiddle & Jimmie Henley 12 Yrs Old On Banjo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo · Title: Orange Blossom Special · Year: 1975 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo - Orange Blossom Special.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-bc9415ca",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo - Orange Blossom Special.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ae246bef-b9e5-41ee-849e-b3bc25c94a96",
+      "category": "artist",
+      "text": "Orange Blossom Special is performed by Roy Clark On Fiddle & Jimmie Henley 12 Yrs Old On Banjo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d5eb543b-60d7-4e84-9474-6db999d5c060",
+      "category": "trivia",
+      "text": "\"Orange Blossom Special\" by Roy Clark On Fiddle & Jimmie Henley 12 Yrs Old On Banjo.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "fe3d3884-06c2-4e79-bd0f-b0f121d8c670",
+      "category": "trivia",
+      "text": "Artist: Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo · Title: Orange Blossom Special · Year: 1975 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo - Orange Blossom Special.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "61ce9665-e7f4-4bff-9ae1-d6ea6d02631e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo - Orange Blossom Special.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Roy Clark On Fiddle & Jimmie Henley 12 yrs Old On Banjo - Orange Blossom Special.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR493091",
+    "kind": "song",
+    "rvtr": "RVTR493091",
+    "generatedAt": "2026-06-28T22:54:08.790Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR493091",
+    "artist": "Alice Cooper",
+    "title": "You And Me",
+    "year": 1977,
+    "albumTitle": "Lace And Whiskey",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL371197/RVAL371197__alice-cooper__lace-and-whiskey.jpg"
+  },
+  "artist": {
+    "name": "Alice Cooper",
+    "relatedArtists": [
+      "Alice Cooper"
+    ]
+  },
+  "album": {
+    "title": "Lace And Whiskey",
+    "releaseYear": 1977,
+    "recordings": [
+      {
+        "id": "rec-raxl8w",
+        "title": "Lace And Whiskey",
+        "releaseDate": 1977,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-52nj1o",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1977,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Alice Cooper - You And Me.mp4",
+      "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 9,
+    "chartWeeks": 21,
+    "albumTitle": "Lace And Whiskey",
+    "summary": "Hot 100 peak #9 · 21 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-p1ak3u",
+      "date": "1977",
+      "label": "You And Me — original release",
+      "detail": "Original album: Lace And Whiskey",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2r",
+      "date": "1977",
+      "label": "Billboard Hot 100 peak #9",
+      "detail": "21 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-c9d412",
+      "date": "1977",
+      "label": "Lace And Whiskey",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1977",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR493091",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL371197/RVAL371197__alice-cooper__lace-and-whiskey.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9676b346d235",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR493091&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-52nj1o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6f8ca62b73db",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR493091&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-52nj1o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1b5ce3c4bf6b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR493091&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-52nj1o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ac21b869e764",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR493091&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-52nj1o",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "72f80db539ae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR493091&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-52nj1o",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-52nj1o",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1977,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Alice Cooper - You And Me.mp4",
+        "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR493091-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR493091"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Alice Cooper"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Alice Cooper"
+    },
+    {
+      "id": "rel-RVTR493091-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR493091"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-raxl8w"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Lace And Whiskey"
+    },
+    {
+      "id": "rel-RVTR493091-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR493091"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #9"
+    },
+    {
+      "id": "rel-RVTR493091-tl-tl-p1ak3u",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR493091"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-p1ak3u"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "You And Me — original release"
+    },
+    {
+      "id": "rel-RVTR493091-tl-tl-l47p2r",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR493091"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2r"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #9"
+    },
+    {
+      "id": "rel-RVTR493091-tl-tl-c9d412",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR493091"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-c9d412"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Lace And Whiskey"
+    },
+    {
+      "id": "rel-RVTR493091-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR493091"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR493091-perf-perf-52nj1o",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR493091"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-52nj1o"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-52nj1o-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-52nj1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Alice Cooper - You And Me.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9676b346d235-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-52nj1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9676b346d235"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6f8ca62b73db-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-52nj1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6f8ca62b73db"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-1b5ce3c4bf6b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-52nj1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1b5ce3c4bf6b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ac21b869e764-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-52nj1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ac21b869e764"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-72f80db539ae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-52nj1o"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "72f80db539ae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR493091. \"You And Me\" by Alice Cooper. Album: Lace And Whiskey (1977).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL371197/RVAL371197__alice-cooper__lace-and-whiskey.jpg",
+      "excerpt": "Canonical cover assignment for RVTR493091 (You And Me). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Lace And Whiskey (1977). Billboard Hot 100 peak: #9. 21 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Alice Cooper · Title: You And Me · Album: You And Me / My God · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Alice Cooper - You And Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1977.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-34b9f9b7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Alice Cooper - You And Me.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-da8423a7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Alice Cooper - You And Me.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "bb2405ee-2d9c-40cf-ab48-308c794a36c7",
+      "category": "artist",
+      "text": "You And Me is performed by Alice Cooper.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7b0697e2-52bd-4986-8d99-9d5c343e763d",
+      "category": "album",
+      "text": "The song appears on the album \"Lace And Whiskey\" (1977).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "134a568e-acda-45b3-8b9e-dadaea01088b",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR493091.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL371197/RVAL371197__alice-cooper__lace-and-whiskey.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "92faf4a5-a4ca-478a-bd25-537b3c4c9cde",
+      "category": "chart",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ef8c957b-b0cc-4d50-a487-22acecfb18cf",
+      "category": "recording",
+      "text": "You And Me was released in 1977.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5ab83b3c-507f-4916-8f7a-ae914ce22ddd",
+      "category": "trivia",
+      "text": "Artist: Alice Cooper · Title: You And Me · Album: You And Me / My God · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Alice Cooper - You And Me.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "16872747-9621-4936-9227-3e74304b6647",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Alice Cooper - You And Me.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4fc4b668-381b-4be2-bdd8-4a384378b425",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Alice Cooper - You And Me.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Alice Cooper - You And Me.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

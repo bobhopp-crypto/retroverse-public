@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR407358",
+    "kind": "song",
+    "rvtr": "RVTR407358",
+    "generatedAt": "2026-06-28T22:52:15.212Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR407358",
+    "artist": "Ramones",
+    "title": "Rockaway Beach",
+    "year": 1977,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ramones",
+    "relatedArtists": [
+      "Ramones"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1977,
+    "recordings": [
+      {
+        "id": "rec-hgwpik",
+        "title": "Rockaway Beach — graph recording",
+        "releaseDate": 1977,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-gd52b1",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1977,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ramones - Rockaway Beach.mp4",
+      "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 66,
+    "chartWeeks": 14,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #66 · 14 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-g90tfa",
+      "date": "1977",
+      "label": "Rockaway Beach — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k6",
+      "date": "1977",
+      "label": "Billboard Hot 100 peak #66",
+      "detail": "14 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-rpupzx",
+      "date": "1977",
+      "label": "Rockaway Beach — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1977",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "b1775faff219",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR407358&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-gd52b1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8c34b4af8809",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR407358&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-gd52b1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d2a0cbcb4e89",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR407358&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-gd52b1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f30111d71045",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR407358&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-gd52b1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dec02b379ccd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR407358&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-gd52b1",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-gd52b1",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1977,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ramones - Rockaway Beach.mp4",
+        "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR407358-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR407358"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ramones"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ramones"
+    },
+    {
+      "id": "rel-RVTR407358-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR407358"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #66"
+    },
+    {
+      "id": "rel-RVTR407358-tl-tl-g90tfa",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR407358"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-g90tfa"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Rockaway Beach — original release"
+    },
+    {
+      "id": "rel-RVTR407358-tl-tl-fcm3k6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR407358"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k6"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #66"
+    },
+    {
+      "id": "rel-RVTR407358-tl-tl-rpupzx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR407358"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-rpupzx"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Rockaway Beach — graph recording"
+    },
+    {
+      "id": "rel-RVTR407358-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR407358"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR407358-perf-perf-gd52b1",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR407358"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-gd52b1"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-gd52b1-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gd52b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ramones - Rockaway Beach.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b1775faff219-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gd52b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b1775faff219"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-8c34b4af8809-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gd52b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8c34b4af8809"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d2a0cbcb4e89-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gd52b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d2a0cbcb4e89"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f30111d71045-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gd52b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f30111d71045"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-dec02b379ccd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-gd52b1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dec02b379ccd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR407358. \"Rockaway Beach\" by Ramones.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #66. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ramones · Title: Rockaway Beach · Album: Rockaway Beach / Locket Love · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ramones - Rockaway Beach.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1977.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-03cd5e34",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ramones - Rockaway Beach.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "7314f54a-d143-418b-a472-13f6425b38d7",
+      "category": "artist",
+      "text": "Rockaway Beach is performed by Ramones.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8655870e-31a0-49ea-b373-524f7ef4b902",
+      "category": "chart",
+      "text": "The song peaked at #66 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "547a8101-ce2a-47fc-97b3-daaedc030443",
+      "category": "recording",
+      "text": "Rockaway Beach was released in 1977.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c18d30bb-ad37-4b91-9522-afface657070",
+      "category": "trivia",
+      "text": "Artist: Ramones · Title: Rockaway Beach · Album: Rockaway Beach / Locket Love · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ramones - Rockaway Beach.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "57fa8d9c-fbdf-4fff-bfb6-d1d51a2525c8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ramones - Rockaway Beach.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Ramones - Rockaway Beach.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

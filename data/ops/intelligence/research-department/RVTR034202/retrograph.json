@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR034202",
+    "kind": "song",
+    "rvtr": "RVTR034202",
+    "generatedAt": "2026-06-28T22:44:06.614Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR034202",
+    "artist": "Porno For Pyros",
+    "title": "Pets",
+    "year": 1993,
+    "albumTitle": "Porno For Pyros",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Porno For Pyros",
+    "relatedArtists": [
+      "Porno For Pyros"
+    ]
+  },
+  "album": {
+    "title": "Porno For Pyros",
+    "releaseYear": 1993,
+    "recordings": [
+      {
+        "id": "rec-smbrgy",
+        "title": "Porno For Pyros",
+        "releaseDate": 1993,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-uethjo",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Porno For Pyros - Pets.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 67,
+    "chartWeeks": 10,
+    "albumTitle": "Porno For Pyros",
+    "summary": "Hot 100 peak #67 · 10 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-m1k30o",
+      "date": "1993",
+      "label": "Pets — original release",
+      "detail": "Original album: Porno For Pyros",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3k7",
+      "date": "1993",
+      "label": "Billboard Hot 100 peak #67",
+      "detail": "10 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-v8plgq",
+      "date": "1993",
+      "label": "Porno For Pyros",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1993",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "0d031f1a8f16",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR034202&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-uethjo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f13cb6f8aa90",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR034202&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-uethjo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bbce9ef5ba30",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR034202&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-uethjo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "79bdded41cfa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR034202&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-uethjo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ef564be94110",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR034202&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-uethjo",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-uethjo",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Porno For Pyros - Pets.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR034202-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034202"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Porno For Pyros"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Porno For Pyros"
+    },
+    {
+      "id": "rel-RVTR034202-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034202"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-smbrgy"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Porno For Pyros"
+    },
+    {
+      "id": "rel-RVTR034202-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034202"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #67"
+    },
+    {
+      "id": "rel-RVTR034202-tl-tl-m1k30o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034202"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-m1k30o"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Pets — original release"
+    },
+    {
+      "id": "rel-RVTR034202-tl-tl-fcm3k7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034202"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3k7"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #67"
+    },
+    {
+      "id": "rel-RVTR034202-tl-tl-v8plgq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034202"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-v8plgq"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Porno For Pyros"
+    },
+    {
+      "id": "rel-RVTR034202-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034202"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR034202-perf-perf-uethjo",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR034202"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-uethjo"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-uethjo-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uethjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Porno For Pyros - Pets.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0d031f1a8f16-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uethjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0d031f1a8f16"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f13cb6f8aa90-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uethjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f13cb6f8aa90"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-bbce9ef5ba30-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uethjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bbce9ef5ba30"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-79bdded41cfa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uethjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "79bdded41cfa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-ef564be94110-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uethjo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ef564be94110"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR034202. \"Pets\" by Porno For Pyros. Album: Porno For Pyros (1993).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Porno For Pyros (1993). Billboard Hot 100 peak: #67. 10 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Porno For Pyros · Title: Pets · Album: Pets · Year: 1993 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Porno For Pyros - Pets.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1993.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-21a55eb5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Porno For Pyros - Pets.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "1854947d-2995-4a23-8637-cd41aac9a6da",
+      "category": "artist",
+      "text": "Pets is performed by Porno For Pyros.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f9780577-6d54-4835-8c4a-6f072eea94f5",
+      "category": "album",
+      "text": "The song appears on the album \"Porno For Pyros\" (1993).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a8b85aeb-997e-4bb0-bfc2-e2774bd1b4e5",
+      "category": "chart",
+      "text": "The song peaked at #67 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "91394b5e-bd13-492e-865c-4c35f99f5104",
+      "category": "recording",
+      "text": "Pets was released in 1993.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d9788fd7-da90-44bf-8034-209d2dd83bf7",
+      "category": "trivia",
+      "text": "Artist: Porno For Pyros · Title: Pets · Album: Pets · Year: 1993 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Porno For Pyros - Pets.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c52c47d1-7bef-4cbb-8a13-9e6e1a18073c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Porno For Pyros - Pets.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Porno For Pyros - Pets.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

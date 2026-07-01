@@ -1,5 +1,7 @@
 import { randomUUID } from "crypto";
 
+import { buildVisualProfileFromPackage } from "@/lib/visual-profile/build-visual-profile";
+
 import type {
   CandidateFact,
   ChartHistoryEntry,
@@ -162,5 +164,10 @@ export function buildPackageIntel(pkg: SongPackage): PackageIntel {
 }
 
 export function hydratePackageIntel(pkg: SongPackage): SongPackage {
-  return { ...pkg, intel: buildPackageIntel(pkg) };
+  const intel = buildPackageIntel(pkg);
+  const hydrated = { ...pkg, intel };
+  return {
+    ...hydrated,
+    visualProfile: buildVisualProfileFromPackage(hydrated),
+  };
 }

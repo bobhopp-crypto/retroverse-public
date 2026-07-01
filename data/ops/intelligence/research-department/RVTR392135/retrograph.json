@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR392135",
+    "kind": "song",
+    "rvtr": "RVTR392135",
+    "generatedAt": "2026-06-28T22:51:58.355Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR392135",
+    "artist": "Baauer",
+    "title": "Harlem Shake",
+    "year": 2013,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Baauer",
+    "relatedArtists": [
+      "Baauer"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2013,
+    "recordings": [
+      {
+        "id": "rec-2s8ke1",
+        "title": "Harlem Shake — graph recording",
+        "releaseDate": 2013,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-vokaan",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2013,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Baauer - Harlem Shake.mp4",
+      "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-j1hyej",
+      "date": "2013",
+      "label": "Harlem Shake — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2013",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-q7ggl4",
+      "date": "2013",
+      "label": "Harlem Shake — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2013",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "8b0b1ecf33c9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR392135&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-vokaan",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0aa26b19d2bd",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR392135&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-vokaan",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2c27aa92e39e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR392135&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-vokaan",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0063fea7fcc2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR392135&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-vokaan",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7a987a9d0364",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR392135&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-vokaan",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-vokaan",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2013,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Baauer - Harlem Shake.mp4",
+        "notes": "Detected year: 2013. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR392135-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR392135"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Baauer"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Baauer"
+    },
+    {
+      "id": "rel-RVTR392135-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR392135"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR392135-tl-tl-j1hyej",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR392135"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-j1hyej"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Harlem Shake — original release"
+    },
+    {
+      "id": "rel-RVTR392135-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR392135"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR392135-tl-tl-q7ggl4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR392135"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-q7ggl4"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Harlem Shake — graph recording"
+    },
+    {
+      "id": "rel-RVTR392135-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR392135"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR392135-perf-perf-vokaan",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR392135"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-vokaan"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-vokaan-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vokaan"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Baauer - Harlem Shake.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-8b0b1ecf33c9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vokaan"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8b0b1ecf33c9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-0aa26b19d2bd-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vokaan"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0aa26b19d2bd"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-2c27aa92e39e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vokaan"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2c27aa92e39e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-0063fea7fcc2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vokaan"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0063fea7fcc2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7a987a9d0364-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vokaan"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7a987a9d0364"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR392135. \"Harlem Shake\" by Baauer.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #1. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Baauer · Title: Harlem Shake · Album: EDM Anthems 2014 · Year: 2013 · Genre: Euro House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Baauer - Harlem Shake.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2013.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-d76c2dd9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Baauer - Harlem Shake.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "303f28d3-249a-47bf-9eb5-f2a2ba3ad0ba",
+      "category": "artist",
+      "text": "Harlem Shake is performed by Baauer.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a4144f39-715b-431c-86cc-68abdb087d04",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "07aa73e7-e411-442d-85e6-5b21853c7be7",
+      "category": "recording",
+      "text": "Harlem Shake was released in 2013.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ca6a1474-3d04-4573-be91-945056e4f796",
+      "category": "trivia",
+      "text": "Artist: Baauer · Title: Harlem Shake · Album: EDM Anthems 2014 · Year: 2013 · Genre: Euro House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Baauer - Harlem Shake.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "915822f7-c231-48dc-a69b-f40da591e59e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Baauer - Harlem Shake.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Baauer - Harlem Shake.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

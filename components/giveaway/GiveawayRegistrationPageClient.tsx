@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 
 import type { GiveawayRegistrationField } from "@/lib/ops/event-studio/giveaway/types";
+import { markGiveawayRegistered } from "@/lib/giveaway/registration-client-state";
 
 type Props = {
   eventKey: string;
@@ -70,6 +71,7 @@ export function GiveawayRegistrationPageClient(props: Props) {
       });
       const data = (await res.json()) as { confirmationMessage?: string; error?: string };
       if (!res.ok) throw new Error(data.error ?? "Registration failed");
+      markGiveawayRegistered(props.eventKey, giveawayId);
       setConfirmation(data.confirmationMessage ?? props.confirmationDefault);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Registration failed");

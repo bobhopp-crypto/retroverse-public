@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR320465",
+    "kind": "song",
+    "rvtr": "RVTR320465",
+    "generatedAt": "2026-06-28T22:50:31.997Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR320465",
+    "artist": "Bloc Party",
+    "title": "The Prayer",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Bloc Party",
+    "relatedArtists": [
+      "Bloc Party"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-xwzhhv",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bloc Party - The Prayer.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-6vlqsq",
+      "date": "2007",
+      "label": "The Prayer — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4a566ffc962f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR320465&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-xwzhhv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "138e55df1fd0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR320465&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-xwzhhv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6d394269e275",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR320465&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-xwzhhv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4ebcf0d18ca8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR320465&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-xwzhhv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1591b9cca780",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR320465&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-xwzhhv",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-xwzhhv",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bloc Party - The Prayer.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR320465-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR320465"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Bloc Party"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Bloc Party"
+    },
+    {
+      "id": "rel-RVTR320465-tl-tl-6vlqsq",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR320465"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6vlqsq"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "The Prayer — original release"
+    },
+    {
+      "id": "rel-RVTR320465-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR320465"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR320465-perf-perf-xwzhhv",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR320465"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-xwzhhv"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-xwzhhv-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xwzhhv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bloc Party - The Prayer.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4a566ffc962f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xwzhhv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4a566ffc962f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-138e55df1fd0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xwzhhv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "138e55df1fd0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6d394269e275-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xwzhhv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6d394269e275"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-4ebcf0d18ca8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xwzhhv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4ebcf0d18ca8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-1591b9cca780-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-xwzhhv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1591b9cca780"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR320465. \"The Prayer\" by Bloc Party.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Bloc Party · Title: The Prayer · Album: The Prayer · Year: 2007 · Genre: Alt · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bloc Party - The Prayer.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1f76cecd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bloc Party - The Prayer.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4cf5321c-88cc-42e3-b590-4af1fc05ff54",
+      "category": "artist",
+      "text": "The Prayer is performed by Bloc Party.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "35d211ac-b9c8-476c-970c-7688bc71d7ec",
+      "category": "trivia",
+      "text": "Artist: Bloc Party · Title: The Prayer · Album: The Prayer · Year: 2007 · Genre: Alt · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bloc Party - The Prayer.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bb19ee53-5304-4c14-94c6-aa16f6f1fc7c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bloc Party - The Prayer.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Bloc Party - The Prayer.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

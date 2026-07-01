@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR903114",
+    "kind": "song",
+    "rvtr": "RVTR903114",
+    "generatedAt": "2026-06-28T23:06:40.885Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR903114",
+    "artist": "King's X",
+    "title": "Black Flag",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "King's X",
+    "relatedArtists": [
+      "King's X"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-dru09c",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1992,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Black Flag - King's X.mp4",
+      "notes": "Detected year: 1992. Curated visual reference frames extracted from this footage."
+    },
+    {
+      "id": "perf-9ddd10",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1992,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/King's X - Black Flag.mp4",
+      "notes": "Detected year: 1992. Visual asset extraction not yet run for this performance."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-k5j70p",
+      "date": "1992",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1992",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.55,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "1136b102ac08",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR903114&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-dru09c",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5e8e7bddfef4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR903114&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-dru09c",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "da05fe0c040a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR903114&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-dru09c",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cd27c448f55b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR903114&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-dru09c",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "94e32682c0a4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR903114&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-dru09c",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-dru09c",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1992,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Black Flag - King's X.mp4",
+        "notes": "Detected year: 1992. Curated visual reference frames extracted from this footage."
+      },
+      {
+        "id": "perf-9ddd10",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1992,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/King's X - Black Flag.mp4",
+        "notes": "Detected year: 1992. Visual asset extraction not yet run for this performance."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR903114-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR903114"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "King's X"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "King's X"
+    },
+    {
+      "id": "rel-RVTR903114-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR903114"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR903114-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR903114"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.55,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR903114-perf-perf-dru09c",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR903114"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-dru09c"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-dru09c-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dru09c"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Black Flag - King's X.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR903114-perf-perf-9ddd10",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR903114"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-9ddd10"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-9ddd10-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-9ddd10"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/King's X - Black Flag.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-1136b102ac08-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dru09c"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1136b102ac08"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5e8e7bddfef4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dru09c"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5e8e7bddfef4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-da05fe0c040a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dru09c"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "da05fe0c040a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-cd27c448f55b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dru09c"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cd27c448f55b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-94e32682c0a4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-dru09c"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "94e32682c0a4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR903114. \"Black Flag\" by King's X.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: King's X · Title: Black Flag · Album: King's X · Year: 1992 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Black Flag - King's X.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ac0ce368",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Black Flag - King's X.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f1d75510",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/King's X - Black Flag.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "db2dc5d2-2f9b-4f7d-b8dc-a59537833659",
+      "category": "artist",
+      "text": "Black Flag is performed by King's X.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "300ad222-d913-4d5d-90a8-8705ce551650",
+      "category": "trivia",
+      "text": "Artist: King's X · Title: Black Flag · Album: King's X · Year: 1992 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Black Flag - King's X.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6acdf91d-5640-4f02-964d-5f0af1566fd9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Black Flag - King's X.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "eaa0e1c7-818f-4295-8433-ed5803769def",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/King's X - Black Flag.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 95,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 48
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Black Flag - King's X.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

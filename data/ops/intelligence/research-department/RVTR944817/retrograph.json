@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR944817",
+    "kind": "song",
+    "rvtr": "RVTR944817",
+    "generatedAt": "2026-06-28T23:08:15.944Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR944817",
+    "artist": "Classics Iv",
+    "title": "Traces",
+    "year": 1969,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Classics Iv",
+    "relatedArtists": [
+      "Classics Iv"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1969,
+    "recordings": [
+      {
+        "id": "rec-phuhhl",
+        "title": "Traces — graph recording",
+        "releaseDate": 1969,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-d5sa7d",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1969,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Classics IV - Traces.mp4",
+      "notes": "Detected year: 1969. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 12,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 12 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ddbzku",
+      "date": "1969",
+      "label": "Traces — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "1969",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "12 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-3u3rcl",
+      "date": "1969",
+      "label": "Traces — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1969",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "af31594c5d97",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR944817&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-d5sa7d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fc276d5ba43f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR944817&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-d5sa7d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b77010ebae81",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR944817&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-d5sa7d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0d5ccd7784f9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR944817&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-d5sa7d",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "99e7f6cbad3e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR944817&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-d5sa7d",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-d5sa7d",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1969,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Classics IV - Traces.mp4",
+        "notes": "Detected year: 1969. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR944817-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR944817"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Classics Iv"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Classics Iv"
+    },
+    {
+      "id": "rel-RVTR944817-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR944817"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR944817-tl-tl-ddbzku",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR944817"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ddbzku"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Traces — original release"
+    },
+    {
+      "id": "rel-RVTR944817-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR944817"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR944817-tl-tl-3u3rcl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR944817"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3u3rcl"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Traces — graph recording"
+    },
+    {
+      "id": "rel-RVTR944817-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR944817"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR944817-perf-perf-d5sa7d",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR944817"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-d5sa7d"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-d5sa7d-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d5sa7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Classics IV - Traces.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-af31594c5d97-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d5sa7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "af31594c5d97"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fc276d5ba43f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d5sa7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fc276d5ba43f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b77010ebae81-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d5sa7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b77010ebae81"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-0d5ccd7784f9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d5sa7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0d5ccd7784f9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-99e7f6cbad3e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d5sa7d"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "99e7f6cbad3e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR944817. \"Traces\" by Classics Iv.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 12 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Classics IV · Title: Traces · Album: Traces / Mary, Mary Row Your Boat · Year: 1969 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Classics IV - Traces.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1969.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-e03391ac",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Classics IV - Traces.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3840edca",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Classics IV - Traces.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "96479eb8-b0b9-4c1e-a44d-7aa5d8c03718",
+      "category": "artist",
+      "text": "Traces is performed by Classics Iv.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "191f845f-4c94-4652-b231-412c02dd40f4",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "252cf8be-ee47-44e9-85e3-d7efdf77c3b6",
+      "category": "recording",
+      "text": "Traces was released in 1969.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "bae93dac-3424-4a36-8e22-2d4993e3d6f9",
+      "category": "trivia",
+      "text": "Artist: Classics IV · Title: Traces · Album: Traces / Mary, Mary Row Your Boat · Year: 1969 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Classics IV - Traces.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5ed68ced-37da-4db0-bde5-afa420f2eb24",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Classics IV - Traces.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "854f8a97-cf69-41f9-8c65-ec6226090671",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Classics IV - Traces.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Classics IV - Traces.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

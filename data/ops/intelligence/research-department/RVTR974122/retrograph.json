@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR974122",
+    "kind": "song",
+    "rvtr": "RVTR974122",
+    "generatedAt": "2026-06-28T23:09:02.360Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR974122",
+    "artist": "3rd Bass",
+    "title": "Brooklyn Queens",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "3rd Bass",
+    "relatedArtists": [
+      "3rd Bass"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-awziia",
+      "title": "BrooklynQueens",
+      "kind": "performance",
+      "year": 1990,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/3rd Bass - Brooklyn-Queens.mp4",
+      "notes": "Detected year: 1990. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-7sllnd",
+      "date": "1990",
+      "label": "Brooklyn Queens — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-d89q59",
+      "date": "1990",
+      "label": "BrooklynQueens",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "7fa810beeb6c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR974122&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-awziia",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c80ae31ed38a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR974122&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-awziia",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1928e2ce2f9b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR974122&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-awziia",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fc6aee2bd691",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR974122&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-awziia",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d27e18a7c3b1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR974122&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-awziia",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-awziia",
+        "title": "BrooklynQueens",
+        "kind": "performance",
+        "year": 1990,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/3rd Bass - Brooklyn-Queens.mp4",
+        "notes": "Detected year: 1990. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR974122-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR974122"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "3rd Bass"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "3rd Bass"
+    },
+    {
+      "id": "rel-RVTR974122-tl-tl-7sllnd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR974122"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7sllnd"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Brooklyn Queens — original release"
+    },
+    {
+      "id": "rel-RVTR974122-tl-tl-d89q59",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR974122"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-d89q59"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "BrooklynQueens"
+    },
+    {
+      "id": "rel-RVTR974122-perf-perf-awziia",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR974122"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-awziia"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "BrooklynQueens"
+    },
+    {
+      "id": "rel-perf-awziia-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-awziia"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/3rd Bass - Brooklyn-Queens.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "BrooklynQueens"
+    },
+    {
+      "id": "rel-7fa810beeb6c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-awziia"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7fa810beeb6c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c80ae31ed38a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-awziia"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c80ae31ed38a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-1928e2ce2f9b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-awziia"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1928e2ce2f9b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fc6aee2bd691-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-awziia"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fc6aee2bd691"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-d27e18a7c3b1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-awziia"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d27e18a7c3b1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR974122. \"Brooklyn Queens\" by 3rd Bass.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: 3rd Bass · Title: Brooklyn-Queens · Album: The Cactus Album · Year: 1990 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/3rd Bass - Brooklyn-Queens.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f24c0810",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/3rd Bass - Brooklyn-Queens.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "60584aa1-5db4-4d27-8aa8-f6a26d7528b2",
+      "category": "artist",
+      "text": "Brooklyn Queens is performed by 3rd Bass.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6c491eef-efc9-4d36-a688-981a1479af0d",
+      "category": "trivia",
+      "text": "Artist: 3rd Bass · Title: Brooklyn-Queens · Album: The Cactus Album · Year: 1990 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/3rd Bass - Brooklyn-Queens.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3281e0c5-922e-4463-94f9-cb96f0618907",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/3rd Bass - Brooklyn-Queens.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/3rd Bass - Brooklyn-Queens.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

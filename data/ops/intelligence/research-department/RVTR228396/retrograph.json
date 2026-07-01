@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR228396",
+    "kind": "song",
+    "rvtr": "RVTR228396",
+    "generatedAt": "2026-06-28T22:48:50.394Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR228396",
+    "artist": "Tei Shi",
+    "title": "Bassically",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Tei Shi",
+    "relatedArtists": [
+      "Tei Shi"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-uao95b",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tei Shi - Bassically.mp4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-9rr2u3",
+      "date": "2014",
+      "label": "Bassically — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2014",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "44e4df5e5bda",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR228396&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-uao95b",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3eab048b39da",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR228396&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-uao95b",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "67b144416696",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR228396&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-uao95b",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9760025a0fd9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR228396&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-uao95b",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "84b26a119dc2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR228396&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-uao95b",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-uao95b",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tei Shi - Bassically.mp4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR228396-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR228396"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Tei Shi"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Tei Shi"
+    },
+    {
+      "id": "rel-RVTR228396-tl-tl-9rr2u3",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR228396"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9rr2u3"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Bassically — original release"
+    },
+    {
+      "id": "rel-RVTR228396-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR228396"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR228396-perf-perf-uao95b",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR228396"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-uao95b"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-uao95b-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uao95b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tei Shi - Bassically.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-44e4df5e5bda-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uao95b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "44e4df5e5bda"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-3eab048b39da-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uao95b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3eab048b39da"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-67b144416696-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uao95b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "67b144416696"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-9760025a0fd9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uao95b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9760025a0fd9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-84b26a119dc2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-uao95b"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "84b26a119dc2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR228396. \"Bassically\" by Tei Shi.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Tei Shi · Title: Bassically · Album: Bassically · Year: 2014 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tei Shi - Bassically.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-db7193a3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tei Shi - Bassically.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "366e7001-1679-4448-81e4-bb36ba6061e4",
+      "category": "artist",
+      "text": "Bassically is performed by Tei Shi.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "efcd67ca-64a4-43f6-8340-ebea5fbc6a0a",
+      "category": "trivia",
+      "text": "Artist: Tei Shi · Title: Bassically · Album: Bassically · Year: 2014 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tei Shi - Bassically.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "44482a76-865f-4f2e-b44f-8da8b6ba36ce",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tei Shi - Bassically.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Tei Shi - Bassically.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

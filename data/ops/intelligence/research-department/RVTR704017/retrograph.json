@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR704017",
+    "kind": "song",
+    "rvtr": "RVTR704017",
+    "generatedAt": "2026-06-28T23:00:00.201Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR704017",
+    "artist": "Depeche Mode",
+    "title": "Wrong",
+    "year": 2009,
+    "albumTitle": "Sounds Of The Universe",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL917643/RVAL917643__depeche-mode__sounds-of-the-universe.jpg"
+  },
+  "artist": {
+    "name": "Depeche Mode",
+    "relatedArtists": [
+      "Depeche Mode"
+    ]
+  },
+  "album": {
+    "title": "Sounds Of The Universe",
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-gdaykg",
+        "title": "Sounds Of The Universe",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-zez7px",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Depeche Mode - Wrong.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Sounds Of The Universe",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-swe8a9",
+      "date": "2009",
+      "label": "Wrong — original release",
+      "detail": "Original album: Sounds Of The Universe",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-6cyqut",
+      "date": "2009",
+      "label": "Sounds Of The Universe",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2009",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR704017",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL917643/RVAL917643__depeche-mode__sounds-of-the-universe.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "67a5834ee454",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR704017&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-zez7px",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d390c63eb4ba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR704017&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-zez7px",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cf01159c867c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR704017&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-zez7px",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ee494678518b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR704017&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-zez7px",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dc805438e21d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR704017&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-zez7px",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-zez7px",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Depeche Mode - Wrong.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR704017-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR704017"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Depeche Mode"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Depeche Mode"
+    },
+    {
+      "id": "rel-RVTR704017-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR704017"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-gdaykg"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Sounds Of The Universe"
+    },
+    {
+      "id": "rel-RVTR704017-tl-tl-swe8a9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR704017"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-swe8a9"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Wrong — original release"
+    },
+    {
+      "id": "rel-RVTR704017-tl-tl-6cyqut",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR704017"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-6cyqut"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Sounds Of The Universe"
+    },
+    {
+      "id": "rel-RVTR704017-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR704017"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR704017-perf-perf-zez7px",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR704017"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-zez7px"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-zez7px-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zez7px"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Depeche Mode - Wrong.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-67a5834ee454-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zez7px"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "67a5834ee454"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-d390c63eb4ba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zez7px"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d390c63eb4ba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-cf01159c867c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zez7px"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cf01159c867c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ee494678518b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zez7px"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ee494678518b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-dc805438e21d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-zez7px"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dc805438e21d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR704017. \"Wrong\" by Depeche Mode. Album: Sounds Of The Universe (2009).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL917643/RVAL917643__depeche-mode__sounds-of-the-universe.jpg",
+      "excerpt": "Canonical cover assignment for RVTR704017 (Wrong). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Sounds Of The Universe (2009)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Depeche Mode · Title: Wrong · Album: Wrong · Year: 2009 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Depeche Mode - Wrong.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-9195b24d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Depeche Mode - Wrong.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "7dcf8126-dbd5-487a-8c4c-9089e75b3b25",
+      "category": "artist",
+      "text": "Wrong is performed by Depeche Mode.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a1e63e0c-b5ad-4f88-b224-f5aac95723ea",
+      "category": "album",
+      "text": "The song appears on the album \"Sounds Of The Universe\" (2009).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7dc56719-c152-4827-9af7-d628b6c01aee",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR704017.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL917643/RVAL917643__depeche-mode__sounds-of-the-universe.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "19170d12-129a-4976-b8ee-aaca28f09607",
+      "category": "recording",
+      "text": "Wrong was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d6cc8e3c-2657-467e-8dbd-78fa60d11c6e",
+      "category": "trivia",
+      "text": "Artist: Depeche Mode · Title: Wrong · Album: Wrong · Year: 2009 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Depeche Mode - Wrong.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f03be5e4-de06-44ab-b618-3a9a80956c28",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Depeche Mode - Wrong.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Depeche Mode - Wrong.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR587162",
+    "kind": "song",
+    "rvtr": "RVTR587162",
+    "generatedAt": "2026-06-28T22:56:42.800Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR587162",
+    "artist": "Mumford",
+    "title": "The Cave",
+    "year": 2011,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Mumford",
+    "relatedArtists": [
+      "Mumford"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-7255dw",
+        "title": "The Cave — graph recording",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-4w93ci",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2011,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mumford And Sons - The Cave.mp4",
+      "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 27,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #27 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-iahblc",
+      "date": "2011",
+      "label": "The Cave — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gr",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #27",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-qrnokd",
+      "date": "2011",
+      "label": "The Cave — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2011",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "4087f00d3086",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR587162&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-4w93ci",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2c23a1ff0b34",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR587162&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-4w93ci",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7341acdd5fe1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR587162&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-4w93ci",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b46f3c44b5b1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR587162&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-4w93ci",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "87e021687fff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR587162&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-4w93ci",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-4w93ci",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2011,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mumford And Sons - The Cave.mp4",
+        "notes": "Detected year: 2011. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR587162-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR587162"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Mumford"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Mumford"
+    },
+    {
+      "id": "rel-RVTR587162-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR587162"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #27"
+    },
+    {
+      "id": "rel-RVTR587162-tl-tl-iahblc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR587162"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-iahblc"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "The Cave — original release"
+    },
+    {
+      "id": "rel-RVTR587162-tl-tl-fcm3gr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR587162"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gr"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #27"
+    },
+    {
+      "id": "rel-RVTR587162-tl-tl-qrnokd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR587162"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qrnokd"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "The Cave — graph recording"
+    },
+    {
+      "id": "rel-RVTR587162-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR587162"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR587162-perf-perf-4w93ci",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR587162"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-4w93ci"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-4w93ci-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4w93ci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mumford And Sons - The Cave.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-4087f00d3086-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4w93ci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4087f00d3086"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-2c23a1ff0b34-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4w93ci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2c23a1ff0b34"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-7341acdd5fe1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4w93ci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7341acdd5fe1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b46f3c44b5b1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4w93ci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b46f3c44b5b1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-87e021687fff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-4w93ci"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "87e021687fff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR587162. \"The Cave\" by Mumford.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #27. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Mumford And Sons · Title: The Cave · Album: Mumford & Sons - The Cave · Year: 2011 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mumford And Sons - The Cave.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-c1f0e5ff",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mumford And Sons - The Cave.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0b0b208c-f859-4ab2-ab9d-455b84dfed85",
+      "category": "artist",
+      "text": "The Cave is performed by Mumford.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e4bde979-02b0-46f0-87f6-b524e83867bc",
+      "category": "chart",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "839408e7-fd4f-43f6-ad17-35d6953a40fb",
+      "category": "recording",
+      "text": "The Cave was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c91a3993-94db-440a-ab5a-266cad45effd",
+      "category": "trivia",
+      "text": "Artist: Mumford And Sons · Title: The Cave · Album: Mumford & Sons - The Cave · Year: 2011 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mumford And Sons - The Cave.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f9f91850-e6e2-4d66-a07d-f775a7231437",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mumford And Sons - The Cave.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Mumford And Sons - The Cave.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

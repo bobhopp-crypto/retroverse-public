@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR384694",
+    "kind": "song",
+    "rvtr": "RVTR384694",
+    "generatedAt": "2026-06-28T22:51:46.330Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR384694",
+    "artist": "Oasis",
+    "title": "Live Forever",
+    "year": 1995,
+    "albumTitle": "Definitely Maybe",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL105186/RVAL105186__oasis__definitely-maybe.jpg"
+  },
+  "artist": {
+    "name": "Oasis",
+    "relatedArtists": [
+      "Oasis"
+    ]
+  },
+  "album": {
+    "title": "Definitely Maybe",
+    "releaseYear": 1995,
+    "recordings": [
+      {
+        "id": "rec-95psrr",
+        "title": "Definitely Maybe",
+        "releaseDate": 1995,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-wg0uzy",
+      "title": "Live",
+      "kind": "performance",
+      "year": 1996,
+      "venue": "Live",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Oasis - Live Forever.mp4",
+      "notes": "Performance label: Live. Detected year: 1996. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Definitely Maybe",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-7y5u9z",
+      "date": "1995",
+      "label": "Live Forever — original release",
+      "detail": "Original album: Definitely Maybe",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-dqvc9l",
+      "date": "1995",
+      "label": "Definitely Maybe",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k42geu",
+      "date": "1996",
+      "label": "Live",
+      "detail": "Live",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR384694",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL105186/RVAL105186__oasis__definitely-maybe.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "961868cf5f47",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384694&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-wg0uzy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "70d5fd34ff15",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384694&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-wg0uzy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f92deb0b4120",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384694&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-wg0uzy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6863e1f837d1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384694&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-wg0uzy",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a20c48ae8ba5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384694&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-wg0uzy",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-wg0uzy",
+        "title": "Live",
+        "kind": "performance",
+        "year": 1996,
+        "venue": "Live",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Oasis - Live Forever.mp4",
+        "notes": "Performance label: Live. Detected year: 1996. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR384694-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR384694"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Oasis"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Oasis"
+    },
+    {
+      "id": "rel-RVTR384694-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR384694"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-95psrr"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Definitely Maybe"
+    },
+    {
+      "id": "rel-RVTR384694-tl-tl-7y5u9z",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR384694"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7y5u9z"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Live Forever — original release"
+    },
+    {
+      "id": "rel-RVTR384694-tl-tl-dqvc9l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR384694"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-dqvc9l"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Definitely Maybe"
+    },
+    {
+      "id": "rel-RVTR384694-tl-tl-k42geu",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR384694"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k42geu"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "Live"
+    },
+    {
+      "id": "rel-RVTR384694-perf-perf-wg0uzy",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR384694"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-wg0uzy"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Live"
+    },
+    {
+      "id": "rel-perf-wg0uzy-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wg0uzy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Oasis - Live Forever.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Live"
+    },
+    {
+      "id": "rel-961868cf5f47-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wg0uzy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "961868cf5f47"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-70d5fd34ff15-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wg0uzy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "70d5fd34ff15"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f92deb0b4120-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wg0uzy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f92deb0b4120"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6863e1f837d1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wg0uzy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6863e1f837d1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a20c48ae8ba5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wg0uzy"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a20c48ae8ba5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR384694. \"Live Forever\" by Oasis. Album: Definitely Maybe (1995).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL105186/RVAL105186__oasis__definitely-maybe.jpg",
+      "excerpt": "Canonical cover assignment for RVTR384694 (Live Forever). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Definitely Maybe (1995)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Oasis · Title: Live Forever · Album: Supersonic · Year: 1996 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Oasis - Live Forever.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1995.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-54f27f7a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Oasis - Live Forever.mp4 · Performance: Live",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-af82263a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Oasis - Live Forever.mp3 · Performance: Live",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c456e972-cb77-49b1-83e6-9e38d2698cd2",
+      "category": "artist",
+      "text": "Live Forever is performed by Oasis.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7fd7eb46-9cba-456e-892e-2473cffa768f",
+      "category": "album",
+      "text": "The song appears on the album \"Definitely Maybe\" (1995).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5da85905-2154-49ce-8503-c50012d293a8",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR384694.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL105186/RVAL105186__oasis__definitely-maybe.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7c3a3421-ec55-474a-bfcc-ec3698182f94",
+      "category": "recording",
+      "text": "Live Forever was released in 1995.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f5f9eee6-6035-478c-b707-61acbac595a9",
+      "category": "trivia",
+      "text": "Artist: Oasis · Title: Live Forever · Album: Supersonic · Year: 1996 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Oasis - Live Forever.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "abb248fb-9d27-45d5-9231-cf3d1d666d69",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Oasis - Live Forever.mp4 · Performance: Live",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c574fdf6-7058-472d-ad86-bccc485b0f6f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Oasis - Live Forever.mp3 · Performance: Live",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Oasis - Live Forever.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,500 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR111857",
+    "kind": "song",
+    "rvtr": "RVTR111857",
+    "generatedAt": "2026-06-28T22:45:58.347Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR111857",
+    "artist": "Flo Rida",
+    "title": "G D F R",
+    "year": 2014,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Flo Rida",
+    "relatedArtists": [
+      "Flo Rida"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2014,
+    "recordings": [
+      {
+        "id": "rec-i6gglk",
+        "title": "G D F R — graph recording",
+        "releaseDate": 2014,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-kzncjm",
+      "title": "Gdfr",
+      "kind": "performance",
+      "year": 2015,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Flo Rida - Gdfr.MP4",
+      "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 8,
+    "chartWeeks": 35,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #8 · 35 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ymds9l",
+      "date": "2014",
+      "label": "G D F R — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2q",
+      "date": "2014",
+      "label": "Billboard Hot 100 peak #8",
+      "detail": "35 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-5qxi5a",
+      "date": "2014",
+      "label": "G D F R — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bvyblp",
+      "date": "2015",
+      "label": "Gdfr",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "d263916e5a95",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111857&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kzncjm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a4f0745d873c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111857&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kzncjm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4660bddf4508",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111857&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kzncjm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "aa1170fc90c6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111857&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kzncjm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "969837d02987",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111857&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kzncjm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kzncjm",
+        "title": "Gdfr",
+        "kind": "performance",
+        "year": 2015,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Flo Rida - Gdfr.MP4",
+        "notes": "Detected year: 2015. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR111857-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR111857"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Flo Rida"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Flo Rida"
+    },
+    {
+      "id": "rel-RVTR111857-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR111857"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #8"
+    },
+    {
+      "id": "rel-RVTR111857-tl-tl-ymds9l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR111857"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ymds9l"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "G D F R — original release"
+    },
+    {
+      "id": "rel-RVTR111857-tl-tl-l47p2q",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR111857"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2q"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #8"
+    },
+    {
+      "id": "rel-RVTR111857-tl-tl-5qxi5a",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR111857"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5qxi5a"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "G D F R — graph recording"
+    },
+    {
+      "id": "rel-RVTR111857-tl-tl-bvyblp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR111857"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bvyblp"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Gdfr"
+    },
+    {
+      "id": "rel-RVTR111857-perf-perf-kzncjm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR111857"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kzncjm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Gdfr"
+    },
+    {
+      "id": "rel-perf-kzncjm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kzncjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Flo Rida - Gdfr.MP4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Gdfr"
+    },
+    {
+      "id": "rel-d263916e5a95-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kzncjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d263916e5a95"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a4f0745d873c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kzncjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a4f0745d873c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-4660bddf4508-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kzncjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4660bddf4508"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-aa1170fc90c6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kzncjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "aa1170fc90c6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-969837d02987-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kzncjm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "969837d02987"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR111857. \"G D F R\" by Flo Rida.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #8. 35 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Flo Rida · Title: Gdfr · Album: My House · Year: 2015 · Genre: Pop Rap · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Flo Rida - Gdfr.MP4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2014.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-e6f767ba",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Flo Rida - Gdfr.MP4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "a0b746d6-c73c-4784-a308-b272cf60a67f",
+      "category": "artist",
+      "text": "G D F R is performed by Flo Rida.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4fb88719-fbc7-4668-b781-ba32d246bb89",
+      "category": "chart",
+      "text": "The song peaked at #8 on the Billboard Hot 100 and spent 35 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "89a07afd-c9fc-45f6-929a-d370cb15b3c5",
+      "category": "recording",
+      "text": "G D F R was released in 2014.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a675710a-8400-43e9-b2be-021777e5ba7b",
+      "category": "trivia",
+      "text": "Artist: Flo Rida · Title: Gdfr · Album: My House · Year: 2015 · Genre: Pop Rap · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Flo Rida - Gdfr.MP4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e0eb4bb0-325f-449c-b2d4-04a74cd7f61d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Flo Rida - Gdfr.MP4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Flo Rida - Gdfr.MP4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

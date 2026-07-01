@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR686123",
+    "kind": "song",
+    "rvtr": "RVTR686123",
+    "generatedAt": "2026-06-28T22:59:33.796Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR686123",
+    "artist": "Pink",
+    "title": "Funhouse",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Pink",
+    "relatedArtists": [
+      "Pink"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-vf5p10",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1993,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - Funhouse.mp4",
+      "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-ab60qd",
+      "date": "1993",
+      "label": "Funhouse — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1993",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "5fc7721a3d85",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR686123&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-vf5p10",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a230eb1c8d3f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR686123&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-vf5p10",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c8506fd178b3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR686123&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-vf5p10",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d4f7ef834b7c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR686123&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-vf5p10",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3065178e38d9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR686123&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-vf5p10",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-vf5p10",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1993,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - Funhouse.mp4",
+        "notes": "Detected year: 1993. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR686123-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR686123"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Pink"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Pink"
+    },
+    {
+      "id": "rel-RVTR686123-tl-tl-ab60qd",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR686123"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ab60qd"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Funhouse — original release"
+    },
+    {
+      "id": "rel-RVTR686123-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR686123"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR686123-perf-perf-vf5p10",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR686123"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-vf5p10"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-vf5p10-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vf5p10"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - Funhouse.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-5fc7721a3d85-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vf5p10"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5fc7721a3d85"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a230eb1c8d3f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vf5p10"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a230eb1c8d3f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c8506fd178b3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vf5p10"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c8506fd178b3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-d4f7ef834b7c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vf5p10"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d4f7ef834b7c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-3065178e38d9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vf5p10"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3065178e38d9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR686123. \"Funhouse\" by Pink.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pink · Title: Funhouse · Album: My Little Funhouse - Destiny • L.S.D. · Year: 1993 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - Funhouse.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2f1c44dc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - Funhouse.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b778d29b-0fca-49d2-8d1e-e6189b1de5bf",
+      "category": "artist",
+      "text": "Funhouse is performed by Pink.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9fcc0ced-04c0-4c82-9de1-5c17ad037c84",
+      "category": "trivia",
+      "text": "Artist: Pink · Title: Funhouse · Album: My Little Funhouse - Destiny • L.S.D.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "49f67675-557f-4bfe-8880-6a1bb656932b",
+      "category": "trivia",
+      "text": "· Year: 1993 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - Funhouse.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "acdf4da7-a70a-4fcf-ae7d-47db4b0a4371",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - Funhouse.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Pink - Funhouse.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

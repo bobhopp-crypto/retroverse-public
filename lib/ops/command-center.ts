@@ -58,7 +58,7 @@ export const COMMAND_CENTER_PRIMARY_ACTIONS: CommandCenterPrimaryAction[] = [
     id: "create-artwork",
     title: "Create Artwork",
     description: "Posters, passes, covers, and more",
-    href: "/ops/event-studio",
+    href: "/bobos/event",
     icon: "art",
   },
   {
@@ -80,6 +80,8 @@ export const COMMAND_CENTER_DEPARTMENTS: CommandCenterDepartment[] = [
       { label: "Studio", href: "/ops/studio" },
       { label: "Library", href: "/ops/library" },
       { label: "Research", href: "/ops/intelligence" },
+      { label: "Event Hub", href: "/bobos/event" },
+      { label: "Pass Studio", href: "/bobos/passes" },
       { label: "Event Studio", href: "/ops/event-studio" },
       { label: "Content Creator", href: "/ops/content-creator" },
       { label: "Mission Control", href: "/ops/browser-plus-2" },
@@ -194,5 +196,5 @@ export const COMMAND_CENTER_LEGACY_LINKS: CommandCenterLink[] = [
   { label: "Atlas Workshop", href: "/ops/atlas/workshop" },
   { label: "Atlas Encyclopedia", href: "/ops/atlas" },
   publicLink("home"),
-  publicLink("live"),
+  { label: "Live", href: "/retroverse-2/live", external: true },
 ];

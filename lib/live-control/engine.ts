@@ -1,3 +1,4 @@
+import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 import { loadTrackPage } from "@/lib/track/load-track-page";
 import { setLiveTrack } from "@/lib/sunday-nights/state";
 import type { SundayNightsState } from "@/lib/sunday-nights/types";
@@ -14,12 +15,14 @@ async function publishRvtr(rvtr: string): Promise<SundayNightsState> {
   const track = await loadTrackPage(rvtr);
   if (!track) throw new Error(`track_not_found:${rvtr}`);
 
+  const hero = await resolveHeroForRvtr(rvtr);
+
   return setLiveTrack({
     rvtr: track.rvtr,
     artist: track.artistName,
     title: track.title,
     year: track.releaseYear,
-    coverUrl: track.coverUrl,
+    coverUrl: hero.url,
     songKey: null,
     source: "channel",
     filepath: null,

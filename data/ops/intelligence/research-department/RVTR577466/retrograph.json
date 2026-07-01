@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR577466",
+    "kind": "song",
+    "rvtr": "RVTR577466",
+    "generatedAt": "2026-06-28T22:56:20.254Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR577466",
+    "artist": "The Pussycat Dolls",
+    "title": "Don't Cha",
+    "year": 2005,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "The Pussycat Dolls",
+    "relatedArtists": [
+      "The Pussycat Dolls"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2005,
+    "recordings": [
+      {
+        "id": "rec-2hvofj",
+        "title": "Don't Cha — graph recording",
+        "releaseDate": 2005,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-mgrd2m",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pussycat Dolls - Don't Cha.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 40,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #2 · 40 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-5f62b4",
+      "date": "2005",
+      "label": "Don't Cha — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "2005",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "40 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-wprsdx",
+      "date": "2005",
+      "label": "Don't Cha — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2006",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "60bf38a6f0fe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR577466&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mgrd2m",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "518bd3e18df3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR577466&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mgrd2m",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "962e1fa25bb8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR577466&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mgrd2m",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "62da35d8e040",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR577466&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mgrd2m",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b35eceaf22b1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR577466&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mgrd2m",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mgrd2m",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pussycat Dolls - Don't Cha.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR577466-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR577466"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Pussycat Dolls"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Pussycat Dolls"
+    },
+    {
+      "id": "rel-RVTR577466-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR577466"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR577466-tl-tl-5f62b4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR577466"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-5f62b4"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Don't Cha — original release"
+    },
+    {
+      "id": "rel-RVTR577466-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR577466"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR577466-tl-tl-wprsdx",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR577466"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wprsdx"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Don't Cha — graph recording"
+    },
+    {
+      "id": "rel-RVTR577466-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR577466"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR577466-perf-perf-mgrd2m",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR577466"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mgrd2m"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mgrd2m-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mgrd2m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pussycat Dolls - Don't Cha.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-60bf38a6f0fe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mgrd2m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "60bf38a6f0fe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-518bd3e18df3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mgrd2m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "518bd3e18df3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-962e1fa25bb8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mgrd2m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "962e1fa25bb8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-62da35d8e040-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mgrd2m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "62da35d8e040"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-b35eceaf22b1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mgrd2m"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b35eceaf22b1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR577466. \"Don't Cha\" by The Pussycat Dolls.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #2. 40 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Pussycat Dolls · Title: Don't Cha · Album: Live From London · Year: 2006 · Genre: RnB/Swing · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pussycat Dolls - Don't Cha.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2005.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-72cecb59",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pussycat Dolls - Don't Cha.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6d0309cb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Pussycat Dolls - Don't Cha.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5b125ad9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Pussycat Dolls - Don't Cha.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-42b132fc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/The Pussycat Dolls - Don't Cha.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1a3d305f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Pussycat Dolls Feat. Busta Rhymes - Don't Cha.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "bba41cd3-1365-4ec6-ac65-1e0e6d02bae2",
+      "category": "artist",
+      "text": "Don't Cha is performed by The Pussycat Dolls.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "52f5e317-c1a0-4364-bca8-0abd46d70dde",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 40 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "506e12bf-7974-4553-a6f5-639f5bf03ba3",
+      "category": "recording",
+      "text": "Don't Cha was released in 2005.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e66a8b04-4bf6-4a62-b700-fd099f898afd",
+      "category": "trivia",
+      "text": "Artist: Pussycat Dolls · Title: Don't Cha · Album: Live From London · Year: 2006 · Genre: RnB/Swing · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pussycat Dolls - Don't Cha.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9644f654-53ef-46c3-ac4a-33eb68fbaa81",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pussycat Dolls - Don't Cha.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "75208a92-c34c-4678-8558-e8fef84dcb37",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Mandy's Playlist/Pussycat Dolls - Don't Cha.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b6274167-a36a-4367-af27-3a30f54e3784",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Pussycat Dolls - Don't Cha.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4c9ac6ea-9537-4b40-8857-c72fb44389ac",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/The Pussycat Dolls - Don't Cha.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7f0d6f78-d122-470e-abfc-a9d6cf7aec13",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Pussycat Dolls Feat.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 9,
+    "accepted": 3,
+    "pending": 6,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Pussycat Dolls - Don't Cha.mp4",
+    "tags": [],
+    "mediaItemCount": 5
+  },
+  "relatedSongs": []
+}

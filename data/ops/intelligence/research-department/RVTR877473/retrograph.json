@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR877473",
+    "kind": "song",
+    "rvtr": "RVTR877473",
+    "generatedAt": "2026-06-28T23:05:49.688Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR877473",
+    "artist": "Kenny Rogers",
+    "title": "Ruby Don't Take Your Love To Town",
+    "year": 1969,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kenny Rogers",
+    "relatedArtists": [
+      "Kenny Rogers"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1969,
+    "recordings": [
+      {
+        "id": "rec-i1yxv2",
+        "title": "Ruby Don't Take Your Love To Town — graph recording",
+        "releaseDate": 1969,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-2obdw1",
+      "title": "Ruby Don t Take Your Love To Town",
+      "kind": "performance",
+      "year": 1969,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Kenny Rogers & The First Edition - Ruby Don t Take Your Love To Town.mp4",
+      "notes": "Detected year: 1969. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 6,
+    "chartWeeks": 13,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #6 · 13 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ksie09",
+      "date": "1969",
+      "label": "Ruby Don't Take Your Love To Town — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2o",
+      "date": "1969",
+      "label": "Billboard Hot 100 peak #6",
+      "detail": "13 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-avfqr2",
+      "date": "1969",
+      "label": "Ruby Don't Take Your Love To Town — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-lkk56w",
+      "date": "1969",
+      "label": "Ruby Don t Take Your Love To Town",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "1c9ba15fb46e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877473&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-2obdw1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cb9544bcbdae",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877473&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-2obdw1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c24547a28fcf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877473&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-2obdw1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "34a5d1edcbbf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877473&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-2obdw1",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f9d66fadcbc1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR877473&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-2obdw1",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-2obdw1",
+        "title": "Ruby Don t Take Your Love To Town",
+        "kind": "performance",
+        "year": 1969,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Kenny Rogers & The First Edition - Ruby Don t Take Your Love To Town.mp4",
+        "notes": "Detected year: 1969. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR877473-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877473"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kenny Rogers"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kenny Rogers"
+    },
+    {
+      "id": "rel-RVTR877473-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877473"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #6"
+    },
+    {
+      "id": "rel-RVTR877473-tl-tl-ksie09",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877473"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ksie09"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Ruby Don't Take Your Love To Town — original release"
+    },
+    {
+      "id": "rel-RVTR877473-tl-tl-l47p2o",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877473"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2o"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #6"
+    },
+    {
+      "id": "rel-RVTR877473-tl-tl-avfqr2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877473"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-avfqr2"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Ruby Don't Take Your Love To Town — graph recording"
+    },
+    {
+      "id": "rel-RVTR877473-tl-tl-lkk56w",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877473"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-lkk56w"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Ruby Don t Take Your Love To Town"
+    },
+    {
+      "id": "rel-RVTR877473-perf-perf-2obdw1",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR877473"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-2obdw1"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Ruby Don t Take Your Love To Town"
+    },
+    {
+      "id": "rel-perf-2obdw1-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2obdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Kenny Rogers & The First Edition - Ruby Don t Take Your Love To Town.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Ruby Don t Take Your Love To Town"
+    },
+    {
+      "id": "rel-1c9ba15fb46e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2obdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1c9ba15fb46e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-cb9544bcbdae-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2obdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cb9544bcbdae"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c24547a28fcf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2obdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c24547a28fcf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-34a5d1edcbbf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2obdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "34a5d1edcbbf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-f9d66fadcbc1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-2obdw1"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f9d66fadcbc1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR877473. \"Ruby Don't Take Your Love To Town\" by Kenny Rogers.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #6. 13 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kenny Rogers & The First Edition · Title: Ruby Don t Take Your Love To Town · Album: Kenny Rogers And The First Edition - Ruby Don’t Take Your Love To Town  · Year: 1969 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Kenny Rogers & The First Edition - Ruby Don t Take Your Love To Town.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1969.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-894439cc",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Kenny Rogers & The First Edition - Ruby Don t Take Your Love To Town.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "90316c97-968d-439d-a4d5-133f32c6d0ac",
+      "category": "artist",
+      "text": "Ruby Don't Take Your Love To Town is performed by Kenny Rogers.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0e27b79f-c29d-49a6-90a7-0a45765061c6",
+      "category": "chart",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 13 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "30dbf3b1-8966-446c-9f69-9a89099afbb6",
+      "category": "recording",
+      "text": "Ruby Don't Take Your Love To Town was released in 1969.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b9cceeec-b640-4b2f-93bf-eeab1c792838",
+      "category": "trivia",
+      "text": "\"Ruby Don't Take Your Love To Town\" by Kenny Rogers.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "76011a62-2450-4061-8d2c-d2a8d4da0f29",
+      "category": "trivia",
+      "text": "Artist: Kenny Rogers & The First Edition · Title: Ruby Don t Take Your Love To Town · Album: Kenny Rogers And The First Edition - Ruby Don’t Take Your Love To Town  · Year: 1969 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Kenny Rogers & The First Edition - Ruby Don t Take Your Love To Town.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "89059c5a-f1f8-4f9d-aa6a-7bbd46ce011d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Kenny Rogers & The First Edition - Ruby Don t Take Your Love To Town.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Kenny Rogers & The First Edition - Ruby Don t Take Your Love To Town.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

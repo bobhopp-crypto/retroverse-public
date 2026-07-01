@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR526598",
+    "kind": "song",
+    "rvtr": "RVTR526598",
+    "generatedAt": "2026-06-28T22:55:02.209Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR526598",
+    "artist": "Savage",
+    "title": "Swing",
+    "year": 2008,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Savage",
+    "relatedArtists": [
+      "Savage"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2008,
+    "recordings": [
+      {
+        "id": "rec-bd2lsy",
+        "title": "Swing — graph recording",
+        "releaseDate": 2008,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-jrikbe",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Savage - Swing.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 45,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #45 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-3fbvc2",
+      "date": "2008",
+      "label": "Swing — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3if",
+      "date": "2008",
+      "label": "Billboard Hot 100 peak #45",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-gujg8z",
+      "date": "2008",
+      "label": "Swing — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ace43af387d4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR526598&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-jrikbe",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "13408923085b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR526598&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-jrikbe",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "62744a889a86",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR526598&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-jrikbe",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e66be1cc4811",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR526598&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-jrikbe",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "451ed9dc4dea",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR526598&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-jrikbe",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-jrikbe",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Savage - Swing.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR526598-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR526598"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Savage"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Savage"
+    },
+    {
+      "id": "rel-RVTR526598-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR526598"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #45"
+    },
+    {
+      "id": "rel-RVTR526598-tl-tl-3fbvc2",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR526598"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3fbvc2"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Swing — original release"
+    },
+    {
+      "id": "rel-RVTR526598-tl-tl-fcm3if",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR526598"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3if"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #45"
+    },
+    {
+      "id": "rel-RVTR526598-tl-tl-gujg8z",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR526598"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-gujg8z"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Swing — graph recording"
+    },
+    {
+      "id": "rel-RVTR526598-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR526598"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR526598-perf-perf-jrikbe",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR526598"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-jrikbe"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-jrikbe-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jrikbe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Savage - Swing.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ace43af387d4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jrikbe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ace43af387d4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-13408923085b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jrikbe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "13408923085b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-62744a889a86-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jrikbe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "62744a889a86"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e66be1cc4811-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jrikbe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e66be1cc4811"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-451ed9dc4dea-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jrikbe"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "451ed9dc4dea"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR526598. \"Swing\" by Savage.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #45. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Savage · Title: Swing · Album: Savage Kalman And The Explosion Rockets - School Of Rock 'N Roll · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Savage - Swing.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2008.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-cc898203",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Savage - Swing.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-076734e9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Savage Feat. Soulja Boy Tell 'Em - Swing.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "7aacf85c-aad1-43bb-ae95-daa81385a898",
+      "category": "artist",
+      "text": "Swing is performed by Savage.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "33624b4c-0889-4b4d-91b8-8aca98819f9d",
+      "category": "chart",
+      "text": "The song peaked at #45 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b171c5a7-4fdb-498b-89a7-a2feb3f4f04e",
+      "category": "recording",
+      "text": "Swing was released in 2008.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "66374071-4ca7-44d1-b50e-4a2992f1f886",
+      "category": "trivia",
+      "text": "Artist: Savage · Title: Swing · Album: Savage Kalman And The Explosion Rockets - School Of Rock 'N Roll · Year: 1979 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Savage - Swing.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "455d11a7-3726-4a49-b67a-b9eb57ed0a78",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Savage - Swing.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fa72e3bd-9e3b-4b78-992d-40e91e0811ae",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Savage Feat.",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Savage - Swing.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

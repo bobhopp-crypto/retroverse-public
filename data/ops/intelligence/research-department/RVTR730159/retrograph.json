@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR730159",
+    "kind": "song",
+    "rvtr": "RVTR730159",
+    "generatedAt": "2026-06-28T23:00:37.570Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR730159",
+    "artist": "Kiss",
+    "title": "Christine Sixteen",
+    "year": 2014,
+    "albumTitle": "KISS 40",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL347470/RVAL347470__kiss__kiss-40.jpg"
+  },
+  "artist": {
+    "name": "Kiss",
+    "relatedArtists": [
+      "Kiss"
+    ]
+  },
+  "album": {
+    "title": "KISS 40",
+    "releaseYear": 2014,
+    "recordings": [
+      {
+        "id": "rec-3fhxz1",
+        "title": "KISS 40",
+        "releaseDate": 2014,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-pq7gww",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1977,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Christine Sixteen.mp4",
+      "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 25,
+    "chartWeeks": 12,
+    "albumTitle": "KISS 40",
+    "summary": "Hot 100 peak #25 · 12 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-m8f9fh",
+      "date": "2014",
+      "label": "Christine Sixteen — original release",
+      "detail": "Original album: KISS 40",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3gp",
+      "date": "2014",
+      "label": "Billboard Hot 100 peak #25",
+      "detail": "12 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-40vt8q",
+      "date": "2014",
+      "label": "KISS 40",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1977",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR730159",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL347470/RVAL347470__kiss__kiss-40.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3672592a247b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR730159&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-pq7gww",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2af49716ce26",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR730159&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-pq7gww",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9d2773d37d86",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR730159&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-pq7gww",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-pq7gww",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1977,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Christine Sixteen.mp4",
+        "notes": "Detected year: 1977. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR730159-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR730159"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kiss"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kiss"
+    },
+    {
+      "id": "rel-RVTR730159-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR730159"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-3fhxz1"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "KISS 40"
+    },
+    {
+      "id": "rel-RVTR730159-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR730159"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #25"
+    },
+    {
+      "id": "rel-RVTR730159-tl-tl-m8f9fh",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR730159"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-m8f9fh"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Christine Sixteen — original release"
+    },
+    {
+      "id": "rel-RVTR730159-tl-tl-fcm3gp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR730159"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3gp"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #25"
+    },
+    {
+      "id": "rel-RVTR730159-tl-tl-40vt8q",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR730159"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-40vt8q"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "KISS 40"
+    },
+    {
+      "id": "rel-RVTR730159-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR730159"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR730159-perf-perf-pq7gww",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR730159"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-pq7gww"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-pq7gww-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pq7gww"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Christine Sixteen.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3672592a247b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pq7gww"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3672592a247b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-2af49716ce26-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pq7gww"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2af49716ce26"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-9d2773d37d86-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-pq7gww"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9d2773d37d86"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR730159. \"Christine Sixteen\" by Kiss. Album: KISS 40 (2014).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL347470/RVAL347470__kiss__kiss-40.jpg",
+      "excerpt": "Canonical cover assignment for RVTR730159 (Christine Sixteen). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: KISS 40 (2014). Billboard Hot 100 peak: #25. 12 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kiss · Title: Christine Sixteen · Album: Christine Sixteen · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Christine Sixteen.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2014.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-8ae91300",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Christine Sixteen.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "7e25e9a8-da57-48d6-8c0f-2a21bfc47520",
+      "category": "artist",
+      "text": "Christine Sixteen is performed by Kiss.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4725125e-389f-438d-a3bb-c400e187d157",
+      "category": "album",
+      "text": "The song appears on the album \"KISS 40\" (2014).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "40106f5d-c20f-40f6-91d0-69351cb3896b",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR730159.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL347470/RVAL347470__kiss__kiss-40.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8bd34e7e-6847-4701-9c69-79f5dbb5c8bd",
+      "category": "chart",
+      "text": "The song peaked at #25 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "dae769e3-cd75-495b-b177-2ae7b21f2d44",
+      "category": "recording",
+      "text": "Christine Sixteen was released in 2014.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "bcfd419a-120f-40d9-87f0-c7cb66a4ef75",
+      "category": "trivia",
+      "text": "Artist: Kiss · Title: Christine Sixteen · Album: Christine Sixteen · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Christine Sixteen.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "61fd04f3-88ae-4d2d-9eab-cb48d647180c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Christine Sixteen.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 5,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Christine Sixteen.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

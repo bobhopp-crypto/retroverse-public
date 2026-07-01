@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR433011",
+    "kind": "song",
+    "rvtr": "RVTR433011",
+    "generatedAt": "2026-06-28T22:52:43.956Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR433011",
+    "artist": "Dustin Lynch",
+    "title": "Party Mode",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Dustin Lynch",
+    "relatedArtists": [
+      "Dustin Lynch"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-56svfl",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2022,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Dustin Lynch - Party Mode.mp4",
+      "notes": "Detected year: 2022. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fte9o1",
+      "date": "2022",
+      "label": "Party Mode — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2022",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ce6e6da18086",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR433011&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-56svfl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "eb6208ebe954",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR433011&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-56svfl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8e3244aedb20",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR433011&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-56svfl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "37f4664a1209",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR433011&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-56svfl",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d014091ae487",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR433011&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-56svfl",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-56svfl",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2022,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Dustin Lynch - Party Mode.mp4",
+        "notes": "Detected year: 2022. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR433011-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR433011"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Dustin Lynch"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Dustin Lynch"
+    },
+    {
+      "id": "rel-RVTR433011-tl-tl-fte9o1",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR433011"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fte9o1"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Party Mode — original release"
+    },
+    {
+      "id": "rel-RVTR433011-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR433011"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR433011-perf-perf-56svfl",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR433011"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-56svfl"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-56svfl-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-56svfl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Dustin Lynch - Party Mode.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ce6e6da18086-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-56svfl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ce6e6da18086"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-eb6208ebe954-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-56svfl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "eb6208ebe954"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-8e3244aedb20-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-56svfl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8e3244aedb20"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-37f4664a1209-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-56svfl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "37f4664a1209"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d014091ae487-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-56svfl"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d014091ae487"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR433011. \"Party Mode\" by Dustin Lynch.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Dustin Lynch · Title: Party Mode · Album: Blue In The Sky · Year: 2022 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Dustin Lynch - Party Mode.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-bf6d005b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Dustin Lynch - Party Mode.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "683e2e4e-e00f-44df-936d-3f76935110c1",
+      "category": "artist",
+      "text": "Party Mode is performed by Dustin Lynch.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "83231520-1c2c-47c7-88cc-2851d69ce38e",
+      "category": "trivia",
+      "text": "Artist: Dustin Lynch · Title: Party Mode · Album: Blue In The Sky · Year: 2022 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2020's/Dustin Lynch - Party Mode.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "5d6b3ebb-dfd0-4434-a7e1-61ec5ec23015",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Dustin Lynch - Party Mode.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2020's/Dustin Lynch - Party Mode.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

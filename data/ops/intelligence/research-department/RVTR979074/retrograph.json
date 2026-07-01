@@ -1,0 +1,534 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR979074",
+    "kind": "song",
+    "rvtr": "RVTR979074",
+    "generatedAt": "2026-06-28T22:43:09.601Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR979074",
+    "artist": "Erasure",
+    "title": "Love To Hate You",
+    "year": 1991,
+    "albumTitle": "Chorus",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL840877/RVAL840877__erasure__chorus.jpg"
+  },
+  "artist": {
+    "name": "Erasure",
+    "relatedArtists": [
+      "Erasure"
+    ]
+  },
+  "album": {
+    "title": "Chorus",
+    "releaseYear": 1991,
+    "recordings": [
+      {
+        "id": "rec-kfcpl8",
+        "title": "Chorus",
+        "releaseDate": 1991,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-auizr3",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1991,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Erasure - Love To Hate You.mp4",
+      "notes": "Detected year: 1991. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Chorus",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-4w2kuk",
+      "date": "1991",
+      "label": "Love To Hate You — original release",
+      "detail": "Original album: Chorus",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-swp6ai",
+      "date": "1991",
+      "label": "Chorus",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1991",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR979074",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL840877/RVAL840877__erasure__chorus.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f73ea5a70952",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979074&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-auizr3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "717ce8e52919",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979074&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-auizr3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d65c546f0e7b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979074&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-auizr3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3882988f22a1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979074&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-auizr3",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f4ac9a334be2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979074&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-auizr3",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-auizr3",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1991,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Erasure - Love To Hate You.mp4",
+        "notes": "Detected year: 1991. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR979074-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR979074"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Erasure"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Erasure"
+    },
+    {
+      "id": "rel-RVTR979074-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR979074"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-kfcpl8"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Chorus"
+    },
+    {
+      "id": "rel-RVTR979074-tl-tl-4w2kuk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR979074"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4w2kuk"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Love To Hate You — original release"
+    },
+    {
+      "id": "rel-RVTR979074-tl-tl-swp6ai",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR979074"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-swp6ai"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Chorus"
+    },
+    {
+      "id": "rel-RVTR979074-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR979074"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR979074-perf-perf-auizr3",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR979074"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-auizr3"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-auizr3-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-auizr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Erasure - Love To Hate You.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-f73ea5a70952-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-auizr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f73ea5a70952"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-717ce8e52919-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-auizr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "717ce8e52919"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-d65c546f0e7b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-auizr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d65c546f0e7b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-3882988f22a1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-auizr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3882988f22a1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-f4ac9a334be2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-auizr3"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f4ac9a334be2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR979074. \"Love To Hate You\" by Erasure. Album: Chorus (1991).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL840877/RVAL840877__erasure__chorus.jpg",
+      "excerpt": "Canonical cover assignment for RVTR979074 (Love To Hate You). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Chorus (1991)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Erasure · Title: Love To Hate You · Album: Love To Hate You · Year: 1991 · Genre: Synth-pop · PlayCount: 1 · LastPlayed: 1771832268 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Erasure - Love To Hate You.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1991.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ce04d63a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Erasure - Love To Hate You.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-da9f25c1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Erasure - Love To Hate You.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "c32f6ed0-ae67-446a-9b4c-0bc4a7179f76",
+      "category": "artist",
+      "text": "Love To Hate You is performed by Erasure.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aad6c8e8-20db-403b-97a2-99717ec37295",
+      "category": "album",
+      "text": "The song appears on the album \"Chorus\" (1991).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4b799cb7-611f-4839-a7cb-a54b42de2dd7",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR979074.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL840877/RVAL840877__erasure__chorus.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3e3a5b68-51bc-4ebf-a516-84e328c36a4e",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7713494f-e539-4926-807a-b6f85d6307e2",
+      "category": "recording",
+      "text": "Love To Hate You was released in 1991.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "6ae7473d-1f83-465e-91b4-216333a2c24e",
+      "category": "trivia",
+      "text": "Artist: Erasure · Title: Love To Hate You · Album: Love To Hate You · Year: 1991 · Genre: Synth-pop · PlayCount: 1 · LastPlayed: 1771832268 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Erasure - Love To Hate You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cd1d277a-2685-4836-9df0-fa8052759aab",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Erasure - Love To Hate You.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "86a76d56-c2d6-4437-a313-97d5b5bc2101",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Erasure - Love To Hate You.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Erasure - Love To Hate You.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

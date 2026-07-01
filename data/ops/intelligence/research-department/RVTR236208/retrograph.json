@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR236208",
+    "kind": "song",
+    "rvtr": "RVTR236208",
+    "generatedAt": "2026-06-28T22:49:04.646Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR236208",
+    "artist": "Eminem",
+    "title": "Not Afraid",
+    "year": 2010,
+    "albumTitle": "Recovery",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL609297/RVAL609297__eminem__recovery.jpg"
+  },
+  "artist": {
+    "name": "Eminem",
+    "relatedArtists": [
+      "Eminem"
+    ]
+  },
+  "album": {
+    "title": "Recovery",
+    "releaseYear": 2010,
+    "recordings": [
+      {
+        "id": "rec-psu4ji",
+        "title": "Recovery",
+        "releaseDate": 2010,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-w0781z",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Eminem - Not Afraid.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 25,
+    "albumTitle": "Recovery",
+    "summary": "Hot 100 peak #1 · 25 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-bpi0fk",
+      "date": "2010",
+      "label": "Not Afraid — original release",
+      "detail": "Original album: Recovery",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "2010",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "25 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-z8f289",
+      "date": "2010",
+      "label": "Recovery",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR236208",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL609297/RVAL609297__eminem__recovery.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "859a168a28f7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236208&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-w0781z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "bdbc92feddd1",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236208&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-w0781z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fe6bb4df282e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236208&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-w0781z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e321e2a4e959",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236208&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-w0781z",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7a1b21408663",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR236208&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-w0781z",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-w0781z",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Eminem - Not Afraid.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR236208-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236208"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Eminem"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Eminem"
+    },
+    {
+      "id": "rel-RVTR236208-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236208"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-psu4ji"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Recovery"
+    },
+    {
+      "id": "rel-RVTR236208-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236208"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR236208-tl-tl-bpi0fk",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236208"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bpi0fk"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Not Afraid — original release"
+    },
+    {
+      "id": "rel-RVTR236208-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236208"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR236208-tl-tl-z8f289",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236208"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z8f289"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Recovery"
+    },
+    {
+      "id": "rel-RVTR236208-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236208"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR236208-perf-perf-w0781z",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR236208"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-w0781z"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-w0781z-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w0781z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Eminem - Not Afraid.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-859a168a28f7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w0781z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "859a168a28f7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-bdbc92feddd1-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w0781z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "bdbc92feddd1"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-fe6bb4df282e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w0781z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fe6bb4df282e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-e321e2a4e959-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w0781z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e321e2a4e959"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7a1b21408663-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-w0781z"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7a1b21408663"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR236208. \"Not Afraid\" by Eminem. Album: Recovery (2010).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL609297/RVAL609297__eminem__recovery.jpg",
+      "excerpt": "Canonical cover assignment for RVTR236208 (Not Afraid). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Recovery (2010). Billboard Hot 100 peak: #1. 25 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Eminem · Title: Not Afraid · Album: HV 8-10 · Year: 2010 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Eminem - Not Afraid.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2010.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-8e7cdfd6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Eminem - Not Afraid.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-7325fee5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Eminem - Not Afraid.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "11811ff3-bf7e-455b-8966-27fc44a67034",
+      "category": "artist",
+      "text": "Not Afraid is performed by Eminem.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1a8760fd-9a4a-4456-923d-0eecc26f06eb",
+      "category": "album",
+      "text": "The song appears on the album \"Recovery\" (2010).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3b0f9125-3ec3-4d96-9d4e-213e08c6a18b",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR236208.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL609297/RVAL609297__eminem__recovery.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9eb4f8fd-0992-4842-88fd-2d1d01fc60c1",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7cca1cba-8812-4e55-bbd8-3baabf3b99c6",
+      "category": "recording",
+      "text": "Not Afraid was released in 2010.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f622e6c4-6916-4e76-a5d1-46119b8bab13",
+      "category": "trivia",
+      "text": "Artist: Eminem · Title: Not Afraid · Album: HV 8-10 · Year: 2010 · Genre: Urban · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Eminem - Not Afraid.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "935033ef-bded-4e49-b4a5-2ccf60852532",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Eminem - Not Afraid.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1423487f-38af-4160-acd2-4585c6967d87",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Eminem - Not Afraid.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 5,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Eminem - Not Afraid.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

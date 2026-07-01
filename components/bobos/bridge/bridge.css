@@ -1,0 +1,585 @@
+/* BobOS Bridge View v0.2 — visual-first curation workspace */
+
+.bridge {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #0e0f10;
+  color: #f2f2f2;
+}
+
+.bridge--empty {
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bridge-empty {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1rem;
+}
+
+.bridge-brand {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.bridge-brand:hover {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Main body: ~70% visual ── */
+
+.bridge-body {
+  display: grid;
+  grid-template-columns: minmax(140px, 11%) minmax(0, 1fr) minmax(160px, 18%);
+  flex: 1;
+  min-height: 0;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem 0.75rem;
+}
+
+/* ── Left rail ── */
+
+.bridge-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.bridge-rail__song {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.bridge-rail__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.bridge-rail__artist {
+  margin: 0;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.bridge-rail__year {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.bridge-rail__live {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bridge-live-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.bridge-live-dot--on {
+  background: #5ec47a;
+  box-shadow: 0 0 10px rgba(94, 196, 122, 0.55);
+}
+
+.bridge-rail__live-text {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.3;
+}
+
+.bridge-rail__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+
+.bridge-rail__nav-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bridge-rail__nav-btn:hover:not(:disabled) {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bridge-rail__nav-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.bridge-inspector-trigger {
+  padding: 0;
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bridge-inspector-trigger:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── Center stage ── */
+
+.bridge-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  gap: 1.25rem;
+}
+
+.bridge-hero {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: min(56vh * 9 / 16, 100%);
+  min-height: 0;
+  aspect-ratio: 9 / 16;
+}
+
+.bridge-hero__img {
+  object-fit: contain;
+}
+
+.bridge-hero__empty {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.bridge-stage__caption {
+  text-align: center;
+  flex-shrink: 0;
+  padding-bottom: 0.25rem;
+}
+
+.bridge-stage__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.bridge-stage__artist {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.bridge-stage__year {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* ── Right: available visuals ── */
+
+.bridge-visuals-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.bridge-visuals-panel__heading {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.bridge-visuals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bridge-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.bridge-visual--future {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.bridge-visual__thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  transition: outline-color 0.15s ease;
+}
+
+.bridge-visual--selected .bridge-visual__thumb {
+  outline-color: rgba(255, 255, 255, 0.75);
+}
+
+.bridge-visual--future .bridge-visual__thumb {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.bridge-visual__img {
+  object-fit: cover;
+}
+
+.bridge-visual__label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.bridge-visual--selected .bridge-visual__label {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.bridge-visuals-panel__future {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  padding-top: 1rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.16);
+}
+
+/* ── Bottom toolbar ── */
+
+.bridge-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  padding: 0.85rem 1.5rem 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bridge-toolbar__btn {
+  padding: 0.55rem 1.1rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.bridge-toolbar__btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bridge-toolbar__btn:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+.bridge-toolbar__btn--primary {
+  background: rgba(255, 255, 255, 0.92);
+  color: #0e0f10;
+}
+
+.bridge-toolbar__btn--primary:hover:not(:disabled) {
+  background: #fff;
+}
+
+.bridge-toolbar__message {
+  margin: 0 0 0 0.75rem;
+  font-size: 0.78rem;
+  color: #e09550;
+}
+
+/* ── Inspector slide-over ── */
+
+.bridge-inspector-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 40;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bridge-inspector {
+  width: min(320px, 90vw);
+  height: 100%;
+  background: #141618;
+  padding: 1.25rem 1.35rem;
+  overflow-y: auto;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.35);
+}
+
+.bridge-inspector__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.bridge-inspector__head h2 {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.bridge-inspector__head button {
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.bridge-inspector__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+}
+
+.bridge-inspector__list dt {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.bridge-inspector__list dd {
+  margin: 0.2rem 0 0;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.72);
+  word-break: break-all;
+}
+
+@media (max-width: 900px) {
+  .bridge-body {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .bridge {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  .bridge-hero {
+    max-height: 60vh;
+  }
+}
+
+/* ── Hero Generator modal ── */
+
+.bridge-hero-gen-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.bridge-hero-gen {
+  width: min(640px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #141618;
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem 1.5rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.bridge-hero-gen__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.bridge-hero-gen__head h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.bridge-hero-gen__head button {
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+}
+
+.bridge-hero-gen__spec {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.bridge-hero-gen__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.bridge-hero-gen__prompt {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.88);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.bridge-hero-gen__actions {
+  margin-top: 0.85rem;
+}
+
+.bridge-hero-gen__request,
+.bridge-hero-gen__assign {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.bridge-hero-gen__request h3,
+.bridge-hero-gen__assign h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.bridge-hero-gen__request dl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0;
+}
+
+.bridge-hero-gen__request dt {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.bridge-hero-gen__request dd {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  word-break: break-all;
+}
+
+.bridge-hero-gen__hint {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.bridge-hero-gen__upload,
+.bridge-hero-gen__path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.bridge-hero-gen__path input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.82rem;
+}
+
+.bridge-hero-gen__message {
+  margin: 1rem 0 0;
+  font-size: 0.82rem;
+  color: #7eb8da;
+}

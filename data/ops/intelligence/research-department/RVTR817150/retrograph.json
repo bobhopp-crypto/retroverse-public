@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR817150",
+    "kind": "song",
+    "rvtr": "RVTR817150",
+    "generatedAt": "2026-06-28T23:03:30.123Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR817150",
+    "artist": "Audioslave",
+    "title": "Revelations",
+    "year": 2006,
+    "albumTitle": "Revelations",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL729016/RVAL729016__audioslave__revelations.jpg"
+  },
+  "artist": {
+    "name": "Audioslave",
+    "relatedArtists": [
+      "Audioslave"
+    ]
+  },
+  "album": {
+    "title": "Revelations",
+    "releaseYear": 2006,
+    "recordings": [
+      {
+        "id": "rec-q0hn9m",
+        "title": "Revelations",
+        "releaseDate": 2006,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-vjd9sv",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2006,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Audioslave - Revelations.mp4",
+      "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Revelations",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fcg98s",
+      "date": "2006",
+      "label": "Revelations — original release",
+      "detail": "Original album: Revelations",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-hcowms",
+      "date": "2006",
+      "label": "Revelations",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2006",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR817150",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL729016/RVAL729016__audioslave__revelations.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ba8c99599ac8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817150&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-vjd9sv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "50dea7d6ac7b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817150&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-vjd9sv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0b95c46c9afe",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817150&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-vjd9sv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1ae6e05ed74b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817150&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-vjd9sv",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dc8a70d3face",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR817150&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-vjd9sv",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-vjd9sv",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2006,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Audioslave - Revelations.mp4",
+        "notes": "Detected year: 2006. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR817150-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817150"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Audioslave"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Audioslave"
+    },
+    {
+      "id": "rel-RVTR817150-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817150"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-q0hn9m"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Revelations"
+    },
+    {
+      "id": "rel-RVTR817150-tl-tl-fcg98s",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817150"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcg98s"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Revelations — original release"
+    },
+    {
+      "id": "rel-RVTR817150-tl-tl-hcowms",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817150"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hcowms"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Revelations"
+    },
+    {
+      "id": "rel-RVTR817150-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817150"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR817150-perf-perf-vjd9sv",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR817150"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-vjd9sv"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-vjd9sv-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vjd9sv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Audioslave - Revelations.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-ba8c99599ac8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vjd9sv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ba8c99599ac8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-50dea7d6ac7b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vjd9sv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "50dea7d6ac7b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-0b95c46c9afe-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vjd9sv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0b95c46c9afe"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1ae6e05ed74b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vjd9sv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1ae6e05ed74b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-dc8a70d3face-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-vjd9sv"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dc8a70d3face"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR817150. \"Revelations\" by Audioslave. Album: Revelations (2006).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL729016/RVAL729016__audioslave__revelations.jpg",
+      "excerpt": "Canonical cover assignment for RVTR817150 (Revelations). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Revelations (2006)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Audioslave · Title: Revelations · Album: Revelations · Year: 2006 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Audioslave - Revelations.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2006.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-85ad64f0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Audioslave - Revelations.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-751de4f3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Audioslave - Revelations.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b6fabd79-d4db-4801-a9ac-77812d8d8e09",
+      "category": "artist",
+      "text": "Revelations is performed by Audioslave.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "042ca275-77ac-47cc-89dd-da9c56006418",
+      "category": "album",
+      "text": "The song appears on the album \"Revelations\" (2006).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "53a08959-a156-43d0-98a4-1574b08f1135",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR817150.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL729016/RVAL729016__audioslave__revelations.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c8972818-8875-401c-b09c-800afa533956",
+      "category": "recording",
+      "text": "Revelations was released in 2006.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "805db1b0-39a7-469a-84a8-a99ee00d7421",
+      "category": "trivia",
+      "text": "Artist: Audioslave · Title: Revelations · Album: Revelations · Year: 2006 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Audioslave - Revelations.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "35824d0c-e4ef-4e49-8f4b-ffe9b9064769",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Audioslave - Revelations.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b14ee3fe-6445-4ba0-868a-d0870fffb0ca",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Audioslave - Revelations.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 10,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Audioslave - Revelations.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

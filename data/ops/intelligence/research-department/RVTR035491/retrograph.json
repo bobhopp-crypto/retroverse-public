@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR035491",
+    "kind": "song",
+    "rvtr": "RVTR035491",
+    "generatedAt": "2026-06-28T22:44:09.750Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR035491",
+    "artist": "Lita Ford",
+    "title": "Hungry",
+    "year": 1990,
+    "albumTitle": "Stiletto",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Lita Ford",
+    "relatedArtists": [
+      "Lita Ford"
+    ]
+  },
+  "album": {
+    "title": "Stiletto",
+    "releaseYear": 1990,
+    "recordings": [
+      {
+        "id": "rec-glguaz",
+        "title": "Stiletto",
+        "releaseDate": 1990,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-v82px6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1990,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Lita Ford - Hungry.mp4",
+      "notes": "Detected year: 1990. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 98,
+    "chartWeeks": 1,
+    "albumTitle": "Stiletto",
+    "summary": "Hot 100 peak #98 · 1 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-8ak2rl",
+      "date": "1990",
+      "label": "Hungry — original release",
+      "detail": "Original album: Stiletto",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3mt",
+      "date": "1990",
+      "label": "Billboard Hot 100 peak #98",
+      "detail": "1 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-2vvdpe",
+      "date": "1990",
+      "label": "Stiletto",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1990",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "fe3010ab16f3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR035491&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-v82px6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "84cb3c98dd79",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR035491&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-v82px6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f528d8fc918f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR035491&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-v82px6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "31b168f5d946",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR035491&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-v82px6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7fc28d66c40d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR035491&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-v82px6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-v82px6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1990,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Lita Ford - Hungry.mp4",
+        "notes": "Detected year: 1990. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR035491-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR035491"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Lita Ford"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Lita Ford"
+    },
+    {
+      "id": "rel-RVTR035491-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR035491"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-glguaz"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Stiletto"
+    },
+    {
+      "id": "rel-RVTR035491-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR035491"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #98"
+    },
+    {
+      "id": "rel-RVTR035491-tl-tl-8ak2rl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR035491"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-8ak2rl"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hungry — original release"
+    },
+    {
+      "id": "rel-RVTR035491-tl-tl-fcm3mt",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR035491"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3mt"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #98"
+    },
+    {
+      "id": "rel-RVTR035491-tl-tl-2vvdpe",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR035491"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2vvdpe"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Stiletto"
+    },
+    {
+      "id": "rel-RVTR035491-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR035491"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR035491-perf-perf-v82px6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR035491"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-v82px6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-v82px6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v82px6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Lita Ford - Hungry.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-fe3010ab16f3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v82px6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fe3010ab16f3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-84cb3c98dd79-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v82px6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "84cb3c98dd79"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f528d8fc918f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v82px6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f528d8fc918f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-31b168f5d946-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v82px6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "31b168f5d946"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-7fc28d66c40d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v82px6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7fc28d66c40d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR035491. \"Hungry\" by Lita Ford. Album: Stiletto (1990).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Stiletto (1990). Billboard Hot 100 peak: #98. 1 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Lita Ford · Title: Hungry · Album: Hungry · Year: 1990 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Lita Ford - Hungry.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1990.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-31c33555",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Lita Ford - Hungry.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "999d471c-490b-4ee8-a7c9-6ca80f2c3220",
+      "category": "artist",
+      "text": "Hungry is performed by Lita Ford.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "76d5c2a1-aaeb-4878-94b4-851a9596536d",
+      "category": "album",
+      "text": "The song appears on the album \"Stiletto\" (1990).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9600d37f-c408-41ed-8729-2db3ea6426ce",
+      "category": "chart",
+      "text": "The song peaked at #98 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ae8d4c9d-7adf-4ffb-9855-e289005dd315",
+      "category": "recording",
+      "text": "Hungry was released in 1990.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "5b6c86fd-8a3b-4eb2-8c1c-733be713a46e",
+      "category": "trivia",
+      "text": "Artist: Lita Ford · Title: Hungry · Album: Hungry · Year: 1990 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Lita Ford - Hungry.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d7f9086a-a33f-49f9-a08e-143fa6c320db",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Lita Ford - Hungry.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Lita Ford - Hungry.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

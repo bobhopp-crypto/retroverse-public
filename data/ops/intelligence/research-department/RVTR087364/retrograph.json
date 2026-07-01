@@ -1,0 +1,527 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR087364",
+    "kind": "song",
+    "rvtr": "RVTR087364",
+    "generatedAt": "2026-06-28T22:45:14.539Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR087364",
+    "artist": "Rise Against",
+    "title": "Give It All",
+    "year": 2004,
+    "albumTitle": "Siren Song Of The Counter Culture",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL047144/RVAL047144__rise-against__siren-song-of-the-counter-culture.jpg"
+  },
+  "artist": {
+    "name": "Rise Against",
+    "relatedArtists": [
+      "Rise Against"
+    ]
+  },
+  "album": {
+    "title": "Siren Song Of The Counter Culture",
+    "releaseYear": 2004,
+    "recordings": [
+      {
+        "id": "rec-kviqu",
+        "title": "Siren Song Of The Counter Culture",
+        "releaseDate": 2004,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-yzpdka",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Rise Against - Give It All.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Siren Song Of The Counter Culture",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-lgb4wv",
+      "date": "2004",
+      "label": "Give It All — original release",
+      "detail": "Original album: Siren Song Of The Counter Culture",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-wu2lte",
+      "date": "2004",
+      "label": "Siren Song Of The Counter Culture",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR087364",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL047144/RVAL047144__rise-against__siren-song-of-the-counter-culture.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0df6adc7a9fc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087364&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-yzpdka",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a711cb084c94",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087364&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-yzpdka",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5023288fc54b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087364&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-yzpdka",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6006ac7ed4ff",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087364&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-yzpdka",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "45b22f5fb188",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR087364&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-yzpdka",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-yzpdka",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Rise Against - Give It All.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR087364-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087364"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Rise Against"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Rise Against"
+    },
+    {
+      "id": "rel-RVTR087364-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087364"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-kviqu"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Siren Song Of The Counter Culture"
+    },
+    {
+      "id": "rel-RVTR087364-tl-tl-lgb4wv",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087364"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-lgb4wv"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Give It All — original release"
+    },
+    {
+      "id": "rel-RVTR087364-tl-tl-wu2lte",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087364"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-wu2lte"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Siren Song Of The Counter Culture"
+    },
+    {
+      "id": "rel-RVTR087364-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087364"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR087364-perf-perf-yzpdka",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR087364"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-yzpdka"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-yzpdka-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzpdka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Rise Against - Give It All.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0df6adc7a9fc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzpdka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0df6adc7a9fc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-a711cb084c94-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzpdka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a711cb084c94"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5023288fc54b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzpdka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5023288fc54b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-6006ac7ed4ff-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzpdka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6006ac7ed4ff"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-45b22f5fb188-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-yzpdka"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "45b22f5fb188"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR087364. \"Give It All\" by Rise Against. Album: Siren Song Of The Counter Culture (2004).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL047144/RVAL047144__rise-against__siren-song-of-the-counter-culture.jpg",
+      "excerpt": "Canonical cover assignment for RVTR087364 (Give It All). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Siren Song Of The Counter Culture (2004)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Rise Against · Title: Give It All · Album: Siren Song Of The Counter Culture · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Rise Against - Give It All.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2004.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-44532b16",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Rise Against - Give It All.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "abd5d666-b3b8-46d3-a4cc-5b6c092e2665",
+      "category": "artist",
+      "text": "Give It All is performed by Rise Against.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0f1f16f1-6337-47e9-8a77-b40292430aa0",
+      "category": "album",
+      "text": "The song appears on the album \"Siren Song Of The Counter Culture\" (2004).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bb62e370-8ef4-49d7-9a64-5464f279932c",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR087364.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL047144/RVAL047144__rise-against__siren-song-of-the-counter-culture.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1a30ae5d-1544-42cc-b32a-694dab4ac0df",
+      "category": "recording",
+      "text": "Give It All was released in 2004.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "aed1bc4b-5d36-4ea4-965f-58facd1e49c2",
+      "category": "trivia",
+      "text": "Album: Siren Song Of The Counter Culture (2004).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e77fa6c8-28a1-49ea-a182-74012f8052e6",
+      "category": "trivia",
+      "text": "Album: Siren Song Of The Counter Culture (2004)",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "ad318f9e-c1f3-41d3-9956-8745b708e521",
+      "category": "trivia",
+      "text": "Artist: Rise Against · Title: Give It All · Album: Siren Song Of The Counter Culture · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Rise Against - Give It All.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a926c588-4fdc-4ae9-a121-42255d6dbbc9",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Rise Against - Give It All.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 11,
+    "preserved": 8,
+    "accepted": 6,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Rise Against - Give It All.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

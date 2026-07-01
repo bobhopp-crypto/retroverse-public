@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "rvtr": "RVTR251371",
+  "artist": "Clay Walker",
+  "title": "That's Us",
+  "generatedAt": "2026-06-28T22:49:22.149Z",
+  "editorDistillVersion": "2026-06-26.a4",
+  "identity": {
+    "rvtr": "RVTR251371",
+    "artist": "Clay Walker",
+    "title": "That's Us",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "recordings": [],
+  "performances": [
+    {
+      "id": "perf-5dvz83",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1970,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - That's Us.mp4",
+      "notes": "Detected year: 1970. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "facts": [
+    {
+      "id": "4e9df3ae-2e6e-4bd0-9c8a-38d75e52bc26",
+      "category": "artist",
+      "text": "That's Us is performed by Clay Walker.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7109a785-04eb-4b2c-9f36-35c6c6cd7b03",
+      "category": "trivia",
+      "text": "Artist: Clay Walker · Title: That's Us · Album: The Fortunes - That Same Old Feeling · Year: 1970 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - That's Us.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2f97eeef-2cb8-4642-a1f3-ad13426038fa",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - That's Us.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "images": [
+    {
+      "assetId": "8460a0b6a600",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR251371&file=close-up.jpg",
+      "caption": "Sharpest close-up in sequence",
+      "label": "Close-up",
+      "category": "Close-up",
+      "performanceId": "perf-5dvz83",
+      "status": "available",
+      "unusedReason": null
+    }
+  ],
+  "timelines": [
+    {
+      "id": "tl-kkq74h",
+      "date": "1970",
+      "label": "That's Us — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1970",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR251371. \"That's Us\" by Clay Walker.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Clay Walker · Title: That's Us · Album: The Fortunes - That Same Old Feeling · Year: 1970 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - That's Us.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-3a2f565f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - That's Us.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Clay Walker - That's Us.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedArtists": [
+    "Clay Walker"
+  ],
+  "relatedSongs": [],
+  "missingAreas": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  }
+}

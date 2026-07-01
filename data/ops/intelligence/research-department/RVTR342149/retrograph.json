@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR342149",
+    "kind": "song",
+    "rvtr": "RVTR342149",
+    "generatedAt": "2026-06-28T22:51:01.640Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR342149",
+    "artist": "Teddybears",
+    "title": "Cobrastyle",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Teddybears",
+    "relatedArtists": [
+      "Teddybears"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-6xe8f7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Teddybears - Cobrastyle.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-yd6da8",
+      "date": "2004",
+      "label": "Cobrastyle — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c3cc83d41898",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR342149&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-6xe8f7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "72d2c9d11500",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR342149&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-6xe8f7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "139aa1ce7320",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR342149&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-6xe8f7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "44a3bc086efc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR342149&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-6xe8f7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8b165d737446",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR342149&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-6xe8f7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-6xe8f7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Teddybears - Cobrastyle.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR342149-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR342149"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Teddybears"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Teddybears"
+    },
+    {
+      "id": "rel-RVTR342149-tl-tl-yd6da8",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR342149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-yd6da8"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Cobrastyle — original release"
+    },
+    {
+      "id": "rel-RVTR342149-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR342149"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR342149-perf-perf-6xe8f7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR342149"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-6xe8f7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-6xe8f7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6xe8f7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Teddybears - Cobrastyle.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c3cc83d41898-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6xe8f7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c3cc83d41898"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-72d2c9d11500-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6xe8f7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "72d2c9d11500"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-139aa1ce7320-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6xe8f7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "139aa1ce7320"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-44a3bc086efc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6xe8f7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "44a3bc086efc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-8b165d737446-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-6xe8f7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8b165d737446"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR342149. \"Cobrastyle\" by Teddybears.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Teddybears · Title: Cobrastyle · Album: Teddybears Sthlm - Fresh! · Year: 2004 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Teddybears - Cobrastyle.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-1225cf61",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Teddybears - Cobrastyle.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "75cb6165-783e-4c0a-b8f3-11a2e1e9ffe9",
+      "category": "artist",
+      "text": "Cobrastyle is performed by Teddybears.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "55884add-86b1-4acf-88e2-96e48ad3c3d0",
+      "category": "trivia",
+      "text": "Artist: Teddybears · Title: Cobrastyle · Album: Teddybears Sthlm - Fresh!",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "547be920-a7db-46ed-88bb-cecee033ea5a",
+      "category": "trivia",
+      "text": "· Year: 2004 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Teddybears - Cobrastyle.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ce2bcf39-6e2f-430f-8dac-23e3d190595b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Teddybears - Cobrastyle.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Teddybears - Cobrastyle.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

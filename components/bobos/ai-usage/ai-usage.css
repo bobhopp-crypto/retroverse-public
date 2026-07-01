@@ -1,0 +1,227 @@
+/* BobOS AI Usage — manual cost/credit tracker, graphite theme to match BobOS shell. */
+
+.ai-usage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(1rem, 2vw, 1.75rem);
+  color: #f0f0f0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.ai-usage__header h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.ai-usage__header p {
+  margin: 0.35rem 0 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Cards ── */
+
+.ai-usage__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.ai-usage__card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.9rem 1rem;
+}
+
+.ai-usage__card-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ai-usage__card-value {
+  margin: 0.3rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #7eb8da;
+}
+
+/* ── Breakdowns ── */
+
+.ai-usage__breakdowns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.ai-usage__breakdown {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+
+.ai-usage__breakdown h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ai-usage__breakdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.ai-usage__breakdown li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.ai-usage__breakdown li span:last-child {
+  color: #5ec47a;
+  font-weight: 600;
+}
+
+.ai-usage__empty {
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+/* ── Form ── */
+
+.ai-usage__form {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+}
+
+.ai-usage__form h2 {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ai-usage__form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.ai-usage__form-grid label,
+.ai-usage__csv-import {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ai-usage__form-notes {
+  grid-column: 1 / -1;
+}
+
+.ai-usage__form-grid input,
+.ai-usage__form-grid select,
+.ai-usage__form-grid textarea {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  background: #1c1f22;
+  color: #f0f0f0;
+  font: inherit;
+  font-weight: 400;
+}
+
+.ai-usage__form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.ai-usage__form-actions button {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(126, 184, 218, 0.5);
+  border-radius: 6px;
+  background: #2a3a45;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ai-usage__form-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ai-usage__csv-import input[type="file"] {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ai-usage__error {
+  color: #e08585;
+  font-weight: 600;
+  margin: 0.6rem 0 0;
+}
+
+.ai-usage__import-status {
+  color: #5ec47a;
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+}
+
+/* ── Table ── */
+
+.ai-usage__table-wrap h2 {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ai-usage__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.ai-usage__table th,
+.ai-usage__table td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ai-usage__table th {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ai-usage__notes-cell {
+  white-space: normal;
+  max-width: 260px;
+  color: rgba(255, 255, 255, 0.65);
+}

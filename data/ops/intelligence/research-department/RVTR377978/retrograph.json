@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR377978",
+    "kind": "song",
+    "rvtr": "RVTR377978",
+    "generatedAt": "2026-06-28T22:51:38.637Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR377978",
+    "artist": "Chantay's",
+    "title": "Pipeline",
+    "year": 1963,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Chantay's",
+    "relatedArtists": [
+      "Chantay's"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1963,
+    "recordings": [
+      {
+        "id": "rec-fd42n7",
+        "title": "Pipeline — graph recording",
+        "releaseDate": 1963,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-jjxdz5",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1962,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Chantays - Pipeline.mp4",
+      "notes": "Detected year: 1962. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 4,
+    "chartWeeks": 16,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #4 · 16 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-nrlu9i",
+      "date": "1963",
+      "label": "Pipeline — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2m",
+      "date": "1963",
+      "label": "Billboard Hot 100 peak #4",
+      "detail": "16 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-pu0fef",
+      "date": "1963",
+      "label": "Pipeline — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1962",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "9f6caca5f315",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377978&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-jjxdz5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "783655199c3b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377978&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-jjxdz5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cf02a8d23d4d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377978&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-jjxdz5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "10f2f732c3f5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377978&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-jjxdz5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "532b50df6c8d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR377978&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-jjxdz5",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-jjxdz5",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1962,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Chantays - Pipeline.mp4",
+        "notes": "Detected year: 1962. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR377978-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377978"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Chantay's"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Chantay's"
+    },
+    {
+      "id": "rel-RVTR377978-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377978"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #4"
+    },
+    {
+      "id": "rel-RVTR377978-tl-tl-nrlu9i",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377978"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nrlu9i"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Pipeline — original release"
+    },
+    {
+      "id": "rel-RVTR377978-tl-tl-l47p2m",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377978"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2m"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #4"
+    },
+    {
+      "id": "rel-RVTR377978-tl-tl-pu0fef",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377978"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-pu0fef"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Pipeline — graph recording"
+    },
+    {
+      "id": "rel-RVTR377978-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377978"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR377978-perf-perf-jjxdz5",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR377978"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-jjxdz5"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-jjxdz5-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jjxdz5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Chantays - Pipeline.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-9f6caca5f315-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jjxdz5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9f6caca5f315"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-783655199c3b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jjxdz5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "783655199c3b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-cf02a8d23d4d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jjxdz5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cf02a8d23d4d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-10f2f732c3f5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jjxdz5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "10f2f732c3f5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-532b50df6c8d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-jjxdz5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "532b50df6c8d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR377978. \"Pipeline\" by Chantay's.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #4. 16 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Chantays · Title: Pipeline · Album: Chantay's - Pipeline · Year: 1962 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Chantays - Pipeline.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1963.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f72df77a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Chantays - Pipeline.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5ae5e7ea",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Chantays - Pipeline.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0537fb2c-33a0-4cab-9656-3d76834a78ee",
+      "category": "artist",
+      "text": "Pipeline is performed by Chantay's.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c07de691-860b-4839-9f52-15d886d96529",
+      "category": "chart",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ec1114a1-ed47-4543-9565-c82cbee93ab2",
+      "category": "recording",
+      "text": "Pipeline was released in 1963.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "7e2e36e6-0f3d-45e7-b037-c0a55acda5ec",
+      "category": "trivia",
+      "text": "Artist: The Chantays · Title: Pipeline · Album: Chantay's - Pipeline · Year: 1962 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Chantays - Pipeline.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4a3929c7-a599-4812-9233-0ff4f036e082",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Chantays - Pipeline.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1656bfe4-5b8c-4eac-92b2-e23923212da4",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Chantays - Pipeline.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Chantays - Pipeline.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

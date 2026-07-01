@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR513407",
+    "kind": "song",
+    "rvtr": "RVTR513407",
+    "generatedAt": "2026-06-28T22:54:41.565Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR513407",
+    "artist": "T-pain",
+    "title": "Booty Wurk One Cheek At A Time",
+    "year": 2011,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "T-pain",
+    "relatedArtists": [
+      "T-pain"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-itqf99",
+        "title": "Booty Wurk One Cheek At A Time — graph recording",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-syxbb5",
+      "title": "Booty Wurk",
+      "kind": "performance",
+      "year": 2014,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/T-Pain - Booty Wurk.mp4",
+      "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 44,
+    "chartWeeks": 7,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #44 · 7 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-neu4cp",
+      "date": "2011",
+      "label": "Booty Wurk One Cheek At A Time — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3ie",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #44",
+      "detail": "7 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-h0hm6c",
+      "date": "2011",
+      "label": "Booty Wurk One Cheek At A Time — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-ood5xg",
+      "date": "2014",
+      "label": "Booty Wurk",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "426222b8de05",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR513407&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-syxbb5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b52e012c3701",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR513407&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-syxbb5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "71badae9a463",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR513407&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-syxbb5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f781cb5ad2da",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR513407&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-syxbb5",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c8c2f4136ea7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR513407&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-syxbb5",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-syxbb5",
+        "title": "Booty Wurk",
+        "kind": "performance",
+        "year": 2014,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/T-Pain - Booty Wurk.mp4",
+        "notes": "Detected year: 2014. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR513407-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR513407"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "T-pain"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "T-pain"
+    },
+    {
+      "id": "rel-RVTR513407-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR513407"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #44"
+    },
+    {
+      "id": "rel-RVTR513407-tl-tl-neu4cp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR513407"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-neu4cp"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Booty Wurk One Cheek At A Time — original release"
+    },
+    {
+      "id": "rel-RVTR513407-tl-tl-fcm3ie",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR513407"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3ie"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #44"
+    },
+    {
+      "id": "rel-RVTR513407-tl-tl-h0hm6c",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR513407"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-h0hm6c"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Booty Wurk One Cheek At A Time — graph recording"
+    },
+    {
+      "id": "rel-RVTR513407-tl-tl-ood5xg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR513407"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ood5xg"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Booty Wurk"
+    },
+    {
+      "id": "rel-RVTR513407-perf-perf-syxbb5",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR513407"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-syxbb5"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Booty Wurk"
+    },
+    {
+      "id": "rel-perf-syxbb5-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syxbb5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/T-Pain - Booty Wurk.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Booty Wurk"
+    },
+    {
+      "id": "rel-426222b8de05-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syxbb5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "426222b8de05"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b52e012c3701-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syxbb5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b52e012c3701"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-71badae9a463-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syxbb5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "71badae9a463"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-f781cb5ad2da-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syxbb5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f781cb5ad2da"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-c8c2f4136ea7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-syxbb5"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c8c2f4136ea7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR513407. \"Booty Wurk One Cheek At A Time\" by T-pain.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #44. 7 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: T-Pain · Title: Booty Wurk · Album: T-Pain Presents Happy Hour: The Greatest Hits · Year: 2014 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/T-Pain - Booty Wurk.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-b9f41763",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/T-Pain - Booty Wurk.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "f47bb806-1dc9-4a5c-8699-358739425145",
+      "category": "artist",
+      "text": "Booty Wurk One Cheek At A Time is performed by T-pain.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "53f3e5a8-587a-4402-95da-3032de4eca1b",
+      "category": "chart",
+      "text": "The song peaked at #44 on the Billboard Hot 100 and spent 7 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7f3f9b02-95ed-48aa-9933-8f5a1b7ab720",
+      "category": "recording",
+      "text": "Booty Wurk One Cheek At A Time was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "fcf178b5-2d8b-4d8b-8eaf-49def077cbcb",
+      "category": "trivia",
+      "text": "\"Booty Wurk One Cheek At A Time\" by T-pain.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "825018cb-a9ab-45ea-abbb-e24557d334d6",
+      "category": "trivia",
+      "text": "Artist: T-Pain · Title: Booty Wurk · Album: T-Pain Presents Happy Hour: The Greatest Hits · Year: 2014 · Genre: Funk / Soul · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/T-Pain - Booty Wurk.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1de8fc5e-50c8-46b3-89bd-eedab336d25c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/T-Pain - Booty Wurk.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/T-Pain - Booty Wurk.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

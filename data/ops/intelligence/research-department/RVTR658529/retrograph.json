@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR658529",
+    "kind": "song",
+    "rvtr": "RVTR658529",
+    "generatedAt": "2026-06-28T22:58:46.143Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR658529",
+    "artist": "Keith Urban",
+    "title": "Days Go By",
+    "year": 2004,
+    "albumTitle": "Be Here",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL543594/RVAL543594__keith-urban__be-here.jpg"
+  },
+  "artist": {
+    "name": "Keith Urban",
+    "relatedArtists": [
+      "Keith Urban"
+    ]
+  },
+  "album": {
+    "title": "Be Here",
+    "releaseYear": 2004,
+    "recordings": [
+      {
+        "id": "rec-dfz8tr",
+        "title": "Be Here",
+        "releaseDate": 2004,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-kchera",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2004,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Keith Urban - Days Go By.mp4",
+      "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 31,
+    "chartWeeks": 20,
+    "albumTitle": "Be Here",
+    "summary": "Hot 100 peak #31 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-sdq316",
+      "date": "2004",
+      "label": "Days Go By — original release",
+      "detail": "Original album: Be Here",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3hg",
+      "date": "2004",
+      "label": "Billboard Hot 100 peak #31",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-qglpsp",
+      "date": "2004",
+      "label": "Be Here",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2004",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR658529",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL543594/RVAL543594__keith-urban__be-here.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0c8152a0067c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR658529&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-kchera",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "d4d0d8472480",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR658529&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-kchera",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "507735096587",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR658529&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-kchera",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "de6fd664d540",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR658529&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-kchera",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e20efc3190c7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR658529&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-kchera",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-kchera",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2004,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Keith Urban - Days Go By.mp4",
+        "notes": "Detected year: 2004. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR658529-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR658529"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Keith Urban"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Keith Urban"
+    },
+    {
+      "id": "rel-RVTR658529-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR658529"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-dfz8tr"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Be Here"
+    },
+    {
+      "id": "rel-RVTR658529-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR658529"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #31"
+    },
+    {
+      "id": "rel-RVTR658529-tl-tl-sdq316",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR658529"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-sdq316"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Days Go By — original release"
+    },
+    {
+      "id": "rel-RVTR658529-tl-tl-fcm3hg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR658529"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3hg"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #31"
+    },
+    {
+      "id": "rel-RVTR658529-tl-tl-qglpsp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR658529"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-qglpsp"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Be Here"
+    },
+    {
+      "id": "rel-RVTR658529-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR658529"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR658529-perf-perf-kchera",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR658529"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-kchera"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-kchera-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kchera"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Keith Urban - Days Go By.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-0c8152a0067c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kchera"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0c8152a0067c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-d4d0d8472480-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kchera"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "d4d0d8472480"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-507735096587-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kchera"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "507735096587"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-de6fd664d540-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kchera"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "de6fd664d540"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e20efc3190c7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-kchera"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e20efc3190c7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR658529. \"Days Go By\" by Keith Urban. Album: Be Here (2004).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL543594/RVAL543594__keith-urban__be-here.jpg",
+      "excerpt": "Canonical cover assignment for RVTR658529 (Days Go By). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Be Here (2004). Billboard Hot 100 peak: #31. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Keith Urban · Title: Days Go By · Album: Days Go By · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Keith Urban - Days Go By.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2004.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-bcb763dd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Keith Urban - Days Go By.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2e62f65a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1990's-00's/Keith Urban- Days Go By.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-bd2842b6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/UNFILED/Days Go By - Keith Urban.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "46d97f7d-8242-4cc1-a700-0601be96a239",
+      "category": "artist",
+      "text": "Days Go By is performed by Keith Urban.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ff6d4419-629f-4585-a229-367bdec2da7c",
+      "category": "album",
+      "text": "The song appears on the album \"Be Here\" (2004).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7de79df5-e6d5-4b41-8361-3f96c6ab5fd9",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR658529.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL543594/RVAL543594__keith-urban__be-here.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a72f020b-3ef8-499f-b9f5-283c3ca84abc",
+      "category": "chart",
+      "text": "The song peaked at #31 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "40527cc6-7318-4a88-ae78-6706e74746fd",
+      "category": "recording",
+      "text": "Days Go By was released in 2004.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "f1e1338b-f0d2-48e4-bf0f-2726a06affc3",
+      "category": "trivia",
+      "text": "Artist: Keith Urban · Title: Days Go By · Album: Days Go By · Year: 2004 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Keith Urban - Days Go By.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "3d6b163f-6931-4ea1-97b1-d3ee0401c928",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Keith Urban - Days Go By.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f0f767b2-7e83-4421-88f3-2336fcd15d48",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/1990's-00's/Keith Urban- Days Go By.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "efcad243-f2be-4c17-b92b-7542a1c96447",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/COUNTRY/UNFILED/Days Go By - Keith Urban.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 9,
+    "accepted": 5,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Keith Urban - Days Go By.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

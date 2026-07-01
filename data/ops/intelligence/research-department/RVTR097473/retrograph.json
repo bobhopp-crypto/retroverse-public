@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR097473",
+    "kind": "song",
+    "rvtr": "RVTR097473",
+    "generatedAt": "2026-06-28T22:45:36.809Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR097473",
+    "artist": "Weezer",
+    "title": "If You'Re Wondering If I Want You To I Want You To",
+    "year": 2009,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Weezer",
+    "relatedArtists": [
+      "Weezer"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 2009,
+    "recordings": [
+      {
+        "id": "rec-3c97i7",
+        "title": "If You'Re Wondering If I Want You To I Want You To — graph recording",
+        "releaseDate": 2009,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-ebb2re",
+      "title": "If Youre Wondering If I Want You To I Want You To",
+      "kind": "performance",
+      "year": 2009,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Weezer - If Youre Wondering If I Want You To I Want You To.mp4",
+      "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 81,
+    "chartWeeks": 9,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #81 · 9 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-mktsja",
+      "date": "2009",
+      "label": "If You'Re Wondering If I Want You To I Want You To — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3lr",
+      "date": "2009",
+      "label": "Billboard Hot 100 peak #81",
+      "detail": "9 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-4sc761",
+      "date": "2009",
+      "label": "If You'Re Wondering If I Want You To I Want You To — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-z9ht1f",
+      "date": "2009",
+      "label": "If Youre Wondering If I Want You To I Want You To",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "80de1a05c711",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097473&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-ebb2re",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b0918641cbba",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097473&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-ebb2re",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5442801214d7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097473&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-ebb2re",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ba6afac4a50f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097473&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-ebb2re",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "293a463cd545",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR097473&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-ebb2re",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-ebb2re",
+        "title": "If Youre Wondering If I Want You To I Want You To",
+        "kind": "performance",
+        "year": 2009,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Weezer - If Youre Wondering If I Want You To I Want You To.mp4",
+        "notes": "Detected year: 2009. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR097473-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097473"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Weezer"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Weezer"
+    },
+    {
+      "id": "rel-RVTR097473-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097473"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #81"
+    },
+    {
+      "id": "rel-RVTR097473-tl-tl-mktsja",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097473"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-mktsja"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "If You'Re Wondering If I Want You To I Want You To — original release"
+    },
+    {
+      "id": "rel-RVTR097473-tl-tl-fcm3lr",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097473"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3lr"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #81"
+    },
+    {
+      "id": "rel-RVTR097473-tl-tl-4sc761",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097473"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4sc761"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "If You'Re Wondering If I Want You To I Want You To — graph recording"
+    },
+    {
+      "id": "rel-RVTR097473-tl-tl-z9ht1f",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097473"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-z9ht1f"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "If Youre Wondering If I Want You To I Want You To"
+    },
+    {
+      "id": "rel-RVTR097473-perf-perf-ebb2re",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR097473"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-ebb2re"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "If Youre Wondering If I Want You To I Want You To"
+    },
+    {
+      "id": "rel-perf-ebb2re-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebb2re"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Weezer - If Youre Wondering If I Want You To I Want You To.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "If Youre Wondering If I Want You To I Want You To"
+    },
+    {
+      "id": "rel-80de1a05c711-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebb2re"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "80de1a05c711"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b0918641cbba-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebb2re"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b0918641cbba"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-5442801214d7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebb2re"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5442801214d7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ba6afac4a50f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebb2re"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ba6afac4a50f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-293a463cd545-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-ebb2re"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "293a463cd545"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR097473. \"If You'Re Wondering If I Want You To I Want You To\" by Weezer.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #81. 9 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Weezer · Title: If Youre Wondering If I Want You To I Want You To · Album: HV 1-10 · Year: 2009 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Weezer - If Youre Wondering If I Want You To I Want You To.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2009.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-965b98aa",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Weezer - If Youre Wondering If I Want You To I Want You To.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-c7361012",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Weezer - Im Your Daddy.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ba586ce1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Weezer - (If You're Wondering If I Want Yo.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "d64e1995-27ca-4b50-910f-aee94090039c",
+      "category": "artist",
+      "text": "If You'Re Wondering If I Want You To I Want You To is performed by Weezer.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4f18e042-cc2d-4d3f-9c81-7dcb2b2cda55",
+      "category": "chart",
+      "text": "The song peaked at #81 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7c7b4b21-43ea-4619-9f2a-892010bdf422",
+      "category": "recording",
+      "text": "If You'Re Wondering If I Want You To I Want You To was released in 2009.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f4bea95d-fd9c-41b8-9698-a706fd899814",
+      "category": "trivia",
+      "text": "\"If You'Re Wondering If I Want You To I Want You To\" by Weezer.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "36843d51-4a84-4d78-b4c1-bb1b26ede5a7",
+      "category": "trivia",
+      "text": "Artist: Weezer · Title: If Youre Wondering If I Want You To I Want You To · Album: HV 1-10 · Year: 2009 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Weezer - If Youre Wondering If I Want You To I Want You To.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "41ed4d8f-b2eb-40a4-bb2c-7206fc706d0c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Weezer - If Youre Wondering If I Want You To I Want You To.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4485e6a5-101d-46d0-a13f-581aa55d7690",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Weezer - Im Your Daddy.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1ffa4cdf-7127-4a9c-b2a1-ec46dfcac52d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Weezer - (If You're Wondering If I Want Yo.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 8,
+    "accepted": 4,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Weezer - If Youre Wondering If I Want You To I Want You To.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

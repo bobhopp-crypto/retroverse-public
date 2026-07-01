@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR068172",
+    "kind": "song",
+    "rvtr": "RVTR068172",
+    "generatedAt": "2026-06-28T22:44:49.928Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR068172",
+    "artist": "Madonna",
+    "title": "Who's That Girl",
+    "year": 1987,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Madonna",
+    "relatedArtists": [
+      "Madonna"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1987,
+    "recordings": [
+      {
+        "id": "rec-l1sjoi",
+        "title": "Who's That Girl — graph recording",
+        "releaseDate": 1987,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-mi2loi",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2017,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Who's That Girl.mp4",
+      "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 16,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 16 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-58jgl9",
+      "date": "1987",
+      "label": "Who's That Girl — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "1987",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "16 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-4r0k5e",
+      "date": "1987",
+      "label": "Who's That Girl — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2017",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "865befa0d33d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068172&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mi2loi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "20dae8292e92",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068172&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mi2loi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "0ae7eb58ddec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068172&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mi2loi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "70f93e7a0260",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068172&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mi2loi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "45c405385378",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR068172&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mi2loi",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mi2loi",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2017,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Who's That Girl.mp4",
+        "notes": "Detected year: 2017. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR068172-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068172"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Madonna"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Madonna"
+    },
+    {
+      "id": "rel-RVTR068172-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068172"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR068172-tl-tl-58jgl9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068172"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-58jgl9"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Who's That Girl — original release"
+    },
+    {
+      "id": "rel-RVTR068172-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068172"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR068172-tl-tl-4r0k5e",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068172"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-4r0k5e"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Who's That Girl — graph recording"
+    },
+    {
+      "id": "rel-RVTR068172-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068172"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR068172-perf-perf-mi2loi",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR068172"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mi2loi"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mi2loi-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mi2loi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Who's That Girl.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-865befa0d33d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mi2loi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "865befa0d33d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-20dae8292e92-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mi2loi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "20dae8292e92"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-0ae7eb58ddec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mi2loi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "0ae7eb58ddec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-70f93e7a0260-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mi2loi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "70f93e7a0260"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-45c405385378-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mi2loi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "45c405385378"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR068172. \"Who's That Girl\" by Madonna.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #1. 16 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Madonna · Title: Who's That Girl · Album: 30 Years Of Madonna · Year: 2017 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Who's That Girl.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1987.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f6c3768c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Who's That Girl.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-34f8ba41",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Madonna - Who's That Girl.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-da4ea77a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Madonna - Who's That Girl.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4f74fc60-a36f-465c-9e86-e4b62c95dce8",
+      "category": "artist",
+      "text": "Who's That Girl is performed by Madonna.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1fd2af6f-cbed-4720-b74c-8ed4024db7d6",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6b391418-8670-43b4-aee7-ce325fd3db19",
+      "category": "recording",
+      "text": "Who's That Girl was released in 1987.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4f7c0779-0e0a-499b-84dd-ce3fcf079c71",
+      "category": "trivia",
+      "text": "Artist: Madonna · Title: Who's That Girl · Album: 30 Years Of Madonna · Year: 2017 · Genre: Electro · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Who's That Girl.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9dd605d6-a018-47bc-a2be-9bbf584465a0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Who's That Girl.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "72754066-a3dc-4ced-8d89-39485581ee83",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Madonna - Who's That Girl.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "85890fc3-9c16-4c2d-a74d-0adeefc5f272",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Madonna - Who's That Girl.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 3,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Who's That Girl.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR265383",
+    "kind": "song",
+    "rvtr": "RVTR265383",
+    "generatedAt": "2026-06-28T22:49:34.103Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR265383",
+    "artist": "Amber",
+    "title": "This Is Your Night",
+    "year": 1996,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Amber",
+    "relatedArtists": [
+      "Amber"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1996,
+    "recordings": [
+      {
+        "id": "rec-42rwe8",
+        "title": "This Is Your Night — graph recording",
+        "releaseDate": 1996,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-k4jiw6",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1996,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - This Is Your Night.mp4",
+      "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 24,
+    "chartWeeks": 40,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #24 · 40 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-25sih9",
+      "date": "1996",
+      "label": "This Is Your Night — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-fcm3go",
+      "date": "1996",
+      "label": "Billboard Hot 100 peak #24",
+      "detail": "40 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-bgn6i",
+      "date": "1996",
+      "label": "This Is Your Night — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1996",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "fde076cfc09a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR265383&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-k4jiw6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8e4555eba51f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR265383&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-k4jiw6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ae7e59823c96",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR265383&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-k4jiw6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "84cc0265c048",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR265383&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-k4jiw6",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6e8709479f97",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR265383&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-k4jiw6",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-k4jiw6",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1996,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - This Is Your Night.mp4",
+        "notes": "Detected year: 1996. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR265383-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR265383"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Amber"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Amber"
+    },
+    {
+      "id": "rel-RVTR265383-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR265383"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #24"
+    },
+    {
+      "id": "rel-RVTR265383-tl-tl-25sih9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR265383"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-25sih9"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "This Is Your Night — original release"
+    },
+    {
+      "id": "rel-RVTR265383-tl-tl-fcm3go",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR265383"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fcm3go"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #24"
+    },
+    {
+      "id": "rel-RVTR265383-tl-tl-bgn6i",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR265383"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-bgn6i"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "This Is Your Night — graph recording"
+    },
+    {
+      "id": "rel-RVTR265383-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR265383"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR265383-perf-perf-k4jiw6",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR265383"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-k4jiw6"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-k4jiw6-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k4jiw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - This Is Your Night.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-fde076cfc09a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k4jiw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fde076cfc09a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-8e4555eba51f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k4jiw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8e4555eba51f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-ae7e59823c96-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k4jiw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ae7e59823c96"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-84cc0265c048-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k4jiw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "84cc0265c048"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-6e8709479f97-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-k4jiw6"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6e8709479f97"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR265383. \"This Is Your Night\" by Amber.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #24. 40 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Amber · Title: This Is Your Night · Album: This Is Your Night · Year: 1996 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - This Is Your Night.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1996.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-f8ae39ad",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - This Is Your Night.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-09e4e2b0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Amber - This Is Your Night.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-740ab504",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Amber - This Is Your Night.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8ad52181-ca3d-49eb-b55b-d8abcf344528",
+      "category": "artist",
+      "text": "This Is Your Night is performed by Amber.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "31968d15-de8d-4e20-b320-61b1fb3973e9",
+      "category": "chart",
+      "text": "The song peaked at #24 on the Billboard Hot 100 and spent 40 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c40cc29c-2883-4c71-8e92-f7d33d6c0b57",
+      "category": "recording",
+      "text": "This Is Your Night was released in 1996.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "8d595be8-27aa-4e41-b8d6-0d55722f746a",
+      "category": "trivia",
+      "text": "Artist: Amber · Title: This Is Your Night · Album: This Is Your Night · Year: 1996 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - This Is Your Night.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c9167c47-34ec-4e42-8d1a-449a802a6f07",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - This Is Your Night.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "19f0375a-8207-4e35-bfa0-26762f6ef84e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Amber - This Is Your Night.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c7e6515a-272d-47b4-b946-9036aa4ddf66",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Amber - This Is Your Night.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 3,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Amber - This Is Your Night.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

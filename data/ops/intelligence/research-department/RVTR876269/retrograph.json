@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR876269",
+    "kind": "song",
+    "rvtr": "RVTR876269",
+    "generatedAt": "2026-06-28T23:05:41.467Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR876269",
+    "artist": "Ofenbach",
+    "title": "Be Mine",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ofenbach",
+    "relatedArtists": [
+      "Ofenbach"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-e0hc2u",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2016,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ofenbach - Be Mine.mp4",
+      "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-7h7o6k",
+      "date": "2016",
+      "label": "Be Mine — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2016",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "941c8e3e89ca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876269&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-e0hc2u",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "ccc61ea04cc2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876269&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-e0hc2u",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e60eabab8522",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876269&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-e0hc2u",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "40ff98134368",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876269&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-e0hc2u",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9c4bc8673818",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR876269&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-e0hc2u",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-e0hc2u",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2016,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ofenbach - Be Mine.mp4",
+        "notes": "Detected year: 2016. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR876269-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876269"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ofenbach"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ofenbach"
+    },
+    {
+      "id": "rel-RVTR876269-tl-tl-7h7o6k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876269"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7h7o6k"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Be Mine — original release"
+    },
+    {
+      "id": "rel-RVTR876269-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876269"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR876269-perf-perf-e0hc2u",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR876269"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-e0hc2u"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-e0hc2u-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e0hc2u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ofenbach - Be Mine.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-941c8e3e89ca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e0hc2u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "941c8e3e89ca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-ccc61ea04cc2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e0hc2u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ccc61ea04cc2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-e60eabab8522-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e0hc2u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e60eabab8522"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-40ff98134368-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e0hc2u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "40ff98134368"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-9c4bc8673818-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-e0hc2u"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9c4bc8673818"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR876269. \"Be Mine\" by Ofenbach.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ofenbach · Title: Be Mine · Album: Be Mine · Year: 2016 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ofenbach - Be Mine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f4acb4c7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ofenbach - Be Mine.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "09189243-cbce-45f5-87bb-a9b312ae30d3",
+      "category": "artist",
+      "text": "Be Mine is performed by Ofenbach.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "4acf065d-17e5-4ea1-9c6a-18be83343d96",
+      "category": "trivia",
+      "text": "Artist: Ofenbach · Title: Be Mine · Album: Be Mine · Year: 2016 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ofenbach - Be Mine.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "938a9d78-f361-4df8-a599-1243b1616b0a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ofenbach - Be Mine.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ofenbach - Be Mine.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

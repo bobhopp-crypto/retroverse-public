@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR613559",
+    "kind": "song",
+    "rvtr": "RVTR613559",
+    "generatedAt": "2026-06-28T22:57:30.418Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR613559",
+    "artist": "Elvis Presley",
+    "title": "Hard Luck",
+    "year": 1966,
+    "albumTitle": "Frankie And Johnny",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL718440/RVAL718440__elvis-presley__frankie-and-johnny.jpg"
+  },
+  "artist": {
+    "name": "Elvis Presley",
+    "relatedArtists": [
+      "Elvis Presley"
+    ]
+  },
+  "album": {
+    "title": "Frankie And Johnny",
+    "releaseYear": 1966,
+    "recordings": [
+      {
+        "id": "rec-xzo33l",
+        "title": "Frankie And Johnny",
+        "releaseDate": 1966,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-mjp0fm",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1965,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Elvis Presley - Hard Luck.mp4",
+      "notes": "Detected year: 1965. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Frankie And Johnny",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-fg0zw6",
+      "date": "1966",
+      "label": "Hard Luck — original release",
+      "detail": "Original album: Frankie And Johnny",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-x6ktid",
+      "date": "1966",
+      "label": "Frankie And Johnny",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1965",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR613559",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL718440/RVAL718440__elvis-presley__frankie-and-johnny.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6a30f7fd9394",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR613559&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-mjp0fm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4e033df0f0d0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR613559&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-mjp0fm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "32c354ff0647",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR613559&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-mjp0fm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "01df2adb1a2a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR613559&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-mjp0fm",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "05426a946724",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR613559&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-mjp0fm",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-mjp0fm",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1965,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Elvis Presley - Hard Luck.mp4",
+        "notes": "Detected year: 1965. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR613559-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR613559"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Elvis Presley"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Elvis Presley"
+    },
+    {
+      "id": "rel-RVTR613559-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR613559"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-xzo33l"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Frankie And Johnny"
+    },
+    {
+      "id": "rel-RVTR613559-tl-tl-fg0zw6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR613559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-fg0zw6"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Hard Luck — original release"
+    },
+    {
+      "id": "rel-RVTR613559-tl-tl-x6ktid",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR613559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-x6ktid"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Frankie And Johnny"
+    },
+    {
+      "id": "rel-RVTR613559-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR613559"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR613559-perf-perf-mjp0fm",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR613559"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-mjp0fm"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-mjp0fm-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mjp0fm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Elvis Presley - Hard Luck.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6a30f7fd9394-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mjp0fm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6a30f7fd9394"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-4e033df0f0d0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mjp0fm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4e033df0f0d0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-32c354ff0647-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mjp0fm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "32c354ff0647"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-01df2adb1a2a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mjp0fm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "01df2adb1a2a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-05426a946724-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-mjp0fm"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "05426a946724"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR613559. \"Hard Luck\" by Elvis Presley. Album: Frankie And Johnny (1966).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL718440/RVAL718440__elvis-presley__frankie-and-johnny.jpg",
+      "excerpt": "Canonical cover assignment for RVTR613559 (Hard Luck). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Frankie And Johnny (1966)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Elvis Presley · Title: Hard Luck · Album: The 50 Greatest Hits · Year: 1965 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Elvis Presley - Hard Luck.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1966.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-e8f71148",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Elvis Presley - Hard Luck.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "fa8eb804-d3f7-4dec-a5ef-d28809a3e739",
+      "category": "artist",
+      "text": "Hard Luck is performed by Elvis Presley.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "85bb060c-ce2a-46d2-95df-e8a89844fc60",
+      "category": "album",
+      "text": "The song appears on the album \"Frankie And Johnny\" (1966).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b68c36d6-720e-4947-830e-2f00b82f3bd2",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR613559.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL718440/RVAL718440__elvis-presley__frankie-and-johnny.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ae87c42c-779c-4ee7-8501-ba64ecf943fa",
+      "category": "recording",
+      "text": "Hard Luck was released in 1966.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "3c90bc70-ef58-4227-9ec1-f00b6ae71659",
+      "category": "trivia",
+      "text": "Artist: Elvis Presley · Title: Hard Luck · Album: The 50 Greatest Hits · Year: 1965 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Elvis Presley - Hard Luck.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "50cd3a83-d165-4a48-b50a-941c9b4cfda2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Elvis Presley - Hard Luck.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Elvis Presley - Hard Luck.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

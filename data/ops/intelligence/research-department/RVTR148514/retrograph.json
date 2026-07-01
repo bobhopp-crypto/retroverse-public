@@ -1,0 +1,456 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR148514",
+    "kind": "song",
+    "rvtr": "RVTR148514",
+    "generatedAt": "2026-06-28T22:46:45.580Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR148514",
+    "artist": "George Michael, Aretha Franklin",
+    "title": "I Knew You Were Waiting For Me",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "George Michael, Aretha Franklin",
+    "relatedArtists": [
+      "George Michael, Aretha Franklin"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-3p0aq4",
+      "title": "For Me",
+      "kind": "performance",
+      "year": 1987,
+      "venue": "For Me",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/George Michael, Aretha Franklin - I Knew You Were Waiting (For Me).mp4",
+      "notes": "Performance label: For Me. Detected year: 1987. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-s2qycg",
+      "date": "1987",
+      "label": "I Knew You Were Waiting For Me — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-caqyt9",
+      "date": "1987",
+      "label": "For Me",
+      "detail": "For Me",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "ef72adb99226",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR148514&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-3p0aq4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "97e0f97d93c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR148514&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-3p0aq4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6c60870c6576",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR148514&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-3p0aq4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9a36588975fa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR148514&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-3p0aq4",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "539ca1f63b3e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR148514&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-3p0aq4",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-3p0aq4",
+        "title": "For Me",
+        "kind": "performance",
+        "year": 1987,
+        "venue": "For Me",
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/George Michael, Aretha Franklin - I Knew You Were Waiting (For Me).mp4",
+        "notes": "Performance label: For Me. Detected year: 1987. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR148514-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR148514"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "George Michael, Aretha Franklin"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "George Michael, Aretha Franklin"
+    },
+    {
+      "id": "rel-RVTR148514-tl-tl-s2qycg",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR148514"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-s2qycg"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "I Knew You Were Waiting For Me — original release"
+    },
+    {
+      "id": "rel-RVTR148514-tl-tl-caqyt9",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR148514"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-caqyt9"
+      },
+      "confidence": 0.95,
+      "source": "owned video",
+      "label": "For Me"
+    },
+    {
+      "id": "rel-RVTR148514-perf-perf-3p0aq4",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR148514"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-3p0aq4"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "For Me"
+    },
+    {
+      "id": "rel-perf-3p0aq4-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3p0aq4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/George Michael, Aretha Franklin - I Knew You Were Waiting (For Me).mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "For Me"
+    },
+    {
+      "id": "rel-ef72adb99226-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3p0aq4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "ef72adb99226"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-97e0f97d93c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3p0aq4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "97e0f97d93c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6c60870c6576-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3p0aq4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6c60870c6576"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9a36588975fa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3p0aq4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9a36588975fa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-539ca1f63b3e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-3p0aq4"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "539ca1f63b3e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR148514. \"I Knew You Were Waiting For Me\" by George Michael, Aretha Franklin.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: George Michael, Aretha Franklin · Title: I Knew You Were Waiting (For Me) · Album: Aretha Franklin & George Michael - I Knew You Were Waiting (For Me) · Year: 1987 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/George Michael, Aretha Franklin - I Knew You Were Waiting (For Me).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-52011ca1",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/George Michael, Aretha Franklin - I Knew You Were Waiting (For Me).mp4 · Performance: For Me",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-251408c6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Aretha Franklin _ George Michael - I Knew You Were Waiting (For Me).mp3 · Performance: For Me",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-5605f506",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Aretha Franklin - I Knew You Were Waiting (For Me) (Duet With George Michael).mp3 · Performance: For Me",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6c9747a0",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Aretha Franklin - I Say A Little Prayer For You.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "e1a4f63c-0ac0-4f03-988d-6ea9f316f03c",
+      "category": "artist",
+      "text": "I Knew You Were Waiting For Me is performed by George Michael, Aretha Franklin.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8667a702-8f32-4edf-85ff-6192f2e4df7b",
+      "category": "trivia",
+      "text": "\"I Knew You Were Waiting For Me\" by George Michael, Aretha Franklin.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "da2ebb66-3c4f-45c6-8a8f-4bd92e275fbc",
+      "category": "trivia",
+      "text": "Artist: George Michael, Aretha Franklin · Title: I Knew You Were Waiting (For Me) · Album: Aretha Franklin & George Michael - I Knew You Were Waiting (For Me) · Year: 1987 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/George Michael, Aretha Franklin - I Knew You Were Waiting (For Me).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f5c47b14-d2c8-436b-93f9-32dc74b69285",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/George Michael, Aretha Franklin - I Knew You Were Waiting (For Me).mp4 · Performance: For Me",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2653ccbe-517b-4508-873d-cc85e5e3fa70",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/Aretha Franklin _ George Michael - I Knew You Were Waiting (For Me).mp3 · Performance: For Me",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9edc447b-28cd-4949-8438-8f006771ad6c",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Aretha Franklin - I Knew You Were Waiting (For Me) (Duet With George Michael).mp3 · Performance: For Me",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "21c15d43-3314-4f50-add7-a9be4ed3f9f5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Aretha Franklin - I Say A Little Prayer For You.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 2,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/George Michael, Aretha Franklin - I Knew You Were Waiting (For Me).mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

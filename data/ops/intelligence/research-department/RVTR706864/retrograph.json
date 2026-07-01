@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR706864",
+    "kind": "song",
+    "rvtr": "RVTR706864",
+    "generatedAt": "2026-06-28T23:00:10.201Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR706864",
+    "artist": "Tim Finn",
+    "title": "Not Even Close",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Tim Finn",
+    "relatedArtists": [
+      "Tim Finn"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-d7tw5l",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1989,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tim Finn - Not Even Close.mp4",
+      "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-hz2zhp",
+      "date": "1989",
+      "label": "Not Even Close — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1989",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "6c20180f6ad5",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706864&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-d7tw5l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b4d371ef4e0c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706864&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-d7tw5l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "427d060ccabb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706864&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-d7tw5l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "34f24a8e9151",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706864&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-d7tw5l",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "824c41d34c5d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706864&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-d7tw5l",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-d7tw5l",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1989,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tim Finn - Not Even Close.mp4",
+        "notes": "Detected year: 1989. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR706864-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706864"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Tim Finn"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Tim Finn"
+    },
+    {
+      "id": "rel-RVTR706864-tl-tl-hz2zhp",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706864"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hz2zhp"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Not Even Close — original release"
+    },
+    {
+      "id": "rel-RVTR706864-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706864"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR706864-perf-perf-d7tw5l",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR706864"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-d7tw5l"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-d7tw5l-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d7tw5l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tim Finn - Not Even Close.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-6c20180f6ad5-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d7tw5l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6c20180f6ad5"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b4d371ef4e0c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d7tw5l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b4d371ef4e0c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-427d060ccabb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d7tw5l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "427d060ccabb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-34f24a8e9151-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d7tw5l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "34f24a8e9151"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-824c41d34c5d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-d7tw5l"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "824c41d34c5d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR706864. \"Not Even Close\" by Tim Finn.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Tim Finn · Title: Not Even Close · Album: Not Even Close · Year: 1989 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tim Finn - Not Even Close.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-df8b3bc8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tim Finn - Not Even Close.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "b724bf0b-7cf1-4d88-a633-e9bcf07363c6",
+      "category": "artist",
+      "text": "Not Even Close is performed by Tim Finn.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "a47cbe05-9751-40ef-8706-02ded2e661da",
+      "category": "trivia",
+      "text": "Artist: Tim Finn · Title: Not Even Close · Album: Not Even Close · Year: 1989 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tim Finn - Not Even Close.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ac495904-b598-408d-bd9a-1f4a25f474d1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tim Finn - Not Even Close.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Tim Finn - Not Even Close.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

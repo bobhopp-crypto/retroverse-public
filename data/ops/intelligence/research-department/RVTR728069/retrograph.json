@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR728069",
+    "kind": "song",
+    "rvtr": "RVTR728069",
+    "generatedAt": "2026-06-28T23:00:31.359Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR728069",
+    "artist": "Kool",
+    "title": "Too Hot",
+    "year": 1980,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kool",
+    "relatedArtists": [
+      "Kool"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1980,
+    "recordings": [
+      {
+        "id": "rec-xwzmbd",
+        "title": "Too Hot — graph recording",
+        "releaseDate": 1980,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-8vjiu0",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1979,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool And The Gang - Too Hot.mp4",
+      "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 5,
+    "chartWeeks": 18,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #5 · 18 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-ss26or",
+      "date": "1980",
+      "label": "Too Hot — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2n",
+      "date": "1980",
+      "label": "Billboard Hot 100 peak #5",
+      "detail": "18 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-he5i00",
+      "date": "1980",
+      "label": "Too Hot — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1979",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "3941cc2b75b8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR728069&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-8vjiu0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c83e457e803c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR728069&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-8vjiu0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "06237c9e2aa3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR728069&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-8vjiu0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "c30e0ce28cfa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR728069&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-8vjiu0",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "844668f39caa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR728069&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-8vjiu0",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-8vjiu0",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1979,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool And The Gang - Too Hot.mp4",
+        "notes": "Detected year: 1979. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR728069-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR728069"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kool"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kool"
+    },
+    {
+      "id": "rel-RVTR728069-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR728069"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #5"
+    },
+    {
+      "id": "rel-RVTR728069-tl-tl-ss26or",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR728069"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-ss26or"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Too Hot — original release"
+    },
+    {
+      "id": "rel-RVTR728069-tl-tl-l47p2n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR728069"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2n"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #5"
+    },
+    {
+      "id": "rel-RVTR728069-tl-tl-he5i00",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR728069"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-he5i00"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Too Hot — graph recording"
+    },
+    {
+      "id": "rel-RVTR728069-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR728069"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR728069-perf-perf-8vjiu0",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR728069"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-8vjiu0"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-8vjiu0-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8vjiu0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool And The Gang - Too Hot.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-3941cc2b75b8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8vjiu0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3941cc2b75b8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-c83e457e803c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8vjiu0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c83e457e803c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-06237c9e2aa3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8vjiu0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "06237c9e2aa3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-c30e0ce28cfa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8vjiu0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c30e0ce28cfa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-844668f39caa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-8vjiu0"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "844668f39caa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR728069. \"Too Hot\" by Kool.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #5. 18 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kool And The Gang · Title: Too Hot · Album: Kool & The Gang - Decade - The Singles Collection · Year: 1979 · Genre: Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool And The Gang - Too Hot.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1980.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-3f96234b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool And The Gang - Too Hot.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-78e19554",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Kool and the Gang - Too Hot.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "ad148057-f20f-4502-a279-1daa57b24946",
+      "category": "artist",
+      "text": "Too Hot is performed by Kool.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "db0e2480-7486-4546-a9ec-1fece3d3c54a",
+      "category": "chart",
+      "text": "The song peaked at #5 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0d268be2-80ff-4a77-b321-302284cfd755",
+      "category": "recording",
+      "text": "Too Hot was released in 1980.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b9a40267-7e21-4499-9da1-9cb856bbbb6a",
+      "category": "trivia",
+      "text": "Artist: Kool And The Gang · Title: Too Hot · Album: Kool & The Gang - Decade - The Singles Collection · Year: 1979 · Genre: Disco · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool And The Gang - Too Hot.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "057854b9-c56e-4fa6-8ff9-f76f070c4c94",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool And The Gang - Too Hot.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4e987182-cf58-4448-b43a-86a3a185b731",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/ Kool and the Gang - Too Hot.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kool And The Gang - Too Hot.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

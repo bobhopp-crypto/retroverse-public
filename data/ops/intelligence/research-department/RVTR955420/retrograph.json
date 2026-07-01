@@ -1,0 +1,431 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR955420",
+    "kind": "song",
+    "rvtr": "RVTR955420",
+    "generatedAt": "2026-06-28T22:42:50.634Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR955420",
+    "artist": "Ludacris F./nicki Minaj",
+    "title": "My Chick Bad",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Ludacris F./nicki Minaj",
+    "relatedArtists": [
+      "Ludacris F./nicki Minaj"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-1clfsu",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ludacris f._Nicki Minaj - My Chick Bad.mp4",
+      "notes": "Detected year: 2010. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-hq4m4v",
+      "date": "2010",
+      "label": "My Chick Bad — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "59784360d5b6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955420&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-1clfsu",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b4b8c326a588",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955420&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-1clfsu",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3034c2d33488",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955420&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-1clfsu",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e19d20b5474a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955420&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-1clfsu",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4656307cb92a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR955420&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-1clfsu",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-1clfsu",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ludacris f._Nicki Minaj - My Chick Bad.mp4",
+        "notes": "Detected year: 2010. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR955420-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR955420"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Ludacris F./nicki Minaj"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Ludacris F./nicki Minaj"
+    },
+    {
+      "id": "rel-RVTR955420-tl-tl-hq4m4v",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR955420"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-hq4m4v"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "My Chick Bad — original release"
+    },
+    {
+      "id": "rel-RVTR955420-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR955420"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR955420-perf-perf-1clfsu",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR955420"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-1clfsu"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-1clfsu-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1clfsu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ludacris f._Nicki Minaj - My Chick Bad.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-59784360d5b6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1clfsu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "59784360d5b6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-b4b8c326a588-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1clfsu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b4b8c326a588"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-3034c2d33488-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1clfsu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3034c2d33488"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e19d20b5474a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1clfsu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e19d20b5474a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4656307cb92a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-1clfsu"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4656307cb92a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR955420. \"My Chick Bad\" by Ludacris F./nicki Minaj.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Ludacris f./Nicki Minaj · Title: My Chick Bad · Album: HV 5-10 · Year: 2010 · Genre: Urban · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ludacris f._Nicki Minaj - My Chick Bad.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ecb0cc73",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ludacris f._Nicki Minaj - My Chick Bad.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-92975bd9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Ludacris - My Chick Bad.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "86d5478d-a713-47e3-9318-0f487bb4cc31",
+      "category": "artist",
+      "text": "My Chick Bad is performed by Ludacris F./nicki Minaj.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "14220cb1-903a-4ab0-b999-7b4bcf3a1aac",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "117042e4-a13d-4d8a-aa8c-0157129e15af",
+      "category": "trivia",
+      "text": "\"My Chick Bad\" by Ludacris F./nicki Minaj.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "b017a56f-3d47-421b-bd96-8d15f8df0c8a",
+      "category": "trivia",
+      "text": "Artist: Ludacris f./Nicki Minaj · Title: My Chick Bad · Album: HV 5-10 · Year: 2010 · Genre: Urban · PlayCount: 1 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ludacris f._Nicki Minaj - My Chick Bad.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "187ea4e8-4dc3-475d-92d2-5381399df8f2",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ludacris f._Nicki Minaj - My Chick Bad.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6a667bd4-a7d4-442d-98ff-945676ee2e75",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Ludacris - My Chick Bad.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ludacris f._Nicki Minaj - My Chick Bad.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "rvtr": "RVTR256643",
+  "artist": "Kiss",
+  "title": "Beth 1977",
+  "generatedAt": "2026-06-28T22:49:26.964Z",
+  "editorDistillVersion": "2026-06-26.a4",
+  "identity": {
+    "rvtr": "RVTR256643",
+    "artist": "Kiss",
+    "title": "Beth 1977",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "recordings": [],
+  "performances": [
+    {
+      "id": "perf-dthkyr",
+      "title": "1977",
+      "kind": "performance",
+      "year": 1977,
+      "venue": "1977",
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Beth (1977).mp4",
+      "notes": "Performance label: 1977. Detected year: 1977. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "facts": [
+    {
+      "id": "fd5b98f5-e3fc-4451-b49e-958fb2a3fd78",
+      "category": "artist",
+      "text": "Beth 1977 is performed by Kiss.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "10ad2cea-b080-4870-8dae-8532509275b4",
+      "category": "trivia",
+      "text": "Artist: Kiss · Title: Beth (1977) · Album: Cow Palace - Love Gunners  · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Beth (1977).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7ab32569-e790-4cd3-a3b9-5b4950a97ffa",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Beth (1977).mp4 · Performance: 1977",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "images": [
+    {
+      "assetId": "22a6b1f65bca",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR256643&file=close-up.jpg",
+      "caption": "Sharpest close-up in sequence",
+      "label": "Close-up",
+      "category": "Close-up",
+      "performanceId": "perf-dthkyr",
+      "status": "available",
+      "unusedReason": null
+    }
+  ],
+  "timelines": [
+    {
+      "id": "tl-1ggbf9",
+      "date": "1977",
+      "label": "Beth 1977 — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.55,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-bvjcu4",
+      "date": "1977",
+      "label": "1977",
+      "detail": "1977",
+      "domain": "performance",
+      "confidence": 0.95,
+      "source": "owned video"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR256643. \"Beth 1977\" by Kiss.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kiss · Title: Beth (1977) · Album: Cow Palace - Love Gunners  · Year: 1977 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Beth (1977).mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6337b8d5",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Beth (1977).mp4 · Performance: 1977",
+      "confidence": 0.99
+    }
+  ],
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Kiss - Beth (1977).mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedArtists": [
+    "Kiss"
+  ],
+  "relatedSongs": [],
+  "missingAreas": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 4,
+    "preserved": 3,
+    "accepted": 1,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  }
+}

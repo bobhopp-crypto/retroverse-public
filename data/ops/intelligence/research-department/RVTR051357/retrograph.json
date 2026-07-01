@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR051357",
+    "kind": "song",
+    "rvtr": "RVTR051357",
+    "generatedAt": "2026-06-28T22:44:27.465Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR051357",
+    "artist": "Kerli",
+    "title": "Walking On Air",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Kerli",
+    "relatedArtists": [
+      "Kerli"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-evohzt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2007,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Walking On Air.mp4",
+      "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-rj3hd0",
+      "date": "2007",
+      "label": "Walking On Air — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2007",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "93d5868dad58",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR051357&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-evohzt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "fedc51e04b6f",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR051357&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-evohzt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "778513870102",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR051357&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-evohzt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "71b1bc7596df",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR051357&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-evohzt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "498d5919d71a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR051357&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-evohzt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-evohzt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2007,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Walking On Air.mp4",
+        "notes": "Detected year: 2007. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR051357-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR051357"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Kerli"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Kerli"
+    },
+    {
+      "id": "rel-RVTR051357-tl-tl-rj3hd0",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR051357"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-rj3hd0"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Walking On Air — original release"
+    },
+    {
+      "id": "rel-RVTR051357-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR051357"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR051357-perf-perf-evohzt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR051357"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-evohzt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-evohzt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-evohzt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Walking On Air.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-93d5868dad58-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-evohzt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "93d5868dad58"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-fedc51e04b6f-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-evohzt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "fedc51e04b6f"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-778513870102-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-evohzt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "778513870102"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-71b1bc7596df-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-evohzt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "71b1bc7596df"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-498d5919d71a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-evohzt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "498d5919d71a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR051357. \"Walking On Air\" by Kerli.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Kerli · Title: Walking On Air · Album: Kerli · Year: 2007 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Walking On Air.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-bd1c213e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Walking On Air.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-b07d4cbd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Kerli - Walking on Air.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-ff291c69",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Kerli - Walking On Air.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "5ab8857d-3a13-4907-9908-f9e7d2b067a8",
+      "category": "artist",
+      "text": "Walking On Air is performed by Kerli.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "7c95e56d-a469-4f99-9dc5-2269efc1152c",
+      "category": "trivia",
+      "text": "Artist: Kerli · Title: Walking On Air · Album: Kerli · Year: 2007 · Genre: Synth-pop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Walking On Air.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bf7c0b41-654b-44f3-a10f-52c87a6a73d0",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Walking On Air.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "062e3f23-fcea-4f5c-b77b-f1686afc623f",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Kerli - Walking on Air.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8edc4c54-56e2-4dfb-abed-eb8bf6668f6a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO VAULT/UNCHARTED/Kerli - Walking On Air.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 1,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/TECHNO/Kerli - Walking On Air.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

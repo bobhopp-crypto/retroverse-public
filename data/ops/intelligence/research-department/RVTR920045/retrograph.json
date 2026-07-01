@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR920045",
+    "kind": "song",
+    "rvtr": "RVTR920045",
+    "generatedAt": "2026-06-28T22:42:23.567Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR920045",
+    "artist": "C+c Music Factory/f. Williams",
+    "title": "Here We Go",
+    "year": 1991,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "C+c Music Factory/f. Williams",
+    "relatedArtists": [
+      "C+c Music Factory/f. Williams"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1991,
+    "recordings": [
+      {
+        "id": "rec-bwemhc",
+        "title": "Here We Go — graph recording",
+        "releaseDate": 1991,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-v7d9ue",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1990,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/C+C Music Factory - Here We Go.mp4",
+      "notes": "Detected year: 1990. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #3 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-rqdn8i",
+      "date": "1991",
+      "label": "Here We Go — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "1991",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-vx14jz",
+      "date": "1991",
+      "label": "Here We Go — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1990",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "07140f3f1236",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920045&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-v7d9ue",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dd8a71af6282",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920045&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-v7d9ue",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6e754e49fc88",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920045&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-v7d9ue",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "9dbc8eacf4b9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920045&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-v7d9ue",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "15b00fab0781",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR920045&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-v7d9ue",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-v7d9ue",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1990,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/C+C Music Factory - Here We Go.mp4",
+        "notes": "Detected year: 1990. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR920045-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920045"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "C+c Music Factory/f. Williams"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "C+c Music Factory/f. Williams"
+    },
+    {
+      "id": "rel-RVTR920045-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920045"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR920045-tl-tl-rqdn8i",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920045"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-rqdn8i"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Here We Go — original release"
+    },
+    {
+      "id": "rel-RVTR920045-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920045"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR920045-tl-tl-vx14jz",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920045"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-vx14jz"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Here We Go — graph recording"
+    },
+    {
+      "id": "rel-RVTR920045-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920045"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR920045-perf-perf-v7d9ue",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR920045"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-v7d9ue"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-v7d9ue-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v7d9ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/C+C Music Factory - Here We Go.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-07140f3f1236-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v7d9ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "07140f3f1236"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-dd8a71af6282-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v7d9ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dd8a71af6282"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6e754e49fc88-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v7d9ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6e754e49fc88"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-9dbc8eacf4b9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v7d9ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "9dbc8eacf4b9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-15b00fab0781-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v7d9ue"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "15b00fab0781"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR920045. \"Here We Go\" by C+c Music Factory/f. Williams.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #3. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: C+C Music Factory · Title: Here We Go · Album: C + C Music Factory - Gonna Make You Sweat · Year: 1990 · Genre: Contemporary R&B · PlayCount: 1 · LastPlayed: 1752286577 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/C+C Music Factory - Here We Go.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1991.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-08f08877",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/C+C Music Factory - Here We Go.mp4 · Plays: 1",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-4c11d427",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/C+C Music Factory - Here We Go, Let's Rock & Roll.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-857314a2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/C+C Music Factory - Here We Go, Let's Rock & Roll.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "aec19a7c-7ffe-492b-83a3-b1da2ac67b08",
+      "category": "artist",
+      "text": "Here We Go is performed by C+c Music Factory/f. Williams.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ecae38a4-11dc-442f-9fef-6230c0cc1252",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "cd957407-9624-487b-a67f-e20d6af2acff",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b7116ec6-52f6-4948-b64b-090e4d73de24",
+      "category": "recording",
+      "text": "Here We Go was released in 1991.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "907e5be1-ff14-4ae6-a350-64350c05a6d3",
+      "category": "trivia",
+      "text": "Artist: C+C Music Factory · Title: Here We Go · Album: C + C Music Factory - Gonna Make You Sweat · Year: 1990 · Genre: Contemporary R&B · PlayCount: 1 · LastPlayed: 1752286577 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/C+C Music Factory - Here We Go.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "028befea-2968-4957-832c-867f55c49c49",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/C+C Music Factory - Here We Go.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "1bc4fe1e-9084-42b3-8105-86cf1df6fa81",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/C+C Music Factory - Here We Go, Let's Rock & Roll.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "95b6d1d2-a840-4f32-a6ca-32fbd0100c70",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/C+C Music Factory - Here We Go, Let's Rock & Roll.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 8,
+    "accepted": 4,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/C+C Music Factory - Here We Go.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

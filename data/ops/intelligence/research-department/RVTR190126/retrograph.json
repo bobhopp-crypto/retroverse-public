@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR190126",
+    "kind": "song",
+    "rvtr": "RVTR190126",
+    "generatedAt": "2026-06-28T22:47:39.044Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR190126",
+    "artist": "Neil Diamond",
+    "title": "Forgotten",
+    "year": 2008,
+    "albumTitle": "Home Before Dark",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL454947/RVAL454947__neil-diamond__home-before-dark.jpg"
+  },
+  "artist": {
+    "name": "Neil Diamond",
+    "relatedArtists": [
+      "Neil Diamond"
+    ]
+  },
+  "album": {
+    "title": "Home Before Dark",
+    "releaseYear": 2008,
+    "recordings": [
+      {
+        "id": "rec-4ww8pi",
+        "title": "Home Before Dark",
+        "releaseDate": 2008,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-x5lhv7",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2008,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond - Forgotten.mp4",
+      "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Home Before Dark",
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-nmq22m",
+      "date": "2008",
+      "label": "Forgotten — original release",
+      "detail": "Original album: Home Before Dark",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-9p8x7u",
+      "date": "2008",
+      "label": "Home Before Dark",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2008",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR190126",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL454947/RVAL454947__neil-diamond__home-before-dark.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b59ce3235296",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR190126&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-x5lhv7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "778aad6a9371",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR190126&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-x5lhv7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "926c3dc429e9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR190126&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-x5lhv7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5a12c6c592f0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR190126&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-x5lhv7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e91a2369e7bf",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR190126&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-x5lhv7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-x5lhv7",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2008,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond - Forgotten.mp4",
+        "notes": "Detected year: 2008. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR190126-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR190126"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Neil Diamond"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Neil Diamond"
+    },
+    {
+      "id": "rel-RVTR190126-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR190126"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-4ww8pi"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Home Before Dark"
+    },
+    {
+      "id": "rel-RVTR190126-tl-tl-nmq22m",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR190126"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-nmq22m"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Forgotten — original release"
+    },
+    {
+      "id": "rel-RVTR190126-tl-tl-9p8x7u",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR190126"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9p8x7u"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Home Before Dark"
+    },
+    {
+      "id": "rel-RVTR190126-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR190126"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR190126-perf-perf-x5lhv7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR190126"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-x5lhv7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-x5lhv7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x5lhv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond - Forgotten.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-b59ce3235296-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x5lhv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b59ce3235296"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-778aad6a9371-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x5lhv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "778aad6a9371"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-926c3dc429e9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x5lhv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "926c3dc429e9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-5a12c6c592f0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x5lhv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5a12c6c592f0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e91a2369e7bf-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-x5lhv7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e91a2369e7bf"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR190126. \"Forgotten\" by Neil Diamond. Album: Home Before Dark (2008).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL454947/RVAL454947__neil-diamond__home-before-dark.jpg",
+      "excerpt": "Canonical cover assignment for RVTR190126 (Forgotten). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Home Before Dark (2008)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Neil Diamond · Title: Forgotten · Album: Home Before Dark · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond - Forgotten.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2008.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ef6e705d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond - Forgotten.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "92ecbd98-05bd-45be-8156-a157561a2f47",
+      "category": "artist",
+      "text": "Forgotten is performed by Neil Diamond.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "8964fb6e-6e31-4f0e-a8b7-31ec5eefa553",
+      "category": "album",
+      "text": "The song appears on the album \"Home Before Dark\" (2008).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "0c4ce064-1e0e-4192-8953-360c5ef0af78",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR190126.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL454947/RVAL454947__neil-diamond__home-before-dark.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2ad90e81-3bef-4d5b-9c8d-8190263e2118",
+      "category": "recording",
+      "text": "Forgotten was released in 2008.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "c15c5642-a132-42af-a6b3-5e937f366ad3",
+      "category": "trivia",
+      "text": "Artist: Neil Diamond · Title: Forgotten · Album: Home Before Dark · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond - Forgotten.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f549b7c0-7ffc-4302-8d7d-762156bbd105",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond - Forgotten.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 9,
+    "preserved": 6,
+    "accepted": 4,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Neil Diamond - Forgotten.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

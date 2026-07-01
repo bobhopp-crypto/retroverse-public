@@ -1,0 +1,608 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR321805",
+    "kind": "song",
+    "rvtr": "RVTR321805",
+    "generatedAt": "2026-06-28T22:50:34.151Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR321805",
+    "artist": "The Beatles",
+    "title": "Yesterday",
+    "year": 1977,
+    "albumTitle": "Love Songs",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL758705/RVAL758705__the-beatles__love-songs.jpg"
+  },
+  "artist": {
+    "name": "The Beatles",
+    "relatedArtists": [
+      "The Beatles"
+    ]
+  },
+  "album": {
+    "title": "Love Songs",
+    "releaseYear": 1977,
+    "recordings": [
+      {
+        "id": "rec-rejvjm",
+        "title": "Love Songs",
+        "releaseDate": 1977,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-m0n9qi",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1965,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Yesterday.mp4",
+      "notes": "Detected year: 1965. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 11,
+    "albumTitle": "Love Songs",
+    "summary": "Hot 100 peak #1 · 11 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-3tgpra",
+      "date": "1977",
+      "label": "Yesterday — original release",
+      "detail": "Original album: Love Songs",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2j",
+      "date": "1977",
+      "label": "Billboard Hot 100 peak #1",
+      "detail": "11 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-cltucc",
+      "date": "1977",
+      "label": "Love Songs",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1965",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR321805",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL758705/RVAL758705__the-beatles__love-songs.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "553bcc0e361a",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR321805&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-m0n9qi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5dd7514be2eb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR321805&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-m0n9qi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5c4c58f1b0d2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR321805&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-m0n9qi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "e31b3ca84e84",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR321805&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-m0n9qi",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "35759ae45e4c",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR321805&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-m0n9qi",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-m0n9qi",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1965,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Yesterday.mp4",
+        "notes": "Detected year: 1965. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR321805-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR321805"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Beatles"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Beatles"
+    },
+    {
+      "id": "rel-RVTR321805-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR321805"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-rejvjm"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Love Songs"
+    },
+    {
+      "id": "rel-RVTR321805-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR321805"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #1"
+    },
+    {
+      "id": "rel-RVTR321805-tl-tl-3tgpra",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR321805"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-3tgpra"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Yesterday — original release"
+    },
+    {
+      "id": "rel-RVTR321805-tl-tl-l47p2j",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR321805"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2j"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #1"
+    },
+    {
+      "id": "rel-RVTR321805-tl-tl-cltucc",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR321805"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-cltucc"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Love Songs"
+    },
+    {
+      "id": "rel-RVTR321805-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR321805"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR321805-perf-perf-m0n9qi",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR321805"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-m0n9qi"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-m0n9qi-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m0n9qi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Yesterday.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-553bcc0e361a-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m0n9qi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "553bcc0e361a"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-5dd7514be2eb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m0n9qi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5dd7514be2eb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-5c4c58f1b0d2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m0n9qi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5c4c58f1b0d2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-e31b3ca84e84-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m0n9qi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e31b3ca84e84"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-35759ae45e4c-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-m0n9qi"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "35759ae45e4c"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR321805. \"Yesterday\" by The Beatles. Album: Love Songs (1977).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL758705/RVAL758705__the-beatles__love-songs.jpg",
+      "excerpt": "Canonical cover assignment for RVTR321805 (Yesterday). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Love Songs (1977). Billboard Hot 100 peak: #1. 11 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Beatles · Title: Yesterday · Album: Yesterday / Act Naturally · Year: 1965 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Yesterday.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1977.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-86fefc8f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Yesterday.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a18553aa",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Beatles - Yesterday.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-670b970e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1960/Beatles - Yesterday.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f57bcfe9",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/The Beatles - Yesterday.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "07ae2b91-6fa5-4d5b-bea7-1dadeb81b444",
+      "category": "artist",
+      "text": "Yesterday is performed by The Beatles.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2d22fde4-1c91-47e8-bca6-c7e7cbd42c27",
+      "category": "album",
+      "text": "The song appears on the album \"Love Songs\" (1977).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "9142a111-1116-4c37-b5cb-6fa1a0beb5f0",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR321805.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL758705/RVAL758705__the-beatles__love-songs.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d07bbf7a-8931-48bd-a48b-f22657d342fb",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f62309a1-3dbc-4970-a51a-d97b4955578e",
+      "category": "recording",
+      "text": "Yesterday was released in 1977.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "06073fcb-cf9f-4c2b-82a7-3ee14c11f809",
+      "category": "trivia",
+      "text": "Artist: The Beatles · Title: Yesterday · Album: Yesterday / Act Naturally · Year: 1965 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Yesterday.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "06f6da9f-2c70-40c9-9e60-7bdc3657d668",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Yesterday.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ffb0e5f9-c86e-4215-896e-ba05500f234e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/Fill/Beatles - Yesterday.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d20202d5-9b27-49eb-84cf-708c8484130e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1960/Beatles - Yesterday.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "514396b3-1903-4539-af34-4f60bf004705",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1960/The Beatles - Yesterday.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 13,
+    "preserved": 10,
+    "accepted": 5,
+    "pending": 5,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Yesterday.mp4",
+    "tags": [],
+    "mediaItemCount": 4
+  },
+  "relatedSongs": []
+}

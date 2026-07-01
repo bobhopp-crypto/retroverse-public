@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "rvtr": "RVTR325127",
+  "artist": "Neil Sedaka",
+  "title": "Bad Blood",
+  "generatedAt": "2026-06-28T22:50:37.482Z",
+  "directorGeneratedAt": "2026-06-28T22:50:37.480Z",
+  "executiveSummary": {
+    "overallScore": 78,
+    "publishReadiness": "ready_with_changes",
+    "publishReadinessLabel": "Ready after minor revisions",
+    "strengths": [
+      "Excellent chart section",
+      "Strong performance section"
+    ],
+    "weaknesses": [
+      "Ending could be stronger",
+      "1 repetition issue detected"
+    ],
+    "recommendedFixes": [
+      "Reduce image reuse (1 repeated frame)",
+      "Use official cover or alternate performance frame on one beat"
+    ],
+    "narrativeParagraph": "Excellent chart section. Strong performance section. Ending could be stronger. 1 repetition issue detected. Overall readiness: 78%. Ready after minor revisions."
+  },
+  "storyFlow": {
+    "beats": [
+      {
+        "order": 1,
+        "beatId": "beat-1",
+        "pageId": "page-hero:identity-0",
+        "storyId": "hero",
+        "label": "Hero",
+        "purpose": "Introduce the song identity — who, what, when.",
+        "templateId": "hero",
+        "interestScore": 68,
+        "visualScore": 95,
+        "informationDensity": 55,
+        "audienceAttention": 63,
+        "transitionQuality": 90,
+        "hasMedia": true,
+        "copyLength": 37
+      },
+      {
+        "order": 2,
+        "beatId": "beat-2",
+        "pageId": "page-introduction:opening_hook-1",
+        "storyId": "introduction",
+        "label": "Why this song matters",
+        "purpose": "Frame the documentary before diving into chapters.",
+        "templateId": "quote",
+        "interestScore": 68,
+        "visualScore": 55,
+        "informationDensity": 55,
+        "audienceAttention": 55,
+        "transitionQuality": 82,
+        "hasMedia": false,
+        "copyLength": 38
+      },
+      {
+        "order": 3,
+        "beatId": "beat-3",
+        "pageId": "page-performance_history:official_video-4",
+        "storyId": "performance_history",
+        "label": "Official music video",
+        "purpose": "Visual performance history brings the song to life.",
+        "templateId": "performance",
+        "interestScore": 80,
+        "visualScore": 100,
+        "informationDensity": 55,
+        "audienceAttention": 67,
+        "transitionQuality": 82,
+        "hasMedia": true,
+        "copyLength": 27
+      },
+      {
+        "order": 4,
+        "beatId": "beat-4",
+        "pageId": "page-performance_history:live_moments-5",
+        "storyId": "performance_history",
+        "label": "Live on stage",
+        "purpose": "Visual performance history brings the song to life.",
+        "templateId": "gallery",
+        "interestScore": 68,
+        "visualScore": 100,
+        "informationDensity": 55,
+        "audienceAttention": 55,
+        "transitionQuality": 72,
+        "hasMedia": true,
+        "copyLength": 22
+      },
+      {
+        "order": 5,
+        "beatId": "beat-5",
+        "pageId": "page-chart_journey:peak_moment-3",
+        "storyId": "chart_journey",
+        "label": "Chart climb",
+        "purpose": "Chart success is the most tangible proof a song broke through.",
+        "templateId": "chart",
+        "interestScore": 94,
+        "visualScore": 80,
+        "informationDensity": 88,
+        "audienceAttention": 100,
+        "transitionQuality": 82,
+        "hasMedia": true,
+        "copyLength": 79
+      },
+      {
+        "order": 6,
+        "beatId": "beat-6",
+        "pageId": "page-album_story:album_context-2",
+        "storyId": "album_story",
+        "label": "The song appears on the album \"The Hungry Years\" (1975)",
+        "purpose": "Place the song on its album and release context.",
+        "templateId": "gallery",
+        "interestScore": 68,
+        "visualScore": 95,
+        "informationDensity": 72,
+        "audienceAttention": 72,
+        "transitionQuality": 82,
+        "hasMedia": true,
+        "copyLength": 186
+      },
+      {
+        "order": 7,
+        "beatId": "beat-7",
+        "pageId": "page-song_dna:musical_fingerprint-6",
+        "storyId": "song_dna",
+        "label": "Song DNA",
+        "purpose": "Musical identity as a visual story beat.",
+        "templateId": "gallery",
+        "interestScore": 68,
+        "visualScore": 70,
+        "informationDensity": 88,
+        "audienceAttention": 88,
+        "transitionQuality": 64,
+        "hasMedia": false,
+        "copyLength": 63
+      }
+    ],
+    "averageInterest": 73,
+    "averageVisual": 85,
+    "flowScore": 79
+  },
+  "pacing": {
+    "score": 88,
+    "textHeavyBeats": 0,
+    "imageHeavyBeats": 5,
+    "longestTextRun": 0,
+    "longestMediaGap": 1,
+    "longestStoryGap": 1,
+    "issues": [],
+    "recommendations": []
+  },
+  "variety": {
+    "diversityScore": 65,
+    "slots": [
+      {
+        "id": "chart",
+        "label": "Charts",
+        "count": 1,
+        "present": true
+      },
+      {
+        "id": "timeline",
+        "label": "Timelines",
+        "count": 0,
+        "present": false
+      },
+      {
+        "id": "dna",
+        "label": "Song DNA",
+        "count": 1,
+        "present": true
+      },
+      {
+        "id": "album",
+        "label": "Album",
+        "count": 1,
+        "present": true
+      },
+      {
+        "id": "performance",
+        "label": "Performance",
+        "count": 2,
+        "present": true
+      },
+      {
+        "id": "quote",
+        "label": "Quote cards",
+        "count": 1,
+        "present": true
+      },
+      {
+        "id": "story",
+        "label": "Story cards",
+        "count": 0,
+        "present": false
+      },
+      {
+        "id": "hero",
+        "label": "Hero",
+        "count": 1,
+        "present": true
+      }
+    ],
+    "imagesReused": 1,
+    "uniqueTemplates": 5,
+    "recommendations": [
+      "Reduce image reuse (1 repeated frame)",
+      "Consider a timeline beat for historical movement"
+    ]
+  },
+  "repetition": {
+    "score": 86,
+    "items": [
+      {
+        "kind": "media",
+        "message": "Same image on Hero and The song appears on the album \"The Hungry Years\" (1975)",
+        "beatLabels": [
+          "Hero",
+          "The song appears on the album \"The Hungry Years\" (1975)"
+        ],
+        "recommendation": "Use official cover or alternate performance frame on one beat"
+      }
+    ]
+  },
+  "narrative": {
+    "arcScore": 71,
+    "phases": [
+      {
+        "phase": "opening",
+        "label": "Strong opening",
+        "present": true,
+        "strength": 85,
+        "beatLabel": "Hero",
+        "recommendation": null
+      },
+      {
+        "phase": "discovery",
+        "label": "Discovery",
+        "present": false,
+        "strength": 45,
+        "beatLabel": null,
+        "recommendation": "Add a dedicated discovery beat"
+      },
+      {
+        "phase": "momentum",
+        "label": "Momentum",
+        "present": true,
+        "strength": 86,
+        "beatLabel": "Chart climb",
+        "recommendation": null
+      },
+      {
+        "phase": "surprise",
+        "label": "Surprise",
+        "present": true,
+        "strength": 84,
+        "beatLabel": "Song DNA",
+        "recommendation": null
+      },
+      {
+        "phase": "payoff",
+        "label": "Payoff",
+        "present": true,
+        "strength": 82,
+        "beatLabel": "Official music video",
+        "recommendation": null
+      },
+      {
+        "phase": "ending",
+        "label": "Ending",
+        "present": true,
+        "strength": 52,
+        "beatLabel": null,
+        "recommendation": "Strengthen ending with media or sharper copy"
+      }
+    ],
+    "recommendations": [
+      "Add a dedicated discovery beat",
+      "Strengthen ending with media or sharper copy",
+      "Ending feels abrupt — close on Legacy or a performance reprise"
+    ]
+  },
+  "audience": {
+    "personas": [
+      {
+        "persona": "Music fan",
+        "interesting": 73,
+        "educational": 75,
+        "emotional": 77,
+        "entertaining": 81,
+        "replayValue": 70,
+        "overall": 75
+      },
+      {
+        "persona": "Casual listener",
+        "interesting": 69,
+        "educational": 62,
+        "emotional": 72,
+        "entertaining": 85,
+        "replayValue": 60,
+        "overall": 70
+      },
+      {
+        "persona": "DJ",
+        "interesting": 90,
+        "educational": 92,
+        "emotional": 55,
+        "entertaining": 68,
+        "replayValue": 74,
+        "overall": 76
+      },
+      {
+        "persona": "Museum visitor",
+        "interesting": 60,
+        "educational": 84,
+        "emotional": 88,
+        "entertaining": 66,
+        "replayValue": 56,
+        "overall": 71
+      },
+      {
+        "persona": "Retroverse collector",
+        "interesting": 66,
+        "educational": 81,
+        "emotional": 68,
+        "entertaining": 72,
+        "replayValue": 76,
+        "overall": 73
+      }
+    ],
+    "averageEngagement": 73
+  },
+  "missingOpportunities": [
+    {
+      "id": "artist_timeline",
+      "label": "Artist timeline",
+      "reason": "No artist journey chapter in audience sequence"
+    },
+    {
+      "id": "related_songs",
+      "label": "Related songs",
+      "reason": "Director skipped related-song discovery paths"
+    },
+    {
+      "id": "timeline",
+      "label": "Historical timeline",
+      "reason": "Retrograph timeline exists but no timeline beat"
+    },
+    {
+      "id": "personnel",
+      "label": "Personnel page",
+      "reason": "Recording credits could be a dedicated beat"
+    },
+    {
+      "id": "cultural_context",
+      "label": "Historical context",
+      "reason": "Cultural impact story not in final sequence"
+    }
+  ],
+  "publishGate": {
+    "decision": "ready_with_changes",
+    "label": "Ready after minor revisions",
+    "reasons": [
+      "Overall creative score: 78%",
+      "7 beats in audience sequence",
+      "Repetition score: 86%",
+      "1 repetition item(s) flagged"
+    ],
+    "blockers": []
+  },
+  "directorFeedback": [
+    {
+      "id": "rep-media-Hero",
+      "beatRefs": [
+        "Hero",
+        "The song appears on the album \"The Hungry Years\" (1975)"
+      ],
+      "message": "Same image on Hero and The song appears on the album \"The Hungry Years\" (1975). Use official cover or alternate performance frame on one beat",
+      "priority": "high"
+    },
+    {
+      "id": "transition-7",
+      "beatRefs": [
+        "Song DNA"
+      ],
+      "message": "Weak transition into \"Song DNA\" (beat 7) — vary template or story chapter",
+      "priority": "low"
+    },
+    {
+      "id": "ending-abrupt",
+      "beatRefs": [
+        "Song DNA"
+      ],
+      "message": "Ending feels abrupt — add legacy coda or performance reprise after Song DNA",
+      "priority": "medium"
+    },
+    {
+      "id": "missing-artist_timeline",
+      "beatRefs": [],
+      "message": "Consider adding Artist timeline: No artist journey chapter in audience sequence",
+      "priority": "low"
+    },
+    {
+      "id": "missing-related_songs",
+      "beatRefs": [],
+      "message": "Consider adding Related songs: Director skipped related-song discovery paths",
+      "priority": "low"
+    }
+  ]
+}

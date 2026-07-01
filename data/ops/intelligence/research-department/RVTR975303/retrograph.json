@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR975303",
+    "kind": "song",
+    "rvtr": "RVTR975303",
+    "generatedAt": "2026-06-28T23:09:08.416Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR975303",
+    "artist": "Edwin Mccain",
+    "title": "I'Ll Be",
+    "year": 1998,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Edwin Mccain",
+    "relatedArtists": [
+      "Edwin Mccain"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": 1998,
+    "recordings": [
+      {
+        "id": "rec-iebmkc",
+        "title": "I'Ll Be — graph recording",
+        "releaseDate": 1998,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-v8xmyt",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1997,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Edwin McCain - I'll Be.mp4",
+      "notes": "Detected year: 1997. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 5,
+    "chartWeeks": 24,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #5 · 24 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-63a9hl",
+      "date": "1998",
+      "label": "I'Ll Be — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2n",
+      "date": "1998",
+      "label": "Billboard Hot 100 peak #5",
+      "detail": "24 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-i55hc4",
+      "date": "1998",
+      "label": "I'Ll Be — graph recording",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1997",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "7a6864edcdec",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975303&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-v8xmyt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "dad3f9862cc9",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975303&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-v8xmyt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "3f5d52704dea",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975303&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-v8xmyt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "62ac7a40d3c8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975303&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-v8xmyt",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "7365de3645f3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR975303&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-v8xmyt",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-v8xmyt",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1997,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Edwin McCain - I'll Be.mp4",
+        "notes": "Detected year: 1997. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR975303-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975303"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Edwin Mccain"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Edwin Mccain"
+    },
+    {
+      "id": "rel-RVTR975303-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975303"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #5"
+    },
+    {
+      "id": "rel-RVTR975303-tl-tl-63a9hl",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975303"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-63a9hl"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "I'Ll Be — original release"
+    },
+    {
+      "id": "rel-RVTR975303-tl-tl-l47p2n",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975303"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2n"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #5"
+    },
+    {
+      "id": "rel-RVTR975303-tl-tl-i55hc4",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975303"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-i55hc4"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "I'Ll Be — graph recording"
+    },
+    {
+      "id": "rel-RVTR975303-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975303"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR975303-perf-perf-v8xmyt",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR975303"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-v8xmyt"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-v8xmyt-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v8xmyt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Edwin McCain - I'll Be.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-7a6864edcdec-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v8xmyt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7a6864edcdec"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-dad3f9862cc9-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v8xmyt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "dad3f9862cc9"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-3f5d52704dea-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v8xmyt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "3f5d52704dea"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-62ac7a40d3c8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v8xmyt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "62ac7a40d3c8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-7365de3645f3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-v8xmyt"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "7365de3645f3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR975303. \"I'Ll Be\" by Edwin Mccain.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Billboard Hot 100 peak: #5. 24 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Edwin McCain · Title: I'll Be · Album: Misguided Roses · Year: 1997 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Edwin McCain - I'll Be.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 1998.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-6bdb1111",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Edwin McCain - I'll Be.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-29b4f9c7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1990/Edwin McCain - I'll Be.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "cf8a45b7-4b8f-45df-b846-4e9739f47538",
+      "category": "artist",
+      "text": "I'Ll Be is performed by Edwin Mccain.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2e906db9-165f-4d91-b528-e37f19f86506",
+      "category": "chart",
+      "text": "The song peaked at #5 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "566bf43b-a4ec-4a9e-bae7-fbe560a24fcf",
+      "category": "recording",
+      "text": "I'Ll Be was released in 1998.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "88c17ce6-9d5a-4b36-9d1e-693265aa6946",
+      "category": "trivia",
+      "text": "Artist: Edwin McCain · Title: I'll Be · Album: Misguided Roses · Year: 1997 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Edwin McCain - I'll Be.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d71ff126-9907-4e96-ae2a-fa4799962e42",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Edwin McCain - I'll Be.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "ed0aaa39-db05-4c66-907d-c1c840de1283",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/1990/Edwin McCain - I'll Be.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 7,
+    "preserved": 6,
+    "accepted": 3,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Edwin McCain - I'll Be.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

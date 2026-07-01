@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR963699",
+    "kind": "song",
+    "rvtr": "RVTR963699",
+    "generatedAt": "2026-06-28T22:42:57.019Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR963699",
+    "artist": "Moving In Stereo",
+    "title": "The Cars The Midnight Special",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Moving In Stereo",
+    "relatedArtists": [
+      "Moving In Stereo"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-32gpw7",
+      "title": "The Cars | The Midnight Special",
+      "kind": "performance",
+      "year": 1961,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/The Cars - Moving in Stereo.mp4",
+      "notes": "Detected year: 1961. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-saz4we",
+      "date": "1961",
+      "label": "The Cars The Midnight Special — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-b1k1dy",
+      "date": "1961",
+      "label": "The Cars | The Midnight Special",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.8,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "a4faa510aab6",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR963699&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-32gpw7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "8f80203fb4a2",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR963699&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-32gpw7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "2fdea5ff4101",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR963699&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-32gpw7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "f80435750df0",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR963699&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-32gpw7",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1c45fd738f69",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR963699&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-32gpw7",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-32gpw7",
+        "title": "The Cars | The Midnight Special",
+        "kind": "performance",
+        "year": 1961,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/The Cars - Moving in Stereo.mp4",
+        "notes": "Detected year: 1961. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR963699-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR963699"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Moving In Stereo"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Moving In Stereo"
+    },
+    {
+      "id": "rel-RVTR963699-tl-tl-saz4we",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR963699"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-saz4we"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "The Cars The Midnight Special — original release"
+    },
+    {
+      "id": "rel-RVTR963699-tl-tl-b1k1dy",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR963699"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-b1k1dy"
+      },
+      "confidence": 0.8,
+      "source": "owned video",
+      "label": "The Cars | The Midnight Special"
+    },
+    {
+      "id": "rel-RVTR963699-perf-perf-32gpw7",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR963699"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-32gpw7"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "The Cars | The Midnight Special"
+    },
+    {
+      "id": "rel-perf-32gpw7-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-32gpw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/The Cars - Moving in Stereo.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "The Cars | The Midnight Special"
+    },
+    {
+      "id": "rel-a4faa510aab6-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-32gpw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a4faa510aab6"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-8f80203fb4a2-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-32gpw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "8f80203fb4a2"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-2fdea5ff4101-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-32gpw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "2fdea5ff4101"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-f80435750df0-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-32gpw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "f80435750df0"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-1c45fd738f69-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-32gpw7"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1c45fd738f69"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR963699. \"The Cars The Midnight Special\" by Moving In Stereo.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Moving in Stereo · Title: The Cars | The Midnight Special · Album: The Incredible Jimmy Smith - Midnight Special · Year: 1961 · Genre: Jazz · PlayCount: 1 · LastPlayed: 1752957358 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/The Cars - Moving in Stereo.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-6d261d61",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/The Cars - Moving in Stereo.mp4 · Plays: 1",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "4d95cbc1-6e1e-4830-a303-5fe00be0cb99",
+      "category": "artist",
+      "text": "The Cars The Midnight Special is performed by Moving In Stereo.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2a3caad9-7f4d-43f3-8c39-85cb15706391",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e14ca9d6-7305-4c83-83f5-ce233cdf71a3",
+      "category": "trivia",
+      "text": "\"The Cars The Midnight Special\" by Moving In Stereo.",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "05832078-472a-49a8-aefa-5e48b0a90d0e",
+      "category": "trivia",
+      "text": "Artist: Moving in Stereo · Title: The Cars | The Midnight Special · Album: The Incredible Jimmy Smith - Midnight Special · Year: 1961 · Genre: Jazz · PlayCount: 1 · LastPlayed: 1752957358 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/The Cars - Moving in Stereo.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "b1033efa-0753-4e33-bbdf-d21d15c75355",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/The Cars - Moving in Stereo.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 6,
+    "preserved": 5,
+    "accepted": 3,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/The Cars - Moving in Stereo.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}

@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR245070",
+    "kind": "song",
+    "rvtr": "RVTR245070",
+    "generatedAt": "2026-06-28T22:49:15.347Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR245070",
+    "artist": "Taylor Swift",
+    "title": "Mine",
+    "year": 2010,
+    "albumTitle": "Speak Now",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL937013/RVAL937013__taylor-swift__speak-now.jpg"
+  },
+  "artist": {
+    "name": "Taylor Swift",
+    "relatedArtists": [
+      "Taylor Swift"
+    ]
+  },
+  "album": {
+    "title": "Speak Now",
+    "releaseYear": 2010,
+    "recordings": [
+      {
+        "id": "rec-4fwkpb",
+        "title": "Speak Now",
+        "releaseDate": 2010,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-axrd6r",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 2010,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mine.mp4",
+      "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 23,
+    "albumTitle": "Speak Now",
+    "summary": "Hot 100 peak #3 · 23 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-2vlww7",
+      "date": "2010",
+      "label": "Mine — original release",
+      "detail": "Original album: Speak Now",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2l",
+      "date": "2010",
+      "label": "Billboard Hot 100 peak #3",
+      "detail": "23 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-iono24",
+      "date": "2010",
+      "label": "Speak Now",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "2010",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "cover-RVTR245070",
+        "imageUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL937013/RVAL937013__taylor-swift__speak-now.jpg",
+        "caption": "Album cover",
+        "label": "Cover",
+        "category": "cover",
+        "performanceId": null,
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "5cac7096b25d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR245070&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-axrd6r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "25617ad9ab1b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR245070&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-axrd6r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b6e1ed7a17ca",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR245070&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-axrd6r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "a8dd1a66ea13",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR245070&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-axrd6r",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "12ddd1d82aaa",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR245070&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-axrd6r",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-axrd6r",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 2010,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mine.mp4",
+        "notes": "Detected year: 2010. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR245070-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR245070"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Taylor Swift"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Taylor Swift"
+    },
+    {
+      "id": "rel-RVTR245070-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR245070"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-4fwkpb"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Speak Now"
+    },
+    {
+      "id": "rel-RVTR245070-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR245070"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #3"
+    },
+    {
+      "id": "rel-RVTR245070-tl-tl-2vlww7",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR245070"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-2vlww7"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Mine — original release"
+    },
+    {
+      "id": "rel-RVTR245070-tl-tl-l47p2l",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR245070"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2l"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #3"
+    },
+    {
+      "id": "rel-RVTR245070-tl-tl-iono24",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR245070"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-iono24"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Speak Now"
+    },
+    {
+      "id": "rel-RVTR245070-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR245070"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR245070-perf-perf-axrd6r",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR245070"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-axrd6r"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-axrd6r-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-axrd6r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mine.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-5cac7096b25d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-axrd6r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "5cac7096b25d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-25617ad9ab1b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-axrd6r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "25617ad9ab1b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-b6e1ed7a17ca-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-axrd6r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b6e1ed7a17ca"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-a8dd1a66ea13-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-axrd6r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "a8dd1a66ea13"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-12ddd1d82aaa-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-axrd6r"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "12ddd1d82aaa"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR245070. \"Mine\" by Taylor Swift. Album: Speak Now (2010).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL937013/RVAL937013__taylor-swift__speak-now.jpg",
+      "excerpt": "Canonical cover assignment for RVTR245070 (Mine). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Speak Now (2010). Billboard Hot 100 peak: #3. 23 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Taylor Swift · Title: Mine · Album: HV 10-10 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2010.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-b681fb60",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mine.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-302a2dcb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Taylor Swift - Mine.mp3",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-2111971e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Taylor Swift - Mine.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "6e3fd36f-90c6-4850-9fc3-a66ed34d01b8",
+      "category": "artist",
+      "text": "Mine is performed by Taylor Swift.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "c0649c43-7705-433e-932c-955187090659",
+      "category": "album",
+      "text": "The song appears on the album \"Speak Now\" (2010).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "58c2d06a-7f02-4d71-b8ba-f33ff77e4a53",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR245070.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL937013/RVAL937013__taylor-swift__speak-now.jpg",
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "4fd6530b-0f58-4ba1-a70c-e4bdb1a2ffa6",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7b92ff8d-f942-4032-b095-dddfdf07f8ec",
+      "category": "recording",
+      "text": "Mine was released in 2010.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "cf7130dd-7e1d-48bf-becf-13c9a355a4e8",
+      "category": "trivia",
+      "text": "Artist: Taylor Swift · Title: Mine · Album: HV 10-10 · Year: 2010 · Genre: Top 40 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mine.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "571e7b59-496b-445b-8b15-4956af2140d7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mine.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d1bfb252-c709-47fd-9c63-18016a2bb6bc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Taylor Swift - Mine.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "d8ef2348-ba38-40d1-988f-fff6cdd9055e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2010/Fill/Taylor Swift - Mine.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 12,
+    "preserved": 9,
+    "accepted": 5,
+    "pending": 4,
+    "duplicate": 0,
+    "invalid": 3,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Taylor Swift - Mine.mp4",
+    "tags": [],
+    "mediaItemCount": 3
+  },
+  "relatedSongs": []
+}

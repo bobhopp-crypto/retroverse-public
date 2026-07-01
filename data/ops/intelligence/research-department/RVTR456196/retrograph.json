@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR456196",
+    "kind": "song",
+    "rvtr": "RVTR456196",
+    "generatedAt": "2026-06-28T22:53:17.431Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR456196",
+    "artist": "Tlc",
+    "title": "Ain' 2 Proud 2 Beg",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Tlc",
+    "relatedArtists": [
+      "Tlc"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-hbfaxo",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1992,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/TLC - Ain' 2 Proud 2 Beg.mp4",
+      "notes": "Detected year: 1992. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-9xg52x",
+      "date": "1992",
+      "label": "Ain' 2 Proud 2 Beg — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1992",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "50739de88eeb",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR456196&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hbfaxo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "91a1f8319915",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR456196&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hbfaxo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4667a41eaa18",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR456196&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hbfaxo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "cd0eaa9e9da4",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR456196&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hbfaxo",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "6542d779c8cc",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR456196&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hbfaxo",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hbfaxo",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1992,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/TLC - Ain' 2 Proud 2 Beg.mp4",
+        "notes": "Detected year: 1992. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR456196-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR456196"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Tlc"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Tlc"
+    },
+    {
+      "id": "rel-RVTR456196-tl-tl-9xg52x",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR456196"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-9xg52x"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Ain' 2 Proud 2 Beg — original release"
+    },
+    {
+      "id": "rel-RVTR456196-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR456196"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR456196-perf-perf-hbfaxo",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR456196"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hbfaxo"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hbfaxo-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hbfaxo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/TLC - Ain' 2 Proud 2 Beg.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-50739de88eeb-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hbfaxo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "50739de88eeb"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-91a1f8319915-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hbfaxo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "91a1f8319915"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-4667a41eaa18-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hbfaxo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4667a41eaa18"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-cd0eaa9e9da4-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hbfaxo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "cd0eaa9e9da4"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-6542d779c8cc-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hbfaxo"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "6542d779c8cc"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR456196. \"Ain' 2 Proud 2 Beg\" by Tlc.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: TLC · Title: Ain' 2 Proud 2 Beg · Album: Ain't 2 Proud 2 Beg · Year: 1992 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/TLC - Ain' 2 Proud 2 Beg.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-a5b7ff01",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/TLC - Ain' 2 Proud 2 Beg.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-28970135",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Tlc - Aint 2 Proud 2 Beg.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "8fc7ec7d-9220-4439-bd7b-76f086fd429e",
+      "category": "artist",
+      "text": "Ain' 2 Proud 2 Beg is performed by Tlc.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "e9a78fd0-3407-4721-9317-1ec67f5b75d5",
+      "category": "trivia",
+      "text": "Artist: TLC · Title: Ain' 2 Proud 2 Beg · Album: Ain't 2 Proud 2 Beg · Year: 1992 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/TLC - Ain' 2 Proud 2 Beg.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "202d4acd-3669-4f96-abe7-e94d3539c62d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/TLC - Ain' 2 Proud 2 Beg.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "7a22eb7d-fc10-4427-bdd6-921e23cf8bb7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Fill/Tlc - Aint 2 Proud 2 Beg.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 1,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/TLC - Ain' 2 Proud 2 Beg.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

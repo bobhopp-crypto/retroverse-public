@@ -10,7 +10,7 @@ import { RetroverseLive2View } from "./retroverse-live-2-view";
 
 import "./retroverse-live-2.css";
 
-/** Shared Live Attract Tour entry — homepage, /index, and /retroverse-2/live. */
+/** Live attract tour entry — /retroverse-2/live only (not the public homepage). */
 export async function LiveAttractTourPage() {
   const liveRedirect = await getPublicLiveRedirectUrl();
   if (liveRedirect) {

@@ -1,0 +1,544 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR520186",
+    "kind": "song",
+    "rvtr": "RVTR520186",
+    "generatedAt": "2026-06-28T22:54:54.038Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR520186",
+    "artist": "Foreigner",
+    "title": "Double Vision",
+    "year": 2011,
+    "albumTitle": "Extended Versions",
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "Foreigner",
+    "relatedArtists": [
+      "Foreigner"
+    ]
+  },
+  "album": {
+    "title": "Extended Versions",
+    "releaseYear": 2011,
+    "recordings": [
+      {
+        "id": "rec-99pinq",
+        "title": "Extended Versions",
+        "releaseDate": 2011,
+        "label": null,
+        "catalogNumber": null,
+        "recordingLocation": null,
+        "producer": null,
+        "notes": []
+      }
+    ]
+  },
+  "performances": [
+    {
+      "id": "perf-hge246",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1978,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Double Vision.mp4",
+      "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": 2,
+    "chartWeeks": 20,
+    "albumTitle": "Extended Versions",
+    "summary": "Hot 100 peak #2 · 20 weeks"
+  },
+  "timeline": [
+    {
+      "id": "tl-x6r551",
+      "date": "2011",
+      "label": "Double Vision — original release",
+      "detail": "Original album: Extended Versions",
+      "domain": "song",
+      "confidence": 0.72,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-l47p2k",
+      "date": "2011",
+      "label": "Billboard Hot 100 peak #2",
+      "detail": "20 weeks on chart",
+      "domain": "song",
+      "confidence": 0.95,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-7078z6",
+      "date": "2011",
+      "label": "Extended Versions",
+      "detail": null,
+      "domain": "recording",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1978",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "c4095f36d085",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR520186&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-hge246",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4493ed1234b8",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR520186&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-hge246",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "56ee26813645",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR520186&file=crowd.jpg",
+        "caption": "Audience or wide-stage context",
+        "label": "Crowd",
+        "category": "Crowd",
+        "performanceId": "perf-hge246",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "4af92c80bd60",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR520186&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-hge246",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "98e759b0c3e3",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR520186&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-hge246",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-hge246",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1978,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Double Vision.mp4",
+        "notes": "Detected year: 1978. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR520186-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR520186"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "Foreigner"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "Foreigner"
+    },
+    {
+      "id": "rel-RVTR520186-album",
+      "kind": "song_album",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR520186"
+      },
+      "to": {
+        "entityType": "album",
+        "entityId": "rec-99pinq"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Extended Versions"
+    },
+    {
+      "id": "rel-RVTR520186-chart",
+      "kind": "song_chart_history",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR520186"
+      },
+      "to": {
+        "entityType": "chart",
+        "entityId": "hot100"
+      },
+      "confidence": 0.95,
+      "source": "Retrograph",
+      "label": "Hot 100 #2"
+    },
+    {
+      "id": "rel-RVTR520186-tl-tl-x6r551",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR520186"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-x6r551"
+      },
+      "confidence": 0.72,
+      "source": "song entity",
+      "label": "Double Vision — original release"
+    },
+    {
+      "id": "rel-RVTR520186-tl-tl-l47p2k",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR520186"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-l47p2k"
+      },
+      "confidence": 0.95,
+      "source": "Retroverse graph",
+      "label": "Billboard Hot 100 peak #2"
+    },
+    {
+      "id": "rel-RVTR520186-tl-tl-7078z6",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR520186"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-7078z6"
+      },
+      "confidence": 0.88,
+      "source": "Retroverse graph",
+      "label": "Extended Versions"
+    },
+    {
+      "id": "rel-RVTR520186-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR520186"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR520186-perf-perf-hge246",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR520186"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-hge246"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-hge246-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hge246"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Double Vision.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-c4095f36d085-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hge246"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "c4095f36d085"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-4493ed1234b8-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hge246"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4493ed1234b8"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    },
+    {
+      "id": "rel-56ee26813645-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hge246"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "56ee26813645"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Crowd"
+    },
+    {
+      "id": "rel-4af92c80bd60-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hge246"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "4af92c80bd60"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-98e759b0c3e3-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-hge246"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "98e759b0c3e3"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR520186. \"Double Vision\" by Foreigner. Album: Extended Versions (2011).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "excerpt": "Album: Extended Versions (2011). Billboard Hot 100 peak: #2. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: Foreigner · Title: Double Vision · Album: Double Vision · Year: 1978 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Double Vision.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    },
+    {
+      "id": "vdj-media-ec0df551",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Double Vision.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-f7f9506a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Foreigner - Double Vision.mp3",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "15ab54cb-ad7d-4f06-b9a5-80d121f82695",
+      "category": "artist",
+      "text": "Double Vision is performed by Foreigner.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "f4a4f16f-4116-4955-927c-65e654cc1790",
+      "category": "album",
+      "text": "The song appears on the album \"Extended Versions\" (2011).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "6a0a9af3-6c46-4883-bc86-1145da0edd2f",
+      "category": "chart",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "a1cdad2b-4db5-43b0-b21f-0dd205178165",
+      "category": "recording",
+      "text": "Double Vision was released in 2011.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "76ab8d71-d1a4-42e0-a06f-d00b7c506b96",
+      "category": "trivia",
+      "text": "Artist: Foreigner · Title: Double Vision · Album: Double Vision · Year: 1978 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Double Vision.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "2863c904-1dd9-4579-b665-c9bf5c98dd33",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Double Vision.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "e80c786c-07ce-4df8-88ee-66b65d1bcd1b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Foreigner - Double Vision.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 8,
+    "preserved": 7,
+    "accepted": 4,
+    "pending": 3,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Foreigner - Double Vision.mp4",
+    "tags": [],
+    "mediaItemCount": 2
+  },
+  "relatedSongs": []
+}

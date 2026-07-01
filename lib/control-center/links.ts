@@ -103,7 +103,7 @@ export const CONTROL_SECTIONS: ControlSection[] = [
     title: "Inspectors",
     tone: "teal",
     links: [
-      { label: "Graph Inspector", href: "/inspect", note: "local PG read-only" },
+      { label: "Database Explorer", href: "/database-explorer", note: "local PG read-only" },
       { label: "Search results", href: "/search?q=madonna", note: "discovery UI" },
       {
         label: "Missing covers report",

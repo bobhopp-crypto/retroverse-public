@@ -1,0 +1,377 @@
+{
+  "version": 1,
+  "entity": {
+    "id": "RVTR196131",
+    "kind": "song",
+    "rvtr": "RVTR196131",
+    "generatedAt": "2026-06-28T22:47:49.348Z",
+    "editorDistillVersion": "2026-06-26.a4"
+  },
+  "song": {
+    "rvtr": "RVTR196131",
+    "artist": "The Darlings",
+    "title": "Dooley",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null
+  },
+  "artist": {
+    "name": "The Darlings",
+    "relatedArtists": [
+      "The Darlings"
+    ]
+  },
+  "album": {
+    "title": null,
+    "releaseYear": null,
+    "recordings": []
+  },
+  "performances": [
+    {
+      "id": "perf-wnttp2",
+      "title": "Official Video",
+      "kind": "performance",
+      "year": 1963,
+      "venue": null,
+      "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Darlings - Dooley.mp4",
+      "notes": "Detected year: 1963. Curated visual reference frames extracted from this footage."
+    }
+  ],
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "timeline": [
+    {
+      "id": "tl-df128g",
+      "date": "1963",
+      "label": "Dooley — original release",
+      "detail": null,
+      "domain": "song",
+      "confidence": 0.45,
+      "source": "song entity"
+    },
+    {
+      "id": "tl-k5j70p",
+      "date": "1963",
+      "label": "Official Video",
+      "detail": null,
+      "domain": "performance",
+      "confidence": 0.75,
+      "source": "owned video"
+    }
+  ],
+  "recording": {
+    "location": null,
+    "notes": []
+  },
+  "personnel": {
+    "writers": [],
+    "producers": [],
+    "members": [],
+    "engineers": []
+  },
+  "media": {
+    "images": [
+      {
+        "assetId": "e8634962802b",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196131&file=close-up.jpg",
+        "caption": "Sharpest close-up in sequence",
+        "label": "Close-up",
+        "category": "Close-up",
+        "performanceId": "perf-wnttp2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "917b5704e45e",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196131&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "label": "Hero",
+        "category": "Hero",
+        "performanceId": "perf-wnttp2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "b62a25a32cb7",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196131&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "label": "Performance",
+        "category": "Performance",
+        "performanceId": "perf-wnttp2",
+        "status": "available",
+        "unusedReason": null
+      },
+      {
+        "assetId": "1815c980764d",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR196131&file=alternate.jpg",
+        "caption": "Visually distinct alternate angle",
+        "label": "Alternate",
+        "category": "Alternate",
+        "performanceId": "perf-wnttp2",
+        "status": "available",
+        "unusedReason": null
+      }
+    ],
+    "videos": [
+      {
+        "id": "perf-wnttp2",
+        "title": "Official Video",
+        "kind": "performance",
+        "year": 1963,
+        "venue": null,
+        "sourcePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Darlings - Dooley.mp4",
+        "notes": "Detected year: 1963. Curated visual reference frames extracted from this footage."
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "rel-RVTR196131-artist",
+      "kind": "song_artist",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196131"
+      },
+      "to": {
+        "entityType": "artist",
+        "entityId": "The Darlings"
+      },
+      "confidence": 1,
+      "source": "Retrograph",
+      "label": "The Darlings"
+    },
+    {
+      "id": "rel-RVTR196131-tl-tl-df128g",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196131"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-df128g"
+      },
+      "confidence": 0.45,
+      "source": "song entity",
+      "label": "Dooley — original release"
+    },
+    {
+      "id": "rel-RVTR196131-tl-tl-k5j70p",
+      "kind": "song_timeline_event",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196131"
+      },
+      "to": {
+        "entityType": "timeline_event",
+        "entityId": "tl-k5j70p"
+      },
+      "confidence": 0.75,
+      "source": "owned video",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-RVTR196131-perf-perf-wnttp2",
+      "kind": "song_performance",
+      "from": {
+        "entityType": "song",
+        "entityId": "RVTR196131"
+      },
+      "to": {
+        "entityType": "performance",
+        "entityId": "perf-wnttp2"
+      },
+      "confidence": 0.85,
+      "source": "Retrograph",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-perf-wnttp2-video",
+      "kind": "performance_video_file",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wnttp2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Darlings - Dooley.mp4"
+      },
+      "confidence": 0.9,
+      "source": "VirtualDJ",
+      "label": "Official Video"
+    },
+    {
+      "id": "rel-e8634962802b-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wnttp2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "e8634962802b"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Close-up"
+    },
+    {
+      "id": "rel-917b5704e45e-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wnttp2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "917b5704e45e"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Hero"
+    },
+    {
+      "id": "rel-b62a25a32cb7-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wnttp2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "b62a25a32cb7"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Performance"
+    },
+    {
+      "id": "rel-1815c980764d-frame",
+      "kind": "performance_media",
+      "from": {
+        "entityType": "performance",
+        "entityId": "perf-wnttp2"
+      },
+      "to": {
+        "entityType": "media",
+        "entityId": "1815c980764d"
+      },
+      "confidence": 0.85,
+      "source": "Collector",
+      "label": "Alternate"
+    }
+  ],
+  "sources": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "excerpt": "Retroverse track identity: RVTR196131. \"Dooley\" by The Darlings.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "excerpt": "Artist: The Darlings · Title: Dooley · Album: Hello Children Everywhere Vol. 2 · Year: 1963 · Genre: Non-Music · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Darlings - Dooley.mp4",
+      "confidence": 0.99
+    },
+    {
+      "id": "vdj-media-d83dfa94",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Darlings - Dooley.mp4",
+      "confidence": 0.99
+    }
+  ],
+  "facts": [
+    {
+      "id": "0aacd63c-7a3c-4384-94bc-90bb067c89ab",
+      "category": "artist",
+      "text": "Dooley is performed by The Darlings.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "05fbefbb-4a05-4f47-82fd-df3c8fb85f59",
+      "category": "trivia",
+      "text": "Artist: The Darlings · Title: Dooley · Album: Hello Children Everywhere Vol.",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "accepted",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "pendingFacts": [
+    {
+      "id": "d7943a62-d55d-4d11-83ca-ed02fb1818c5",
+      "category": "trivia",
+      "text": "2 · Year: 1963 · Genre: Non-Music · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Darlings - Dooley.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    },
+    {
+      "id": "bac3000f-be25-4976-97c2-42b0335847a1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Darlings - Dooley.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "status": "pending",
+      "duplicateOf": null,
+      "clusterId": null
+    }
+  ],
+  "unknowns": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "aiEnrichments": [],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "dedupeReport": {
+    "duplicatesRemoved": 0,
+    "clusters": []
+  },
+  "conflictReport": {
+    "conflicts": []
+  },
+  "factCounts": {
+    "collectorInput": 5,
+    "preserved": 4,
+    "accepted": 2,
+    "pending": 2,
+    "duplicate": 0,
+    "invalid": 1,
+    "excerptDerived": 0
+  },
+  "vdjMetadata": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Darlings - Dooley.mp4",
+    "tags": [],
+    "mediaItemCount": 1
+  },
+  "relatedSongs": []
+}
