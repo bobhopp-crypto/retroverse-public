@@ -4,13 +4,21 @@ import {
   NO_INVENTED_TEXT_PROMPT,
 } from "./pass-prompt-safety";
 
-export const CONTROLLED_PASS_TYPE_LABELS = ["VIP PASS", "PASS", "EVENT PASS"] as const;
+export const CONTROLLED_PASS_TYPE_LABELS = [
+  "VIP PASS",
+  "PASS",
+  "GENERAL PASS",
+  "EVENT PASS",
+  "BACKSTAGE PASS",
+] as const;
 
 export type ControlledPassTypeLabel = (typeof CONTROLLED_PASS_TYPE_LABELS)[number];
 
 export function normalizePassTypeLabel(raw: string | undefined | null): ControlledPassTypeLabel {
   const upper = (raw ?? "").trim().toUpperCase();
-  if (upper === "PASS" || upper === "EVENT PASS") return upper;
+  if (upper === "PASS" || upper === "GENERAL PASS" || upper === "EVENT PASS" || upper === "BACKSTAGE PASS") {
+    return upper;
+  }
   return "VIP PASS";
 }
 

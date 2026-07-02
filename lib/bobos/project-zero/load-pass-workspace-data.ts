@@ -4,7 +4,9 @@ import { listPassLibrary } from "@/app/ops/event-studio/create/pass-generator/ac
 import { eventIdFromName } from "@/lib/ops/event-studio/pass-studio/default-templates";
 import type { GeneratedPass, PassTemplate } from "@/lib/ops/event-studio/pass-studio/types";
 
+import type { PassArtworkAdjustments } from "./pass-artwork-adjustments";
 import {
+  loadPassWorkspaceAdjustments,
   loadPassWorkspaceHistory,
   type PassWorkspaceSlug,
   type PassWorkspaceVersion,
@@ -30,6 +32,8 @@ export type PassWorkspaceTemplate = PassTemplate & {
   slug: PassWorkspaceSlug;
   version: number;
   history: PassWorkspaceVersion[];
+  /** Print Boost — non-destructive; never mutates the raw generation this points at. */
+  adjustments: PassArtworkAdjustments;
 };
 
 export type PassWorkspaceData = {
@@ -42,6 +46,7 @@ export async function loadPassWorkspaceData(
   context: ProjectSharedContext,
 ): Promise<PassWorkspaceData> {
   const history = await loadPassWorkspaceHistory(projectId);
+  const adjustmentsBySlug = await loadPassWorkspaceAdjustments(projectId);
   const now = new Date().toISOString();
 
   const templates: PassWorkspaceTemplate[] = SLOTS.map((slot) => {
@@ -65,6 +70,7 @@ export async function loadPassWorkspaceData(
       slug: slot.slug,
       version: versions.length,
       history: versions,
+      adjustments: adjustmentsBySlug[slot.slug],
     };
   });
 

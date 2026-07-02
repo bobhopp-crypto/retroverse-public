@@ -13,7 +13,15 @@ type Props = {
   passes: GeneratedPass[];
   index: number;
   onIndexChange: (index: number) => void;
+  /** Bumped after a Print Boost rebuild so the browser re-fetches the (same-URL) finished
+   *  image instead of showing a cached pre-adjustment copy. */
+  cacheBust?: number;
 };
+
+function withCacheBust(url: string, nonce: number | undefined): string {
+  if (!nonce) return url;
+  return `${url}${url.includes("?") ? "&" : "?"}v=${nonce}`;
+}
 
 const STATUS_LABEL: Record<string, string> = {
   available: "Available",
@@ -23,11 +31,11 @@ const STATUS_LABEL: Record<string, string> = {
 };
 
 /**
- * Preview shows the exact production image — front is pure AI artwork, back already has
- * the QR + stamped serial baked in. No live CSS overlay: what you see here is pixel-for-
- * pixel what prints. Card is sized to the true 2.25" x 3.5" aspect ratio.
+ * Preview shows the exact production image — AI-designed collectible artwork with only
+ * QR + serial stamp composited on by BobOS. No live CSS overlay: what you see here is
+ * pixel-for-pixel what prints.
  */
-export function BobosPassPreview({ passes, index, onIndexChange }: Props) {
+export function BobosPassPreview({ passes, index, onIndexChange, cacheBust }: Props) {
   const [side, setSide] = useState<"front" | "back">("front");
 
   useEffect(() => {
@@ -59,7 +67,11 @@ export function BobosPassPreview({ passes, index, onIndexChange }: Props) {
           <div className="pzw-preview__card" style={{ aspectRatio: BOBOS_PASS_ASPECT_RATIO }}>
             {artworkUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={artworkUrl} alt={`${pass.passType} pass — ${side}`} className="pzw-preview__image" />
+              <img
+                src={withCacheBust(artworkUrl, cacheBust)}
+                alt={`${pass.passType} pass — ${side}`}
+                className="pzw-preview__image"
+              />
             ) : (
               <div className="pzw-preview__missing">No artwork</div>
             )}

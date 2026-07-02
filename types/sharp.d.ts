@@ -41,6 +41,8 @@ declare module "sharp" {
     composite(
       images: Array<{ input: Buffer | string; left?: number; top?: number }>,
     ): SharpInstance;
+    modulate(options?: { brightness?: number; saturation?: number; hue?: number; lightness?: number }): SharpInstance;
+    linear(a?: number | number[], b?: number | number[]): SharpInstance;
     png(): SharpInstance;
     jpeg(options?: { quality?: number }): SharpInstance;
     toBuffer(): Promise<Buffer>;

@@ -1,13 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { generatePassArtwork } from "@/app/bobos/pass-workspace/actions";
+import { generatePassArtwork, updatePassArtworkAdjustments } from "@/app/bobos/pass-workspace/actions";
+import {
+  adjustmentsToCssFilter,
+  DEFAULT_PASS_ARTWORK_ADJUSTMENTS,
+  PASS_ADJUSTMENT_MAX,
+  PASS_ADJUSTMENT_MIN,
+  PASS_ADJUSTMENT_STEP,
+  type PassArtworkAdjustments,
+} from "@/lib/bobos/project-zero/pass-artwork-adjustments";
 import type { PassWorkspaceTemplate } from "@/lib/bobos/project-zero/load-pass-workspace-data";
 import type { PassWorkspaceSlug, PassWorkspaceVersion } from "@/lib/bobos/project-zero/pass-workspace-store";
 
 function passTypeLabel(template: PassWorkspaceTemplate): string {
   return template.name.replace(/\s+Pass$/i, "").trim() || template.name;
+}
+
+function pct(value: number): string {
+  return `${Math.round(value * 100)}%`;
 }
 
 type Props = {
@@ -17,18 +29,49 @@ type Props = {
   quantity: number;
   onQuantityChange: (quantity: number) => void;
   onVersionCreated: (slug: PassWorkspaceSlug, version: PassWorkspaceVersion) => void;
+  onAdjustmentsChange: (slug: PassWorkspaceSlug, adjustments: PassArtworkAdjustments) => void;
 };
 
 /** One pass type — its own artwork, its own version history. Nothing here is ever
  *  pre-populated from another project; it only exists once Generate is clicked. */
-export function PassArtworkCard({ projectId, context, template, quantity, onQuantityChange, onVersionCreated }: Props) {
+export function PassArtworkCard({
+  projectId,
+  context,
+  template,
+  quantity,
+  onQuantityChange,
+  onVersionCreated,
+  onAdjustmentsChange,
+}: Props) {
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [side, setSide] = useState<"front" | "back">("front");
   const [showHistory, setShowHistory] = useState(false);
+  const [showBoost, setShowBoost] = useState(false);
+  const [adjustments, setAdjustments] = useState<PassArtworkAdjustments>(template.adjustments);
+  const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    setAdjustments(template.adjustments);
+  }, [template.adjustments]);
+
+  useEffect(() => {
+    return () => {
+      if (saveTimer.current) clearTimeout(saveTimer.current);
+    };
+  }, []);
 
   const hasArtwork = template.version > 0;
   const artworkUrl = side === "front" ? template.frontArtworkUrl : template.backArtworkUrl;
+
+  function commitAdjustments(next: PassArtworkAdjustments) {
+    setAdjustments(next);
+    onAdjustmentsChange(template.slug, next);
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(() => {
+      void updatePassArtworkAdjustments(projectId, template.slug, next);
+    }, 300);
+  }
 
   async function handleGenerate() {
     setGenerating(true);
@@ -56,7 +99,7 @@ export function PassArtworkCard({ projectId, context, template, quantity, onQuan
       <span className="ps-card__art">
         {hasArtwork && artworkUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={artworkUrl} alt="" />
+          <img src={artworkUrl} alt="" style={{ filter: adjustmentsToCssFilter(adjustments) }} />
         ) : (
           <span
             className="ps-card__art-fallback ps-card__art-fallback--empty"
@@ -87,6 +130,76 @@ export function PassArtworkCard({ projectId, context, template, quantity, onQuan
               {generating ? "Regenerating…" : "Regenerate"}
             </button>
           </div>
+
+          <button type="button" className="ps-btn ps-btn--quiet" onClick={() => setShowBoost((v) => !v)}>
+            {showBoost ? "Hide Print Boost" : "Print Boost"}
+          </button>
+
+          {showBoost ? (
+            <div className="pzw-boost">
+              <label className="pzw-boost__toggle">
+                <input
+                  type="checkbox"
+                  checked={adjustments.printBoost}
+                  onChange={(e) => commitAdjustments({ ...adjustments, printBoost: e.target.checked })}
+                />
+                <span>Print Boost (fixes dark AI artwork)</span>
+              </label>
+
+              <label className="pzw-boost__slider">
+                <span>Brightness</span>
+                <input
+                  type="range"
+                  min={PASS_ADJUSTMENT_MIN}
+                  max={PASS_ADJUSTMENT_MAX}
+                  step={PASS_ADJUSTMENT_STEP}
+                  value={adjustments.brightness}
+                  onChange={(e) => commitAdjustments({ ...adjustments, brightness: Number(e.target.value) })}
+                />
+                <span className="pzw-boost__value">{pct(adjustments.brightness)}</span>
+              </label>
+
+              <label className="pzw-boost__slider">
+                <span>Contrast</span>
+                <input
+                  type="range"
+                  min={PASS_ADJUSTMENT_MIN}
+                  max={PASS_ADJUSTMENT_MAX}
+                  step={PASS_ADJUSTMENT_STEP}
+                  value={adjustments.contrast}
+                  onChange={(e) => commitAdjustments({ ...adjustments, contrast: Number(e.target.value) })}
+                />
+                <span className="pzw-boost__value">{pct(adjustments.contrast)}</span>
+              </label>
+
+              <label className="pzw-boost__slider">
+                <span>Saturation</span>
+                <input
+                  type="range"
+                  min={PASS_ADJUSTMENT_MIN}
+                  max={PASS_ADJUSTMENT_MAX}
+                  step={PASS_ADJUSTMENT_STEP}
+                  value={adjustments.saturation}
+                  onChange={(e) => commitAdjustments({ ...adjustments, saturation: Number(e.target.value) })}
+                />
+                <span className="pzw-boost__value">{pct(adjustments.saturation)}</span>
+              </label>
+
+              <div className="pzw-boost__footer">
+                <span className="pzw-boost__hint">
+                  Non-destructive — original artwork is never changed. Preview updates live;
+                  Generate Batch and Print Sheets use the same adjustment.
+                </span>
+                <button
+                  type="button"
+                  className="ps-btn ps-btn--quiet"
+                  onClick={() => commitAdjustments({ ...DEFAULT_PASS_ARTWORK_ADJUSTMENTS })}
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          ) : null}
 
           <button type="button" className="ps-btn ps-btn--quiet" onClick={() => setShowHistory((v) => !v)}>
             {showHistory ? "Hide History" : `History (${template.history.length})`}

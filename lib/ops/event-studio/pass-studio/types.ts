@@ -97,6 +97,10 @@ export type GeneratedPass = {
   date: string;
   batchId: string;
   templateId: string;
+  /** Content Creator generation this pass's artwork was rendered from — null for legacy
+   *  passes created before this was tracked. Lets Print Boost re-derive finished front/back
+   *  from the untouched raw source without ever calling AI generation again. */
+  generationId: string | null;
   front: {
     artworkUrl: string | null;
   };

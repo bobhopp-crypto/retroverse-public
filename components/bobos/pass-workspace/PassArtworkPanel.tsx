@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 
 import type { PassWorkspaceTemplate } from "@/lib/bobos/project-zero/load-pass-workspace-data";
+import type { PassArtworkAdjustments } from "@/lib/bobos/project-zero/pass-artwork-adjustments";
 import type { PassWorkspaceSlug, PassWorkspaceVersion } from "@/lib/bobos/project-zero/pass-workspace-store";
 import { computeBatchRows, serialRangeForRows, totalPassesForRows } from "@/lib/ops/event-studio/pass-studio/serials";
 
@@ -19,6 +20,7 @@ type Props = {
   quantities: Record<string, number>;
   onQuantityChange: (templateId: string, quantity: number) => void;
   onVersionCreated: (slug: PassWorkspaceSlug, version: PassWorkspaceVersion) => void;
+  onAdjustmentsChange: (slug: PassWorkspaceSlug, adjustments: PassArtworkAdjustments) => void;
   generating: boolean;
   generateError: string | null;
   onGenerate: () => void;
@@ -33,6 +35,7 @@ export function PassArtworkPanel({
   quantities,
   onQuantityChange,
   onVersionCreated,
+  onAdjustmentsChange,
   generating,
   generateError,
   onGenerate,
@@ -65,6 +68,7 @@ export function PassArtworkPanel({
             quantity={quantities[template.id] ?? 0}
             onQuantityChange={(quantity) => onQuantityChange(template.id, quantity)}
             onVersionCreated={onVersionCreated}
+            onAdjustmentsChange={onAdjustmentsChange}
           />
         ))}
       </div>

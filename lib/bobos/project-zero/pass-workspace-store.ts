@@ -5,6 +5,12 @@ import { join } from "path";
 
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 
+import {
+  DEFAULT_PASS_ARTWORK_ADJUSTMENTS,
+  normalizePassArtworkAdjustments,
+  type PassArtworkAdjustments,
+} from "./pass-artwork-adjustments";
+
 /**
  * A BobOS Project owns its own pass artwork. This store is intentionally separate from
  * Pass Studio's global `templates.json` / Content Creator library fuzzy-matching — nothing
@@ -26,11 +32,15 @@ export type PassWorkspaceVersion = {
 };
 
 type PassWorkspaceSlots = Record<PassWorkspaceSlug, PassWorkspaceVersion[]>;
+export type PassWorkspaceAdjustmentsBySlug = Record<PassWorkspaceSlug, PassArtworkAdjustments>;
 
 type PassWorkspaceFile = {
   version: 1;
   projectId: string;
   slots: PassWorkspaceSlots;
+  /** Print Boost — non-destructive, applied at finish time; never touches the raw
+   *  generation. Keyed by pass type, independent of artwork version. */
+  adjustments: PassWorkspaceAdjustmentsBySlug;
 };
 
 function passWorkspaceDir(): string {
@@ -45,6 +55,14 @@ function emptySlots(): PassWorkspaceSlots {
   return { general: [], vip: [], backstage: [] };
 }
 
+function defaultAdjustments(): PassWorkspaceAdjustmentsBySlug {
+  return {
+    general: { ...DEFAULT_PASS_ARTWORK_ADJUSTMENTS },
+    vip: { ...DEFAULT_PASS_ARTWORK_ADJUSTMENTS },
+    backstage: { ...DEFAULT_PASS_ARTWORK_ADJUSTMENTS },
+  };
+}
+
 function normalizeFile(projectId: string, raw: unknown): PassWorkspaceFile {
   const parsed = (raw ?? {}) as Partial<PassWorkspaceFile>;
   const slots = emptySlots();
@@ -52,7 +70,11 @@ function normalizeFile(projectId: string, raw: unknown): PassWorkspaceFile {
     const versions = parsed.slots?.[slug];
     if (Array.isArray(versions)) slots[slug] = versions;
   }
-  return { version: 1, projectId, slots };
+  const adjustments = defaultAdjustments();
+  for (const slug of PASS_WORKSPACE_SLUGS) {
+    adjustments[slug] = normalizePassArtworkAdjustments(parsed.adjustments?.[slug]);
+  }
+  return { version: 1, projectId, slots, adjustments };
 }
 
 async function loadFile(projectId: string): Promise<PassWorkspaceFile> {
@@ -60,7 +82,7 @@ async function loadFile(projectId: string): Promise<PassWorkspaceFile> {
     const raw = await readFile(passWorkspacePath(projectId), "utf8");
     return normalizeFile(projectId, JSON.parse(raw));
   } catch {
-    return { version: 1, projectId, slots: emptySlots() };
+    return { version: 1, projectId, slots: emptySlots(), adjustments: defaultAdjustments() };
   }
 }
 
@@ -93,4 +115,25 @@ export async function appendPassWorkspaceVersion(
   file.slots[slug] = [...existing, version];
   await saveFile(file);
   return version;
+}
+
+/** Print Boost settings for every pass type in this project — defaults if never set. */
+export async function loadPassWorkspaceAdjustments(
+  projectId: string,
+): Promise<PassWorkspaceAdjustmentsBySlug> {
+  const file = await loadFile(projectId);
+  return file.adjustments;
+}
+
+/** Non-destructive — only ever updates the adjustment settings, never the raw generation. */
+export async function savePassWorkspaceAdjustment(
+  projectId: string,
+  slug: PassWorkspaceSlug,
+  adjustments: Partial<PassArtworkAdjustments>,
+): Promise<PassArtworkAdjustments> {
+  const file = await loadFile(projectId);
+  const normalized = normalizePassArtworkAdjustments(adjustments);
+  file.adjustments[slug] = normalized;
+  await saveFile(file);
+  return normalized;
 }

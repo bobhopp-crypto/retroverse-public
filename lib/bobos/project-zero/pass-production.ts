@@ -45,6 +45,12 @@ import { retroverseDataRoot } from "@/lib/retroverse-data-root";
  * reserve are all imported unchanged from `pass-layout.ts` (the same file the Content
  * Creator / vNext export pipeline uses); only the finished-canvas crop and DPI are BobOS's
  * own correction, applied entirely within this module.
+ *
+ * BobOS Composer scope (restored, post-Composer-1.0): the AI generates the finished
+ * collectible design — typography, pass-type hierarchy, event styling, front/back layout —
+ * with QR and serial reserves left blank. BobOS composites ONLY those two production
+ * elements afterward. No decorative overlays (frames, bands, badges, security marks) are
+ * added on top of AI artwork.
  */
 const RAW_WIDTH_PX = PASS_WIDTH;
 const RAW_HEIGHT_PX = PASS_HEIGHT;
@@ -155,18 +161,20 @@ function renderSerialStampSvg(serial: string): {
 
 /**
  * Crops a raw AI-generated front PNG to the finished 2.25:3.5 canvas. The front is never
- * touched beyond this crop — no QR, no serial, no overlay — it stays 100% collectible
- * artwork, full bleed to the trim edge.
+ * touched beyond this crop — no QR, no serial, no decorative overlay — it stays 100%
+ * AI-designed collectible artwork, full bleed to the trim edge.
  */
 export async function finishBobosPassFront(rawFrontPng: Buffer): Promise<Buffer> {
   return cropToFinishedCanvas(rawFrontPng);
 }
 
 /**
- * Crops a raw AI-generated back PNG to the finished canvas, then applies the production
- * overlay (QR + realistic stamped serial). Reuses the existing QR compositor
- * (`compositeQrOntoBackBuffer`) unmodified — same reserved zone, same size, same automatic
- * quiet-zone tuning as the rest of the pipeline — just translated onto the finished canvas.
+ * Crops a raw AI-generated back PNG to the finished canvas, then applies the ONLY two
+ * production-critical elements BobOS composites: QR + realistic stamped serial. Reuses the
+ * existing QR compositor (`compositeQrOntoBackBuffer`) unmodified — same reserved zone,
+ * same size, same automatic quiet-zone tuning as the rest of the pipeline — just translated
+ * onto the finished canvas. Everything else on the back (event styling, typography, layout)
+ * comes from the AI-designed artwork itself.
  */
 export async function finishBobosPassBack(args: {
   rawBackPng: Buffer;

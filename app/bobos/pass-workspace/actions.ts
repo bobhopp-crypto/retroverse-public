@@ -1,7 +1,7 @@
 "use server";
 
 import { randomUUID } from "crypto";
-import { readFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 
 import { isArtworkProviderConfigured, resolveArtworkProvider } from "@/lib/ops/creative-lab/artwork";
 import type { ControlledPassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
@@ -13,6 +13,7 @@ import { libraryFileUrl, loadGenerationManifest } from "@/lib/ops/content-creato
 import { runVNextGenerate } from "@/lib/ops/content-creator/vnext-run";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 import { eventIdFromName } from "@/lib/ops/event-studio/pass-studio/default-templates";
+import { passTypeSlugFromLabel } from "@/lib/ops/event-studio/pass-studio/placeholder-artwork.server";
 import { passQrUrl, renderPassQrSvg } from "@/lib/ops/event-studio/pass-studio/qr";
 import {
   computeBatchRows,
@@ -24,7 +25,14 @@ import { appendPassesToLibrary, nextSerialStart, savePassBatch } from "@/lib/ops
 import type { GeneratedPass, PassBatch } from "@/lib/ops/event-studio/pass-studio/types";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 import {
+  DEFAULT_PASS_ARTWORK_ADJUSTMENTS,
+  type PassArtworkAdjustments,
+} from "@/lib/bobos/project-zero/pass-artwork-adjustments";
+import { applyPassArtworkAdjustments } from "@/lib/bobos/project-zero/pass-artwork-adjustments.server";
+import {
   appendPassWorkspaceVersion,
+  loadPassWorkspaceAdjustments,
+  savePassWorkspaceAdjustment,
   type PassWorkspaceSlug,
   type PassWorkspaceVersion,
 } from "@/lib/bobos/project-zero/pass-workspace-store";
@@ -55,12 +63,12 @@ const CREATIVE_DIRECTION_BY_SLUG: Record<PassWorkspaceSlug, CreativeDirectionId>
   backstage: "backstage-credential",
 };
 
-/** The shared pipeline only supports three controlled labels — "Backstage" has no
- *  dedicated label yet, so it inherits "VIP PASS" like the rest of Pass Studio does. */
+/** Each tier gets its own controlled label so General never reads VIP and Backstage
+ *  never reads VIP — the three tiers must never be confused for one another on sight. */
 const PASS_TYPE_LABEL_BY_SLUG: Record<PassWorkspaceSlug, ControlledPassTypeLabel> = {
-  general: "PASS",
+  general: "GENERAL PASS",
   vip: "VIP PASS",
-  backstage: "VIP PASS",
+  backstage: "BACKSTAGE PASS",
 };
 
 async function resolveEraProfile() {
@@ -120,6 +128,20 @@ export async function generatePassArtwork(input: GeneratePassArtworkInput): Prom
     frontArtworkUrl: libraryManifest?.frontImagePath ? libraryFileUrl(libraryManifest.frontImagePath) : null,
     backArtworkUrl: libraryManifest?.backImagePath ? libraryFileUrl(libraryManifest.backImagePath) : null,
   });
+}
+
+/**
+ * Print Boost — non-destructive brightness/contrast/saturation for one pass type. Never
+ * touches the raw AI generation; only changes how it is finished for Preview/Print. Safe to
+ * call any number of times without regenerating artwork.
+ */
+export async function updatePassArtworkAdjustments(
+  projectId: string,
+  slug: PassWorkspaceSlug,
+  adjustments: PassArtworkAdjustments,
+): Promise<PassArtworkAdjustments> {
+  assertLocalStudio();
+  return savePassWorkspaceAdjustment(projectId, slug, adjustments);
 }
 
 export type GenerateBobosPassBatchRow = {
@@ -202,18 +224,27 @@ export async function generateBobosPassBatch(
   };
 
   const artworkByRowId = new Map<string, (typeof draftRows)[number]>(draftRows.map((row) => [row.id, row]));
+  const adjustmentsBySlug = await loadPassWorkspaceAdjustments(input.projectId);
 
   // Finished front/back per pass type (per generation), produced once and reused for every
-  // serial in that row — the AI artwork is cropped to the exact 2.25:3.5 finished canvas
-  // here; the overlay (QR + stamp) is then applied per-serial on top of the finished back.
+  // serial in that row — Print Boost is applied first (non-destructive; raw generation PNG
+  // on disk is never touched), then the AI artwork is cropped to the exact 2.25:3.5 finished
+  // canvas. The AI-designed front is never touched further; the back's QR + stamped serial
+  // are applied per-serial on top of the finished back.
   const finishedByGenerationId = new Map<string, { frontPng: Buffer; frontUrl: string; backPng: Buffer }>();
-  async function finished(generationId: string, templateId: string): Promise<{ frontPng: Buffer; frontUrl: string; backPng: Buffer }> {
+  async function finished(
+    generationId: string,
+    templateId: string,
+    adjustments: PassArtworkAdjustments,
+  ): Promise<{ frontPng: Buffer; frontUrl: string; backPng: Buffer }> {
     if (!finishedByGenerationId.has(generationId)) {
       const rawFront = await readGenerationSidePng(generationId, "front");
       const rawBack = await readGenerationSidePng(generationId, "back");
-      const frontPng = await finishBobosPassFront(rawFront);
+      const adjustedFront = await applyPassArtworkAdjustments(rawFront, adjustments);
+      const adjustedBack = await applyPassArtworkAdjustments(rawBack, adjustments);
+      const frontPng = await finishBobosPassFront(adjustedFront);
       const frontUrl = await saveBobosPassFront({ projectId: input.projectId, batchId, templateId, buffer: frontPng });
-      finishedByGenerationId.set(generationId, { frontPng, frontUrl, backPng: rawBack });
+      finishedByGenerationId.set(generationId, { frontPng, frontUrl, backPng: adjustedBack });
     }
     return finishedByGenerationId.get(generationId)!;
   }
@@ -224,14 +255,20 @@ export async function generateBobosPassBatch(
   for (const row of rows) {
     const artwork = artworkByRowId.get(row.id)!;
     const generationId = artwork.generationId!;
-    const { frontPng, frontUrl, backPng } = await finished(generationId, artwork.templateId);
+    const slug = passTypeSlugFromLabel(row.passType);
+    const adjustments = adjustmentsBySlug[slug] ?? DEFAULT_PASS_ARTWORK_ADJUSTMENTS;
+    const { frontPng, frontUrl, backPng } = await finished(generationId, artwork.templateId, adjustments);
 
     for (let n = row.firstSerial; n <= row.lastSerial; n += 1) {
       const serial = padSerial(n);
       const qrUrl = passQrUrl(serial);
       const qrSvg = await renderPassQrSvg(qrUrl);
 
-      const finishedBack = await finishBobosPassBack({ rawBackPng: backPng, qrUrl, serial });
+      const finishedBack = await finishBobosPassBack({
+        rawBackPng: backPng,
+        qrUrl,
+        serial,
+      });
       const backArtworkUrl = await saveBobosPassBack({
         projectId: input.projectId,
         batchId,
@@ -251,6 +288,7 @@ export async function generateBobosPassBatch(
         date: input.date,
         batchId,
         templateId: artwork.templateId,
+        generationId,
         front: { artworkUrl: frontUrl },
         back: { artworkUrl: backArtworkUrl },
         qr: { url: qrUrl, svg: qrSvg },
@@ -281,11 +319,13 @@ function relPathFromServedUrl(url: string, prefix: string): string | null {
 }
 
 /**
- * Rebuilds production print sheets for whatever passes are currently on screen — used
- * when a project's Pass Workspace is reopened and passes already exist from a prior
- * session. Reads the already-finished images straight off disk; never re-runs AI
- * generation or re-applies the overlay. Passes generated before the production
- * specification shipped won't have a finished front/back on disk yet and are skipped.
+ * Rebuilds production print sheets for whatever passes are currently on screen — used both
+ * when a project's Pass Workspace is reopened and to apply a new Print Boost setting to an
+ * already-generated batch. For passes with a recorded `generationId`, this re-derives the
+ * finished front/back from the untouched raw AI generation using the CURRENT adjustment
+ * settings (no AI call) and refreshes the on-disk finished images in place, so Preview and
+ * Print stay in sync at the same URLs. Passes generated before the production specification
+ * shipped won't have a finished front/back on disk yet and are skipped.
  */
 export async function buildBobosPrintSheetsForPasses(
   projectId: string,
@@ -293,8 +333,51 @@ export async function buildBobosPrintSheetsForPasses(
 ): Promise<BobosPrintSheetSet> {
   assertLocalStudio();
 
+  const adjustmentsBySlug = await loadPassWorkspaceAdjustments(projectId);
+  const adjustedByGenerationId = new Map<string, { frontPng: Buffer; backRawAdjusted: Buffer }>();
+
+  async function adjustedSource(pass: GeneratedPass): Promise<{ frontPng: Buffer; backRawAdjusted: Buffer } | null> {
+    if (!pass.generationId) return null;
+    const cached = adjustedByGenerationId.get(pass.generationId);
+    if (cached) return cached;
+
+    const slug = passTypeSlugFromLabel(pass.passType);
+    const adjustments = adjustmentsBySlug[slug] ?? DEFAULT_PASS_ARTWORK_ADJUSTMENTS;
+    const rawFront = await readGenerationSidePng(pass.generationId, "front");
+    const rawBack = await readGenerationSidePng(pass.generationId, "back");
+    const adjustedFront = await applyPassArtworkAdjustments(rawFront, adjustments);
+    const adjustedBack = await applyPassArtworkAdjustments(rawBack, adjustments);
+    const frontPng = await finishBobosPassFront(adjustedFront);
+    const entry = { frontPng, backRawAdjusted: adjustedBack };
+    adjustedByGenerationId.set(pass.generationId, entry);
+    return entry;
+  }
+
   const sheetBuffers: { frontPng: Buffer; backPng: Buffer }[] = [];
   for (const pass of passes) {
+    const source = await adjustedSource(pass);
+    if (source) {
+      const finishedBack = await finishBobosPassBack({
+        rawBackPng: source.backRawAdjusted,
+        qrUrl: pass.qr.url,
+        serial: pass.serial,
+      });
+      sheetBuffers.push({ frontPng: source.frontPng, backPng: finishedBack });
+
+      // Refresh the finished images at their existing URLs so Preview reflects the current
+      // Print Boost setting too, without changing the pass record or its serial.
+      const frontRel = pass.front.artworkUrl
+        ? relPathFromServedUrl(pass.front.artworkUrl, BOBOS_RENDER_FILE_PREFIX)
+        : null;
+      const backRel = pass.back.artworkUrl
+        ? relPathFromServedUrl(pass.back.artworkUrl, BOBOS_RENDER_FILE_PREFIX)
+        : null;
+      if (frontRel) await writeFile(bobosRenderAbsolutePath(frontRel), source.frontPng);
+      if (backRel) await writeFile(bobosRenderAbsolutePath(backRel), finishedBack);
+      continue;
+    }
+
+    // Legacy passes without a recorded generationId — reuse whatever is already finished.
     const frontRel = pass.front.artworkUrl
       ? relPathFromServedUrl(pass.front.artworkUrl, BOBOS_RENDER_FILE_PREFIX)
       : null;

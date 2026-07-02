@@ -51,6 +51,7 @@ function buildPreviewPass(template: PassTemplate, event: Props["event"]): Genera
     date: event.date,
     batchId: "preview",
     templateId: template.id,
+    generationId: template.generationId,
     front: { artworkUrl: template.frontArtworkUrl },
     back: { artworkUrl: template.backArtworkUrl },
     qr: { url: "https://retroverse.live/pass/000000", svg: "" },

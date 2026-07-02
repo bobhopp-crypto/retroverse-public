@@ -202,6 +202,7 @@ export async function generatePassBatch(
         date: input.date,
         batchId,
         templateId: template.id,
+        generationId: template.generationId,
         front: { artworkUrl: template.frontArtworkUrl },
         back: { artworkUrl: template.backArtworkUrl },
         qr: { url: qrUrl, svg: qrSvg },
