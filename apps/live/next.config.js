@@ -1,0 +1,97 @@
+const path = require("path");
+
+const isDev = process.env.NODE_ENV === "development";
+const STUDIO_DEV_ORIGIN =
+  process.env.RETROVERSE_STUDIO_ORIGIN?.trim() || "http://localhost:3000";
+
+function coverProxyOrigin() {
+  for (const key of [
+    "COVER_PROXY_ORIGIN",
+    "SEARCH_UPSTREAM_BASE_URL",
+    "RETROVERSE_WELCOME_URL",
+  ]) {
+    const raw = process.env[key];
+    if (typeof raw === "string" && raw.trim()) {
+      return raw.trim().replace(/\/+$/, "");
+    }
+  }
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:3001";
+  }
+  return null;
+}
+
+// Internal path prefixes that live on the Studio app. In production the public
+// site sends them home (same behavior as the old middleware); in local dev they
+// proxy to the Studio dev server so operator links keep working.
+const STUDIO_PREFIXES = [
+  "/ops",
+  "/bobos",
+  "/local",
+  "/diagnostics",
+  "/internal",
+  "/inspect",
+  "/database-explorer",
+  "/control-center",
+];
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  outputFileTracingRoot: path.join(__dirname, "..", ".."),
+  // Trace only the bundled attract-tour pool — not per-RVTR package trees
+  // (45k+ files OOM Vercel builds).
+  outputFileTracingIncludes: {
+    "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
+  },
+  outputFileTracingExcludes: {
+    "*": [
+      "./data/ops/intelligence/**",
+      "./data/ops/studio/publisher-records.json",
+      "./data/finance-imports/**",
+      "./data/ops/allstar/**",
+    ],
+  },
+  serverExternalPackages: ["pg"],
+  experimental: {
+    externalDir: true,
+  },
+  async redirects() {
+    const browse = [
+      { source: "/browse/artists", destination: "/", permanent: false },
+      { source: "/browse/albums", destination: "/", permanent: false },
+      { source: "/browse/tracks", destination: "/", permanent: false },
+      { source: "/browse/:path*", destination: "/", permanent: false },
+    ];
+    if (isDev) return browse;
+    // Production: internal tools are not part of this deployment — send home.
+    const internal = STUDIO_PREFIXES.flatMap((prefix) => [
+      { source: prefix, destination: "/", permanent: false },
+      { source: `${prefix}/:path*`, destination: "/", permanent: false },
+    ]);
+    return [...browse, ...internal];
+  },
+  async rewrites() {
+    const beforeFiles = [];
+    const origin = coverProxyOrigin();
+    if (origin) {
+      beforeFiles.push({
+        source: "/retroverse/covers/:path*",
+        destination: `${origin}/retroverse/covers/:path*`,
+      });
+    }
+    const fallback = [];
+    if (isDev) {
+      // Local dev: operator paths proxy to the Studio dev server.
+      for (const prefix of [...STUDIO_PREFIXES, "/api/ops", "/api/bobos", "/api/internal", "/api/inspect", "/api/healing"]) {
+        fallback.push({
+          source: `${prefix}/:path*`,
+          destination: `${STUDIO_DEV_ORIGIN}${prefix}/:path*`,
+        });
+        fallback.push({ source: prefix, destination: `${STUDIO_DEV_ORIGIN}${prefix}` });
+      }
+    }
+    return { beforeFiles, afterFiles: [], fallback };
+  },
+};
+
+module.exports = nextConfig;

@@ -5,7 +5,11 @@ import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 
-export const DEV_MARKER = path.join(process.cwd(), ".retroverse-dev-active");
+const MARKER_SUFFIX = process.env.RETROVERSE_DEV_MARKER_SUFFIX?.trim() ?? "";
+export const DEV_MARKER = path.join(
+  process.cwd(),
+  `.retroverse-dev-active${MARKER_SUFFIX}`,
+);
 export const EVENTS_LOG = path.join(process.cwd(), "reports/dev-server/DEV_SERVER_EVENTS.md");
 
 export function pidAlive(pid) {

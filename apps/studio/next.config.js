@@ -1,5 +1,9 @@
 const path = require("path");
 
+const isDev = process.env.NODE_ENV === "development";
+const LIVE_DEV_ORIGIN =
+  process.env.RETROVERSE_LIVE_ORIGIN?.trim() || "http://localhost:3100";
+
 function coverProxyOrigin() {
   for (const key of [
     "COVER_PROXY_ORIGIN",
@@ -17,16 +21,47 @@ function coverProxyOrigin() {
   return null;
 }
 
+// Public patron paths that live on the Live app. In local dev, unmatched
+// requests for them proxy to the Live dev server so operator links keep working.
+const LIVE_PREFIXES = [
+  "/artist",
+  "/album",
+  "/track",
+  "/search",
+  "/charts",
+  "/rv",
+  "/rvtr",
+  "/week",
+  "/experience",
+  "/giveaway",
+  "/pass",
+  "/live",
+  "/retroverse",
+  "/retroverse-2",
+  "/retroverse-live",
+  "/sunday-nights",
+  "/index",
+  "/api/search",
+  "/api/charts",
+  "/api/chart-journey",
+  "/api/events",
+  "/api/experience",
+  "/api/giveaway",
+  "/api/live-now-playing",
+  "/api/playback",
+  "/api/retroverse-2",
+  "/api/retroverse-live",
+  "/api/sunday-nights",
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  outputFileTracingRoot: path.join(__dirname),
-  // Trace only small ops metadata — not per-RVTR package trees (45k+ files OOM Vercel builds).
+  outputFileTracingRoot: path.join(__dirname, "..", ".."),
   outputFileTracingIncludes: {
     "/api/ops/**": [
       "./data/ops/intelligence/research-department/*.json",
       "./data/ops/studio/**",
     ],
-    "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
     "/ops/**": [
       "./data/ops/intelligence/research-department/*.json",
       "./data/ops/studio/**",
@@ -36,10 +71,7 @@ const nextConfig = {
     "*": [
       "./data/ops/intelligence/research-department/RVTR*/**",
       "./data/ops/studio/publisher-records.json",
-      "./.venv-allstar/**",
-      "./tools/allstar-disc-extractor/**",
       "./data/ops/intelligence/packages/**",
-      "./reports/**",
       "./data/finance-imports/**",
       "./data/ops/allstar/**",
     ],
@@ -48,14 +80,11 @@ const nextConfig = {
   // Ops video uploads hit /api/ops/* (middleware matcher). Default 10MB truncates
   // multipart bodies and breaks req.formData() for Media Lab transcripts.
   experimental: {
+    externalDir: true,
     middlewareClientMaxBodySize: "2gb",
   },
   async redirects() {
     return [
-      { source: "/browse/artists", destination: "/", permanent: false },
-      { source: "/browse/albums", destination: "/", permanent: false },
-      { source: "/browse/tracks", destination: "/", permanent: false },
-      { source: "/browse/:path*", destination: "/", permanent: false },
       { source: "/ops/finance/import-amazon", destination: "/ops/finance/import", permanent: false },
       { source: "/ops/finance/import/amazon", destination: "/ops/finance/import", permanent: false },
       { source: "/ops/finance/import/nebat", destination: "/ops/finance/import", permanent: false },
@@ -92,14 +121,27 @@ const nextConfig = {
     ];
   },
   async rewrites() {
+    const beforeFiles = [];
     const origin = coverProxyOrigin();
-    if (!origin) return [];
-    return [
-      {
+    if (origin) {
+      beforeFiles.push({
         source: "/retroverse/covers/:path*",
         destination: `${origin}/retroverse/covers/:path*`,
-      },
-    ];
+      });
+    }
+    const fallback = [];
+    if (isDev) {
+      // Local dev: patron paths proxy to the Live dev server.
+      fallback.push({ source: "/", destination: `${LIVE_DEV_ORIGIN}/` });
+      for (const prefix of LIVE_PREFIXES) {
+        fallback.push({
+          source: `${prefix}/:path*`,
+          destination: `${LIVE_DEV_ORIGIN}${prefix}/:path*`,
+        });
+        fallback.push({ source: prefix, destination: `${LIVE_DEV_ORIGIN}${prefix}` });
+      }
+    }
+    return { beforeFiles, afterFiles: [], fallback };
   },
 };
 

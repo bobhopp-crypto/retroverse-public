@@ -7,7 +7,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const appDir = path.join(root, "app");
+const appDirs = [
+  path.join(root, "apps", "live", "app"),
+  path.join(root, "apps", "studio", "app"),
+].filter((dir) => fs.existsSync(dir));
 const MIN = 1;
 const MAX = 300;
 
@@ -25,7 +28,7 @@ function walk(dir, out = []) {
 
 const violations = [];
 
-for (const file of walk(appDir)) {
+for (const file of appDirs.flatMap((dir) => walk(dir))) {
   const text = fs.readFileSync(file, "utf8");
   for (const match of text.matchAll(pattern)) {
     const value = Number(match[1]);

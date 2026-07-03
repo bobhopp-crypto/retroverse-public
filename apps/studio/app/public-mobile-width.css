@@ -1,0 +1,229 @@
+/* Phase 12 — public mobile width pass (homepage + entity + year pages) */
+
+@media (max-width: 639px) {
+  :root {
+    --rv-public-gutter: max(0.65rem, 2.75vw);
+  }
+
+  main.home-directory {
+    padding: 0.35rem var(--rv-public-gutter) 1rem;
+  }
+
+  .home-directory__board {
+    width: 100%;
+    max-width: none;
+    padding: 0.85rem 0.7rem 1rem;
+  }
+
+  .track-exhibit .track-hero,
+  .track-exhibit .track-albums,
+  .track-exhibit .track-journey,
+  .track-exhibit .track-related,
+  .track-exhibit .track-shelf,
+  .album-exhibit .album-tracklist,
+  .album-exhibit .track-journey {
+    box-sizing: border-box;
+    max-width: none;
+    width: auto;
+    min-width: 0;
+  }
+
+  .track-topbar,
+  .artist-topbar,
+  .track-exhibit-nav {
+    padding-left: var(--rv-public-gutter);
+    padding-right: var(--rv-public-gutter);
+  }
+
+  .track-hero {
+    margin: 0.65rem var(--rv-public-gutter) 1rem;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  .track-hero__cover-wrap {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    margin-inline: auto;
+    box-shadow: 4px 5px 0 rgba(45, 62, 70, 0.22);
+  }
+
+  .track-hero__cover,
+  .track-hero__cover-fallback {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .track-hero__identity,
+  .track-journey,
+  .track-shelf,
+  .track-related,
+  .track-albums,
+  .album-tracklist {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  .track-journey,
+  .track-shelf,
+  .track-related,
+  .track-albums {
+    margin-left: var(--rv-public-gutter);
+    margin-right: var(--rv-public-gutter);
+  }
+
+  .artist-exhibit .artist-hero {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: auto;
+    margin-left: var(--rv-public-gutter);
+    margin-right: var(--rv-public-gutter);
+    overflow-x: clip;
+  }
+
+  .artist-hero__photo {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .album-exhibit .track-hero {
+    margin: 0.65rem var(--rv-public-gutter) 1rem;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  .album-exhibit .track-hero__cover-wrap {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .album-exhibit .album-tracklist,
+  .album-exhibit .track-journey {
+    margin-left: var(--rv-public-gutter);
+    margin-right: var(--rv-public-gutter);
+  }
+
+  .rv-year-hero,
+  .rv-year-nav,
+  .rv-year-section,
+  .rv-year-chronicle__head,
+  .rv-year-bridge,
+  .rv-month-stack,
+  .rv-public-masthead,
+  .charts-history--rv-summary {
+    box-sizing: border-box;
+    max-width: none;
+    width: auto;
+    min-width: 0;
+  }
+}
+
+/* Phase 19 — public entity page horizontal containment (mobile) */
+
+@media (max-width: 767px) {
+  html:has(.home-directory),
+  html:has(.rv-year-world),
+  html:has(.track-exhibit),
+  html:has(.album-exhibit),
+  html:has(.artist-exhibit),
+  html:has(.search-page) {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  html:has(.home-directory) body,
+  html:has(.rv-year-world) body,
+  html:has(.track-exhibit) body,
+  html:has(.album-exhibit) body,
+  html:has(.artist-exhibit) body,
+  html:has(.search-page) body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  .home-directory,
+  .rv-year-world,
+  .track-exhibit,
+  .album-exhibit,
+  .artist-exhibit,
+  .search-page {
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .track-exhibit > *,
+  .album-exhibit > *,
+  .artist-exhibit > * {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .track-trajectory-rail,
+  .track-trajectory-week,
+  .album-tracklist__list,
+  .album-tracklist__item {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+/* Phase 17 — hide visible scrollbars on mobile public pages (touch scroll still works) */
+
+@media (max-width: 767px) {
+  html:has(.rv-year-world),
+  html:has(.track-exhibit),
+  html:has(.artist-exhibit),
+  html:has(.album-exhibit),
+  html:has(.search-page) {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html:has(.rv-year-world) body,
+  html:has(.track-exhibit) body,
+  html:has(.artist-exhibit) body,
+  html:has(.album-exhibit) body,
+  html:has(.search-page) body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html:has(.rv-year-world) body::-webkit-scrollbar,
+  html:has(.track-exhibit) body::-webkit-scrollbar,
+  html:has(.artist-exhibit) body::-webkit-scrollbar,
+  html:has(.album-exhibit) body::-webkit-scrollbar,
+  html:has(.search-page) body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .rv-year-world,
+  .track-exhibit,
+  .artist-exhibit,
+  .album-exhibit,
+  .search-page,
+  .rv-year-world *,
+  .track-exhibit *,
+  .artist-exhibit *,
+  .album-exhibit * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .rv-year-world *::-webkit-scrollbar,
+  .track-exhibit *::-webkit-scrollbar,
+  .artist-exhibit *::-webkit-scrollbar,
+  .album-exhibit *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}

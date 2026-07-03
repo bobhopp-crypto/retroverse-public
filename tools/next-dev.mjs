@@ -19,11 +19,24 @@ import {
 } from "./dev-server/ownership.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const nextDir = path.join(root, ".next");
-const cacheDir = path.join(root, "node_modules", ".cache");
-const productionMarker = path.join(nextDir, ".production-build");
 
 const argv = process.argv.slice(2);
+
+function argValue(flag) {
+  const idx = argv.indexOf(flag);
+  if (idx === -1) return null;
+  return argv[idx + 1] ?? null;
+}
+
+const app = argValue("--app") ?? process.env.RETROVERSE_APP?.trim() ?? "studio";
+if (app !== "studio" && app !== "live") {
+  console.error(`[dev] Unknown app "${app}" — expected studio or live.`);
+  process.exit(1);
+}
+const appRoot = path.join(root, "apps", app);
+const nextDir = path.join(appRoot, ".next");
+const cacheDir = path.join(root, "node_modules", ".cache");
+const productionMarker = path.join(nextDir, ".production-build");
 const noClean =
   argv.includes("--no-clean") || process.env.RETROVERSE_DEV_NO_CLEAN === "1";
 const forceClean =
@@ -52,10 +65,20 @@ function cleanCaches() {
 
 function forwardArgs() {
   const skip = new Set(["--clean", "--no-clean"]);
-  return argv.filter((a) => !skip.has(a));
+  const out = [];
+  for (let i = 0; i < argv.length; i += 1) {
+    const a = argv[i];
+    if (skip.has(a)) continue;
+    if (a === "--app") {
+      i += 1;
+      continue;
+    }
+    out.push(a);
+  }
+  return out;
 }
 
-const port = process.env.PORT?.trim() || "3000";
+const port = process.env.PORT?.trim() || (app === "live" ? "3100" : "3000");
 
 const existing = readDevOwnership();
 if (isPortInUse(Number(port))) {
@@ -92,7 +115,9 @@ const nextBin =
     ? path.join(root, "node_modules", ".bin", "next.cmd")
     : path.join(root, "node_modules", ".bin", "next");
 
-const nextArgs = ["dev", "-p", port, ...forwardArgs()];
+// Pass the app directory to Next but keep cwd at the repo root so
+// process.cwd()-relative data reads keep working.
+const nextArgs = ["dev", appRoot, "-p", port, ...forwardArgs()];
 const hostname = process.env.HOSTNAME?.trim();
 if (hostname) {
   nextArgs.push("-H", hostname);

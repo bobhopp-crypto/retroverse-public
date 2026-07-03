@@ -1,0 +1,31 @@
+{
+  "name": "retroverse-studio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "prebuild": "node ../../tools/verify-max-duration.mjs",
+    "dev": "next dev",
+    "build": "next build && node ../../tools/touch-production-build.mjs",
+    "start": "next start"
+  },
+  "dependencies": {
+    "jsqr": "^1.4.0",
+    "next": "^15.3.3",
+    "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.1",
+    "pg": "^8.16.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sharp": "^0.35.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/pg": "^8.15.2",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.2.3",
+    "server-only": "^0.0.1",
+    "typescript": "^5.8.3"
+  }
+}
