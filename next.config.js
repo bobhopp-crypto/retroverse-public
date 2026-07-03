@@ -35,6 +35,7 @@ const nextConfig = {
   outputFileTracingExcludes: {
     "*": [
       "./data/ops/intelligence/research-department/RVTR*/**",
+      "./data/ops/studio/publisher-records.json",
       "./.venv-allstar/**",
       "./tools/allstar-disc-extractor/**",
     ],
