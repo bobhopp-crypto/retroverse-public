@@ -5,6 +5,7 @@ import {
   composeRvbrPrompt,
   type ComposedRvbrPrompt,
   type PromptSide,
+  type RvbrStyleDirective,
 } from "@/lib/creative/rvbr-prompt-engine";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 
@@ -20,6 +21,7 @@ function composeSide(args: {
   settings: CreativeDirectionSettings;
   artifactType?: ContentArtifactType;
   frontSummary?: string;
+  styleDirective?: RvbrStyleDirective;
 }): ComposedRvbrPrompt {
   return composeRvbrPrompt({
     side: args.side,
@@ -29,6 +31,7 @@ function composeSide(args: {
     artifactType: args.artifactType ?? "pass",
     compositionSeed: args.compositionSeed,
     frontSummary: args.frontSummary,
+    styleDirective: args.styleDirective,
   });
 }
 
@@ -39,6 +42,7 @@ export function renderArtDirectorFrontPrompt(
   compositionSeed: number = Date.now(),
   settings: CreativeDirectionSettings,
   artifactType: ContentArtifactType = "pass",
+  styleDirective?: RvbrStyleDirective,
 ): ComposedRvbrPrompt {
   return composeSide({
     side: "front",
@@ -47,6 +51,7 @@ export function renderArtDirectorFrontPrompt(
     compositionSeed,
     settings,
     artifactType,
+    styleDirective,
   });
 }
 
@@ -57,10 +62,11 @@ export function renderArtDirectorBackPrompt(
   compositionSeed: number = Date.now(),
   settings: CreativeDirectionSettings,
   artifactType: ContentArtifactType = "pass",
+  styleDirective?: RvbrStyleDirective,
 ): ComposedRvbrPrompt {
-  const dir = settings.creativeDirection;
-  const archetype = settings.artifactArchetype;
-  const frontSummary = `${profile.name} · ${dir} · ${archetype} · seed ${compositionSeed}`;
+  const frontSummary = styleDirective
+    ? `${styleDirective.styleLabel} style · ${styleDirective.colorSchemeLabel} palette · seed ${compositionSeed}`
+    : `${profile.name} · ${settings.creativeDirection} · ${settings.artifactArchetype} · seed ${compositionSeed}`;
 
   return composeSide({
     side: "back",
@@ -70,6 +76,7 @@ export function renderArtDirectorBackPrompt(
     settings,
     artifactType,
     frontSummary,
+    styleDirective,
   });
 }
 

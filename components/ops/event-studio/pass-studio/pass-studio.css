@@ -3,8 +3,8 @@
    huge controls, zero configuration clutter. Desktop target 2560×1440. */
 
 .ps-workspace {
-  --ps-title: 3rem;         /* 48px */
-  --ps-heading: 2.6rem;     /* ~42px */
+  --ps-title: clamp(3.25rem, 4.5vw, 3.75rem);  /* 52–60px — matches BobOS page titles */
+  --ps-heading: 2.25rem;    /* 36px — matches BobOS section headings */
   --ps-label: 1.35rem;      /* ~22px */
   --ps-body: 1.2rem;        /* ~19px */
   --ps-control-h: 4.5rem;   /* 72px — primary buttons */
@@ -39,7 +39,7 @@
 .ps-back-link {
   align-self: flex-start;
   color: var(--ps-muted);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -50,11 +50,21 @@
   color: var(--ps-dim);
 }
 
+.ps-workspace__kicker {
+  margin: 0 0 -1.5rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ps-accent);
+}
+
 .ps-workspace__title {
   margin: 0;
   font-size: var(--ps-title);
   font-weight: 800;
   letter-spacing: -0.01em;
+  line-height: 1.05;
   color: var(--ps-ink);
 }
 

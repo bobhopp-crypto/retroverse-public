@@ -78,6 +78,7 @@ export function parseProjectIntent(prompt: string): ParsedIntent {
       description: prompt.trim(),
       venue: "",
       date: findDate(prompt),
+      series: "",
       theme: "",
       colors: "",
       notes: "",

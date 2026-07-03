@@ -10,25 +10,53 @@
  */
 
 export type PassArtworkAdjustments = {
-  /** 0.7–1.3, 1 = unchanged. */
+  /** Multiplier — 1 = 100%, default 1.3 (130%). Range 0–2.5 (brightness/contrast) or 0–3 (saturation). */
   brightness: number;
-  /** 0.7–1.3, 1 = unchanged. */
   contrast: number;
-  /** 0.7–1.3, 1 = unchanged. */
   saturation: number;
   /** Fixed correction on top of the sliders — tuned for the AI provider's characteristically
    *  dark, flat output so passes read well in print. On by default; always removable. */
   printBoost: boolean;
 };
 
-export const PASS_ADJUSTMENT_MIN = 0.7;
-export const PASS_ADJUSTMENT_MAX = 1.3;
-export const PASS_ADJUSTMENT_STEP = 0.02;
+export type PassAdjustmentRange = {
+  min: number;
+  max: number;
+  default: number;
+  step: number;
+};
+
+/** Slider ranges — stored as multipliers; UI displays as percentages. */
+export const PASS_BRIGHTNESS_RANGE: PassAdjustmentRange = {
+  min: 0,
+  max: 2.5,
+  default: 1.3,
+  step: 0.01,
+};
+
+export const PASS_CONTRAST_RANGE: PassAdjustmentRange = {
+  min: 0,
+  max: 2.5,
+  default: 1.3,
+  step: 0.01,
+};
+
+export const PASS_SATURATION_RANGE: PassAdjustmentRange = {
+  min: 0,
+  max: 3,
+  default: 1.3,
+  step: 0.01,
+};
+
+/** @deprecated Use PASS_*_RANGE instead — kept so older imports fail loudly at compile time. */
+export const PASS_ADJUSTMENT_MIN = PASS_BRIGHTNESS_RANGE.min;
+export const PASS_ADJUSTMENT_MAX = PASS_BRIGHTNESS_RANGE.max;
+export const PASS_ADJUSTMENT_STEP = PASS_BRIGHTNESS_RANGE.step;
 
 export const DEFAULT_PASS_ARTWORK_ADJUSTMENTS: PassArtworkAdjustments = {
-  brightness: 1,
-  contrast: 1,
-  saturation: 1,
+  brightness: PASS_BRIGHTNESS_RANGE.default,
+  contrast: PASS_CONTRAST_RANGE.default,
+  saturation: PASS_SATURATION_RANGE.default,
   printBoost: true,
 };
 
@@ -47,13 +75,14 @@ export function normalizePassArtworkAdjustments(
 ): PassArtworkAdjustments {
   if (!raw || typeof raw !== "object") return { ...DEFAULT_PASS_ARTWORK_ADJUSTMENTS };
   return {
-    brightness: clamp(Number(raw.brightness ?? 1), PASS_ADJUSTMENT_MIN, PASS_ADJUSTMENT_MAX),
-    contrast: clamp(Number(raw.contrast ?? 1), PASS_ADJUSTMENT_MIN, PASS_ADJUSTMENT_MAX),
-    saturation: clamp(Number(raw.saturation ?? 1), PASS_ADJUSTMENT_MIN, PASS_ADJUSTMENT_MAX),
+    brightness: clamp(Number(raw.brightness ?? PASS_BRIGHTNESS_RANGE.default), PASS_BRIGHTNESS_RANGE.min, PASS_BRIGHTNESS_RANGE.max),
+    contrast: clamp(Number(raw.contrast ?? PASS_CONTRAST_RANGE.default), PASS_CONTRAST_RANGE.min, PASS_CONTRAST_RANGE.max),
+    saturation: clamp(Number(raw.saturation ?? PASS_SATURATION_RANGE.default), PASS_SATURATION_RANGE.min, PASS_SATURATION_RANGE.max),
     printBoost: raw.printBoost !== false,
   };
 }
 
+/** True when the raw generation buffer can pass through unchanged (100% sliders, no boost). */
 export function isIdentityAdjustment(adjustments: PassArtworkAdjustments): boolean {
   return (
     !adjustments.printBoost &&

@@ -1,15 +1,15 @@
 "use server";
 
 import { randomUUID } from "crypto";
-import { readFile, writeFile } from "fs/promises";
+import { readFile } from "fs/promises";
 
 import { isArtworkProviderConfigured, resolveArtworkProvider } from "@/lib/ops/creative-lab/artwork";
-import type { ControlledPassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
+import { DEFAULT_CREATIVE_DIRECTION_SETTINGS } from "@/lib/ops/content-creator/creative-direction";
 import {
-  DEFAULT_CREATIVE_DIRECTION_SETTINGS,
-  type CreativeDirectionId,
-} from "@/lib/ops/content-creator/creative-direction";
-import { libraryFileUrl, loadGenerationManifest } from "@/lib/ops/content-creator/library";
+  libraryFileUrl,
+  loadGenerationManifest,
+  updateGenerationCurator,
+} from "@/lib/ops/content-creator/library";
 import { runVNextGenerate } from "@/lib/ops/content-creator/vnext-run";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 import { eventIdFromName } from "@/lib/ops/event-studio/pass-studio/default-templates";
@@ -25,6 +25,13 @@ import { appendPassesToLibrary, nextSerialStart, savePassBatch } from "@/lib/ops
 import type { GeneratedPass, PassBatch } from "@/lib/ops/event-studio/pass-studio/types";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 import {
+  emptyCreativeBriefSeed,
+  normalizeCreativeBrief,
+  secondaryLineFromBrief,
+  styleDirectiveFromBrief,
+  type PassCreativeBrief,
+} from "@/lib/bobos/project-zero/creative-brief";
+import {
   DEFAULT_PASS_ARTWORK_ADJUSTMENTS,
   type PassArtworkAdjustments,
 } from "@/lib/bobos/project-zero/pass-artwork-adjustments";
@@ -32,10 +39,17 @@ import { applyPassArtworkAdjustments } from "@/lib/bobos/project-zero/pass-artwo
 import {
   appendPassWorkspaceVersion,
   loadPassWorkspaceAdjustments,
+  loadPassWorkspacePrintSheetGrid,
+  loadPassWorkspaceProductionLayouts,
   savePassWorkspaceAdjustment,
+  savePassWorkspaceCreativeBrief,
+  savePassWorkspacePrintSheetGrid,
+  savePassWorkspaceProductionLayout,
   type PassWorkspaceSlug,
   type PassWorkspaceVersion,
 } from "@/lib/bobos/project-zero/pass-workspace-store";
+import type { ProductionLayout } from "@/lib/bobos/project-zero/production-layout";
+import type { PrintSheetGridId } from "@/lib/bobos/project-zero/print-sheet-grid";
 import {
   bobosRenderAbsolutePath,
   buildBobosPrintSheets,
@@ -44,8 +58,8 @@ import {
   readGenerationSidePng,
   saveBobosPassBack,
   saveBobosPassFront,
-  type BobosPrintSheetSet,
 } from "@/lib/bobos/project-zero/pass-production";
+import type { BobosPrintSheetSet } from "@/lib/bobos/project-zero/pass-production-spec";
 
 function assertLocalStudio() {
   if (!shouldAllowOpsRoutes()) {
@@ -53,45 +67,85 @@ function assertLocalStudio() {
   }
 }
 
-/** Same default era Pass Studio's own generate route falls back to. No fuzzy era matching —
- *  just one stable default, same as the rest of the pipeline already uses. */
-const DEFAULT_ERA_SLUG = "1982-1985";
-
-const CREATIVE_DIRECTION_BY_SLUG: Record<PassWorkspaceSlug, CreativeDirectionId> = {
-  general: "festival-pass",
-  vip: "collector-card",
-  backstage: "backstage-credential",
-};
-
-/** Each tier gets its own controlled label so General never reads VIP and Backstage
- *  never reads VIP — the three tiers must never be confused for one another on sight. */
-const PASS_TYPE_LABEL_BY_SLUG: Record<PassWorkspaceSlug, ControlledPassTypeLabel> = {
-  general: "GENERAL PASS",
-  vip: "VIP PASS",
-  backstage: "BACKSTAGE PASS",
-};
-
-async function resolveEraProfile() {
+async function resolveEraProfile(eraSlug: string) {
   const profiles = await listRvbrProfiles();
   if (profiles.length === 0) {
     throw new Error("No RVBR era profiles found — seed the database before generating artwork.");
   }
-  return profiles.find((p) => p.slug === DEFAULT_ERA_SLUG) ?? profiles[0]!;
+  return profiles.find((p) => p.slug === eraSlug) ?? profiles[0]!;
+}
+
+/**
+ * Persists the restored Content Creator brief for this project — called as the user edits
+ * fields, so a reopened workspace shows exactly what was on screen.
+ */
+export async function savePassCreativeBrief(
+  projectId: string,
+  brief: PassCreativeBrief,
+): Promise<PassCreativeBrief> {
+  assertLocalStudio();
+  return savePassWorkspaceCreativeBrief(projectId, brief);
+}
+
+/** Saves ONLY the given pass type's Production Layout — never overwrites the others. */
+export async function saveProductionLayout(
+  projectId: string,
+  slug: PassWorkspaceSlug,
+  layout: ProductionLayout,
+): Promise<ProductionLayout> {
+  assertLocalStudio();
+  return savePassWorkspaceProductionLayout(projectId, slug, layout);
+}
+
+export async function savePrintSheetGrid(
+  projectId: string,
+  gridId: PrintSheetGridId,
+): Promise<PrintSheetGridId> {
+  assertLocalStudio();
+  return savePassWorkspacePrintSheetGrid(projectId, gridId);
+}
+
+export type PreviewProductionLayoutInput = {
+  projectId: string;
+  generationId: string;
+  slug: PassWorkspaceSlug;
+  layout: ProductionLayout;
+};
+
+/** WYSIWYG production layout preview — compositing only, no AI generation. */
+export async function previewProductionLayoutBack(
+  input: PreviewProductionLayoutInput,
+): Promise<{ dataUrl: string }> {
+  assertLocalStudio();
+
+  const adjustmentsBySlug = await loadPassWorkspaceAdjustments(input.projectId);
+  const adjustments = adjustmentsBySlug[input.slug] ?? DEFAULT_PASS_ARTWORK_ADJUSTMENTS;
+  const rawBack = await readGenerationSidePng(input.generationId, "back");
+  const adjustedBack = await applyPassArtworkAdjustments(rawBack, adjustments);
+  const previewSerial = "0001";
+  const finishedBack = await finishBobosPassBack({
+    rawBackPng: adjustedBack,
+    qrUrl: passQrUrl(previewSerial),
+    serial: previewSerial,
+    layout: input.layout,
+  });
+
+  return { dataUrl: `data:image/png;base64,${finishedBack.toString("base64")}` };
 }
 
 export type GeneratePassArtworkInput = {
   projectId: string;
   slug: PassWorkspaceSlug;
-  eventName: string;
-  venue: string;
-  date: string;
-  theme: string;
+  /** The creative brief exactly as shown on screen — what you see is what generates. */
+  brief: PassCreativeBrief;
 };
 
 /**
  * Creates a brand-new artwork generation via the existing Content Creator pipeline and
  * appends it as the next version for this project + pass type. Never overwrites a prior
- * version, never reads or reuses artwork from any other project.
+ * version, never reads or reuses artwork from any other project. The prompt is driven
+ * entirely by the on-screen creative brief: RVBR era, creative direction, governed text
+ * fields, anti-cliché toggles, and director notes.
  */
 export async function generatePassArtwork(input: GeneratePassArtworkInput): Promise<PassWorkspaceVersion> {
   assertLocalStudio();
@@ -101,13 +155,18 @@ export async function generatePassArtwork(input: GeneratePassArtworkInput): Prom
     throw new Error("Artwork provider is not configured. Set OPENAI_API_KEY to generate artwork.");
   }
 
-  const profile = await resolveEraProfile();
+  const brief = normalizeCreativeBrief(input.brief, emptyCreativeBriefSeed());
+  await savePassWorkspaceCreativeBrief(input.projectId, brief);
+
+  const profile = await resolveEraProfile(brief.eraSlug);
+  const slot = brief.slots[input.slug];
   const fields = {
-    event: input.eventName,
-    venue: input.venue,
-    date: input.date,
-    secondaryLine: input.theme,
-    passTypeLabel: PASS_TYPE_LABEL_BY_SLUG[input.slug],
+    event: brief.event,
+    venue: brief.venue,
+    date: brief.date,
+    secondaryLine: secondaryLineFromBrief(brief),
+    passTypeLabel: slot.passTypeLabel,
+    creativeNotes: brief.notes.trim(),
   };
 
   const manifest = await runVNextGenerate({
@@ -117,8 +176,12 @@ export async function generatePassArtwork(input: GeneratePassArtworkInput): Prom
     backFields: fields,
     creativeSettings: {
       ...DEFAULT_CREATIVE_DIRECTION_SETTINGS,
-      creativeDirection: CREATIVE_DIRECTION_BY_SLUG[input.slug],
+      avoidEraTropes: brief.avoidEraTropes,
+      maximizeVariation: brief.maximizeVariation,
     },
+    // Style + Color Scheme are the strongest prompt instructions — the Style dominates
+    // composition and design language; the Color Scheme dominates the palette.
+    styleDirective: styleDirectiveFromBrief(brief),
   });
 
   const libraryManifest = await loadGenerationManifest(manifest.runId);
@@ -128,6 +191,15 @@ export async function generatePassArtwork(input: GeneratePassArtworkInput): Prom
     frontArtworkUrl: libraryManifest?.frontImagePath ? libraryFileUrl(libraryManifest.frontImagePath) : null,
     backArtworkUrl: libraryManifest?.backImagePath ? libraryFileUrl(libraryManifest.backImagePath) : null,
   });
+}
+
+/**
+ * Marks the current generation approved in the Content Creator library — the same approval
+ * status the Collectible Library shows. Approval lives with the generation, not the project.
+ */
+export async function approvePassArtwork(generationId: string): Promise<void> {
+  assertLocalStudio();
+  await updateGenerationCurator(generationId, { status: "approved" });
 }
 
 /**
@@ -159,12 +231,13 @@ export type GenerateBobosPassBatchInput = {
   venue: string;
   date: string;
   rows: GenerateBobosPassBatchRow[];
+  /** Custom starting serial — omit/null to continue from the next available number. */
+  startAt?: number | null;
 };
 
 export type GenerateBobosPassBatchResult = {
   batch: PassBatch;
   passes: GeneratedPass[];
-  printSheets: BobosPrintSheetSet;
 };
 
 /**
@@ -199,7 +272,10 @@ export async function generateBobosPassBatch(
     }
   }
 
-  const startAt = await nextSerialStart();
+  const startAt =
+    typeof input.startAt === "number" && Number.isFinite(input.startAt) && input.startAt >= 1
+      ? Math.floor(input.startAt)
+      : await nextSerialStart();
   const rows = computeBatchRows(draftRows, startAt);
 
   const range = serialRangeForRows(rows);
@@ -225,6 +301,7 @@ export async function generateBobosPassBatch(
 
   const artworkByRowId = new Map<string, (typeof draftRows)[number]>(draftRows.map((row) => [row.id, row]));
   const adjustmentsBySlug = await loadPassWorkspaceAdjustments(input.projectId);
+  const layoutsBySlug = await loadPassWorkspaceProductionLayouts(input.projectId);
 
   // Finished front/back per pass type (per generation), produced once and reused for every
   // serial in that row — Print Boost is applied first (non-destructive; raw generation PNG
@@ -257,6 +334,8 @@ export async function generateBobosPassBatch(
     const generationId = artwork.generationId!;
     const slug = passTypeSlugFromLabel(row.passType);
     const adjustments = adjustmentsBySlug[slug] ?? DEFAULT_PASS_ARTWORK_ADJUSTMENTS;
+    // Each pass type is finished with its OWN saved Production Layout.
+    const productionLayout = layoutsBySlug[slug] ?? null;
     const { frontPng, frontUrl, backPng } = await finished(generationId, artwork.templateId, adjustments);
 
     for (let n = row.firstSerial; n <= row.lastSerial; n += 1) {
@@ -268,6 +347,7 @@ export async function generateBobosPassBatch(
         rawBackPng: backPng,
         qrUrl,
         serial,
+        layout: productionLayout,
       });
       const backArtworkUrl = await saveBobosPassBack({
         projectId: input.projectId,
@@ -302,13 +382,7 @@ export async function generateBobosPassBatch(
   await savePassBatch(batch);
   await appendPassesToLibrary(passes);
 
-  const printSheets = await buildBobosPrintSheets({
-    projectId: input.projectId,
-    batchId,
-    passes: sheetBuffers,
-  });
-
-  return { batch, passes, printSheets };
+  return { batch, passes };
 }
 
 const BOBOS_RENDER_FILE_PREFIX = "/api/bobos/pass-workspace/files/";
@@ -330,54 +404,14 @@ function relPathFromServedUrl(url: string, prefix: string): string | null {
 export async function buildBobosPrintSheetsForPasses(
   projectId: string,
   passes: GeneratedPass[],
+  gridId?: PrintSheetGridId,
 ): Promise<BobosPrintSheetSet> {
   assertLocalStudio();
 
-  const adjustmentsBySlug = await loadPassWorkspaceAdjustments(projectId);
-  const adjustedByGenerationId = new Map<string, { frontPng: Buffer; backRawAdjusted: Buffer }>();
-
-  async function adjustedSource(pass: GeneratedPass): Promise<{ frontPng: Buffer; backRawAdjusted: Buffer } | null> {
-    if (!pass.generationId) return null;
-    const cached = adjustedByGenerationId.get(pass.generationId);
-    if (cached) return cached;
-
-    const slug = passTypeSlugFromLabel(pass.passType);
-    const adjustments = adjustmentsBySlug[slug] ?? DEFAULT_PASS_ARTWORK_ADJUSTMENTS;
-    const rawFront = await readGenerationSidePng(pass.generationId, "front");
-    const rawBack = await readGenerationSidePng(pass.generationId, "back");
-    const adjustedFront = await applyPassArtworkAdjustments(rawFront, adjustments);
-    const adjustedBack = await applyPassArtworkAdjustments(rawBack, adjustments);
-    const frontPng = await finishBobosPassFront(adjustedFront);
-    const entry = { frontPng, backRawAdjusted: adjustedBack };
-    adjustedByGenerationId.set(pass.generationId, entry);
-    return entry;
-  }
-
+  const resolvedGridId = gridId ?? (await loadPassWorkspacePrintSheetGrid(projectId));
   const sheetBuffers: { frontPng: Buffer; backPng: Buffer }[] = [];
+
   for (const pass of passes) {
-    const source = await adjustedSource(pass);
-    if (source) {
-      const finishedBack = await finishBobosPassBack({
-        rawBackPng: source.backRawAdjusted,
-        qrUrl: pass.qr.url,
-        serial: pass.serial,
-      });
-      sheetBuffers.push({ frontPng: source.frontPng, backPng: finishedBack });
-
-      // Refresh the finished images at their existing URLs so Preview reflects the current
-      // Print Boost setting too, without changing the pass record or its serial.
-      const frontRel = pass.front.artworkUrl
-        ? relPathFromServedUrl(pass.front.artworkUrl, BOBOS_RENDER_FILE_PREFIX)
-        : null;
-      const backRel = pass.back.artworkUrl
-        ? relPathFromServedUrl(pass.back.artworkUrl, BOBOS_RENDER_FILE_PREFIX)
-        : null;
-      if (frontRel) await writeFile(bobosRenderAbsolutePath(frontRel), source.frontPng);
-      if (backRel) await writeFile(bobosRenderAbsolutePath(backRel), finishedBack);
-      continue;
-    }
-
-    // Legacy passes without a recorded generationId — reuse whatever is already finished.
     const frontRel = pass.front.artworkUrl
       ? relPathFromServedUrl(pass.front.artworkUrl, BOBOS_RENDER_FILE_PREFIX)
       : null;
@@ -391,6 +425,15 @@ export async function buildBobosPrintSheetsForPasses(
     sheetBuffers.push({ frontPng, backPng });
   }
 
-  const batchId = `${passes[0]?.batchId ?? randomUUID()}-view`;
-  return buildBobosPrintSheets({ projectId, batchId, passes: sheetBuffers });
+  if (sheetBuffers.length === 0) {
+    throw new Error("No finished pass images found — generate a batch first.");
+  }
+
+  const batchId = `${passes[0]?.batchId ?? randomUUID()}-sheets`;
+  return buildBobosPrintSheets({
+    projectId,
+    batchId,
+    passes: sheetBuffers,
+    gridId: resolvedGridId,
+  });
 }

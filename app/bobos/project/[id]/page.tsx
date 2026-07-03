@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { BobosPageHeader } from "@/components/bobos/BobosPageHeader";
 import { getProject } from "@/lib/bobos/project-zero/store";
 import { WORKSPACE_STATUS_LABELS } from "@/lib/bobos/project-zero/types";
 import { WORKSPACE_CATALOG } from "@/lib/bobos/project-zero/workspace-catalog";
@@ -30,16 +31,12 @@ export default async function ProjectDashboardPage({ params }: Props) {
   if (!project) notFound();
 
   return (
-    <main className="pz-project">
-      <Link href="/bobos" className="pz-project__back">
-        ← BobOS
-      </Link>
-
-      <header className="pz-project__header">
-        <p className="pz-project__kicker">Project</p>
-        <h1 className="pz-project__title">{project.title}</h1>
-        <p className="pz-project__objective">{project.objective}</p>
-      </header>
+    <main className="bobos-page pz-project">
+      <BobosPageHeader
+        page={project.title}
+        subtitle={project.objective}
+        breadcrumb={{ label: "BobOS Cockpit", href: "/bobos" }}
+      />
 
       <section className="pz-project__context" aria-label="Shared context">
         <h2 className="pz-project__section-title">Shared Context</h2>
@@ -51,6 +48,10 @@ export default async function ProjectDashboardPage({ params }: Props) {
           <div>
             <dt>Date</dt>
             <dd>{project.sharedContext.date || "—"}</dd>
+          </div>
+          <div>
+            <dt>Series</dt>
+            <dd>{project.sharedContext.series || "—"}</dd>
           </div>
           <div>
             <dt>Theme</dt>

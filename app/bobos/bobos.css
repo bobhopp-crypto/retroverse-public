@@ -1,10 +1,139 @@
 /* BobOS Whiteboard — graphite planning board, distinct from /ops */
 
+/* ── BobOS design tokens — one type scale and layout system for every workspace ──
+   Readability first: optimized for long sessions and viewing from several feet away. */
+
+/* Note: the same token block is defined on .ops-event-studio in
+   app/ops/event-studio/event-studio.css so BobOS production surfaces served
+   from /ops (Producer, Giveaway, Registration, Homepage) share this scale. */
+.bobos-shell {
+  /* Typography scale */
+  --bobos-type-title: clamp(3.25rem, 4.5vw, 3.75rem);   /* 52–60px page titles */
+  --bobos-type-heading: clamp(1.9rem, 2.6vw, 2.25rem);  /* 30–36px section headings */
+  --bobos-type-card: 1.45rem;                            /* ~23px card titles */
+  --bobos-type-body: 1.15rem;                            /* ~18px body */
+  --bobos-type-label: 0.95rem;                           /* ~15px small labels (minimum) */
+
+  /* Layout system */
+  --bobos-page-width: 1440px;
+  --bobos-page-pad: clamp(1.25rem, 2.5vw, 2rem);
+  --bobos-section-gap: 1.75rem;
+  --bobos-card-radius: 12px;
+  --bobos-card-border: 2px;
+  --bobos-card-pad: 1.25rem 1.35rem;
+}
+
 .bobos-shell {
   min-height: 100vh;
   background: #141618;
   color: #f0f0f0;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: var(--bobos-type-body);
+}
+
+/* ── Shared page shell — identical width, top spacing, and section rhythm ── */
+
+.bobos-page {
+  max-width: var(--bobos-page-width);
+  margin: 0 auto;
+  padding: var(--bobos-page-pad) var(--bobos-page-pad) 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--bobos-section-gap);
+}
+
+/* ── Shared page header — BOBOS · page name · event · status ── */
+
+.bobos-page-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.25rem;
+}
+
+.bobos-page-header__crumb {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: var(--bobos-type-label);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+.bobos-page-header__crumb:hover {
+  color: #ffffff;
+}
+
+.bobos-page-header__brand {
+  margin: 0;
+  font-size: var(--bobos-type-label);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7eb8da;
+}
+
+.bobos-page-header__title {
+  margin: 0.25rem 0 0;
+  font-size: var(--bobos-type-title);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.bobos-page-header__subtitle {
+  margin: 0.6rem 0 0;
+  max-width: 52rem;
+  font-size: var(--bobos-type-body);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.bobos-page-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin-top: 0.85rem;
+}
+
+.bobos-page-header__event {
+  font-size: var(--bobos-type-body);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ── Shared status badge ── */
+
+.bobos-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: var(--bobos-type-label);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bobos-badge--neutral {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.bobos-badge--planning {
+  background: rgba(220, 190, 60, 0.18);
+  color: #d4b84a;
+}
+
+.bobos-badge--live,
+.bobos-badge--done {
+  background: rgba(70, 180, 100, 0.2);
+  color: #5ec47a;
+}
+
+.bobos-badge--archived {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .bobos-whiteboard {
@@ -489,32 +618,28 @@
   color: #f4ecff;
 }
 
+/* .rv-explorer composes .bobos-page; tighter rhythm between search controls */
 .rv-explorer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: clamp(1rem, 2vw, 1.75rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .rv-explorer__loading {
   margin: 2rem;
-  font-size: 1.1rem;
+  font-size: var(--bobos-type-body);
   color: #d8c4ff;
 }
 
-.rv-explorer__header {
-  border-bottom: 1px solid rgba(196, 148, 255, 0.25);
-  padding-bottom: 1rem;
+/* Purple theming for the shared header inside the Explorer shell */
+.rv-explorer .bobos-page-header {
+  border-bottom-color: rgba(196, 148, 255, 0.25);
 }
 
-.rv-explorer__title {
-  margin: 0;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #ffffff;
+.rv-explorer .bobos-page-header__brand {
+  color: #c494ff;
+}
+
+.rv-explorer .bobos-page-header__subtitle {
+  color: rgba(244, 236, 255, 0.62);
 }
 
 .rv-explorer__search-wrap {
@@ -523,13 +648,13 @@
 
 .rv-explorer__search-input {
   width: 100%;
-  padding: 0.85rem 1rem;
+  padding: 0.95rem 1.1rem;
   border: 2px solid rgba(168, 112, 255, 0.55);
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.35);
   color: #ffffff;
   font: inherit;
-  font-size: 1.05rem;
+  font-size: var(--bobos-type-body);
 }
 
 .rv-explorer__search-input::placeholder {
@@ -560,7 +685,7 @@
   margin: 0;
   padding: 0.85rem 1rem;
   color: rgba(244, 236, 255, 0.65);
-  font-size: 0.95rem;
+  font-size: var(--bobos-type-body);
 }
 
 .rv-explorer__search-section + .rv-explorer__search-section {
@@ -570,7 +695,7 @@
 .rv-explorer__search-heading {
   margin: 0;
   padding: 0.65rem 1rem 0.35rem;
-  font-size: 0.8rem;
+  font-size: var(--bobos-type-label);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -615,30 +740,30 @@
 }
 
 .rv-explorer__search-title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .rv-explorer__search-sub {
-  font-size: 0.88rem;
+  font-size: var(--bobos-type-label);
   color: rgba(244, 236, 255, 0.65);
 }
 
 .rv-explorer__search-id {
-  font-size: 0.82rem;
+  font-size: var(--bobos-type-label);
   color: rgba(196, 148, 255, 0.85);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 .rv-explorer__active {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: var(--bobos-type-card);
   font-weight: 600;
 }
 
 .rv-explorer__active-id {
   margin-left: 0.55rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   color: rgba(196, 148, 255, 0.85);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -646,7 +771,7 @@
 
 .rv-explorer__mode {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: var(--bobos-type-label);
   color: rgba(244, 236, 255, 0.55);
 }
 
@@ -657,13 +782,13 @@
 }
 
 .rv-explorer__stage {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.25rem;
   border: 2px solid rgba(168, 112, 255, 0.4);
   border-radius: 999px;
   background: transparent;
   color: rgba(244, 236, 255, 0.85);
   font: inherit;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
 }
@@ -684,13 +809,13 @@
 
 .rv-explorer__render-note {
   margin: 0 0 0.85rem;
-  font-size: 0.9rem;
+  font-size: var(--bobos-type-label);
   color: rgba(244, 236, 255, 0.55);
 }
 
 .rv-explorer__empty {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--bobos-type-body);
   color: rgba(244, 236, 255, 0.55);
 }
 
@@ -701,17 +826,17 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1.25rem;
-  max-width: 1600px;
+  max-width: var(--bobos-page-width);
   margin: 0 auto;
-  padding: 0.85rem clamp(1rem, 2vw, 1.75rem) 0;
+  padding: 0.85rem var(--bobos-page-pad) 0;
 }
 
 .bobos-nav__brand {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
 }
 
@@ -725,16 +850,16 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .bobos-nav__link {
   display: inline-block;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   transition: background 0.12s, border-color 0.12s, color 0.12s;
@@ -758,49 +883,12 @@
   background: #121820;
 }
 
-.bobos-event-hub {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 2vw, 1.75rem) 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.bobos-event-hub__hero {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 1.25rem;
-}
-
-.bobos-event-hub__kicker {
-  margin: 0;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #7eb8da;
-}
-
-.bobos-event-hub__title {
-  margin: 0.35rem 0 0;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #ffffff;
-}
-
-.bobos-event-hub__lead {
-  margin: 0.65rem 0 0;
-  max-width: 42rem;
-  font-size: 1.05rem;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.62);
-}
+/* .bobos-event-hub composes .bobos-page for its layout shell */
 
 .bobos-event-hub__binder {
-  padding: 1.25rem 1.35rem;
-  border: 2px solid rgba(126, 184, 218, 0.28);
-  border-radius: 12px;
+  padding: var(--bobos-card-pad);
+  border: var(--bobos-card-border) solid rgba(126, 184, 218, 0.28);
+  border-radius: var(--bobos-card-radius);
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -815,66 +903,41 @@
 
 .bobos-event-hub__binder-kicker {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: var(--bobos-type-label);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.48);
 }
 
 .bobos-event-hub__binder-title {
   margin: 0.25rem 0 0;
-  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-size: var(--bobos-type-heading);
   font-weight: 700;
   color: #ffffff;
 }
 
-.bobos-event-hub__status {
-  display: inline-block;
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.bobos-event-hub__status--planning {
-  background: rgba(220, 190, 60, 0.18);
-  color: #d4b84a;
-}
-
-.bobos-event-hub__status--live {
-  background: rgba(70, 180, 100, 0.2);
-  color: #5ec47a;
-}
-
-.bobos-event-hub__status--archived {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.45);
-}
-
 .bobos-event-hub__facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.85rem 1.25rem;
   margin: 0 0 1.1rem;
 }
 
 .bobos-event-hub__facts dt {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: var(--bobos-type-label);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .bobos-event-hub__facts dd {
   margin: 0.2rem 0 0;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .bobos-event-hub__progress-head {
@@ -882,16 +945,16 @@
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 0.45rem;
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--bobos-type-body);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .bobos-event-hub__progress-head strong {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .bobos-event-hub__progress-bar {
-  height: 8px;
+  height: 10px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   overflow: hidden;
@@ -910,12 +973,12 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.35rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.45rem 1rem;
 }
 
 .bobos-event-hub__checklist li {
-  font-size: 0.92rem;
+  font-size: var(--bobos-type-body);
 }
 
 .bobos-event-hub__checklist a {
@@ -937,16 +1000,16 @@
 
 .bobos-event-hub__actions-title {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: var(--bobos-type-label);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.48);
 }
 
 .bobos-event-hub__action-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 0.85rem;
   margin-top: 0.75rem;
 }
@@ -956,9 +1019,9 @@
   flex-direction: column;
   gap: 0.45rem;
   min-height: 120px;
-  padding: 1.1rem 1.15rem;
-  border: 2px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  padding: var(--bobos-card-pad);
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--bobos-card-radius);
   background: rgba(255, 255, 255, 0.04);
   text-decoration: none;
   transition: transform 0.12s, border-color 0.12s, background 0.12s;
@@ -971,15 +1034,15 @@
 }
 
 .bobos-event-hub__action-label {
-  font-size: 1.25rem;
+  font-size: var(--bobos-type-card);
   font-weight: 800;
   color: #ffffff;
 }
 
 .bobos-event-hub__action-desc {
-  font-size: 0.92rem;
+  font-size: var(--bobos-type-body);
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* ── Project Zero ── */
@@ -1129,19 +1192,12 @@
 
 /* ── Project dashboard ── */
 
-.pz-project {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: clamp(1rem, 2vw, 1.75rem) clamp(1rem, 2vw, 1.75rem) 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-}
+/* .pz-project composes .bobos-page for its layout shell */
 
 .pz-project__back,
 .pz-workspace__back {
   align-self: flex-start;
-  font-size: 0.9rem;
+  font-size: var(--bobos-type-label);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
@@ -1152,70 +1208,41 @@
   color: #ffffff;
 }
 
-.pz-project__header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 1.25rem;
-}
-
-.pz-project__kicker {
-  margin: 0;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #7eb8da;
-}
-
-.pz-project__title {
-  margin: 0.35rem 0 0;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-}
-
-.pz-project__objective {
-  margin: 0.5rem 0 0;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.6);
-}
-
 .pz-project__section-title {
   margin: 0 0 0.85rem;
-  font-size: 0.72rem;
+  font-size: var(--bobos-type-label);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.48);
 }
 
 .pz-project__context-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.85rem 1.25rem;
   margin: 0;
 }
 
 .pz-project__context-grid dt {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: var(--bobos-type-label);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .pz-project__context-grid dd {
   margin: 0.2rem 0 0;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .pz-project__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
 }
 
@@ -1224,24 +1251,24 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
-  padding: 1.25rem 1.35rem;
-  border: 2px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  padding: var(--bobos-card-pad);
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--bobos-card-radius);
   background: rgba(255, 255, 255, 0.03);
 }
 
 .pz-card__title {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: var(--bobos-type-card);
   font-weight: 700;
   color: #ffffff;
 }
 
 .pz-card__status {
   display: inline-block;
-  padding: 0.2rem 0.65rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: var(--bobos-type-label);
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1265,11 +1292,11 @@
 
 .pz-card__open {
   margin-top: auto;
-  padding: 0.5rem 1.1rem;
+  padding: 0.6rem 1.35rem;
   border-radius: 999px;
   background: #e07a4a;
   color: #141618;
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
 }
@@ -1280,27 +1307,12 @@
 
 /* ── Placeholder workspace ── */
 
-.pz-workspace {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: clamp(1rem, 2vw, 1.75rem) clamp(1rem, 2vw, 1.75rem) 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.pz-workspace__title {
-  margin: 0;
-  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  color: #ffffff;
-}
+/* .pz-workspace composes .bobos-page for its layout shell */
 
 .pz-workspace__note {
   margin: 0;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--bobos-type-body);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .pz-workspace__status {
@@ -1327,7 +1339,7 @@
   background: rgba(255, 255, 255, 0.03);
   color: #ffffff;
   font: inherit;
-  font-size: 0.95rem;
+  font-size: var(--bobos-type-body);
   line-height: 1.5;
   resize: vertical;
 }
@@ -1339,6 +1351,6 @@
 
 .pz-workspace__saving {
   margin: 0;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: var(--bobos-type-label);
+  color: rgba(255, 255, 255, 0.45);
 }

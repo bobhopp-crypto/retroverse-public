@@ -7,6 +7,7 @@ import type { PipelineStage, PipelineStageResult } from "@/lib/bobos/pipeline/lo
 import type { HomepageRvtrMode, HomepageRvtrResolution } from "@/lib/home/homepage-rvtr";
 import type { SearchEntity } from "@/lib/search/search-entity-types";
 import { normalizeRvtr } from "@/lib/studio/status";
+import { BobosPageHeader } from "@/components/bobos/BobosPageHeader";
 import { HumaneDocument } from "@/components/shared/HumaneDocument";
 
 import { ExplorerSearch, type ExplorerSelection } from "./ExplorerSearch";
@@ -177,10 +178,11 @@ export function RetroverseExplorerView({
   const liveLocked = resolution?.liveBroadcast ?? false;
 
   return (
-    <div className="rv-explorer">
-      <header className="rv-explorer__header">
-        <h1 className="rv-explorer__title">Retroverse Explorer</h1>
-      </header>
+    <div className="bobos-page rv-explorer">
+      <BobosPageHeader
+        page="Retroverse Explorer"
+        subtitle="Search the canonical music graph and follow a song through the pipeline stages."
+      />
 
       <ExplorerSearch onSelect={handleSelect} disabled={liveLocked} />
 

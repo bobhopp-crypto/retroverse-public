@@ -111,6 +111,7 @@ export const PUBLIC_ROUTE_PREFIXES = [
   "/experience/",
   "/retroverse-2/",
   "/retroverse/",
+  "/retroverse-live",
   "/sunday-nights",
   "/rv/",
   "/week/",
@@ -127,6 +128,7 @@ export const PUBLIC_API_PREFIXES = [
   "/api/live-now-playing",
   "/api/playback/",
   "/api/retroverse-2/",
+  "/api/retroverse-live/",
   "/api/sunday-nights/",
 ] as const;
 

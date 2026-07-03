@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BobosPageHeader } from "@/components/bobos/BobosPageHeader";
 import { BOBOS_EVENT_HUB_ACTIONS } from "@/lib/bobos/event-hub-nav";
 import type { ProductionBinder } from "@/lib/ops/event-studio/types";
 
@@ -7,19 +8,27 @@ type Props = {
   binder: ProductionBinder;
 };
 
+function statusTone(status: string): "planning" | "live" | "archived" | "neutral" {
+  const key = status.toLowerCase();
+  if (key === "planning") return "planning";
+  if (key === "live") return "live";
+  if (key === "archived") return "archived";
+  return "neutral";
+}
+
 export function BobosEventHubView({ binder }: Props) {
   const { snapshot, checklist, progress } = binder;
   const yearsLabel = snapshot.featuredYears.join(" · ");
 
   return (
-    <div className="bobos-event-hub">
-      <header className="bobos-event-hub__hero">
-        <p className="bobos-event-hub__kicker">BobOS · Sunday Production</p>
-        <h1 className="bobos-event-hub__title">Event Hub</h1>
-        <p className="bobos-event-hub__lead">
-          Producer sets the plan. Pass Studio prints the passes. Everything else follows from here.
-        </p>
-      </header>
+    <div className="bobos-page bobos-event-hub">
+      <BobosPageHeader
+        page="Event Hub"
+        subtitle="Producer sets the plan. Pass Studio prints the passes. Everything else follows from here."
+        eventName={snapshot.eventName}
+        status={snapshot.status}
+        statusTone={statusTone(snapshot.status)}
+      />
 
       <section className="bobos-event-hub__binder" aria-label="Production binder">
         <div className="bobos-event-hub__binder-head">
@@ -27,9 +36,7 @@ export function BobosEventHubView({ binder }: Props) {
             <p className="bobos-event-hub__binder-kicker">Production Binder</p>
             <h2 className="bobos-event-hub__binder-title">{snapshot.eventName}</h2>
           </div>
-          <span
-            className={`bobos-event-hub__status bobos-event-hub__status--${snapshot.status.toLowerCase()}`}
-          >
+          <span className={`bobos-badge bobos-badge--${statusTone(snapshot.status)}`}>
             {snapshot.status}
           </span>
         </div>

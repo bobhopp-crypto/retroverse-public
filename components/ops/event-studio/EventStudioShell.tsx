@@ -93,9 +93,17 @@ export async function EventStudioShell({
           {!workspace ? (
             <header className="ops-event-studio__head">
               <div>
-                <p className="ops-event-studio__section-kicker">{snapshot.eventName}</p>
+                <p className="ops-event-studio__section-kicker">BobOS</p>
                 <h1 className="ops-event-studio__page-title">{title}</h1>
                 {lead ? <p className="ops-event-studio__page-lead">{lead}</p> : null}
+                <div className="ops-event-studio__head-meta">
+                  <span className="ops-event-studio__head-event">{snapshot.eventName}</span>
+                  <span
+                    className={`ops-event-studio__status ops-event-studio__status--${snapshot.status.toLowerCase()}`}
+                  >
+                    {snapshot.status}
+                  </span>
+                </div>
               </div>
             </header>
           ) : null}

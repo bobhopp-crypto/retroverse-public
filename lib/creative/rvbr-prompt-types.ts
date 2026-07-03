@@ -4,6 +4,18 @@ export type { PromptMetrics } from "@/lib/creative/prompt-metrics";
 
 export type PromptSide = "front" | "back";
 
+/**
+ * Style directive — the strongest instruction in a composed prompt. Style dominates
+ * composition and design language; Color Scheme dominates palette. When present, it
+ * outranks era styling and event information.
+ */
+export type RvbrStyleDirective = {
+  styleLabel: string;
+  styleDirection: string;
+  colorSchemeLabel: string;
+  colorSchemeDirection: string;
+};
+
 export type PromptLayer = {
   id: string;
   label: string;

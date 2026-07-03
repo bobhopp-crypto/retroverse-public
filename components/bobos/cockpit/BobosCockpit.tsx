@@ -7,6 +7,7 @@ import { cellGridRef, cellLabel } from "@/lib/bobos/cockpit/defaults";
 import { COCKPIT_COMMAND_BAR, getPanelDefinition } from "@/lib/bobos/cockpit/panel-library";
 import type { CockpitState, CockpitWorkspaceId, PanelTypeId } from "@/lib/bobos/cockpit/types";
 import { COCKPIT_WORKSPACES } from "@/lib/bobos/cockpit/types";
+import type { CockpitPanelData } from "@/lib/bobos/cockpit/load-panel-data";
 import type { Project } from "@/lib/bobos/project-zero/types";
 
 import { CockpitPanel } from "./CockpitPanel";
@@ -17,9 +18,10 @@ import "./cockpit.css";
 type Props = {
   initialState: CockpitState;
   projects: Project[];
+  panelData: CockpitPanelData;
 };
 
-export function BobosCockpit({ initialState, projects }: Props) {
+export function BobosCockpit({ initialState, projects, panelData }: Props) {
   const [state, setState] = useState(initialState);
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [selectedCell, setSelectedCell] = useState<number | null>(null);
@@ -155,6 +157,7 @@ export function BobosCockpit({ initialState, projects }: Props) {
                 cellIndex={index}
                 definition={def}
                 project={latestProject}
+                panelData={panelData}
                 menuOpen={menuCell === index}
                 onToggleMenu={() => setMenuCell(menuCell === index ? null : index)}
                 onChangePanel={() => openLibrary(index)}

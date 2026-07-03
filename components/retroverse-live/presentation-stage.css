@@ -1,0 +1,164 @@
+/* Retroverse Live stage — the one look the audience sees.
+   Rendered identically inside the Studio preview and the public player:
+   the container decides the size, the stage fills it. */
+
+.rv-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(38, 108, 118, 0.5), transparent 60%),
+    radial-gradient(110% 80% at 85% 100%, rgba(196, 84, 42, 0.28), transparent 55%),
+    #101a1e;
+  color: #f7f1e3;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+.rv-stage__inner {
+  max-width: 82cqw;
+  padding: 4cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4cqw;
+}
+
+.rv-stage__kicker {
+  margin: 0;
+  font-size: clamp(0.85rem, 2.2cqw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #f0a03c;
+}
+
+.rv-stage__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 8cqw, 8rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-wrap: balance;
+  color: #f7f1e3;
+  text-shadow: 0 0.2cqw 0 rgba(0, 0, 0, 0.35);
+}
+
+.rv-stage__subtitle {
+  margin: 0;
+  font-size: clamp(1.1rem, 3.2cqw, 3.2rem);
+  font-weight: 700;
+  color: #8fd0d8;
+  text-wrap: balance;
+}
+
+.rv-stage__body {
+  margin: 0.6cqw 0 0;
+  max-width: 62cqw;
+  font-size: clamp(1rem, 2.4cqw, 2.4rem);
+  line-height: 1.45;
+  color: rgba(247, 241, 227, 0.85);
+  text-wrap: balance;
+}
+
+.rv-stage__countdown {
+  margin: 0;
+  font-size: clamp(2.5rem, 14cqw, 14rem);
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #f0a03c;
+}
+
+.rv-stage__countdown--done {
+  color: #6fdc8c;
+}
+
+.rv-stage__brand {
+  position: absolute;
+  bottom: 2.2cqw;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-size: clamp(0.7rem, 1.5cqw, 1.4rem);
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(247, 241, 227, 0.4);
+}
+
+/* ── Per-type accents ── */
+
+.rv-stage--artist {
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(196, 84, 42, 0.4), transparent 60%),
+    radial-gradient(110% 80% at 15% 100%, rgba(38, 108, 118, 0.4), transparent 55%),
+    #14100e;
+}
+
+.rv-stage--song .rv-stage__title {
+  color: #f7f1e3;
+}
+
+.rv-stage--announcement {
+  background:
+    radial-gradient(120% 90% at 50% 10%, rgba(240, 160, 60, 0.24), transparent 60%),
+    #16130d;
+}
+
+.rv-stage--registration {
+  background:
+    radial-gradient(120% 100% at 50% 100%, rgba(70, 180, 100, 0.24), transparent 60%),
+    radial-gradient(110% 80% at 50% 0%, rgba(38, 108, 118, 0.45), transparent 55%),
+    #0f171a;
+}
+
+.rv-stage--coming-soon .rv-stage__title,
+.rv-stage--current-event .rv-stage__title {
+  color: #ffe9c4;
+}
+
+.rv-stage--placeholder {
+  background: #14161a;
+}
+
+.rv-stage--placeholder .rv-stage__title {
+  color: rgba(247, 241, 227, 0.45);
+}
+
+.rv-stage--off-air .rv-stage__title {
+  color: rgba(247, 241, 227, 0.75);
+}
+
+/* ── Transitions — simple by design ── */
+
+.rv-stage--enter-fade {
+  animation: rv-stage-fade 600ms ease both;
+}
+
+.rv-stage--enter-slide {
+  animation: rv-stage-slide 500ms ease both;
+}
+
+@keyframes rv-stage-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rv-stage-slide {
+  from { opacity: 0; transform: translateX(4%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-stage--enter-fade,
+  .rv-stage--enter-slide {
+    animation: none;
+  }
+}

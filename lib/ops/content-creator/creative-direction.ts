@@ -257,23 +257,30 @@ const BACK_LAYOUT_HINTS = [
   "binder card reverse; production export will render verification code later · square reserve separated from serial/stamp footer",
 ] as const;
 
-/** Single composition/layout source — no duplication elsewhere. */
+/** Single composition/layout source — no duplication elsewhere. When a style directive
+ *  leads the prompt, `styleLedLabel` replaces the credential-type composition language so
+ *  the selected Style owns composition; the production layout mechanics are unchanged. */
 export function creativeDirectionPromptBlock(
   settings: CreativeDirectionSettings,
   compositionSeed: number,
   side: "front" | "back" = "front",
   frontSummary?: string,
+  styleLedLabel?: string,
 ): string {
   const dir = creativeDirectionById(settings.creativeDirection);
   const variation = pickDirectionVariation(dir.id, compositionSeed);
   const backHint = BACK_LAYOUT_HINTS[Math.abs(compositionSeed + 17) % BACK_LAYOUT_HINTS.length]!;
 
-  const lines = [
-    `${dir.label}: ${dir.composition}`,
-    `Subject: ${dir.subjectMatter}`,
-    `Typography: ${dir.typographyArrangement}`,
-    `Variation: ${variation}`,
-  ];
+  const lines = styleLedLabel
+    ? [
+        `Composition, subject matter, and typography follow the DESIGN STYLE directive above (${styleLedLabel}) — it outranks every other composition instruction.`,
+      ]
+    : [
+        `${dir.label}: ${dir.composition}`,
+        `Subject: ${dir.subjectMatter}`,
+        `Typography: ${dir.typographyArrangement}`,
+        `Variation: ${variation}`,
+      ];
 
   if (side === "front") {
     lines.push(`Layout: Full-bleed front, 100% artwork, no QR/serial zones, no generated numbers`);

@@ -221,6 +221,50 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     summary: "Print device status and queue.",
     primaryAction: { label: "Pass Studio", href: "/bobos/passes" },
   },
+  "public-homepage": {
+    id: "public-homepage",
+    title: "Public Homepage",
+    group: "build",
+    defaultStatus: "nominal",
+    summary: "Public homepage status and active event.",
+    primaryAction: { label: "Open Public Homepage", href: "/" },
+    secondaryActions: [
+      { label: "Homepage Preview", href: "/ops/event-studio/homepage" },
+      { label: "Set Active Event", href: "/ops/event-control" },
+    ],
+  },
+  "pass-registration": {
+    id: "pass-registration",
+    title: "Pass Registration",
+    group: "build",
+    defaultStatus: "nominal",
+    summary: "QR pass registrations from /pass scans.",
+    primaryAction: { label: "View Registrations", href: "/bobos/passes" },
+  },
+  "giveaway-panel": {
+    id: "giveaway-panel",
+    title: "Giveaway",
+    group: "build",
+    defaultStatus: "nominal",
+    summary: "Prize drawing state and eligible entries.",
+    primaryAction: { label: "Open Giveaway Admin", href: "/ops/event-studio/giveaway" },
+    secondaryActions: [
+      { label: "Pick Winner", href: "/ops/event-studio/giveaway/drawing" },
+      { label: "Display Winner", href: "/ops/event-studio/giveaway/history" },
+    ],
+  },
+  "live-display": {
+    id: "live-display",
+    title: "Live Display",
+    group: "devices",
+    defaultStatus: "nominal",
+    summary: "What the public display is showing now.",
+    primaryAction: { label: "Open Live Display", href: "/sunday-nights" },
+    secondaryActions: [
+      { label: "Open Live Control", href: "/ops/live-control" },
+      { label: "Open VirtualDJ Bridge", href: "/bobos/bridge" },
+    ],
+  },
 };
 
 export const PANEL_LIBRARY_GROUPS: PanelGroup[] = ["attention", "build", "catalog", "devices"];

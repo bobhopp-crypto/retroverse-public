@@ -11,7 +11,7 @@ import {
   type CreativeDirectionSettings,
 } from "@/lib/ops/content-creator/creative-direction";
 import { resolveArtifactArchetype } from "@/lib/creative/artifact-archetypes";
-import type { ComposedRvbrPrompt } from "@/lib/creative/rvbr-prompt-types";
+import type { ComposedRvbrPrompt, RvbrStyleDirective } from "@/lib/creative/rvbr-prompt-types";
 import { buildCollectorCardExportPackage, type CollectorCardExportPaths } from "@/lib/ops/content-creator/collector-card-export";
 import type { CollectorCardContent, CollectorCardPresentation } from "@/lib/ops/content-creator/collector-card";
 import {
@@ -40,6 +40,8 @@ export type VNextInput = {
   frontFields: ArtDirectorFields;
   backFields: ArtDirectorFields;
   creativeSettings: CreativeDirectionSettings;
+  /** When present, Style + Color Scheme lead the prompt (BobOS Pass Workspace). */
+  styleDirective?: RvbrStyleDirective;
   compositionSeed?: number;
   parentGenerationId?: string;
   variationBatchId?: string;
@@ -59,6 +61,7 @@ export type VNextManifest = {
   serialNumber?: string;
   compositionSeed?: number;
   creativeSettings?: CreativeDirectionSettings;
+  styleDirective?: RvbrStyleDirective;
   resolvedArtifactArchetype?: string;
   parentGenerationId?: string;
   variationBatchId?: string;
@@ -132,6 +135,7 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
     compositionSeed,
     creativeSettings,
     input.artifact,
+    input.styleDirective,
   );
   const frontResult = await generateArtwork(
     artworkContext(artDirectorPromptText(frontComposed), frontFields, input.profile),
@@ -158,6 +162,7 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
       compositionSeed,
       creativeSettings,
       input.artifact,
+      input.styleDirective,
     );
     const backResult = await generateArtwork(
       artworkContext(artDirectorPromptText(backComposed), backFields, input.profile),
@@ -187,6 +192,7 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
     serialNumber: serialForRun(runId),
     compositionSeed,
     creativeSettings,
+    styleDirective: input.styleDirective,
     resolvedArtifactArchetype: resolveArtifactArchetype(
       creativeSettings.artifactArchetype,
       compositionSeed,
@@ -226,6 +232,7 @@ export async function runVNextRegenerateFront(args: {
     compositionSeed,
     creativeSettings,
     manifest.artifact,
+    manifest.styleDirective,
   );
   const result = await generateArtwork(
     artworkContext(artDirectorPromptText(composed), fields, args.profile),
@@ -274,6 +281,7 @@ export async function runVNextRegenerateBack(args: {
     compositionSeed,
     creativeSettings,
     manifest.artifact,
+    manifest.styleDirective,
   );
   const result = await generateArtwork(
     artworkContext(artDirectorPromptText(composed), fields, args.profile),

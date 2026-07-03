@@ -14,6 +14,7 @@ import type {
   PromptQualityLevel,
   PromptQualityScores,
   PromptSide,
+  RvbrStyleDirective,
 } from "@/lib/creative/rvbr-prompt-types";
 import {
   creativeDirectionById,
@@ -43,6 +44,7 @@ export type {
   PromptQualityLevel,
   PromptQualityScores,
   PromptSide,
+  RvbrStyleDirective,
 } from "@/lib/creative/rvbr-prompt-types";
 
 export type RvbrPromptEngineInput = {
@@ -53,6 +55,8 @@ export type RvbrPromptEngineInput = {
   artifactType: ContentArtifactType;
   compositionSeed: number;
   frontSummary?: string;
+  /** When present, leads the prompt: Style dominates composition, Color Scheme dominates palette. */
+  styleDirective?: RvbrStyleDirective;
 };
 
 const RETROVERSE_BRAND_RULES = [
@@ -150,11 +154,30 @@ function scorePromptQuality(
   return { eraSpecificity, brandSpecificity, variationScore, clicheRisk };
 }
 
+/** The strongest block in the prompt — Style owns composition, Color Scheme owns palette,
+ *  event data decorates rather than defines. Placed first, immediately after the header. */
+function styleDirectivePromptBlock(directive: RvbrStyleDirective): string {
+  return [
+    `DESIGN STYLE — PRIMARY DIRECTIVE (HIGHEST PRIORITY)`,
+    `Selected style: ${directive.styleLabel}.`,
+    directive.styleDirection,
+    `This style dictates the composition, layout skeleton, typography, ornament, and overall design language of the entire artifact. It outranks era styling and event information. The result must be immediately recognizable as ${directive.styleLabel} artwork.`,
+    ``,
+    `COLOR SCHEME — PRIMARY PALETTE (HIGHEST PRIORITY)`,
+    `Selected scheme: ${directive.colorSchemeLabel}.`,
+    directive.colorSchemeDirection,
+    `This scheme governs every major surface: backgrounds, typography, borders, and ornament. It overrides the era's default palette entirely.`,
+    ``,
+    `Event information below is content rendered INSIDE this style — it decorates the design and must never change the style or the palette.`,
+  ].join("\n");
+}
+
 /** Branded prompt orchestration — compressed 5-layer brief, each concept once. */
 export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPrompt {
   const eraProfile = loadRvbrPromptProfile(input.profile.slug);
   const dir = creativeDirectionById(input.settings.creativeDirection);
   const isCollectorCard = input.artifactType === "collector-card";
+  const styleDirective = input.styleDirective;
 
   const archetypeId = resolveArtifactArchetype(
     input.settings.artifactArchetype,
@@ -187,13 +210,24 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
         `Feel: a tactile card pulled from a box of cultural memories.`,
       ].join("\n")
     : artifactArchetypePromptBlock(archetype, input.compositionSeed);
-  const eraContent = compressedEraProfileBlock(eraProfile, input.profile, input.settings);
-  const directionContent = creativeDirectionPromptBlock(
+  const eraContentBase = compressedEraProfileBlock(eraProfile, input.profile, input.settings);
+  // With a style directive, the era supplies period texture and authenticity only —
+  // composition belongs to the Style and the palette belongs to the Color Scheme.
+  const eraContent = styleDirective
+    ? `${eraContentBase}\nEra scope: period texture, print character, and authenticity only — the DESIGN STYLE directive controls composition and the COLOR SCHEME directive controls the palette.`
+    : eraContentBase;
+  const directionBlock = creativeDirectionPromptBlock(
     input.settings,
     input.compositionSeed,
     input.side,
     input.side === "back" ? input.frontSummary : undefined,
+    styleDirective?.styleLabel,
   );
+  // Creative notes ride the direction layer — director guidance, never governed text.
+  const creativeNotes = input.fields.creativeNotes?.trim();
+  const directionContent = creativeNotes
+    ? `${directionBlock}\n\nDIRECTOR NOTES (guidance only — never render these words as text):\n${creativeNotes}`
+    : directionBlock;
   const brandContent = RETROVERSE_BRAND_RULES;
   const governedText = isCollectorCard ? collectorCardPromptBlock(input.fields) : compressedTextGovernancePromptBlock(textFields);
 
@@ -201,12 +235,19 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     artifactArchetype: { id: "archetype", label: "Artifact Archetype", content: archetypeContent },
     eraProfile: { id: "era", label: "RVBR Era Profile", content: eraContent },
     brandRules: { id: "brand", label: "Retroverse Brand Rules", content: brandContent },
-    directionRules: { id: "direction", label: "Creative Direction", content: directionContent },
+    directionRules: {
+      id: "direction",
+      label: styleDirective ? "Style Directive + Direction" : "Creative Direction",
+      content: styleDirective
+        ? `${styleDirectivePromptBlock(styleDirective)}\n\n${directionContent}`
+        : directionContent,
+    },
     governedText: { id: "text", label: "Governed Text", content: governedText },
   };
 
   const finalPrompt = [
     `FINISHED ${sideLabel} · ${artifactLabel} · ${PASS_WIDTH}×${PASS_HEIGHT}px · 2.25"×3.5" print`,
+    ...(styleDirective ? [``, styleDirectivePromptBlock(styleDirective)] : []),
     ``,
     `ARTIFACT ARCHETYPE`,
     archetypeContent,
@@ -250,7 +291,9 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     `GOVERNED TEXT`,
     governedText,
     ``,
-    `${archetype.label} · ${dir.label} · seed ${input.compositionSeed}`,
+    styleDirective
+      ? `${styleDirective.styleLabel} style · ${styleDirective.colorSchemeLabel} palette · seed ${input.compositionSeed}`
+      : `${archetype.label} · ${dir.label} · seed ${input.compositionSeed}`,
   ].join("\n");
 
   return {

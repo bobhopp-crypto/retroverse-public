@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { BobosCockpit } from "@/components/bobos/cockpit/BobosCockpit";
+import { loadCockpitPanelData } from "@/lib/bobos/cockpit/load-panel-data";
 import { loadCockpitState } from "@/lib/bobos/cockpit/store";
 import { listProjects } from "@/lib/bobos/project-zero/store";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
@@ -16,7 +17,11 @@ export const dynamic = "force-dynamic";
 export default async function BobosPage() {
   if (!shouldAllowOpsRoutes()) notFound();
 
-  const [state, projects] = await Promise.all([loadCockpitState(), listProjects()]);
+  const [state, projects, panelData] = await Promise.all([
+    loadCockpitState(),
+    listProjects(),
+    loadCockpitPanelData(),
+  ]);
 
-  return <BobosCockpit initialState={state} projects={projects} />;
+  return <BobosCockpit initialState={state} projects={projects} panelData={panelData} />;
 }

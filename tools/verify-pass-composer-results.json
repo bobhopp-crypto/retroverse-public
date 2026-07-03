@@ -1,0 +1,121 @@
+{
+  "projectId": "f244eb49-9c60-4159-b1cd-50e5c5af5e5f",
+  "url": "http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes",
+  "results": [
+    {
+      "name": "1. Open Pass Workspace",
+      "ok": true,
+      "detail": "http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes"
+    },
+    {
+      "name": "2. Composer Preview on artwork cards",
+      "ok": true,
+      "detail": "count=3"
+    },
+    {
+      "name": "2.1 Composer Preview image loaded",
+      "ok": true,
+      "detail": "data:image/png;base64,iVBORw0KGgoAAAANSU"
+    },
+    {
+      "name": "2.2 Composer Preview image loaded",
+      "ok": true,
+      "detail": "data:image/png;base64,iVBORw0KGgoAAAANSU"
+    },
+    {
+      "name": "2.3 Composer Preview image loaded",
+      "ok": true,
+      "detail": "data:image/png;base64,iVBORw0KGgoAAAANSU"
+    },
+    {
+      "name": "3. Front/Back toggle changes preview",
+      "ok": true,
+      "detail": "front=4ad50752d2d4f84f back=fb9fda3d4e44391e"
+    },
+    {
+      "name": "4. Print Boost updates Composer Preview",
+      "ok": true,
+      "detail": "off=d0a0ba01f501facf on=4ad50752d2d4f84f"
+    },
+    {
+      "name": "5. Generate Batch completes",
+      "ok": true,
+      "detail": "composed preview visible"
+    },
+    {
+      "name": "5. Batch front URL is composed render",
+      "ok": true,
+      "detail": "/api/bobos/pass-workspace/files/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/40517e71-79ab-407b-bd12-44300ec0148c/front-bobos-f244eb49-9c60-4159-b1cd-50e5c5af5e5f-general.png?v=1"
+    },
+    {
+      "name": "5. Batch preview updated after generate",
+      "ok": true,
+      "detail": "URL changed"
+    },
+    {
+      "name": "6. Batch output finished geometry",
+      "ok": true,
+      "detail": "987x1536"
+    },
+    {
+      "name": "6. Composer front matches batch front (same stack)",
+      "ok": true,
+      "detail": "composer=4ad50752d2d4f84f batch=4ad50752d2d4f84f"
+    },
+    {
+      "name": "6. Composer live preview back uses placeholder serial 0001",
+      "ok": true,
+      "detail": "composer=fb9fda3d4e44391e placeholder=fb9fda3d4e44391e batchSerial=0138"
+    },
+    {
+      "name": "6. Batch back matches production compose pipeline",
+      "ok": true,
+      "detail": "pipeline=474e45341e2a875b batch=474e45341e2a875b serial=0138"
+    },
+    {
+      "name": "6. Batch preview QR URL matches serial",
+      "ok": true,
+      "detail": "serial=0138"
+    },
+    {
+      "name": "8. QR decodes from batch back",
+      "ok": true,
+      "detail": "https://retroverse.live/pass/0138"
+    },
+    {
+      "name": "9. Serial stamp ink in reserve zone",
+      "ok": true,
+      "detail": "dark pixel ratio 76.77%"
+    },
+    {
+      "name": "7. Build Print Sheets renders sheets",
+      "ok": true,
+      "detail": "2 images"
+    },
+    {
+      "name": "10. No Server Action / compose errors",
+      "ok": true,
+      "detail": "clean"
+    },
+    {
+      "name": "10. No console errors",
+      "ok": true,
+      "detail": "clean"
+    },
+    {
+      "name": "10. No network failures",
+      "ok": true,
+      "detail": "clean"
+    }
+  ],
+  "consoleErrors": [],
+  "networkFailures": [
+    "POST http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes — net::ERR_ABORTED",
+    "POST http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes — net::ERR_ABORTED",
+    "POST http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes — net::ERR_ABORTED",
+    "POST http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes — net::ERR_ABORTED",
+    "POST http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes — net::ERR_ABORTED",
+    "POST http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes — net::ERR_ABORTED",
+    "POST http://localhost:3000/bobos/project/f244eb49-9c60-4159-b1cd-50e5c5af5e5f/workspace/passes — net::ERR_ABORTED"
+  ]
+}

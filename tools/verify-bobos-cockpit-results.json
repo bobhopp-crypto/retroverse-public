@@ -1,0 +1,46 @@
+{
+  "url": "http://localhost:3000/bobos",
+  "results": [
+    {
+      "name": "Page loads with BobOS Cockpit title",
+      "ok": true,
+      "detail": "BobOS Cockpit"
+    },
+    {
+      "name": "4x4 grid renders (16 cells)",
+      "ok": true,
+      "detail": "count=16"
+    },
+    {
+      "name": "Workspace switcher present",
+      "ok": true,
+      "detail": "count=8"
+    },
+    {
+      "name": "Development workspace shows empty cells",
+      "ok": true,
+      "detail": "empty=16"
+    },
+    {
+      "name": "Add Panel modal opens",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Panel assigned from library",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Cockpit workspace retains seeded panels",
+      "ok": true,
+      "detail": "filled=16"
+    },
+    {
+      "name": "Layout persists after refresh",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "passed": true
+}

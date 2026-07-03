@@ -1,20 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { buildBobosPrintSheetsForPasses, generateBobosPassBatch } from "@/app/bobos/pass-workspace/actions";
+import {
+  buildBobosPrintSheetsForPasses,
+  generateBobosPassBatch,
+  savePassCreativeBrief,
+  savePrintSheetGrid,
+} from "@/app/bobos/pass-workspace/actions";
 import "@/components/ops/event-studio/pass-studio/pass-studio.css";
+import type { PassCreativeBrief as PassCreativeBriefData } from "@/lib/bobos/project-zero/creative-brief";
 import type { PassWorkspaceTemplate } from "@/lib/bobos/project-zero/load-pass-workspace-data";
 import type { PassArtworkAdjustments } from "@/lib/bobos/project-zero/pass-artwork-adjustments";
-import type { BobosPrintSheetSet } from "@/lib/bobos/project-zero/pass-production";
-import type { PassWorkspaceSlug, PassWorkspaceVersion } from "@/lib/bobos/project-zero/pass-workspace-store";
+import type { BobosPrintSheetSet } from "@/lib/bobos/project-zero/pass-production-spec";
+import type { ProductionLayout } from "@/lib/bobos/project-zero/production-layout";
+import type { PrintSheetGridId } from "@/lib/bobos/project-zero/print-sheet-grid";
+import { PASS_WORKSPACE_SLUGS, type PassWorkspaceSlug } from "@/lib/bobos/project-zero/pass-workspace-slugs";
+import type { PassWorkspaceVersion } from "@/lib/bobos/project-zero/pass-workspace-store";
 import type { GeneratedPass } from "@/lib/ops/event-studio/pass-studio/types";
 
 import { BobosPassPreview } from "./BobosPassPreview";
 import { BobosPrintSheets } from "./BobosPrintSheets";
+import { BuildPrintSheetsPanel } from "./BuildPrintSheetsPanel";
+import { IssuePassesPanel } from "./IssuePassesPanel";
 import { PassArtworkPanel } from "./PassArtworkPanel";
+import { PassCreativeBrief, type RvbrEraOption } from "./PassCreativeBrief";
+import { ProductionLayoutEditor } from "./ProductionLayoutEditor";
 import "./bobos-pass-workspace.css";
 
 const DEFAULT_QUANTITY_BY_PASS_TYPE: Record<string, number> = {
@@ -32,21 +44,63 @@ function defaultQuantityFor(template: PassWorkspaceTemplate): number {
   return DEFAULT_QUANTITY_BY_PASS_TYPE[key] ?? 5;
 }
 
+type LayoutsBySlug = Record<PassWorkspaceSlug, ProductionLayout>;
+
 type Props = {
   projectId: string;
   context: { title: string; venue: string; date: string; theme: string };
   initialTemplates: PassWorkspaceTemplate[];
   initialLibrary: GeneratedPass[];
+  initialCreative: PassCreativeBriefData;
+  initialProductionLayouts: LayoutsBySlug;
+  initialPrintSheetGrid: PrintSheetGridId;
+  initialNextSerial: number;
+  eras: RvbrEraOption[];
 };
 
-/** Pass Studio, owned by BobOS — the project's Shared Context is already known, so there is
- *  no event picker and no wizard. Every pass type starts empty; artwork only exists once
- *  Generate is explicitly run for THIS project. */
-export function BobosPassWorkspace({ projectId, context, initialTemplates, initialLibrary }: Props) {
-  const router = useRouter();
+export function BobosPassWorkspace({
+  projectId,
+  context,
+  initialTemplates,
+  initialLibrary,
+  initialCreative,
+  initialProductionLayouts,
+  initialPrintSheetGrid,
+  initialNextSerial,
+  eras,
+}: Props) {
   const [templates, setTemplates] = useState<PassWorkspaceTemplate[]>(initialTemplates);
   const [library, setLibrary] = useState<GeneratedPass[]>(initialLibrary);
   const [lastGenerated, setLastGenerated] = useState<GeneratedPass[]>([]);
+
+  const [brief, setBrief] = useState<PassCreativeBriefData>(initialCreative);
+  // Every pass type owns an independent Production Layout — saved and draft per slug.
+  const [savedLayouts, setSavedLayouts] = useState<LayoutsBySlug>(initialProductionLayouts);
+  const [draftLayouts, setDraftLayouts] = useState<LayoutsBySlug>(initialProductionLayouts);
+  const [activeLayoutSlug, setActiveLayoutSlug] = useState<PassWorkspaceSlug>("general");
+  const [printSheetGrid, setPrintSheetGrid] = useState<PrintSheetGridId>(initialPrintSheetGrid);
+
+  const layoutDirty = PASS_WORKSPACE_SLUGS.some(
+    (slug) => JSON.stringify(savedLayouts[slug]) !== JSON.stringify(draftLayouts[slug]),
+  );
+
+  const briefSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const gridSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (briefSaveTimer.current) clearTimeout(briefSaveTimer.current);
+      if (gridSaveTimer.current) clearTimeout(gridSaveTimer.current);
+    };
+  }, []);
+
+  function handleBriefChange(next: PassCreativeBriefData) {
+    setBrief(next);
+    if (briefSaveTimer.current) clearTimeout(briefSaveTimer.current);
+    briefSaveTimer.current = setTimeout(() => {
+      void savePassCreativeBrief(projectId, next);
+    }, 400);
+  }
 
   const [quantities, setQuantities] = useState<Record<string, number>>(() => {
     const map: Record<string, number> = {};
@@ -56,15 +110,13 @@ export function BobosPassWorkspace({ projectId, context, initialTemplates, initi
 
   const [generating, setGenerating] = useState(false);
   const [generateError, setGenerateError] = useState<string | null>(null);
+  const [nextSerial, setNextSerial] = useState(initialNextSerial);
 
   const [printSheets, setPrintSheets] = useState<BobosPrintSheetSet | null>(null);
   const [sheetsStatus, setSheetsStatus] = useState<"idle" | "building" | "ready" | "error">("idle");
   const [sheetsError, setSheetsError] = useState<string | null>(null);
 
   const [previewIndex, setPreviewIndex] = useState(0);
-  /** Bumped whenever Print Boost changes refresh the finished images on disk at their
-   *  existing URLs — forces the preview <img> tags to re-fetch instead of showing a
-   *  browser-cached, pre-adjustment copy. */
   const [previewNonce, setPreviewNonce] = useState(0);
 
   const activeSet = lastGenerated.length > 0 ? lastGenerated : library;
@@ -84,17 +136,42 @@ export function BobosPassWorkspace({ projectId, context, initialTemplates, initi
               frontArtworkUrl: version.frontArtworkUrl,
               backArtworkUrl: version.backArtworkUrl,
               history: [...t.history, version],
+              approved: false,
             }
           : t,
       ),
     );
   }
 
+  function handleApproved(slug: PassWorkspaceSlug) {
+    setTemplates((prev) => prev.map((t) => (t.slug === slug ? { ...t, approved: true } : t)));
+  }
+
   function handleAdjustmentsChange(slug: PassWorkspaceSlug, adjustments: PassArtworkAdjustments) {
     setTemplates((prev) => prev.map((t) => (t.slug === slug ? { ...t, adjustments } : t)));
   }
 
-  async function handleGenerateBatch() {
+  function handleLayoutDraftChange(slug: PassWorkspaceSlug, layout: ProductionLayout) {
+    setDraftLayouts((prev) => ({ ...prev, [slug]: layout }));
+  }
+
+  function handleLayoutSaved(slug: PassWorkspaceSlug, layout: ProductionLayout) {
+    setSavedLayouts((prev) => ({ ...prev, [slug]: layout }));
+    setDraftLayouts((prev) => ({ ...prev, [slug]: layout }));
+  }
+
+  function handlePrintSheetGridChange(gridId: PrintSheetGridId) {
+    setPrintSheetGrid(gridId);
+    setPrintSheets(null);
+    setSheetsStatus("idle");
+    setSheetsError(null);
+    if (gridSaveTimer.current) clearTimeout(gridSaveTimer.current);
+    gridSaveTimer.current = setTimeout(() => {
+      void savePrintSheetGrid(projectId, gridId);
+    }, 300);
+  }
+
+  async function handleIssuePasses(startAt: number | null) {
     setGenerating(true);
     setGenerateError(null);
     try {
@@ -115,17 +192,16 @@ export function BobosPassWorkspace({ projectId, context, initialTemplates, initi
         venue: context.venue,
         date: context.date,
         rows,
+        startAt,
       });
+      setNextSerial(result.batch.serialEnd + 1);
       setLastGenerated(result.passes);
       setLibrary((prev) => [...prev, ...result.passes]);
-      setPrintSheets(result.printSheets);
-      setSheetsStatus("ready");
+      setPrintSheets(null);
+      setSheetsStatus("idle");
       setSheetsError(null);
       setPreviewIndex(0);
       setPreviewNonce((n) => n + 1);
-      requestAnimationFrame(() => {
-        document.getElementById("pzw-open-sheets")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
     } catch (err) {
       setGenerateError(err instanceof Error ? err.message : "Generate failed");
     } finally {
@@ -138,10 +214,9 @@ export function BobosPassWorkspace({ projectId, context, initialTemplates, initi
     setSheetsStatus("building");
     setSheetsError(null);
     try {
-      const sheets = await buildBobosPrintSheetsForPasses(projectId, activeSet);
+      const sheets = await buildBobosPrintSheetsForPasses(projectId, activeSet, printSheetGrid);
       setPrintSheets(sheets);
       setSheetsStatus("ready");
-      setPreviewNonce((n) => n + 1);
     } catch (err) {
       setSheetsStatus("error");
       setSheetsError(err instanceof Error ? err.message : "Could not build print sheets");
@@ -153,59 +228,63 @@ export function BobosPassWorkspace({ projectId, context, initialTemplates, initi
       <Link href={`/bobos/project/${projectId}`} className="ps-back-link">
         ← Return to Project
       </Link>
+      <p className="ps-workspace__kicker">BobOS</p>
       <h1 className="ps-workspace__title">Pass Workspace</h1>
 
-      <div className="pzw-context">
-        <div className="pzw-context__item">
-          <span className="pzw-context__label">Event</span>
-          <span className="pzw-context__value">{context.title || "Untitled event"}</span>
-        </div>
-        <div className="pzw-context__item">
-          <span className="pzw-context__label">Venue</span>
-          <span className="pzw-context__value">{context.venue || "—"}</span>
-        </div>
-        <div className="pzw-context__item">
-          <span className="pzw-context__label">Date</span>
-          <span className="pzw-context__value">{context.date || "—"}</span>
-        </div>
-        <div className="pzw-context__item">
-          <span className="pzw-context__label">Theme</span>
-          <span className="pzw-context__value">{context.theme || "—"}</span>
-        </div>
-      </div>
+      <PassCreativeBrief brief={brief} eras={eras} onChange={handleBriefChange} />
 
       <PassArtworkPanel
         projectId={projectId}
-        context={context}
+        brief={brief}
+        onBriefChange={handleBriefChange}
+        templates={templates}
+        onVersionCreated={handleVersionCreated}
+        onApproved={handleApproved}
+        onAdjustmentsChange={handleAdjustmentsChange}
+      />
+
+      <div className="pzw-section">
+        <ProductionLayoutEditor
+          projectId={projectId}
+          templates={templates}
+          activeSlug={activeLayoutSlug}
+          onActiveSlugChange={setActiveLayoutSlug}
+          savedLayouts={savedLayouts}
+          draftLayouts={draftLayouts}
+          onDraftChange={handleLayoutDraftChange}
+          onSaved={handleLayoutSaved}
+        />
+      </div>
+
+      <IssuePassesPanel
         templates={templates}
         quantities={quantities}
         onQuantityChange={handleQuantityChange}
-        onVersionCreated={handleVersionCreated}
-        onAdjustmentsChange={handleAdjustmentsChange}
+        nextSerial={nextSerial}
         generating={generating}
         generateError={generateError}
-        onGenerate={() => void handleGenerateBatch()}
+        layoutDirty={layoutDirty}
+        onIssue={(startAt) => void handleIssuePasses(startAt)}
       />
 
-      <div className="pzw-section pzw-panel">
-        <BobosPassPreview
-          passes={activeSet}
-          index={previewIndex}
-          onIndexChange={setPreviewIndex}
-          cacheBust={previewNonce}
-        />
-      </div>
+      <BobosPassPreview
+        passes={activeSet}
+        index={previewIndex}
+        onIndexChange={setPreviewIndex}
+        cacheBust={previewNonce}
+      />
 
-      <div className="pzw-section pzw-panel">
-        <BobosPrintSheets
-          passCount={activeSet.length}
-          sheets={printSheets}
-          status={sheetsStatus}
-          error={sheetsError}
-          onBuild={() => void handleBuildPrintSheets()}
-          onDone={() => router.push(`/bobos/project/${projectId}`)}
-        />
-      </div>
+      <BuildPrintSheetsPanel
+        passCount={activeSet.length}
+        gridId={printSheetGrid}
+        onGridChange={handlePrintSheetGridChange}
+        status={sheetsStatus}
+        error={sheetsError}
+        sheetCount={printSheets?.sheetCount ?? null}
+        onBuild={() => void handleBuildPrintSheets()}
+      />
+
+      <BobosPrintSheets sheets={printSheets} />
     </div>
   );
 }

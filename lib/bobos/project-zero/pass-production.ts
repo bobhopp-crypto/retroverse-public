@@ -20,14 +20,24 @@ import {
   PASS_PRINT_HEIGHT_IN,
   PASS_PRINT_WIDTH_IN,
   PASS_WIDTH,
-  QR_ZONE,
-  SERIAL_HEIGHT_PX,
-  SERIAL_WIDTH_PX,
-  SERIAL_X0,
-  SERIAL_Y0,
 } from "@/lib/ops/creative-lab/pass-layout";
 import { assertWellFormedSvg } from "@/lib/ops/creative-lab/svg-validate";
 import { retroverseDataRoot } from "@/lib/retroverse-data-root";
+
+import {
+  defaultProductionLayoutFromPassLayout,
+  normalizeProductionLayout,
+  productionLayoutToReserves,
+  type ProductionLayout,
+  type ProductionLayoutReserves,
+} from "./production-layout";
+import {
+  resolvePrintSheetGrid,
+  type PrintSheetGridId,
+} from "./print-sheet-grid";
+import type { BobosPrintSheetSet } from "./pass-production-spec";
+
+export type { BobosPrintSheetSet } from "./pass-production-spec";
 
 /**
  * BobOS Pass Production Specification — the single shared source of truth for finished
@@ -63,8 +73,13 @@ const FINISHED_HEIGHT_PX = RAW_HEIGHT_PX;
 const CROP_LEFT_PX = Math.round((RAW_WIDTH_PX - FINISHED_WIDTH_PX) / 2);
 
 /** QR + serial reserves, translated from the raw canvas onto the finished (cropped) canvas. */
-const QR_RESERVE = { left: QR_ZONE.left - CROP_LEFT_PX, top: QR_ZONE.top, size: QR_ZONE.size };
-const SERIAL_RESERVE = { left: SERIAL_X0 - CROP_LEFT_PX, top: SERIAL_Y0, width: SERIAL_WIDTH_PX, height: SERIAL_HEIGHT_PX };
+const DEFAULT_RESERVES = productionLayoutToReserves(defaultProductionLayoutFromPassLayout());
+const QR_RESERVE = DEFAULT_RESERVES.qr;
+const SERIAL_RESERVE = DEFAULT_RESERVES.serial;
+
+export function resolvePassProductionReserves(layout?: ProductionLayout | null): ProductionLayoutReserves {
+  return productionLayoutToReserves(normalizeProductionLayout(layout ?? defaultProductionLayoutFromPassLayout()));
+}
 
 export const PASS_PRODUCTION_SPEC = {
   finishedWidthIn: PASS_PRINT_WIDTH_IN,
@@ -104,27 +119,35 @@ function seededRandom(seedText: string): () => number {
   };
 }
 
-const STAMP_INK = "#7d1c1c";
+/** Dark stamped ink — readable on the production plate over any AI back artwork. */
+const STAMP_INK = "#231815";
+/** Opaque cream plate behind the stamp so serial stays legible over colored AI backs. */
+const SERIAL_PLATE_FILL = "#f6f0e4";
+const SERIAL_PLATE_OPACITY = 0.96;
 const STAMP_OVERFLOW_PX = 26;
 
 /**
- * A realistic hand-stamped serial — distressed dark-red ink, slight random rotation and
- * opacity, sized and centered to fit the shared serial reserve. Doubles as the pass's
- * subtle Retroverse authenticity mark. Deterministic per serial (stable re-renders), but
- * visually distinct pass-to-pass so every pass looks individually stamped.
+ * A realistic hand-stamped serial on a production-safe cream plate — dark distressed ink,
+ * slight random rotation and opacity, sized to the serial reserve. The opaque plate keeps
+ * the number readable over colored AI back artwork. Deterministic per serial.
  */
-function renderSerialStampSvg(serial: string): {
+function renderSerialStampSvg(
+  serial: string,
+  reserves: ProductionLayoutReserves,
+): {
   svg: string;
   compositeLeft: number;
   compositeTop: number;
 } {
   const rand = seededRandom(serial);
-  const rotation = (rand() - 0.5) * 10; // -5..+5 degrees
-  const opacity = 0.86 + rand() * 0.12; // 0.86..0.98
+  const rotation = reserves.serialStyle.rotation + (rand() - 0.5) * 2;
+  const opacity = Math.min(1, reserves.serialStyle.inkOpacity + rand() * 0.06);
   const turbulenceSeed = Math.floor(rand() * 1000);
+  const fontSize = reserves.serialStyle.fontSize;
+  const labelSize = Math.max(11, Math.round(fontSize * 0.5));
 
-  const boxW = SERIAL_RESERVE.width;
-  const boxH = SERIAL_RESERVE.height;
+  const boxW = reserves.serial.width;
+  const boxH = reserves.serial.height;
   const canvasWidth = boxW + STAMP_OVERFLOW_PX * 2;
   const canvasHeight = boxH + STAMP_OVERFLOW_PX * 2;
   const cx = canvasWidth / 2;
@@ -142,10 +165,11 @@ function renderSerialStampSvg(serial: string): {
     </filter>
   </defs>
   <g transform="rotate(${rotation.toFixed(2)} ${cx} ${cy})" opacity="${opacity.toFixed(2)}">
+    <rect x="${STAMP_OVERFLOW_PX + pad - 2}" y="${STAMP_OVERFLOW_PX + pad - 2}" width="${boxW - pad * 2 + 4}" height="${boxH - pad * 2 + 4}" rx="12" fill="${SERIAL_PLATE_FILL}" opacity="${SERIAL_PLATE_OPACITY.toFixed(2)}"/>
     <g filter="url(#grunge)">
       <rect x="${STAMP_OVERFLOW_PX + pad}" y="${STAMP_OVERFLOW_PX + pad}" width="${boxW - pad * 2}" height="${boxH - pad * 2}" rx="10" fill="none" stroke="${STAMP_INK}" stroke-width="5"/>
-      <text x="${cx}" y="${cy - 8}" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" font-weight="700" letter-spacing="3" fill="${STAMP_INK}">RETROVERSE &#183; AUTHENTIC</text>
-      <text x="${cx}" y="${cy + 26}" text-anchor="middle" font-family="'Courier New', monospace" font-size="30" font-weight="800" letter-spacing="4" fill="${STAMP_INK}">No. ${serial}</text>
+      <text x="${cx}" y="${cy - fontSize * 0.35}" text-anchor="middle" font-family="'Courier New', monospace" font-size="${labelSize}" font-weight="700" letter-spacing="3" fill="${STAMP_INK}">RETROVERSE &#183; AUTHENTIC</text>
+      <text x="${cx}" y="${cy + fontSize * 0.45}" text-anchor="middle" font-family="'Courier New', monospace" font-size="${fontSize}" font-weight="800" letter-spacing="4" fill="${STAMP_INK}">No. ${serial}</text>
     </g>
   </g>
 </svg>`.trim();
@@ -154,8 +178,8 @@ function renderSerialStampSvg(serial: string): {
 
   return {
     svg,
-    compositeLeft: SERIAL_RESERVE.left - STAMP_OVERFLOW_PX,
-    compositeTop: SERIAL_RESERVE.top - STAMP_OVERFLOW_PX,
+    compositeLeft: reserves.serial.left - STAMP_OVERFLOW_PX,
+    compositeTop: reserves.serial.top - STAMP_OVERFLOW_PX,
   };
 }
 
@@ -180,14 +204,32 @@ export async function finishBobosPassBack(args: {
   rawBackPng: Buffer;
   qrUrl: string;
   serial: string;
+  layout?: ProductionLayout | null;
 }): Promise<Buffer> {
+  const reserves = resolvePassProductionReserves(args.layout);
   const cropped = await cropToFinishedCanvas(args.rawBackPng);
+
+  let base = cropped;
+  if (reserves.qrWhiteBackgroundOpacity > 0) {
+    const size = reserves.qr.size;
+    const whiteSvg = [
+      `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">`,
+      `<rect width="100%" height="100%" fill="#ffffff" opacity="${reserves.qrWhiteBackgroundOpacity.toFixed(3)}"/>`,
+      `</svg>`,
+    ].join("");
+    const whiteRect = await sharp(Buffer.from(whiteSvg)).png().toBuffer();
+    base = await sharp(cropped)
+      .composite([{ input: whiteRect, left: reserves.qr.left, top: reserves.qr.top }])
+      .png()
+      .toBuffer();
+  }
+
   const { buffer: withQr } = await compositeQrOntoBackBuffer({
-    backSrc: cropped,
+    backSrc: base,
     qrUrl: args.qrUrl,
-    qrPlacement: QR_RESERVE,
+    qrPlacement: reserves.qr,
   });
-  const stamp = renderSerialStampSvg(args.serial);
+  const stamp = renderSerialStampSvg(args.serial, reserves);
   const stampPng = await sharp(Buffer.from(stamp.svg)).png().toBuffer();
   return sharp(withQr)
     .composite([{ input: stampPng, left: stamp.compositeLeft, top: stamp.compositeTop }])
@@ -241,14 +283,6 @@ export async function saveBobosPassBack(args: {
   return saveBobosRender(`${args.projectId}/${args.batchId}/back-${args.serial}.png`, args.buffer);
 }
 
-export type BobosPrintSheetSet = {
-  sheetCount: number;
-  frontPngUrls: string[];
-  backPngUrls: string[];
-  frontPdfUrls: string[];
-  backPdfUrls: string[];
-};
-
 const PT_PER_IN = 72;
 const SHEET_PAGE_WIDTH_PT = PRINT_SHEET_WIDTH_IN * PT_PER_IN;
 const SHEET_PAGE_HEIGHT_PT = PRINT_SHEET_HEIGHT_IN * PT_PER_IN;
@@ -256,17 +290,32 @@ const SHEET_PAGE_HEIGHT_PT = PRINT_SHEET_HEIGHT_IN * PT_PER_IN;
 /** Sheet canvas kept at the same true DPI as the finished pass, so cells need no rescale. */
 const SHEET_WIDTH_PX = Math.round(PRINT_SHEET_WIDTH_IN * TRUE_DPI);
 const SHEET_HEIGHT_PX = Math.round(PRINT_SHEET_HEIGHT_IN * TRUE_DPI);
-const GRID_WIDTH_PX = PRINT_SHEET_COLS * FINISHED_WIDTH_PX;
-const GRID_HEIGHT_PX = PRINT_SHEET_ROWS * FINISHED_HEIGHT_PX;
-const GRID_OFFSET_X = Math.round((SHEET_WIDTH_PX - GRID_WIDTH_PX) / 2);
-const GRID_OFFSET_Y = Math.round((SHEET_HEIGHT_PX - GRID_HEIGHT_PX) / 2);
-const PASSES_PER_SHEET = PRINT_SHEET_COLS * PRINT_SHEET_ROWS;
 
-function cutMarksSvg(): string {
-  const gx = GRID_OFFSET_X;
-  const gy = GRID_OFFSET_Y;
-  const gw = GRID_WIDTH_PX;
-  const gh = GRID_HEIGHT_PX;
+type SheetGridMetrics = {
+  cols: number;
+  rows: number;
+  perSheet: number;
+  gridOffsetX: number;
+  gridOffsetY: number;
+};
+
+function sheetGridMetrics(cols: number, rows: number): SheetGridMetrics {
+  const gridWidthPx = cols * FINISHED_WIDTH_PX;
+  const gridHeightPx = rows * FINISHED_HEIGHT_PX;
+  return {
+    cols,
+    rows,
+    perSheet: cols * rows,
+    gridOffsetX: Math.round((SHEET_WIDTH_PX - gridWidthPx) / 2),
+    gridOffsetY: Math.round((SHEET_HEIGHT_PX - gridHeightPx) / 2),
+  };
+}
+
+function cutMarksSvg(grid: SheetGridMetrics): string {
+  const gx = grid.gridOffsetX;
+  const gy = grid.gridOffsetY;
+  const gw = grid.cols * FINISHED_WIDTH_PX;
+  const gh = grid.rows * FINISHED_HEIGHT_PX;
   const mark = 10;
   const stroke = "#bbbbbb";
   const lines: string[] = [];
@@ -281,12 +330,12 @@ function cutMarksSvg(): string {
     lines.push(`<line x1="${x - mark}" y1="${y}" x2="${x + mark}" y2="${y}" stroke="${stroke}" stroke-width="1"/>`);
     lines.push(`<line x1="${x}" y1="${y - mark}" x2="${x}" y2="${y + mark}" stroke="${stroke}" stroke-width="1"/>`);
   }
-  for (let c = 0; c <= PRINT_SHEET_COLS; c += 1) {
+  for (let c = 0; c <= grid.cols; c += 1) {
     const x = gx + c * FINISHED_WIDTH_PX;
     lines.push(`<line x1="${x}" y1="${gy - mark}" x2="${x}" y2="${gy}" stroke="${stroke}" stroke-width="1" opacity="0.6"/>`);
     lines.push(`<line x1="${x}" y1="${gy + gh}" x2="${x}" y2="${gy + gh + mark}" stroke="${stroke}" stroke-width="1" opacity="0.6"/>`);
   }
-  for (let r = 0; r <= PRINT_SHEET_ROWS; r += 1) {
+  for (let r = 0; r <= grid.rows; r += 1) {
     const y = gy + r * FINISHED_HEIGHT_PX;
     lines.push(`<line x1="${gx - mark}" y1="${y}" x2="${gx}" y2="${y}" stroke="${stroke}" stroke-width="1" opacity="0.6"/>`);
     lines.push(`<line x1="${gx + gw}" y1="${y}" x2="${gx + gw + mark}" y2="${y}" stroke="${stroke}" stroke-width="1" opacity="0.6"/>`);
@@ -303,22 +352,26 @@ function cutMarksSvg(): string {
   return svg;
 }
 
-/** 12-up sheet at the true finished-pass DPI — cells are exact, no scaling. */
-async function buildSheetPng(passImages: Buffer[], options?: { mirrorForDuplexLongEdge?: boolean }): Promise<Buffer> {
+/** Sheet at the true finished-pass DPI — cells are exact, no scaling. */
+async function buildSheetPng(
+  passImages: Buffer[],
+  grid: SheetGridMetrics,
+  options?: { mirrorForDuplexLongEdge?: boolean },
+): Promise<Buffer> {
   const composites: Array<{ input: Buffer; left: number; top: number }> = [];
-  for (let i = 0; i < PASSES_PER_SHEET; i += 1) {
+  for (let i = 0; i < grid.perSheet; i += 1) {
     const img = passImages[i];
     if (!img) continue;
-    const baseCol = i % PRINT_SHEET_COLS;
-    const col = options?.mirrorForDuplexLongEdge ? PRINT_SHEET_COLS - 1 - baseCol : baseCol;
-    const row = Math.floor(i / PRINT_SHEET_COLS);
+    const baseCol = i % grid.cols;
+    const col = options?.mirrorForDuplexLongEdge ? grid.cols - 1 - baseCol : baseCol;
+    const row = Math.floor(i / grid.cols);
     composites.push({
       input: img,
-      left: GRID_OFFSET_X + col * FINISHED_WIDTH_PX,
-      top: GRID_OFFSET_Y + row * FINISHED_HEIGHT_PX,
+      left: grid.gridOffsetX + col * FINISHED_WIDTH_PX,
+      top: grid.gridOffsetY + row * FINISHED_HEIGHT_PX,
     });
   }
-  const base = await sharp(Buffer.from(cutMarksSvg())).png().toBuffer();
+  const base = await sharp(Buffer.from(cutMarksSvg(grid))).png().toBuffer();
   return sharp(base).composite(composites).png().toBuffer();
 }
 
@@ -331,6 +384,11 @@ async function sheetPngToPdf(pngBuffer: Buffer): Promise<Buffer> {
   return Buffer.from(await pdf.save());
 }
 
+/** Same finished sheet pixels as the PDF — high-quality JPEG for Epson mobile / phone printing. */
+async function sheetPngToJpeg(pngBuffer: Buffer): Promise<Buffer> {
+  return sharp(pngBuffer).jpeg({ quality: 95 }).toBuffer();
+}
+
 /**
  * Builds production-ready print sheets (front + back, PNG + PDF, cut marks, duplex mirror)
  * from a project's own finished pass images — the exact same images shown in Preview.
@@ -341,23 +399,27 @@ export async function buildBobosPrintSheets(args: {
   projectId: string;
   batchId: string;
   passes: { frontPng: Buffer; backPng: Buffer }[];
+  gridId?: PrintSheetGridId;
 }): Promise<BobosPrintSheetSet> {
-  const sheetCount = Math.max(1, Math.ceil(args.passes.length / PASSES_PER_SHEET));
+  const resolved = resolvePrintSheetGrid(args.gridId ?? "auto", args.passes.length);
+  const grid = sheetGridMetrics(resolved.cols, resolved.rows);
+  const sheetCount = Math.max(1, Math.ceil(args.passes.length / grid.perSheet));
   const frontPngUrls: string[] = [];
   const backPngUrls: string[] = [];
   const frontPdfUrls: string[] = [];
   const backPdfUrls: string[] = [];
+  const frontJpegUrls: string[] = [];
+  const backJpegUrls: string[] = [];
 
   for (let s = 0; s < sheetCount; s += 1) {
-    const start = s * PASSES_PER_SHEET;
-    const slice = args.passes.slice(start, start + PASSES_PER_SHEET);
+    const start = s * grid.perSheet;
+    const slice = args.passes.slice(start, start + grid.perSheet);
     if (slice.length === 0) continue;
 
-    const frontSheet = await buildSheetPng(slice.map((p) => p.frontPng));
-    const backSheet = await buildSheetPng(
-      slice.map((p) => p.backPng),
-      { mirrorForDuplexLongEdge: true },
-    );
+    const frontSheet = await buildSheetPng(slice.map((p) => p.frontPng), grid);
+    const backSheet = await buildSheetPng(slice.map((p) => p.backPng), grid, {
+      mirrorForDuplexLongEdge: true,
+    });
 
     const suffix = sheetCount === 1 ? "" : `-${String(s + 1).padStart(2, "0")}`;
     const frontPngRel = `${args.projectId}/${args.batchId}/sheet-front${suffix}.png`;
@@ -367,7 +429,19 @@ export async function buildBobosPrintSheets(args: {
     backPngUrls.push(await saveBobosRender(backPngRel, backSheet));
     frontPdfUrls.push(await saveBobosRender(frontPngRel.replace(/\.png$/, ".pdf"), await sheetPngToPdf(frontSheet)));
     backPdfUrls.push(await saveBobosRender(backPngRel.replace(/\.png$/, ".pdf"), await sheetPngToPdf(backSheet)));
+    frontJpegUrls.push(await saveBobosRender(frontPngRel.replace(/\.png$/, ".jpg"), await sheetPngToJpeg(frontSheet)));
+    backJpegUrls.push(await saveBobosRender(backPngRel.replace(/\.png$/, ".jpg"), await sheetPngToJpeg(backSheet)));
   }
 
-  return { sheetCount, frontPngUrls, backPngUrls, frontPdfUrls, backPdfUrls };
+  return {
+    sheetCount,
+    frontPngUrls,
+    backPngUrls,
+    frontPdfUrls,
+    backPdfUrls,
+    frontJpegUrls,
+    backJpegUrls,
+    gridLabel: resolved.label,
+    perSheet: resolved.perSheet,
+  };
 }

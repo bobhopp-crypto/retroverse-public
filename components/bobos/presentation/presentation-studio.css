@@ -1,0 +1,415 @@
+/* Presentation Studio — mission-control layout on the BobOS shell.
+   Queue left · live preview center · properties right · publish bar bottom. */
+
+.pst-page {
+  /* Three working columns need more room than the standard page width. */
+  max-width: 1760px;
+}
+
+.pst-columns {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) minmax(0, 1fr) minmax(300px, 360px);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 1180px) {
+  .pst-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pst-panel-title {
+  margin: 0 0 0.85rem;
+  font-size: var(--bobos-type-card);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.pst-queue,
+.pst-properties {
+  background: #1c1f22;
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--bobos-card-radius);
+  padding: var(--bobos-card-pad);
+}
+
+/* ── Queue (left) ── */
+
+.pst-queue__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 62vh;
+  overflow-y: auto;
+}
+
+.pst-queue__empty {
+  padding: 1rem 0.5rem;
+  font-size: var(--bobos-type-body);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pst-queue__row {
+  display: flex;
+  align-items: stretch;
+  gap: 0.4rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: #24282c;
+  cursor: grab;
+}
+
+.pst-queue__row--selected {
+  border-color: #7eb8da;
+}
+
+.pst-queue__row--current {
+  border-color: #46b464;
+  box-shadow: 0 0 0 1px rgba(70, 180, 100, 0.4);
+}
+
+.pst-queue__row--disabled {
+  opacity: 0.45;
+}
+
+.pst-queue__row--drop {
+  border-color: #f0a03c;
+}
+
+.pst-queue__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.5rem 0.65rem 0.7rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pst-queue__grip {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1.1rem;
+}
+
+.pst-queue__index {
+  min-width: 1.8rem;
+  font-size: var(--bobos-type-label);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+.pst-queue__text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.pst-queue__title {
+  font-size: var(--bobos-type-body);
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pst-queue__on {
+  display: inline-block;
+  margin-right: 0.45rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(70, 180, 100, 0.25);
+  color: #6fdc8c;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  vertical-align: 0.1em;
+}
+
+.pst-queue__meta {
+  font-size: var(--bobos-type-label);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pst-queue__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding-right: 0.45rem;
+}
+
+.pst-icon-button {
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pst-icon-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.pst-icon-button--active {
+  color: #6fdc8c;
+}
+
+.pst-icon-button--danger:hover {
+  background: rgba(220, 80, 80, 0.18);
+  color: #ff8d8d;
+}
+
+.pst-queue__add {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pst-queue__add .pst-field__input {
+  flex: 1;
+}
+
+/* ── Preview (center) ── */
+
+.pst-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.pst-preview__stage {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: var(--bobos-card-radius);
+  overflow: hidden;
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.pst-transport {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.75rem 0.9rem;
+  background: #1c1f22;
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--bobos-card-radius);
+}
+
+.pst-transport__button {
+  padding: 0.6rem 1.1rem;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: #24282c;
+  color: #ffffff;
+  font-size: var(--bobos-type-body);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pst-transport__button:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.pst-transport__button--primary {
+  background: #2b5f74;
+  border-color: #7eb8da;
+}
+
+.pst-transport__status {
+  margin: 0 0 0 auto;
+  font-size: var(--bobos-type-label);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Properties (right) ── */
+
+.pst-properties {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-height: 74vh;
+  overflow-y: auto;
+}
+
+.pst-properties__hint {
+  margin: 0.4rem 0 0;
+  font-size: var(--bobos-type-label);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.pst-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pst-field--row {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pst-field__label {
+  font-size: var(--bobos-type-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.pst-field__input {
+  padding: 0.55rem 0.7rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: #14161a;
+  color: #ffffff;
+  font-size: var(--bobos-type-body);
+  font-family: inherit;
+}
+
+.pst-field__input:focus {
+  outline: none;
+  border-color: #7eb8da;
+}
+
+.pst-field__input--area {
+  resize: vertical;
+}
+
+.pst-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.pst-link {
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ── Publish bar (bottom) ── */
+
+.pst-publish-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  padding: 0.9rem 1.1rem;
+  background: #1c1f22;
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--bobos-card-radius);
+}
+
+.pst-publish-bar__status,
+.pst-publish-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ── Shared buttons + header switcher ── */
+
+.pst-button {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: #24282c;
+  color: #ffffff;
+  font-size: var(--bobos-type-body);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pst-button:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.pst-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.pst-button--primary {
+  background: #2f6b46;
+  border-color: #46b464;
+}
+
+.pst-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.pst-switcher__select,
+.pst-switcher__input {
+  padding: 0.5rem 0.7rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: #14161a;
+  color: #ffffff;
+  font-size: var(--bobos-type-body);
+  font-family: inherit;
+}
+
+.pst-switcher__input {
+  min-width: 16rem;
+}
+
+/* ── Empty state ── */
+
+.pst-empty {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #1c1f22;
+  border: var(--bobos-card-border) dashed rgba(255, 255, 255, 0.2);
+  border-radius: var(--bobos-card-radius);
+}
+
+.pst-empty__title {
+  margin: 0 0 0.6rem;
+  font-size: var(--bobos-type-heading);
+  color: #ffffff;
+}
+
+.pst-empty__copy {
+  margin: 0 auto;
+  max-width: 40rem;
+  font-size: var(--bobos-type-body);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+}

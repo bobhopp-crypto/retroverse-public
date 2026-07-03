@@ -6,10 +6,22 @@ import { join } from "path";
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 
 import {
+  emptyCreativeBriefSeed,
+  normalizeCreativeBrief,
+  type PassCreativeBrief,
+} from "./creative-brief";
+import {
   DEFAULT_PASS_ARTWORK_ADJUSTMENTS,
   normalizePassArtworkAdjustments,
   type PassArtworkAdjustments,
 } from "./pass-artwork-adjustments";
+import {
+  defaultProductionLayoutFromPassLayout,
+  normalizeProductionLayout,
+  type ProductionLayout,
+} from "./production-layout";
+import { normalizePrintSheetGridId, type PrintSheetGridId } from "./print-sheet-grid";
+import { PASS_WORKSPACE_SLUGS, type PassWorkspaceSlug } from "./pass-workspace-slugs";
 
 /**
  * A BobOS Project owns its own pass artwork. This store is intentionally separate from
@@ -19,9 +31,7 @@ import {
  * is explicitly run for THIS project.
  */
 
-export type PassWorkspaceSlug = "general" | "vip" | "backstage";
-
-export const PASS_WORKSPACE_SLUGS: PassWorkspaceSlug[] = ["general", "vip", "backstage"];
+export { PASS_WORKSPACE_SLUGS, type PassWorkspaceSlug } from "./pass-workspace-slugs";
 
 export type PassWorkspaceVersion = {
   version: number;
@@ -34,6 +44,10 @@ export type PassWorkspaceVersion = {
 type PassWorkspaceSlots = Record<PassWorkspaceSlug, PassWorkspaceVersion[]>;
 export type PassWorkspaceAdjustmentsBySlug = Record<PassWorkspaceSlug, PassArtworkAdjustments>;
 
+export type ProductionLayoutsByPassType = Record<PassWorkspaceSlug, ProductionLayout>;
+
+type StoredLayoutsByPassType = Record<PassWorkspaceSlug, ProductionLayout | null>;
+
 type PassWorkspaceFile = {
   version: 1;
   projectId: string;
@@ -41,6 +55,14 @@ type PassWorkspaceFile = {
   /** Print Boost — non-destructive, applied at finish time; never touches the raw
    *  generation. Keyed by pass type, independent of artwork version. */
   adjustments: PassWorkspaceAdjustmentsBySlug;
+  /** Restored Content Creator brief — null until the user first edits or generates;
+   *  while null, the workspace pre-fills live from the project's Shared Context. */
+  creative: PassCreativeBrief | null;
+  /** BobOS-owned QR + serial production geometry — one independent layout per pass type.
+   *  null uses canonical pass-layout defaults; saving one pass never touches the others. */
+  layoutsByPassType: StoredLayoutsByPassType;
+  /** Last selected print sheet grid layout. */
+  printSheetGrid: PrintSheetGridId;
 };
 
 function passWorkspaceDir(): string {
@@ -63,8 +85,15 @@ function defaultAdjustments(): PassWorkspaceAdjustmentsBySlug {
   };
 }
 
+function emptyLayouts(): StoredLayoutsByPassType {
+  return { general: null, vip: null, backstage: null };
+}
+
 function normalizeFile(projectId: string, raw: unknown): PassWorkspaceFile {
-  const parsed = (raw ?? {}) as Partial<PassWorkspaceFile>;
+  const parsed = (raw ?? {}) as Partial<PassWorkspaceFile> & {
+    /** Legacy single-layout field — migrated into every pass type on first load. */
+    productionLayout?: unknown;
+  };
   const slots = emptySlots();
   for (const slug of PASS_WORKSPACE_SLUGS) {
     const versions = parsed.slots?.[slug];
@@ -74,7 +103,21 @@ function normalizeFile(projectId: string, raw: unknown): PassWorkspaceFile {
   for (const slug of PASS_WORKSPACE_SLUGS) {
     adjustments[slug] = normalizePassArtworkAdjustments(parsed.adjustments?.[slug]);
   }
-  return { version: 1, projectId, slots, adjustments };
+  const creative = parsed.creative
+    ? normalizeCreativeBrief(parsed.creative, emptyCreativeBriefSeed())
+    : null;
+
+  const legacyLayout = parsed.productionLayout
+    ? normalizeProductionLayout(parsed.productionLayout)
+    : null;
+  const layoutsByPassType = emptyLayouts();
+  for (const slug of PASS_WORKSPACE_SLUGS) {
+    const stored = parsed.layoutsByPassType?.[slug];
+    layoutsByPassType[slug] = stored ? normalizeProductionLayout(stored) : legacyLayout;
+  }
+
+  const printSheetGrid = normalizePrintSheetGridId(parsed.printSheetGrid);
+  return { version: 1, projectId, slots, adjustments, creative, layoutsByPassType, printSheetGrid };
 }
 
 async function loadFile(projectId: string): Promise<PassWorkspaceFile> {
@@ -82,7 +125,15 @@ async function loadFile(projectId: string): Promise<PassWorkspaceFile> {
     const raw = await readFile(passWorkspacePath(projectId), "utf8");
     return normalizeFile(projectId, JSON.parse(raw));
   } catch {
-    return { version: 1, projectId, slots: emptySlots(), adjustments: defaultAdjustments() };
+    return {
+      version: 1,
+      projectId,
+      slots: emptySlots(),
+      adjustments: defaultAdjustments(),
+      creative: null,
+      layoutsByPassType: emptyLayouts(),
+      printSheetGrid: "auto",
+    };
   }
 }
 
@@ -123,6 +174,67 @@ export async function loadPassWorkspaceAdjustments(
 ): Promise<PassWorkspaceAdjustmentsBySlug> {
   const file = await loadFile(projectId);
   return file.adjustments;
+}
+
+/** The persisted Content Creator brief for this project — null if never edited. */
+export async function loadPassWorkspaceCreativeBrief(
+  projectId: string,
+): Promise<PassCreativeBrief | null> {
+  const file = await loadFile(projectId);
+  return file.creative;
+}
+
+/** Persists the edited Content Creator brief — never touches artwork history or Print Boost. */
+export async function savePassWorkspaceCreativeBrief(
+  projectId: string,
+  brief: PassCreativeBrief,
+): Promise<PassCreativeBrief> {
+  const file = await loadFile(projectId);
+  const normalized = normalizeCreativeBrief(brief, emptyCreativeBriefSeed());
+  file.creative = normalized;
+  await saveFile(file);
+  return normalized;
+}
+
+/** Production overlay geometry — one independent QR + serial layout per pass type. */
+export async function loadPassWorkspaceProductionLayouts(
+  projectId: string,
+): Promise<ProductionLayoutsByPassType> {
+  const file = await loadFile(projectId);
+  const layouts = {} as ProductionLayoutsByPassType;
+  for (const slug of PASS_WORKSPACE_SLUGS) {
+    layouts[slug] = file.layoutsByPassType[slug] ?? defaultProductionLayoutFromPassLayout();
+  }
+  return layouts;
+}
+
+/** Saves ONLY the given pass type's layout — the other passes' layouts are untouched. */
+export async function savePassWorkspaceProductionLayout(
+  projectId: string,
+  slug: PassWorkspaceSlug,
+  layout: ProductionLayout,
+): Promise<ProductionLayout> {
+  const file = await loadFile(projectId);
+  const normalized = normalizeProductionLayout(layout);
+  file.layoutsByPassType[slug] = normalized;
+  await saveFile(file);
+  return normalized;
+}
+
+export async function loadPassWorkspacePrintSheetGrid(projectId: string): Promise<PrintSheetGridId> {
+  const file = await loadFile(projectId);
+  return file.printSheetGrid;
+}
+
+export async function savePassWorkspacePrintSheetGrid(
+  projectId: string,
+  gridId: PrintSheetGridId,
+): Promise<PrintSheetGridId> {
+  const file = await loadFile(projectId);
+  const normalized = normalizePrintSheetGridId(gridId);
+  file.printSheetGrid = normalized;
+  await saveFile(file);
+  return normalized;
 }
 
 /** Non-destructive — only ever updates the adjustment settings, never the raw generation. */

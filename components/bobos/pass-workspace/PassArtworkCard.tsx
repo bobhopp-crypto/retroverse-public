@@ -2,17 +2,26 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { generatePassArtwork, updatePassArtworkAdjustments } from "@/app/bobos/pass-workspace/actions";
+import {
+  approvePassArtwork,
+  generatePassArtwork,
+  updatePassArtworkAdjustments,
+} from "@/app/bobos/pass-workspace/actions";
+import type { PassCreativeBrief } from "@/lib/bobos/project-zero/creative-brief";
 import {
   adjustmentsToCssFilter,
   DEFAULT_PASS_ARTWORK_ADJUSTMENTS,
-  PASS_ADJUSTMENT_MAX,
-  PASS_ADJUSTMENT_MIN,
-  PASS_ADJUSTMENT_STEP,
+  PASS_BRIGHTNESS_RANGE,
+  PASS_CONTRAST_RANGE,
+  PASS_SATURATION_RANGE,
   type PassArtworkAdjustments,
 } from "@/lib/bobos/project-zero/pass-artwork-adjustments";
 import type { PassWorkspaceTemplate } from "@/lib/bobos/project-zero/load-pass-workspace-data";
 import type { PassWorkspaceSlug, PassWorkspaceVersion } from "@/lib/bobos/project-zero/pass-workspace-store";
+import {
+  CONTROLLED_PASS_TYPE_LABELS,
+  normalizePassTypeLabel,
+} from "@/lib/ops/creative-lab/pass-text-governance";
 
 function passTypeLabel(template: PassWorkspaceTemplate): string {
   return template.name.replace(/\s+Pass$/i, "").trim() || template.name;
@@ -24,32 +33,43 @@ function pct(value: number): string {
 
 type Props = {
   projectId: string;
-  context: { title: string; venue: string; date: string; theme: string };
+  brief: PassCreativeBrief;
+  onBriefChange: (brief: PassCreativeBrief) => void;
   template: PassWorkspaceTemplate;
-  quantity: number;
-  onQuantityChange: (quantity: number) => void;
   onVersionCreated: (slug: PassWorkspaceSlug, version: PassWorkspaceVersion) => void;
+  onApproved: (slug: PassWorkspaceSlug) => void;
   onAdjustmentsChange: (slug: PassWorkspaceSlug, adjustments: PassArtworkAdjustments) => void;
 };
 
-/** One pass type — its own artwork, its own version history. Nothing here is ever
- *  pre-populated from another project; it only exists once Generate is clicked. */
+/** One pass type — its own artwork, its own version history, its own governed pass label.
+ *  Style and Color Scheme are shared across the project (Event Information). Nothing here
+ *  is ever pre-populated from another project; it only exists once Generate is clicked. */
 export function PassArtworkCard({
   projectId,
-  context,
+  brief,
+  onBriefChange,
   template,
-  quantity,
-  onQuantityChange,
   onVersionCreated,
+  onApproved,
   onAdjustmentsChange,
 }: Props) {
   const [generating, setGenerating] = useState(false);
+  const [approving, setApproving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [side, setSide] = useState<"front" | "back">("front");
   const [showHistory, setShowHistory] = useState(false);
   const [showBoost, setShowBoost] = useState(false);
   const [adjustments, setAdjustments] = useState<PassArtworkAdjustments>(template.adjustments);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const slot = brief.slots[template.slug];
+
+  function updateSlot(patch: Partial<PassCreativeBrief["slots"][PassWorkspaceSlug]>) {
+    onBriefChange({
+      ...brief,
+      slots: { ...brief.slots, [template.slug]: { ...slot, ...patch } },
+    });
+  }
 
   useEffect(() => {
     setAdjustments(template.adjustments);
@@ -80,10 +100,7 @@ export function PassArtworkCard({
       const version = await generatePassArtwork({
         projectId,
         slug: template.slug,
-        eventName: context.title,
-        venue: context.venue,
-        date: context.date,
-        theme: context.theme,
+        brief,
       });
       onVersionCreated(template.slug, version);
       setSide("front");
@@ -91,6 +108,20 @@ export function PassArtworkCard({
       setError(err instanceof Error ? err.message : "Generation failed");
     } finally {
       setGenerating(false);
+    }
+  }
+
+  async function handleApprove() {
+    if (!template.generationId) return;
+    setApproving(true);
+    setError(null);
+    try {
+      await approvePassArtwork(template.generationId);
+      onApproved(template.slug);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Approve failed");
+    } finally {
+      setApproving(false);
     }
   }
 
@@ -114,9 +145,30 @@ export function PassArtworkCard({
 
       <span className="ps-card__name">{passTypeLabel(template)} Pass</span>
 
+      <div className="pzw-card-creative">
+        <label className="pzw-card-creative__field">
+          <span>Pass Type</span>
+          <select
+            value={slot.passTypeLabel}
+            onChange={(e) => updateSlot({ passTypeLabel: normalizePassTypeLabel(e.target.value) })}
+          >
+            {CONTROLLED_PASS_TYPE_LABELS.map((label) => (
+              <option key={label} value={label}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+
       {hasArtwork ? (
         <>
-          <span className="pzw-artwork-card__version">Version {template.version}</span>
+          <div className="pzw-artwork-card__status">
+            <span className="pzw-artwork-card__version">Version {template.version}</span>
+            {template.approved ? (
+              <span className="pzw-artwork-card__approved">Approved</span>
+            ) : null}
+          </div>
 
           <div className="pzw-artwork-card__actions">
             <button
@@ -130,6 +182,17 @@ export function PassArtworkCard({
               {generating ? "Regenerating…" : "Regenerate"}
             </button>
           </div>
+
+          {!template.approved ? (
+            <button
+              type="button"
+              className="ps-btn ps-btn--quiet"
+              disabled={approving || generating}
+              onClick={() => void handleApprove()}
+            >
+              {approving ? "Approving…" : "Approve Artwork"}
+            </button>
+          ) : null}
 
           <button type="button" className="ps-btn ps-btn--quiet" onClick={() => setShowBoost((v) => !v)}>
             {showBoost ? "Hide Print Boost" : "Print Boost"}
@@ -150,9 +213,9 @@ export function PassArtworkCard({
                 <span>Brightness</span>
                 <input
                   type="range"
-                  min={PASS_ADJUSTMENT_MIN}
-                  max={PASS_ADJUSTMENT_MAX}
-                  step={PASS_ADJUSTMENT_STEP}
+                  min={PASS_BRIGHTNESS_RANGE.min}
+                  max={PASS_BRIGHTNESS_RANGE.max}
+                  step={PASS_BRIGHTNESS_RANGE.step}
                   value={adjustments.brightness}
                   onChange={(e) => commitAdjustments({ ...adjustments, brightness: Number(e.target.value) })}
                 />
@@ -163,9 +226,9 @@ export function PassArtworkCard({
                 <span>Contrast</span>
                 <input
                   type="range"
-                  min={PASS_ADJUSTMENT_MIN}
-                  max={PASS_ADJUSTMENT_MAX}
-                  step={PASS_ADJUSTMENT_STEP}
+                  min={PASS_CONTRAST_RANGE.min}
+                  max={PASS_CONTRAST_RANGE.max}
+                  step={PASS_CONTRAST_RANGE.step}
                   value={adjustments.contrast}
                   onChange={(e) => commitAdjustments({ ...adjustments, contrast: Number(e.target.value) })}
                 />
@@ -176,9 +239,9 @@ export function PassArtworkCard({
                 <span>Saturation</span>
                 <input
                   type="range"
-                  min={PASS_ADJUSTMENT_MIN}
-                  max={PASS_ADJUSTMENT_MAX}
-                  step={PASS_ADJUSTMENT_STEP}
+                  min={PASS_SATURATION_RANGE.min}
+                  max={PASS_SATURATION_RANGE.max}
+                  step={PASS_SATURATION_RANGE.step}
                   value={adjustments.saturation}
                   onChange={(e) => commitAdjustments({ ...adjustments, saturation: Number(e.target.value) })}
                 />
@@ -188,7 +251,7 @@ export function PassArtworkCard({
               <div className="pzw-boost__footer">
                 <span className="pzw-boost__hint">
                   Non-destructive — original artwork is never changed. Preview updates live;
-                  Generate Batch and Print Sheets use the same adjustment.
+                  issued passes and print sheets use the same adjustment.
                 </span>
                 <button
                   type="button"
@@ -231,16 +294,6 @@ export function PassArtworkCard({
       )}
 
       {error ? <p className="ps-step__error">{error}</p> : null}
-
-      <label className="pzw-qty">
-        <span>Quantity</span>
-        <input
-          type="number"
-          min={0}
-          value={quantity}
-          onChange={(e) => onQuantityChange(Math.max(0, Math.floor(Number(e.target.value)) || 0))}
-        />
-      </label>
     </div>
   );
 }

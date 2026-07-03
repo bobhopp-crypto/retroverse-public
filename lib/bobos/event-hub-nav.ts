@@ -43,6 +43,7 @@ export const BOBOS_PRIMARY_NAV = [
   { id: "event", label: "Event Hub", href: "/bobos/event" },
   { id: "passes", label: "Pass Studio", href: "/bobos/passes" },
   { id: "producer", label: "Producer", href: "/bobos/producer" },
+  { id: "presentation", label: "Presentation", href: "/bobos/presentation" },
   { id: "bridge", label: "Bridge", href: "/bobos/bridge" },
   { id: "pipeline", label: "Pipeline", href: "/bobos/pipeline" },
   { id: "ai", label: "AI Usage", href: "/bobos/ai" },

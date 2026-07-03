@@ -27,6 +27,9 @@ import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 
 export type CollectiblePassFields = PassTextFields & {
   qrUrl?: string;
+  /** Free-form creative direction notes — guidance for the art director layer,
+   *  never rendered as governed text on the artifact. */
+  creativeNotes?: string;
   collectorCardContent?: CollectorCardContent;
   collectorCardPresentation?: CollectorCardPresentation;
 };

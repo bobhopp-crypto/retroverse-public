@@ -26,6 +26,8 @@ export type ProjectSharedContext = {
   description: string;
   venue: string;
   date: string;
+  /** Event series (e.g. "Retro Sundays") — distinct from the one-off event title. */
+  series: string;
   theme: string;
   colors: string;
   notes: string;

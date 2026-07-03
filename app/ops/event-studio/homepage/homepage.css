@@ -1,12 +1,83 @@
+/* Homepage control room — status rail left, live public preview right. */
+
 .es-homepage-preview {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.es-homepage-preview__controls {
   display: grid;
   gap: 0.85rem;
 }
 
+.es-homepage-status-card {
+  padding: 1rem 1.15rem;
+  border: var(--bobos-card-border) solid var(--grid);
+  border-radius: var(--bobos-card-radius);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.es-homepage-status-card--publish {
+  border-color: rgba(46, 184, 184, 0.4);
+  background: rgba(46, 184, 184, 0.06);
+}
+
+.es-homepage-status-card__label {
+  margin: 0 0 0.35rem;
+  font-size: var(--bobos-type-label);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.es-homepage-status-card__value {
+  margin: 0;
+  font-size: var(--bobos-type-card);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.es-homepage-status-card__detail {
+  margin: 0.4rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--dim);
+}
+
+.es-homepage-status-card__detail--mono {
+  font-size: var(--bobos-type-label);
+  font-weight: 700;
+  word-break: break-all;
+  color: #6bc8ff;
+}
+
+.es-homepage-preview__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.es-homepage-preview__stage {
+  min-width: 0;
+}
+
+.es-homepage-preview__stage-label {
+  margin: 0 0 0.5rem;
+  font-size: var(--bobos-type-label);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
 .es-homepage-preview__frame {
   overflow: hidden;
-  border: 2px solid var(--grid);
-  border-radius: 18px;
+  border: var(--bobos-card-border) solid var(--grid);
+  border-radius: var(--bobos-card-radius);
   background: #f6eed8;
 }
 
@@ -25,7 +96,7 @@
 
 .es-homepage-preview__placeholder-kicker {
   margin: 0 0 0.35rem;
-  font-size: 0.72rem;
+  font-size: var(--bobos-type-label);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -34,6 +105,12 @@
 
 .es-homepage-preview__placeholder p:last-child {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .es-homepage-preview {
+    grid-template-columns: 1fr;
+  }
 }

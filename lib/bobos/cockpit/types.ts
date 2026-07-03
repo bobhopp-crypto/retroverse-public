@@ -37,7 +37,11 @@ export type PanelTypeId =
   | "database-health"
   | "clock"
   | "notes"
-  | "printer-panel";
+  | "printer-panel"
+  | "public-homepage"
+  | "pass-registration"
+  | "giveaway-panel"
+  | "live-display";
 
 export type PanelGroup = "attention" | "build" | "catalog" | "devices";
 

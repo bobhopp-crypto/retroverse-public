@@ -1,56 +1,38 @@
 /* BobOS AI Usage — manual cost/credit tracker, graphite theme to match BobOS shell. */
 
+/* .ai-usage composes .bobos-page for its layout shell */
 .ai-usage {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: clamp(1rem, 2vw, 1.75rem);
   color: #f0f0f0;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-
-.ai-usage__header h1 {
-  margin: 0;
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-}
-
-.ai-usage__header p {
-  margin: 0.35rem 0 0;
-  color: rgba(255, 255, 255, 0.5);
 }
 
 /* ── Cards ── */
 
 .ai-usage__cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.85rem;
 }
 
 .ai-usage__card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--bobos-card-radius);
   background: rgba(255, 255, 255, 0.03);
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.15rem;
 }
 
 .ai-usage__card-label {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: var(--bobos-type-label);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .ai-usage__card-value {
   margin: 0.3rem 0 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #7eb8da;
 }
@@ -64,16 +46,16 @@
 }
 
 .ai-usage__breakdown {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 1rem 1.1rem;
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--bobos-card-radius);
+  padding: var(--bobos-card-pad);
 }
 
 .ai-usage__breakdown h2 {
   margin: 0 0 0.6rem;
-  font-size: 0.95rem;
+  font-size: var(--bobos-type-card);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .ai-usage__breakdown ul {
@@ -88,8 +70,8 @@
 .ai-usage__breakdown li {
   display: flex;
   justify-content: space-between;
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.78);
+  font-size: var(--bobos-type-body);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ai-usage__breakdown li span:last-child {
@@ -105,21 +87,21 @@
 /* ── Form ── */
 
 .ai-usage__form {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 1.1rem 1.2rem;
+  border: var(--bobos-card-border) solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--bobos-card-radius);
+  padding: var(--bobos-card-pad);
 }
 
 .ai-usage__form h2 {
   margin: 0 0 0.85rem;
-  font-size: 0.95rem;
+  font-size: var(--bobos-type-card);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .ai-usage__form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.75rem;
 }
 
@@ -128,9 +110,9 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  font-size: 0.78rem;
+  font-size: var(--bobos-type-label);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .ai-usage__form-notes {
@@ -140,12 +122,13 @@
 .ai-usage__form-grid input,
 .ai-usage__form-grid select,
 .ai-usage__form-grid textarea {
-  padding: 0.5rem 0.6rem;
+  padding: 0.6rem 0.7rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
+  border-radius: 8px;
   background: #1c1f22;
   color: #f0f0f0;
   font: inherit;
+  font-size: 1.05rem;
   font-weight: 400;
 }
 
@@ -157,12 +140,13 @@
 }
 
 .ai-usage__form-actions button {
-  padding: 0.55rem 1.1rem;
+  padding: 0.65rem 1.35rem;
   border: 1px solid rgba(126, 184, 218, 0.5);
-  border-radius: 6px;
+  border-radius: 8px;
   background: #2a3a45;
   color: #fff;
   font: inherit;
+  font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
 }
@@ -193,28 +177,28 @@
 
 .ai-usage__table-wrap h2 {
   margin: 0 0 0.75rem;
-  font-size: 0.95rem;
+  font-size: var(--bobos-type-card);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .ai-usage__table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.86rem;
+  font-size: 1.05rem;
 }
 
 .ai-usage__table th,
 .ai-usage__table td {
-  padding: 0.5rem 0.6rem;
+  padding: 0.55rem 0.65rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   text-align: left;
   white-space: nowrap;
 }
 
 .ai-usage__table th {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--bobos-type-label);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;

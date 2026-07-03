@@ -154,6 +154,7 @@ export function PassStudioWorkspace({ event, initialTemplates, initialLibrary }:
       <Link href="/bobos/event" className="ps-back-link">
         ← Event Hub
       </Link>
+      <p className="ps-workspace__kicker">BobOS</p>
       <h1 className="ps-workspace__title">Pass Studio</h1>
 
       <nav className="ps-rail" aria-label="Pass Studio production steps">

@@ -3,6 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 
 import { addAiUsageEntry, importAiUsageCsv } from "@/app/bobos/ai/actions";
+import { BobosPageHeader } from "@/components/bobos/BobosPageHeader";
 import { computeAiUsageSummary, topEntriesBySpend } from "@/lib/bobos/ai-usage/summary";
 import {
   AI_USAGE_MODE_SUGGESTIONS,
@@ -94,11 +95,11 @@ export function AiUsageDashboard({ initialEntries }: Props) {
   }
 
   return (
-    <div className="ai-usage">
-      <header className="ai-usage__header">
-        <h1>BobOS AI Usage</h1>
-        <p>Manual cost &amp; credit tracker — local only, no billing API connections.</p>
-      </header>
+    <div className="bobos-page ai-usage">
+      <BobosPageHeader
+        page="AI Usage"
+        subtitle="Manual cost & credit tracker — local only, no billing API connections."
+      />
 
       <section className="ai-usage__cards" aria-label="Spend summary">
         <div className="ai-usage__card">

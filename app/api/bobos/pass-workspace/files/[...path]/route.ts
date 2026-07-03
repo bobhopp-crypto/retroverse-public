@@ -9,6 +9,7 @@ export const runtime = "nodejs";
 
 function contentType(name: string): string {
   if (name.endsWith(".png")) return "image/png";
+  if (name.endsWith(".jpg") || name.endsWith(".jpeg")) return "image/jpeg";
   if (name.endsWith(".pdf")) return "application/pdf";
   if (name.endsWith(".json")) return "application/json";
   return "application/octet-stream";
