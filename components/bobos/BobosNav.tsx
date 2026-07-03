@@ -13,9 +13,8 @@ function isActive(pathname: string, href: string): boolean {
 export function BobosNav() {
   const pathname = usePathname();
 
-  // Project Zero (home + project dashboards + workspaces) is the new front door —
-  // no application list in front of it. Legacy pages (Producer, Pass Studio, etc.)
-  // keep this nav for wayfinding.
+  // BobOS Cockpit (home) + project dashboards hide this nav.
+  // Legacy pages (Producer, Pass Studio, etc.) keep it for wayfinding.
   if (pathname === "/bobos" || pathname.startsWith("/bobos/project")) return null;
 
   return (

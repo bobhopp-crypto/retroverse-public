@@ -39,7 +39,7 @@ export const BOBOS_EVENT_HUB_ACTIONS: BobosEventHubAction[] = [
 ];
 
 export const BOBOS_PRIMARY_NAV = [
-  { id: "whiteboard", label: "Whiteboard", href: "/bobos" },
+  { id: "cockpit", label: "Cockpit", href: "/bobos" },
   { id: "event", label: "Event Hub", href: "/bobos/event" },
   { id: "passes", label: "Pass Studio", href: "/bobos/passes" },
   { id: "producer", label: "Producer", href: "/bobos/producer" },

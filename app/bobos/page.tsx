@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { ProjectZeroHome } from "@/components/bobos/project-zero/ProjectZeroHome";
+import { BobosCockpit } from "@/components/bobos/cockpit/BobosCockpit";
+import { loadCockpitState } from "@/lib/bobos/cockpit/store";
 import { listProjects } from "@/lib/bobos/project-zero/store";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 
 export const metadata: Metadata = {
-  title: "BobOS",
+  title: "BobOS Cockpit",
   robots: { index: false, follow: false },
 };
 
@@ -15,7 +16,7 @@ export const dynamic = "force-dynamic";
 export default async function BobosPage() {
   if (!shouldAllowOpsRoutes()) notFound();
 
-  const projects = await listProjects();
+  const [state, projects] = await Promise.all([loadCockpitState(), listProjects()]);
 
-  return <ProjectZeroHome initialProjects={projects} />;
+  return <BobosCockpit initialState={state} projects={projects} />;
 }
