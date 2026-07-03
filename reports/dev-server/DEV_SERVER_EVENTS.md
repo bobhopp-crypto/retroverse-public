@@ -316,3 +316,36 @@ Events below are appended automatically at runtime.
 - **signal:** —
 - **command:** node tools/next-dev.mjs (npm-dev)
 - **note:** next child exited
+## 2026-07-03T21:22:09.748Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 94867
+- **childPid:** 94870
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-03T21:23:35.526Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 22886
+- **childPid:** 22889
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-03T21:23:35.528Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 22465
+- **childPid:** 22475
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
