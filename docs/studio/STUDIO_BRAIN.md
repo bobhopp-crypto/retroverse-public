@@ -231,6 +231,17 @@ Candidates for the next milestone direction — pick one when ready to approve:
 
 ## Quick Reference
 
+**Repository layout (Studio/Live split, July 2026):** npm workspace with two Next.js apps.
+
+```
+apps/live/               ← Public site (Vercel deploys this; root directory = apps/live)
+apps/studio/             ← BobOS + Ops + internal tools (local only, port 3000)
+packages/shared/         ← lib/, components/, types/ (shared source)
+lib components types     ← Root symlinks into packages/shared (keep tools/ imports working)
+```
+
+`npm run dev` = studio on :3000 · `npm run dev:live` = live on :3100 (dev servers proxy each other's paths). Both apps resolve `@/*` to their own files first, then `packages/shared/*`.
+
 ```
 lib/studio/              ← Kernel (infrastructure)
   contract.ts            ← Department I/O contracts
