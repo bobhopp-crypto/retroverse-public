@@ -42,6 +42,21 @@ function normalizeState(raw: unknown): CockpitState {
     }
   }
 
+  // Consolidation: the Broadcast Panel is the single operational control
+  // surface for what the audience sees. Saved layouts without a broadcast
+  // cell get one — upgrading the panel it supersedes when present
+  // (live-display, then current-song), else the first empty cell, else the
+  // last cell. The replaced panels stay available in the library.
+  const cockpitCells = workspaces.cockpit.cells;
+  const hasBroadcast = cockpitCells.some((cell) => cell.panelType === "broadcast");
+  if (!hasBroadcast) {
+    const byPanel = (panelType: PanelTypeId | null) =>
+      cockpitCells.findIndex((cell) => cell.panelType === panelType);
+    const candidates = [byPanel("live-display"), byPanel("current-song"), byPanel(null)];
+    const index = candidates.find((i) => i !== -1) ?? cockpitCells.length - 1;
+    cockpitCells[index] = { panelType: "broadcast" };
+  }
+
   return { version: 1, activeWorkspace, workspaces };
 }
 

@@ -8,7 +8,7 @@ const DEFAULT_COCKPIT_PANELS: PanelTypeId[] = [
   "public-homepage",
   "pass-registration",
   "giveaway-panel",
-  "live-display",
+  "broadcast",
   "current-song",
   "ai-queue",
   "media-library",

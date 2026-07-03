@@ -221,5 +221,29 @@ export type PlayheadPayload = {
   mode: PlayheadMode;
   /** Seconds the current item has been on screen (0 when paused/held). */
   elapsedSeconds: number;
+  /** Enabled item after the current one (respecting loop). Null at the end. */
+  nextItem: PresentationItem | null;
+  /** Full published queue — lets controllers render the queue from one call. */
+  queue: PresentationQueue | null;
+  /** When the on-air presentation was last published. */
+  publishedAt: string | null;
+  updatedAt: string;
+};
+
+/**
+ * Broadcast Snapshot — the published queue and its playhead in one document.
+ *
+ * This is the unit of sync between the local studio and the deployed site:
+ * every operator action pushes a fresh snapshot, and because the playhead is
+ * an anchor (item + start time), both sites derive the current item
+ * identically with no further syncing.
+ */
+export type BroadcastSnapshot = {
+  version: 1;
+  presentationId: string;
+  title: string;
+  queue: PresentationQueue;
+  playhead: Playhead;
+  publishedAt: string;
   updatedAt: string;
 };

@@ -6,12 +6,17 @@ import { join } from "path";
 
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 
+import { loadBroadcastSnapshot, saveBroadcastSnapshot } from "./broadcast-snapshot";
+import { pushBroadcastToPublic, type PublicPushResult } from "./push-public";
 import {
   defaultPresentationState,
+  type BroadcastSnapshot,
   type PlayheadCommand,
   type PlayheadMover,
   type PlayheadPayload,
   type Presentation,
+  type PresentationItem,
+  type PresentationQueue,
   type PresentationState,
 } from "./types";
 import { enabledItems, resolvePlayhead, stepIndex } from "./resolve-playhead";
@@ -116,6 +121,36 @@ export async function saveDraft(
   return presentation;
 }
 
+/* ── Broadcast sync ── */
+
+/**
+ * Rebuild the Broadcast Snapshot from the active published presentation and
+ * its playhead, save it locally, and push it to the deployed site.
+ * Called after every mutation (publish, transport) so localhost and the
+ * public site stay in lockstep.
+ */
+export async function syncBroadcast(): Promise<PublicPushResult> {
+  const state = await loadPresentationState();
+  const activeId = state.activePresentationId;
+  const presentation = activeId ? await getPresentation(activeId) : null;
+  const published = presentation?.published ?? null;
+  if (!presentation || !published) {
+    return { status: "unconfigured", detail: "No published presentation on air" };
+  }
+
+  const snapshot: BroadcastSnapshot = {
+    version: 1,
+    presentationId: presentation.id,
+    title: published.title,
+    queue: published.queue,
+    playhead: state.playhead,
+    publishedAt: published.publishedAt,
+    updatedAt: new Date().toISOString(),
+  };
+  await saveBroadcastSnapshot(snapshot);
+  return pushBroadcastToPublic(snapshot);
+}
+
 /** Snapshot the draft queue as the published copy and put it on air. */
 export async function publishPresentation(id: string): Promise<Presentation | null> {
   const file = await loadPresentationsFile();
@@ -147,6 +182,7 @@ export async function publishPresentation(id: string): Promise<Presentation | nu
     };
   }
   await savePresentationState(state);
+  await syncBroadcast();
 
   return presentation;
 }
@@ -210,6 +246,7 @@ export async function movePlayhead(
     updatedAt: now.toISOString(),
   };
   await savePresentationState(state);
+  await syncBroadcast();
   return state;
 }
 
@@ -223,13 +260,51 @@ const OFF_AIR: Omit<PlayheadPayload, "updatedAt"> = {
   itemCount: 0,
   mode: "paused",
   elapsedSeconds: 0,
+  nextItem: null,
+  queue: null,
+  publishedAt: null,
 };
 
-/** Answer the only question the public player asks: what is the current Playhead? */
-export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
-  const state = await loadPresentationState();
-  const now = new Date();
+function nextEnabledItem(
+  queue: PresentationQueue,
+  currentIndex: number,
+): PresentationItem | null {
+  const items = enabledItems(queue);
+  if (items.length === 0 || currentIndex < 0) return null;
+  if (currentIndex + 1 < items.length) return items[currentIndex + 1];
+  return queue.loop && items.length > 1 ? items[0] : null;
+}
 
+/**
+ * Answer the only question the public player asks: what is the current Playhead?
+ *
+ * Resolves from the Broadcast Snapshot — the same document on localhost
+ * (JSON) and the deployed site (Postgres, written by the ingest route) — so
+ * both viewers derive the identical current item. Falls back to the local
+ * presentation store when no snapshot has been written yet.
+ */
+export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
+  const now = new Date();
+  const snapshot = await loadBroadcastSnapshot();
+
+  if (snapshot) {
+    const resolved = resolvePlayhead(snapshot.queue, snapshot.playhead, now);
+    return {
+      onAir: resolved.item !== null,
+      presentation: { id: snapshot.presentationId, title: snapshot.title },
+      item: resolved.item,
+      itemIndex: resolved.index,
+      itemCount: resolved.enabledCount,
+      mode: snapshot.playhead.mode,
+      elapsedSeconds: resolved.elapsedSeconds,
+      nextItem: nextEnabledItem(snapshot.queue, resolved.index),
+      queue: snapshot.queue,
+      publishedAt: snapshot.publishedAt,
+      updatedAt: snapshot.updatedAt,
+    };
+  }
+
+  const state = await loadPresentationState();
   const activeId = state.activePresentationId;
   const presentation = activeId ? await getPresentation(activeId) : null;
   const published = presentation?.published ?? null;
@@ -246,6 +321,9 @@ export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
     itemCount: resolved.enabledCount,
     mode: state.playhead.mode,
     elapsedSeconds: resolved.elapsedSeconds,
+    nextItem: nextEnabledItem(published.queue, resolved.index),
+    queue: published.queue,
+    publishedAt: published.publishedAt,
     updatedAt: state.playhead.updatedAt,
   };
 }

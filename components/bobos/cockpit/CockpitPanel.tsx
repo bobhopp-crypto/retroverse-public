@@ -8,6 +8,8 @@ import type { CockpitPanelData } from "@/lib/bobos/cockpit/load-panel-data";
 import type { PanelAction, PanelDefinition } from "@/lib/bobos/cockpit/types";
 import type { Project } from "@/lib/bobos/project-zero/types";
 
+import { BroadcastPanel } from "./BroadcastPanel";
+
 type Props = {
   cellIndex: number;
   definition: PanelDefinition;
@@ -162,41 +164,48 @@ export function CockpitPanel({
         </div>
       </header>
 
-      {liveSummary.includes(" · ") ? (
-        /* Instrument readout — split the summary into stacked status lines */
-        <ul className="cockpit-panel__metrics">
-          {liveSummary.split(" · ").map((line) => (
-            <li key={line}>{line}</li>
-          ))}
-        </ul>
+      {definition.id === "broadcast" ? (
+        /* Interactive controller — owns its own status polling and actions */
+        <BroadcastPanel initialStatus={null} />
       ) : (
-        <p className="cockpit-panel__data">{liveSummary}</p>
+        <>
+          {liveSummary.includes(" · ") ? (
+            /* Instrument readout — split the summary into stacked status lines */
+            <ul className="cockpit-panel__metrics">
+              {liveSummary.split(" · ").map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="cockpit-panel__data">{liveSummary}</p>
+          )}
+
+          {definition.id === "pass-registration" && panelData.passRegistration.recent.length > 0 ? (
+            <ul className="cockpit-panel__list" aria-label="Recent pass registrations">
+              {panelData.passRegistration.recent.map((entry) => (
+                <li key={entry.serial}>
+                  #{entry.serial} · {entry.name} · {formatRecentWhen(entry.registeredAt)}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          <div className="cockpit-panel__actions">
+            {primaryAction ? (
+              <Link href={primaryAction.href} className="cockpit-panel__btn cockpit-panel__btn--primary">
+                {primaryAction.label}
+              </Link>
+            ) : (
+              <span className="cockpit-panel__btn cockpit-panel__btn--disabled">No route</span>
+            )}
+            {secondaryActions.map((action) => (
+              <Link key={`${action.href}-${action.label}`} href={action.href} className="cockpit-panel__btn cockpit-panel__btn--secondary">
+                {action.label}
+              </Link>
+            ))}
+          </div>
+        </>
       )}
-
-      {definition.id === "pass-registration" && panelData.passRegistration.recent.length > 0 ? (
-        <ul className="cockpit-panel__list" aria-label="Recent pass registrations">
-          {panelData.passRegistration.recent.map((entry) => (
-            <li key={entry.serial}>
-              #{entry.serial} · {entry.name} · {formatRecentWhen(entry.registeredAt)}
-            </li>
-          ))}
-        </ul>
-      ) : null}
-
-      <div className="cockpit-panel__actions">
-        {primaryAction ? (
-          <Link href={primaryAction.href} className="cockpit-panel__btn cockpit-panel__btn--primary">
-            {primaryAction.label}
-          </Link>
-        ) : (
-          <span className="cockpit-panel__btn cockpit-panel__btn--disabled">No route</span>
-        )}
-        {secondaryActions.map((action) => (
-          <Link key={`${action.href}-${action.label}`} href={action.href} className="cockpit-panel__btn cockpit-panel__btn--secondary">
-            {action.label}
-          </Link>
-        ))}
-      </div>
     </article>
   );
 }

@@ -265,6 +265,15 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
       { label: "Open VirtualDJ Bridge", href: "/bobos/bridge" },
     ],
   },
+  broadcast: {
+    id: "broadcast",
+    title: "Broadcast Panel",
+    group: "devices",
+    defaultStatus: "nominal",
+    summary: "Retroverse Live playhead — local and public broadcast control.",
+    primaryAction: { label: "Open Local", href: "/retroverse-live" },
+    secondaryActions: [],
+  },
 };
 
 export const PANEL_LIBRARY_GROUPS: PanelGroup[] = ["attention", "build", "catalog", "devices"];

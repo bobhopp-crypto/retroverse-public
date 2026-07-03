@@ -41,7 +41,8 @@ export type PanelTypeId =
   | "public-homepage"
   | "pass-registration"
   | "giveaway-panel"
-  | "live-display";
+  | "live-display"
+  | "broadcast";
 
 export type PanelGroup = "attention" | "build" | "catalog" | "devices";
 

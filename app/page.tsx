@@ -1,43 +1,28 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
-import { HomeShell } from "@/components/home/HomePackageBrowser";
-import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
-import { resolveHomepageRvtr } from "@/lib/home/homepage-rvtr";
+import { BroadcastViewer } from "@/components/retroverse-live/BroadcastViewer";
+import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
 
-import "@/components/home/homepage-v1.css";
+import "./home-broadcast.css";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Retroverse",
-  description: "Browse everything Retroverse knows about the song — live or on demand.",
+  description: "Press Play for the Past.",
 };
 
-type Props = {
-  searchParams: Promise<{ rvtr?: string }>;
-};
-
-export default async function HomePage({ searchParams }: Props) {
-  const { rvtr: manualRvtr } = await searchParams;
-  const resolution = await resolveHomepageRvtr(manualRvtr ?? null);
+/**
+ * The public homepage mirrors Retroverse Live: whatever the Broadcast Panel's
+ * playhead points at is what visitors see — on air or the off-air stage.
+ * No local rotation, no hardcoded content; the broadcast is the homepage.
+ */
+export default async function HomePage() {
+  const initial = await buildPlayheadPayload();
 
   return (
-    <main className="home-v1">
-      <Suspense fallback={null}>
-        <HomeShell initialResolution={resolution} />
-      </Suspense>
-
-      <div className="home-v1__main">
-        {resolution.rvtr ? (
-          <PublicSongExperience rvtr={resolution.rvtr} className="home-v1__song" />
-        ) : (
-          <div className="home-v1__empty">
-            <p>No package loaded.</p>
-            <p>Search for a song or enable Live Broadcast.</p>
-          </div>
-        )}
-      </div>
+    <main className="home-broadcast">
+      <BroadcastViewer initial={initial} />
     </main>
   );
 }

@@ -469,6 +469,194 @@
   cursor: default;
 }
 
+/* ── Broadcast Panel — Retroverse Live playhead controller ── */
+
+.cockpit-broadcast__transport {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.cockpit-broadcast__transport--desk .cockpit-panel__btn {
+  font-size: 1.05rem;
+  padding: 0.55rem 1rem;
+}
+
+.cockpit-broadcast-desk {
+  width: min(640px, 100%);
+}
+
+.cockpit-broadcast-desk__status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #e8dcc8;
+}
+
+.cockpit-broadcast-desk__status span + span {
+  color: #a8a49c;
+}
+
+.cockpit-broadcast-desk__queue {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cockpit-broadcast-desk__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  border: 2px solid #3a3834;
+  border-radius: 3px;
+  background: #1a1a18;
+}
+
+.cockpit-broadcast-desk__row--current {
+  border-color: #4a8a5a;
+  background: #1c221c;
+}
+
+.cockpit-broadcast-desk__row--disabled {
+  opacity: 0.45;
+}
+
+.cockpit-broadcast-desk__index {
+  min-width: 1.6rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #8a8680;
+  font-variant-numeric: tabular-nums;
+}
+
+.cockpit-broadcast-desk__label {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #e8dcc8;
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cockpit-broadcast-desk__label:disabled {
+  cursor: default;
+}
+
+.cockpit-broadcast-desk__on {
+  padding: 0.05rem 0.4rem;
+  border-radius: 2px;
+  background: rgba(90, 190, 110, 0.22);
+  color: #7ed890;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.cockpit-broadcast-desk__type {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #8a8680;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cockpit-broadcast-desk__row-actions {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.cockpit-broadcast-desk__icon {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #3a3834;
+  border-radius: 2px;
+  background: #222220;
+  color: #a8a49c;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.cockpit-broadcast-desk__icon:hover:not(:disabled) {
+  border-color: #6a6458;
+  color: #e8dcc8;
+}
+
+.cockpit-broadcast-desk__icon:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.cockpit-broadcast-desk__icon--danger:hover:not(:disabled) {
+  border-color: #a05040;
+  color: #ff9d8d;
+}
+
+.cockpit-broadcast-desk__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border: 2px dashed #3a3834;
+  border-radius: 3px;
+  color: #a8a49c;
+  font-size: 1.05rem;
+}
+
+.cockpit-broadcast-desk__empty p {
+  margin: 0;
+}
+
+.cockpit-broadcast-desk__add {
+  display: flex;
+  gap: 0.45rem;
+  padding-top: 0.6rem;
+  border-top: 2px solid #3a3834;
+}
+
+.cockpit-broadcast-desk__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 0.6rem;
+  border: 2px solid #3a3834;
+  border-radius: 3px;
+  background: #141412;
+  color: #e8dcc8;
+  font: inherit;
+  font-size: 1.05rem;
+}
+
+.cockpit-broadcast-desk__input:focus {
+  outline: none;
+  border-color: #6a6458;
+}
+
+.cockpit-broadcast-desk__add select.cockpit-broadcast-desk__input {
+  flex: 0 0 auto;
+}
+
 /* ── Command bar ── */
 
 .cockpit-command-bar {
