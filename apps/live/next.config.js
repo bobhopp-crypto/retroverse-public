@@ -39,16 +39,26 @@ const STUDIO_PREFIXES = [
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname, "..", ".."),
   // Trace only the bundled attract-tour pool — not per-RVTR package trees
-  // (45k+ files OOM Vercel builds).
+  // (45k+ files / 1.6GB blow past Vercel's 250MB function limit).
+  // Globs are joined to this app dir, so repo-root paths need "../../" and
+  // symlink-view paths need "./" — list both.
   outputFileTracingIncludes: {
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
   },
   outputFileTracingExcludes: {
     "*": [
       "./data/ops/intelligence/**",
+      "../../data/ops/intelligence/**",
       "./data/ops/studio/publisher-records.json",
+      "../../data/ops/studio/publisher-records.json",
       "./data/finance-imports/**",
+      "../../data/finance-imports/**",
       "./data/ops/allstar/**",
+      "../../data/ops/allstar/**",
+      "../../reports/**",
+      "../../tools/**",
+      "../../docs/**",
+      "../../apps/studio/**",
     ],
   },
   serverExternalPackages: ["pg"],
