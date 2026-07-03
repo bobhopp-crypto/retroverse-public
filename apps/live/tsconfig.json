@@ -15,10 +15,15 @@
     "incremental": true,
     "plugins": [{ "name": "next" }],
     "paths": {
-      "@/*": ["./*", "../../packages/shared/*"],
-      "sharp": ["../../node_modules/sharp/lib/index.d.ts"]
+      "@/*": ["./*", "../../packages/shared/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../../packages/shared/types/**/*.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

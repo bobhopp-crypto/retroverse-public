@@ -15,8 +15,7 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*", "../../apps/live/*", "../../apps/studio/*"],
-      "@live/*": ["../../apps/live/*"],
-      "sharp": ["../../node_modules/sharp/lib/index.d.ts"]
+      "@live/*": ["../../apps/live/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
