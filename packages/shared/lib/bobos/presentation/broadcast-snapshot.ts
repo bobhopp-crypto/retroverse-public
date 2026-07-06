@@ -47,6 +47,7 @@ export function normalizeBroadcastSnapshot(raw: unknown): BroadcastSnapshot | nu
     playhead: obj.playhead,
     publishedAt: typeof obj.publishedAt === "string" ? obj.publishedAt : new Date().toISOString(),
     updatedAt: typeof obj.updatedAt === "string" ? obj.updatedAt : new Date().toISOString(),
+    autoFollowVdj: obj.autoFollowVdj !== false,
   };
 }
 

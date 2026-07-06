@@ -4,11 +4,11 @@ import { join } from "path";
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 
 import { pgSundayNightsGet, pgSundayNightsSet } from "./pg-state";
+import { normalizeLiveTrackId } from "./resolve-live-track";
 import { usePostgresSundayNightsState } from "./storage-mode";
 import type { SundayNightsLiveSelection, SundayNightsState } from "./types";
 
 const PG_KEY = "live";
-const RE_RVTR = /^RVTR\d{6}$/i;
 
 function statePath(): string {
   return join(opsStateDir(), "sunday-nights", "state.json");
@@ -20,6 +20,10 @@ function emptyState(): SundayNightsState {
     currentTrackId: null,
     live: null,
     updatedAt: new Date().toISOString(),
+    bridgePlaying: false,
+    bridgeStoppedAt: null,
+    vdjTakeoverActive: false,
+    vdjStoppedAt: null,
   };
 }
 
@@ -30,8 +34,7 @@ function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
   const title = typeof obj.title === "string" ? obj.title.trim() : "";
   if (!artist || !title) return null;
 
-  const rvtrRaw = typeof obj.rvtr === "string" ? obj.rvtr.trim().toUpperCase() : null;
-  const rvtr = rvtrRaw && RE_RVTR.test(rvtrRaw) ? rvtrRaw : null;
+  const rvtr = normalizeLiveTrackId(typeof obj.rvtr === "string" ? obj.rvtr : null);
   const year =
     typeof obj.year === "number" && Number.isFinite(obj.year) ? obj.year : null;
   const coverUrl =
@@ -52,6 +55,7 @@ function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
       : null;
   const resolution =
     obj.resolution === "filepath" ||
+    obj.resolution === "vdj-library" ||
     obj.resolution === "fallback" ||
     obj.resolution === "unresolved"
       ? obj.resolution
@@ -76,12 +80,9 @@ function normalizeState(raw: unknown): SundayNightsState {
   if (!raw || typeof raw !== "object") return emptyState();
   const obj = raw as Partial<SundayNightsState> & { version?: number };
 
-  const trackIdRaw =
-    typeof obj.currentTrackId === "string" && obj.currentTrackId.trim()
-      ? obj.currentTrackId.trim().toUpperCase()
-      : null;
-  const currentTrackId =
-    trackIdRaw && RE_RVTR.test(trackIdRaw) ? trackIdRaw : null;
+  const currentTrackId = normalizeLiveTrackId(
+    typeof obj.currentTrackId === "string" ? obj.currentTrackId : null,
+  );
 
   const live = normalizeLive(obj.live);
 
@@ -93,6 +94,16 @@ function normalizeState(raw: unknown): SundayNightsState {
       typeof obj.updatedAt === "string" && obj.updatedAt.trim()
         ? obj.updatedAt
         : new Date().toISOString(),
+    bridgePlaying: obj.bridgePlaying === true,
+    bridgeStoppedAt:
+      typeof obj.bridgeStoppedAt === "string" && obj.bridgeStoppedAt.trim()
+        ? obj.bridgeStoppedAt.trim()
+        : null,
+    vdjTakeoverActive: obj.vdjTakeoverActive === true,
+    vdjStoppedAt:
+      typeof obj.vdjStoppedAt === "string" && obj.vdjStoppedAt.trim()
+        ? obj.vdjStoppedAt.trim()
+        : null,
   };
 }
 
@@ -128,10 +139,7 @@ export async function saveSundayNightsState(state: SundayNightsState): Promise<v
 }
 
 export async function setCurrentTrackId(trackId: string | null): Promise<SundayNightsState> {
-  const normalized =
-    trackId?.trim() && RE_RVTR.test(trackId.trim())
-      ? trackId.trim().toUpperCase()
-      : null;
+  const normalized = normalizeLiveTrackId(trackId);
   return setLiveTrack(
     normalized
       ? {
@@ -146,13 +154,20 @@ export async function setCurrentTrackId(trackId: string | null): Promise<SundayN
 
 export async function setLiveTrack(
   selection: SundayNightsLiveSelection | null,
+  options?: { bridgePlaying?: boolean },
 ): Promise<SundayNightsState> {
   const live = selection ? normalizeLive(selection) : null;
+  const prev = await loadSundayNightsState();
   const next: SundayNightsState = {
     version: 2,
     currentTrackId: live?.rvtr ?? null,
     live,
     updatedAt: new Date().toISOString(),
+    bridgePlaying: options?.bridgePlaying ?? prev.bridgePlaying ?? false,
+    bridgeStoppedAt:
+      options?.bridgePlaying === true ? null : (prev.bridgeStoppedAt ?? null),
+    vdjTakeoverActive: prev.vdjTakeoverActive ?? false,
+    vdjStoppedAt: options?.bridgePlaying === true ? null : (prev.vdjStoppedAt ?? null),
   };
   await saveSundayNightsState(next);
   return next;

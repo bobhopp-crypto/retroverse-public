@@ -158,6 +158,19 @@ export type PresentationState = {
   /** Presentation whose published snapshot Retroverse Live plays. */
   activePresentationId: string | null;
   playhead: Playhead;
+  /** Default ON — VirtualDJ pauses broadcast and phones follow live songs. */
+  autoFollowVdj: boolean;
+  /** Broadcast paused because VirtualDJ is live. */
+  vdjTakeoverActive: boolean;
+  /** When VirtualDJ playback last stopped (idle timeout anchor). */
+  vdjStoppedAt: string | null;
+  /** Metadata about the last broadcast source refresh (if any). */
+  broadcastSourceMeta?: {
+    id: string;
+    itemCount: number;
+    generatedAt: string;
+    songDurationSeconds: number;
+  } | null;
 };
 
 /* ── Defaults ── */
@@ -199,6 +212,9 @@ export function defaultPresentationState(): PresentationState {
     version: 1,
     activePresentationId: null,
     playhead: defaultPlayhead(),
+    autoFollowVdj: true,
+    vdjTakeoverActive: false,
+    vdjStoppedAt: null,
   };
 }
 
@@ -228,6 +244,20 @@ export type PlayheadPayload = {
   /** When the on-air presentation was last published. */
   publishedAt: string | null;
   updatedAt: string;
+  /** When true, VirtualDJ playback pauses broadcast and phones follow live songs. */
+  autoFollowVdj: boolean;
+  /** VirtualDJ auto-takeover — derived from bridge + presentation state. */
+  vdj: PlayheadVdjState;
+};
+
+export type PlayheadVdjState = {
+  /** Bridge reports audible deck / playback active. */
+  playing: boolean;
+  rvtr: string | null;
+  /** Broadcast rotation paused for live song mode. */
+  takeoverActive: boolean;
+  /** ISO time broadcast resumes after idle timeout (stoppedAt + 15s). */
+  resumeBroadcastAt: string | null;
 };
 
 /**
@@ -246,4 +276,5 @@ export type BroadcastSnapshot = {
   playhead: Playhead;
   publishedAt: string;
   updatedAt: string;
+  autoFollowVdj: boolean;
 };

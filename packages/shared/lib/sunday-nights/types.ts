@@ -1,4 +1,4 @@
-export type LiveResolution = "filepath" | "fallback" | "unresolved";
+export type LiveResolution = "filepath" | "vdj-library" | "fallback" | "unresolved";
 
 export type LiveSource = "manual" | "bridge" | "channel";
 
@@ -19,11 +19,13 @@ export type SundayNightsLiveSelection = {
 };
 
 export type BridgeLivePostBody = {
-  filepath: string;
-  artist: string;
-  title: string;
-  deck: number;
+  /** False when VirtualDJ playback stops. */
+  playing: boolean;
   timestamp: string;
+  filepath?: string;
+  artist?: string;
+  title?: string;
+  deck?: number;
 };
 
 export type SundayNightsState = {
@@ -31,6 +33,14 @@ export type SundayNightsState = {
   currentTrackId: string | null;
   live: SundayNightsLiveSelection | null;
   updatedAt: string;
+  /** OSC bridge — deck is audible / playback active. */
+  bridgePlaying?: boolean;
+  /** When bridge last reported playback stopped. */
+  bridgeStoppedAt?: string | null;
+  /** Broadcast rotation paused for VirtualDJ live mode. */
+  vdjTakeoverActive?: boolean;
+  /** Idle timeout anchor for resuming broadcast. */
+  vdjStoppedAt?: string | null;
 };
 
 export type SundayEventMode = {

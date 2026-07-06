@@ -8,6 +8,17 @@ import { loadRvtrAliasStore, lookupAliasRvtrFromStore } from "./rvtr-aliases";
 import type { LiveResolution } from "./types";
 
 const RE_RVTR = /^RVTR\d{6}$/i;
+const RE_VDJ = /^vdj:[0-9a-f]{16}$/i;
+
+/** Canonical live track id — RVTR or `vdj:{16-hex-key}`. */
+export function normalizeLiveTrackId(raw: string | null | undefined): string | null {
+  if (!raw?.trim()) return null;
+  const trimmed = raw.trim();
+  if (RE_RVTR.test(trimmed)) return trimmed.toUpperCase();
+  const lower = trimmed.toLowerCase();
+  if (RE_VDJ.test(lower)) return lower;
+  return null;
+}
 
 function normPath(p: string): string {
   return p
