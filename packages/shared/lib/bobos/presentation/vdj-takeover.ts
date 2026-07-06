@@ -4,11 +4,75 @@ import { loadBroadcastSnapshot, saveBroadcastSnapshot } from "./broadcast-snapsh
 import { pushBroadcastToPublic } from "./push-public";
 import { loadPresentationState, savePresentationState } from "./store";
 import { resolvePlayhead } from "./resolve-playhead";
-import type { PlayheadVdjState, PresentationState } from "./types";
+import type { PlayheadPayload, PlayheadVdjState, PresentationItem, PresentationState } from "./types";
 import { loadSundayNightsState, saveSundayNightsState } from "@/lib/sunday-nights/state";
+import type { SundayNightsLiveSelection, SundayNightsState } from "@/lib/sunday-nights/types";
 
 /** Idle grace period before broadcast rotation resumes. */
 export const VDJ_IDLE_RESUME_MS = 15_000;
+
+/** Stable id — AUTO mode has no queue position; the live VDJ track is the item. */
+export const VDJ_LIVE_ITEM_ID = "vdj-live-current";
+
+/** Build the presentation item for the current VirtualDJ track (AUTO mode). */
+export function buildVdjPresentationItem(live: SundayNightsLiveSelection): PresentationItem {
+  const rvtr = live.rvtr?.trim() || null;
+  const songKey = live.songKey?.trim() || null;
+  const linkId = rvtr ?? (songKey ? `vdj:${songKey}` : VDJ_LIVE_ITEM_ID);
+
+  return {
+    id: VDJ_LIVE_ITEM_ID,
+    type: "song",
+    title: live.title.trim(),
+    subtitle: live.artist.trim(),
+    body: "",
+    enabled: true,
+    durationSeconds: 0,
+    transition: "fade",
+    trigger: "song-change",
+    link: { kind: "song", id: linkId, label: live.title.trim() },
+    countdownTarget: null,
+    notes: "",
+  };
+}
+
+/** AUTO mode: audience item is the live VDJ track, not a queue slot. */
+export function shouldUseVdjPresentationItem(
+  autoFollowVdj: boolean,
+  sn: SundayNightsState,
+): boolean {
+  if (!autoFollowVdj) return false;
+  if (!sn.live?.title?.trim() || !sn.live?.artist?.trim()) return false;
+  return sn.bridgePlaying === true || sn.vdjTakeoverActive === true;
+}
+
+/** Override playhead item when AUTO mode follows VirtualDJ. */
+export function applyVdjPresentationItem(
+  payload: PlayheadPayload,
+  sn: SundayNightsState,
+  now: Date,
+): PlayheadPayload {
+  if (!shouldUseVdjPresentationItem(payload.autoFollowVdj, sn) || !sn.live) {
+    return payload;
+  }
+
+  const item = buildVdjPresentationItem(sn.live);
+  let elapsedSeconds = 0;
+  const startedAt = sn.live.bridgeTimestamp?.trim();
+  if (startedAt) {
+    elapsedSeconds = Math.max(0, Math.floor((now.getTime() - Date.parse(startedAt)) / 1000));
+  }
+
+  return {
+    ...payload,
+    onAir: true,
+    item,
+    itemIndex: -1,
+    nextItem: null,
+    elapsedSeconds,
+    mode: sn.bridgePlaying ? "playing" : payload.mode,
+  };
+}
 
 export function normalizePresentationStateFields(
   parsed: Partial<PresentationState>,
