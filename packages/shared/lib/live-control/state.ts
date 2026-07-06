@@ -24,8 +24,8 @@ function statePath(): string {
 }
 
 function parseMode(value: unknown): LiveControlMode {
-  if (value === "vdj" || value === "demo" || value === "playlist") return value;
-  return DEFAULT_LIVE_CONTROL_CONFIG.mode;
+  if (value === "off" || value === "vdj" || value === "demo" || value === "playlist") return value;
+  return "off";
 }
 
 function parseSource(value: unknown): LiveContentSource {
@@ -71,10 +71,21 @@ function normalizeState(raw: unknown): LiveControlState {
       ? obj.playlistYear
       : base.playlistYear;
 
+  let mode = parseMode(obj.mode);
+  let running = obj.running === true;
+  const sessionActive = obj.sessionActive === true;
+
+  // Stale persisted demo sessions (running without an explicit opt-in) must not auto-resume.
+  if (running && !sessionActive) {
+    running = false;
+    mode = "off";
+  }
+
   return {
     version: 1,
-    running: obj.running === true,
-    mode: parseMode(obj.mode),
+    running,
+    sessionActive: running ? sessionActive : false,
+    mode,
     contentSource: parseSource(obj.contentSource),
     year,
     era: obj.era ? parseProducerEraId(obj.era) : base.era,

@@ -1,6 +1,6 @@
 import type { ProducerEraId } from "@/lib/ops/year-workspace/producer/types";
 
-export type LiveControlMode = "vdj" | "demo" | "playlist";
+export type LiveControlMode = "off" | "vdj" | "demo" | "playlist";
 
 export type LiveContentSource =
   | "all_packages"
@@ -32,6 +32,8 @@ export type LiveControlConfig = {
 export type LiveControlState = LiveControlConfig & {
   version: 1;
   running: boolean;
+  /** Set only by an explicit startLiveChannel() call; prevents stale demo sessions from auto-resuming. */
+  sessionActive: boolean;
   queueRvtrs: string[];
   queueCursor: number;
   nextAdvanceAt: string | null;
@@ -40,7 +42,7 @@ export type LiveControlState = LiveControlConfig & {
 };
 
 export const DEFAULT_LIVE_CONTROL_CONFIG: LiveControlConfig = {
-  mode: "demo",
+  mode: "off",
   contentSource: "year",
   year: 1971,
   era: "1978",
@@ -59,6 +61,7 @@ export function emptyLiveControlState(): LiveControlState {
   return {
     version: 1,
     running: false,
+    sessionActive: false,
     ...DEFAULT_LIVE_CONTROL_CONFIG,
     queueRvtrs: [],
     queueCursor: 0,
