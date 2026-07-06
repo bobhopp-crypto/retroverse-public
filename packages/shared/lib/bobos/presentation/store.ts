@@ -14,12 +14,19 @@ import {
   type PlayheadCommand,
   type PlayheadMover,
   type PlayheadPayload,
+  type PlayheadVdjState,
   type Presentation,
   type PresentationItem,
   type PresentationQueue,
   type PresentationState,
 } from "./types";
 import { enabledItems, resolvePlayhead, stepIndex } from "./resolve-playhead";
+import {
+  buildPlayheadVdjState,
+  maybeResumeBroadcastAfterVdjIdle,
+  normalizePresentationStateFields,
+  readAutoFollowVdj,
+} from "./vdj-takeover";
 
 /* ── Storage: RETROVERSE_DATA/ops/bobos/presentation/{presentations,state}.json ── */
 
@@ -58,17 +65,19 @@ export async function loadPresentationState(): Promise<PresentationState> {
     const raw = await readFile(statePath(), "utf8");
     const parsed = JSON.parse(raw) as Partial<PresentationState>;
     if (!parsed.playhead) throw new Error("bad file");
+    const fields = normalizePresentationStateFields(parsed);
     return {
       version: 1,
       activePresentationId: parsed.activePresentationId ?? null,
       playhead: parsed.playhead,
+      ...fields,
     };
   } catch {
     return defaultPresentationState();
   }
 }
 
-async function savePresentationState(state: PresentationState): Promise<void> {
+export async function savePresentationState(state: PresentationState): Promise<void> {
   await mkdir(presentationDir(), { recursive: true });
   await writeFile(statePath(), `${JSON.stringify(state, null, 2)}\n`, "utf8");
 }
@@ -146,6 +155,7 @@ export async function syncBroadcast(): Promise<PublicPushResult> {
     playhead: state.playhead,
     publishedAt: published.publishedAt,
     updatedAt: new Date().toISOString(),
+    autoFollowVdj: state.autoFollowVdj !== false,
   };
   await saveBroadcastSnapshot(snapshot);
   return pushBroadcastToPublic(snapshot);
@@ -252,6 +262,13 @@ export async function movePlayhead(
 
 /* ── Public payload ── */
 
+const OFF_AIR_VDJ: PlayheadVdjState = {
+  playing: false,
+  rvtr: null,
+  takeoverActive: false,
+  resumeBroadcastAt: null,
+};
+
 const OFF_AIR: Omit<PlayheadPayload, "updatedAt"> = {
   onAir: false,
   presentation: null,
@@ -263,6 +280,8 @@ const OFF_AIR: Omit<PlayheadPayload, "updatedAt"> = {
   nextItem: null,
   queue: null,
   publishedAt: null,
+  autoFollowVdj: true,
+  vdj: OFF_AIR_VDJ,
 };
 
 function nextEnabledItem(
@@ -284,6 +303,11 @@ function nextEnabledItem(
  * presentation store when no snapshot has been written yet.
  */
 export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
+  await maybeResumeBroadcastAfterVdjIdle();
+
+  const autoFollowVdj = await readAutoFollowVdj();
+  const vdj = await buildPlayheadVdjState();
+
   const now = new Date();
   const snapshot = await loadBroadcastSnapshot();
 
@@ -301,6 +325,8 @@ export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
       queue: snapshot.queue,
       publishedAt: snapshot.publishedAt,
       updatedAt: snapshot.updatedAt,
+      autoFollowVdj: snapshot.autoFollowVdj !== false,
+      vdj,
     };
   }
 
@@ -309,7 +335,7 @@ export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
   const presentation = activeId ? await getPresentation(activeId) : null;
   const published = presentation?.published ?? null;
   if (!presentation || !published) {
-    return { ...OFF_AIR, updatedAt: state.playhead.updatedAt };
+    return { ...OFF_AIR, autoFollowVdj, vdj, updatedAt: state.playhead.updatedAt };
   }
 
   const resolved = resolvePlayhead(published.queue, state.playhead, now);
@@ -325,5 +351,7 @@ export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
     queue: published.queue,
     publishedAt: published.publishedAt,
     updatedAt: state.playhead.updatedAt,
+    autoFollowVdj,
+    vdj,
   };
 }
