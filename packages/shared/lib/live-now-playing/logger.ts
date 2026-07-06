@@ -5,10 +5,13 @@ import { liveNowPlayingDir } from "./paths";
 
 export type LiveNowPlayingLogEvent =
   | "track_detected"
+  | "playback_stopped"
   | "rvtr_resolved"
   | "rvtr_unresolved"
   | "rvtr_fallback"
   | "live_state_updated"
+  | "bridge_public_push_ok"
+  | "bridge_public_push_failed"
   | "api_error";
 
 function logFileName(): string {

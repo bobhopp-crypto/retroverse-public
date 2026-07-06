@@ -1,6 +1,6 @@
 import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 import { loadTrackPage } from "@/lib/track/load-track-page";
-import { setLiveTrack } from "@/lib/sunday-nights/state";
+import { loadSundayNightsState, setLiveTrack } from "@/lib/sunday-nights/state";
 import type { SundayNightsState } from "@/lib/sunday-nights/types";
 
 import { buildLiveQueue } from "./queue";
@@ -10,6 +10,14 @@ import {
   saveLiveControlState,
 } from "./state";
 import type { LiveControlConfig, LiveControlState } from "./types";
+
+export function isLiveChannelSessionActive(state: LiveControlState): boolean {
+  return (
+    state.sessionActive === true &&
+    state.running === true &&
+    (state.mode === "demo" || state.mode === "playlist")
+  );
+}
 
 async function publishRvtr(rvtr: string): Promise<SundayNightsState> {
   const track = await loadTrackPage(rvtr);
@@ -56,6 +64,10 @@ export async function startLiveChannel(
   let state = await loadLiveControlState();
   if (configPatch) state = mergeLiveControlConfig(state, configPatch);
 
+  if (state.mode === "off") {
+    throw new Error("live_channel_requires_demo_or_playlist_mode");
+  }
+
   if (state.mode === "playlist") {
     state = {
       ...state,
@@ -68,6 +80,7 @@ export async function startLiveChannel(
     const next = await saveLiveControlState({
       ...state,
       running: true,
+      sessionActive: true,
       lastChangeAt: state.lastChangeAt,
       nextAdvanceAt: null,
     });
@@ -82,12 +95,13 @@ export async function startLiveChannel(
   let next: LiveControlState = {
     ...state,
     running: true,
+    sessionActive: true,
     queueRvtrs,
     queueCursor: 0,
     nextAdvanceAt: null,
   };
   next = await playQueueAt(next, 0);
-  return saveLiveControlState(next);
+  return saveLiveControlState({ ...next, sessionActive: true });
 }
 
 export async function stopLiveChannel(): Promise<LiveControlState> {
@@ -96,13 +110,15 @@ export async function stopLiveChannel(): Promise<LiveControlState> {
   return saveLiveControlState({
     ...state,
     running: false,
+    sessionActive: false,
+    mode: "off",
     nextAdvanceAt: null,
   });
 }
 
 export async function nextLiveChannelSong(): Promise<LiveControlState> {
   let state = await loadLiveControlState();
-  if (!state.running) throw new Error("live_channel_stopped");
+  if (!isLiveChannelSessionActive(state)) throw new Error("live_channel_stopped");
   if (state.mode === "vdj") throw new Error("vdj_mode_manual_next_unavailable");
 
   if (state.queueRvtrs.length === 0) {
@@ -125,10 +141,40 @@ export async function updateLiveControlConfig(
   return saveLiveControlState(mergeLiveControlConfig(state, patch));
 }
 
-export async function maybeAdvanceLiveChannel(): Promise<LiveControlState | null> {
+export async function ensureLiveControlIdleForNormalOperation(): Promise<LiveControlState> {
   const state = await loadLiveControlState();
-  if (!state.running) return null;
-  if (state.mode !== "demo" && state.mode !== "playlist") return null;
+
+  if (isLiveChannelSessionActive(state)) return state;
+
+  const sn = await loadSundayNightsState();
+  if (sn.live?.source === "channel") {
+    await setLiveTrack(null);
+  }
+
+  if (
+    state.running ||
+    state.sessionActive ||
+    state.mode !== "off" ||
+    state.nextAdvanceAt
+  ) {
+    return saveLiveControlState({
+      ...state,
+      running: false,
+      sessionActive: false,
+      mode: "off",
+      nextAdvanceAt: null,
+    });
+  }
+
+  return state;
+}
+
+export async function maybeAdvanceLiveChannel(): Promise<LiveControlState | null> {
+  const sn = await loadSundayNightsState();
+  if (sn.bridgePlaying || sn.vdjTakeoverActive) return null;
+
+  const state = await loadLiveControlState();
+  if (!isLiveChannelSessionActive(state)) return null;
   if (!state.nextAdvanceAt) return null;
 
   const due = Date.parse(state.nextAdvanceAt);
@@ -140,6 +186,12 @@ export async function maybeAdvanceLiveChannel(): Promise<LiveControlState | null
     console.error("[live-control] advance failed", err);
     return null;
   }
+}
+
+/** Normal read path: stop stale demo sessions, then advance only explicit opt-in demo. */
+export async function tickLiveControl(): Promise<LiveControlState | null> {
+  await ensureLiveControlIdleForNormalOperation();
+  return maybeAdvanceLiveChannel();
 }
 
 export async function getLiveControlStatus(): Promise<{
