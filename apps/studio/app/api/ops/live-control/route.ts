@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 
 import {
   getLiveControlStatus,
-  maybeAdvanceLiveChannel,
   nextLiveChannelSong,
   startLiveChannel,
   stopLiveChannel,
+  tickLiveControl,
   updateLiveControlConfig,
 } from "@/lib/live-control/engine";
 import type { LiveControlConfig } from "@/lib/live-control/types";
@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    await maybeAdvanceLiveChannel();
+    await tickLiveControl();
     const status = await getLiveControlStatus();
     return NextResponse.json(status);
   } catch (err) {
@@ -50,7 +50,7 @@ export async function PATCH(req: Request) {
     }
 
     if (payload.op === "next") {
-      await maybeAdvanceLiveChannel();
+      await tickLiveControl();
       const control = await nextLiveChannelSong();
       const status = await getLiveControlStatus();
       return NextResponse.json({ ...status, control });
@@ -63,7 +63,7 @@ export async function PATCH(req: Request) {
     }
 
     if (payload.op === "tick") {
-      await maybeAdvanceLiveChannel();
+      await tickLiveControl();
       const status = await getLiveControlStatus();
       return NextResponse.json(status);
     }

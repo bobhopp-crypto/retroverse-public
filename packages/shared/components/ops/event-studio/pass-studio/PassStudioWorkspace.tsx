@@ -3,27 +3,36 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
+import { RvIdPageTitle } from "@/components/bobos/rv-ids";
+
 import {
   createPassTemplate,
-  generatePassBatch,
+  generateDesignBuilderPassBatch,
   regeneratePassTemplateArtwork,
   type NewPassTemplateInput,
 } from "@/app/ops/event-studio/create/pass-generator/actions";
+import type { ProductionLayout } from "@/lib/bobos/project-zero/production-layout";
+import type { PassWorkspaceSlug } from "@/lib/bobos/project-zero/pass-workspace-slugs";
+import { designBuilderProjectId } from "@/lib/ops/event-studio/pass-studio/design-builder-workspace";
+import type { PrintBatch } from "@/lib/ops/event-studio/pass-studio/print-batch-types";
 import type { GeneratedPass, PassTemplate } from "@/lib/ops/event-studio/pass-studio/types";
 
 import "./pass-studio.css";
 import { DesignsStep } from "./steps/DesignsStep";
+import { EditStep } from "./steps/EditStep";
 import { EventStep } from "./steps/EventStep";
 import { PreviewStep } from "./steps/PreviewStep";
 import { PrintStep } from "./steps/PrintStep";
-import { QuantitiesStep, type DraftRow } from "./steps/QuantitiesStep";
+import type { DraftRow } from "./steps/QuantitiesStep";
 
-type Step = "event" | "designs" | "quantities" | "preview" | "print";
+type Step = "event" | "designs" | "edit" | "preview" | "print";
+
+type LayoutsBySlug = Record<PassWorkspaceSlug, ProductionLayout>;
 
 const STEPS: { id: Step; number: number; label: string }[] = [
   { id: "event", number: 1, label: "Event" },
   { id: "designs", number: 2, label: "Designs" },
-  { id: "quantities", number: 3, label: "How Many" },
+  { id: "edit", number: 3, label: "Edit" },
   { id: "preview", number: 4, label: "Preview" },
   { id: "print", number: 5, label: "Print" },
 ];
@@ -48,9 +57,18 @@ type Props = {
   event: { eventName: string; venue: string; date: string };
   initialTemplates: PassTemplate[];
   initialLibrary: GeneratedPass[];
+  initialProductionLayouts: LayoutsBySlug;
+  initialNextSerial: number;
 };
 
-export function PassStudioWorkspace({ event, initialTemplates, initialLibrary }: Props) {
+export function PassStudioWorkspace({
+  event,
+  initialTemplates,
+  initialLibrary,
+  initialProductionLayouts,
+  initialNextSerial,
+}: Props) {
+  const projectId = designBuilderProjectId(event.eventName);
   const [step, setStep] = useState<Step>("event");
   const [templates, setTemplates] = useState<PassTemplate[]>(initialTemplates);
   const [library, setLibrary] = useState<GeneratedPass[]>(initialLibrary);
@@ -65,8 +83,17 @@ export function PassStudioWorkspace({ event, initialTemplates, initialLibrary }:
     return map;
   });
 
+  const [savedLayouts, setSavedLayouts] = useState<LayoutsBySlug>(initialProductionLayouts);
+  const [draftLayouts, setDraftLayouts] = useState<LayoutsBySlug>(initialProductionLayouts);
+  const [nextSerial, setNextSerial] = useState(initialNextSerial);
+  const [printBatch, setPrintBatch] = useState<PrintBatch | null>(null);
+
   const [generating, setGenerating] = useState(false);
   const [generateError, setGenerateError] = useState<string | null>(null);
+
+  const layoutDirty = (["general", "vip", "backstage"] as PassWorkspaceSlug[]).some(
+    (slug) => JSON.stringify(savedLayouts[slug]) !== JSON.stringify(draftLayouts[slug]),
+  );
 
   const [previewIndex, setPreviewIndex] = useState(0);
   const [perSheet, setPerSheet] = useState<2 | 4 | 8>(4);
@@ -106,18 +133,42 @@ export function PassStudioWorkspace({ event, initialTemplates, initialLibrary }:
     setQuantities((prev) => ({ ...prev, [templateId]: Math.max(0, Math.floor(quantity) || 0) }));
   }
 
-  async function handleGenerate() {
+  function handleLayoutDraftChange(slug: PassWorkspaceSlug, layout: ProductionLayout) {
+    setDraftLayouts((prev) => ({ ...prev, [slug]: layout }));
+  }
+
+  function handleLayoutSaved(slug: PassWorkspaceSlug, layout: ProductionLayout) {
+    setSavedLayouts((prev) => ({ ...prev, [slug]: layout }));
+    setDraftLayouts((prev) => ({ ...prev, [slug]: layout }));
+  }
+
+  async function handleGenerate(startAt: number | null) {
     setGenerating(true);
     setGenerateError(null);
     try {
-      const result = await generatePassBatch({
+      const templateById = new Map(templates.map((template) => [template.id, template]));
+      const result = await generateDesignBuilderPassBatch({
+        projectId,
         eventName: event.eventName,
         venue: event.venue,
         date: event.date,
-        rows: rows.map((row) => ({ passType: row.passType, quantity: row.quantity, templateId: row.templateId })),
+        rows: rows.map((row) => {
+          const template = templateById.get(row.templateId)!;
+          return {
+            passType: row.passType,
+            quantity: row.quantity,
+            templateId: row.templateId,
+            generationId: template.generationId,
+            frontArtworkUrl: template.frontArtworkUrl,
+            backArtworkUrl: template.backArtworkUrl,
+          };
+        }),
+        startAt,
       });
+      setNextSerial(result.batch.serialEnd + 1);
       setLastGenerated(result.passes);
       setLibrary((prev) => [...prev, ...result.passes]);
+      setPrintBatch(result.printBatch);
       setPreviewIndex(0);
       setStep("preview");
     } catch (err) {
@@ -155,9 +206,9 @@ export function PassStudioWorkspace({ event, initialTemplates, initialLibrary }:
         ← Event Hub
       </Link>
       <p className="ps-workspace__kicker">BobOS</p>
-      <h1 className="ps-workspace__title">Pass Studio</h1>
+      <RvIdPageTitle rvId="RV02-03" label="Design Builder" className="ps-workspace__title" />
 
-      <nav className="ps-rail" aria-label="Pass Studio production steps">
+      <nav className="ps-rail" aria-label="Design Builder production steps">
         {STEPS.map((item) => (
           <button
             key={item.id}
@@ -187,18 +238,26 @@ export function PassStudioWorkspace({ event, initialTemplates, initialLibrary }:
           regeneratingId={regeneratingId}
           onCreate={handleCreateTemplate}
           busy={templateBusy}
-          onContinue={() => setStep("quantities")}
+          onContinue={() => setStep("edit")}
         />
       </div>
 
-      <div className={`ps-workspace__panel${step === "quantities" ? "" : " ps-workspace__panel--hidden"}`}>
-        <QuantitiesStep
+      <div className={`ps-workspace__panel${step === "edit" ? "" : " ps-workspace__panel--hidden"}`}>
+        <EditStep
+          projectId={projectId}
           rows={rows}
+          templates={templates}
+          savedLayouts={savedLayouts}
+          draftLayouts={draftLayouts}
+          onDraftLayoutChange={handleLayoutDraftChange}
+          onLayoutSaved={handleLayoutSaved}
           onQuantityChange={handleQuantityChange}
+          nextSerial={nextSerial}
           perSheet={perSheet}
           busy={generating}
           error={generateError}
-          onGenerate={() => void handleGenerate()}
+          layoutDirty={layoutDirty}
+          onGenerate={(startAt) => void handleGenerate(startAt)}
         />
       </div>
 
@@ -213,10 +272,10 @@ export function PassStudioWorkspace({ event, initialTemplates, initialLibrary }:
 
       <div className={`ps-workspace__panel${step === "print" ? "" : " ps-workspace__panel--hidden"}`}>
         <PrintStep
+          projectId={projectId}
           passes={activeSet}
-          templates={templates}
-          perSheet={perSheet}
-          onPerSheetChange={setPerSheet}
+          printBatch={printBatch}
+          onPrintBatchChange={setPrintBatch}
           onDone={() => setStep("event")}
         />
       </div>

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
-
-import { RetroverseLivePlayer } from "./player";
+import { CANONICAL_AUDIENCE_HREF } from "@/lib/bobos/presentation/canonical-audience";
 
 export const dynamic = "force-dynamic";
 
@@ -11,14 +10,7 @@ export const metadata: Metadata = {
   description: "Press Play for the Past.",
 };
 
-/**
- * Retroverse Live — the public presentation player.
- *
- * This page is deliberately dumb: it asks "what is the current Playhead?"
- * and renders it. All authoring, sequencing, and control live in the
- * BobOS Presentation Studio.
- */
-export default async function RetroverseLivePage() {
-  const initial = await buildPlayheadPayload();
-  return <RetroverseLivePlayer initial={initial} />;
+/** Legacy alias — canonical live experience is at /. */
+export default function RetroverseLivePage() {
+  redirect(CANONICAL_AUDIENCE_HREF);
 }

@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Pass Generator — Retroverse Ops",
+  title: "Design Builder — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 

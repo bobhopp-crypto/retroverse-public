@@ -95,7 +95,7 @@ function buildCards(
       status: statuses.passes,
       description: "Generate collectible passes and print sheets from the analyzed plan.",
       uses: passUses(plan),
-      actionLabel: statuses.passes === "GENERATED" ? "Open Pass Generator" : "Generate Passes",
+      actionLabel: statuses.passes === "GENERATED" ? "Open Design Builder" : "Build Passes",
       href: "/bobos/passes",
       ready: true,
     },

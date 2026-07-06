@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { BOBOS_PRIMARY_NAV } from "@/lib/bobos/event-hub-nav";
+import { getRvIdByNavId } from "@/lib/bobos/rv-ids";
+import { RvIdLabel } from "@/components/bobos/rv-ids";
 
 function isActive(pathname: string, href: string): boolean {
   if (href === "/bobos") return pathname === "/bobos";
@@ -14,7 +16,7 @@ export function BobosNav() {
   const pathname = usePathname();
 
   // BobOS Cockpit (home) + project dashboards hide this nav.
-  // Legacy pages (Producer, Pass Studio, etc.) keep it for wayfinding.
+  // Legacy pages (Producer, Design Builder, etc.) keep it for wayfinding.
   if (pathname === "/bobos" || pathname.startsWith("/bobos/project")) return null;
 
   return (
@@ -30,7 +32,7 @@ export function BobosNav() {
               className={`bobos-nav__link${isActive(pathname, item.href) ? " bobos-nav__link--active" : ""}`}
               aria-current={isActive(pathname, item.href) ? "page" : undefined}
             >
-              {item.label}
+              <RvIdLabel rvId={getRvIdByNavId(item.id)} label={item.label} />
             </Link>
           </li>
         ))}

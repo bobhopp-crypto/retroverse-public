@@ -1,0 +1,32 @@
+{
+  "studio": {
+    "id": "studio",
+    "displayName": "BobOS",
+    "rvId": "RV01-01",
+    "appFlag": "studio",
+    "port": 3000,
+    "healthPath": "/bobos",
+    "markerSuffix": "",
+    "hintCommand": "npm run dev"
+  },
+  "live": {
+    "id": "live",
+    "displayName": "Live",
+    "rvId": null,
+    "appFlag": "live",
+    "port": 3100,
+    "healthPath": "/",
+    "markerSuffix": "-live",
+    "hintCommand": "npm run dev:live"
+  },
+  "vdj-bridge": {
+    "id": "vdj-bridge",
+    "displayName": "VirtualDJ Bridge",
+    "rvId": "RV01-04",
+    "appFlag": null,
+    "port": null,
+    "healthPath": null,
+    "markerSuffix": null,
+    "hintCommand": "npm run live-now-playing"
+  }
+}

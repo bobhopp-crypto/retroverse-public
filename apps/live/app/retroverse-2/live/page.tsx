@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-import { LiveAttractTourPage } from "./live-attract-tour-page";
+import { getPublicLiveRedirectUrl } from "@/lib/live-control/public-entry";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Retroverse Live",
-  description: "Command Center live music exploration for Retroverse.",
+  description: "Live audience presentation from RetroVerse Broadcast.",
 };
 
-export default LiveAttractTourPage;
+export default async function LiveAttractTourPage() {
+  redirect(await getPublicLiveRedirectUrl());
+}

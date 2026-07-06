@@ -22,20 +22,32 @@ export function pidAlive(pid) {
   }
 }
 
-export function readDevOwnership() {
-  if (!fs.existsSync(DEV_MARKER)) return null;
+export function devMarkerPath(suffix = "") {
+  return path.join(process.cwd(), `.retroverse-dev-active${suffix}`);
+}
+
+function parseDevOwnershipRecord(raw) {
+  return {
+    owner: String(raw.owner ?? "unknown"),
+    wrapperPid: Number(raw.wrapperPid ?? raw.pid),
+    port: Number(raw.port ?? 3000),
+    startedAt: String(raw.startedAt ?? ""),
+    childPid: raw.childPid != null ? Number(raw.childPid) : null,
+  };
+}
+
+export function readDevOwnershipForSuffix(suffix = "") {
+  const marker = devMarkerPath(suffix);
+  if (!fs.existsSync(marker)) return null;
   try {
-    const raw = JSON.parse(fs.readFileSync(DEV_MARKER, "utf8"));
-    return {
-      owner: String(raw.owner ?? "unknown"),
-      wrapperPid: Number(raw.wrapperPid ?? raw.pid),
-      port: Number(raw.port ?? 3000),
-      startedAt: String(raw.startedAt ?? ""),
-      childPid: raw.childPid != null ? Number(raw.childPid) : null,
-    };
+    return parseDevOwnershipRecord(JSON.parse(fs.readFileSync(marker, "utf8")));
   } catch {
     return null;
   }
+}
+
+export function readDevOwnership() {
+  return readDevOwnershipForSuffix(MARKER_SUFFIX);
 }
 
 export function writeDevOwnership(record) {
@@ -43,12 +55,44 @@ export function writeDevOwnership(record) {
   fs.writeFileSync(DEV_MARKER, `${JSON.stringify(record, null, 2)}\n`, "utf8");
 }
 
-export function clearDevOwnership() {
+export function clearDevOwnershipForSuffix(suffix = "") {
   try {
-    fs.unlinkSync(DEV_MARKER);
+    fs.unlinkSync(devMarkerPath(suffix));
   } catch {
     /* ignore */
   }
+}
+
+export function clearDevOwnership() {
+  clearDevOwnershipForSuffix(MARKER_SUFFIX);
+}
+
+/**
+ * Stop the dev server registered in a marker file, regardless of owner.
+ * Only kills PIDs recorded in the marker — never arbitrary port listeners.
+ */
+export function stopDevServerForSuffix(suffix = "") {
+  const record = readDevOwnershipForSuffix(suffix);
+  if (!record) return { stopped: false, reason: "no-marker", owner: null };
+
+  let stopped = false;
+  for (const pid of [record.wrapperPid, record.childPid].filter(Boolean)) {
+    if (pidAlive(pid)) {
+      try {
+        process.kill(pid, "SIGTERM");
+        stopped = true;
+      } catch {
+        /* ignore */
+      }
+    }
+  }
+
+  if (!pidAlive(record.wrapperPid)) clearDevOwnershipForSuffix(suffix);
+  return {
+    stopped,
+    reason: stopped ? "stopped" : "already-dead",
+    owner: record.owner,
+  };
 }
 
 export function portListeners(port) {

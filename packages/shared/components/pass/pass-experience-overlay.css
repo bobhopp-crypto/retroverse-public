@@ -1,0 +1,234 @@
+/* Pass Experience overlay — floats above the live broadcast.
+   Retroverse editorial palette: cream card, teal ink, orange accent. */
+
+.pass-xp {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .pass-xp {
+    align-items: center;
+  }
+}
+
+.pass-xp__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(16, 26, 30, 0.55);
+  border: none;
+  cursor: pointer;
+}
+
+.pass-xp__card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  max-height: calc(100dvh - 5rem);
+  overflow-y: auto;
+  background: #fffaf0;
+  color: #2d3e46;
+  border: 3px solid #2d3e46;
+  border-radius: 18px;
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  box-shadow: 8px 8px 0 rgba(18, 52, 58, 0.35);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  animation: pass-xp-rise 260ms ease-out;
+}
+
+@keyframes pass-xp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pass-xp__kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e07a4f;
+}
+
+.pass-xp__title {
+  margin: 0.3rem 0 0.2rem;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.pass-xp__serial {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1f5e63;
+}
+
+/* ── Claim form ── */
+
+.pass-xp__form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.pass-xp__form label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.pass-xp__form input {
+  padding: 0.8rem 0.85rem;
+  border: 2px solid rgba(45, 62, 70, 0.25);
+  border-radius: 10px;
+  background: #fff;
+  color: #2d3e46;
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.pass-xp__form input:focus {
+  outline: none;
+  border-color: #1f5e63;
+}
+
+.pass-xp__error {
+  margin: 0;
+  color: #a63d32;
+  font-weight: 700;
+}
+
+/* ── Buttons ── */
+
+.pass-xp__primary {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 1rem;
+  border: 3px solid #2d3e46;
+  border-radius: 999px;
+  background: #e07a4f;
+  color: #fffaf0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.pass-xp__primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pass-xp__secondary-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.pass-xp__secondary {
+  padding: 0.85rem;
+  border: 2px solid #1f5e63;
+  border-radius: 999px;
+  background: rgba(31, 94, 99, 0.08);
+  color: #1f5e63;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.pass-xp__skip {
+  display: block;
+  width: 100%;
+  margin-top: 0.9rem;
+  padding: 0.4rem;
+  border: none;
+  background: none;
+  color: rgba(45, 62, 70, 0.6);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ── Welcome back ── */
+
+.pass-xp__event {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid rgba(45, 62, 70, 0.18);
+  border-radius: 12px;
+  background: rgba(31, 94, 99, 0.05);
+}
+
+.pass-xp__event-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.55);
+}
+
+.pass-xp__event-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.pass-xp__actions {
+  display: grid;
+  gap: 0.6rem;
+}
+
+/* ── Confirmed ── */
+
+.pass-xp__confirmed {
+  text-align: center;
+  padding: 0.75rem 0;
+}
+
+.pass-xp__note {
+  margin: 0.5rem 0 0;
+  color: rgba(45, 62, 70, 0.7);
+  font-weight: 600;
+}
+
+/* ── My Pass ── */
+
+.pass-xp__details {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.75rem 0 1rem;
+  padding: 0.9rem;
+  border: 2px dashed rgba(45, 62, 70, 0.3);
+  border-radius: 12px;
+}
+
+.pass-xp__details dt {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.55);
+}
+
+.pass-xp__details dd {
+  margin: 0.15rem 0 0;
+  font-size: 1rem;
+  font-weight: 800;
+}

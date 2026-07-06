@@ -33,6 +33,7 @@ export async function loadPackageDiagnostics(pkg: SongPackage): Promise<PackageD
       year: snap.year,
       genre: snap.genre,
       remix: snap.remix,
+      label: "",
       user1: snap.user1,
       user2: snap.user2,
       playCount: snap.playCount,

@@ -16,8 +16,14 @@ export class AudibleDeckHysteresis {
     private readonly stablePolls: number,
   ) {}
 
+  reset(): void {
+    this.candidate = null;
+    this.stableCount = 0;
+    this.lastPublishedKey = null;
+  }
+
   private trackKey(track: StableTrack): string {
-    return `${track.deck}::${track.filepath}`;
+    return `${track.deck}::${track.filepath}::${track.artist}::${track.title}`;
   }
 
   observe(deck: VdjDeckSnapshot | null): StableTrack | null {
@@ -34,10 +40,14 @@ export class AudibleDeckHysteresis {
       title: deck.title.trim(),
     };
 
+    const key = this.trackKey(next);
+
     if (
       this.candidate &&
       this.candidate.deck === next.deck &&
-      this.candidate.filepath === next.filepath
+      this.candidate.filepath === next.filepath &&
+      this.candidate.artist === next.artist &&
+      this.candidate.title === next.title
     ) {
       this.stableCount += 1;
     } else {
@@ -45,10 +55,11 @@ export class AudibleDeckHysteresis {
       this.stableCount = 1;
     }
 
-    if (this.stableCount < this.stablePolls) return null;
-
-    const key = this.trackKey(next);
     if (key === this.lastPublishedKey) return null;
+
+    // First publish after start needs debounce; track changes publish immediately.
+    const requiredStable = this.lastPublishedKey === null ? this.stablePolls : 1;
+    if (this.stableCount < requiredStable) return null;
 
     this.lastPublishedKey = key;
     return next;

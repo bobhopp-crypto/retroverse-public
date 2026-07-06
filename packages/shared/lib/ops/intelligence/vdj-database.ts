@@ -50,6 +50,8 @@ export type VdjLibraryEntry = {
   year: number | null;
   genre: string;
   remix: string;
+  /** VDJ Label field — used to store RVTR identifiers. */
+  label: string;
   user1: string;
   user2: string;
   playCount: number | null;
@@ -120,6 +122,7 @@ export async function scanVdjDatabase(options?: { force?: boolean }): Promise<Vd
       year,
       genre: readAttr(tagsAttrs, "Genre"),
       remix: readAttr(tagsAttrs, "Remix"),
+      label: readAttr(tagsAttrs, "Label"),
       user1: readAttr(tagsAttrs, "User1"),
       user2: readAttr(tagsAttrs, "User2"),
       playCount: Number.isFinite(playCount) ? playCount : null,

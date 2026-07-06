@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { OpsPathPageTitle } from "@/components/bobos/rv-ids";
+
 import {
   BP2_FILTERS,
   filterCounts,
@@ -672,12 +674,12 @@ export function BrowserPlus2Client() {
       <header className="bp2__header">
         <div className="bp2__header-main">
           <p className="bp2__kicker">Browser+ · Library &amp; Queue</p>
-          <h1 className="bp2__title">Operations Center</h1>
+          <OpsPathPageTitle label="Browser+ 2.0" rvId="RV03-02" className="bp2__title" />
           <p className="bp2__subtitle">Library browse · batch queue · overnight runs</p>
         </div>
         <div className="bp2__header-actions">
           <Link href="/ops/studio" className="bp2__nav-link">
-            Mission Control
+            Song Package Pipeline
           </Link>
           <Link href="/ops/browser-plus" className="bp2__nav-link">
             Classic Browser+

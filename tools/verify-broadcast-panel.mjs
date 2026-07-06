@@ -66,6 +66,7 @@ function ingestSnapshot() {
     },
     publishedAt: now,
     updatedAt: now,
+    autoFollowVdj: true,
   };
 }
 

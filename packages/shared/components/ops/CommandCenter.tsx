@@ -8,11 +8,14 @@ import {
   COMMAND_CENTER_LEGACY_ENTRY,
   COMMAND_CENTER_LEGACY_LINKS,
 } from "@/lib/ops/command-center";
+import { getRvIdByHref } from "@/lib/bobos/rv-ids";
 import type {
   CommandCenterDashboard,
   CommandCenterModule,
   ModuleStatusTone,
 } from "@/lib/ops/command-center/types";
+
+import { RvIdLabel, RvIdPageTitle } from "@/components/bobos/rv-ids";
 
 type Props = {
   data: CommandCenterDashboard;
@@ -112,8 +115,8 @@ export function CommandCenter({ data }: Props) {
         <div className="cc-mc__hero-status">
           <span className={statusClass(data.overallStatus)} aria-hidden />
           <div>
-            <p className="cc-mc__kicker">Retroverse Mission Control</p>
-            <h1 className="cc-mc__title">Command Center</h1>
+            <p className="cc-mc__kicker">Retroverse Ops</p>
+            <RvIdPageTitle rvId="RV01-05" label="Operations Directory" className="cc-mc__title" />
             <p className="cc-mc__headline">{data.overallHeadline}</p>
             <p className="cc-mc__detail">{data.overallDetail}</p>
           </div>
@@ -136,7 +139,7 @@ export function CommandCenter({ data }: Props) {
               <div className="cc-mc__launchpad-links">
                 {department.links.map((link) => (
                   <Link key={link.href} href={link.href}>
-                    {link.label}
+                    <RvIdLabel rvId={getRvIdByHref(link.href)} label={link.label} />
                   </Link>
                 ))}
               </div>
@@ -145,10 +148,12 @@ export function CommandCenter({ data }: Props) {
           <div className="cc-mc__launchpad-dept">
             <h3 style={{ color: "#6B7280" }}>Legacy</h3>
             <div className="cc-mc__launchpad-links">
-              <Link href={COMMAND_CENTER_LEGACY_ENTRY.href}>{COMMAND_CENTER_LEGACY_ENTRY.label}</Link>
+              <Link href={COMMAND_CENTER_LEGACY_ENTRY.href}>
+                <RvIdLabel rvId={getRvIdByHref(COMMAND_CENTER_LEGACY_ENTRY.href)} label={COMMAND_CENTER_LEGACY_ENTRY.label} />
+              </Link>
               {COMMAND_CENTER_LEGACY_LINKS.map((link) => (
                 <Link key={link.href} href={link.href}>
-                  {link.label}
+                  <RvIdLabel rvId={getRvIdByHref(link.href)} label={link.label} />
                 </Link>
               ))}
             </div>

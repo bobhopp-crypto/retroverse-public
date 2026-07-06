@@ -15,6 +15,33 @@ export type CrossfaderPickOptions = {
 };
 
 /**
+ * Pick the deck VirtualDJ is actually outputting.
+ *
+ * Prefer `is_audible` — crossfader position alone can point at a loaded but
+ * silent deck while the other deck is on air (stale metadata).
+ * During blends (both audible), fall back to crossfader dead-zone logic.
+ */
+export function pickActiveDeck(
+  decks: VdjDeckSnapshot[],
+  crossfaderResult: number,
+  opts: CrossfaderPickOptions,
+): VdjDeckSnapshot | null {
+  const loaded = decks.filter(
+    (d) => d.filepath.trim() && d.artist.trim() && d.title.trim(),
+  );
+  if (loaded.length === 0) return null;
+  if (loaded.length === 1) return loaded[0]!;
+
+  const audible = loaded.filter((d) => d.audible);
+  if (audible.length === 1) return audible[0]!;
+  if (audible.length > 1) {
+    return pickCrossfaderDeck(audible, crossfaderResult, opts) ?? audible[0]!;
+  }
+
+  return pickCrossfaderDeck(loaded, crossfaderResult, opts);
+}
+
+/**
  * Pick the on-air deck from crossfader result.
  * Uses a dead-zone band (default 45–55) to avoid flip-flopping during blends.
  */

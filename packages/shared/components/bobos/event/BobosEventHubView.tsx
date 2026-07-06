@@ -24,7 +24,7 @@ export function BobosEventHubView({ binder }: Props) {
     <div className="bobos-page bobos-event-hub">
       <BobosPageHeader
         page="Event Hub"
-        subtitle="Producer sets the plan. Pass Studio prints the passes. Everything else follows from here."
+        subtitle="Producer sets the plan. Design Builder handles passes and visual assets. Everything else follows from here."
         eventName={snapshot.eventName}
         status={snapshot.status}
         statusTone={statusTone(snapshot.status)}

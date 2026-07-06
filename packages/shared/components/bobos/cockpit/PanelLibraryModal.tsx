@@ -1,7 +1,9 @@
 "use client";
 
+import { RvIdLabel } from "@/components/bobos/rv-ids";
 import { panelsInGroup, PANEL_LIBRARY_GROUPS } from "@/lib/bobos/cockpit/panel-library";
 import { PANEL_GROUP_LABELS, type PanelTypeId } from "@/lib/bobos/cockpit/types";
+import { getPanelRegistryLabel, getRvIdByPanelType } from "@/lib/bobos/rv-ids";
 
 type Props = {
   cellRef: string;
@@ -39,7 +41,12 @@ export function PanelLibraryModal({ cellRef, onSelect, onClose }: Props) {
                 {panelsInGroup(group).map((panel) => (
                   <li key={panel.id}>
                     <button type="button" className="cockpit-library-item" onClick={() => onSelect(panel.id)}>
-                      <span className="cockpit-library-item__title">{panel.title}</span>
+                      <span className="cockpit-library-item__title">
+                        <RvIdLabel
+                          rvId={getRvIdByPanelType(panel.id)}
+                          label={getPanelRegistryLabel(panel.id, panel.title)}
+                        />
+                      </span>
                       <span className="cockpit-library-item__summary">{panel.summary}</span>
                     </button>
                   </li>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { OpsPathPageTitle } from "@/components/bobos/rv-ids";
 import { StudioGuideChrome } from "@/components/ops/studio/operator-guide";
 import type { StudioGuidePageId } from "@/lib/ops/studio/operator-guide";
 import type { StudioDepartmentId } from "@/lib/ops/studio/departments";
@@ -44,7 +45,7 @@ export function StudioShell({
 
   return (
     <div className="ops-studio">
-      <header className="ops-studio__rail" aria-label="Studio navigation">
+      <header className="ops-studio__rail" aria-label="Song Package Pipeline navigation">
         <Link
           href="/ops/studio"
           className={
@@ -54,10 +55,10 @@ export function StudioShell({
           }
           aria-current={active === "dashboard" ? "page" : undefined}
         >
-          Mission Control
+          Song Package Pipeline
         </Link>
 
-        <nav className="ops-studio__nav" aria-label="Studio departments">
+        <nav className="ops-studio__nav" aria-label="Pipeline departments">
           <Link href="/ops/browser-plus-2" className="ops-studio__nav-link">
             Library &amp; Queue
           </Link>
@@ -88,7 +89,7 @@ export function StudioShell({
         </nav>
 
         <Link className="ops-studio__back" href="/ops">
-          Command Center
+          Operations Directory
         </Link>
       </header>
 
@@ -96,7 +97,7 @@ export function StudioShell({
 
       {showDashboardHero && title ? (
         <div className="ops-studio__intro">
-          <h1 className="ops-command__title">{title}</h1>
+          <OpsPathPageTitle label={title} rvId="RV03-13" className="ops-command__title" />
           {lead ? <p className="ops-command__lead">{lead}</p> : null}
         </div>
       ) : lead ? (

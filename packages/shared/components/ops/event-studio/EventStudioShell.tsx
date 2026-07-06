@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { EventStudioPageHeader } from "@/components/ops/event-studio/EventStudioPageHeader";
 import { EVENT_STUDIO_SUNDAY_NAV } from "@/lib/ops/event-studio/nav";
 import { loadProducerWorkflow } from "@/lib/ops/event-studio/producer/workflow";
 import { productionModuleStatusLabel } from "@/lib/ops/event-studio/producer/module-status";
@@ -84,28 +85,20 @@ export async function EventStudioShell({
 
           <div className="ops-event-studio__sidebar-foot">
             <Link href="/ops" className="ops-event-studio__back">
-              Command Center
+              Operations Directory
             </Link>
           </div>
         </aside>
 
         <div className="ops-event-studio__main">
           {!workspace ? (
-            <header className="ops-event-studio__head">
-              <div>
-                <p className="ops-event-studio__section-kicker">BobOS</p>
-                <h1 className="ops-event-studio__page-title">{title}</h1>
-                {lead ? <p className="ops-event-studio__page-lead">{lead}</p> : null}
-                <div className="ops-event-studio__head-meta">
-                  <span className="ops-event-studio__head-event">{snapshot.eventName}</span>
-                  <span
-                    className={`ops-event-studio__status ops-event-studio__status--${snapshot.status.toLowerCase()}`}
-                  >
-                    {snapshot.status}
-                  </span>
-                </div>
-              </div>
-            </header>
+            <EventStudioPageHeader
+              title={title}
+              lead={lead}
+              eventName={snapshot.eventName}
+              status={snapshot.status}
+              statusClassName={`ops-event-studio__status ops-event-studio__status--${snapshot.status.toLowerCase()}`}
+            />
           ) : null}
           {children}
         </div>

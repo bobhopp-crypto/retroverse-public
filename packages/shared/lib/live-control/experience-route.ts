@@ -1,13 +1,12 @@
-/** Primary patron live destination — existing Song Experience route. */
+/** Song experience URL — library discovery only; live audience is at /. */
 export function liveSongExperienceHref(rvtr: string): string {
   return `/retroverse-2/song/${rvtr.trim().toUpperCase()}`;
 }
 
-export function shouldOpenSongExperienceDirect(input: {
+/** @deprecated Live audience routes to the Broadcast player. */
+export function shouldOpenSongExperienceDirect(_input: {
   channelRunning?: boolean;
   liveSource?: string | null;
 }): boolean {
-  if (input.channelRunning) return true;
-  if (input.liveSource === "channel" || input.liveSource === "bridge") return true;
   return false;
 }

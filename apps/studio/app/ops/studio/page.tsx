@@ -9,7 +9,7 @@ import { isOpsEnabled } from "@/lib/ops/ops-gate";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Mission Control — Retroverse Studio",
+  title: "Song Package Pipeline — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 
@@ -22,7 +22,7 @@ export default async function StudioDashboardPage() {
     <main className="ops-page ops-command ops-studio-page">
       <div className="ops-page__grain" aria-hidden />
       <div className="ops-page__inner">
-        <StudioShell active="dashboard" showGuideChrome={false}>
+        <StudioShell active="dashboard" showGuideChrome={false} title="Song Package Pipeline">
           <LivingStudioHome initialSnapshot={snapshot} />
         </StudioShell>
       </div>

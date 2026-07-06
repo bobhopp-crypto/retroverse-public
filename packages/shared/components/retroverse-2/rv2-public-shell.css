@@ -113,6 +113,12 @@ html:has(.rv2-live) body::-webkit-scrollbar {
   background: rgba(44, 117, 255, 0.18);
 }
 
+.rv2-live__nav-link--return-live {
+  border-color: rgba(66, 241, 135, 0.55);
+  color: var(--rv2-green);
+  background: rgba(66, 241, 135, 0.12);
+}
+
 .rv2-live__search-panel {
   border: 1px solid var(--rv2-line);
   border-radius: 0.65rem;

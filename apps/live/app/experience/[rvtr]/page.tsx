@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import { ExperiencePlayer } from "@/components/retroverse/renderer/ExperiencePlayer";
 import { resolveExperiencePublicationBlock } from "@/lib/ops/studio/publisher/gate";
@@ -31,58 +31,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function ExperienceNotReady({ message }: { message: string }) {
-  return (
-    <div className="rv-exp rv-exp--missing">
-      <div className="rv-exp-missing">
-        <h1 className="rv-exp-missing__title">Experience not ready</h1>
-        <p className="rv-exp-missing__body">{message}</p>
-      </div>
-    </div>
-  );
-}
-
-function ExperienceUnpublished({ rvtr }: { rvtr: string }) {
-  return (
-    <div className="rv-exp rv-exp--missing">
-      <div className="rv-exp-missing">
-        <h1 className="rv-exp-missing__title">Awaiting publication</h1>
-        <p className="rv-exp-missing__body">
-          This experience has not yet been approved by Publisher.
-        </p>
-        <Link href={`/ops/studio/publisher/${rvtr}`} className="rv-exp-missing__cta">
-          Open Publisher review
-        </Link>
-      </div>
-    </div>
-  );
-}
-
+/**
+ * Museum-quality showcase experiences live here once Publisher has approved
+ * them. For every other state (not ready, unpublished, invalid, or a load
+ * failure) this route defers to the canonical Song Experience instead of
+ * dead-ending — Retroverse always has *something* richer to show than a
+ * "not ready" message.
+ */
 export default async function ExperiencePage({ params }: Props) {
   const { rvtr } = await params;
   const block = await resolveExperiencePublicationBlock(rvtr);
 
-  if (block.kind === "invalid_rvtr") {
-    return (
-      <ExperienceNotReady message="This song identifier is not valid. Check the RVTR and try again." />
-    );
-  }
-
-  if (block.kind === "not_ready") {
-    return (
-      <ExperienceNotReady message="Director has not finished the render specification for this song yet." />
-    );
+  if (block.kind === "invalid_rvtr" || block.kind === "not_ready") {
+    redirect(`/retroverse-2/song/${encodeURIComponent(rvtr)}`);
   }
 
   if (block.kind === "unpublished") {
-    return <ExperienceUnpublished rvtr={block.rvtr} />;
+    redirect(`/retroverse-2/song/${block.rvtr}`);
   }
 
   const payload = await loadPublicExperience(rvtr);
   if (!payload) {
-    return (
-      <ExperienceNotReady message="This experience could not be loaded. Check Director output in Studio." />
-    );
+    redirect(`/retroverse-2/song/${encodeURIComponent(rvtr)}`);
   }
 
   const publisherRecord = await getPublisherRecord(rvtr);

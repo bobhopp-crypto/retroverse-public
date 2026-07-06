@@ -105,10 +105,10 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
       },
       {
         id: "pass-generator",
-        name: "Pass Studio",
+        name: "Design Builder",
         href: "/bobos/passes",
-        description: "Producer-driven pass production — designs, print, and QR registration for the current show.",
-        purpose: "Generate collectible passes from BobOS Pass Studio.",
+        description: "Producer-driven visual asset production — passes, credentials, posters, and print sheets.",
+        purpose: "Build collectible passes and event visual assets in Design Builder.",
         status: "SUNDAY NIGHTS",
       },
       {
@@ -281,15 +281,15 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         id: "event-hub",
         name: "Event Hub",
         href: "/bobos/event",
-        description: "BobOS Sunday production hub — Producer, Pass Studio, giveaway, and homepage.",
+        description: "BobOS Sunday production hub — Producer, Design Builder, giveaway, and homepage.",
         purpose: "Start here for tonight's show: binder, checklist, and one-click production tools.",
         status: "SUNDAY NIGHTS",
       },
       {
         id: "event-studio",
-        name: "Event Studio",
+        name: "Legacy Event Tools",
         href: "/ops/event-studio",
-        description: "Legacy Event Studio routes — Producer, assets, publish, and archive.",
+        description: "Legacy event ops routes — Producer, assets, publish, and archive.",
         purpose: "Older ops shell; Event Hub at /bobos/event is the primary BobOS entry.",
         status: "IN PROGRESS",
       },
@@ -298,7 +298,7 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         name: "Content Creator",
         href: "/ops/content-creator",
         description: "RVBR Art Director — generate, edit, export passes in one screen.",
-        purpose: "Legacy collectible library and generators (migrating into Event Studio).",
+        purpose: "Legacy collectible library and generators (migrating into Legacy Event Tools).",
         status: "IN PROGRESS",
       },
       {
@@ -386,15 +386,15 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
 
 export const OPS_PUBLIC_QUICK_LINKS: OpsQuickLink[] = [
   { label: "Retroverse Home", href: "/", external: true },
-  { label: "Sunday Nights", href: "/sunday-nights", external: true },
+  { label: "Retroverse Live", href: "/", external: true },
 ];
 
 export const OPS_CONSOLE_QUICK_LINKS: OpsQuickLink[] = [
   { label: "Operations Hub", href: "/ops/hub" },
   { label: "Sunday Nights", href: "/ops/sunday-nights" },
   { label: "Event Hub", href: "/bobos/event" },
-  { label: "Pass Studio", href: "/bobos/passes" },
-  { label: "Event Studio", href: "/ops/event-studio" },
+  { label: "Design Builder", href: "/bobos/passes" },
+  { label: "Legacy Event Tools", href: "/ops/event-studio" },
   { label: "Content Creator", href: "/ops/content-creator" },
   { label: "Pass Registrations", href: "/ops/pass-registrations" },
   { label: "Year Workspace 1967", href: "/ops/year/1967" },

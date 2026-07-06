@@ -1,9 +1,10 @@
 export type PublishPayload = {
-  filepath: string;
-  artist: string;
-  title: string;
-  deck: number;
+  playing: boolean;
   timestamp: string;
+  filepath?: string;
+  artist?: string;
+  title?: string;
+  deck?: number;
 };
 
 export async function publishLiveTrack(

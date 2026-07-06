@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+import { ReturnToLiveLink } from "@/components/live-experience/ReturnToLiveLink";
 import {
   adminMenuZones,
   detectAppZone,
@@ -11,6 +12,7 @@ import {
   zoneHref,
 } from "@/lib/navigation/app-zones";
 import { detectPublicNavLink, PUBLIC_NAV_LINKS } from "@/lib/navigation/public-nav";
+import { isLiveBroadcastPath } from "@/lib/bobos/presentation/canonical-audience";
 
 import "./retroverse-global-nav.css";
 
@@ -154,6 +156,9 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
         </Link>
 
         <nav className="rv-global-nav__zones" aria-label="Public navigation">
+          {!isLiveBroadcastPath(pathname) ? (
+            <ReturnToLiveLink className="rv-global-nav__return-live" />
+          ) : null}
           {PUBLIC_NAV_LINKS.map((link) => {
             const isActive = activePublicLink === link.id;
             return (

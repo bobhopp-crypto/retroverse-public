@@ -135,6 +135,7 @@ export async function resolveRvtrsForVdjPaths(
     genre: "",
     remix: "",
     user1: "",
+    label: "",
     user2: "",
     playCount: null,
     rating: null,

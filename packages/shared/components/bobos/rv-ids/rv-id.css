@@ -1,0 +1,39 @@
+.rv-id-badge {
+  display: inline-block;
+  margin-right: 0.35em;
+  padding: 0.05em 0.35em;
+  border: 1px solid rgba(120, 180, 140, 0.45);
+  border-radius: 3px;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #9fd4a8;
+  background: rgba(20, 40, 28, 0.55);
+  vertical-align: baseline;
+}
+
+.rv-id-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid #3a3a38;
+  border-radius: 4px;
+  background: #1a1a18;
+  color: #a8a49c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.rv-id-toggle input {
+  accent-color: #6fcf97;
+}
+
+.rv-id-toggle__text {
+  line-height: 1;
+}

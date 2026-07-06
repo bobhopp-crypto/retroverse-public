@@ -11,9 +11,9 @@ export const dynamic = "force-dynamic";
 /** Read alias — same payload as /api/sunday-nights/current. */
 export async function GET() {
   try {
-    const { maybeAdvanceLiveChannel } = await import("@/lib/live-control/engine");
+    const { tickLiveControl } = await import("@/lib/live-control/engine");
     const { loadLiveControlState } = await import("@/lib/live-control/state");
-    await maybeAdvanceLiveChannel();
+    await tickLiveControl();
     const [state, control] = await Promise.all([
       loadSundayNightsState(),
       loadLiveControlState(),

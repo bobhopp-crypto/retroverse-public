@@ -8,7 +8,10 @@ import {
   movePlayhead,
   publishPresentation,
   saveDraft,
+  savePresentationState,
+  syncBroadcast,
 } from "@/lib/bobos/presentation/store";
+import { enabledItems } from "@/lib/bobos/presentation/resolve-playhead";
 import { publicSiteBaseUrl } from "@/lib/bobos/presentation/push-public";
 import {
   newPresentationItem,
@@ -100,7 +103,7 @@ export async function getBroadcastStatus(options?: {
   return {
     local,
     publicSync,
-    publicPlayerUrl: `${publicSiteBaseUrl()}/retroverse-live`,
+    publicPlayerUrl: `${publicSiteBaseUrl()}/`,
   };
 }
 
@@ -109,6 +112,13 @@ export async function getBroadcastStatus(options?: {
 export async function broadcastTransport(command: PlayheadCommand): Promise<BroadcastStatus> {
   assertLocalStudio();
   await movePlayhead(command, "cockpit");
+  return getBroadcastStatus({ forcePublicCheck: true });
+}
+
+export async function setBroadcastAutoFollowVdj(enabled: boolean): Promise<BroadcastStatus> {
+  assertLocalStudio();
+  const { setAutoFollowVdj } = await import("@/lib/bobos/presentation/vdj-takeover");
+  await setAutoFollowVdj(enabled);
   return getBroadcastStatus({ forcePublicCheck: true });
 }
 
@@ -168,6 +178,86 @@ export async function broadcastQueueOp(op: BroadcastQueueOp): Promise<BroadcastS
   });
   await publishPresentation(presentation.id);
   return getBroadcastStatus({ forcePublicCheck: true });
+}
+
+/* ── Broadcast Source ── */
+
+export type BroadcastSourceRefreshResult = BroadcastStatus & {
+  itemCount: number;
+  source: string;
+};
+
+/**
+ * Rebuild the broadcast queue from VirtualDJ's database.xml.
+ * Filters: video files, PlayCount >= 5, valid Artist+Title, no duplicates.
+ * Each song gets a 45-second slot via the Universal Renderer.
+ */
+export async function refreshBroadcastFromDatabaseXml(options?: {
+  songDurationSeconds?: number;
+}): Promise<BroadcastSourceRefreshResult> {
+  assertLocalStudio();
+
+  const { buildDatabaseXmlBroadcastQueue } = await import(
+    "@/lib/broadcast-source/database-xml"
+  );
+  const { DEFAULT_BROADCAST_SOURCE } = await import("@/lib/broadcast-source/types");
+
+  const config = {
+    ...DEFAULT_BROADCAST_SOURCE,
+    songDurationSeconds: options?.songDurationSeconds ?? DEFAULT_BROADCAST_SOURCE.songDurationSeconds,
+  };
+
+  const newQueue = await buildDatabaseXmlBroadcastQueue(config);
+  if (newQueue.items.length === 0) {
+    throw new Error(
+      "No eligible video tracks in database.xml (video, PlayCount ≥ 5, Artist+Title required).",
+    );
+  }
+
+  let presentation = await getActivePresentation();
+  if (!presentation) {
+    presentation = await createPresentation("Retroverse Broadcast");
+  }
+
+  const draft = await saveDraft(presentation.id, {
+    title: presentation.title,
+    description: presentation.description,
+    queue: newQueue,
+  });
+  if (!draft) {
+    throw new Error(`Failed to save broadcast queue draft for presentation ${presentation.id}.`);
+  }
+
+  const published = await publishPresentation(presentation.id);
+  if (!published?.published) {
+    throw new Error(`Failed to publish broadcast queue for presentation ${presentation.id}.`);
+  }
+
+  // publishPresentation skips playhead re-anchor when the same presentation stays on air.
+  // A source refresh replaces every queue item — re-anchor and re-sync the snapshot so
+  // Broadcast Desk / playhead payload reflect the new VDJ queue immediately.
+  const state = await loadPresentationState();
+  const firstEnabled = enabledItems(newQueue)[0] ?? null;
+  const now = new Date().toISOString();
+  state.playhead = {
+    presentationId: presentation.id,
+    anchorItemId: firstEnabled?.id ?? null,
+    anchorStartedAt: now,
+    mode: firstEnabled ? "playing" : "paused",
+    movedBy: "system",
+    updatedAt: now,
+  };
+  state.broadcastSourceMeta = {
+    id: config.id,
+    itemCount: newQueue.items.length,
+    generatedAt: now,
+    songDurationSeconds: config.songDurationSeconds,
+  };
+  await savePresentationState(state);
+  await syncBroadcast();
+
+  const status = await getBroadcastStatus({ forcePublicCheck: true });
+  return { ...status, itemCount: newQueue.items.length, source: config.id };
 }
 
 /* ── Seeding ── */

@@ -17,7 +17,7 @@ import "./live-ops.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Bridge Health — Retroverse Ops",
+  title: "Event Command Center — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 

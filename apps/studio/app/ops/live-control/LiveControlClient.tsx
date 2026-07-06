@@ -19,6 +19,7 @@ const YEAR_OPTIONS = Array.from({ length: 35 }, (_, index) => 1960 + index);
 const PLAYLIST_YEARS = [1967, 1978, 1992];
 
 const MODE_LABELS = {
+  off: "Off",
   vdj: "VirtualDJ Mode",
   demo: "Demo Mode",
   playlist: "Playlist Mode",

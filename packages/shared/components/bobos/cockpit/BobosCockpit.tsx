@@ -12,6 +12,8 @@ import type { Project } from "@/lib/bobos/project-zero/types";
 
 import { CockpitPanel } from "./CockpitPanel";
 import { PanelLibraryModal } from "./PanelLibraryModal";
+import { RvIdLabel, RvIdToggle } from "@/components/bobos/rv-ids";
+import { getRvIdByHref } from "@/lib/bobos/rv-ids";
 
 import "./cockpit.css";
 
@@ -19,9 +21,11 @@ type Props = {
   initialState: CockpitState;
   projects: Project[];
   panelData: CockpitPanelData;
+  /** Optional renderer for app-specific panels not in the shared package. */
+  renderAppPanel?: (id: string) => React.ReactNode;
 };
 
-export function BobosCockpit({ initialState, projects, panelData }: Props) {
+export function BobosCockpit({ initialState, projects, panelData, renderAppPanel }: Props) {
   const [state, setState] = useState(initialState);
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [selectedCell, setSelectedCell] = useState<number | null>(null);
@@ -102,17 +106,22 @@ export function BobosCockpit({ initialState, projects, panelData }: Props) {
   return (
     <div className="bobos-cockpit">
       <header className="cockpit-header">
-        <div className="cockpit-title-plate">
-          <div className="cockpit-title-plate__rivets" aria-hidden="true" />
-          <div className="cockpit-title-plate__body">
-            <p className="cockpit-title-plate__kicker">Bob Operating System</p>
-            <h1 className="cockpit-title-plate__title">BobOS Cockpit</h1>
-            <p className="cockpit-title-plate__status">
-              <span className="cockpit-lamp cockpit-lamp--green" aria-hidden="true" />
-              SYSTEM NOMINAL
-              {saving ? " · SAVING…" : ""}
-            </p>
+        <div className="cockpit-header__top">
+          <div className="cockpit-title-plate">
+            <div className="cockpit-title-plate__rivets" aria-hidden="true" />
+            <div className="cockpit-title-plate__body">
+              <p className="cockpit-title-plate__kicker">Bob Operating System</p>
+              <h1 className="cockpit-title-plate__title">
+                <RvIdLabel rvId="RV01-01" label="BobOS Cockpit" />
+              </h1>
+              <p className="cockpit-title-plate__status">
+                <span className="cockpit-lamp cockpit-lamp--green" aria-hidden="true" />
+                SYSTEM NOMINAL
+                {saving ? " · SAVING…" : ""}
+              </p>
+            </div>
           </div>
+          <RvIdToggle />
         </div>
 
         <div className="cockpit-workspaces" role="tablist" aria-label="Workspaces">
@@ -162,6 +171,7 @@ export function BobosCockpit({ initialState, projects, panelData }: Props) {
                 onToggleMenu={() => setMenuCell(menuCell === index ? null : index)}
                 onChangePanel={() => openLibrary(index)}
                 onRemove={() => removePanel(index)}
+                renderAppPanel={renderAppPanel}
               />
             );
           })}
@@ -173,7 +183,7 @@ export function BobosCockpit({ initialState, projects, panelData }: Props) {
         <div className="cockpit-command-bar__buttons">
           {COCKPIT_COMMAND_BAR.map((cmd) => (
             <Link key={cmd.label} href={cmd.href} className="cockpit-cmd-btn">
-              {cmd.label}
+              <RvIdLabel rvId={getRvIdByHref(cmd.href)} label={cmd.label} />
             </Link>
           ))}
         </div>

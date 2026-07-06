@@ -19,9 +19,11 @@ type FieldKey =
   | "d1_filepath"
   | "d1_artist"
   | "d1_title"
+  | "d1_audible"
   | "d2_filepath"
   | "d2_artist"
   | "d2_title"
+  | "d2_audible"
   | "crossfader"
   | "clock";
 
@@ -30,9 +32,11 @@ const FIELD_QUERIES: { key: FieldKey; script: string; force?: "text" }[] = [
   { key: "d1_filepath", script: "deck 1 get_filepath", force: "text" },
   { key: "d1_artist", script: "deck 1 get_artist", force: "text" },
   { key: "d1_title", script: "deck 1 get_title", force: "text" },
+  { key: "d1_audible", script: "deck 1 is_audible" },
   { key: "d2_filepath", script: "deck 2 get_filepath", force: "text" },
   { key: "d2_artist", script: "deck 2 get_artist", force: "text" },
   { key: "d2_title", script: "deck 2 get_title", force: "text" },
+  { key: "d2_audible", script: "deck 2 is_audible" },
   { key: "crossfader", script: "get_crossfader_result" },
 ];
 
@@ -40,9 +44,11 @@ const SUBSCRIBE_SCRIPTS = [
   "deck 1 get_filepath",
   "deck 1 get_artist",
   "deck 1 get_title",
+  "deck 1 is_audible",
   "deck 2 get_filepath",
   "deck 2 get_artist",
   "deck 2 get_title",
+  "deck 2 is_audible",
   "get_crossfader_result",
 ];
 
@@ -55,6 +61,8 @@ function matchField(address: string): FieldKey | null {
   if (a.includes("/deck/2/") && a.includes("get_filepath")) return "d2_filepath";
   if (a.includes("/deck/2/") && a.includes("get_artist")) return "d2_artist";
   if (a.includes("/deck/2/") && a.includes("get_title")) return "d2_title";
+  if (a.includes("/deck/1/") && a.includes("is_audible")) return "d1_audible";
+  if (a.includes("/deck/2/") && a.includes("is_audible")) return "d2_audible";
   if (a.includes("get_crossfader_result")) return "crossfader";
   return null;
 }
@@ -63,6 +71,11 @@ function formatArg(v: OscMessage["args"][number]): string {
   if (v === null || v === undefined) return "";
   if (typeof v === "boolean") return v ? "true" : "false";
   return String(v);
+}
+
+function parseAudible(raw: string): boolean {
+  const v = raw.trim().toLowerCase();
+  return v === "true" || v === "1" || v === "yes" || v === "on";
 }
 
 function parseCrossfader(raw: string): number {
@@ -119,16 +132,45 @@ export class VdjOscSensor {
     }
   }
 
+  /** Poll OSC and wait until deck fields reflect this cycle (or timeout). */
+  async refreshQueriesAndWait(timeoutMs = 700): Promise<void> {
+    const startedMs = Date.now();
+    await this.refreshQueries();
+    while (Date.now() - startedMs < timeoutMs) {
+      if (this.deckFieldsFreshSince(startedMs)) return;
+      await sleep(25);
+    }
+  }
+
+  private deckFieldsFreshSince(sinceMs: number): boolean {
+    const keys: FieldKey[] = [
+      "d1_filepath",
+      "d1_artist",
+      "d1_title",
+      "d1_audible",
+      "d2_filepath",
+      "d2_artist",
+      "d2_title",
+      "d2_audible",
+      "crossfader",
+    ];
+    return keys.every((key) => {
+      const entry = this.cache.get(key);
+      return Boolean(entry && entry.updatedAt >= sinceMs);
+    });
+  }
+
   getDeckSnapshots(deckCount: number): VdjDeckSnapshot[] {
     const decks: VdjDeckSnapshot[] = [];
     for (let deck = 1; deck <= deckCount; deck += 1) {
       const prefix = deck === 1 ? "d1" : "d2";
+      const audibleRaw = this.cache.get(`${prefix}_audible` as FieldKey)?.value ?? "";
       decks.push({
         deck,
         filepath: this.cache.get(`${prefix}_filepath` as FieldKey)?.value ?? "",
         artist: this.cache.get(`${prefix}_artist` as FieldKey)?.value ?? "",
         title: this.cache.get(`${prefix}_title` as FieldKey)?.value ?? "",
-        audible: false,
+        audible: parseAudible(audibleRaw),
         elapsedMs: 0,
       });
     }

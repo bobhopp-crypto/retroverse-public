@@ -66,19 +66,25 @@ const nextConfig = {
     externalDir: true,
   },
   async redirects() {
+    const audience = [
+      { source: "/live", destination: "/", permanent: false },
+      { source: "/sunday-nights", destination: "/", permanent: false },
+      { source: "/retroverse-2/live", destination: "/", permanent: false },
+      { source: "/retroverse-live", destination: "/", permanent: false },
+    ];
     const browse = [
       { source: "/browse/artists", destination: "/", permanent: false },
       { source: "/browse/albums", destination: "/", permanent: false },
       { source: "/browse/tracks", destination: "/", permanent: false },
       { source: "/browse/:path*", destination: "/", permanent: false },
     ];
-    if (isDev) return browse;
+    if (isDev) return [...audience, ...browse];
     // Production: internal tools are not part of this deployment — send home.
     const internal = STUDIO_PREFIXES.flatMap((prefix) => [
       { source: prefix, destination: "/", permanent: false },
       { source: `${prefix}/:path*`, destination: "/", permanent: false },
     ]);
-    return [...browse, ...internal];
+    return [...audience, ...browse, ...internal];
   },
   async rewrites() {
     const beforeFiles = [];

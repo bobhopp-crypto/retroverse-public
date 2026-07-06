@@ -1,7 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+
+import { CANONICAL_AUDIENCE_HREF } from "@/lib/bobos/presentation/canonical-audience";
 
 const CHANNEL_POLL_MS = 3000;
 
@@ -10,16 +12,10 @@ type Props = {
 };
 
 /**
- * When the live channel is running, follow song changes automatically.
- * Used on Song Experience — no extra click through Now Playing.
+ * When the live channel is running, send patrons to the Broadcast player.
  */
-export function LiveChannelFollower({ rvtr }: Props) {
+export function LiveChannelFollower(_props: Props) {
   const router = useRouter();
-  const rvtrRef = useRef(rvtr.toUpperCase());
-
-  useEffect(() => {
-    rvtrRef.current = rvtr.toUpperCase();
-  }, [rvtr]);
 
   useEffect(() => {
     let cancelled = false;
@@ -29,16 +25,12 @@ export function LiveChannelFollower({ rvtr }: Props) {
         const res = await fetch("/api/sunday-nights/current", { cache: "no-store" });
         if (!res.ok || cancelled) return;
         const data = (await res.json()) as {
-          currentTrackId?: string | null;
           channel?: { running?: boolean } | null;
         };
         if (!data.channel?.running) return;
-        const next = data.currentTrackId?.trim().toUpperCase();
-        if (!next || next === rvtrRef.current) return;
-        rvtrRef.current = next;
-        router.replace(`/retroverse-2/song/${next}`);
+        router.replace(CANONICAL_AUDIENCE_HREF);
       } catch {
-        /* keep current song visible */
+        /* keep current view */
       }
     }
 

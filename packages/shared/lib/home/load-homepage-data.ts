@@ -6,7 +6,7 @@ import { ARTIST_SLUGS } from "@/lib/artist/slug";
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadBrowserPlusModel } from "@/lib/ops/browser-plus/load-browser-plus";
 import type { BrowserPlusRow } from "@/lib/ops/browser-plus/types";
-import { maybeAdvanceLiveChannel } from "@/lib/live-control/engine";
+import { tickLiveControl } from "@/lib/live-control/engine";
 import { loadLiveControlState } from "@/lib/live-control/state";
 import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
@@ -91,7 +91,7 @@ function buildPopularSongs(rows: BrowserPlusRow[]): HomeMediaCard[] {
 }
 
 export async function loadBridgeNowPlaying(): Promise<HomeNowPlaying | null> {
-  await maybeAdvanceLiveChannel();
+  await tickLiveControl();
   const [state, control] = await Promise.all([
     loadSundayNightsState(),
     loadLiveControlState(),
@@ -114,7 +114,7 @@ export async function loadBridgeNowPlaying(): Promise<HomeNowPlaying | null> {
     year: track?.releaseYear ?? live?.year ?? null,
     coverUrl: track?.coverUrl ?? live?.coverUrl ?? null,
     rvtr: payload.currentTrackId,
-    liveHref: "/retroverse-2/live",
+    liveHref: "/",
   };
 }
 

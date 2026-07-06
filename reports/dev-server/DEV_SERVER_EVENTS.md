@@ -349,3 +349,311 @@ Events below are appended automatically at runtime.
 - **signal:** —
 - **command:** node tools/next-dev.mjs (npm-dev)
 - **note:** next child exited
+## 2026-07-03T22:01:09.240Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 23991
+- **childPid:** 23994
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-04T03:41:08.391Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 23953
+- **childPid:** 23956
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-04T03:41:08.593Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 45663
+- **childPid:** 45666
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-04T23:04:06.988Z
+
+- **event:** runtime-start
+- **owner:** bobos-runtime
+- **wrapperPid:** 25589
+- **childPid:** —
+- **port:** 3100
+- **exitCode:** —
+- **signal:** —
+- **command:** node tools/next-dev.mjs --app live
+- **note:** BobOS runtime spawned live
+## 2026-07-04T23:23:11.317Z
+
+- **event:** runtime-stop
+- **owner:** bobos-runtime
+- **wrapperPid:** —
+- **childPid:** —
+- **port:** 3100
+- **exitCode:** —
+- **signal:** —
+- **command:** —
+- **note:** live: stopped (was bobos-runtime)
+## 2026-07-04T23:23:11.365Z
+
+- **event:** runtime-stop
+- **owner:** bobos-runtime
+- **wrapperPid:** —
+- **childPid:** —
+- **port:** 3000
+- **exitCode:** —
+- **signal:** —
+- **command:** —
+- **note:** studio: stopped (was npm-dev)
+## 2026-07-04T23:23:11.377Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 25589
+- **childPid:** 25594
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-04T23:23:11.451Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 16490
+- **childPid:** 16493
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited
+## 2026-07-04T23:23:13.491Z
+
+- **event:** runtime-start
+- **owner:** bobos-runtime
+- **wrapperPid:** 38063
+- **childPid:** —
+- **port:** 3000
+- **exitCode:** —
+- **signal:** —
+- **command:** node tools/next-dev.mjs --app studio
+- **note:** BobOS runtime spawned studio
+## 2026-07-04T23:23:13.592Z
+
+- **event:** runtime-start
+- **owner:** bobos-runtime
+- **wrapperPid:** 38079
+- **childPid:** —
+- **port:** 3100
+- **exitCode:** —
+- **signal:** —
+- **command:** node tools/next-dev.mjs --app live
+- **note:** BobOS runtime spawned live
+## 2026-07-04T23:40:21.249Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 38079
+- **childPid:** 38084
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-05T00:18:35.461Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 38063
+- **childPid:** 38072
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-05T02:12:42.673Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 37879
+- **childPid:** 37884
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-05T02:18:16.925Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 41313
+- **childPid:** 41316
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-05T02:18:18.080Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 74244
+- **childPid:** 74262
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-05T19:49:51.232Z
+
+- **event:** runtime-stop
+- **owner:** bobos-runtime
+- **wrapperPid:** —
+- **childPid:** —
+- **port:** 3100
+- **exitCode:** —
+- **signal:** —
+- **command:** —
+- **note:** live: stopped (was bobos-runtime)
+## 2026-07-05T19:49:51.267Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 10648
+- **childPid:** 10658
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-05T19:49:51.283Z
+
+- **event:** runtime-stop
+- **owner:** bobos-runtime
+- **wrapperPid:** —
+- **childPid:** —
+- **port:** 3000
+- **exitCode:** —
+- **signal:** —
+- **command:** —
+- **note:** studio: no-marker
+## 2026-07-05T19:51:26.501Z
+
+- **event:** runtime-stop
+- **owner:** bobos-runtime
+- **wrapperPid:** —
+- **childPid:** —
+- **port:** 3100
+- **exitCode:** —
+- **signal:** —
+- **command:** —
+- **note:** live: already-dead (was bobos-runtime)
+## 2026-07-05T19:51:26.562Z
+
+- **event:** runtime-stop
+- **owner:** bobos-runtime
+- **wrapperPid:** —
+- **childPid:** —
+- **port:** 3000
+- **exitCode:** —
+- **signal:** —
+- **command:** —
+- **note:** studio: already-dead (was bobos-runtime)
+## 2026-07-05T22:57:44.417Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 18227
+- **childPid:** 18239
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-05T22:57:44.742Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 18222
+- **childPid:** 18238
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-05T23:00:29.395Z
+
+- **event:** runtime-start
+- **owner:** bobos-runtime
+- **wrapperPid:** 1305
+- **childPid:** —
+- **port:** 3000
+- **exitCode:** —
+- **signal:** —
+- **command:** node tools/next-dev.mjs --app studio
+- **note:** BobOS runtime spawned studio
+## 2026-07-05T23:00:34.863Z
+
+- **event:** runtime-start
+- **owner:** bobos-runtime
+- **wrapperPid:** 1341
+- **childPid:** —
+- **port:** 3100
+- **exitCode:** —
+- **signal:** —
+- **command:** node tools/next-dev.mjs --app live
+- **note:** BobOS runtime spawned live
+## 2026-07-06T06:53:22.372Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 1305
+- **childPid:** 1312
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-06T06:53:22.389Z
+
+- **event:** dev-exit
+- **owner:** bobos-runtime
+- **wrapperPid:** 1341
+- **childPid:** 1348
+- **port:** 3100
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (bobos-runtime)
+- **note:** next child exited
+## 2026-07-06T19:15:55.080Z
+
+- **event:** runtime-start
+- **owner:** bobos-runtime
+- **wrapperPid:** 2836
+- **childPid:** —
+- **port:** 3000
+- **exitCode:** —
+- **signal:** —
+- **command:** node tools/next-dev.mjs --app studio
+- **note:** BobOS runtime spawned studio
+## 2026-07-06T19:15:59.046Z
+
+- **event:** runtime-start
+- **owner:** bobos-runtime
+- **wrapperPid:** 2895
+- **childPid:** —
+- **port:** 3100
+- **exitCode:** —
+- **signal:** —
+- **command:** node tools/next-dev.mjs --app live
+- **note:** BobOS runtime spawned live

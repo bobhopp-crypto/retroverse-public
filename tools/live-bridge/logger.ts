@@ -3,9 +3,13 @@ import { join } from "path";
 
 export type BridgeLogEvent =
   | "bridge_start"
+  | "bridge_destination"
+  | "bridge_post_ok"
+  | "bridge_tick"
   | "track_detected"
   | "track_published"
   | "publish_skipped"
+  | "playback_stopped"
   | "vdj_error"
   | "api_error";
 

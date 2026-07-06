@@ -7,7 +7,7 @@ import "../ops.css";
 import "./event-studio.css";
 
 export const metadata: Metadata = {
-  title: "Event Studio — Retroverse Ops",
+  title: "Legacy Event Tools — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 

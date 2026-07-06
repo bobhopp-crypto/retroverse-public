@@ -14,7 +14,7 @@ import "./browser-plus-2.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Browser+ 2.0 — Studio Operations Center",
+  title: "Browser+ 2.0 — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 

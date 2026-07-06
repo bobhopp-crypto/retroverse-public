@@ -370,7 +370,7 @@ export function PresentationStudio({
   return (
     <main className="bobos-page pst-page">
       <BobosPageHeader
-        page="Presentation Studio"
+        page="Presentation Control"
         subtitle="Build the show Retroverse Live plays. The queue owns one Playhead — the audience sees whatever it points at."
         breadcrumb={{ label: "BobOS Cockpit", href: "/bobos" }}
         eventName={active ? active.title : undefined}
@@ -524,7 +524,7 @@ export function PresentationStudio({
             <div className="pst-publish-bar__actions">
               <a
                 className="pst-button"
-                href="/retroverse-live"
+                href="/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -13,9 +13,8 @@ export const metadata: Metadata = {
 };
 
 /**
- * The public homepage mirrors Retroverse Live: whatever the Broadcast Panel's
- * playhead points at is what visitors see — on air or the off-air stage.
- * No local rotation, no hardcoded content; the broadcast is the homepage.
+ * retroverse.live — the live broadcast. No traditional homepage; the site IS
+ * the current Broadcast Asset from the mixer.
  */
 export default async function HomePage() {
   const initial = await buildPlayheadPayload();

@@ -1,0 +1,65 @@
+.live-aid-doc {
+  --live-aid-teal: #1a7a7a;
+  --live-aid-orange: #c44a1a;
+  --live-aid-rule: #2a2a2a;
+
+  max-width: 28rem;
+  margin: 1.5rem auto 0;
+  padding: 1rem;
+  border: 3px solid var(--live-aid-rule);
+  background: #fff3d8;
+  box-shadow: 4px 4px 0 rgba(42, 42, 42, 0.12);
+  text-align: center;
+}
+
+.live-aid-doc__eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--live-aid-orange);
+}
+
+.live-aid-doc__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 5vw, 1.75rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.live-aid-doc__subtitle {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #3a3a3a;
+}
+
+.live-aid-doc__btn {
+  display: block;
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 3px solid var(--live-aid-rule);
+  background: var(--live-aid-teal);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 rgba(42, 42, 42, 0.12);
+}
+
+.live-aid-doc__btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(42, 42, 42, 0.12);
+}
+
+.live-aid-doc__hint {
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #555;
+}

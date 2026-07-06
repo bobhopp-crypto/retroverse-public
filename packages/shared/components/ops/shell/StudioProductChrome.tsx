@@ -19,7 +19,7 @@ type NavItem = {
 };
 
 const NAV: NavItem[] = [
-  { key: "mission-control", label: "Mission Control", href: "/ops/studio" },
+  { key: "mission-control", label: "Song Package Pipeline", href: "/ops/studio" },
   { key: "library-queue", label: "Library & Queue", href: "/ops/browser-plus-2" },
   { key: "collector", label: "Collector", href: "/ops/studio/collector" },
   { key: "editor", label: "Editor", href: "/ops/studio/editor" },
@@ -33,18 +33,24 @@ type Props = {
 
 export function StudioProductChrome({ active }: Props) {
   const product = getRetroverseProduct("studio");
+  const identity =
+    active === "library-queue"
+      ? { name: "Browser+ 2.0", mission: "Library browse, batch queue, and overnight runs." }
+      : active === "mission-control"
+        ? { name: "Song Package Pipeline", mission: product.mission }
+        : { name: product.name, mission: product.mission };
 
   return (
-    <header className="rs-shell__product-inner" aria-label="Studio">
+    <header className="rs-shell__product-inner" aria-label="Song Package Pipeline">
       <div className="rs-shell__product-identity">
         <ProductIcon slug="studio" className="rs-shell__product-icon" />
         <div>
-          <p className="rs-shell__product-name">{product.name}</p>
-          <p className="rs-shell__product-mission">{product.mission}</p>
+          <p className="rs-shell__product-name">{identity.name}</p>
+          <p className="rs-shell__product-mission">{identity.mission}</p>
         </div>
       </div>
 
-      <nav className="rs-shell__product-nav" aria-label="Studio departments">
+      <nav className="rs-shell__product-nav" aria-label="Pipeline departments">
         {NAV.map((item) => (
           <Link
             key={item.key}

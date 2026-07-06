@@ -1,0 +1,591 @@
+/* Mobile Experience Renderer v1 — visual language for every future song.
+   Cream/teal/orange editorial poster system. Portrait iPhone, full-bleed
+   swipeable cards via native horizontal scroll-snap (fast, no JS gestures). */
+
+.song-mx {
+  --mx-cream: #f7ead0;
+  --mx-paper: #fffaf0;
+  --mx-ink: #172923;
+  --mx-teal: #0f6b66;
+  --mx-orange: #e05a32;
+  --mx-red: #b8372f;
+  --mx-border: 3px solid var(--mx-ink);
+
+  /* Full-screen takeover — sits above the global nav (z-index 1200),
+     same pattern as the Retroverse Live fullscreen player. This is an
+     immersive song experience, not a browsing page with site chrome. */
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  background: var(--mx-cream);
+  color: var(--mx-ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* ── Top bar ── */
+
+.song-mx__topbar {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: max(0.85rem, env(safe-area-inset-top)) 1rem 0.6rem;
+  pointer-events: none;
+}
+
+.song-mx__back {
+  pointer-events: auto;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid var(--mx-ink);
+  border-radius: 999px;
+  background: var(--mx-paper);
+  color: var(--mx-ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 2px 2px 0 rgba(23, 41, 35, 0.25);
+}
+
+.song-mx__dots {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  border: 2px solid var(--mx-ink);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.9);
+}
+
+.song-mx__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(23, 41, 35, 0.28);
+  cursor: pointer;
+}
+
+.song-mx__dot--active {
+  width: 1.1rem;
+  border-radius: 999px;
+  background: var(--mx-orange);
+}
+
+/* ── Viewport / swipe deck ── */
+
+.song-mx__viewport {
+  display: flex;
+  width: 100vw;
+  height: 100svh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.song-mx__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.song-mx__slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Shared card layout ── */
+
+.song-mx__slide--card {
+  display: flex;
+  flex-direction: column;
+  padding: calc(5.5rem + env(safe-area-inset-top)) 1.5rem calc(3rem + env(safe-area-inset-bottom));
+}
+
+.song-mx__kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mx-orange);
+}
+
+.song-mx__kicker--light {
+  color: #ffcdb0;
+}
+
+.song-mx__heading {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 9vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.song-mx__heading--light {
+  color: #fffaf0;
+}
+
+.song-mx__paragraph {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  max-width: 34rem;
+}
+
+.song-mx__paragraph--light {
+  color: rgba(255, 250, 240, 0.92);
+}
+
+/* ── 1. Hero ── */
+
+.song-mx__slide--hero {
+  overflow: hidden;
+}
+
+.song-mx__hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: grayscale(1) contrast(1.2) brightness(1.05);
+}
+
+/* Duotone poster wash — turns soft archival footage into an intentional
+   illustrated-poster graphic, matching the Retroverse visual language. */
+.song-mx__hero-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(224, 90, 50, 0.5), rgba(15, 107, 102, 0.65));
+  mix-blend-mode: color;
+}
+
+.song-mx__hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 30, 26, 0.35) 0%,
+    rgba(15, 30, 26, 0.25) 40%,
+    rgba(12, 22, 19, 0.92) 100%
+  );
+}
+
+.song-mx__hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  padding: 0 1.5rem;
+  color: #fffaf0;
+}
+
+.song-mx__now-playing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+  padding: 0.35rem 0.7rem;
+  border: 2px solid rgba(255, 250, 240, 0.7);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.song-mx__now-playing-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--mx-orange);
+  animation: song-mx-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes song-mx-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
+}
+
+.song-mx__hero-artist {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 250, 240, 0.85);
+}
+
+.song-mx__hero-title {
+  margin: 0.2rem 0 0.35rem;
+  font-size: clamp(2.6rem, 12vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.02;
+}
+
+.song-mx__hero-year {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffcdb0;
+}
+
+.song-mx__swipe-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(1.3rem + env(safe-area-inset-bottom));
+  margin: 0;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255, 250, 240, 0.75);
+}
+
+/* ── 3. Full-photo card (Live Aid) ── */
+
+.song-mx__slide--photo {
+  overflow: hidden;
+}
+
+.song-mx__photo-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: grayscale(1) contrast(1.25) brightness(1.1);
+}
+
+.song-mx__photo-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(184, 55, 47, 0.55), rgba(224, 90, 50, 0.4));
+  mix-blend-mode: color;
+}
+
+.song-mx__photo-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 20, 18, 0.35) 0%,
+    rgba(11, 20, 18, 0.55) 55%,
+    rgba(9, 16, 14, 0.95) 100%
+  );
+}
+
+.song-mx__photo-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(3.5rem + env(safe-area-inset-bottom));
+  padding: 0 1.5rem;
+}
+
+/* ── 4. Charts ── */
+
+.song-mx__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.song-mx__stat {
+  padding: 1.1rem 1rem;
+  border: var(--mx-border);
+  border-radius: 16px;
+  background: var(--mx-paper);
+  box-shadow: 4px 4px 0 rgba(23, 41, 35, 0.14);
+}
+
+.song-mx__stat dt {
+  margin: 0 0 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mx-teal);
+}
+
+.song-mx__stat dd {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* ── 5. Did You Know ── */
+
+.song-mx__facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.song-mx__fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 1rem 1.1rem;
+  border: 2px solid rgba(23, 41, 35, 0.16);
+  border-radius: 14px;
+  background: var(--mx-paper);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.song-mx__fact-mark {
+  flex-shrink: 0;
+  color: var(--mx-orange);
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* ── 6. Related Songs ── */
+
+.song-mx__related-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.song-mx__related-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem;
+  border: var(--mx-border);
+  border-radius: 16px;
+  background: var(--mx-paper);
+  box-shadow: 4px 4px 0 rgba(23, 41, 35, 0.14);
+  text-decoration: none;
+  color: var(--mx-ink);
+  min-height: 5.5rem;
+}
+
+.song-mx__related-cover {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 10px;
+  border: 2px solid var(--mx-ink);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* On-brand fallback when a cover URL 404s — never a broken-image icon. */
+.song-mx__art-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(155deg, var(--mx-teal), var(--mx-orange));
+  color: #fffaf0;
+  font-weight: 900;
+  font-size: 1.6rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.song-mx__related-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.song-mx__related-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-mx__related-artist {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(23, 41, 35, 0.6);
+}
+
+/* ── 7. Explore Queen ── */
+
+.song-mx__slide--explore {
+  padding-bottom: 0;
+}
+
+.song-mx__explore-artist-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 3px solid var(--mx-orange);
+}
+
+.song-mx__explore-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+  -webkit-overflow-scrolling: touch;
+}
+
+.song-mx__explore-label {
+  margin: 1.4rem 0 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mx-teal);
+}
+
+.song-mx__explore-scroll > .song-mx__explore-label:first-child {
+  margin-top: 0;
+}
+
+.song-mx__albums-row {
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  padding-bottom: 0.3rem;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.song-mx__album {
+  flex: 0 0 auto;
+  width: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  scroll-snap-align: start;
+}
+
+.song-mx__album-cover {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 10px;
+  border: 2px solid var(--mx-ink);
+  object-fit: cover;
+}
+
+.song-mx__album-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.song-mx__album-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(23, 41, 35, 0.55);
+}
+
+.song-mx__band-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.song-mx__band-member {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  border: 2px solid rgba(23, 41, 35, 0.16);
+  border-radius: 12px;
+  background: var(--mx-paper);
+}
+
+.song-mx__band-name {
+  font-size: 1.02rem;
+  font-weight: 800;
+}
+
+.song-mx__band-role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(23, 41, 35, 0.6);
+  text-align: right;
+}
+
+.song-mx__timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 3px solid var(--mx-orange);
+}
+
+.song-mx__timeline-item {
+  position: relative;
+  padding: 0 0 1.1rem 1.1rem;
+}
+
+.song-mx__timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -0.4rem;
+  top: 0.3rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--mx-orange);
+  border: 2px solid var(--mx-cream);
+}
+
+.song-mx__timeline-year {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--mx-teal);
+}
+
+.song-mx__timeline-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+/* ── Larger screens (desktop preview) ── */
+
+@media (min-width: 640px) {
+  .song-mx__slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  .song-mx__slide--card,
+  .song-mx__slide--explore {
+    align-items: center;
+  }
+
+  .song-mx__slide--card > *,
+  .song-mx__slide--explore > * {
+    width: 100%;
+    max-width: 26rem;
+  }
+}

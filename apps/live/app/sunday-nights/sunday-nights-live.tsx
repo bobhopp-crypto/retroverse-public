@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { ExploreLiveAidCallout } from "@/components/live-experience/ExploreLiveAidCallout";
 import { TrackPageEmbed } from "@/app/track/[id]/track-page-embed";
 import type { LiveDestination } from "@/lib/sunday-nights/live-payload";
 import type { SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
@@ -118,6 +119,7 @@ export function SundayNightsLive({
         <section className="sn-live__waiting">
           <p className="sn-live__waiting-label">Now playing</p>
           <p className="sn-live__waiting-text">Tonight&apos;s exploration begins soon.</p>
+          <ExploreLiveAidCallout />
         </section>
       )}
     </div>

@@ -853,7 +853,7 @@
 .ps-face {
   position: relative;
   width: 100%;
-  aspect-ratio: 2.5 / 4;
+  aspect-ratio: 2.25 / 3.5;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -964,47 +964,108 @@
   text-shadow: none;
 }
 
-/* ── Step 5: Print — show the paper ── */
+/* ── Step 5: Print — real production print workflow ── */
 
-.ps-print__settings {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+.ps-print__summary {
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 16px;
+  background: var(--ps-surface-raised);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
-.ps-print__paper-note {
+.ps-print__summary-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.ps-print__summary-head h3 {
   margin: 0;
-  font-size: var(--ps-label);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.ps-print__summary-batch {
   font-weight: 700;
   color: var(--ps-dim);
 }
 
-.ps-print__per-sheet {
-  display: flex;
-  align-items: center;
+.ps-print__status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--ps-border-strong);
+  color: var(--ps-ink);
+}
+
+.ps-print__status-badge--ready_to_print {
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+}
+
+.ps-print__status-badge--printed {
+  background: #2eb8b8;
+  color: #06282a;
+}
+
+.ps-print__status-badge--void {
+  background: #c44;
+  color: #fff;
+}
+
+.ps-print__summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 1rem;
 }
 
-.ps-print__per-sheet span {
-  font-size: 1.05rem;
-  font-weight: 600;
+.ps-print__summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ps-print__summary-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--ps-dim);
 }
 
-.ps-print__per-sheet-options {
+.ps-print__summary-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.ps-print__layout-picker {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.ps-print__layout-label {
+  font-weight: 700;
+  color: var(--ps-dim);
 }
 
 .ps-print__per-sheet-option {
   min-width: var(--ps-touch-min);
   min-height: var(--ps-touch-min);
+  padding: 0 0.75rem;
   border: 3px solid var(--ps-border-strong);
   border-radius: 10px;
   background: var(--ps-surface-raised);
   color: var(--ps-ink);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -1015,45 +1076,109 @@
   border-color: var(--ps-accent);
 }
 
-.ps-print__area {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  overflow-x: auto;
+.ps-print__sheets-section {
+  margin-bottom: 2rem;
 }
 
-.ps-print__sheet-wrap {
+.ps-print__sheets-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.ps-print__sheets-head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.ps-print__sheet-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ps-print__sheet-label-serials {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ps-dim);
+}
+
+.ps-print__pager {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--ps-dim);
+}
+
+.ps-print__pager button {
+  min-width: var(--ps-touch-min);
+  min-height: var(--ps-touch-min);
+  padding: 0 1rem;
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 10px;
+  background: var(--ps-surface-raised);
+  color: var(--ps-ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps-print__pager button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ps-print__sheet-preview {
   width: calc(11in * 0.55);
-  height: calc(17in * 0.55);
   overflow: hidden;
   border: 3px solid var(--ps-border-strong);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-}
-
-.ps-print__sheet {
-  width: 11in;
-  height: 17in;
-  display: grid;
-  gap: 0;
   background: #fff;
-  transform: scale(0.55);
-  transform-origin: top left;
 }
 
-.ps-print__cell {
-  overflow: hidden;
+.ps-print__sheet-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.ps-print__cell .ps-face {
-  border-radius: 0;
-  height: 100%;
-  aspect-ratio: auto;
+.ps-print__sheets-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.ps-print__sheets-actions a.ps-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ps-print__mark-printed {
+  margin: 1rem 0 1.5rem;
 }
 
 .ps-print__actions {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
+}
+
+.ps-print__print-only {
+  display: none;
+}
+
+.ps-print__print-page {
+  display: block;
+  width: 100%;
 }
 
 @media print {
@@ -1076,24 +1201,27 @@
     inset: 0;
   }
 
-  .ps-print__settings,
+  .ps-print__summary,
+  .ps-print__layout-picker,
+  .ps-print__sheets-section,
+  .ps-print__mark-printed,
   .ps-print__actions,
   .ps-step__eyebrow,
   .ps-step__title {
     display: none;
   }
 
-  .ps-print__sheet-wrap {
-    width: auto;
-    height: auto;
-    overflow: visible;
-    border: none;
-    box-shadow: none;
-    page-break-after: always;
+  .ps-print__print-only {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    inset: 0;
   }
 
-  .ps-print__sheet {
-    transform: none;
+  .ps-print__print-page {
+    width: 11in;
+    height: 17in;
+    page-break-after: always;
   }
 }
 
@@ -1124,4 +1252,37 @@
   .ps-rail {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── Edit step (production layout + quantities) ── */
+
+.ps-edit__section-title {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.ps-edit__quantities {
+  margin-top: 2rem;
+}
+
+.ps-edit__serial-start {
+  margin-top: 1.5rem;
+}
+
+.ps-qty-row.is-active {
+  border-color: var(--ps-accent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 1px color-mix(in srgb, var(--ps-accent) 35%, transparent);
+}
+
+.ps-qty-row__name-btn {
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
+
+.ps-qty-row__name-btn:hover {
+  color: var(--ps-accent);
 }

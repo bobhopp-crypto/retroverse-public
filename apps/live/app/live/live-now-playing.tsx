@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { ExploreLiveAidCallout } from "@/components/live-experience/ExploreLiveAidCallout";
 import {
   LiveExperienceShell,
   type LiveExperienceAction,
@@ -127,6 +128,7 @@ export function LiveNowPlayingView({ initial }: Props) {
         {!display ? (
           <section className="live-page__waiting">
             <p className="live-page__waiting-text">Waiting for the next song…</p>
+            <ExploreLiveAidCallout />
           </section>
         ) : (
           <section className="live-page__now">
@@ -164,6 +166,7 @@ export function LiveNowPlayingView({ initial }: Props) {
                 </Link>
               ) : null}
             </nav>
+            <ExploreLiveAidCallout />
           </section>
         )}
       </div>

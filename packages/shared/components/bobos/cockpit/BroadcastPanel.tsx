@@ -6,7 +6,10 @@ import {
   broadcastQueueOp,
   broadcastTransport,
   getBroadcastStatus,
+  refreshBroadcastFromDatabaseXml,
   seedDefaultBroadcast,
+  setBroadcastAutoFollowVdj,
+  type BroadcastSourceRefreshResult,
   type BroadcastStatus,
 } from "@/app/bobos/broadcast/actions";
 import {
@@ -50,13 +53,15 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
   const [status, setStatus] = useState<BroadcastStatus | null>(initialStatus);
   const [deskOpen, setDeskOpen] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [lastRefreshCount, setLastRefreshCount] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     async function poll() {
+      if (busy) return;
       try {
         const next = await getBroadcastStatus();
-        if (!cancelled) setStatus(next);
+        if (!cancelled && !busy) setStatus(next);
       } catch {
         // transient — next poll recovers
       }
@@ -67,7 +72,7 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
       cancelled = true;
       window.clearInterval(id);
     };
-  }, [initialStatus]);
+  }, [initialStatus, busy]);
 
   const run = useCallback(async (action: () => Promise<BroadcastStatus>) => {
     setBusy(true);
@@ -79,6 +84,22 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
       setBusy(false);
     }
   }, []);
+
+  const runSourceRefresh = useCallback(
+    async (action: () => Promise<BroadcastSourceRefreshResult>) => {
+      setBusy(true);
+      try {
+        const result = await action();
+        setStatus(result);
+        setLastRefreshCount(result.itemCount);
+      } catch {
+        // keep last known status
+      } finally {
+        setBusy(false);
+      }
+    },
+    [],
+  );
 
   const transport = useCallback(
     (command: PlayheadCommand) => run(() => broadcastTransport(command)),
@@ -150,7 +171,7 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
           Broadcast Desk
         </button>
         <a
-          href="/retroverse-live"
+          href="/"
           target="_blank"
           rel="noopener noreferrer"
           className="cockpit-panel__btn cockpit-panel__btn--secondary"
@@ -158,7 +179,7 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
           Open Local
         </a>
         <a
-          href={status?.publicPlayerUrl ?? "https://retroverse.live/retroverse-live"}
+          href={status?.publicPlayerUrl ?? "https://retroverse.live/"}
           target="_blank"
           rel="noopener noreferrer"
           className="cockpit-panel__btn cockpit-panel__btn--secondary"
@@ -171,9 +192,14 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
         <BroadcastDesk
           status={status}
           busy={busy}
+          lastRefreshCount={lastRefreshCount}
           onTransport={transport}
           onQueueOp={(op) => run(() => broadcastQueueOp(op))}
           onSeed={() => run(seedDefaultBroadcast)}
+          onSourceRefresh={() =>
+            runSourceRefresh(() => refreshBroadcastFromDatabaseXml())
+          }
+          onAutoFollowChange={(enabled) => run(() => setBroadcastAutoFollowVdj(enabled))}
           onClose={() => setDeskOpen(false)}
         />
       ) : null}
@@ -186,13 +212,26 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
 type DeskProps = {
   status: BroadcastStatus | null;
   busy: boolean;
+  lastRefreshCount: number | null;
   onTransport: (command: PlayheadCommand) => void;
   onQueueOp: (op: Parameters<typeof broadcastQueueOp>[0]) => void;
   onSeed: () => void;
+  onSourceRefresh: () => void;
+  onAutoFollowChange: (enabled: boolean) => void;
   onClose: () => void;
 };
 
-function BroadcastDesk({ status, busy, onTransport, onQueueOp, onSeed, onClose }: DeskProps) {
+function BroadcastDesk({
+  status,
+  busy,
+  lastRefreshCount,
+  onTransport,
+  onQueueOp,
+  onSeed,
+  onSourceRefresh,
+  onAutoFollowChange,
+  onClose,
+}: DeskProps) {
   const [addTitle, setAddTitle] = useState("");
   const [addType, setAddType] = useState<PresentationItemType>("slide");
 
@@ -200,6 +239,8 @@ function BroadcastDesk({ status, busy, onTransport, onQueueOp, onSeed, onClose }
   const items = local?.queue?.items ?? [];
   const currentItemId = local?.item?.id ?? null;
   const playing = local?.mode === "playing";
+  const autoFollowVdj = local?.autoFollowVdj !== false;
+  const vdjLive = local?.vdj?.playing === true;
 
   function addItem() {
     const title = addTitle.trim();
@@ -231,6 +272,53 @@ function BroadcastDesk({ status, busy, onTransport, onQueueOp, onSeed, onClose }
             <span>{local?.onAir ? `ON AIR · ${playing ? "Playing" : "Paused"}` : "OFF AIR"}</span>
             <span>{status ? PUBLIC_SYNC_LABELS[status.publicSync.state] : "Public: checking…"}</span>
             <span>{publishedLabel(local?.publishedAt ?? null)}</span>
+            {vdjLive ? <span>VDJ LIVE · {local?.vdj?.rvtr ?? "—"}</span> : null}
+          </div>
+
+          <div className="cockpit-broadcast-desk__source">
+            <span className="cockpit-broadcast-desk__source-label">BROADCAST SOURCE</span>
+            <div className="cockpit-broadcast-desk__source-row">
+              <span className="cockpit-broadcast-desk__source-name">
+                VirtualDJ Library (database.xml)
+                {items.length > 0
+                  ? ` · ${items.length} song${items.length === 1 ? "" : "s"}`
+                  : null}
+                {lastRefreshCount !== null
+                  ? ` · Last load: ${lastRefreshCount}`
+                  : null}
+              </span>
+              <button
+                type="button"
+                className="cockpit-panel__btn cockpit-panel__btn--primary"
+                onClick={onSourceRefresh}
+                disabled={busy}
+                title="Rebuild broadcast queue from database.xml (video, PlayCount ≥ 5)"
+              >
+                {busy ? "Loading…" : "Load from database.xml"}
+              </button>
+            </div>
+          </div>
+
+          <div className="cockpit-broadcast-desk__auto-follow">
+            <span className="cockpit-broadcast-desk__auto-follow-label">AUTO FOLLOW VIRTUALDJ</span>
+            <div className="cockpit-broadcast-desk__auto-follow-toggle" role="group" aria-label="Auto follow VirtualDJ">
+              <button
+                type="button"
+                className={`cockpit-panel__btn${autoFollowVdj ? " cockpit-panel__btn--primary" : " cockpit-panel__btn--secondary"}`}
+                onClick={() => onAutoFollowChange(true)}
+                disabled={busy || autoFollowVdj}
+              >
+                ON
+              </button>
+              <button
+                type="button"
+                className={`cockpit-panel__btn${!autoFollowVdj ? " cockpit-panel__btn--primary" : " cockpit-panel__btn--secondary"}`}
+                onClick={() => onAutoFollowChange(false)}
+                disabled={busy || !autoFollowVdj}
+              >
+                OFF
+              </button>
+            </div>
           </div>
 
           <div className="cockpit-broadcast__transport cockpit-broadcast__transport--desk">

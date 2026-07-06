@@ -9,6 +9,8 @@ import {
   type OpsQuickLink,
 } from "@/lib/ops/operations-directory";
 
+import { OpsDirectoryEntryLink, OpsDirectoryQuickLink } from "./OpsDirectoryRvLinks";
+
 type Props = {
   liveTrackHref?: string | null;
   liveTrackLabel?: string | null;
@@ -20,18 +22,7 @@ function QuickLinkList(props: { links: OpsQuickLink[]; title: string }) {
       <p className="ops-dir__quick-title">{props.title}</p>
       <ul className="ops-dir__quick-list">
         {props.links.map((link) => (
-          <li key={`${link.label}-${link.href}`}>
-            <Link
-              className="ops-link ops-dir__quick-link"
-              href={link.href}
-              {...(link.external
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-            >
-              {link.label}
-              {link.external ? " ↗" : ""}
-            </Link>
-          </li>
+          <OpsDirectoryQuickLink key={`${link.label}-${link.href}`} link={link} />
         ))}
       </ul>
     </div>
@@ -40,18 +31,7 @@ function QuickLinkList(props: { links: OpsQuickLink[]; title: string }) {
 
 function DirectoryEntry(props: { entry: OpsDirectoryEntry }) {
   const tone = opsStatusTone(props.entry.status);
-  return (
-    <li className="ops-dir__entry">
-      <div className="ops-dir__entry-head">
-        <Link className="ops-dir__entry-name" href={props.entry.href}>
-          {props.entry.name}
-        </Link>
-        <span className={`ops-dir__badge ops-dir__badge--${tone}`}>{props.entry.status}</span>
-      </div>
-      <p className="ops-dir__entry-desc">{props.entry.description}</p>
-      <p className="ops-dir__entry-purpose">{props.entry.purpose}</p>
-    </li>
-  );
+  return <OpsDirectoryEntryLink entry={props.entry} tone={tone} />;
 }
 
 export function OpsDirectory(props: Props) {

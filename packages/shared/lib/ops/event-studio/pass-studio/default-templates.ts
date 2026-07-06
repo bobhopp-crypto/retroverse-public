@@ -3,18 +3,11 @@ import "server-only";
 import type { ProductionBinder } from "@/lib/ops/event-studio/types";
 
 import { findLatestPassArtworkBySlug } from "./content-creator-artwork";
+import { eventIdFromName } from "./event-id";
 import { loadPassTemplates, savePassTemplate } from "./store";
 import type { PassTemplate } from "./types";
 
-/** Stable slug for an event name — shared by default-template ids and generated batches. */
-export function eventIdFromName(eventName: string): string {
-  const slug = eventName
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-  return slug || "event";
-}
+export { eventIdFromName } from "./event-id";
 
 type DefaultPassTypeSpec = {
   slug: "general" | "vip" | "backstage";

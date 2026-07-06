@@ -8,7 +8,7 @@ import "./command-center.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Retroverse Command Center",
+  title: "Operations Directory — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 

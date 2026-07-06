@@ -1,6 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { OpsPathPageTitle } from "@/components/bobos/rv-ids";
+import type { RvId } from "@/lib/bobos/rv-ids";
+
 type Breadcrumb = { label: string; href: string };
 
 type Props = {
@@ -13,6 +16,8 @@ type Props = {
   status?: string | null;
   /** Visual tone of the status badge. Defaults to neutral. */
   statusTone?: "neutral" | "planning" | "live" | "archived" | "done";
+  /** Optional RV ID override; defaults to pathname lookup. */
+  rvId?: RvId | null;
   /** Optional back link rendered above the brand line. */
   breadcrumb?: Breadcrumb | null;
   /** Optional extra content for the meta row (e.g. workspace tabs). */
@@ -29,6 +34,7 @@ export function BobosPageHeader({
   eventName,
   status,
   statusTone = "neutral",
+  rvId,
   breadcrumb,
   actions,
 }: Props) {
@@ -42,7 +48,7 @@ export function BobosPageHeader({
         </Link>
       ) : null}
       <p className="bobos-page-header__brand">BobOS</p>
-      <h1 className="bobos-page-header__title">{page}</h1>
+      <OpsPathPageTitle label={page} rvId={rvId} className="bobos-page-header__title" />
       {subtitle ? <p className="bobos-page-header__subtitle">{subtitle}</p> : null}
       {hasMeta ? (
         <div className="bobos-page-header__meta">

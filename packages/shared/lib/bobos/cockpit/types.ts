@@ -42,7 +42,8 @@ export type PanelTypeId =
   | "pass-registration"
   | "giveaway-panel"
   | "live-display"
-  | "broadcast";
+  | "broadcast"
+  | "retroverse-runtime";
 
 export type PanelGroup = "attention" | "build" | "catalog" | "devices";
 

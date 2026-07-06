@@ -11,7 +11,7 @@ import "./producer.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Event Producer — Event Studio",
+  title: "Event Producer — Legacy Event Tools",
   robots: { index: false, follow: false },
 };
 

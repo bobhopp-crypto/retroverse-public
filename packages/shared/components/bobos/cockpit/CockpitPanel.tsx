@@ -6,8 +6,10 @@ import { useEffect, useMemo, useState } from "react";
 import { cellGridRef, cellLabel } from "@/lib/bobos/cockpit/defaults";
 import type { CockpitPanelData } from "@/lib/bobos/cockpit/load-panel-data";
 import type { PanelAction, PanelDefinition } from "@/lib/bobos/cockpit/types";
+import { getRvIdByPanelType } from "@/lib/bobos/rv-ids";
 import type { Project } from "@/lib/bobos/project-zero/types";
 
+import { RvIdLabel } from "@/components/bobos/rv-ids";
 import { BroadcastPanel } from "./BroadcastPanel";
 
 type Props = {
@@ -19,6 +21,9 @@ type Props = {
   onToggleMenu: () => void;
   onChangePanel: () => void;
   onRemove: () => void;
+  /** Render slot for app-specific panels (e.g. Studio's Runtime panel).
+   *  Kept as a prop so packages/shared never imports Studio-only server actions. */
+  renderAppPanel?: (id: string) => React.ReactNode;
 };
 
 function formatRecentWhen(iso: string): string {
@@ -49,7 +54,7 @@ function panelSummary(def: PanelDefinition, project: Project | null, data: Cockp
     case "database-health":
       return "Graph index reachable";
     case "clock":
-      return new Date().toLocaleTimeString();
+      return def.summary;
     case "public-homepage": {
       const { statusLabel, eventTitle } = data.publicHomepage;
       if (!eventTitle) return statusLabel;
@@ -120,17 +125,25 @@ export function CockpitPanel({
   onToggleMenu,
   onChangePanel,
   onRemove,
+  renderAppPanel,
 }: Props) {
+  const isClock = definition.id === "clock";
+  const [clockTime, setClockTime] = useState<string | null>(null);
   const [liveSummary, setLiveSummary] = useState(() => panelSummary(definition, project, panelData));
   const actions = useMemo(() => panelActions(definition, panelData), [definition, panelData]);
   const [primaryAction, ...secondaryActions] = actions;
+  const summaryText = isClock ? (clockTime ?? "") : liveSummary;
 
   useEffect(() => {
+    if (isClock) {
+      const tick = () => setClockTime(new Date().toLocaleTimeString());
+      tick();
+      const timer = setInterval(tick, 1000);
+      return () => clearInterval(timer);
+    }
+
     setLiveSummary(panelSummary(definition, project, panelData));
-    if (definition.id !== "clock") return;
-    const timer = setInterval(() => setLiveSummary(panelSummary(definition, project, panelData)), 1000);
-    return () => clearInterval(timer);
-  }, [definition, project, panelData]);
+  }, [definition, project, panelData, isClock]);
 
   const statusClass = `cockpit-lamp cockpit-lamp--${definition.defaultStatus === "nominal" ? "green" : definition.defaultStatus === "warning" ? "amber" : definition.defaultStatus === "alert" ? "red" : "dim"}`;
 
@@ -139,7 +152,9 @@ export function CockpitPanel({
       <header className="cockpit-panel__head">
         <span className="cockpit-panel__num">{cellLabel(cellIndex)}</span>
         <span className="cockpit-panel__ref">{cellGridRef(cellIndex)}</span>
-        <h2 className="cockpit-panel__title">{definition.title}</h2>
+        <h2 className="cockpit-panel__title">
+          <RvIdLabel rvId={getRvIdByPanelType(definition.id)} label={definition.title} />
+        </h2>
         <span className={statusClass} title={definition.defaultStatus} aria-hidden="true" />
         <div className="cockpit-panel__menu-wrap">
           <button
@@ -167,17 +182,19 @@ export function CockpitPanel({
       {definition.id === "broadcast" ? (
         /* Interactive controller — owns its own status polling and actions */
         <BroadcastPanel initialStatus={null} />
+      ) : renderAppPanel?.(definition.id) != null ? (
+        renderAppPanel(definition.id)
       ) : (
         <>
-          {liveSummary.includes(" · ") ? (
+          {summaryText.includes(" · ") ? (
             /* Instrument readout — split the summary into stacked status lines */
             <ul className="cockpit-panel__metrics">
-              {liveSummary.split(" · ").map((line) => (
+              {summaryText.split(" · ").map((line) => (
                 <li key={line}>{line}</li>
               ))}
             </ul>
           ) : (
-            <p className="cockpit-panel__data">{liveSummary}</p>
+            <p className="cockpit-panel__data">{summaryText}</p>
           )}
 
           {definition.id === "pass-registration" && panelData.passRegistration.recent.length > 0 ? (

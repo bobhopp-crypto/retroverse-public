@@ -1,0 +1,49 @@
+.rv-song-empty {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 2rem 1.5rem;
+  background: #f7ead0;
+  color: #172923;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.rv-song-empty__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e05a32;
+}
+
+.rv-song-empty__title {
+  margin: 0;
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.rv-song-empty__body {
+  margin: 0;
+  max-width: 28rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(23, 41, 35, 0.7);
+}
+
+.rv-song-empty__cta {
+  margin-top: 0.8rem;
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border: 3px solid #172923;
+  border-radius: 12px;
+  background: #0f6b66;
+  color: #fffaf0;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 rgba(23, 41, 35, 0.2);
+}

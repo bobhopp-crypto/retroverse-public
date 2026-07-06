@@ -1,4 +1,5 @@
 import type { LiveControlState } from "@/lib/live-control/types";
+import { isLiveChannelSessionActive } from "@/lib/live-control/engine";
 import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
 import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
 import {
@@ -7,6 +8,7 @@ import {
 } from "@/lib/ops/intelligence/song-package-store";
 import { isSongExperienceRenderable } from "@/lib/ops/intelligence/song-experience-renderability";
 
+import { normalizeLiveTrackId } from "./resolve-live-track";
 import type { SundayNightsLiveSelection, SundayNightsState } from "./types";
 
 export type LiveDestinationKind = "EXPERIENCE" | "PACKAGE" | "TRACK";
@@ -39,9 +41,25 @@ function logDestination(rvtr: string | null, destination: LiveDestination) {
 }
 
 export async function resolveLiveDestination(
-  rvtrParam: string | null,
+  trackIdParam: string | null,
 ): Promise<LiveDestination> {
-  const rvtr = rvtrParam ? normalizePackageRvtr(rvtrParam) : null;
+  const trackId = normalizeLiveTrackId(trackIdParam);
+  if (!trackId) {
+    const destination = { kind: "TRACK", href: null } satisfies LiveDestination;
+    logDestination(null, destination);
+    return destination;
+  }
+
+  if (trackId.startsWith("vdj:")) {
+    const destination = {
+      kind: "EXPERIENCE",
+      href: `/song/vdj/${trackId.slice(4)}`,
+    } satisfies LiveDestination;
+    logDestination(trackId, destination);
+    return destination;
+  }
+
+  const rvtr = normalizePackageRvtr(trackId);
   if (!rvtr) {
     const destination = { kind: "TRACK", href: null } satisfies LiveDestination;
     logDestination(null, destination);
@@ -59,10 +77,13 @@ export async function buildSundayNightsCurrentPayload(
   state: SundayNightsState,
   control?: LiveControlState | null,
 ): Promise<SundayNightsCurrentPayload> {
+  const channelActive = control ? isLiveChannelSessionActive(control) : false;
   const bridgeState =
     state.live?.source === "manual"
       ? { ...state, currentTrackId: null, live: null }
-      : state;
+      : state.live?.source === "channel" && !channelActive
+        ? { ...state, currentTrackId: null, live: null }
+        : state;
   const track = bridgeState.currentTrackId
     ? await loadTrackPage(bridgeState.currentTrackId)
     : null;
@@ -76,7 +97,7 @@ export async function buildSundayNightsCurrentPayload(
     destination,
     channel: control
       ? {
-          running: control.running,
+          running: channelActive,
           mode: control.mode,
           durationSeconds: control.durationSeconds,
           nextAdvanceAt: control.nextAdvanceAt,

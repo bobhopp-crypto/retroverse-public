@@ -1,7 +1,13 @@
 "use server";
 
 import { randomUUID } from "crypto";
+import { readFile } from "fs/promises";
 
+import {
+  generateBobosPassBatch,
+  type GenerateBobosPassBatchResult,
+  type GenerateBobosPassBatchRow,
+} from "@/app/bobos/pass-workspace/actions";
 import { findLatestPassArtworkBySlug } from "@/lib/ops/event-studio/pass-studio/content-creator-artwork";
 import { eventIdFromName } from "@/lib/ops/event-studio/pass-studio/default-templates";
 import { passTypeSlugFromLabel } from "@/lib/ops/event-studio/pass-studio/placeholder-artwork.server";
@@ -22,6 +28,22 @@ import type {
   PassLibraryFilter,
   PassTemplate,
 } from "@/lib/ops/event-studio/pass-studio/types";
+import {
+  findPrintBatch,
+  markPrintBatchPrinted,
+  updatePrintBatchLayout,
+} from "@/lib/ops/event-studio/pass-studio/print-batch-store";
+import type { PrintBatch } from "@/lib/ops/event-studio/pass-studio/print-batch-types";
+import {
+  bobosRenderAbsolutePath,
+  buildBobosPrintSheets,
+  relPathFromBobosRenderUrl,
+} from "@/lib/bobos/project-zero/pass-production";
+import {
+  DESIGN_BUILDER_PRINT_LAYOUTS,
+  type BobosPrintSheetSet,
+  type DesignBuilderPrintLayoutId,
+} from "@/lib/bobos/project-zero/pass-production-spec";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 
 function assertLocalStudio() {
@@ -135,7 +157,96 @@ export type GeneratePassBatchResult = {
   passes: GeneratedPass[];
 };
 
-/** Create batch → generate every pass, each using its own design → save to library. Never overwrites prior passes. */
+export type GenerateDesignBuilderPassBatchInput = {
+  projectId: string;
+  eventName: string;
+  venue: string;
+  date: string;
+  rows: GenerateBobosPassBatchRow[];
+  startAt?: number | null;
+};
+
+/** Design Builder batch — composited fronts/backs with saved production layouts, plus a
+ *  persistent Print Batch + reserved Serial Records for full print traceability. */
+export async function generateDesignBuilderPassBatch(
+  input: GenerateDesignBuilderPassBatchInput,
+): Promise<GenerateBobosPassBatchResult> {
+  assertLocalStudio();
+  return generateBobosPassBatch({
+    projectId: input.projectId,
+    eventName: input.eventName,
+    venue: input.venue,
+    date: input.date,
+    rows: input.rows,
+    startAt: input.startAt,
+  });
+}
+
+export type BuildDesignBuilderPrintSheetsInput = {
+  projectId: string;
+  batchId: string;
+  passes: GeneratedPass[];
+  layout: DesignBuilderPrintLayoutId;
+};
+
+/**
+ * Builds real front/back print sheets for one Print Batch at a fixed 2/4/8/16-up layout —
+ * every cell is the true, unscaled 2.25" × 3.5" finished pass. Also updates the Print
+ * Batch's layout + sheet counts so the Print Summary always reflects what was just built.
+ */
+export async function buildDesignBuilderPrintSheets(
+  input: BuildDesignBuilderPrintSheetsInput,
+): Promise<BobosPrintSheetSet & { batch: PrintBatch }> {
+  assertLocalStudio();
+
+  const batchPasses = input.passes.filter((pass) => pass.batchId === input.batchId);
+  if (batchPasses.length === 0) throw new Error("No passes found for this batch.");
+
+  const sheetBuffers: { frontPng: Buffer; backPng: Buffer }[] = [];
+  for (const pass of batchPasses) {
+    const frontRel = pass.front.artworkUrl ? relPathFromBobosRenderUrl(pass.front.artworkUrl) : null;
+    const backRel = pass.back.artworkUrl ? relPathFromBobosRenderUrl(pass.back.artworkUrl) : null;
+    if (!frontRel || !backRel) continue;
+    sheetBuffers.push({
+      frontPng: await readFile(bobosRenderAbsolutePath(frontRel)),
+      backPng: await readFile(bobosRenderAbsolutePath(backRel)),
+    });
+  }
+  if (sheetBuffers.length === 0) {
+    throw new Error("No finished pass images found for this batch — generate the batch first.");
+  }
+
+  const { cols, rows } = DESIGN_BUILDER_PRINT_LAYOUTS[input.layout];
+  const sheets = await buildBobosPrintSheets({
+    projectId: input.projectId,
+    batchId: input.batchId,
+    passes: sheetBuffers,
+    grid: { cols, rows },
+  });
+
+  const batch = await updatePrintBatchLayout(
+    input.batchId,
+    input.layout,
+    sheets.frontPngUrls.length,
+    sheets.backPngUrls.length,
+  );
+
+  return { ...sheets, batch };
+}
+
+/** Explicit operator action — flips the batch and every one of its serial records to printed. */
+export async function markDesignBuilderBatchPrinted(batchId: string): Promise<PrintBatch> {
+  assertLocalStudio();
+  return markPrintBatchPrinted(batchId);
+}
+
+/** Looks up a Print Batch by id — used to restore the Print Summary after a page reload. */
+export async function getDesignBuilderPrintBatch(batchId: string): Promise<PrintBatch | null> {
+  assertLocalStudio();
+  return findPrintBatch(batchId);
+}
+
+/** @deprecated Use generateDesignBuilderPassBatch — kept for legacy callers. */
 export async function generatePassBatch(
   input: GeneratePassBatchInput,
 ): Promise<GeneratePassBatchResult> {

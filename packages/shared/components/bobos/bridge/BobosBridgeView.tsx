@@ -11,6 +11,7 @@ import {
   runBridgeVisualAction,
 } from "@/app/bobos/bridge/actions";
 import { HeroGeneratorModal } from "@/components/bobos/bridge/HeroGeneratorModal";
+import { RvIdLabel } from "@/components/bobos/rv-ids";
 import {
   buildAvailableVisuals,
   findVisualForUrl,
@@ -154,6 +155,9 @@ export function BobosBridgeView({ initial, initialRvtr }: Props) {
           <Link href="/bobos" className="bridge-brand">
             BobOS
           </Link>
+          <p className="bridge-rail__page-id">
+            <RvIdLabel rvId="RV01-04" label="VirtualDJ Bridge" />
+          </p>
 
           <div className="bridge-rail__song">
             <p className="bridge-rail__title">{model.title}</p>

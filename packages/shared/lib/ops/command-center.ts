@@ -77,14 +77,14 @@ export const COMMAND_CENTER_DEPARTMENTS: CommandCenterDepartment[] = [
     description: "Build and maintain the Retroverse library.",
     accent: "#2A5BFF",
     links: [
-      { label: "Studio", href: "/ops/studio" },
+      { label: "Song Package Pipeline", href: "/ops/studio" },
       { label: "Library", href: "/ops/library" },
       { label: "Research", href: "/ops/intelligence" },
       { label: "Event Hub", href: "/bobos/event" },
-      { label: "Pass Studio", href: "/bobos/passes" },
-      { label: "Event Studio", href: "/ops/event-studio" },
+      { label: "Design Builder", href: "/bobos/passes" },
+      { label: "Legacy Event Tools", href: "/ops/event-studio" },
       { label: "Content Creator", href: "/ops/content-creator" },
-      { label: "Mission Control", href: "/ops/browser-plus-2" },
+      { label: "Browser+ 2.0", href: "/ops/browser-plus-2" },
     ],
   },
   {

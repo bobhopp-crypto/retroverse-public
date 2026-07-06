@@ -1,0 +1,10 @@
+#!/bin/bash
+# Double-click entry point — opens Terminal and runs the real launcher script
+# so progress/health checks are visible. No typing required.
+REPO_ROOT="/Users/bobhopp/RETROVERSE_PUBLIC"
+osascript <<APPLESCRIPT
+tell application "Terminal"
+  activate
+  do script "cd '$REPO_ROOT' && ./tools/launch-retroverse.sh"
+end tell
+APPLESCRIPT

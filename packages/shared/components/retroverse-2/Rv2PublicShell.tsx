@@ -1,6 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { ReturnToLiveLink } from "@/components/live-experience/ReturnToLiveLink";
+import { CANONICAL_AUDIENCE_HREF } from "@/lib/bobos/presentation/canonical-audience";
+
 import "./rv2-public-shell.css";
 
 export type Rv2PublicShellProps = {
@@ -41,8 +44,11 @@ export function Rv2PublicShell({
       <div className="rv2-live__grid-glow" aria-hidden />
       <header className="rv2-live__topbar">
         <nav className="rv2-live__nav rv2-live__nav--local" aria-label="Live experience">
+          {activeNav !== "live" ? (
+            <ReturnToLiveLink className="rv2-live__nav-link rv2-live__nav-link--return-live" />
+          ) : null}
           <Link
-            href="/retroverse-2/live"
+            href={CANONICAL_AUDIENCE_HREF}
             aria-current={activeNav === "live" ? "page" : undefined}
             className={activeNav === "live" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
           >

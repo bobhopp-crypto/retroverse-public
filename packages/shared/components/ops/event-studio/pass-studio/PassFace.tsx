@@ -9,13 +9,20 @@ type Props = {
   side: "front" | "back";
 };
 
+const COMPOSITED_RENDER_PREFIX = "/api/bobos/pass-workspace/files/";
+
+function isCompositedRender(url: string | null | undefined): boolean {
+  return Boolean(url?.startsWith(COMPOSITED_RENDER_PREFIX));
+}
+
 function passRegistrationUrl(pass: GeneratedPass): string {
   return pass.qr.url || `https://retroverse.live/pass/${pass.serial}`;
 }
 
 export function PassFace({ pass, template, side }: Props) {
   const artworkUrl = side === "front" ? pass.front.artworkUrl : pass.back.artworkUrl;
-  const showQr = template?.qrPosition.side === side;
+  const composited = isCompositedRender(artworkUrl);
+  const showQr = !composited && template?.qrPosition.side === side;
   const hasArtwork = Boolean(artworkUrl);
   const primary = template?.colors.primary ?? "#1a0f2e";
   const secondary = template?.colors.secondary ?? "#ffffff";
@@ -25,7 +32,7 @@ export function PassFace({ pass, template, side }: Props) {
 
   return (
     <article
-      className={`ps-face${hasArtwork ? " ps-face--artwork" : ""}`}
+      className={`ps-face${hasArtwork ? " ps-face--artwork" : ""}${composited ? " ps-face--composited" : ""}`}
       style={{
         background: hasArtwork ? undefined : primary,
         color: secondary,
@@ -37,7 +44,7 @@ export function PassFace({ pass, template, side }: Props) {
         <img src={artworkUrl} alt="" className="ps-face__artwork" />
       ) : null}
 
-      {hasArtwork ? (
+      {!composited && hasArtwork ? (
         <>
           {side === "back" ? (
             <p className="ps-face__pass-url" style={{ color: overlayColors.ink }} aria-label="Registration URL">
@@ -48,7 +55,7 @@ export function PassFace({ pass, template, side }: Props) {
             No. {pass.serial}
           </p>
         </>
-      ) : (
+      ) : !hasArtwork ? (
         <div className="ps-face__overlay">
           {template?.logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -66,7 +73,7 @@ export function PassFace({ pass, template, side }: Props) {
 
           <p className="ps-face__serial">No. {pass.serial}</p>
         </div>
-      )}
+      ) : null}
 
       {showQr && pass.qr.svg ? (
         <div

@@ -126,11 +126,24 @@ export function ProductionLayoutEditor({
   const savedLayout = savedLayouts[activeSlug];
   const draftLayout = draftLayouts[activeSlug];
 
+  const editableSlugs = useMemo(() => {
+    const fromTemplates = templates.map((template) => template.slug);
+    return fromTemplates.length > 0 ? fromTemplates : PASS_WORKSPACE_SLUGS;
+  }, [templates]);
+
+  function slugLabel(slug: PassWorkspaceSlug): string {
+    const template = templates.find((entry) => entry.slug === slug);
+    if (template) {
+      return template.name.replace(/\s+Pass$/i, "").trim() || template.name;
+    }
+    return PASS_LABEL_BY_SLUG[slug];
+  }
+
   // Preview always shows the pass whose layout is being edited.
   const previewTemplate = templates.find((t) => t.slug === activeSlug) ?? templates[0];
   const isDirty = useMemo(() => !layoutsEqual(savedLayout, draftLayout), [savedLayout, draftLayout]);
   const safeInset = safeAreaInsetPercent(draftLayout.safeArea);
-  const activeLabel = PASS_LABEL_BY_SLUG[activeSlug];
+  const activeLabel = slugLabel(activeSlug);
 
   useEffect(() => {
     return () => {
@@ -367,7 +380,7 @@ export function ProductionLayoutEditor({
 
       <div className="pzw-prod__pass-picker" role="group" aria-label="Editing layout for">
         <span className="pzw-prod__pass-picker-label">Editing Layout For:</span>
-        {PASS_WORKSPACE_SLUGS.map((slug) => (
+        {editableSlugs.map((slug) => (
           <button
             key={slug}
             type="button"
@@ -375,7 +388,7 @@ export function ProductionLayoutEditor({
             aria-pressed={slug === activeSlug}
             onClick={() => handleSlugChange(slug)}
           >
-            {PASS_LABEL_BY_SLUG[slug]}
+            {slugLabel(slug)}
             {!layoutsEqual(savedLayouts[slug], draftLayouts[slug]) ? " •" : ""}
           </button>
         ))}

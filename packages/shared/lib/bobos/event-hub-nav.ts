@@ -14,8 +14,8 @@ export const BOBOS_EVENT_HUB_ACTIONS: BobosEventHubAction[] = [
   },
   {
     id: "passes",
-    label: "Pass Studio",
-    description: "Designs, quantities, preview, and print sheets for tonight's passes.",
+    label: "Design Builder",
+    description: "Build passes, credentials, posters, and print-ready visual assets.",
     href: "/bobos/passes",
   },
   {
@@ -41,9 +41,9 @@ export const BOBOS_EVENT_HUB_ACTIONS: BobosEventHubAction[] = [
 export const BOBOS_PRIMARY_NAV = [
   { id: "cockpit", label: "Cockpit", href: "/bobos" },
   { id: "event", label: "Event Hub", href: "/bobos/event" },
-  { id: "passes", label: "Pass Studio", href: "/bobos/passes" },
+  { id: "passes", label: "Design Builder", href: "/bobos/passes" },
   { id: "producer", label: "Producer", href: "/bobos/producer" },
-  { id: "presentation", label: "Presentation", href: "/bobos/presentation" },
+  { id: "presentation", label: "Presentation Control", href: "/bobos/presentation" },
   { id: "bridge", label: "Bridge", href: "/bobos/bridge" },
   { id: "pipeline", label: "Pipeline", href: "/bobos/pipeline" },
   { id: "ai", label: "AI Usage", href: "/bobos/ai" },

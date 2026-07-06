@@ -28,7 +28,7 @@ export const APP_ZONES: AppZone[] = [
   {
     id: "live",
     label: "Live",
-    href: "/retroverse-2/live",
+    href: "/",
     description: "Live channel and now playing.",
     publicNav: false,
     requiresOps: false,
@@ -74,7 +74,7 @@ const PUBLIC_PATH_PREFIXES = [
   "/retroverse-2/song/",
 ];
 
-const LIVE_PATH_PREFIXES = ["/live", "/sunday-nights", "/retroverse-2/live"];
+const LIVE_PATH_PREFIXES = ["/live", "/sunday-nights", "/retroverse-live", "/retroverse-2/live"];
 
 export function detectAppZone(pathname: string): AppZoneId {
   const path = pathname.split("?")[0] ?? "/";

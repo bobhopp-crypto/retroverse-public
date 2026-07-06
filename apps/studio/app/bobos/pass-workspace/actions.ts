@@ -23,6 +23,8 @@ import {
 } from "@/lib/ops/event-studio/pass-studio/serials";
 import { appendPassesToLibrary, nextSerialStart, savePassBatch } from "@/lib/ops/event-studio/pass-studio/store";
 import type { GeneratedPass, PassBatch } from "@/lib/ops/event-studio/pass-studio/types";
+import { createPrintBatch, reserveSerialRecords } from "@/lib/ops/event-studio/pass-studio/print-batch-store";
+import type { PrintBatch } from "@/lib/ops/event-studio/pass-studio/print-batch-types";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 import {
   emptyCreativeBriefSeed,
@@ -238,6 +240,7 @@ export type GenerateBobosPassBatchInput = {
 export type GenerateBobosPassBatchResult = {
   batch: PassBatch;
   passes: GeneratedPass[];
+  printBatch: PrintBatch;
 };
 
 /**
@@ -382,7 +385,35 @@ export async function generateBobosPassBatch(
   await savePassBatch(batch);
   await appendPassesToLibrary(passes);
 
-  return { batch, passes };
+  // Print production traceability — one persistent batch record plus one reserved serial
+  // record per pass, so nobody has to remember which serials were printed by hand.
+  const printBatch = await createPrintBatch({
+    id: batch.id,
+    eventId,
+    eventName: input.eventName,
+    passTypeCounts: rows
+      .filter((row) => row.quantity > 0)
+      .map((row) => ({
+        passType: row.passType,
+        quantity: row.quantity,
+        firstSerial: row.firstSerial,
+        lastSerial: row.lastSerial,
+      })),
+    serialStart: range.start,
+    serialEnd: range.end,
+    totalPasses: totalPassesForRows(rows),
+  });
+  await reserveSerialRecords(
+    passes.map((pass) => ({
+      serial: pass.serial,
+      batchId: batch.id,
+      eventId,
+      passType: pass.passType,
+      qrUrl: pass.qr.url,
+    })),
+  );
+
+  return { batch, passes, printBatch };
 }
 
 const BOBOS_RENDER_FILE_PREFIX = "/api/bobos/pass-workspace/files/";

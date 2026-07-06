@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { BobosCockpit } from "@/components/bobos/cockpit/BobosCockpit";
+import { StudioCockpit } from "./StudioCockpit";
 import { loadCockpitPanelData } from "@/lib/bobos/cockpit/load-panel-data";
 import { loadCockpitState } from "@/lib/bobos/cockpit/store";
 import { listProjects } from "@/lib/bobos/project-zero/store";
@@ -23,5 +23,5 @@ export default async function BobosPage() {
     loadCockpitPanelData(),
   ]);
 
-  return <BobosCockpit initialState={state} projects={projects} panelData={panelData} />;
+  return <StudioCockpit initialState={state} projects={projects} panelData={panelData} />;
 }

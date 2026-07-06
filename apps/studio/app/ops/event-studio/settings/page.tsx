@@ -46,7 +46,7 @@ export default async function EventStudioSettingsPage() {
             Collectible Library
           </Link>
           <Link href="/ops/content-creator/create" className="ops-event-studio__action">
-            Pass Generator (legacy)
+            Design Builder (legacy)
           </Link>
           <Link href="/ops/content-creator/debug" className="ops-event-studio__action">
             Debug tools

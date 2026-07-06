@@ -108,29 +108,10 @@ async function cropToFinishedCanvas(png: Buffer): Promise<Buffer> {
     .toBuffer();
 }
 
-function seededRandom(seedText: string): () => number {
-  let h = 0;
-  for (let i = 0; i < seedText.length; i += 1) {
-    h = (h * 31 + seedText.charCodeAt(i)) >>> 0;
-  }
-  return () => {
-    h = (h * 1103515245 + 12345) >>> 0;
-    return (h >>> 8) / 0xffffff;
-  };
-}
-
-/** Dark stamped ink — readable on the production plate over any AI back artwork. */
+/** Dark stamped ink — readable over AI back artwork. */
 const STAMP_INK = "#231815";
-/** Opaque cream plate behind the stamp so serial stays legible over colored AI backs. */
-const SERIAL_PLATE_FILL = "#f6f0e4";
-const SERIAL_PLATE_OPACITY = 0.96;
-const STAMP_OVERFLOW_PX = 26;
 
-/**
- * A realistic hand-stamped serial on a production-safe cream plate — dark distressed ink,
- * slight random rotation and opacity, sized to the serial reserve. The opaque plate keeps
- * the number readable over colored AI back artwork. Deterministic per serial.
- */
+/** Plain serial number only — positioned by production layout reserves. */
 function renderSerialStampSvg(
   serial: string,
   reserves: ProductionLayoutReserves,
@@ -139,38 +120,19 @@ function renderSerialStampSvg(
   compositeLeft: number;
   compositeTop: number;
 } {
-  const rand = seededRandom(serial);
-  const rotation = reserves.serialStyle.rotation + (rand() - 0.5) * 2;
-  const opacity = Math.min(1, reserves.serialStyle.inkOpacity + rand() * 0.06);
-  const turbulenceSeed = Math.floor(rand() * 1000);
+  const rotation = reserves.serialStyle.rotation;
+  const opacity = reserves.serialStyle.inkOpacity;
   const fontSize = reserves.serialStyle.fontSize;
-  const labelSize = Math.max(11, Math.round(fontSize * 0.5));
 
   const boxW = reserves.serial.width;
   const boxH = reserves.serial.height;
-  const canvasWidth = boxW + STAMP_OVERFLOW_PX * 2;
-  const canvasHeight = boxH + STAMP_OVERFLOW_PX * 2;
-  const cx = canvasWidth / 2;
-  const cy = canvasHeight / 2;
-  const pad = 8;
+  const cx = boxW / 2;
+  const cy = boxH / 2;
 
   const svg = `
-<svg width="${canvasWidth}" height="${canvasHeight}" viewBox="0 0 ${canvasWidth} ${canvasHeight}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <filter id="grunge" x="-30%" y="-30%" width="160%" height="160%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="${turbulenceSeed}" result="noise"/>
-      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0.9 0.9 0 -0.45" result="noiseAlpha"/>
-      <feComposite in="SourceGraphic" in2="noiseAlpha" operator="in" result="distressed"/>
-      <feGaussianBlur in="distressed" stdDeviation="0.25"/>
-    </filter>
-  </defs>
+<svg width="${boxW}" height="${boxH}" viewBox="0 0 ${boxW} ${boxH}" xmlns="http://www.w3.org/2000/svg">
   <g transform="rotate(${rotation.toFixed(2)} ${cx} ${cy})" opacity="${opacity.toFixed(2)}">
-    <rect x="${STAMP_OVERFLOW_PX + pad - 2}" y="${STAMP_OVERFLOW_PX + pad - 2}" width="${boxW - pad * 2 + 4}" height="${boxH - pad * 2 + 4}" rx="12" fill="${SERIAL_PLATE_FILL}" opacity="${SERIAL_PLATE_OPACITY.toFixed(2)}"/>
-    <g filter="url(#grunge)">
-      <rect x="${STAMP_OVERFLOW_PX + pad}" y="${STAMP_OVERFLOW_PX + pad}" width="${boxW - pad * 2}" height="${boxH - pad * 2}" rx="10" fill="none" stroke="${STAMP_INK}" stroke-width="5"/>
-      <text x="${cx}" y="${cy - fontSize * 0.35}" text-anchor="middle" font-family="'Courier New', monospace" font-size="${labelSize}" font-weight="700" letter-spacing="3" fill="${STAMP_INK}">RETROVERSE &#183; AUTHENTIC</text>
-      <text x="${cx}" y="${cy + fontSize * 0.45}" text-anchor="middle" font-family="'Courier New', monospace" font-size="${fontSize}" font-weight="800" letter-spacing="4" fill="${STAMP_INK}">No. ${serial}</text>
-    </g>
+    <text x="${cx}" y="${cy}" dominant-baseline="middle" text-anchor="middle" font-family="'Courier New', monospace" font-size="${fontSize}" font-weight="800" letter-spacing="2" fill="${STAMP_INK}">${serial}</text>
   </g>
 </svg>`.trim();
 
@@ -178,8 +140,8 @@ function renderSerialStampSvg(
 
   return {
     svg,
-    compositeLeft: reserves.serial.left - STAMP_OVERFLOW_PX,
-    compositeTop: reserves.serial.top - STAMP_OVERFLOW_PX,
+    compositeLeft: reserves.serial.left,
+    compositeTop: reserves.serial.top,
   };
 }
 
@@ -206,23 +168,33 @@ export async function finishBobosPassBack(args: {
   serial: string;
   layout?: ProductionLayout | null;
 }): Promise<Buffer> {
-  const reserves = resolvePassProductionReserves(args.layout);
+  const layout = normalizeProductionLayout(args.layout ?? defaultProductionLayoutFromPassLayout());
+  const reserves = productionLayoutToReserves(layout);
   const cropped = await cropToFinishedCanvas(args.rawBackPng);
 
+  // Full QR reserve zone — opaque cover replaces any baked placeholder QR in source artwork.
+  const qrZoneSize = Math.round(layout.qr.size * FINISHED_WIDTH_PX);
+  const qrCenterX = layout.qr.x * FINISHED_WIDTH_PX;
+  const qrCenterY = layout.qr.y * FINISHED_HEIGHT_PX;
+  const qrZoneLeft = Math.round(
+    Math.min(Math.max(qrCenterX - qrZoneSize / 2, 0), FINISHED_WIDTH_PX - qrZoneSize),
+  );
+  const qrZoneTop = Math.round(
+    Math.min(Math.max(qrCenterY - qrZoneSize / 2, 0), FINISHED_HEIGHT_PX - qrZoneSize),
+  );
+
   let base = cropped;
-  if (reserves.qrWhiteBackgroundOpacity > 0) {
-    const size = reserves.qr.size;
-    const whiteSvg = [
-      `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">`,
-      `<rect width="100%" height="100%" fill="#ffffff" opacity="${reserves.qrWhiteBackgroundOpacity.toFixed(3)}"/>`,
-      `</svg>`,
-    ].join("");
-    const whiteRect = await sharp(Buffer.from(whiteSvg)).png().toBuffer();
-    base = await sharp(cropped)
-      .composite([{ input: whiteRect, left: reserves.qr.left, top: reserves.qr.top }])
-      .png()
-      .toBuffer();
-  }
+  const coverOpacity = Math.max(reserves.qrWhiteBackgroundOpacity, 1);
+  const whiteSvg = [
+    `<svg width="${qrZoneSize}" height="${qrZoneSize}" xmlns="http://www.w3.org/2000/svg">`,
+    `<rect width="100%" height="100%" fill="#ffffff" opacity="${coverOpacity.toFixed(3)}"/>`,
+    `</svg>`,
+  ].join("");
+  const whiteRect = await sharp(Buffer.from(whiteSvg)).png().toBuffer();
+  base = await sharp(cropped)
+    .composite([{ input: whiteRect, left: qrZoneLeft, top: qrZoneTop }])
+    .png()
+    .toBuffer();
 
   const { buffer: withQr } = await compositeQrOntoBackBuffer({
     backSrc: base,
@@ -250,8 +222,16 @@ function bobosPassWorkspaceRendersRoot(): string {
   return join(retroverseDataRoot(), "ops", "bobos", "project-zero", "pass-workspace", "renders");
 }
 
+export const BOBOS_RENDER_FILE_PREFIX = "/api/bobos/pass-workspace/files/";
+
 export function bobosRenderFileUrl(relPath: string): string {
-  return `/api/bobos/pass-workspace/files/${relPath.split("/").map(encodeURIComponent).join("/")}`;
+  return `${BOBOS_RENDER_FILE_PREFIX}${relPath.split("/").map(encodeURIComponent).join("/")}`;
+}
+
+/** Inverse of `bobosRenderFileUrl` — null if the URL isn't a served render file. */
+export function relPathFromBobosRenderUrl(url: string): string | null {
+  if (!url.startsWith(BOBOS_RENDER_FILE_PREFIX)) return null;
+  return decodeURIComponent(url.slice(BOBOS_RENDER_FILE_PREFIX.length));
 }
 
 export function bobosRenderAbsolutePath(relPath: string): string {
@@ -389,19 +369,36 @@ async function sheetPngToJpeg(pngBuffer: Buffer): Promise<Buffer> {
   return sharp(pngBuffer).jpeg({ quality: 95 }).toBuffer();
 }
 
+/** Merges individually-saved single-sheet PDF buffers into one multi-page PDF — what "Export PDF" downloads. */
+async function mergeSheetPdfs(pdfBuffers: Buffer[]): Promise<Buffer> {
+  const merged = await PDFDocument.create();
+  for (const buffer of pdfBuffers) {
+    const doc = await PDFDocument.load(buffer);
+    const pages = await merged.copyPages(doc, doc.getPageIndices());
+    for (const page of pages) merged.addPage(page);
+  }
+  return Buffer.from(await merged.save());
+}
+
 /**
  * Builds production-ready print sheets (front + back, PNG + PDF, cut marks, duplex mirror)
  * from a project's own finished pass images — the exact same images shown in Preview.
  * Every cell is the true 2.25" × 3.5" finished canvas; the sheet itself is a true 11" × 17"
  * at the same DPI, so printing at 100% produces exact, unscaled passes.
+ *
+ * `grid` (explicit cols × rows) takes precedence over `gridId` when both are supplied —
+ * Design Builder's 2/4/8/16-up layouts always pass `grid` directly.
  */
 export async function buildBobosPrintSheets(args: {
   projectId: string;
   batchId: string;
   passes: { frontPng: Buffer; backPng: Buffer }[];
   gridId?: PrintSheetGridId;
+  grid?: { cols: number; rows: number };
 }): Promise<BobosPrintSheetSet> {
-  const resolved = resolvePrintSheetGrid(args.gridId ?? "auto", args.passes.length);
+  const resolved = args.grid
+    ? { cols: args.grid.cols, rows: args.grid.rows, perSheet: args.grid.cols * args.grid.rows, label: `${args.grid.cols} × ${args.grid.rows}` }
+    : resolvePrintSheetGrid(args.gridId ?? "auto", args.passes.length);
   const grid = sheetGridMetrics(resolved.cols, resolved.rows);
   const sheetCount = Math.max(1, Math.ceil(args.passes.length / grid.perSheet));
   const frontPngUrls: string[] = [];
@@ -410,6 +407,8 @@ export async function buildBobosPrintSheets(args: {
   const backPdfUrls: string[] = [];
   const frontJpegUrls: string[] = [];
   const backJpegUrls: string[] = [];
+  const frontPdfBuffers: Buffer[] = [];
+  const backPdfBuffers: Buffer[] = [];
 
   for (let s = 0; s < sheetCount; s += 1) {
     const start = s * grid.perSheet;
@@ -425,13 +424,27 @@ export async function buildBobosPrintSheets(args: {
     const frontPngRel = `${args.projectId}/${args.batchId}/sheet-front${suffix}.png`;
     const backPngRel = `${args.projectId}/${args.batchId}/sheet-back${suffix}.png`;
 
+    const frontPdf = await sheetPngToPdf(frontSheet);
+    const backPdf = await sheetPngToPdf(backSheet);
+    frontPdfBuffers.push(frontPdf);
+    backPdfBuffers.push(backPdf);
+
     frontPngUrls.push(await saveBobosRender(frontPngRel, frontSheet));
     backPngUrls.push(await saveBobosRender(backPngRel, backSheet));
-    frontPdfUrls.push(await saveBobosRender(frontPngRel.replace(/\.png$/, ".pdf"), await sheetPngToPdf(frontSheet)));
-    backPdfUrls.push(await saveBobosRender(backPngRel.replace(/\.png$/, ".pdf"), await sheetPngToPdf(backSheet)));
+    frontPdfUrls.push(await saveBobosRender(frontPngRel.replace(/\.png$/, ".pdf"), frontPdf));
+    backPdfUrls.push(await saveBobosRender(backPngRel.replace(/\.png$/, ".pdf"), backPdf));
     frontJpegUrls.push(await saveBobosRender(frontPngRel.replace(/\.png$/, ".jpg"), await sheetPngToJpeg(frontSheet)));
     backJpegUrls.push(await saveBobosRender(backPngRel.replace(/\.png$/, ".jpg"), await sheetPngToJpeg(backSheet)));
   }
+
+  const frontCombinedPdfUrl =
+    frontPdfBuffers.length > 0
+      ? await saveBobosRender(`${args.projectId}/${args.batchId}/sheet-front-all.pdf`, await mergeSheetPdfs(frontPdfBuffers))
+      : null;
+  const backCombinedPdfUrl =
+    backPdfBuffers.length > 0
+      ? await saveBobosRender(`${args.projectId}/${args.batchId}/sheet-back-all.pdf`, await mergeSheetPdfs(backPdfBuffers))
+      : null;
 
   return {
     sheetCount,
@@ -441,6 +454,8 @@ export async function buildBobosPrintSheets(args: {
     backPdfUrls,
     frontJpegUrls,
     backJpegUrls,
+    frontCombinedPdfUrl,
+    backCombinedPdfUrl,
     gridLabel: resolved.label,
     perSheet: resolved.perSheet,
   };

@@ -52,7 +52,7 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
   },
   "event-studio": {
     id: "event-studio",
-    title: "Event Studio",
+    title: "Event Production",
     group: "build",
     defaultStatus: "nominal",
     summary: "Producer plan, giveaway, and homepage flow.",
@@ -73,7 +73,7 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     group: "build",
     defaultStatus: "nominal",
     summary: "Pending print jobs and sheet status.",
-    primaryAction: { label: "Pass Studio", href: "/bobos/passes" },
+    primaryAction: { label: "Design Builder", href: "/bobos/passes" },
   },
   "documentary-progress": {
     id: "documentary-progress",
@@ -219,7 +219,7 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     group: "devices",
     defaultStatus: "warning",
     summary: "Print device status and queue.",
-    primaryAction: { label: "Pass Studio", href: "/bobos/passes" },
+    primaryAction: { label: "Design Builder", href: "/bobos/passes" },
   },
   "public-homepage": {
     id: "public-homepage",
@@ -267,12 +267,21 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
   },
   broadcast: {
     id: "broadcast",
-    title: "Broadcast Panel",
+    title: "Broadcast Control",
     group: "devices",
     defaultStatus: "nominal",
     summary: "Retroverse Live playhead — local and public broadcast control.",
     primaryAction: { label: "Open Local", href: "/retroverse-live" },
     secondaryActions: [],
+  },
+  "retroverse-runtime": {
+    id: "retroverse-runtime",
+    title: "Runtime",
+    group: "devices",
+    defaultStatus: "nominal",
+    summary: "Start, stop, and monitor Studio and Live dev servers.",
+    primaryAction: { label: "Open Studio", href: "http://localhost:3000" },
+    secondaryActions: [{ label: "Open Live", href: "http://localhost:3100" }],
   },
 };
 
@@ -288,8 +297,8 @@ export function getPanelDefinition(id: PanelTypeId): PanelDefinition {
 
 /** Bottom command bar — quick navigation outside the grid. */
 export const COCKPIT_COMMAND_BAR = [
-  { label: "Event Studio", href: "/bobos/producer" },
-  { label: "Passes", href: "/bobos/passes" },
+  { label: "Event Producer", href: "/bobos/producer" },
+  { label: "Design Builder", href: "/bobos/passes" },
   { label: "Posters", href: "/bobos/event" },
   { label: "Website", href: "/ops/event-studio/homepage" },
   { label: "Documentary", href: "/ops" },

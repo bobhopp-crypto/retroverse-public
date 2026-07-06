@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
 import { RetroverseGlobalNav } from "@/components/shell/RetroverseGlobalNav";
+import { VdjAutoFollower } from "@/components/retroverse-live/VdjAutoFollower";
 import { OPS_GATE_COOKIE, isOpsEnabled } from "@/lib/ops/ops-gate";
 
 import "./globals.css";
@@ -29,6 +30,7 @@ export default async function RootLayout({
           opsEnabled={opsEnabled}
           opsAuthenticated={opsAuthenticated}
         />
+        <VdjAutoFollower />
         {children}
       </body>
     </html>

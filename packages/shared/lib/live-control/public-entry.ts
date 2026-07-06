@@ -1,8 +1,7 @@
-import { maybeAdvanceLiveChannel } from "@/lib/live-control/engine";
+import { CANONICAL_AUDIENCE_HREF } from "@/lib/bobos/presentation/canonical-audience";
+import { isLiveChannelSessionActive, tickLiveControl } from "@/lib/live-control/engine";
 import { loadLiveControlState } from "@/lib/live-control/state";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
-
-import { liveSongExperienceHref } from "./experience-route";
 
 const RE_RVTR = /^RVTR\d{6}$/i;
 
@@ -19,38 +18,15 @@ export function resolveActiveLiveRvtr(input: {
 }
 
 /**
- * Public entry redirect for /live and /sunday-nights (and /retroverse-2/live).
- * Returns Song Experience href when the live channel has a resolved RVTR.
- * Do not call from `/` — the homepage stays on `/`.
+ * Legacy live entry routes (/live, /sunday-nights, /retroverse-2/live,
+ * /retroverse-live) all resolve to / — the canonical live broadcast.
  */
-export async function getPublicLiveRedirectUrl(): Promise<string | null> {
-  await maybeAdvanceLiveChannel();
-
-  const [state, control] = await Promise.all([
-    loadSundayNightsState(),
-    loadLiveControlState(),
-  ]);
-
-  const rvtr = resolveActiveLiveRvtr({
-    currentTrackId: state.currentTrackId,
-    liveRvtr: state.live?.rvtr,
-  });
-  if (!rvtr) return null;
-
-  if (control.running) {
-    return liveSongExperienceHref(rvtr);
-  }
-
-  const source = state.live?.source;
-  if (source === "channel" || source === "bridge") {
-    return liveSongExperienceHref(rvtr);
-  }
-
-  return null;
+export async function getPublicLiveRedirectUrl(): Promise<string> {
+  return CANONICAL_AUDIENCE_HREF;
 }
 
 export type PublicLiveEntrySnapshot = {
-  redirectUrl: string | null;
+  redirectUrl: string;
   rvtr: string | null;
   channelRunning: boolean;
   liveSource: string | null;
@@ -58,7 +34,7 @@ export type PublicLiveEntrySnapshot = {
 };
 
 export async function loadPublicLiveEntrySnapshot(): Promise<PublicLiveEntrySnapshot> {
-  await maybeAdvanceLiveChannel();
+  await tickLiveControl();
   const [state, control] = await Promise.all([
     loadSundayNightsState(),
     loadLiveControlState(),
@@ -68,17 +44,10 @@ export async function loadPublicLiveEntrySnapshot(): Promise<PublicLiveEntrySnap
     liveRvtr: state.live?.rvtr,
   });
 
-  let redirectUrl: string | null = null;
-  if (rvtr) {
-    if (control.running || state.live?.source === "channel" || state.live?.source === "bridge") {
-      redirectUrl = liveSongExperienceHref(rvtr);
-    }
-  }
-
   return {
-    redirectUrl,
+    redirectUrl: CANONICAL_AUDIENCE_HREF,
     rvtr,
-    channelRunning: control.running,
+    channelRunning: isLiveChannelSessionActive(control),
     liveSource: state.live?.source ?? null,
     updatedAt: state.updatedAt,
   };

@@ -12,7 +12,7 @@ import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Presentation Studio — BobOS",
+  title: "Presentation Control — BobOS",
   robots: { index: false, follow: false },
 };
 

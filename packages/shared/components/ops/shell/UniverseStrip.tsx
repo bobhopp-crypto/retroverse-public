@@ -17,7 +17,7 @@ export function UniverseStrip({ activeProduct }: Props) {
         <Link className="rs-shell__wordmark" href="/ops">
           Retroverse
         </Link>
-        {hubMode ? <p className="rs-shell__hub-label">Command Center</p> : null}
+        {hubMode ? <p className="rs-shell__hub-label">Operations Directory</p> : null}
       </div>
       <ProductSwitcher activeProduct={activeProduct} />
     </header>

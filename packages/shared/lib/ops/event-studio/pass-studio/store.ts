@@ -6,6 +6,7 @@ import { join } from "path";
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 
 import { findLatestPassArtworkBySlug, resolveGenerationArtwork } from "./content-creator-artwork";
+import { markSerialRecordRegistered } from "./print-batch-store";
 import { passTypeSlugFromLabel } from "./placeholder-artwork.server";
 import type {
   GeneratedPass,
@@ -191,6 +192,8 @@ export async function registerPassBySerial(
   const nextPasses = [...file.passes];
   nextPasses[index] = updated;
   await writeJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: nextPasses });
+  // Best-effort traceability mirror — never blocks registration if it fails.
+  await markSerialRecordRegistered(serial);
   return updated;
 }
 

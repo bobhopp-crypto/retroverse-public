@@ -1,0 +1,641 @@
+/* Universal Mobile Experience Renderer
+   Presentation tokens come from RVBR (inline CSS vars on .urx).
+   Defaults below are graceful fallbacks when era theme is incomplete. */
+
+.urx {
+  --urx-cream:  #f7ead0;
+  --urx-paper:  #fffaf0;
+  --urx-ink:    #172923;
+  --urx-teal:   #0f6b66;
+  --urx-orange: #e05a32;
+  --urx-red:    #b8372f;
+  --urx-accent-soft: #ffcdb0;
+  --urx-border-width: 3px;
+  --urx-border: 3px solid var(--urx-ink);
+  --urx-bg-gradient: linear-gradient(180deg, var(--urx-cream) 0%, #efe0c4 100%);
+  --urx-hero-placeholder: linear-gradient(155deg, var(--urx-teal), #0a3d3b);
+  --urx-hero-wash: linear-gradient(160deg, rgba(224,90,50,0.50), rgba(15,107,102,0.65));
+  --urx-hero-scrim: linear-gradient(180deg, rgba(15,30,26,0.35) 0%, rgba(15,30,26,0.25) 40%, rgba(12,22,19,0.93) 100%);
+  --urx-font-headline: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --urx-font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --urx-card-radius: 16px;
+  --urx-stat-radius: 12px;
+  --urx-button-radius: 999px;
+  --urx-spacing-scale: 1;
+  --urx-shadow-offset: 4px;
+  --urx-shadow-color: rgba(23,41,35,0.12);
+  --urx-divider-color: var(--urx-orange);
+  --urx-pulse-duration: 1.6s;
+  --urx-paper-rgb: 255,250,240;
+  --urx-ink-rgb: 23,41,35;
+
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  background: var(--urx-bg-gradient);
+  color: var(--urx-ink);
+  font-family: var(--urx-font-body);
+  overflow: hidden;
+}
+
+/* ── Top bar ── */
+
+.urx__topbar {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: max(0.85rem, env(safe-area-inset-top)) 1rem 0.6rem;
+  pointer-events: none;
+}
+
+.urx__back {
+  pointer-events: auto;
+  padding: calc(0.4rem * var(--urx-spacing-scale)) calc(0.8rem * var(--urx-spacing-scale));
+  border: var(--urx-border-width) solid var(--urx-ink);
+  border-radius: var(--urx-button-radius);
+  background: var(--urx-paper);
+  color: var(--urx-ink);
+  font-family: var(--urx-font-headline);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 2px 2px 0 var(--urx-shadow-color);
+}
+
+.urx__dots {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: calc(0.38rem * var(--urx-spacing-scale));
+  padding: calc(0.45rem * var(--urx-spacing-scale)) calc(0.6rem * var(--urx-spacing-scale));
+  border: var(--urx-border-width) solid var(--urx-ink);
+  border-radius: var(--urx-button-radius);
+  background: rgba(var(--urx-paper-rgb), 0.92);
+  max-width: 60vw;
+  overflow: hidden;
+}
+
+.urx__dot {
+  flex-shrink: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(var(--urx-ink-rgb), 0.28);
+  cursor: pointer;
+  transition: width 0.2s, background 0.2s, border-radius 0.2s;
+}
+
+.urx__dot--active {
+  width: 1.1rem;
+  border-radius: 999px;
+  background: var(--urx-orange);
+}
+
+/* ── Viewport / card deck ── */
+
+.urx__viewport {
+  display: flex;
+  width: 100vw;
+  height: 100svh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.urx__viewport::-webkit-scrollbar { display: none; }
+
+.urx__card-wrap {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+}
+
+/* Every .urx__slide fills its card-wrap */
+.urx__slide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Shared card layout ── */
+
+.urx__slide--card {
+  display: flex;
+  flex-direction: column;
+  padding: calc((5.5rem + env(safe-area-inset-top)) * var(--urx-spacing-scale)) calc(1.5rem * var(--urx-spacing-scale))
+           calc((3rem + env(safe-area-inset-bottom)) * var(--urx-spacing-scale));
+}
+
+.urx__kicker {
+  margin: 0 0 calc(0.4rem * var(--urx-spacing-scale));
+  font-family: var(--urx-font-headline);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--urx-orange);
+}
+
+.urx__heading {
+  margin: 0 0 calc(1.25rem * var(--urx-spacing-scale));
+  font-family: var(--urx-font-headline);
+  font-size: clamp(2rem, 9vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.urx__paragraph {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  font-weight: 500;
+  max-width: 34rem;
+}
+
+/* ── Hero card ── */
+
+.urx__slide--hero { overflow: hidden; }
+
+.urx__hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: grayscale(1) contrast(1.2) brightness(1.05);
+}
+
+.urx__hero-image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--urx-hero-placeholder);
+  filter: none;
+}
+
+.urx__hero-initials {
+  font-family: var(--urx-font-headline);
+  font-size: clamp(4rem, 20vw, 8rem);
+  font-weight: 900;
+  color: rgba(var(--urx-paper-rgb), 0.18);
+  letter-spacing: -0.03em;
+  user-select: none;
+}
+
+/* Duotone wash turns any cover into an intentional editorial poster */
+.urx__hero-wash {
+  position: absolute;
+  inset: 0;
+  background: var(--urx-hero-wash);
+  mix-blend-mode: color;
+}
+
+.urx__hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--urx-hero-scrim);
+}
+
+.urx__hero-content {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  padding: 0 calc(1.5rem * var(--urx-spacing-scale));
+  color: var(--urx-paper);
+}
+
+.urx__now-playing {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(0.4rem * var(--urx-spacing-scale));
+  margin-bottom: calc(0.9rem * var(--urx-spacing-scale));
+  padding: calc(0.35rem * var(--urx-spacing-scale)) calc(0.7rem * var(--urx-spacing-scale));
+  border: var(--urx-border-width) solid rgba(var(--urx-paper-rgb), 0.7);
+  border-radius: var(--urx-button-radius);
+  font-family: var(--urx-font-headline);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.urx__now-playing-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--urx-orange);
+  animation: urx-pulse var(--urx-pulse-duration) ease-in-out infinite;
+}
+
+@keyframes urx-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+.urx__hero-artist {
+  margin: 0;
+  font-family: var(--urx-font-headline);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(var(--urx-paper-rgb), 0.85);
+}
+
+.urx__hero-title {
+  margin: 0.2rem 0 0.35rem;
+  font-family: var(--urx-font-headline);
+  font-size: clamp(2.6rem, 12vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.02;
+}
+
+.urx__hero-year {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--urx-accent-soft);
+}
+
+.urx__swipe-hint {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: calc(1.3rem + env(safe-area-inset-bottom));
+  margin: 0;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(var(--urx-paper-rgb), 0.7);
+}
+
+/* ── Story card ── */
+
+.urx__slide--story {
+  background: var(--urx-cream);
+}
+
+/* ── Quote card ── */
+
+.urx__slide--quote {
+  background: var(--urx-ink);
+  color: var(--urx-paper);
+}
+
+.urx__slide--quote .urx__kicker {
+  color: var(--urx-accent-soft);
+}
+
+.urx__quote {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.urx__quote-text {
+  margin: 0;
+  font-family: var(--urx-font-headline);
+  font-size: clamp(1.6rem, 7vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--urx-paper);
+}
+
+.urx__quote-attribution {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(var(--urx-paper-rgb), 0.65);
+  letter-spacing: 0.04em;
+}
+
+/* ── Charts card ── */
+
+.urx__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 0;
+}
+
+.urx__stat {
+  padding: calc(1rem * var(--urx-spacing-scale));
+  border: var(--urx-border);
+  border-radius: var(--urx-card-radius);
+  background: var(--urx-paper);
+  box-shadow: var(--urx-shadow-offset) var(--urx-shadow-offset) 0 var(--urx-shadow-color);
+}
+
+.urx__stat--big {
+  grid-column: span 2;
+  padding: 1.3rem 1.2rem;
+  background: var(--urx-teal);
+  border-color: var(--urx-teal);
+  color: var(--urx-paper);
+}
+
+.urx__stat--big dt {
+  color: rgba(var(--urx-paper-rgb), 0.75);
+}
+
+.urx__stat--big dd {
+  font-size: clamp(2.4rem, 12vw, 3.2rem);
+  line-height: 1;
+}
+
+.urx__stat dt {
+  margin: 0 0 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--urx-teal);
+}
+
+.urx__stat dd {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.urx__chart-list {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.urx__chart-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: calc(0.5rem * var(--urx-spacing-scale));
+  padding: calc(0.7rem * var(--urx-spacing-scale)) calc(0.9rem * var(--urx-spacing-scale));
+  border: var(--urx-border-width) solid rgba(var(--urx-ink-rgb), 0.14);
+  border-radius: var(--urx-stat-radius);
+  background: var(--urx-paper);
+}
+
+.urx__chart-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.urx__chart-peak {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--urx-teal);
+  white-space: nowrap;
+}
+
+/* ── Album card ── */
+
+.urx__slide--album {
+  background: var(--urx-cream);
+  align-items: flex-start;
+}
+
+.urx__album-artwork-wrap {
+  width: clamp(140px, 55vw, 220px);
+  margin-bottom: 1.5rem;
+}
+
+.urx__album-artwork {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--urx-stat-radius);
+  border: var(--urx-border);
+  box-shadow: calc(var(--urx-shadow-offset) * 2) calc(var(--urx-shadow-offset) * 2) 0 var(--urx-shadow-color);
+  display: block;
+}
+
+.urx__album-artwork--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--urx-hero-placeholder);
+  color: rgba(var(--urx-paper-rgb), 0.4);
+  font-family: var(--urx-font-headline);
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.urx__heading--album {
+  font-size: clamp(1.7rem, 8vw, 2.4rem);
+  margin-bottom: 0.4rem;
+}
+
+.urx__album-artist {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--urx-teal);
+  text-transform: uppercase;
+}
+
+.urx__album-year {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: rgba(var(--urx-ink-rgb), 0.5);
+}
+
+/* ── Timeline card ── */
+
+.urx__timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: var(--urx-border-width) solid var(--urx-divider-color);
+}
+
+.urx__timeline-item {
+  position: relative;
+  padding: 0 0 1.3rem 1.3rem;
+  display: grid;
+  gap: 0.1rem;
+}
+
+.urx__timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -0.45rem;
+  top: 0.35rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--urx-divider-color);
+  border: 2px solid var(--urx-cream);
+}
+
+.urx__timeline-year {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--urx-teal);
+  letter-spacing: 0.04em;
+}
+
+.urx__timeline-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.urx__timeline-desc {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(var(--urx-ink-rgb), 0.72);
+  line-height: 1.45;
+  margin-top: 0.1rem;
+}
+
+/* ── Facts card ── */
+
+.urx__facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.urx__fact {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(0.65rem * var(--urx-spacing-scale));
+  padding: calc(1rem * var(--urx-spacing-scale)) calc(1.1rem * var(--urx-spacing-scale));
+  border: var(--urx-border-width) solid rgba(var(--urx-ink-rgb), 0.14);
+  border-radius: var(--urx-card-radius);
+  background: var(--urx-paper);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.45;
+  box-shadow: calc(var(--urx-shadow-offset) * 0.75) calc(var(--urx-shadow-offset) * 0.75) 0 var(--urx-shadow-color);
+}
+
+.urx__fact-mark {
+  flex-shrink: 0;
+  color: var(--urx-orange);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+/* ── Library stats card ── */
+
+.urx__slide--library-stats {
+  background: var(--urx-cream);
+}
+
+/* ── Credits card ── */
+
+.urx__slide--credits {
+  background: var(--urx-ink);
+  color: var(--urx-paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.urx__credits-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.urx__credits-brand {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--urx-orange);
+}
+
+.urx__credits-title {
+  margin: 0;
+  font-family: var(--urx-font-headline);
+  font-size: clamp(2.2rem, 10vw, 3rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.urx__credits-artist {
+  margin: 0;
+  font-family: var(--urx-font-headline);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(var(--urx-paper-rgb), 0.75);
+  text-transform: uppercase;
+}
+
+.urx__credits-year {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--urx-accent-soft);
+}
+
+.urx__credits-rvtr {
+  margin: 0.6rem 0 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(var(--urx-paper-rgb), 0.28);
+}
+
+.urx__credits-tagline {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(var(--urx-paper-rgb), 0.45);
+  padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
+}
+
+/* ── Desktop preview ── */
+
+@media (min-width: 640px) {
+  .urx__card-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .urx__slide--card {
+    max-width: 26rem;
+    width: 100%;
+  }
+
+  .urx__slide--hero,
+  .urx__slide--quote,
+  .urx__slide--credits {
+    width: 100%;
+  }
+}

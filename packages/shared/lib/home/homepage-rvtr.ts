@@ -2,7 +2,7 @@ import "server-only";
 
 import { cache } from "react";
 
-import { maybeAdvanceLiveChannel } from "@/lib/live-control/engine";
+import { tickLiveControl } from "@/lib/live-control/engine";
 import { resolveActiveLiveRvtr } from "@/lib/live-control/public-entry";
 import { loadLiveControlState } from "@/lib/live-control/state";
 import { loadSongPackageIndex, normalizePackageRvtr } from "@/lib/ops/intelligence/song-package-store";
@@ -34,7 +34,7 @@ export async function resolveHomepageRotationRvtr(): Promise<string | null> {
 
 export const resolveHomepageRvtr = cache(
   async (manualRvtr?: string | null): Promise<HomepageRvtrResolution> => {
-    await maybeAdvanceLiveChannel();
+    await tickLiveControl();
     const [state, control] = await Promise.all([
       loadSundayNightsState(),
       loadLiveControlState(),
