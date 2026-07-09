@@ -11,7 +11,10 @@
 import "server-only";
 
 import { loadUniversalPackage, type UniversalPackagePayload } from "@/lib/universal-renderer/load-package";
-import { loadVdjBasePackageByRvtr } from "@/lib/universal-renderer/load-vdj-base";
+import {
+  loadBundledVdjRvtrPackage,
+  loadVdjBasePackageByRvtr,
+} from "@/lib/universal-renderer/load-vdj-base";
 
 /**
  * The existing song package for an RVTR, if one exists. Null means: no
@@ -22,5 +25,9 @@ export async function loadNowPlayingPackage(
 ): Promise<UniversalPackagePayload | null> {
   const bundled = await loadUniversalPackage(rvtr);
   if (bundled) return bundled;
-  return loadVdjBasePackageByRvtr(rvtr);
+
+  const vdjLive = await loadVdjBasePackageByRvtr(rvtr);
+  if (vdjLive) return vdjLive;
+
+  return loadBundledVdjRvtrPackage(rvtr);
 }
