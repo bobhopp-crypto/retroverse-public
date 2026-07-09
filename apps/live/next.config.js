@@ -42,6 +42,12 @@ const nextConfig = {
   // 250 MB function limit. Runtime data lives under apps/live/data (prebuild).
   outputFileTracingRoot: __dirname,
   outputFileTracingIncludes: {
+    "*": [
+      "../../node_modules/next/dist/**",
+      "../../node_modules/react/**",
+      "../../node_modules/react-dom/**",
+      "../../node_modules/styled-jsx/**",
+    ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
   },
   outputFileTracingExcludes: {
