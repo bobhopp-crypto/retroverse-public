@@ -4,7 +4,12 @@ import { loadBroadcastSnapshot, saveBroadcastSnapshot } from "./broadcast-snapsh
 import { pushBroadcastToPublic } from "./push-public";
 import { loadPresentationState, savePresentationState } from "./store";
 import { resolvePlayhead } from "./resolve-playhead";
-import type { PlayheadPayload, PlayheadVdjState, PresentationItem, PresentationState } from "./types";
+import type {
+  PlayheadPayloadCore,
+  PlayheadVdjState,
+  PresentationItem,
+  PresentationState,
+} from "./types";
 import { loadSundayNightsState, saveSundayNightsState } from "@/lib/sunday-nights/state";
 import type { SundayNightsLiveSelection, SundayNightsState } from "@/lib/sunday-nights/types";
 
@@ -39,20 +44,31 @@ export function buildVdjPresentationItem(live: SundayNightsLiveSelection): Prese
 /** AUTO mode: audience item is the live VDJ track, not a queue slot. */
 export function shouldUseVdjPresentationItem(
   autoFollowVdj: boolean,
-  sn: SundayNightsState,
+  manualTakeActive: boolean,
+  vdj: PlayheadVdjState,
+  live: SundayNightsLiveSelection | null | undefined,
 ): boolean {
+  if (manualTakeActive) return false;
   if (!autoFollowVdj) return false;
-  if (!sn.live?.title?.trim() || !sn.live?.artist?.trim()) return false;
-  return sn.bridgePlaying === true || sn.vdjTakeoverActive === true;
+  if (!live?.title?.trim() || !live?.artist?.trim()) return false;
+  return vdj.playing || vdj.takeoverActive;
 }
 
 /** Override playhead item when AUTO mode follows VirtualDJ. */
 export function applyVdjPresentationItem(
-  payload: PlayheadPayload,
+  payload: PlayheadPayloadCore,
   sn: SundayNightsState,
   now: Date,
-): PlayheadPayload {
-  if (!shouldUseVdjPresentationItem(payload.autoFollowVdj, sn) || !sn.live) {
+): PlayheadPayloadCore {
+  if (
+    !shouldUseVdjPresentationItem(
+      payload.autoFollowVdj,
+      payload.manualTakeActive,
+      payload.vdj,
+      sn.live,
+    ) ||
+    !sn.live
+  ) {
     return payload;
   }
 
@@ -70,7 +86,7 @@ export function applyVdjPresentationItem(
     itemIndex: -1,
     nextItem: null,
     elapsedSeconds,
-    mode: sn.bridgePlaying ? "playing" : payload.mode,
+    mode: payload.vdj.playing ? "playing" : payload.mode,
   };
 }
 
@@ -78,10 +94,11 @@ export function normalizePresentationStateFields(
   parsed: Partial<PresentationState>,
 ): Pick<
   PresentationState,
-  "autoFollowVdj" | "vdjTakeoverActive" | "vdjStoppedAt" | "broadcastSourceMeta"
+  "autoFollowVdj" | "manualTakeActive" | "vdjTakeoverActive" | "vdjStoppedAt" | "broadcastSourceMeta"
 > {
   return {
     autoFollowVdj: parsed.autoFollowVdj !== false,
+    manualTakeActive: parsed.manualTakeActive === true,
     vdjTakeoverActive: parsed.vdjTakeoverActive === true,
     vdjStoppedAt:
       typeof parsed.vdjStoppedAt === "string" && parsed.vdjStoppedAt.trim()
@@ -96,6 +113,13 @@ async function isAutoFollowEnabled(): Promise<boolean> {
   if (snapshot) return snapshot.autoFollowVdj !== false;
   const pres = await loadPresentationState();
   return pres.autoFollowVdj !== false;
+}
+
+async function isManualTakeActive(): Promise<boolean> {
+  const snapshot = await loadBroadcastSnapshot();
+  if (snapshot) return snapshot.manualTakeActive === true;
+  const pres = await loadPresentationState();
+  return pres.manualTakeActive === true;
 }
 
 async function pauseBroadcastRotation(): Promise<void> {
@@ -150,7 +174,13 @@ export async function setAutoFollowVdj(enabled: boolean): Promise<PresentationSt
   const state = await loadPresentationState();
   state.autoFollowVdj = enabled;
 
+  if (enabled) {
+    // Return to Auto — clear manual take so VDJ can resume driving the audience view.
+    state.manualTakeActive = false;
+  }
+
   if (!enabled) {
+    state.manualTakeActive = false;
     const sn = await loadSundayNightsState();
     if (sn.vdjTakeoverActive) {
       state.vdjTakeoverActive = false;
@@ -170,6 +200,7 @@ export async function setAutoFollowVdj(enabled: boolean): Promise<PresentationSt
   const snapshot = await loadBroadcastSnapshot();
   if (snapshot) {
     snapshot.autoFollowVdj = enabled;
+    snapshot.manualTakeActive = state.manualTakeActive;
     snapshot.updatedAt = new Date().toISOString();
     await saveBroadcastSnapshot(snapshot);
     await pushBroadcastToPublic(snapshot).catch(() => undefined);
@@ -198,7 +229,17 @@ export async function handleVdjPlaybackStarted(): Promise<void> {
   const pres = await loadPresentationState();
   pres.vdjTakeoverActive = true;
   pres.vdjStoppedAt = null;
+  // Deck cueing sets manualTakeActive; live VDJ playback re-asserts AUTO follow.
+  pres.manualTakeActive = false;
   await savePresentationState(pres);
+
+  const snapshot = await loadBroadcastSnapshot();
+  if (snapshot) {
+    snapshot.manualTakeActive = false;
+    snapshot.updatedAt = new Date().toISOString();
+    await saveBroadcastSnapshot(snapshot);
+    await pushBroadcastToPublic(snapshot).catch(() => undefined);
+  }
 
   await pauseBroadcastRotation();
 }
@@ -206,6 +247,7 @@ export async function handleVdjPlaybackStarted(): Promise<void> {
 /** VirtualDJ playback stopped — start idle timeout before resuming broadcast. */
 export async function handleVdjPlaybackStopped(timestamp: string): Promise<void> {
   if (!(await isAutoFollowEnabled())) return;
+  if (await isManualTakeActive()) return;
 
   const sn = await loadSundayNightsState();
   await saveSundayNightsState({
@@ -227,6 +269,7 @@ export async function handleVdjPlaybackStopped(timestamp: string): Promise<void>
 export async function maybeResumeBroadcastAfterVdjIdle(): Promise<boolean> {
   const sn = await loadSundayNightsState();
   if (!(await isAutoFollowEnabled()) || !sn.vdjTakeoverActive) return false;
+  if (await isManualTakeActive()) return false;
 
   const stoppedAt = sn.vdjStoppedAt ?? sn.bridgeStoppedAt ?? null;
   if (!stoppedAt || sn.bridgePlaying) return false;
@@ -250,8 +293,7 @@ export async function maybeResumeBroadcastAfterVdjIdle(): Promise<boolean> {
   return true;
 }
 
-export async function buildPlayheadVdjState(): Promise<PlayheadVdjState> {
-  const [snapshot, sn] = await Promise.all([loadBroadcastSnapshot(), loadSundayNightsState()]);
+export function buildPlayheadVdjStateFromSundayNights(sn: SundayNightsState): PlayheadVdjState {
   const playing = sn.bridgePlaying === true;
   const takeoverActive = sn.vdjTakeoverActive === true;
   const stoppedAt = sn.vdjStoppedAt ?? sn.bridgeStoppedAt ?? null;
@@ -267,6 +309,11 @@ export async function buildPlayheadVdjState(): Promise<PlayheadVdjState> {
     takeoverActive,
     resumeBroadcastAt,
   };
+}
+
+export async function buildPlayheadVdjState(): Promise<PlayheadVdjState> {
+  const sn = await loadSundayNightsState();
+  return buildPlayheadVdjStateFromSundayNights(sn);
 }
 
 export async function readAutoFollowVdj(): Promise<boolean> {

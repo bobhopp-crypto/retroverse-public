@@ -1,0 +1,476 @@
+/* Standard Broadcast Asset Composer — Theme Pack 1 (9:16 phone)
+   Fixed typography + spacing; template modifiers only change region placement. */
+
+.bac {
+  --bac-midnight: #0c1224;
+  --bac-purple: #5a3d8a;
+  --bac-cyan: #3ec8e0;
+  --bac-amber: #f0a03c;
+  --bac-cream: #f7f1e3;
+  --bac-kicker-size: clamp(0.65rem, 2.8cqw, 1.1rem);
+  --bac-title-size: clamp(1.35rem, 7.5cqw, 3.4rem);
+  --bac-artist-size: clamp(0.95rem, 3.8cqw, 1.65rem);
+  --bac-album-size: clamp(0.8rem, 2.8cqw, 1.2rem);
+  --bac-brand-size: clamp(0.55rem, 1.8cqw, 0.85rem);
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  background:
+    radial-gradient(130% 90% at 50% -10%, rgba(90, 61, 138, 0.45), transparent 55%),
+    radial-gradient(100% 70% at 100% 100%, rgba(62, 200, 224, 0.18), transparent 50%),
+    var(--bac-midnight);
+  color: var(--bac-cream);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: size;
+  text-align: center;
+}
+
+/* ── Shared regions ── */
+
+.bac__hero {
+  grid-row: 1;
+  grid-column: 1;
+  min-height: 18cqh;
+  background:
+    linear-gradient(180deg, rgba(90, 61, 138, 0.55) 0%, transparent 100%),
+    radial-gradient(80% 120% at 20% 0%, rgba(240, 160, 60, 0.22), transparent 70%);
+  pointer-events: none;
+}
+
+.bac__cover-wrap {
+  grid-row: 2;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2cqw 6cqw;
+  min-height: 0;
+}
+
+.bac__cover-image,
+.bac__cover-fallback {
+  width: min(62cqw, 72%);
+  aspect-ratio: 1;
+  border-radius: 1.2cqw;
+  object-fit: cover;
+  box-shadow:
+    0 1.2cqw 3cqw rgba(0, 0, 0, 0.45),
+    0 0 0 0.15cqw rgba(247, 241, 227, 0.12);
+}
+
+.bac__cover-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120% 120% at 30% 20%, rgba(62, 200, 224, 0.35), transparent 60%),
+    radial-gradient(100% 100% at 80% 80%, rgba(90, 61, 138, 0.5), transparent 55%),
+    #141c2e;
+}
+
+.bac__cover-initials {
+  font-size: clamp(2rem, 14cqw, 5rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: rgba(247, 241, 227, 0.82);
+}
+
+.bac__meta {
+  grid-row: 3;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2cqw;
+  padding: 0 6cqw 10cqw;
+}
+
+.bac__kicker {
+  margin: 0;
+  font-size: var(--bac-kicker-size);
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--bac-amber);
+}
+
+.bac__title {
+  margin: 0;
+  font-size: var(--bac-title-size);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+  color: var(--bac-cream);
+  text-shadow: 0 0.15cqw 0 rgba(0, 0, 0, 0.35);
+}
+
+.bac__artist {
+  margin: 0;
+  font-size: var(--bac-artist-size);
+  font-weight: 700;
+  color: var(--bac-cyan);
+  text-wrap: balance;
+}
+
+.bac__album {
+  margin: 0;
+  font-size: var(--bac-album-size);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(247, 241, 227, 0.72);
+  text-wrap: balance;
+}
+
+.bac__brand {
+  position: absolute;
+  bottom: 2.5cqw;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-size: var(--bac-brand-size);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(247, 241, 227, 0.38);
+  pointer-events: none;
+}
+
+.bac__rvtr {
+  position: absolute;
+  top: 2cqw;
+  right: 3cqw;
+  margin: 0;
+  font-size: clamp(0.5rem, 1.6cqw, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(247, 241, 227, 0.22);
+  pointer-events: none;
+}
+
+/* ── Template 02: Cover Crown ── */
+
+.bac--t02 {
+  grid-template-rows: 8cqh 1fr auto;
+}
+
+.bac--t02 .bac__hero {
+  min-height: 8cqh;
+  opacity: 0.65;
+}
+
+.bac--t02 .bac__cover-image,
+.bac--t02 .bac__cover-fallback {
+  width: min(74cqw, 82%);
+}
+
+.bac--t02 .bac__meta {
+  padding-bottom: 11cqw;
+}
+
+/* ── Template 03: Side Stage ── */
+
+.bac--t03 {
+  grid-template-columns: 42% 58%;
+  grid-template-rows: 12cqh 1fr 10cqw;
+  text-align: left;
+}
+
+.bac--t03 .bac__hero {
+  grid-column: 1 / -1;
+}
+
+.bac--t03 .bac__cover-wrap {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 4cqw;
+  align-items: flex-end;
+}
+
+.bac--t03 .bac__cover-image,
+.bac--t03 .bac__cover-fallback {
+  width: 100%;
+}
+
+.bac--t03 .bac__meta {
+  grid-column: 2;
+  grid-row: 2;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4cqw 5cqw 4cqw 0;
+}
+
+/* ── Template 04: Full Bleed ── */
+
+.bac--t04 {
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+.bac--t04 .bac__hero {
+  display: none;
+}
+
+.bac--t04 .bac__cover-wrap {
+  grid-row: 1;
+  grid-column: 1;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+}
+
+.bac--t04 .bac__cover-image,
+.bac--t04 .bac__cover-fallback {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.bac--t04 .bac__cover-fallback {
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(90, 61, 138, 0.5), transparent 60%),
+    radial-gradient(110% 80% at 85% 100%, rgba(240, 160, 60, 0.28), transparent 55%),
+    var(--bac-midnight);
+}
+
+.bac--t04 .bac__meta {
+  grid-row: 1;
+  grid-column: 1;
+  z-index: 2;
+  align-self: end;
+  padding: 5cqw 6cqw 11cqw;
+  background: linear-gradient(0deg, rgba(12, 18, 36, 0.92) 0%, transparent 100%);
+  width: 100%;
+}
+
+/* ── Template 05: Documentary ── */
+
+.bac--t05 {
+  grid-template-rows: 14cqh 1fr auto;
+}
+
+.bac--t05 .bac__cover-wrap {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 3cqw 5cqw;
+}
+
+.bac--t05 .bac__cover-image,
+.bac--t05 .bac__cover-fallback {
+  width: 28cqw;
+  border-radius: 0.8cqw;
+}
+
+.bac--t05 .bac__meta {
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 5cqw;
+  padding-right: 5cqw;
+}
+
+/* ── Template 06: Cinematic ── */
+
+.bac--t06 .bac__hero {
+  min-height: 28cqh;
+  background:
+    linear-gradient(180deg, rgba(12, 18, 36, 0.2) 0%, transparent 100%),
+    radial-gradient(90% 80% at 50% 0%, rgba(62, 200, 224, 0.28), transparent 65%);
+}
+
+.bac--t06 .bac__cover-image,
+.bac--t06 .bac__cover-fallback {
+  width: min(58cqw, 68%);
+  box-shadow: 0 2cqw 5cqw rgba(0, 0, 0, 0.55);
+}
+
+.bac--t06 .bac__meta {
+  border-top: 0.2cqw solid rgba(240, 160, 60, 0.35);
+  padding-top: 2.5cqw;
+  margin: 0 5cqw;
+  width: calc(100% - 10cqw);
+}
+
+/* ── Template 07: Gallery ── */
+
+.bac--t07 .bac__cover-wrap {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.bac--t07 .bac__cover-image,
+.bac--t07 .bac__cover-fallback {
+  width: min(68cqw, 78%);
+  box-shadow:
+    0 0 0 0.35cqw rgba(247, 241, 227, 0.08),
+    0 1.5cqw 4cqw rgba(0, 0, 0, 0.5);
+}
+
+.bac--t07 .bac__meta {
+  gap: 1cqw;
+  padding-top: 2cqw;
+}
+
+/* ── Template 08: Midnight ── */
+
+.bac--t08 {
+  background: #080d18;
+}
+
+.bac--t08 .bac__hero {
+  background: radial-gradient(70% 90% at 85% 15%, rgba(90, 61, 138, 0.35), transparent 70%);
+}
+
+.bac--t08 .bac__cover-wrap {
+  justify-content: flex-end;
+  padding-right: 5cqw;
+}
+
+.bac--t08 .bac__cover-image,
+.bac--t08 .bac__cover-fallback {
+  width: 48cqw;
+}
+
+.bac--t08 .bac__meta {
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 5cqw;
+  max-width: 52%;
+}
+
+/* ── Template 09: Broadcast Purple ── */
+
+.bac--t09 {
+  background:
+    linear-gradient(90deg, rgba(90, 61, 138, 0.35) 0%, transparent 8%, transparent 92%, rgba(90, 61, 138, 0.35) 100%),
+    var(--bac-midnight);
+}
+
+.bac--t09 .bac__hero {
+  background: linear-gradient(180deg, rgba(90, 61, 138, 0.65), transparent);
+}
+
+.bac--t09 .bac__cover-image,
+.bac--t09 .bac__cover-fallback {
+  width: min(66cqw, 76%);
+  box-shadow: 0 0 2.5cqw rgba(90, 61, 138, 0.45);
+}
+
+/* ── Template 10: Electric Cyan ── */
+
+.bac--t10 .bac__hero {
+  background: radial-gradient(90% 70% at 50% 100%, rgba(62, 200, 224, 0.32), transparent 70%);
+  min-height: 10cqh;
+}
+
+.bac--t10 .bac__kicker {
+  color: var(--bac-cyan);
+  text-shadow: 0 0 1.5cqw rgba(62, 200, 224, 0.45);
+}
+
+.bac--t10 .bac__cover-wrap {
+  align-items: flex-end;
+}
+
+.bac--t10 .bac__cover-image,
+.bac--t10 .bac__cover-fallback {
+  width: min(70cqw, 78%);
+}
+
+/* ── Template 11: Warm Amber ── */
+
+.bac--t11 .bac__hero {
+  min-height: 32cqh;
+  background:
+    radial-gradient(100% 90% at 50% 0%, rgba(240, 160, 60, 0.38), transparent 65%),
+    linear-gradient(180deg, rgba(90, 61, 138, 0.25), transparent);
+}
+
+.bac--t11 .bac__cover-wrap {
+  align-items: flex-start;
+  padding-top: 0;
+}
+
+.bac--t11 .bac__cover-image,
+.bac--t11 .bac__cover-fallback {
+  width: min(52cqw, 60%);
+}
+
+.bac--t11 .bac__meta {
+  margin-top: auto;
+}
+
+/* ── Template 12: Spotlight ── */
+
+.bac--t12 .bac__cover-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 10% 5%;
+  background: radial-gradient(ellipse 55% 45% at 50% 42%, rgba(247, 241, 227, 0.14), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bac--t12 .bac__cover-wrap {
+  position: relative;
+}
+
+.bac--t12 .bac__cover-image,
+.bac--t12 .bac__cover-fallback {
+  position: relative;
+  z-index: 1;
+  width: min(64cqw, 72%);
+}
+
+.bac--t12 .bac__meta {
+  background: linear-gradient(0deg, rgba(12, 18, 36, 0.75), transparent);
+  padding-bottom: 11cqw;
+}
+
+/* ── Transitions ── */
+
+.bac--enter-fade {
+  animation: bac-fade 550ms ease both;
+}
+
+.bac--enter-slide {
+  animation: bac-slide 480ms ease both;
+}
+
+.bac--enter-cut {
+  animation: none;
+}
+
+@keyframes bac-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bac-slide {
+  from { opacity: 0; transform: translateY(3%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bac--enter-fade,
+  .bac--enter-slide {
+    animation: none;
+  }
+}
+
+/* Package shell inside PresentationStage */
+
+.rv-stage--broadcast-asset {
+  padding: 0;
+  background: #080d18;
+}
+
+.rv-stage--broadcast-asset .bac {
+  border-radius: inherit;
+}

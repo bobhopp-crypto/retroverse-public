@@ -1,22 +1,39 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import type { PresentationItem } from "@/lib/bobos/presentation/types";
+import {
+  broadcastCompositionKey,
+  composeBroadcastAsset,
+  extractBroadcastInputFromPackage,
+  extractBroadcastInputFromRvba,
+} from "@/lib/broadcast/composer";
+import { resolveBroadcastAsset } from "@/lib/broadcast/resolve-broadcast-asset";
+import type { CurrentBroadcast } from "@/lib/broadcast/current-broadcast";
+import type { Rvba, RvbaType } from "@/lib/broadcast/rvba";
+import type { UniversalPackagePayload } from "@/lib/universal-renderer/load-package";
 
+import { BroadcastAssetComposerView } from "./BroadcastAssetComposerView";
 import "./presentation-stage.css";
 
 /**
  * The one renderer for Retroverse Live.
  *
- * The Studio preview and the public player both render this component, so
- * "what you see in the preview" is exactly what the audience sees. It is a
- * pure function of the current Playhead item — no editing UI, no data
- * fetching, no awareness of queues.
+ * The Studio preview (Program Monitor) and the public player both render
+ * this component, so "what you see in the preview" is exactly what the
+ * audience sees. It is a pure function of the current Rvba + the playhead
+ * engine's CurrentBroadcast metadata — never VirtualDJ state, queue shapes,
+ * or legacy PresentationItem types.
+ *
+ * Asset routing (via resolveBroadcastAsset):
+ *   RVTR / VDJ track  → Standard Broadcast Asset (Theme Pack 1 composer)
+ *   RVBA + all others → Broadcast stage card (title/subtitle/body)
  */
 
 type Props = {
-  item: PresentationItem | null;
+  rvba: Rvba | null;
+  /** Playhead engine metadata — authoritative for which experience to mount. */
+  broadcast?: CurrentBroadcast | null;
   /** Shown when there is no published presentation on air. */
   offAirTitle?: string;
 };
@@ -46,20 +63,95 @@ function CountdownClock({ target }: { target: string | null }) {
   return <p className="rv-stage__countdown">{formatCountdown(remaining)}</p>;
 }
 
-const KICKERS: Record<PresentationItem["type"], string> = {
-  slide: "",
+const KICKERS: Record<RvbaType, string> = {
+  "now-playing": "Now Playing",
+  story: "Story",
   artist: "Artist Spotlight",
-  song: "Now Playing",
+  album: "Album",
+  charts: "Charts",
+  related: "Related",
   announcement: "Announcement",
-  registration: "Registration",
+  giveaway: "Giveaway",
+  image: "",
+  pdf: "",
+  video: "",
   countdown: "Starting In",
-  "coming-soon": "Coming Soon",
-  "current-event": "Tonight",
-  placeholder: "",
+  blank: "",
 };
 
-export function PresentationStage({ item, offAirTitle = "Retroverse Live" }: Props) {
-  if (!item) {
+/** Identity for package fetch + composition — changes on every VDJ/RVTR track change. */
+function songTrackKey(rvba: Rvba, packageRvtr: string | null, assetId: string | null): string {
+  if (packageRvtr) return packageRvtr;
+  const linkId = rvba.link?.id?.trim() ?? "";
+  return `${linkId || assetId || rvba.id}|${rvba.title.trim()}|${rvba.subtitle.trim()}`;
+}
+
+export function PresentationStage({ rvba, broadcast = null, offAirTitle = "Retroverse Live" }: Props) {
+  const asset = resolveBroadcastAsset(rvba, broadcast);
+  const [pkg, setPkg] = useState<UniversalPackagePayload | null>(null);
+
+  const trackKey =
+    rvba && asset.experience === "broadcast-asset"
+      ? songTrackKey(rvba, asset.packageRvtr, asset.assetId)
+      : null;
+
+  useEffect(() => {
+    const requestedRvtr = asset.packageRvtr;
+    if (!requestedRvtr) {
+      setPkg(null);
+      return;
+    }
+
+    let cancelled = false;
+    setPkg((prev) => (prev?.rvtr === requestedRvtr ? prev : null));
+
+    fetch(`/api/retroverse-live/now-playing-package?rvtr=${requestedRvtr}`, { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { package: UniversalPackagePayload | null } | null) => {
+        const next = data?.package ?? null;
+        if (!cancelled && next?.rvtr === requestedRvtr) {
+          setPkg(next);
+        }
+      })
+      .catch(() => {
+        // Transient — composer falls back to RVBA metadata; next poll recovers.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [asset.packageRvtr, trackKey]);
+
+  const composedAsset = useMemo(() => {
+    if (asset.experience !== "broadcast-asset" || !rvba) return null;
+
+    const songKey = asset.packageRvtr ?? asset.assetId ?? rvba.id;
+    const matchedPkg =
+      asset.packageRvtr && pkg?.rvtr === asset.packageRvtr ? pkg : null;
+    const input = matchedPkg
+      ? extractBroadcastInputFromPackage(matchedPkg)
+      : extractBroadcastInputFromRvba(rvba, songKey);
+
+    if (!input.title && !input.artist) return null;
+    return composeBroadcastAsset(input);
+  }, [asset.experience, asset.packageRvtr, asset.assetId, pkg, rvba, trackKey]);
+
+  if (composedAsset) {
+    const compositionKey = broadcastCompositionKey(composedAsset.input);
+    return (
+      <div
+        key={compositionKey}
+        className="rv-stage rv-stage--now-playing rv-stage--broadcast-asset"
+      >
+        <BroadcastAssetComposerView
+          key={compositionKey}
+          asset={composedAsset}
+          transition={rvba?.transition}
+        />
+      </div>
+    );
+  }
+
+  if (asset.experience === "off-air" || !rvba) {
     return (
       <div className="rv-stage rv-stage--off-air">
         <div className="rv-stage__inner">
@@ -71,22 +163,23 @@ export function PresentationStage({ item, offAirTitle = "Retroverse Live" }: Pro
     );
   }
 
-  const kicker = KICKERS[item.type];
-  const headline = item.link && (item.type === "artist" || item.type === "song")
-    ? item.link.label
-    : item.title;
+  const kicker = KICKERS[rvba.type];
+  const headline =
+    rvba.link && (rvba.type === "artist" || rvba.type === "now-playing")
+      ? rvba.link.label
+      : rvba.title;
 
   return (
     <div
-      key={item.id}
-      className={`rv-stage rv-stage--${item.type} rv-stage--enter-${item.transition}`}
+      key={`${asset.kind}:${asset.assetId ?? rvba.id}`}
+      className={`rv-stage rv-stage--${rvba.type} rv-stage--enter-${rvba.transition}`}
     >
       <div className="rv-stage__inner">
         {kicker ? <p className="rv-stage__kicker">{kicker}</p> : null}
         <h1 className="rv-stage__title">{headline}</h1>
-        {item.subtitle ? <p className="rv-stage__subtitle">{item.subtitle}</p> : null}
-        {item.type === "countdown" ? <CountdownClock target={item.countdownTarget} /> : null}
-        {item.body ? <p className="rv-stage__body">{item.body}</p> : null}
+        {rvba.subtitle ? <p className="rv-stage__subtitle">{rvba.subtitle}</p> : null}
+        {rvba.type === "countdown" ? <CountdownClock target={rvba.countdownTarget} /> : null}
+        {rvba.body ? <p className="rv-stage__body">{rvba.body}</p> : null}
       </div>
       <p className="rv-stage__brand">Retroverse Live</p>
     </div>

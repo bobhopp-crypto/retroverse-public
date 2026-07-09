@@ -4,7 +4,9 @@ import { randomUUID } from "crypto";
 import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
+import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
 import { opsStateDir } from "@/lib/ops/ops-state-path";
+import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 
 import { loadBroadcastSnapshot, saveBroadcastSnapshot } from "./broadcast-snapshot";
 import { pushBroadcastToPublic, type PublicPushResult } from "./push-public";
@@ -14,6 +16,7 @@ import {
   type PlayheadCommand,
   type PlayheadMover,
   type PlayheadPayload,
+  type PlayheadPayloadCore,
   type PlayheadVdjState,
   type Presentation,
   type PresentationItem,
@@ -23,12 +26,10 @@ import {
 import { enabledItems, resolvePlayhead, stepIndex } from "./resolve-playhead";
 import {
   applyVdjPresentationItem,
-  buildPlayheadVdjState,
+  buildPlayheadVdjStateFromSundayNights,
   maybeResumeBroadcastAfterVdjIdle,
   normalizePresentationStateFields,
-  readAutoFollowVdj,
 } from "./vdj-takeover";
-import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 
 /* ── Storage: RETROVERSE_DATA/ops/bobos/presentation/{presentations,state}.json ── */
 
@@ -158,6 +159,7 @@ export async function syncBroadcast(): Promise<PublicPushResult> {
     publishedAt: published.publishedAt,
     updatedAt: new Date().toISOString(),
     autoFollowVdj: state.autoFollowVdj !== false,
+    manualTakeActive: state.manualTakeActive === true,
   };
   await saveBroadcastSnapshot(snapshot);
   return pushBroadcastToPublic(snapshot);
@@ -249,6 +251,14 @@ export async function movePlayhead(
     }
   }
 
+  const isOperatorTake = movedBy === "manual" || movedBy === "cockpit";
+  const changesItem =
+    command.op === "jump" || command.op === "next" || command.op === "previous";
+  if (isOperatorTake && changesItem) {
+    state.manualTakeActive = true;
+    mode = "playing";
+  }
+
   state.playhead = {
     presentationId: activeId,
     anchorItemId,
@@ -271,7 +281,7 @@ const OFF_AIR_VDJ: PlayheadVdjState = {
   resumeBroadcastAt: null,
 };
 
-const OFF_AIR: Omit<PlayheadPayload, "updatedAt"> = {
+const OFF_AIR: Omit<PlayheadPayloadCore, "updatedAt"> = {
   onAir: false,
   presentation: null,
   item: null,
@@ -283,8 +293,18 @@ const OFF_AIR: Omit<PlayheadPayload, "updatedAt"> = {
   queue: null,
   publishedAt: null,
   autoFollowVdj: true,
+  manualTakeActive: false,
   vdj: OFF_AIR_VDJ,
 };
+
+/**
+ * The Broadcast Output Contract: derive CurrentBroadcast + Rvba from the
+ * fully-resolved payload core and attach them. This is the only place a
+ * PlayheadPayloadCore becomes a real PlayheadPayload.
+ */
+function withCurrentBroadcast(payload: PlayheadPayloadCore, now: Date): PlayheadPayload {
+  return normalizePlayheadPayload(payload, now);
+}
 
 function nextEnabledItem(
   queue: PresentationQueue,
@@ -300,72 +320,83 @@ function nextEnabledItem(
  * Answer the only question every audience surface asks: what is the current
  * presentation item?
  *
- * MANUAL mode (autoFollowVdj off): resolved from the Broadcast Snapshot queue.
- * AUTO mode: the item is the current VirtualDJ track from Sunday Nights state.
+ * MANUAL take (manualTakeActive): queue item wins even when autoFollowVdj is on.
+ * AUTO mode (autoFollowVdj on, no manual take): item is the current VirtualDJ track.
  * One resolver — Broadcast Panel, retroverse.live, and all renderers call here.
  */
 export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
   await maybeResumeBroadcastAfterVdjIdle();
 
-  const autoFollowVdj = await readAutoFollowVdj();
-  const [vdj, sn] = await Promise.all([buildPlayheadVdjState(), loadSundayNightsState()]);
-
   const now = new Date();
-  const snapshot = await loadBroadcastSnapshot();
+  const [snapshot, sn] = await Promise.all([loadBroadcastSnapshot(), loadSundayNightsState()]);
+  const vdj = buildPlayheadVdjStateFromSundayNights(sn);
 
   if (snapshot) {
     const resolved = resolvePlayhead(snapshot.queue, snapshot.playhead, now);
-    return applyVdjPresentationItem(
-      {
-        onAir: resolved.item !== null,
-        presentation: { id: snapshot.presentationId, title: snapshot.title },
-        item: resolved.item,
-        itemIndex: resolved.index,
-        itemCount: resolved.enabledCount,
-        mode: snapshot.playhead.mode,
-        elapsedSeconds: resolved.elapsedSeconds,
-        nextItem: nextEnabledItem(snapshot.queue, resolved.index),
-        queue: snapshot.queue,
-        publishedAt: snapshot.publishedAt,
-        updatedAt: snapshot.updatedAt,
-        autoFollowVdj: snapshot.autoFollowVdj !== false,
-        vdj,
-      },
-      sn,
+    return withCurrentBroadcast(
+      applyVdjPresentationItem(
+        {
+          onAir: resolved.item !== null,
+          presentation: { id: snapshot.presentationId, title: snapshot.title },
+          item: resolved.item,
+          itemIndex: resolved.index,
+          itemCount: resolved.enabledCount,
+          mode: snapshot.playhead.mode,
+          elapsedSeconds: resolved.elapsedSeconds,
+          nextItem: nextEnabledItem(snapshot.queue, resolved.index),
+          queue: snapshot.queue,
+          publishedAt: snapshot.publishedAt,
+          updatedAt: snapshot.updatedAt,
+          autoFollowVdj: snapshot.autoFollowVdj !== false,
+          manualTakeActive: snapshot.manualTakeActive === true,
+          vdj,
+        },
+        sn,
+        now,
+      ),
       now,
     );
   }
 
   const state = await loadPresentationState();
+  const autoFollowVdj = state.autoFollowVdj !== false;
+  const manualTakeActive = state.manualTakeActive === true;
   const activeId = state.activePresentationId;
   const presentation = activeId ? await getPresentation(activeId) : null;
   const published = presentation?.published ?? null;
   if (!presentation || !published) {
-    return applyVdjPresentationItem(
-      { ...OFF_AIR, autoFollowVdj, vdj, updatedAt: state.playhead.updatedAt },
-      sn,
+    return withCurrentBroadcast(
+      applyVdjPresentationItem(
+        { ...OFF_AIR, autoFollowVdj, manualTakeActive, vdj, updatedAt: state.playhead.updatedAt },
+        sn,
+        now,
+      ),
       now,
     );
   }
 
   const resolved = resolvePlayhead(published.queue, state.playhead, now);
-  return applyVdjPresentationItem(
-    {
-      onAir: resolved.item !== null,
-      presentation: { id: presentation.id, title: published.title },
-      item: resolved.item,
-      itemIndex: resolved.index,
-      itemCount: resolved.enabledCount,
-      mode: state.playhead.mode,
-      elapsedSeconds: resolved.elapsedSeconds,
-      nextItem: nextEnabledItem(published.queue, resolved.index),
-      queue: published.queue,
-      publishedAt: published.publishedAt,
-      updatedAt: state.playhead.updatedAt,
-      autoFollowVdj,
-      vdj,
-    },
-    sn,
+  return withCurrentBroadcast(
+    applyVdjPresentationItem(
+      {
+        onAir: resolved.item !== null,
+        presentation: { id: presentation.id, title: published.title },
+        item: resolved.item,
+        itemIndex: resolved.index,
+        itemCount: resolved.enabledCount,
+        mode: state.playhead.mode,
+        elapsedSeconds: resolved.elapsedSeconds,
+        nextItem: nextEnabledItem(published.queue, resolved.index),
+        queue: published.queue,
+        publishedAt: published.publishedAt,
+        updatedAt: state.playhead.updatedAt,
+        autoFollowVdj,
+        manualTakeActive,
+        vdj,
+      },
+      sn,
+      now,
+    ),
     now,
   );
 }

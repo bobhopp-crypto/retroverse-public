@@ -2,40 +2,59 @@
 
 import { useEffect, useState } from "react";
 
-import type { PlayheadPayload } from "@/lib/bobos/presentation/types";
+import {
+  normalizePlayheadPayload,
+  playheadStageKey,
+} from "@/lib/broadcast/normalize-playhead";
+import type { PlayheadPayload, PlayheadPayloadCore } from "@/lib/bobos/presentation/types";
 
 import { PresentationStage } from "./PresentationStage";
 
 const POLL_MS = 2000;
 
+type Props = {
+  initial: PlayheadPayload | PlayheadPayloadCore;
+  /** When false, render only the initial payload (Audience Preview). */
+  poll?: boolean;
+};
+
 /**
  * Broadcast viewer — polls "what is the current Playhead?" and renders it.
- * Used by the fullscreen /retroverse-live player and the public homepage,
- * so every audience surface shows the identical broadcast.
+ * Used by the fullscreen /retroverse-live player, the public homepage, and
+ * the Broadcast Mixer Audience Preview so every audience surface shows the
+ * identical composed broadcast asset.
  */
-export function BroadcastViewer({ initial }: { initial: PlayheadPayload }) {
-  const [payload, setPayload] = useState<PlayheadPayload>(initial);
+export function BroadcastViewer({ initial, poll = true }: Props) {
+  const [payload, setPayload] = useState(() => normalizePlayheadPayload(initial));
 
   useEffect(() => {
+    if (!poll) return;
+
     let cancelled = false;
 
-    async function poll() {
+    async function tick() {
       try {
         const res = await fetch("/api/retroverse-live/playhead", { cache: "no-store" });
         if (!res.ok) return;
-        const next = (await res.json()) as PlayheadPayload;
-        if (!cancelled) setPayload(next);
+        const next = (await res.json()) as PlayheadPayloadCore;
+        if (!cancelled) setPayload(normalizePlayheadPayload(next));
       } catch {
         // Keep showing the last known item; the next poll will recover.
       }
     }
 
-    const id = window.setInterval(poll, POLL_MS);
+    const id = window.setInterval(tick, POLL_MS);
     return () => {
       cancelled = true;
       window.clearInterval(id);
     };
-  }, []);
+  }, [poll]);
 
-  return <PresentationStage item={payload.item} />;
+  return (
+    <PresentationStage
+      key={playheadStageKey(payload)}
+      rvba={payload.rvba}
+      broadcast={payload.broadcast}
+    />
+  );
 }

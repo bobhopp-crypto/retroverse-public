@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { BroadcastViewer } from "@/components/retroverse-live/BroadcastViewer";
+import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
 import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
 
 import "./home-broadcast.css";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
  * the current Broadcast Asset from the mixer.
  */
 export default async function HomePage() {
-  const initial = await buildPlayheadPayload();
+  const initial = normalizePlayheadPayload(await buildPlayheadPayload());
 
   return (
     <main className="home-broadcast">

@@ -12,6 +12,11 @@
  * public player, and the API with identical results.
  */
 
+// Type-only: erased at compile time, so this does not create a runtime
+// circular dependency with lib/broadcast (which type-imports PlayheadPayload).
+import type { CurrentBroadcast } from "@/lib/broadcast/current-broadcast";
+import type { Rvba } from "@/lib/broadcast/rvba";
+
 /* ── Presentation Item ── */
 
 export const PRESENTATION_ITEM_TYPES = [
@@ -160,6 +165,11 @@ export type PresentationState = {
   playhead: Playhead;
   /** Default ON — VirtualDJ pauses broadcast and phones follow live songs. */
   autoFollowVdj: boolean;
+  /**
+   * Operator took a queue item live while auto-follow is still preferred.
+   * Suppresses VDJ presentation override until Return to Auto clears this flag.
+   */
+  manualTakeActive: boolean;
   /** Broadcast paused because VirtualDJ is live. */
   vdjTakeoverActive: boolean;
   /** When VirtualDJ playback last stopped (idle timeout anchor). */
@@ -213,6 +223,7 @@ export function defaultPresentationState(): PresentationState {
     activePresentationId: null,
     playhead: defaultPlayhead(),
     autoFollowVdj: true,
+    manualTakeActive: false,
     vdjTakeoverActive: false,
     vdjStoppedAt: null,
   };
@@ -246,9 +257,27 @@ export type PlayheadPayload = {
   updatedAt: string;
   /** When true, VirtualDJ playback pauses broadcast and phones follow live songs. */
   autoFollowVdj: boolean;
+  /** Operator manual-take override — queue item wins over VDJ until cleared. */
+  manualTakeActive: boolean;
   /** VirtualDJ auto-takeover — derived from bridge + presentation state. */
   vdj: PlayheadVdjState;
+  /**
+   * The single Broadcast Output Contract. Every renderer should read
+   * `rvba` (+ `broadcast` for metadata) instead of `item` going forward.
+   * `item` is retained above for existing consumers and stays in lockstep —
+   * `rvba` is always the adapted form of `item`.
+   */
+  broadcast: CurrentBroadcast;
+  rvba: Rvba | null;
 };
+
+/**
+ * Shape used while a PlayheadPayload is still being resolved (snapshot
+ * lookup, off-air fallback, VDJ override) — before `broadcast`/`rvba` are
+ * derived from the finished result. `buildPlayheadPayload()` is the only
+ * place that turns this into a full PlayheadPayload.
+ */
+export type PlayheadPayloadCore = Omit<PlayheadPayload, "broadcast" | "rvba">;
 
 export type PlayheadVdjState = {
   /** Bridge reports audible deck / playback active. */
@@ -277,4 +306,5 @@ export type BroadcastSnapshot = {
   publishedAt: string;
   updatedAt: string;
   autoFollowVdj: boolean;
+  manualTakeActive: boolean;
 };
