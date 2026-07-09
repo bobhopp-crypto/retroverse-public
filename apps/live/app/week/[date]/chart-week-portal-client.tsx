@@ -2,18 +2,15 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
-import { TrackCoverageBadge, TrackCoverageFilterBar } from "@/app/components/track-coverage-badge";
-import "@/app/components/track-coverage.css";
+import { PublicTrackPlayButton } from "@/app/components/public-track-play-button";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { formatChartDateLabel, monthLabel } from "@/lib/artist/chart-history-display";
-import { movementLabel } from "@/lib/charts/chart-week-movement";
+import { formatChartDateLabel } from "@/lib/artist/chart-history-display";
 import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import type { ChartWeekPortalContext, ChartWeekPortalRow } from "@/lib/charts/chart-week-portal-types";
-import { coverageMatchesFilter, type CoverageFilter } from "@/lib/charts/track-coverage";
-import { rvMonthHref, rvWeekHref, rvYearHref } from "@/lib/rv/rv-chronology-paths";
+import { rvWeekHref } from "@/lib/rv/rv-chronology-paths";
 import { trackPageHref } from "@/lib/search/entity-routes";
 
 import "./chart-week-portal.css";
@@ -23,84 +20,122 @@ type Props = {
   focusQuery: string | null;
 };
 
-function movementBadge(prev: number | null, position: number): string {
-  const move = movementLabel(position, prev);
-  if (move === "up") return "↑ Rising";
-  if (move === "down") return "↓ Falling";
-  if (move === "new") return "★ New";
-  if (move === "same") return "→ Holding";
-  return "";
+function explorerHeaderDate(isoDate: string): string {
+  const d = new Date(`${isoDate.slice(0, 10)}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return formatChartDateLabel(isoDate);
+  return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
-function ChartWeekPortalRowBody({
-  row,
-  isFocus,
-  fullChart = false,
-}: {
-  row: ChartWeekPortalRow;
-  isFocus: boolean;
-  fullChart?: boolean;
-}) {
-  const move = movementBadge(row.prevPosition, row.position);
-  const peak =
-    row.peakHot100 != null && row.peakHot100 > 0 ? `#${row.peakHot100} peak` : null;
-  const weeks =
-    row.weeksOnChart > 0
-      ? row.weeksOnChart === 1
-        ? "1 wk"
-        : `${row.weeksOnChart} wks`
-      : null;
-  const stats = [peak, weeks, move].filter(Boolean).join(" · ");
+function ExplorerIndicators({ row }: { row: ChartWeekPortalRow }) {
+  const owned = row.coverageStatus === "owned";
+  const hasYoutube = row.coverageStatus === "youtube";
 
   return (
     <>
-      <div className="chart-week-portal__rank-col">
-        <span className="chart-week-portal__rank">#{row.position}</span>
-        {row.prevPosition != null && row.prevPosition !== row.position ? (
-          <span className="chart-week-portal__rank-prev">was #{row.prevPosition}</span>
-        ) : null}
-      </div>
-      <div className="chart-week-portal__cover">
+      <span
+        className={`explorer-ind explorer-ind--owned${owned ? "" : " explorer-ind--missing"}`}
+        aria-label={owned ? "In library" : "Not in library"}
+        title={owned ? "In library" : "Not in library"}
+      />
+      {hasYoutube ? (
+        <span className="explorer-ind explorer-ind--youtube" aria-label="YouTube available" title="YouTube">
+          YT
+        </span>
+      ) : null}
+    </>
+  );
+}
+
+function ExplorerRowActions({ row, isCurrent }: { row: ChartWeekPortalRow; isCurrent: boolean }) {
+  const showAcquire = row.coverageStatus === "missing";
+  const infoHref = row.trackHref;
+
+  return (
+    <div className="explorer-row__actions">
+      {infoHref ? (
+        <Link
+          href={infoHref}
+          prefetch
+          className="explorer-btn explorer-btn--info"
+          aria-label={`Song info for ${row.title}`}
+        >
+          Info
+        </Link>
+      ) : null}
+      <PublicTrackPlayButton
+        rvtr={row.rvtr}
+        title={row.title}
+        artist={row.artistName}
+        className="explorer-btn explorer-btn--play"
+        size={isCurrent ? "md" : "sm"}
+      />
+      {showAcquire ? (
+        <button
+          type="button"
+          className="explorer-btn explorer-btn--acquire"
+          aria-label={`Acquire ${row.title} into library (coming soon)`}
+          disabled
+          title="Acquire into VirtualDJ library (coming soon)"
+        >
+          +
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
+function ExplorerSongRow({
+  row,
+  isCurrent,
+  fullChart,
+  onRefocus,
+}: {
+  row: ChartWeekPortalRow;
+  isCurrent: boolean;
+  fullChart: boolean;
+  onRefocus?: () => void;
+}) {
+  const rowId = `explorer-row-${row.position}`;
+  const rowClass = ["explorer-row", isCurrent ? "explorer-row--current" : ""].filter(Boolean).join(" ");
+
+  const mainBlock = (
+    <>
+      <span className="explorer-row__rank">{row.position}</span>
+      <div className="explorer-row__main">
         <ArtistCover
           src={row.coverUrl}
           alt=""
-          className="chart-week-portal__cover-img"
-          fallbackClassName="chart-week-portal__cover-fallback"
+          className="explorer-row__art"
+          fallbackClassName="explorer-row__art explorer-row__art--fallback"
           fallbackVariant="vinyl"
         />
-      </div>
-      <div className="chart-week-portal__body">
-        <div className="chart-week-portal__body-head">
-          {row.trackHref ? (
-            <Link
-              href={row.trackHref}
-              prefetch
-              className="chart-week-portal__title-link"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {row.title}
-            </Link>
-          ) : (
-            <span className="chart-week-portal__title-text">{row.title}</span>
-          )}
-          <TrackCoverageBadge status={row.coverageStatus} />
+        <div className="explorer-row__text">
+          <p className="explorer-row__title">{row.title}</p>
+          <p className="explorer-row__artist">{row.artistName}</p>
         </div>
-        <Link
-          href={row.artistHref}
-          prefetch
-          className="chart-week-portal__artist-link"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {row.artistName}
-        </Link>
-        {stats ? <p className="chart-week-portal__stats">{stats}</p> : null}
-        {isFocus ? (
-          <span className="chart-week-portal__focus-badge">Your song · chart neighborhood</span>
-        ) : fullChart ? null : (
-          <span className="chart-week-portal__peek-hint">Tap to explore this spot</span>
-        )}
+      </div>
+      <div className="explorer-row__meta">
+        <ExplorerIndicators row={row} />
       </div>
     </>
+  );
+
+  const hitArea =
+    !fullChart && !isCurrent && onRefocus ? (
+      <button type="button" className="explorer-row__hit" onClick={onRefocus} aria-label={`Explore chart around ${row.title}`}>
+        {mainBlock}
+      </button>
+    ) : (
+      <div className="explorer-row__hit explorer-row__hit--static">{mainBlock}</div>
+    );
+
+  return (
+    <li className="explorer-row-item">
+      <article id={rowId} className={rowClass} aria-current={isCurrent ? "true" : undefined}>
+        {hitArea}
+        <ExplorerRowActions row={row} isCurrent={isCurrent} />
+      </article>
+    </li>
   );
 }
 
@@ -108,30 +143,25 @@ export function ChartWeekPortalClient({ initial, focusQuery }: Props) {
   const router = useRouter();
   const [context, setContext] = useState(initial);
   const [loading, setLoading] = useState(false);
-  const [coverageFilter, setCoverageFilter] = useState<CoverageFilter>("all");
 
   const year = Number.parseInt(context.chartDate.slice(0, 4), 10);
   const month = Number.parseInt(context.chartDate.slice(5, 7), 10);
   const rvWeekLink = rvWeekHref(year, month, context.chartDate);
   const fullChart = context.focusPosition == null;
+  const headerDate = explorerHeaderDate(context.chartDate);
 
-  const visibleRows = useMemo(
-    () => context.rows.filter((row) => coverageMatchesFilter(row.coverageStatus, coverageFilter)),
-    [context.rows, coverageFilter],
-  );
-
-  const canExpandAbove = context.rangeFrom > context.chartMin;
-  const canExpandBelow = context.rangeTo < context.chartMax;
-
-  const backTrackHref = useMemo(() => {
-    if (fullChart) return null;
+  const backHref = useMemo(() => {
+    if (fullChart) return rvWeekLink;
     const focusRow = context.rows.find((r) => r.position === context.focusPosition);
     if (focusRow?.trackHref) return focusRow.trackHref;
     if (focusQuery && /^RVTR\d{6}$/i.test(focusQuery)) {
       return trackPageHref(focusQuery.toUpperCase());
     }
-    return null;
-  }, [context, focusQuery, fullChart]);
+    return rvWeekLink;
+  }, [context, focusQuery, fullChart, rvWeekLink]);
+
+  const canExpandAbove = context.rangeFrom > context.chartMin;
+  const canExpandBelow = context.rangeTo < context.chartMax;
 
   const fetchRange = useCallback(
     async (from: number, to: number) => {
@@ -178,138 +208,53 @@ export function ChartWeekPortalClient({ initial, focusQuery }: Props) {
     router.push(href);
   };
 
-  const rangeLabel =
-    context.rangeFrom === context.chartMin && context.rangeTo === context.chartMax
-      ? `#${context.chartMin}–#${context.chartMax}`
-      : `#${context.rangeFrom}–#${context.rangeTo}`;
-
-  const weekDateLabel = formatChartDateLabel(context.chartDate);
+  useEffect(() => {
+    if (fullChart || context.focusPosition == null) return;
+    const id = `explorer-row-${context.focusPosition}`;
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      el?.scrollIntoView({ block: "center", behavior: "smooth" });
+    });
+  }, [context.focusPosition, context.rows.length, fullChart]);
 
   return (
-    <Rv2PublicShell
-      className="rv2-chart-week"
-      yearsHref={rvYearHref(year)}
-      chartsHref="/retroverse-2/charts"
-      activeNav="charts"
-    >
-      <div className="chart-week-portal">
-        <nav className="chart-week-portal__crumb" aria-label="Where you are">
-          <Link href={rvYearHref(year)} prefetch className="chart-week-portal__crumb-link">
-            {year}
+    <Rv2PublicShell className="rv2-chart-week rv2-explorer" chartsHref="/retroverse-2/charts" activeNav="charts">
+      <div className="explorer">
+        <header className="explorer__header">
+          <Link href={backHref} prefetch className="explorer__back">
+            ← Back
           </Link>
-          <span className="chart-week-portal__crumb-sep" aria-hidden>
-            /
-          </span>
-          <Link href={rvMonthHref(year, month)} prefetch className="chart-week-portal__crumb-link">
-            {monthLabel(month)}
-          </Link>
-          <span className="chart-week-portal__crumb-sep" aria-hidden>
-            /
-          </span>
-          <Link href={rvWeekLink} prefetch className="chart-week-portal__crumb-link">
-            {weekDateLabel}
-          </Link>
-          <span className="chart-week-portal__crumb-sep" aria-hidden>
-            /
-          </span>
-          <span className="chart-week-portal__crumb-current" aria-current="page">
-            Chart
-          </span>
-        </nav>
+          <h1 className="explorer__date">{headerDate}</h1>
+        </header>
 
-        <section className="chart-week-portal-hero" aria-labelledby="chart-week-portal-heading">
-          <p className="chart-week-portal-hero__eyebrow">
-            {fullChart ? "Billboard Hot 100" : "What surrounded this song?"}
-          </p>
-          <h1 id="chart-week-portal-heading" className="chart-week-portal-hero__title">
-            {weekDateLabel}
-          </h1>
-          <p className="chart-week-portal-hero__lead">
-            {context.chartLabel} · {fullChart ? `full chart ${rangeLabel}` : `neighborhood ${rangeLabel}`}
-          </p>
-          <Link href={rvWeekLink} prefetch className="chart-week-portal-hero__rv-link">
-            ← Back to {weekDateLabel} week
-          </Link>
-        </section>
-
-        <section
-          className="chart-week-portal-stack"
-          aria-label={fullChart ? "Billboard Hot 100 chart" : "Chart neighborhood"}
-          aria-busy={loading}
-        >
-        <TrackCoverageFilterBar value={coverageFilter} onChange={setCoverageFilter} />
-
-        {canExpandAbove ? (
-            <button
-              type="button"
-              className="chart-week-portal-expand"
-              disabled={loading}
-              onClick={expandAbove}
-            >
+        <div className="explorer__list" aria-busy={loading} aria-label="Chart songs">
+          {canExpandAbove ? (
+            <button type="button" className="explorer-expand" disabled={loading} onClick={expandAbove}>
               More above
             </button>
           ) : null}
 
-        <ol className="chart-week-portal-list">
-          {visibleRows.length === 0 ? (
-            <li className="chart-week-portal__empty" role="status">
-              No songs match this coverage filter.
-            </li>
-          ) : null}
-          {visibleRows.map((row) => {
-              const isFocus = !fullChart && row.position === context.focusPosition;
-              if (isFocus) {
-                return (
-                  <li
-                    key={row.position}
-                    className="chart-week-portal__row chart-week-portal__row--focus"
-                    aria-current="true"
-                  >
-                    <ChartWeekPortalRowBody row={row} isFocus fullChart={fullChart} />
-                  </li>
-                );
-              }
-              if (fullChart) {
-                return (
-                  <li key={row.position} className="chart-week-portal__row">
-                    <ChartWeekPortalRowBody row={row} isFocus={false} fullChart />
-                  </li>
-                );
-              }
+          <ol className="explorer-rows">
+            {context.rows.map((row) => {
+              const isCurrent = !fullChart && row.position === context.focusPosition;
               return (
-                <li key={row.position} className="chart-week-portal__row">
-                  <button
-                    type="button"
-                    className="chart-week-portal-row-btn"
-                    onClick={() => refocusRow(row)}
-                    aria-label={`Explore chart neighborhood around ${row.title}`}
-                  >
-                    <ChartWeekPortalRowBody row={row} isFocus={false} />
-                  </button>
-                </li>
+                <ExplorerSongRow
+                  key={`${row.position}-${row.trackId}`}
+                  row={row}
+                  isCurrent={isCurrent}
+                  fullChart={fullChart}
+                  onRefocus={!fullChart && !isCurrent ? () => refocusRow(row) : undefined}
+                />
               );
             })}
           </ol>
 
           {canExpandBelow ? (
-            <button
-              type="button"
-              className="chart-week-portal-expand"
-              disabled={loading}
-              onClick={expandBelow}
-            >
+            <button type="button" className="explorer-expand" disabled={loading} onClick={expandBelow}>
               More below
             </button>
           ) : null}
-        </section>
-
-        <footer className="chart-week-portal-footer">
-          <Link href={rvWeekLink}>← Week</Link>
-          <Link href="/">Home</Link>
-          <Link href="/search">Search</Link>
-          {backTrackHref ? <Link href={backTrackHref}>← Back to song</Link> : null}
-          <Link href={rvYearHref(year)}>{year} chronicle</Link>
-        </footer>
+        </div>
       </div>
     </Rv2PublicShell>
   );

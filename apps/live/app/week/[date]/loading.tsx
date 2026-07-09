@@ -4,13 +4,17 @@ import "./chart-week-portal.css";
 
 export default function ChartWeekPortalLoading() {
   return (
-    <Rv2PublicShell className="rv2-chart-week" activeNav="charts">
-      <div className="chart-week-portal" aria-busy="true" aria-label="Loading chart week">
-        <section className="chart-week-portal-hero">
-          <p className="chart-week-portal-hero__eyebrow">Billboard Hot 100</p>
-          <h1 className="chart-week-portal-hero__title">…</h1>
-          <p className="chart-week-portal-hero__lead">Opening chart week…</p>
-        </section>
+    <Rv2PublicShell className="rv2-chart-week rv2-explorer" activeNav="charts">
+      <div className="explorer explorer--loading" aria-busy="true" aria-label="Loading chart week">
+        <header className="explorer__header">
+          <span className="explorer__back">← Back</span>
+          <h1 className="explorer__date">Loading…</h1>
+        </header>
+        <div className="explorer__list">
+          {Array.from({ length: 8 }, (_, i) => (
+            <div key={i} className="explorer-skeleton-row" />
+          ))}
+        </div>
       </div>
     </Rv2PublicShell>
   );
