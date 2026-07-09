@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "node ../../tools/verify-max-duration.mjs && node ../../tools/prepare-live-data.mjs",
     "dev": "next dev",
-    "build": "next build && node ../../tools/touch-production-build.mjs && node ../../tools/ensure-search-index.mjs && node ../../tools/ensure-sunday-nights-state.mjs",
+    "build": "next build && node ../../tools/prune-live-server-traces.mjs && node ../../tools/touch-production-build.mjs && node ../../tools/ensure-search-index.mjs && node ../../tools/ensure-sunday-nights-state.mjs",
     "start": "next start"
   },
   "dependencies": {

@@ -59,6 +59,13 @@ const nextConfig = {
       "../../tools/**",
       "../../docs/**",
       "../../apps/studio/**",
+      "../../logs/**",
+      "../../tmp/**",
+      "../../.vercel/**",
+    ],
+    "/api/events/**": [
+      "../../data/ops/intelligence/**",
+      "./data/ops/intelligence/**",
     ],
   },
   serverExternalPackages: ["pg"],
