@@ -53,6 +53,7 @@ const nextConfig = {
       "../../node_modules/postgres-*/**",
       "../../node_modules/pgpass/**",
       "../../node_modules/split2/**",
+      "../../node_modules/xtend/**",
     ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
   },
