@@ -17,6 +17,8 @@ import "server-only";
 import { createHash } from "node:crypto";
 
 import { scanVdjDatabase, type VdjLibraryEntry } from "@/lib/ops/intelligence/vdj-database";
+import { loadBundledVdjRvtrEntry } from "@/lib/ops/intelligence/vdj-rvtr-index";
+import { loadCoverInfoForRvtrs } from "@/lib/ops/intelligence/load-rvtr-covers";
 import { resolveRvbrRendererTheme } from "@/lib/retroverse/rvbr/renderer-theme";
 
 import type { RendererCard } from "./card-types";
@@ -34,26 +36,48 @@ export function vdjBaseKey(filePathNorm: string): string {
   return createHash("sha256").update(filePathNorm).digest("hex").slice(0, 16);
 }
 
-function buildPayloadFromEntry(
-  entry: VdjLibraryEntry,
-  rvtrOverride?: string,
+export type MinimalVdjPackageMetadata = {
+  rvtr: string;
+  artist: string;
+  title: string;
+  album?: string | null;
+  year?: number | null;
+  coverUrl?: string | null;
+  playCount?: number | null;
+};
+
+/** Level-0 UniversalRenderer payload from VirtualDJ tag metadata. */
+export function buildMinimalPackageFromMetadata(
+  meta: MinimalVdjPackageMetadata,
 ): UniversalPackagePayload | null {
-  const artist = entry.artist.trim();
-  const title = entry.title.trim();
+  const artist = meta.artist.trim();
+  const title = meta.title.trim();
   if (!artist || !title) return null;
 
-  const year = entry.year;
-  const rvtr = rvtrOverride ?? rvtrFromLabel(entry.label) ?? `VDJ:${vdjBaseKey(entry.filePathNorm)}`;
+  const year = meta.year ?? null;
+  const rvtr = meta.rvtr.trim().toUpperCase();
+  const coverUrl = meta.coverUrl?.trim() || null;
+  const album = meta.album?.trim() || null;
 
   const cards: RendererCard[] = [
-    { kind: "hero", artist, title, year, coverUrl: null },
+    { kind: "hero", artist, title, year, coverUrl },
     { kind: "credits", artist, title, rvtr, year },
   ];
 
-  if ((entry.playCount ?? 0) > 0) {
+  if (album) {
     cards.splice(1, 0, {
+      kind: "album",
+      albumTitle: album,
+      year,
+      coverUrl,
+      artist,
+    });
+  }
+
+  if ((meta.playCount ?? 0) > 0) {
+    cards.splice(album ? 2 : 1, 0, {
       kind: "library_stats",
-      playCount: entry.playCount,
+      playCount: meta.playCount ?? 0,
       peakHot100: null,
       chartWeeks: null,
       hasVdjMedia: true,
@@ -68,6 +92,21 @@ function buildPayloadFromEntry(
     cards,
     theme: resolveRvbrRendererTheme(year),
   };
+}
+
+function buildPayloadFromEntry(
+  entry: VdjLibraryEntry,
+  rvtrOverride?: string,
+): UniversalPackagePayload | null {
+  const rvtr = rvtrOverride ?? rvtrFromLabel(entry.label) ?? `VDJ:${vdjBaseKey(entry.filePathNorm)}`;
+  return buildMinimalPackageFromMetadata({
+    rvtr,
+    artist: entry.artist,
+    title: entry.title,
+    album: entry.album,
+    year: entry.year,
+    playCount: entry.playCount,
+  });
 }
 
 export async function loadVdjBasePackage(key: string): Promise<UniversalPackagePayload | null> {
@@ -96,4 +135,30 @@ export async function loadVdjBasePackageByRvtr(
   if (!entry) return null;
 
   return buildPayloadFromEntry(entry, target);
+}
+
+/**
+ * Production fallback when database.xml is unavailable: read build-time VDJ
+ * metadata from vdj-rvtr-index.json and enrich cover from the Cover Library.
+ */
+export async function loadBundledVdjRvtrPackage(
+  rvtr: string,
+): Promise<UniversalPackagePayload | null> {
+  const target = rvtr.trim().toUpperCase();
+  if (!RVTR_RE.test(target)) return null;
+
+  const entry = await loadBundledVdjRvtrEntry(target);
+  if (!entry) return null;
+
+  const coverMap = await loadCoverInfoForRvtrs([target]);
+  const cover = coverMap.get(target);
+
+  return buildMinimalPackageFromMetadata({
+    rvtr: target,
+    artist: entry.artist,
+    title: entry.title,
+    album: cover?.albumTitle ?? entry.album,
+    year: entry.year,
+    coverUrl: cover?.coverUrl ?? null,
+  });
 }

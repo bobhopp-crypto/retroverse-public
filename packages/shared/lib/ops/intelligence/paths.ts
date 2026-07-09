@@ -26,6 +26,10 @@ export function bundledSongPackageIndexPath(): string {
   return join(bundledIntelligenceRoot(), "package-index.json");
 }
 
+export function bundledVdjRvtrIndexPath(): string {
+  return join(process.cwd(), "data", "ops", "vdj-rvtr-index.json");
+}
+
 export function bundledDeckIndexPath(): string {
   return join(bundledIntelligenceRoot(), "deck-index.json");
 }
