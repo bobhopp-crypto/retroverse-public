@@ -163,6 +163,20 @@ export function PresentationStage({ rvba, broadcast = null, offAirTitle = "Retro
     );
   }
 
+  if (rvba.type === "image" && rvba.mediaUrl) {
+    // Imported slides (e.g. a Gamma export) are already fully designed —
+    // render full-bleed with no text overlay to avoid duplicating baked-in copy.
+    return (
+      <div
+        key={`${asset.kind}:${asset.assetId ?? rvba.id}`}
+        className={`rv-stage rv-stage--image rv-stage--enter-${rvba.transition}`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element -- broadcast slide, not a Next asset */}
+        <img className="rv-stage__slide-img" src={rvba.mediaUrl} alt={rvba.title || "Broadcast slide"} />
+      </div>
+    );
+  }
+
   const kicker = KICKERS[rvba.type];
   const headline =
     rvba.link && (rvba.type === "artist" || rvba.type === "now-playing")

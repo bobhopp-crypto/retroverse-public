@@ -129,6 +129,7 @@ export const PUBLIC_API_PREFIXES = [
   "/api/playback/",
   "/api/retroverse-2/",
   "/api/retroverse-live/",
+  "/api/retroverse-live/broadcast-media/",
   "/api/sunday-nights/",
 ] as const;
 

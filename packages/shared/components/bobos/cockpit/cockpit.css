@@ -544,6 +544,32 @@
   color: #a8a49c;
 }
 
+.cockpit-broadcast-desk__live-aid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.cockpit-broadcast-desk__live-aid-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cockpit-broadcast-desk__live-aid-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f0e8dc;
+}
+
 .cockpit-broadcast-desk__auto-follow {
   display: flex;
   align-items: center;

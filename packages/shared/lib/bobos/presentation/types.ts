@@ -102,6 +102,11 @@ export type PresentationItem = {
   countdownTarget: string | null;
   /** Operator notes — never rendered to the audience. */
   notes: string;
+  /** Image URL for imported/broadcast slide items (RVBA type "image").
+   * Null for every item type that isn't a rendered image. */
+  mediaUrl: string | null;
+  mediaWidth: number | null;
+  mediaHeight: number | null;
 };
 
 /* ── Presentation Queue ── */
@@ -202,6 +207,9 @@ export function newPresentationItem(type: PresentationItemType): PresentationIte
     link: null,
     countdownTarget: null,
     notes: "",
+    mediaUrl: null,
+    mediaWidth: null,
+    mediaHeight: null,
   };
 }
 

@@ -657,3 +657,25 @@ Events below are appended automatically at runtime.
 - **signal:** —
 - **command:** node tools/next-dev.mjs --app live
 - **note:** BobOS runtime spawned live
+## 2026-07-10T04:38:42.018Z
+
+- **event:** dev-exit
+- **owner:** studio-launcher
+- **wrapperPid:** 60825
+- **childPid:** 60835
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (studio-launcher)
+- **note:** next child exited
+## 2026-07-10T04:39:23.059Z
+
+- **event:** dev-exit
+- **owner:** npm-dev
+- **wrapperPid:** 14842
+- **childPid:** 14845
+- **port:** 3000
+- **exitCode:** 0
+- **signal:** —
+- **command:** node tools/next-dev.mjs (npm-dev)
+- **note:** next child exited

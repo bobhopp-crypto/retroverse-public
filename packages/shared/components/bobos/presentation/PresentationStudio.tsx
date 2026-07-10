@@ -10,6 +10,7 @@ import {
 } from "@/app/bobos/presentation/actions";
 import { BobosPageHeader } from "@/components/bobos/BobosPageHeader";
 import { PresentationStage } from "@/components/retroverse-live/PresentationStage";
+import { resolveRvbaFromPresentationItem } from "@/lib/broadcast/rvba";
 import { resolvePlayhead, enabledItems, stepIndex } from "@/lib/bobos/presentation/resolve-playhead";
 import {
   newPresentationItem,
@@ -439,7 +440,9 @@ export function PresentationStudio({
 
             <section className="pst-preview" aria-label="Live preview">
               <div className="pst-preview__stage">
-                <PresentationStage item={resolved.item} />
+                <PresentationStage
+                  rvba={resolved.item ? resolveRvbaFromPresentationItem(resolved.item) : null}
+                />
               </div>
               <div className="pst-transport">
                 <button

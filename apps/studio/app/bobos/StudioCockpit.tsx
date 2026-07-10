@@ -14,7 +14,7 @@ type Props = {
 };
 
 function renderStudioPanel(id: string) {
-  if (id === "retroverse-runtime") return <RetroverseRuntimePanel />;
+  if (id === "retroverse-runtime") return <RetroverseRuntimePanel compact />;
   return null;
 }
 

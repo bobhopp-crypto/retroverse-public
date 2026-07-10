@@ -20,7 +20,8 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/local/") ||
     pathname === "/bobos" ||
     pathname.startsWith("/bobos/") ||
-    pathname.startsWith("/api/ops/content-creator/library/files/")
+    pathname.startsWith("/api/ops/content-creator/library/files/") ||
+    pathname.startsWith("/api/ops/bobos/broadcast-collections/")
   ) {
     if (!shouldAllowOpsRoutes(host)) {
       return blockLocalOnlyRoute(request);

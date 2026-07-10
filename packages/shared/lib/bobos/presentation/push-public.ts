@@ -9,6 +9,7 @@ import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 import { retroverseDataRoot } from "@/lib/retroverse-data-root";
 
 import type { BroadcastSnapshot } from "./types";
+import { rewriteSnapshotMediaUrls, syncBroadcastMediaToPublic } from "@/lib/bobos/importer/media-remote";
 
 /**
  * Push the Broadcast Snapshot from the local studio to the deployed site.
@@ -85,6 +86,7 @@ export async function pushBroadcastToPublic(
   }
 
   const url = `${publicSiteBaseUrl()}/api/retroverse-live/broadcast`;
+  const snapshotForPublic = rewriteSnapshotMediaUrls(snapshot);
   try {
     const res = await fetch(url, {
       method: "POST",
@@ -92,13 +94,14 @@ export async function pushBroadcastToPublic(
         "content-type": "application/json",
         authorization: `Bearer ${secret}`,
       },
-      body: JSON.stringify(snapshot),
+      body: JSON.stringify(snapshotForPublic),
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
     if (!res.ok) {
       return { status: "rejected", detail: `HTTP ${res.status} from ${url}` };
     }
+    await syncBroadcastMediaToPublic(snapshotForPublic, publicSiteBaseUrl(), secret).catch(() => undefined);
     return { status: "synced", detail: url };
   } catch (error) {
     return {

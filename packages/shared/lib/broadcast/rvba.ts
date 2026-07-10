@@ -61,9 +61,10 @@ export type Rvba = {
   transition: PresentationTransition;
   countdownTarget: string | null;
   link: PresentationItemLink | null;
-  /** Forward-compat for image/pdf/video RVBAs. Always null until those
-   * content pipelines exist — no rendering depends on it yet. */
+  /** Set for image RVBAs (imported broadcast slides). Null for every other type. */
   mediaUrl: string | null;
+  mediaWidth: number | null;
+  mediaHeight: number | null;
 };
 
 /** Legacy PresentationItemType -> RvbaType. The only place old queue-authoring
@@ -80,18 +81,22 @@ const LEGACY_TYPE_TO_RVBA: Record<PresentationItem["type"], RvbaType> = {
   placeholder: "blank",
 };
 
-/** Adapter: resolved PresentationItem (from a queue or the VDJ override) -> Rvba. */
+/** Adapter: resolved PresentationItem (from a queue or the VDJ override) -> Rvba.
+ * Any item carrying a `mediaUrl` (imported broadcast slides) resolves to the
+ * "image" RVBA type regardless of its legacy queue-authoring type. */
 export function resolveRvbaFromPresentationItem(item: PresentationItem): Rvba {
   return {
     id: item.id,
-    type: LEGACY_TYPE_TO_RVBA[item.type],
+    type: item.mediaUrl ? "image" : LEGACY_TYPE_TO_RVBA[item.type],
     title: item.title,
     subtitle: item.subtitle,
     body: item.body,
     transition: item.transition,
     countdownTarget: item.countdownTarget,
     link: item.link,
-    mediaUrl: null,
+    mediaUrl: item.mediaUrl,
+    mediaWidth: item.mediaWidth,
+    mediaHeight: item.mediaHeight,
   };
 }
 

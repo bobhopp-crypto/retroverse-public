@@ -7,6 +7,7 @@
  */
 
 import type { PlayheadPayload, PlayheadPayloadCore } from "@/lib/bobos/presentation/types";
+import { rewritePresentationMediaFields } from "@/lib/bobos/importer/media-remote";
 
 import { deriveCurrentBroadcast } from "./current-broadcast";
 
@@ -19,16 +20,27 @@ function hasBroadcastContract(
   return payload.broadcast != null && "rvba" in payload;
 }
 
+function needsRvbaRefresh(payload: PlayheadPayloadInput): boolean {
+  const item = payload.item;
+  if (!item?.mediaUrl) return false;
+  if (!payload.rvba?.mediaUrl) return true;
+  return payload.rvba.type !== "image";
+}
+
 /** Derive `broadcast` + `rvba` when missing from the resolved playhead core. */
 export function normalizePlayheadPayload(
   payload: PlayheadPayloadInput,
   now: Date = new Date(),
 ): PlayheadPayload {
-  if (hasBroadcastContract(payload)) {
-    return { ...payload, rvba: payload.rvba ?? null };
+  const normalizedItem = rewritePresentationMediaFields(payload.item);
+  const core: PlayheadPayloadInput = normalizedItem === payload.item ? payload : { ...payload, item: normalizedItem };
+
+  if (hasBroadcastContract(core) && !needsRvbaRefresh(core)) {
+    return { ...core, rvba: core.rvba ?? null };
   }
-  const { broadcast, rvba } = deriveCurrentBroadcast(payload, now);
-  return { ...payload, broadcast, rvba };
+
+  const { broadcast, rvba } = deriveCurrentBroadcast(core, now);
+  return { ...core, broadcast, rvba };
 }
 
 /** Stable PresentationStage remount key for a normalized playhead. */

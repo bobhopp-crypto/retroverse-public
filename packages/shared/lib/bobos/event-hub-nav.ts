@@ -44,6 +44,7 @@ export const BOBOS_PRIMARY_NAV = [
   { id: "passes", label: "Design Builder", href: "/bobos/passes" },
   { id: "producer", label: "Producer", href: "/bobos/producer" },
   { id: "presentation", label: "Presentation Control", href: "/bobos/presentation" },
+  { id: "broadcast", label: "Broadcast Mixer", href: "/bobos/broadcast" },
   { id: "bridge", label: "Bridge", href: "/bobos/bridge" },
   { id: "pipeline", label: "Pipeline", href: "/bobos/pipeline" },
   { id: "ai", label: "AI Usage", href: "/bobos/ai" },

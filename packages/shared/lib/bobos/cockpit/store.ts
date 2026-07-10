@@ -5,9 +5,18 @@ import { join } from "path";
 
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 
-import { createDefaultCockpitState } from "./defaults";
+import {
+  createDefaultCockpitState,
+  createProductionCockpitLayout,
+  CURRENT_COCKPIT_LAYOUT_VERSION,
+} from "./defaults";
+import { PANEL_LIBRARY } from "./panel-library";
 import type { CockpitState, CockpitWorkspaceId, PanelTypeId } from "./types";
 import { COCKPIT_GRID_SIZE, COCKPIT_WORKSPACES } from "./types";
+
+function isPanelTypeId(value: unknown): value is PanelTypeId {
+  return typeof value === "string" && value in PANEL_LIBRARY;
+}
 
 function cockpitDir(): string {
   return join(opsStateDir(), "bobos", "cockpit");
@@ -21,32 +30,53 @@ function isWorkspaceId(value: unknown): value is CockpitWorkspaceId {
   return COCKPIT_WORKSPACES.some((ws) => ws.id === value);
 }
 
+function readLayoutVersion(raw: Partial<CockpitState>): number {
+  const value = raw.layoutVersion;
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
+function normalizeWorkspaceCells(
+  layout: { cells?: unknown[] } | null | undefined,
+  fallbackCells: CockpitState["workspaces"][CockpitWorkspaceId]["cells"],
+): CockpitState["workspaces"][CockpitWorkspaceId]["cells"] {
+  if (!layout || !Array.isArray(layout.cells)) return fallbackCells;
+
+  const cells = layout.cells.slice(0, COCKPIT_GRID_SIZE).map((cell) => {
+    const row = cell as { panelType?: unknown; config?: unknown };
+    return {
+      panelType: isPanelTypeId(row?.panelType) ? row.panelType : null,
+      ...(row?.config && typeof row.config === "object"
+        ? { config: row.config as Record<string, string> }
+        : {}),
+    };
+  });
+  while (cells.length < COCKPIT_GRID_SIZE) cells.push({ panelType: null });
+  return cells;
+}
+
 function normalizeState(raw: unknown): CockpitState {
   const defaults = createDefaultCockpitState();
   if (!raw || typeof raw !== "object") return defaults;
 
   const obj = raw as Partial<CockpitState>;
+  const savedLayoutVersion = readLayoutVersion(obj);
+  const needsLayoutMigration = savedLayoutVersion < CURRENT_COCKPIT_LAYOUT_VERSION;
   const activeWorkspace = isWorkspaceId(obj.activeWorkspace) ? obj.activeWorkspace : defaults.activeWorkspace;
 
   const workspaces = { ...defaults.workspaces };
   if (obj.workspaces && typeof obj.workspaces === "object") {
     for (const ws of COCKPIT_WORKSPACES) {
       const layout = (obj.workspaces as CockpitState["workspaces"])[ws.id];
-      if (!layout || !Array.isArray(layout.cells)) continue;
-      const cells = layout.cells.slice(0, COCKPIT_GRID_SIZE).map((cell) => ({
-        panelType: cell?.panelType ?? null,
-        ...(cell?.config && typeof cell.config === "object" ? { config: cell.config } : {}),
-      }));
-      while (cells.length < COCKPIT_GRID_SIZE) cells.push({ panelType: null });
-      workspaces[ws.id] = { cells };
+      const fallback = defaults.workspaces[ws.id].cells;
+      if (ws.id === "cockpit" && needsLayoutMigration) {
+        workspaces.cockpit = { cells: createProductionCockpitLayout() };
+        continue;
+      }
+      workspaces[ws.id] = { cells: normalizeWorkspaceCells(layout, fallback) };
     }
   }
 
-  // Consolidation: the Broadcast Panel is the single operational control
-  // surface for what the audience sees. Saved layouts without a broadcast
-  // cell get one — upgrading the panel it supersedes when present
-  // (live-display, then current-song), else the first empty cell, else the
-  // last cell. The replaced panels stay available in the library.
+  // Safety: cockpit workspace always includes broadcast when migrating legacy saves.
   const cockpitCells = workspaces.cockpit.cells;
   const hasBroadcast = cockpitCells.some((cell) => cell.panelType === "broadcast");
   if (!hasBroadcast) {
@@ -57,13 +87,24 @@ function normalizeState(raw: unknown): CockpitState {
     cockpitCells[index] = { panelType: "broadcast" };
   }
 
-  return { version: 1, activeWorkspace, workspaces };
+  return {
+    version: 1,
+    layoutVersion: CURRENT_COCKPIT_LAYOUT_VERSION,
+    activeWorkspace,
+    workspaces,
+  };
 }
 
 export async function loadCockpitState(): Promise<CockpitState> {
   try {
     const raw = await readFile(statePath(), "utf8");
-    return normalizeState(JSON.parse(raw));
+    const parsed = JSON.parse(raw) as Partial<CockpitState>;
+    const normalized = normalizeState(parsed);
+    const savedLayoutVersion = readLayoutVersion(parsed);
+    if (savedLayoutVersion < CURRENT_COCKPIT_LAYOUT_VERSION) {
+      await saveCockpitState(normalized);
+    }
+    return normalized;
   } catch {
     return createDefaultCockpitState();
   }

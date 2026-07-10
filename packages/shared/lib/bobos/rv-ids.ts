@@ -34,7 +34,7 @@ export const RV_ID_REGISTRY: readonly RvIdEntry[] = [
 
   { id: "RV01-01", domain: "RV01", displayName: "BobOS Cockpit", href: "/bobos", navId: "cockpit" },
   { id: "RV01-02", domain: "RV01", displayName: "Runtime", panelType: "retroverse-runtime" },
-  { id: "RV01-03", domain: "RV01", displayName: "Broadcast Control", panelType: "broadcast" },
+  { id: "RV01-03", domain: "RV01", displayName: "Broadcast Mixer", href: "/bobos/broadcast", panelType: "broadcast" },
   { id: "RV01-04", domain: "RV01", displayName: "VirtualDJ Bridge", href: "/bobos/bridge", navId: "bridge" },
   { id: "RV01-05", domain: "RV01", displayName: "Operations Directory", href: "/ops", panelType: "production-queue" },
   { id: "RV01-06", domain: "RV01", displayName: "Operations Hub", href: "/ops/hub", directoryId: "operations-hub" },

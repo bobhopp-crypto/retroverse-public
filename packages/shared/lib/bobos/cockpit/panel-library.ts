@@ -270,9 +270,12 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     title: "Broadcast Control",
     group: "devices",
     defaultStatus: "nominal",
-    summary: "Retroverse Live playhead — local and public broadcast control.",
-    primaryAction: { label: "Open Local", href: "/retroverse-live" },
-    secondaryActions: [],
+    summary: "On-air status for Retroverse Live — open Broadcast Mixer to operate.",
+    primaryAction: { label: "Open Broadcast Mixer", href: "/bobos/broadcast" },
+    secondaryActions: [
+      { label: "Open Local", href: "/" },
+      { label: "Open Public", href: "https://retroverse.live/" },
+    ],
   },
   "retroverse-runtime": {
     id: "retroverse-runtime",

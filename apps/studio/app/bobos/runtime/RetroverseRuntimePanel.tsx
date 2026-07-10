@@ -116,7 +116,27 @@ function LiveMonitorColumn({
   );
 }
 
-export function RetroverseRuntimePanel() {
+function findService(
+  status: RetroverseRuntimeStatus | null,
+  id: string,
+): RuntimeServiceCheck | null {
+  return status?.services.find((service) => service.id === id) ?? null;
+}
+
+const COMPACT_INDICATORS: { id: string; label: string }[] = [
+  { id: "bobos", label: "Studio" },
+  { id: "live-local", label: "Live" },
+  { id: "broadcast", label: "Broadcast" },
+  { id: "vdj-bridge", label: "Bridge" },
+  { id: "ollama", label: "Ollama" },
+];
+
+type Props = {
+  /** Cockpit widget — health summary + Open Runtime only. Full controls live on /bobos/runtime. */
+  compact?: boolean;
+};
+
+export function RetroverseRuntimePanel({ compact = false }: Props) {
   const [status, setStatus] = useState<RetroverseRuntimeStatus | null>(null);
   const [busy, setBusy] = useState(false);
   const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
@@ -163,6 +183,41 @@ export function RetroverseRuntimePanel() {
   );
 
   const bothRunning = status?.studio.state === "running" && status?.live.state === "running";
+
+  if (compact) {
+    return (
+      <>
+        <ul className="cockpit-runtime__indicators" aria-label="Runtime status">
+          {COMPACT_INDICATORS.map(({ id, label }) => {
+            const service = findService(status, id);
+            return (
+              <li key={id} className="cockpit-runtime__indicator">
+                <span
+                  className={lampClass(service ? serviceLamp(service) : "dim")}
+                  aria-hidden="true"
+                />
+                <span className="cockpit-runtime__indicator-label">{label}</span>
+                <span className="cockpit-runtime__indicator-value">
+                  {service?.statusLabel ?? "Checking…"}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+        <ul className="cockpit-panel__metrics cockpit-runtime__meta" aria-label="Runtime overall health">
+          <li>
+            Overall ·{" "}
+            {status ? healthLabel(status.summary.overallHealth) : "Checking…"}
+          </li>
+        </ul>
+        <div className="cockpit-panel__actions">
+          <a href="/bobos/runtime" className="cockpit-panel__btn cockpit-panel__btn--primary">
+            Open Runtime
+          </a>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>

@@ -1,22 +1,26 @@
 import type { CockpitCell, CockpitState, CockpitWorkspaceId, PanelTypeId } from "./types";
 import { COCKPIT_GRID_SIZE } from "./types";
 
-const DEFAULT_COCKPIT_PANELS: PanelTypeId[] = [
+/** Bump when the default cockpit grid changes — older saved layouts are regenerated. */
+export const CURRENT_COCKPIT_LAYOUT_VERSION = 3;
+
+/** Production cockpit grid — matches the operator Mission Control layout. */
+const PRODUCTION_COCKPIT_PANELS: PanelTypeId[] = [
   "current-event",
-  "todays-tasks",
-  "production-queue",
-  "public-homepage",
+  "pass-production",
   "pass-registration",
-  "giveaway-panel",
+  "documentary-progress",
   "broadcast",
-  "current-song",
-  "ai-queue",
+  "retroverse-runtime",
   "media-library",
   "virtualdj-status",
   "printer-panel",
   "git-status",
+  "terminal",
   "system-health",
+  "ai-queue",
   "clock",
+  "storage",
   "database-health",
 ];
 
@@ -47,14 +51,19 @@ export function createDefaultCockpitState(): CockpitState {
   const workspaces = {} as CockpitState["workspaces"];
   for (const id of WORKSPACE_IDS) {
     workspaces[id] = {
-      cells: id === "cockpit" ? seededCells(DEFAULT_COCKPIT_PANELS) : emptyCells(),
+      cells: id === "cockpit" ? seededCells(PRODUCTION_COCKPIT_PANELS) : emptyCells(),
     };
   }
   return {
     version: 1,
+    layoutVersion: CURRENT_COCKPIT_LAYOUT_VERSION,
     activeWorkspace: "cockpit",
     workspaces,
   };
+}
+
+export function createProductionCockpitLayout(): CockpitCell[] {
+  return seededCells(PRODUCTION_COCKPIT_PANELS);
 }
 
 /** Panel cell label: 01–16 */

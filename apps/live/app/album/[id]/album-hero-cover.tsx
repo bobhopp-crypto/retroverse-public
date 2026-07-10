@@ -13,8 +13,8 @@ export function AlbumHeroCover({ rval, title, artistName, releaseYear, coverUrl 
     <ArtistCover
       src={coverUrl}
       alt=""
-      className="album-v1__cover"
-      fallbackClassName="album-v1__cover album-v1__cover--fallback"
+      className="album-ed__cover"
+      fallbackClassName="album-ed__cover album-ed__cover--fallback"
       fallbackVariant="plate"
       placeholderContext={{
         rval,

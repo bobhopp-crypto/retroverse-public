@@ -126,9 +126,11 @@
     "research:song-dna-visual-synth": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/song-dna-visual-synth-proof.ts",
     "research:song-dna-proof": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/song-dna-proof.ts",
     "research:song-dna-v2": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/song-dna-v2-proof.ts",
-    "dev:verify-isolation": "node tools/dev-server/verify-dev-isolation.mjs"
+    "dev:verify-isolation": "node tools/dev-server/verify-dev-isolation.mjs",
+    "broadcast:import": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/broadcast-import/import-collection.ts"
   },
   "dependencies": {
+    "adm-zip": "^0.5.18",
     "jsqr": "^1.4.0",
     "next": "^15.3.3",
     "pdf-lib": "^1.17.1",
@@ -140,6 +142,7 @@
     "sharp": "^0.35.0"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.5.8",
     "@types/node": "^22.15.21",
     "@types/pg": "^8.15.2",
     "@types/qrcode": "^1.5.6",

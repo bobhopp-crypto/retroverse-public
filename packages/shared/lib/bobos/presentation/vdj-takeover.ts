@@ -38,6 +38,9 @@ export function buildVdjPresentationItem(live: SundayNightsLiveSelection): Prese
     link: { kind: "song", id: linkId, label: live.title.trim() },
     countdownTarget: null,
     notes: "",
+    mediaUrl: null,
+    mediaWidth: null,
+    mediaHeight: null,
   };
 }
 

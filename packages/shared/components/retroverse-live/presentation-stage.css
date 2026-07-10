@@ -136,6 +136,18 @@
   color: rgba(247, 241, 227, 0.75);
 }
 
+.rv-stage--image {
+  background: #0b0d10;
+}
+
+.rv-stage__slide-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 /* ── Transitions — simple by design ── */
 
 .rv-stage--enter-fade {

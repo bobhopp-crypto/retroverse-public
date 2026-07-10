@@ -75,6 +75,8 @@ export type CockpitWorkspaceLayout = {
 
 export type CockpitState = {
   version: 1;
+  /** Grid template version — when older than CURRENT_COCKPIT_LAYOUT_VERSION the cockpit workspace resets. */
+  layoutVersion: number;
   activeWorkspace: CockpitWorkspaceId;
   workspaces: Record<CockpitWorkspaceId, CockpitWorkspaceLayout>;
 };
