@@ -7,7 +7,7 @@
  */
 
 import type { PlayheadPayload, PlayheadPayloadCore } from "@/lib/bobos/presentation/types";
-import { rewritePresentationMediaFields } from "@/lib/bobos/importer/media-remote";
+import { rewritePresentationMediaFields } from "@/lib/bobos/importer/media-url";
 
 import { deriveCurrentBroadcast } from "./current-broadcast";
 

@@ -112,13 +112,3 @@ export function rewriteSnapshotMediaUrls(snapshot: BroadcastSnapshot): Broadcast
     },
   };
 }
-
-/** Rewrite any legacy ops media paths on a playhead item before RVBA derivation. */
-export function rewritePresentationMediaFields<T extends { mediaUrl?: string | null }>(
-  item: T | null,
-): T | null {
-  if (!item) return item;
-  const mediaUrl = rewriteBroadcastMediaUrl(item.mediaUrl ?? null);
-  if (mediaUrl === item.mediaUrl) return item;
-  return { ...item, mediaUrl };
-}
