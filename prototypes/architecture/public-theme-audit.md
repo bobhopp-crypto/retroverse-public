@@ -13,7 +13,7 @@ Automated check: `VERIFY_BASE=https://retroverse.live npx tsx tools/experience/v
 
 | Route | URL tested | Status | Notes |
 |-------|------------|--------|-------|
-| **Home / Live** | https://retroverse.live/ | **NEEDS ALIGNMENT** | Uses `home-broadcast` stage (`#101a1e` / cream globals), not `Rv2PublicShell`. No Explorer tokens. Live channel UI is a separate visual layer from Broadcast Explorer. |
+| **Home / Live** | https://retroverse.live/ | **PASS** | `Rv2PublicShell` + Explorer-scoped `live-home.css`; broadcast composer mapped to `--ex-*` tokens. |
 | **Chart Week** | https://retroverse.live/week/1986-05-10?focus=RVTR044043&rank=3 | **PASS** | Full Explorer Layout v1. Dark Broadcast bg, purple focus row, aqua library, canonical row actions. |
 | **Song** | https://retroverse.live/retroverse-2/song/RVTR569927 | **PASS** | `Rv2PublicShell` + migrated `retroverse-song-2.css`. Purple/aqua tokens applied. Chart Journey uses its own row component (not Explorer rows) — acceptable, same palette. |
 | **Artist** | https://retroverse.live/artist/fleetwood-mac | **PASS** | Explorer hero, top-song rows (Play + ✓/+), purple/aqua accents, dark Broadcast shell. |
@@ -35,8 +35,8 @@ Automated check: `VERIFY_BASE=https://retroverse.live npx tsx tools/experience/v
 | `/retroverse-2/song/[rvtr]` | **PASS** | RV2 shell; song-specific sections |
 | `/retroverse-2/charts` | **PASS** | RV2 charts CSS migrated |
 | `/retroverse-2/live` | **PASS** | RV2 live hub CSS migrated |
-| `/` (Home / Broadcast) | **NEEDS ALIGNMENT** | Broadcast stage layout; not wrapped in Explorer shell |
-| `/live`, `/retroverse-live` | **NEEDS ALIGNMENT** | Redirect/wrapper routes; inherit home broadcast styling |
+| `/` (Home / Broadcast) | **PASS** | Explorer shell + live-home presentation overrides (commit `4e487e6d9`) |
+| `/live`, `/retroverse-live` | **NEEDS ALIGNMENT** | Redirect/wrapper routes; confirm they inherit `/` Explorer shell |
 | `/artist/[slug]/songs` | **NEEDS ALIGNMENT** | Legacy cream **Artist Exhibit** shell (`artist-page.css`) |
 | `/artist/[slug]/albums` | **NEEDS ALIGNMENT** | Legacy exhibit |
 | `/artist/[slug]/charts` | **NEEDS ALIGNMENT** | Legacy exhibit |
@@ -84,7 +84,7 @@ Automated check: `VERIFY_BASE=https://retroverse.live npx tsx tools/experience/v
 
 ## Remaining alignment work (priority order)
 
-1. **Home / Live Broadcast** (`/`, `/live`) — Wrap or skin with Explorer shell + tokens without changing layout.
+1. ~~**Home / Live Broadcast** (`/`, `/live`) — Wrap or skin with Explorer shell + tokens without changing layout.~~ **Done** (`4e487e6d9`)
 2. **Artist sub-routes** — Migrate `/artist/[slug]/*` off cream exhibit to Explorer v1 sections.
 3. **Album page** (`/album/[id]`) — Apply Explorer tokens to album shelf/detail.
 4. **Track / legacy song exhibits** — Retire or redirect to RV2 song.
