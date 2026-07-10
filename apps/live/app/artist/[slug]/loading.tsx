@@ -1,11 +1,13 @@
+import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
+
+import "./artist-page-v1.css";
+
 export default function ArtistLoading() {
   return (
-    <div
-      className="artist-exhibit__body artist-exhibit__body--loading"
-      aria-busy="true"
-      aria-label="Loading artist exhibit"
-    >
-      <p className="artist-placeholder__note">Opening exhibit from the archive…</p>
-    </div>
+    <Rv2PublicShell className="rv2-artist rv2-explorer" activeNav="search">
+      <div className="explorer artist-v1 artist-v1--loading" aria-busy="true">
+        <p>Opening artist from the archive…</p>
+      </div>
+    </Rv2PublicShell>
   );
 }
