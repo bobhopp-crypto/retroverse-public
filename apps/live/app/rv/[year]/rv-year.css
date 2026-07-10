@@ -165,6 +165,68 @@
   text-align: center;
 }
 
+.rv-year-hero__deck {
+  margin: 0.35rem auto 0;
+  max-width: 28rem;
+  padding: 0 0.25rem;
+  font-size: clamp(0.88rem, 3.6vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: rgba(31, 94, 99, 0.92);
+  text-align: center;
+}
+
+.rv-year-hero__keywords {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0.75rem auto 0;
+  padding: 0;
+  max-width: 36rem;
+  list-style: none;
+}
+
+.rv-year-hero__keywords li {
+  padding: 0.28rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  border: 2px solid rgba(31, 94, 99, 0.28);
+  border-radius: 999px;
+  background: rgba(111, 168, 161, 0.12);
+}
+
+.rv-year-hero__moments {
+  margin: 0.75rem auto 0;
+  padding: 0;
+  max-width: 34rem;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+  text-align: left;
+}
+
+.rv-year-hero__moments li {
+  position: relative;
+  padding-left: 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: rgba(45, 62, 70, 0.88);
+}
+
+.rv-year-hero__moments li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--orange-dusty);
+  font-weight: 900;
+}
+
 .rv-year-hero__covers {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

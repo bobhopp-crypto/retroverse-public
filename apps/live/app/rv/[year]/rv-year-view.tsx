@@ -210,13 +210,36 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
 
       {shellMode === "legacy" ? <RvPublicMasthead searchQuery={String(rvYear)} /> : null}
 
-      <section className="rv-year-hero" aria-labelledby="rv-year-heading">
-        <p className="rv-year-hero__label">Year</p>
+      <section
+        className="rv-year-hero"
+        aria-labelledby="rv-year-heading"
+        data-accent-mood={editorial.accentMood ?? undefined}
+      >
+        <p className="rv-year-hero__label">{editorial.theme}</p>
         <h1 id="rv-year-heading" className="rv-year-hero__year">
           {rvYear}
         </h1>
+        {editorial.shortDeck ? (
+          <p className="rv-year-hero__deck">{editorial.shortDeck}</p>
+        ) : null}
         <h2 className="rv-year-hero__headline">{editorial.headline}</h2>
         <p className="rv-year-hero__lead">{editorial.lead}</p>
+
+        {editorial.keywords.length ? (
+          <ul className="rv-year-hero__keywords" aria-label="Year keywords">
+            {editorial.keywords.map((keyword) => (
+              <li key={keyword}>{keyword}</li>
+            ))}
+          </ul>
+        ) : null}
+
+        {editorial.definingMoments.length ? (
+          <ul className="rv-year-hero__moments" aria-label="Defining moments">
+            {editorial.definingMoments.map((moment) => (
+              <li key={moment}>{moment}</li>
+            ))}
+          </ul>
+        ) : null}
 
         {destination?.heroCovers.length ? (
           <div className="rv-year-hero__covers" aria-label="Albums from this year">

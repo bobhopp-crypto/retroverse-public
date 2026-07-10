@@ -7,6 +7,7 @@ import {
   enrichRvYearDestination,
 } from "@/lib/rv-year/enrich-rv-year-destination";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
+import { rvYearEditorial } from "@/lib/rv-year/rv-year-editorial";
 
 import { RvYearView } from "./rv-year-view";
 import { Rv2ChronologyFrame } from "../components/rv2-chronology-frame";
@@ -21,8 +22,13 @@ export const revalidate = 3600;
 
 export async function generateMetadata({ params }: Props) {
   const rvYear = normalizeRVYear((await params).year);
+  if (rvYear == null) {
+    return { title: "RV Year — RetroVerse" };
+  }
+  const editorial = rvYearEditorial(rvYear);
   return {
-    title: rvYear != null ? `${rvYear} — RetroVerse Year` : "RV Year — RetroVerse",
+    title: `${rvYear} — ${editorial.headline} — RetroVerse Year`,
+    description: editorial.lead,
   };
 }
 
