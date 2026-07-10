@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import {
   normalizePlayheadPayload,
   playheadStageKey,
 } from "@/lib/broadcast/normalize-playhead";
+import { deriveCurrentBroadcast } from "@/lib/broadcast/current-broadcast";
+import { tracePresentationRender } from "@/lib/broadcast/presentation-render-trace";
 import type { PlayheadPayload, PlayheadPayloadCore } from "@/lib/bobos/presentation/types";
 
 import { PresentationStage } from "./PresentationStage";
@@ -43,6 +45,7 @@ export function BroadcastViewer({ initial, poll = true }: Props) {
       }
     }
 
+    void tick();
     const id = window.setInterval(tick, POLL_MS);
     return () => {
       cancelled = true;
@@ -50,11 +53,27 @@ export function BroadcastViewer({ initial, poll = true }: Props) {
     };
   }, [poll]);
 
+  const normalized = useMemo(() => normalizePlayheadPayload(payload), [payload]);
+  const { broadcast, rvba } = deriveCurrentBroadcast(normalized);
+
+  useEffect(() => {
+    tracePresentationRender({
+      step: "BroadcastViewer",
+      experience: normalized.item?.type === "song" ? "broadcast-asset" : "pending",
+      itemType: normalized.item?.type ?? null,
+      rvbaType: rvba?.type ?? null,
+      broadcastSourceId: broadcast?.sourceId ?? null,
+      component: "PresentationStage",
+      detail: `poll=${poll}`,
+    });
+  }, [normalized, rvba, broadcast, poll]);
+
   return (
     <PresentationStage
-      key={playheadStageKey(payload)}
-      rvba={payload.rvba}
-      broadcast={payload.broadcast}
+      key={playheadStageKey({ ...normalized, broadcast, rvba })}
+      item={normalized.item}
+      rvba={rvba}
+      broadcast={broadcast}
     />
   );
 }

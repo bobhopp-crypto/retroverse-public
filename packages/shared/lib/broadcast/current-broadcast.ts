@@ -57,8 +57,11 @@ export function deriveCurrentBroadcast(
   now: Date = new Date(),
 ): { broadcast: CurrentBroadcast; rvba: Rvba | null } {
   const rvba = payload.item ? resolveRvbaFromPresentationItem(payload.item) : null;
-  const mode: BroadcastMode =
-    payload.autoFollowVdj && !payload.manualTakeActive ? "auto" : "manual";
+  const mode: BroadcastMode = isVdjDrivenItem(payload)
+    ? "auto"
+    : payload.autoFollowVdj && !payload.manualTakeActive
+      ? "auto"
+      : "manual";
   const sourceId = payload.item === null
     ? null
     : isVdjDrivenItem(payload)
