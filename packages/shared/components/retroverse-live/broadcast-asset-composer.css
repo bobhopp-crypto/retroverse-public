@@ -598,3 +598,26 @@
   font-size: 0.75rem;
   letter-spacing: 0.08em;
 }
+
+.bac__dev-panel {
+  margin: 0.5rem 0 0;
+  padding: 0.55rem 0.65rem;
+  border: 1px dashed rgba(240, 160, 60, 0.55);
+  border-radius: 0.45rem;
+  background: rgba(0, 0, 0, 0.45);
+  color: #d7e2ff;
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.bac__dev-panel-title {
+  margin: 0 0 0.35rem;
+  color: var(--bac-amber);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.bac__dev-panel p {
+  margin: 0.1rem 0;
+}

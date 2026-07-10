@@ -203,6 +203,7 @@ export function PresentationStage({
           <BroadcastAssetComposerView
             key={compositionKey}
             asset={assetToRender}
+            packageRvtr={asset.packageRvtr}
             transition={rvba?.transition}
           />
         </div>

@@ -7,6 +7,7 @@ import {
   initialBroadcastAssetPackageState,
   loadBroadcastAssetPackage,
   logBroadcastAssetComposer,
+  packageLookupUrlForRvtr,
   type BroadcastAssetPackageState,
 } from "@/lib/broadcast/composer/broadcast-asset-composer-pipeline";
 import {
@@ -18,10 +19,54 @@ import type { PresentationTransition } from "@/lib/bobos/presentation/types";
 
 import "./broadcast-asset-composer.css";
 
+const RVTR_RE = /^RVTR\d{6}$/i;
+const SHOW_BAC_DEV_PANEL = process.env.NODE_ENV === "development";
+
 type Props = {
   asset: ComposedBroadcastAsset;
   transition?: PresentationTransition;
+  /** Canonical RVTR from resolveBroadcastAsset — preferred over fallback asset rvtr. */
+  packageRvtr?: string | null;
 };
+
+function BroadcastAssetComposerDevPanel({
+  requestedRvtr,
+  packageState,
+  loading,
+  hardFailure,
+  renderBranch,
+  fallbackAsset,
+}: {
+  requestedRvtr: string | null;
+  packageState: BroadcastAssetPackageState;
+  loading: boolean;
+  hardFailure: boolean;
+  renderBranch: string;
+  fallbackAsset: ComposedBroadcastAsset;
+}) {
+  if (!SHOW_BAC_DEV_PANEL) return null;
+
+  const packageKeys =
+    packageState.pkg && typeof packageState.pkg === "object"
+      ? Object.keys(packageState.pkg)
+      : [];
+
+  return (
+    <aside className="bac__dev-panel" aria-label="Broadcast asset composer debug">
+      <p className="bac__dev-panel-title">BAC debug</p>
+      <p>requested RVTR: {requestedRvtr ?? "—"}</p>
+      <p>fallback rvtr: {fallbackAsset.input.rvtr}</p>
+      <p>loading: {String(loading)}</p>
+      <p>phase: {packageState.phase}</p>
+      <p>error: {packageState.errorReason ?? "—"}</p>
+      <p>fetch status: {packageState.fetchStatus ?? "—"}</p>
+      <p>package exists: {String(Boolean(packageState.pkg))}</p>
+      <p>package found: {String(packageState.packageFound)}</p>
+      <p>package keys: {packageKeys.length ? packageKeys.join(", ") : "—"}</p>
+      <p>render path: {renderBranch}</p>
+    </aside>
+  );
+}
 
 function artistInitials(artist: string): string {
   return artist
@@ -218,11 +263,24 @@ function BroadcastAssetComposerCard({
  * Standard Broadcast Asset — Theme Pack 1 phone presentation.
  * Loads the song package, logs each pipeline step, and never leaves a blank screen.
  */
-export function BroadcastAssetComposerView({ asset: fallbackAsset, transition = "fade" }: Props) {
-  const requestedRvtr = fallbackAsset.input.rvtr?.trim().toUpperCase() || null;
-  const [packageState, setPackageState] = useState<BroadcastAssetPackageState>(() =>
-    initialBroadcastAssetPackageState(requestedRvtr),
-  );
+export function BroadcastAssetComposerView({
+  asset: fallbackAsset,
+  transition = "fade",
+  packageRvtr = null,
+}: Props) {
+  const requestedRvtr =
+    (packageRvtr?.trim() || fallbackAsset.input.rvtr?.trim() || "").toUpperCase() || null;
+  const [packageState, setPackageState] = useState<BroadcastAssetPackageState>(() => {
+    const initial = initialBroadcastAssetPackageState(requestedRvtr);
+    logBroadcastAssetComposer("state init BEFORE setState", {
+      requestedRvtr,
+      packageRvtr,
+      fallbackRvtr: fallbackAsset.input.rvtr,
+      phase: initial.phase,
+      packageFound: initial.packageFound,
+    });
+    return initial;
+  });
 
   useEffect(() => {
     if (!requestedRvtr) {
@@ -230,6 +288,8 @@ export function BroadcastAssetComposerView({ asset: fallbackAsset, transition = 
       logBroadcastAssetComposer("pipeline stop — no RVTR", {
         earlyReturn: "missing-rvtr",
         reason,
+        packageRvtr,
+        fallbackRvtr: fallbackAsset.input.rvtr,
       });
       setPackageState({
         phase: "error",
@@ -244,18 +304,61 @@ export function BroadcastAssetComposerView({ asset: fallbackAsset, transition = 
       return;
     }
 
+    if (!RVTR_RE.test(requestedRvtr)) {
+      logBroadcastAssetComposer("pipeline stop — non-canonical requested id", {
+        requestedRvtr,
+        packageRvtr,
+        fallbackRvtr: fallbackAsset.input.rvtr,
+        earlyReturn: "invalid-rvtr-format",
+      });
+      setPackageState({
+        phase: "idle",
+        requestedRvtr,
+        packageLookupUrl: null,
+        fetchStatus: null,
+        responseBody: null,
+        packageFound: false,
+        errorReason: null,
+        pkg: null,
+      });
+      return;
+    }
+
     let cancelled = false;
+    const before = packageState;
+    logBroadcastAssetComposer("package state BEFORE setState(loading)", {
+      requestedRvtr,
+      phase: before.phase,
+      packageFound: before.packageFound,
+      errorReason: before.errorReason,
+    });
     setPackageState(initialBroadcastAssetPackageState(requestedRvtr));
 
     logBroadcastAssetComposer("pipeline mount", {
       requestedRvtr,
+      packageLookupUrl: packageLookupUrlForRvtr(requestedRvtr),
       fallbackTitle: fallbackAsset.input.title,
       fallbackArtist: fallbackAsset.input.artist,
       loading: true,
     });
 
     void loadBroadcastAssetPackage(requestedRvtr, fallbackAsset).then((next) => {
-      if (cancelled) return;
+      if (cancelled) {
+        logBroadcastAssetComposer("pipeline result discarded — effect cancelled", {
+          requestedRvtr,
+          phase: next.phase,
+          packageFound: next.packageFound,
+        });
+        return;
+      }
+      logBroadcastAssetComposer("package state AFTER setState", {
+        requestedRvtr,
+        phase: next.phase,
+        packageFound: next.packageFound,
+        fetchStatus: next.fetchStatus,
+        errorReason: next.errorReason,
+        packageKeys: next.pkg ? Object.keys(next.pkg) : [],
+      });
       setPackageState(next);
       logBroadcastAssetComposer("pipeline state settled", {
         requestedRvtr,
@@ -270,7 +373,7 @@ export function BroadcastAssetComposerView({ asset: fallbackAsset, transition = 
     return () => {
       cancelled = true;
     };
-  }, [fallbackAsset.input.artist, fallbackAsset.input.title, requestedRvtr]);
+  }, [requestedRvtr]);
 
   const composedAsset = useMemo(
     () => composeBroadcastAssetFromPackageState(fallbackAsset, packageState),
@@ -283,6 +386,14 @@ export function BroadcastAssetComposerView({ asset: fallbackAsset, transition = 
     !packageState.packageFound &&
     Boolean(packageState.errorReason);
 
+  const renderBranch = hardFailure
+    ? "BroadcastAssetComposerDiagnostic+FallbackCard"
+    : loading
+      ? "BroadcastAssetComposerCard(loading)"
+      : packageState.packageFound
+        ? "BroadcastAssetComposerCard(package)"
+        : "BroadcastAssetComposerCard(fallback)";
+
   useEffect(() => {
     logBroadcastAssetComposer("pipeline render decision", {
       requestedRvtr,
@@ -290,16 +401,34 @@ export function BroadcastAssetComposerView({ asset: fallbackAsset, transition = 
       packageFound: packageState.packageFound,
       loading,
       hardFailure,
+      errorReason: packageState.errorReason,
       title: composedAsset.input.title,
       artist: composedAsset.input.artist,
-      component: hardFailure ? "BroadcastAssetComposerDiagnostic+FallbackCard" : "BroadcastAssetComposerCard",
+      component: renderBranch,
+      diagnosticVisible: hardFailure,
       renderReturnsNull: false,
     });
-  }, [composedAsset.input.artist, composedAsset.input.title, hardFailure, loading, packageState, requestedRvtr]);
+  }, [
+    composedAsset.input.artist,
+    composedAsset.input.title,
+    hardFailure,
+    loading,
+    packageState,
+    renderBranch,
+    requestedRvtr,
+  ]);
 
   if (hardFailure) {
     return (
       <div className="bac-shell">
+        <BroadcastAssetComposerDevPanel
+          requestedRvtr={requestedRvtr}
+          packageState={packageState}
+          loading={loading}
+          hardFailure={hardFailure}
+          renderBranch={renderBranch}
+          fallbackAsset={fallbackAsset}
+        />
         <BroadcastAssetComposerDiagnostic
           rvtr={requestedRvtr ?? "—"}
           packageState={packageState}
@@ -318,6 +447,14 @@ export function BroadcastAssetComposerView({ asset: fallbackAsset, transition = 
 
   return (
     <div className="bac-shell">
+      <BroadcastAssetComposerDevPanel
+        requestedRvtr={requestedRvtr}
+        packageState={packageState}
+        loading={loading}
+        hardFailure={hardFailure}
+        renderBranch={renderBranch}
+        fallbackAsset={fallbackAsset}
+      />
       <BroadcastAssetComposerCard
         asset={composedAsset}
         transition={transition}

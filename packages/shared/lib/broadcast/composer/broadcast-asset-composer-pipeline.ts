@@ -5,6 +5,7 @@ import { extractBroadcastInputFromPackage } from "./extract-input";
 import type { ComposedBroadcastAsset } from "./types";
 
 const LOG_PREFIX = "[BroadcastAssetComposer]";
+const RVTR_RE = /^RVTR\d{6}$/i;
 
 export type BroadcastAssetPackagePhase = "idle" | "loading" | "ready" | "error";
 
@@ -54,10 +55,31 @@ export async function loadBroadcastAssetPackage(
   requestedRvtr: string,
   fallbackAsset: ComposedBroadcastAsset,
 ): Promise<BroadcastAssetPackageState> {
-  const url = packageLookupUrlForRvtr(requestedRvtr);
+  const normalizedRvtr = requestedRvtr.trim().toUpperCase();
+
+  if (!RVTR_RE.test(normalizedRvtr)) {
+    logBroadcastAssetComposer("package lookup skipped — requested id is not a canonical RVTR", {
+      requestedRvtr: normalizedRvtr,
+      earlyReturn: "invalid-rvtr-format",
+      fallbackTitle: fallbackAsset.input.title,
+      fallbackArtist: fallbackAsset.input.artist,
+    });
+    return {
+      phase: "idle",
+      requestedRvtr: normalizedRvtr,
+      packageLookupUrl: null,
+      fetchStatus: null,
+      responseBody: null,
+      packageFound: false,
+      errorReason: null,
+      pkg: null,
+    };
+  }
+
+  const url = packageLookupUrlForRvtr(normalizedRvtr);
 
   logBroadcastAssetComposer("package lookup start", {
-    requestedRvtr,
+    requestedRvtr: normalizedRvtr,
     packageLookupUrl: url,
     fallbackTitle: fallbackAsset.input.title,
     fallbackArtist: fallbackAsset.input.artist,
@@ -69,21 +91,22 @@ export async function loadBroadcastAssetPackage(
     const bodyPreview = text.slice(0, 400);
 
     logBroadcastAssetComposer("package lookup response", {
-      requestedRvtr,
+      requestedRvtr: normalizedRvtr,
       fetchStatus: res.status,
-      responseBody: bodyPreview,
+      responseOk: res.ok,
+      rawResponseText: bodyPreview,
     });
 
     if (!res.ok) {
       const reason = `HTTP ${res.status} from now-playing-package`;
       logBroadcastAssetComposer("package lookup failed — using fallback asset", {
-        requestedRvtr,
+        requestedRvtr: normalizedRvtr,
         reason,
         earlyReturn: "fetch-not-ok",
       });
       return {
         phase: "error",
-        requestedRvtr,
+        requestedRvtr: normalizedRvtr,
         packageLookupUrl: url,
         fetchStatus: res.status,
         responseBody: bodyPreview,
@@ -99,13 +122,14 @@ export async function loadBroadcastAssetPackage(
     } catch (error) {
       const reason = error instanceof Error ? error.message : "invalid JSON";
       logBroadcastAssetComposer("package lookup failed — JSON parse", {
-        requestedRvtr,
+        requestedRvtr: normalizedRvtr,
         reason,
+        rawResponseText: bodyPreview,
         earlyReturn: "json-parse-error",
       });
       return {
         phase: "error",
-        requestedRvtr,
+        requestedRvtr: normalizedRvtr,
         packageLookupUrl: url,
         fetchStatus: res.status,
         responseBody: bodyPreview,
@@ -115,26 +139,40 @@ export async function loadBroadcastAssetPackage(
       };
     }
 
+    logBroadcastAssetComposer("package lookup json parsed", {
+      requestedRvtr: normalizedRvtr,
+      parsedTopLevelKeys: parsed ? Object.keys(parsed) : [],
+      jsonPackage: parsed?.package ?? null,
+      jsonPackageType: typeof parsed?.package,
+      jsonPackageKeys:
+        parsed?.package && typeof parsed.package === "object"
+          ? Object.keys(parsed.package)
+          : [],
+    });
+
     const pkg = parsed?.package ?? null;
-    const packageFound = Boolean(pkg?.rvtr && pkg.rvtr.toUpperCase() === requestedRvtr.toUpperCase());
+    const packageRvtr = pkg?.rvtr?.trim().toUpperCase() ?? null;
+    const packageFound = Boolean(packageRvtr && packageRvtr === normalizedRvtr);
 
     logBroadcastAssetComposer("package lookup parsed", {
-      requestedRvtr,
+      requestedRvtr: normalizedRvtr,
       packageFound,
-      packageRvtr: pkg?.rvtr ?? null,
+      packageRvtr,
       packageTitle: pkg?.title ?? null,
+      typeofPackage: typeof pkg,
     });
 
     if (!packageFound) {
       const reason = "package field null or RVTR mismatch";
       logBroadcastAssetComposer("package not found — using fallback asset", {
-        requestedRvtr,
+        requestedRvtr: normalizedRvtr,
         reason,
+        packageRvtr,
         earlyReturn: "package-null",
       });
       return {
         phase: "error",
-        requestedRvtr,
+        requestedRvtr: normalizedRvtr,
         packageLookupUrl: url,
         fetchStatus: res.status,
         responseBody: bodyPreview,
@@ -144,9 +182,15 @@ export async function loadBroadcastAssetPackage(
       };
     }
 
+    logBroadcastAssetComposer("package state will be ready", {
+      requestedRvtr: normalizedRvtr,
+      packageFound: true,
+      packageKeys: Object.keys(pkg as object),
+    });
+
     return {
       phase: "ready",
-      requestedRvtr,
+      requestedRvtr: normalizedRvtr,
       packageLookupUrl: url,
       fetchStatus: res.status,
       responseBody: bodyPreview,
@@ -157,13 +201,13 @@ export async function loadBroadcastAssetPackage(
   } catch (error) {
     const reason = error instanceof Error ? error.message : "fetch failed";
     logBroadcastAssetComposer("package lookup threw — using fallback asset", {
-      requestedRvtr,
+      requestedRvtr: normalizedRvtr,
       reason,
       earlyReturn: "fetch-threw",
     });
     return {
       phase: "error",
-      requestedRvtr,
+      requestedRvtr: normalizedRvtr,
       packageLookupUrl: url,
       fetchStatus: null,
       responseBody: null,
