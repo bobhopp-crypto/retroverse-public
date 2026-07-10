@@ -166,12 +166,7 @@ export async function setLiveTrack(
     bridgePlaying: options?.bridgePlaying ?? prev.bridgePlaying ?? false,
     bridgeStoppedAt:
       options?.bridgePlaying === true ? null : (prev.bridgeStoppedAt ?? null),
-    vdjTakeoverActive:
-      options?.bridgePlaying === true
-        ? true
-        : options?.bridgePlaying === false
-          ? false
-          : (prev.vdjTakeoverActive ?? false),
+    vdjTakeoverActive: prev.vdjTakeoverActive ?? false,
     vdjStoppedAt: options?.bridgePlaying === true ? null : (prev.vdjStoppedAt ?? null),
   };
   await saveSundayNightsState(next);

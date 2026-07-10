@@ -15,8 +15,7 @@
 
   position: relative;
   width: 100%;
-  height: auto;
-  min-height: min(72dvh, 640px);
+  height: 100%;
   overflow: hidden;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -467,134 +466,11 @@
 
 /* Package shell inside PresentationStage */
 
-.bac-shell {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  width: 100%;
-  min-height: min(72dvh, 100%);
-}
-
 .rv-stage--broadcast-asset {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
   padding: 0;
   background: #080d18;
-  min-height: min(72dvh, 100%);
-}
-
-.rv2-live-home .rv-stage--broadcast-asset {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-height: min(72dvh, 100%);
-  background: #080d18;
-}
-
-.rv-stage--broadcast-asset .bac-shell,
-.rv-stage--broadcast-asset .bac {
-  flex: 1;
-  min-height: min(72dvh, 640px);
 }
 
 .rv-stage--broadcast-asset .bac {
   border-radius: inherit;
-  height: auto;
-}
-
-.bac--loading {
-  opacity: 0.92;
-}
-
-.bac__loading-banner,
-.bac__diagnostic-inline {
-  position: absolute;
-  top: 0.75rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  margin: 0;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(8, 13, 24, 0.82);
-  color: var(--bac-amber);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.bac--diagnostic,
-.bac--with-diagnostic {
-  min-height: min(72dvh, 640px);
-}
-
-.bac__diagnostic-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  width: min(92%, 28rem);
-  margin: auto;
-  padding: 1.25rem;
-  border: 2px dashed var(--bac-amber);
-  border-radius: 0.75rem;
-  background: rgba(12, 18, 36, 0.92);
-  color: var(--bac-cream);
-  text-align: left;
-}
-
-.bac__diagnostic-title {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--bac-amber);
-}
-
-.bac__diagnostic-rvtr {
-  margin: 0;
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--bac-cyan);
-}
-
-.bac__diagnostic-line,
-.bac__diagnostic-label,
-.bac__diagnostic-fallback {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: var(--bac-cream);
-}
-
-.bac__diagnostic-reason {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #ffb4b4;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.bac__diagnostic-body {
-  margin: 0;
-  max-height: 8rem;
-  overflow: auto;
-  padding: 0.65rem;
-  border-radius: 0.5rem;
-  background: rgba(0, 0, 0, 0.35);
-  color: #d7e2ff;
-  font-size: 0.7rem;
-  line-height: 1.35;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.bac__diagnostic-rule {
-  margin: 0;
-  color: var(--bac-amber);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
 }

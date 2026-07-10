@@ -44,21 +44,17 @@ export function buildVdjPresentationItem(live: SundayNightsLiveSelection): Prese
   };
 }
 
-/** AUTO mode: audience item is the live VDJ track when state.json takeover is active. */
+/** AUTO mode: audience item is the live VDJ track, not a queue slot. */
 export function shouldUseVdjPresentationItem(
   autoFollowVdj: boolean,
   manualTakeActive: boolean,
   vdj: PlayheadVdjState,
   live: SundayNightsLiveSelection | null | undefined,
 ): boolean {
-  if (!live?.title?.trim() || !live?.artist?.trim()) return false;
-
-  // state.json vdjTakeoverActive + bridge playing → published playhead follows VDJ
-  if (vdj.takeoverActive && vdj.playing) return true;
-
   if (manualTakeActive) return false;
   if (!autoFollowVdj) return false;
-  return vdj.playing;
+  if (!live?.title?.trim() || !live?.artist?.trim()) return false;
+  return vdj.playing || vdj.takeoverActive;
 }
 
 /** Override playhead item when AUTO mode follows VirtualDJ. */
@@ -219,9 +215,9 @@ export async function setAutoFollowVdj(enabled: boolean): Promise<PresentationSt
   return state;
 }
 
-/** VirtualDJ started or changed songs — pause broadcast rotation when AUTO is on. */
+/** VirtualDJ started or changed songs — pause broadcast rotation. */
 export async function handleVdjPlaybackStarted(): Promise<void> {
-  const autoFollow = await isAutoFollowEnabled();
+  if (!(await isAutoFollowEnabled())) return;
 
   const sn = await loadSundayNightsState();
   await saveSundayNightsState({
@@ -236,7 +232,7 @@ export async function handleVdjPlaybackStarted(): Promise<void> {
   const pres = await loadPresentationState();
   pres.vdjTakeoverActive = true;
   pres.vdjStoppedAt = null;
-  // Deck cueing sets manualTakeActive; live VDJ playback re-asserts audience follow.
+  // Deck cueing sets manualTakeActive; live VDJ playback re-asserts AUTO follow.
   pres.manualTakeActive = false;
   await savePresentationState(pres);
 
@@ -248,13 +244,14 @@ export async function handleVdjPlaybackStarted(): Promise<void> {
     await pushBroadcastToPublic(snapshot).catch(() => undefined);
   }
 
-  if (autoFollow) {
-    await pauseBroadcastRotation();
-  }
+  await pauseBroadcastRotation();
 }
 
 /** VirtualDJ playback stopped — start idle timeout before resuming broadcast. */
 export async function handleVdjPlaybackStopped(timestamp: string): Promise<void> {
+  if (!(await isAutoFollowEnabled())) return;
+  if (await isManualTakeActive()) return;
+
   const sn = await loadSundayNightsState();
   await saveSundayNightsState({
     ...sn,
@@ -263,9 +260,6 @@ export async function handleVdjPlaybackStopped(timestamp: string): Promise<void>
     vdjStoppedAt: sn.vdjTakeoverActive ? timestamp : sn.vdjStoppedAt ?? null,
     updatedAt: new Date().toISOString(),
   });
-
-  if (!(await isAutoFollowEnabled())) return;
-  if (await isManualTakeActive()) return;
 
   if (!sn.vdjTakeoverActive) return;
 

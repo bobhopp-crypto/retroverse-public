@@ -10,10 +10,7 @@ import {
 } from "@/lib/broadcast/composer";
 import { resolveBroadcastAsset } from "@/lib/broadcast/resolve-broadcast-asset";
 import type { CurrentBroadcast } from "@/lib/broadcast/current-broadcast";
-import { tracePresentationRender } from "@/lib/broadcast/presentation-render-trace";
 import type { Rvba, RvbaType } from "@/lib/broadcast/rvba";
-import { resolveRvbaFromPresentationItem } from "@/lib/broadcast/rvba";
-import type { PresentationItem } from "@/lib/bobos/presentation/types";
 import type { UniversalPackagePayload } from "@/lib/universal-renderer/load-package";
 
 import { BroadcastAssetComposerView } from "./BroadcastAssetComposerView";
@@ -34,8 +31,6 @@ import "./presentation-stage.css";
  */
 
 type Props = {
-  /** Authoritative playhead item — song items always mount the now-playing composer. */
-  item?: PresentationItem | null;
   rvba: Rvba | null;
   /** Playhead engine metadata — authoritative for which experience to mount. */
   broadcast?: CurrentBroadcast | null;
@@ -91,29 +86,8 @@ function songTrackKey(rvba: Rvba, packageRvtr: string | null, assetId: string | 
   return `${linkId || assetId || rvba.id}|${rvba.title.trim()}|${rvba.subtitle.trim()}`;
 }
 
-export function PresentationStage({
-  item = null,
-  rvba: rvbaProp,
-  broadcast = null,
-  offAirTitle = "Retroverse Live",
-}: Props) {
-  const rvba =
-    item?.type === "song" ? resolveRvbaFromPresentationItem(item) : rvbaProp;
-
-  const asset = resolveBroadcastAsset(rvba, broadcast, item?.type ?? null);
-
-  useEffect(() => {
-    tracePresentationRender({
-      step: "resolveBroadcastAsset",
-      experience: asset.experience,
-      itemType: item?.type ?? null,
-      rvbaType: rvba?.type ?? null,
-      broadcastSourceId: broadcast?.sourceId ?? null,
-      component:
-        asset.experience === "broadcast-asset" ? "BroadcastAssetComposerView" : "BroadcastStageCard",
-    });
-  }, [asset.experience, asset.packageRvtr, broadcast?.sourceId, item?.type, rvba?.type]);
-
+export function PresentationStage({ rvba, broadcast = null, offAirTitle = "Retroverse Live" }: Props) {
+  const asset = resolveBroadcastAsset(rvba, broadcast);
   const [pkg, setPkg] = useState<UniversalPackagePayload | null>(null);
 
   const trackKey =
@@ -161,53 +135,20 @@ export function PresentationStage({
     return composeBroadcastAsset(input);
   }, [asset.experience, asset.packageRvtr, asset.assetId, pkg, rvba, trackKey]);
 
-  const chosenComponent = useMemo(() => {
-    if (composedAsset || (asset.experience === "broadcast-asset" && rvba)) {
-      return "BroadcastAssetComposerView";
-    }
-    if (asset.experience === "off-air" || !rvba) return "OffAirStage";
-    if (rvba.type === "image" && rvba.mediaUrl) return "ImageSlideStage";
-    return "BroadcastStageCard";
-  }, [asset.experience, composedAsset, rvba]);
-
-  useEffect(() => {
-    tracePresentationRender({
-      step: "PresentationStage",
-      experience: asset.experience,
-      itemType: item?.type ?? null,
-      rvbaType: rvba?.type ?? null,
-      broadcastSourceId: broadcast?.sourceId ?? null,
-      component: chosenComponent,
-      detail: asset.packageRvtr ? `rvtr=${asset.packageRvtr}` : undefined,
-    });
-  }, [asset, broadcast?.sourceId, chosenComponent, item?.type, rvba]);
-
-  if (composedAsset || (asset.experience === "broadcast-asset" && rvba)) {
-    const fallbackInput = extractBroadcastInputFromRvba(
-      rvba!,
-      asset.packageRvtr ?? asset.assetId ?? rvba!.id,
-    );
-    const assetToRender =
-      composedAsset ??
-      (fallbackInput.title || fallbackInput.artist
-        ? composeBroadcastAsset(fallbackInput)
-        : null);
-
-    if (assetToRender) {
-      const compositionKey = broadcastCompositionKey(assetToRender.input);
-      return (
-        <div
+  if (composedAsset) {
+    const compositionKey = broadcastCompositionKey(composedAsset.input);
+    return (
+      <div
+        key={compositionKey}
+        className="rv-stage rv-stage--now-playing rv-stage--broadcast-asset"
+      >
+        <BroadcastAssetComposerView
           key={compositionKey}
-          className="rv-stage rv-stage--now-playing rv-stage--broadcast-asset"
-        >
-          <BroadcastAssetComposerView
-            key={compositionKey}
-            asset={assetToRender}
-            transition={rvba?.transition}
-          />
-        </div>
-      );
-    }
+          asset={composedAsset}
+          transition={rvba?.transition}
+        />
+      </div>
+    );
   }
 
   if (asset.experience === "off-air" || !rvba) {
@@ -223,6 +164,8 @@ export function PresentationStage({
   }
 
   if (rvba.type === "image" && rvba.mediaUrl) {
+    // Imported slides (e.g. a Gamma export) are already fully designed —
+    // render full-bleed with no text overlay to avoid duplicating baked-in copy.
     return (
       <div
         key={`${asset.kind}:${asset.assetId ?? rvba.id}`}

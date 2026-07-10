@@ -88,14 +88,14 @@ function packageRvtrFromRvba(rvba: Rvba): string | null {
 /**
  * Resolve what the audience renderer should show.
  *
- * Live VDJ takeover and now-playing tracks mount the song composer.
- * Queue announcements/images use the broadcast stage unless the playhead
- * engine has already resolved a song item (sourceId "vdj" or RVTR link).
+ * `broadcast.type` from the playhead engine is authoritative: anything that is
+ * not `now-playing` uses the broadcast stage (announcements, countdowns, …)
+ * and never mounts the song UniversalRenderer — even if a previous RVTR
+ * package is still in client state or VirtualDJ is playing underneath.
  */
 export function resolveBroadcastAsset(
   rvba: Rvba | null,
   broadcast?: CurrentBroadcast | null,
-  itemType?: string | null,
 ): ResolvedBroadcastAsset {
   if (!rvba || broadcast?.state === "off-air") {
     return { kind: "broadcast", assetId: null, experience: "off-air", packageRvtr: null };
@@ -103,23 +103,6 @@ export function resolveBroadcastAsset(
 
   const canonical = canonicalFromRvba(rvba);
   const kind = canonical?.kind ?? rvbaTypeToKind(rvba.type);
-  const packageRvtr = packageRvtrFromRvba(rvba);
-  const hasSongMeta = Boolean(rvba.title.trim() && rvba.subtitle.trim());
-  const isSongItem = itemType === "song";
-  const isLiveSong =
-    isSongItem ||
-    broadcast?.sourceId === "vdj" ||
-    rvba.type === "now-playing" ||
-    rvba.link?.kind === "song";
-
-  if (isLiveSong && (packageRvtr || hasSongMeta)) {
-    return {
-      kind: packageRvtr ? "track" : (canonical?.kind ?? "vdj-live"),
-      assetId: packageRvtr ?? canonical?.assetId ?? rvba.id,
-      experience: "broadcast-asset",
-      packageRvtr,
-    };
-  }
 
   if (broadcast && broadcast.type !== "now-playing") {
     return {
@@ -129,6 +112,9 @@ export function resolveBroadcastAsset(
       packageRvtr: null,
     };
   }
+
+  const packageRvtr = packageRvtrFromRvba(rvba);
+  const hasSongMeta = Boolean(rvba.title.trim() && rvba.subtitle.trim());
 
   if (packageRvtr || (rvba.type === "now-playing" && hasSongMeta)) {
     return {

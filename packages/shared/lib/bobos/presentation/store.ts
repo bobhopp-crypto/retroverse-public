@@ -320,9 +320,8 @@ function nextEnabledItem(
  * Answer the only question every audience surface asks: what is the current
  * presentation item?
  *
- * MANUAL take (manualTakeActive): queue item wins when VDJ takeover is inactive.
- * Live takeover (state.json vdjTakeoverActive + bridge playing): item is the
- * current VirtualDJ track regardless of broadcast snapshot flags.
+ * MANUAL take (manualTakeActive): queue item wins even when autoFollowVdj is on.
+ * AUTO mode (autoFollowVdj on, no manual take): item is the current VirtualDJ track.
  * One resolver — Broadcast Panel, retroverse.live, and all renderers call here.
  */
 export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
