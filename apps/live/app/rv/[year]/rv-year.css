@@ -1,6 +1,11 @@
 /* RV Year world — retrospective issue, not analytics dashboard */
 
 .rv-year-world {
+  --rv-page-gutter: max(0.55rem, 2.5vw);
+  overflow-x: hidden;
+}
+
+.rv-year-world:not(.rv-year-world--rv2) {
   --paper-warm: #f4e9d3;
   --paper-tan: #e6d6b8;
   --teal-deep: #1f5e63;
@@ -9,14 +14,19 @@
   --ink: var(--charcoal);
   --frame: 3px solid var(--charcoal);
   --purple-band: #ddd0ff;
-  --rv-page-gutter: max(0.55rem, 2.5vw);
 
   min-height: 100vh;
   background: var(--paper-warm);
   color: var(--ink);
   font-family: "Avenir Next", "Trebuchet MS", "Gill Sans", system-ui, sans-serif;
-  overflow-x: hidden;
   padding-bottom: 1.5rem;
+}
+
+.rv-year-world.rv-year-world--rv2 {
+  min-height: 0;
+  padding-bottom: 0;
+  background: transparent;
+  color: inherit;
 }
 
 .rv-year-world__grain {

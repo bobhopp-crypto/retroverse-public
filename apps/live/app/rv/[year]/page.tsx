@@ -13,6 +13,7 @@ import { RvYearView } from "./rv-year-view";
 import { Rv2ChronologyFrame } from "../components/rv2-chronology-frame";
 
 import "./rv-year.css";
+import "../components/rv-rv2-overrides.css";
 
 type Props = {
   params: Promise<{ year: string }>;

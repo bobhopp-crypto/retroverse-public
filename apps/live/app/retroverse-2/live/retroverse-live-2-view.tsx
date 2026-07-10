@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AttractTourKickoff } from "@/components/retroverse/experience/AttractTourKickoff";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { slugFromArtistName } from "@/lib/artist/slug";
+import { RV_CHRONOLOGY_DEFAULT_YEAR, rvYearHref } from "@/lib/rv/rv-chronology-paths";
 import type { SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
@@ -82,7 +83,7 @@ function displayFromPayload(
     coverUrl: null,
     songHref: "/search?q=Sweet%20Home%20Alabama",
     artistHref: "/artist/lynyrd-skynyrd",
-    yearHref: "/rv/1974",
+    yearHref: rvYearHref(1974),
     rvtr: null,
     track: null,
   };
@@ -175,7 +176,7 @@ export function RetroverseLive2View({ initial, exploringTrack }: Props) {
   const cards = useMemo(() => storyCards(display, isLiveNow), [display, isLiveNow]);
 
   return (
-    <Rv2PublicShell yearsHref={display.yearHref ?? "/rv/1974"}>
+    <Rv2PublicShell yearsHref={display.yearHref ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR)}>
       <AttractTourKickoff enabled={!isLiveNow} />
       <section className="rv2-live__hero" aria-label={isLiveNow ? "Live now" : "Now exploring"}>
         <div className="rv2-live__status-row">

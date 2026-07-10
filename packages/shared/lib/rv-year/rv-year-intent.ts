@@ -16,6 +16,12 @@ export function resolveRvYearOnlyQuery(query: string): number | null {
   return normalizeRVYear(query.trim());
 }
 
+/** Immediate `/rv/{year}` when the query is year-only — used by search routing. */
+export function resolveYearOnlySearchHref(query: string): string | null {
+  const year = resolveRvYearOnlyQuery(query);
+  return year != null ? yearSuggestionHref(year) : null;
+}
+
 /**
  * Power-user year routing — immediate transition, no suggestion drawer.
  * Waits for complete 4-digit years; 2-digit routes at once (except 19/20 prefixes).

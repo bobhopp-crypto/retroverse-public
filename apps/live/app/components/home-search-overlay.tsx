@@ -17,6 +17,7 @@ import {
   isRvYearOnlyQuery,
   resolveInstantRvYearRoute,
   resolveRvYearOnlyQuery,
+  resolveYearOnlySearchHref,
 } from "@/lib/rv-year/rv-year-intent";
 import { yearSuggestionHref } from "@/lib/search/entity-routes";
 import {
@@ -76,6 +77,8 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
     return resolveInstantRvYearRoute(trimmed) ?? resolveRvYearOnlyQuery(trimmed);
   }, [trimmed, isYearPowerRoute]);
 
+  const yearOnlyHref = useMemo(() => resolveYearOnlySearchHref(trimmed), [trimmed]);
+
   useLayoutEffect(() => {
     setMounted(true);
   }, []);
@@ -107,6 +110,12 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
     },
     [router, onClose],
   );
+
+  useEffect(() => {
+    if (yearOnlyHref) {
+      navigateTo(yearOnlyHref);
+    }
+  }, [yearOnlyHref, navigateTo]);
 
   const routeFromSuggestion = useCallback(
     (item: SearchSuggestionItem) => {

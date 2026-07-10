@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { ReturnToLiveLink } from "@/components/live-experience/ReturnToLiveLink";
 import { CANONICAL_AUDIENCE_HREF } from "@/lib/bobos/presentation/canonical-audience";
+import { RV_CHRONOLOGY_DEFAULT_YEAR, rvYearHref } from "@/lib/rv/rv-chronology-paths";
 
 import "./rv2-public-shell.css";
 
@@ -27,7 +28,7 @@ export type Rv2PublicShellProps = {
 export function Rv2PublicShell({
   children,
   className,
-  yearsHref = "/rv/1974",
+  yearsHref = rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR),
   chartsHref = "/retroverse-2/charts",
   activeNav,
   lead,

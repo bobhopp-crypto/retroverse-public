@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { coverInitialsFromTitle, DiscoverCard } from "./components/discover-card";
 import { ResultsPanel } from "./components/results-panel";
@@ -12,6 +13,10 @@ import { EMPTY_SEARCH_PANELS } from "@/lib/search/empty-panels";
 import { formatResultsStats, panelCounts } from "@/lib/search/filter-panels";
 import { searchCountParts } from "@/lib/search/format-counts";
 import { detectYearContext, normalizeRVYear } from "@/lib/search/normalize-rv-year";
+import {
+  resolveYearOnlySearchHref,
+} from "@/lib/rv-year/rv-year-intent";
+import { rvYearHref, RV_CHRONOLOGY_DEFAULT_YEAR } from "@/lib/rv/rv-chronology-paths";
 import { fetchSearchPanels, isAbortError } from "@/lib/search/fetch-search";
 import { useSearchQuery } from "@/lib/search/use-search-query";
 import {
@@ -87,6 +92,7 @@ function searchHasResults(
 }
 
 export default function SearchClient() {
+  const router = useRouter();
   const { query, setQuery, commitQuery, trimmedQuery } = useSearchQuery();
   const [panels, setPanels] = useState<SearchPanels>(EMPTY_SEARCH_PANELS);
   const [canonicalHeader, setCanonicalHeader] = useState<string | null>(null);
@@ -110,9 +116,20 @@ export default function SearchClient() {
     chartHistoryRef.current = chartHistory;
   }, [chartHistory]);
 
+  const yearOnlyHref = useMemo(
+    () => resolveYearOnlySearchHref(trimmedQuery),
+    [trimmedQuery],
+  );
+
+  useEffect(() => {
+    if (yearOnlyHref) {
+      router.replace(yearOnlyHref);
+    }
+  }, [yearOnlyHref, router]);
+
   useEffect(() => {
     const q = trimmedQuery;
-    if (q.length < 2) {
+    if (q.length < 2 || yearOnlyHref) {
       searchRequestIdRef.current += 1;
       setPanels(EMPTY_SEARCH_PANELS);
       setCanonicalHeader(null);
@@ -152,10 +169,11 @@ export default function SearchClient() {
     return () => {
       window.clearTimeout(timer);
     };
-  }, [trimmedQuery]);
+  }, [trimmedQuery, yearOnlyHref]);
 
   const isIdle = trimmedQuery.length < 2;
-  const panelBusy = loading && !isIdle;
+  const isYearRedirect = yearOnlyHref != null;
+  const panelBusy = loading && !isIdle && !isYearRedirect;
 
   const showPanels = loading ? panelsRef.current : panels;
   const showChartHistory = loading ? chartHistoryRef.current : chartHistory;
@@ -180,10 +198,11 @@ export default function SearchClient() {
   );
   const countsLabel = useMemo(() => {
     if (isIdle) return "Type 2+ characters to open the stacks";
+    if (isYearRedirect) return "Opening year…";
     if (loading) return "Searching the stacks…";
     if (searchError) return searchError;
     return formatResultsStats(counts, statsOptions);
-  }, [isIdle, loading, searchError, counts, statsOptions]);
+  }, [isIdle, isYearRedirect, loading, searchError, counts, statsOptions]);
 
   const showCanonicalHeader = loading
     ? canonicalHeaderRef.current
@@ -248,7 +267,9 @@ export default function SearchClient() {
   ]);
 
   const yearsHref =
-    yearContext.rvYear != null ? `/rv/${yearContext.rvYear}` : "/rv/1974";
+    yearContext.rvYear != null
+      ? rvYearHref(yearContext.rvYear)
+      : rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR);
 
   return (
     <Rv2PublicShell
@@ -268,12 +289,16 @@ export default function SearchClient() {
             loading={loading}
           />
 
-        {isIdle ? (
+        {isIdle || isYearRedirect ? (
           <div className="search-idle" role="status">
-            <p className="search-idle__lead">The discovery portal is open.</p>
-            <p className="search-idle__hint">
-              Keep typing — results appear after 2 characters.
+            <p className="search-idle__lead">
+              {isYearRedirect ? "Opening the year…" : "The discovery portal is open."}
             </p>
+            {!isYearRedirect ? (
+              <p className="search-idle__hint">
+                Keep typing — results appear after 2 characters.
+              </p>
+            ) : null}
           </div>
         ) : null}
 
