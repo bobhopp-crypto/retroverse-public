@@ -21,6 +21,7 @@ const SUBSETS = [
   "ops/retroverse-map.json",
   "sunday-nights",
   "rvbr",
+  "album-chart-features.json",
 ];
 
 const stat = fs.lstatSync(target, { throwIfNoEntry: false });

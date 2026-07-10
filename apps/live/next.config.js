@@ -56,6 +56,7 @@ const nextConfig = {
       "../../node_modules/xtend/**",
     ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
+    "/album/[id]": ["./data/album-chart-features.json"],
   },
   outputFileTracingExcludes: {
     "*": [
