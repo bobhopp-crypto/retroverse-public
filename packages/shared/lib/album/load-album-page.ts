@@ -1,10 +1,18 @@
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
+import { loadTrackCoverageByRvtr } from "@/lib/charts/load-track-coverage-batch";
+import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
 import { chartsToTrajectoryWeeks } from "@/lib/track/charts-to-trajectory-weeks";
-import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
+import { rvChronologyHrefFromChartDate, rvYearHref } from "@/lib/rv/rv-chronology-paths";
 import type { TrackTrajectoryWeek } from "@/lib/track/track-trajectory-types";
+
+import { buildAlbumChartFeatures, albumTitleKey } from "./album-chart-features";
+import { rankSimilarAlbumChartJourneys, type SimilarAlbumMatch } from "./album-chart-similarity";
+import { buildAlbumDescription } from "./build-album-description";
+import { loadAlbumChartFeaturesIndex } from "./load-album-chart-index";
+import { loadAlbumSourceHints } from "./load-album-source-data";
 
 const RE_RVAL = /^RVAL\d{6}$/i;
 const RE_RVTR = /^RVTR\d{6}$/i;
@@ -14,15 +22,20 @@ export type AlbumTrackRow = {
   title: string;
   rvtr: string | null;
   href: string | null;
+  coverageStatus: TrackCoverageStatus;
+  coverUrl: string | null;
 };
 
-export type AlbumRelatedRow = {
-  title: string;
-  releaseYear: number | null;
-  rval: string | null;
-  b200Peak: number | null;
-  coverUrl: string | null;
-  href: string;
+export type AlbumInfoSection = {
+  releaseDate: string | null;
+  label: string | null;
+  genres: string[];
+  certifications: string[];
+  awards: string[];
+  majorSingles: string[];
+  artistHref: string;
+  yearHref: string | null;
+  relatedExperiences: Array<{ label: string; href: string }>;
 };
 
 export type AlbumPageData = {
@@ -35,11 +48,17 @@ export type AlbumPageData = {
   coverUrl: string | null;
   b200Peak: number | null;
   chartWeeks: number;
+  weeksAtPeak: number;
+  weeksAtNumberOne: number;
   firstChartDate: string | null;
+  lastChartDate: string | null;
   trajectoryWeeks: TrackTrajectoryWeek[];
   chartRunLabel: string;
+  description: string;
+  journeySummary: string | null;
   tracks: AlbumTrackRow[];
-  relatedAlbums: AlbumRelatedRow[];
+  similarChartJourneys: SimilarAlbumMatch[];
+  info: AlbumInfoSection;
   rvYearHref: string | null;
 };
 
@@ -55,6 +74,11 @@ function yearFromDate(value: string | null | undefined): number | null {
   if (!value?.trim()) return null;
   const y = Number(value.slice(0, 4));
   return Number.isFinite(y) && y > 0 ? y : null;
+}
+
+function weeksAtPeakRank(weeks: TrackTrajectoryWeek[], peak: number | null): number {
+  if (peak == null) return 0;
+  return weeks.filter((week) => week.rank === peak).length;
 }
 
 type AlbumHeaderRow = {
@@ -115,7 +139,7 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
   const releaseYear = header.release_year;
   const coverUrl = pickCoverUrl(header.cover_path, header.artwork_path, header.r2_cover_key);
 
-  const [chartRows, trackRows, relatedRows, statsRows] = await Promise.all([
+  const [chartRows, trackRows, statsRows, hot100Singles] = await Promise.all([
     inspectQuery<{
       chart_date: string;
       chart_name: string;
@@ -136,67 +160,61 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
       position: number;
       title: string;
       rvtr: string | null;
+      cover_path: string | null;
+      artwork_path: string | null;
+      r2_cover_key: string | null;
     }>(
       `
-      SELECT cat.position, cat.title, cat.canonical_track_key AS rvtr
+      SELECT cat.position, cat.title, cat.canonical_track_key AS rvtr,
+             al.canonical_cover_path AS cover_path,
+             (
+               SELECT aal.canonical_cover_path FROM album_artwork_links aal
+               WHERE aal.album_id = al.id
+               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
+               LIMIT 1
+             ) AS artwork_path,
+             (
+               SELECT aal.r2_cover_key FROM album_artwork_links aal
+               WHERE aal.album_id = al.id
+               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
+               LIMIT 1
+             ) AS r2_cover_key
       FROM canonical_album_tracks cat
+      JOIN albums al ON al.id = cat.album_id
       WHERE cat.album_id = $1
       ORDER BY cat.position ASC
       `,
       [pgAlbumId],
     ),
     inspectQuery<{
-      title: string;
-      release_year: number | null;
-      rval: string | null;
-      b200_peak: number | null;
-      cover_path: string | null;
-      artwork_path: string | null;
-      r2_cover_key: string | null;
-    }>(
-      `
-      SELECT
-        al.title,
-        al.release_year,
-        aek.external_key AS rval,
-        min(ca.chart_position) FILTER (WHERE ca.chart_name = 'Billboard 200') AS b200_peak,
-        al.canonical_cover_path AS cover_path,
-        (
-          SELECT aal.canonical_cover_path FROM album_artwork_links aal
-          WHERE aal.album_id = al.id
-          ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-          LIMIT 1
-        ) AS artwork_path,
-        (
-          SELECT aal.r2_cover_key FROM album_artwork_links aal
-          WHERE aal.album_id = al.id
-          ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-          LIMIT 1
-        ) AS r2_cover_key
-      FROM albums al
-      LEFT JOIN album_external_keys aek ON aek.album_id = al.id
-      LEFT JOIN chart_appearances ca ON ca.album_id = al.id
-      WHERE al.artist_id = $1
-        AND al.id <> $2
-      GROUP BY al.id, al.title, al.release_year, aek.external_key, al.canonical_cover_path
-      ORDER BY al.release_year ASC NULLS LAST, al.title ASC
-      LIMIT 6
-      `,
-      [header.artist_id, pgAlbumId],
-    ),
-    inspectQuery<{
       b200_peak: number | null;
       chart_weeks: number;
       first_chart_date: string | null;
+      last_chart_date: string | null;
     }>(
       `
       SELECT
         min(ca.chart_position) AS b200_peak,
         max(COALESCE(ca.weeks_on_chart, 0))::int AS chart_weeks,
-        min(ca.chart_date)::text AS first_chart_date
+        min(ca.chart_date)::text AS first_chart_date,
+        max(ca.chart_date)::text AS last_chart_date
       FROM chart_appearances ca
       WHERE ca.album_id = $1
         AND ca.chart_name = 'Billboard 200'
+      `,
+      [pgAlbumId],
+    ),
+    inspectQuery<{ title: string; peak_hot100: number | null }>(
+      `
+      SELECT cat.title,
+             min(ct.peak_hot100_position) AS peak_hot100
+      FROM canonical_album_tracks cat
+      JOIN canonical_tracks ct ON upper(trim(ct.track_id)) = upper(trim(cat.canonical_track_key))
+      WHERE cat.album_id = $1
+        AND ct.peak_hot100_position IS NOT NULL
+      GROUP BY cat.title
+      ORDER BY peak_hot100 ASC NULLS LAST
+      LIMIT 8
       `,
       [pgAlbumId],
     ),
@@ -204,8 +222,8 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
 
   const stats = statsRows[0];
   const b200Peak = stats?.b200_peak ?? null;
-  const chartWeeks = stats?.chart_weeks ?? 0;
   const firstChartDate = stats?.first_chart_date?.slice(0, 10) ?? null;
+  const lastChartDate = stats?.last_chart_date?.slice(0, 10) ?? null;
 
   const trajectoryWeeks = chartsToTrajectoryWeeks(
     chartRows.map((row) => ({
@@ -216,6 +234,17 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
     { maxRank: 200 },
   );
 
+  const chartWeeks = trajectoryWeeks.length;
+
+  const weeksAtPeak = weeksAtPeakRank(trajectoryWeeks, b200Peak);
+  const weeksAtNumberOne = trajectoryWeeks.filter((week) => week.rank === 1).length;
+
+  const trackRvtrs = trackRows
+    .map((row) => row.rvtr?.trim().toUpperCase() ?? null)
+    .filter((rvtr): rvtr is string => rvtr != null && RE_RVTR.test(rvtr));
+
+  const coverageMap = await loadTrackCoverageByRvtr(trackRvtrs);
+
   const tracks: AlbumTrackRow[] = trackRows.map((row) => {
     const rvtr = row.rvtr?.trim().toUpperCase() ?? null;
     const navigable = rvtr != null && RE_RVTR.test(rvtr);
@@ -224,36 +253,125 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
       title: row.title.trim(),
       rvtr: navigable ? rvtr : null,
       href: navigable ? trackPageHref(rvtr) : null,
+      coverageStatus: navigable ? (coverageMap.get(rvtr) ?? "missing") : "missing",
+      coverUrl: pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key) ?? coverUrl,
     };
   });
 
-  const relatedAlbums: AlbumRelatedRow[] = relatedRows
-    .filter((row) => row.rval?.trim() || row.title.trim())
-    .map((row) => {
-      const relatedRval = row.rval?.trim().toUpperCase() ?? null;
-      return {
-        title: row.title.trim(),
-        releaseYear: row.release_year,
-        rval: relatedRval,
-        b200Peak: row.b200_peak,
-        coverUrl: pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key),
-        href:
-          albumSuggestionHref(
-            row.title.trim(),
-            relatedRval ? `/albums/${relatedRval}` : null,
-          ) ?? "",
-      };
-    })
-    .filter((row) => row.href.startsWith("/album/"));
+  const majorSinglesFromChart = hot100Singles
+    .filter((row) => row.peak_hot100 != null && row.peak_hot100 <= 40)
+    .sort((a, b) => (a.peak_hot100 ?? 999) - (b.peak_hot100 ?? 999))
+    .map((row) => row.title.trim());
+
+  const sourceHints = await loadAlbumSourceHints(title, trackRvtrs);
+
+  const description = buildAlbumDescription({
+    title,
+    artistName,
+    releaseYear,
+    trackCount: tracks.length,
+    b200Peak,
+    chartWeeks,
+    weeksAtNumberOne,
+    source: sourceHints,
+    majorSinglesFromChart,
+  });
+
+  const chartFeatures = buildAlbumChartFeatures(trajectoryWeeks, b200Peak);
+  const featuresIndex = await loadAlbumChartFeaturesIndex();
+
+  let similarChartJourneys: SimilarAlbumMatch[] = [];
+  if (chartFeatures && featuresIndex) {
+    const coverByRval = new Map<string, string | null>();
+    const hrefByRval = new Map<string, string>();
+
+    for (const row of featuresIndex.albums) {
+      const href = albumSuggestionHref(row.title, `/album/${row.rval}`);
+      if (href?.startsWith("/album/")) hrefByRval.set(row.rval, href);
+    }
+
+    const similarRows = featuresIndex.albums.filter((row) => hrefByRval.has(row.rval));
+    const similarRvals = rankSimilarAlbumChartJourneys({
+      currentRval: rval,
+      currentTitleKey: albumTitleKey(title),
+      current: chartFeatures,
+      candidates: similarRows,
+      coverByRval,
+      hrefByRval,
+      limit: 4,
+    });
+
+    if (similarRvals.length > 0) {
+      const coverRows = await inspectQuery<{
+        rval: string;
+        cover_path: string | null;
+        artwork_path: string | null;
+        r2_cover_key: string | null;
+      }>(
+        `
+        SELECT upper(trim(aek.external_key)) AS rval,
+               al.canonical_cover_path AS cover_path,
+               (
+                 SELECT aal.canonical_cover_path FROM album_artwork_links aal
+                 WHERE aal.album_id = al.id
+                 ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
+                 LIMIT 1
+               ) AS artwork_path,
+               (
+                 SELECT aal.r2_cover_key FROM album_artwork_links aal
+                 WHERE aal.album_id = al.id
+                 ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
+                 LIMIT 1
+               ) AS r2_cover_key
+        FROM album_external_keys aek
+        JOIN albums al ON al.id = aek.album_id
+        WHERE upper(trim(aek.external_key)) = ANY($1::text[])
+        `,
+        [similarRvals.map((row) => row.rval)],
+      );
+
+      for (const row of coverRows) {
+        coverByRval.set(row.rval, pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key));
+      }
+
+      similarChartJourneys = similarRvals.map((row) => ({
+        ...row,
+        coverUrl: coverByRval.get(row.rval) ?? row.coverUrl ?? null,
+      }));
+    }
+  }
 
   const rvYear = releaseYear ?? yearFromDate(firstChartDate ?? trajectoryWeeks[0]?.issueDate);
-
   const peakWeekDate =
     (typeof b200Peak === "number"
       ? trajectoryWeeks.find((w) => w.rank === b200Peak)?.issueDate
       : null) ??
     trajectoryWeeks[trajectoryWeeks.length - 1]?.issueDate ??
     firstChartDate;
+
+  const relatedExperiences: Array<{ label: string; href: string }> = [];
+  if (rvYear != null) {
+    relatedExperiences.push({ label: `${rvYear} chart year`, href: rvYearHref(rvYear) });
+  }
+  if (peakWeekDate) {
+    const weekHref = rvChronologyHrefFromChartDate(peakWeekDate, rvYear);
+    if (weekHref) relatedExperiences.push({ label: "Peak chart week", href: weekHref });
+  }
+
+  const info: AlbumInfoSection = {
+    releaseDate: sourceHints.releaseDates[0] ?? null,
+    label: sourceHints.labels[0] ?? null,
+    genres: sourceHints.genres,
+    certifications: sourceHints.certifications,
+    awards: sourceHints.awards,
+    majorSingles:
+      majorSinglesFromChart.length > 0
+        ? majorSinglesFromChart
+        : sourceHints.majorSingles,
+    artistHref: `/artist/${artistSlug}`,
+    yearHref: rvYear != null ? rvYearHref(rvYear) : null,
+    relatedExperiences,
+  };
 
   return {
     rval,
@@ -265,11 +383,17 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
     coverUrl,
     b200Peak,
     chartWeeks,
+    weeksAtPeak,
+    weeksAtNumberOne,
     firstChartDate,
+    lastChartDate,
     trajectoryWeeks,
     chartRunLabel: "Billboard 200",
+    description,
+    journeySummary: null,
     tracks,
-    relatedAlbums,
+    similarChartJourneys,
+    info,
     rvYearHref: rvChronologyHrefFromChartDate(peakWeekDate ?? firstChartDate, rvYear),
   };
 }

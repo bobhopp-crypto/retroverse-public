@@ -1,9 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
-import { AlbumCoverCuratorModal } from "@/app/components/album-cover-curator-modal";
-
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 
 type Props = {
@@ -14,54 +8,20 @@ type Props = {
   coverUrl: string | null;
 };
 
-export function AlbumHeroCover({
-  rval,
-  title,
-  artistName,
-  releaseYear,
-  coverUrl: initialCover,
-}: Props) {
-  const [coverUrl, setCoverUrl] = useState(initialCover);
-  const [curatorOpen, setCuratorOpen] = useState(false);
-
+export function AlbumHeroCover({ rval, title, artistName, releaseYear, coverUrl }: Props) {
   return (
-    <>
-      <div className="album-hero-cover">
-        <ArtistCover
-          src={coverUrl}
-          alt=""
-          className="track-hero__cover"
-          fallbackClassName="track-hero__cover-fallback"
-          fallbackVariant="plate"
-          placeholderContext={{
-            rval,
-            artist: artistName,
-            album: title,
-            releaseYear,
-          }}
-        />
-        <button
-          type="button"
-          className="album-hero-cover__curator"
-          aria-label={`Curate cover for ${title}`}
-          onClick={() => setCuratorOpen(true)}
-        >
-          ◎
-        </button>
-      </div>
-      {curatorOpen ? (
-        <AlbumCoverCuratorModal
-          rval={rval}
-          albumTitle={title}
-          artistName={artistName}
-          releaseYear={releaseYear}
-          coverUrl={coverUrl}
-          onClose={() => setCuratorOpen(false)}
-          onAccepted={(next) => {
-            if (next) setCoverUrl(next);
-          }}
-        />
-      ) : null}
-    </>
+    <ArtistCover
+      src={coverUrl}
+      alt=""
+      className="album-v1__cover"
+      fallbackClassName="album-v1__cover album-v1__cover--fallback"
+      fallbackVariant="plate"
+      placeholderContext={{
+        rval,
+        artist: artistName,
+        album: title,
+        releaseYear,
+      }}
+    />
   );
 }

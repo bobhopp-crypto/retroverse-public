@@ -1,0 +1,409 @@
+/* Album Page v1 — Explorer Layout tokens */
+
+.rv2-album.rv2-explorer {
+  padding-bottom: 0;
+}
+
+.rv2-album .rv2-live__search-panel {
+  display: none;
+}
+
+.rv2-album .explorer {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 5.5rem);
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  color: var(--ex-ink);
+}
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.album-v1__hero {
+  padding: 0.65rem 0.85rem 1rem;
+  border-bottom: 1px solid var(--ex-line);
+  background: var(--ex-header);
+}
+
+.album-v1__hero .explorer__back {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--ex-touch, 44px);
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: var(--ex-muted);
+  text-decoration: none;
+}
+
+.album-v1__hero .explorer__back:hover {
+  color: var(--ex-ink);
+}
+
+.album-v1__hero-main {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.album-v1__cover-wrap {
+  width: 112px;
+}
+
+.album-v1__cover {
+  width: 112px;
+  height: 112px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--ex-art-fallback);
+}
+
+.album-v1__cover--fallback {
+  display: grid;
+  place-items: center;
+}
+
+.album-v1__eyebrow {
+  margin: 0 0 0.2rem;
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ex-purple);
+}
+
+.album-v1__name {
+  margin: 0;
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.album-v1__artist-line {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ex-ink-soft);
+}
+
+.album-v1__artist-link,
+.album-v1__year-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.album-v1__artist-link:hover,
+.album-v1__year-link:hover {
+  color: var(--ex-ink);
+}
+
+.album-v1__dot {
+  color: var(--ex-muted);
+}
+
+.album-v1__tagline {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ex-owned);
+}
+
+/* ── Sections ─────────────────────────────────────────────────── */
+.album-v1__section {
+  padding: 1.1rem 0.85rem 0.25rem;
+}
+
+.album-v1__section-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.album-v1__section-lead {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  color: var(--ex-muted);
+}
+
+.album-v1__overview-text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--ex-ink-soft);
+}
+
+/* ── Explorer rows (matches Artist / Chart Week) ──────────────── */
+.rv2-album .explorer-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 14px 11px 12px;
+  border-bottom: 1px solid var(--ex-line);
+  background: transparent;
+  transition: background 0.25s var(--ex-ease);
+}
+
+.rv2-album .explorer-row:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.rv2-album .explorer-row__hit {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rv2-album .explorer-row__hit--static {
+  cursor: default;
+}
+
+.rv2-album .explorer-row__rank {
+  grid-column: 1;
+  align-self: center;
+  font-size: 15px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: rgba(186, 169, 217, 0.65);
+  text-align: center;
+  line-height: 1;
+}
+
+.rv2-album .explorer-row__main {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.rv2-album .explorer-row__art {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--ex-art-fallback);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.rv2-album .explorer-row__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ex-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rv2-album .explorer-row__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ── Chart journey (Explorer rv2 variant) ─────────────────────── */
+.album-v1__chart-journey.rv-exp-cj--rv2 {
+  margin-top: 0.35rem;
+  padding: 0.85rem 0.75rem 0.9rem;
+}
+
+.album-v1__chart-journey .rv-exp-cj__story {
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  background: var(--ex-surface);
+  border: 1px solid var(--ex-line);
+}
+
+/* ── Similar albums ───────────────────────────────────────────── */
+.album-v1__similar-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.album-v1__similar-card {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--ex-line);
+  border-radius: 12px;
+  background: var(--ex-surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.25s var(--ex-ease), background 0.25s var(--ex-ease);
+}
+
+.album-v1__similar-card:hover {
+  border-color: var(--ex-line-accent);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.album-v1__similar-art {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--ex-art-fallback);
+}
+
+.album-v1__similar-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.album-v1__similar-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.album-v1__similar-artist,
+.album-v1__similar-year {
+  font-size: 0.8rem;
+  color: var(--ex-muted);
+}
+
+.album-v1__similar-reason {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--ex-aqua-accent);
+  line-height: 1.35;
+}
+
+/* ── Other information ──────────────────────────────────────── */
+.album-v1__info-list {
+  margin: 0.5rem 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.album-v1__info-row {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.album-v1__info-row dt {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ex-muted);
+}
+
+.album-v1__info-row dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ex-ink-soft);
+  line-height: 1.45;
+}
+
+.album-v1__info-row dd a {
+  color: var(--ex-purple);
+  text-decoration: none;
+}
+
+.album-v1__info-row dd a:hover {
+  color: var(--ex-ink);
+}
+
+.album-v1__related-links {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.album-v1__related-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--ex-line-accent);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: var(--ex-ink-soft);
+  text-decoration: none;
+}
+
+.album-v1__related-link:hover {
+  color: var(--ex-ink);
+  background: var(--ex-purple-dim);
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.album-v1__footer {
+  margin-top: auto;
+  padding: 1rem 0.85rem calc(1rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--ex-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.album-v1__footer-link {
+  font-size: 0.85rem;
+  font-weight: 750;
+  color: var(--ex-muted);
+  text-decoration: none;
+}
+
+.album-v1__footer-link:hover {
+  color: var(--ex-ink);
+}
+
+.album-v1__footer-link--live {
+  color: var(--ex-magenta);
+}
+
+@media (min-width: 640px) {
+  .album-v1__hero-main {
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .album-v1__cover-wrap,
+  .album-v1__cover {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv2-album .explorer-row,
+  .album-v1__similar-card {
+    transition: none;
+  }
+}

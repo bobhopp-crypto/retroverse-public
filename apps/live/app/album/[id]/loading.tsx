@@ -1,37 +1,29 @@
 import Link from "next/link";
 
-import "../../track/[id]/track-page.css";
+import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
+
+import "./album-page-v1.css";
 
 export default function AlbumLoading() {
   return (
-    <div className="track-exhibit album-exhibit track-exhibit--sparse" aria-busy="true" aria-label="Loading album">
-      <div className="track-exhibit__grain" aria-hidden />
-      <header className="track-topbar">
-        <Link href="/" className="track-logo" prefetch>
-          Retroverse
-        </Link>
-        <span className="track-file-tag">Album</span>
-      </header>
-      <section className="track-hero" aria-label="Loading album">
-        <div className="track-hero__cover-wrap">
-          <div className="track-hero__cover-fallback" aria-hidden />
-        </div>
-        <div className="track-hero__identity">
-          <p className="track-hero__eyebrow">From the archive</p>
-          <h1 className="track-hero__title">…</h1>
-          <p className="track-hero__artist-line">
-            <span className="track-hero__artist">…</span>
-          </p>
-        </div>
-      </section>
-      <nav className="exhibit-footer-nav" aria-label="Site">
-        <Link href="/" prefetch>
-          Home
-        </Link>
-        <Link href="/search" prefetch>
-          Search
-        </Link>
-      </nav>
-    </div>
+    <Rv2PublicShell className="rv2-album rv2-explorer" activeNav="search">
+      <div className="explorer album-v1" aria-busy="true" aria-label="Loading album">
+        <header className="album-v1__hero">
+          <Link href="/search" prefetch className="explorer__back">
+            ← Search
+          </Link>
+          <div className="album-v1__hero-main">
+            <div className="album-v1__cover-wrap">
+              <div className="album-v1__cover album-v1__cover--fallback" aria-hidden />
+            </div>
+            <div className="album-v1__identity">
+              <p className="album-v1__eyebrow">Album</p>
+              <h1 className="album-v1__name">…</h1>
+              <p className="album-v1__artist-line">…</p>
+            </div>
+          </div>
+        </header>
+      </div>
+    </Rv2PublicShell>
   );
 }
