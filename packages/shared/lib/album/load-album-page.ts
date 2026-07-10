@@ -11,6 +11,7 @@ import type { TrackTrajectoryWeek } from "@/lib/track/track-trajectory-types";
 import { buildAlbumChartFeatures, albumTitleKey } from "./album-chart-features";
 import { rankSimilarAlbumChartJourneys, type SimilarAlbumMatch } from "./album-chart-similarity";
 import { buildAlbumDescription } from "./build-album-description";
+import { loadAlbumChartFeatureCandidates } from "./load-album-chart-candidates";
 import { loadAlbumChartFeaturesIndex } from "./load-album-chart-index";
 import { loadAlbumSourceHints } from "./load-album-source-data";
 
@@ -281,16 +282,27 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
   const featuresIndex = await loadAlbumChartFeaturesIndex();
 
   let similarChartJourneys: SimilarAlbumMatch[] = [];
-  if (chartFeatures && featuresIndex) {
+  if (chartFeatures) {
+    const indexRows = featuresIndex?.albums ?? [];
+    const candidateRows =
+      indexRows.length > 0
+        ? indexRows
+        : await loadAlbumChartFeatureCandidates({
+            pgAlbumId,
+            peak: b200Peak,
+            chartWeeks,
+          });
+
+    if (candidateRows.length > 0) {
     const coverByRval = new Map<string, string | null>();
     const hrefByRval = new Map<string, string>();
 
-    for (const row of featuresIndex.albums) {
+    for (const row of candidateRows) {
       const href = albumSuggestionHref(row.title, `/album/${row.rval}`);
       if (href?.startsWith("/album/")) hrefByRval.set(row.rval, href);
     }
 
-    const similarRows = featuresIndex.albums.filter((row) => hrefByRval.has(row.rval));
+    const similarRows = candidateRows.filter((row) => hrefByRval.has(row.rval));
     const similarRvals = rankSimilarAlbumChartJourneys({
       currentRval: rval,
       currentTitleKey: albumTitleKey(title),
@@ -338,6 +350,7 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
         ...row,
         coverUrl: coverByRval.get(row.rval) ?? row.coverUrl ?? null,
       }));
+    }
     }
   }
 
