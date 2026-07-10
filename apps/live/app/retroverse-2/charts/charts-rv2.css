@@ -33,7 +33,7 @@
   padding: 1rem 1rem 1.1rem;
   border: 1px solid var(--rv2-line);
   border-radius: 0.75rem;
-  background: rgba(9, 27, 57, 0.72);
+  background: var(--rv2-surface-72);
   color: inherit;
   text-decoration: none;
   transition: border-color 120ms ease, transform 120ms ease;
@@ -95,7 +95,7 @@
   justify-content: center;
   min-width: 3.4rem;
   padding: 0.35rem 0.55rem;
-  border: 1px solid rgba(87, 146, 255, 0.35);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 999px;
   color: var(--rv2-ink);
   text-decoration: none;

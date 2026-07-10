@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   background: #06122d;
-  color: #f5fbff;
+  color: var(--ex-ink);
 }
 
 .gv-register__hero,
@@ -43,7 +43,7 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(107, 200, 255, 0.85);
+  color: var(--ex-aqua-accent);
 }
 
 .gv-register__panel h1 {

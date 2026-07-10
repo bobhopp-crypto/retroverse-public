@@ -4,31 +4,31 @@
   margin: 2rem 1rem;
   font-size: 1.1rem;
   font-weight: 800;
-  color: var(--ink, var(--rv2-ink, #f3f7ff));
+  color: var(--ink, var(--rv2-ink, var(--ex-ink)));
 }
 
 .rv2-search .search-page {
-  --ink: var(--rv2-ink, #f3f7ff);
+  --ink: var(--rv2-ink, var(--ex-ink));
   --paper: transparent;
-  --cream: rgba(13, 36, 80, 0.72);
-  --cream-card: rgba(9, 27, 57, 0.92);
-  --footer-bar: rgba(6, 19, 38, 0.95);
+  --cream: var(--rv2-surface-72);
+  --cream-card: var(--rv2-surface-92);
+  --footer-bar: var(--rv2-surface-95);
   --orange: var(--rv2-gold, #e7bd67);
-  --teal: var(--rv2-cyan, #4fd5ff);
-  --teal-band: rgba(9, 27, 57, 0.55);
-  --teal-header: var(--rv2-cyan, #4fd5ff);
-  --query-ink: var(--rv2-ink, #f3f7ff);
-  --meta-ink: var(--rv2-muted, #9db4df);
-  --orange-band: rgba(9, 27, 57, 0.55);
+  --teal: var(--rv2-cyan, var(--ex-aqua-accent));
+  --teal-band: var(--rv2-surface-55);
+  --teal-header: var(--rv2-cyan, var(--ex-aqua-accent));
+  --query-ink: var(--rv2-ink, var(--ex-ink));
+  --meta-ink: var(--rv2-muted, var(--ex-muted));
+  --orange-band: var(--rv2-surface-55);
   --orange-header: var(--rv2-gold, #e7bd67);
-  --purple-band: rgba(9, 27, 57, 0.55);
-  --purple-header: var(--rv2-line-hot, #2c75ff);
+  --purple-band: var(--rv2-surface-55);
+  --purple-header: var(--rv2-line-hot, var(--ex-purple));
   --card-strip-width: clamp(11.25rem, 42vw, 14rem);
   --search-card-footer-min: 4.35rem;
-  --hero-teal: rgba(13, 36, 80, 0.92);
-  --hero-teal-deep: var(--rv2-cyan, #4fd5ff);
-  --panel-line: var(--rv2-line, rgba(87, 146, 255, 0.42));
-  --panel-bg: linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9));
+  --hero-teal: var(--rv2-surface-92);
+  --hero-teal-deep: var(--rv2-cyan, var(--ex-aqua-accent));
+  --panel-line: var(--rv2-line, var(--rv2-line));
+  --panel-bg: var(--rv2-panel-gradient);
 
   position: relative;
   width: 100%;
@@ -56,11 +56,11 @@
   position: relative;
   margin: 0 0 0.55rem;
   padding: 0.65rem 0.75rem;
-  background: var(--panel-bg), var(--rv2-panel, rgba(9, 27, 57, 0.92));
+  background: var(--panel-bg), var(--rv2-panel, var(--rv2-surface-92));
   border: 1px solid var(--panel-line);
   border-radius: 0.65rem;
   box-shadow:
-    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    var(--rv2-inset-shadow),
     0 18px 44px rgba(0, 0, 0, 0.28);
   overflow: hidden;
 }

@@ -14,10 +14,10 @@
   border: 1px solid var(--rv2-line);
   border-radius: 0.65rem;
   background:
-    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
+    linear-gradient(180deg, var(--rv2-surface-92), rgba(6, 19, 38, 0.9)),
     var(--rv2-panel);
   box-shadow:
-    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    var(--rv2-inset-shadow),
     0 18px 44px rgba(0, 0, 0, 0.28);
 }
 
@@ -86,14 +86,14 @@
 
 .rv2-live__artist {
   margin: 0.55rem 0 0;
-  color: #d7e6ff;
+  color: var(--ex-ink-soft);
   font-size: clamp(1.12rem, 5.4vw, 1.6rem);
   font-weight: 800;
 }
 
 .rv2-live__year {
   margin: 0.22rem 0 0;
-  color: #6ca5ff;
+  color: var(--ex-purple);
   font-size: clamp(1.35rem, 7vw, 2rem);
   font-weight: 950;
 }
@@ -103,7 +103,7 @@
   overflow: hidden;
   width: 100%;
   aspect-ratio: 1.03;
-  border: 1px solid rgba(116, 163, 255, 0.34);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.55rem;
   background: linear-gradient(145deg, #112a5d, #07142c);
 }
@@ -142,8 +142,8 @@
 }
 
 .rv2-live__action--primary {
-  background: linear-gradient(180deg, #1f79ff, #0d4bb0);
-  border-color: #5fa0ff;
+  background: var(--rv2-btn-gradient);
+  border-color: var(--rv2-border-btn);
 }
 
 .rv2-live__story {
@@ -191,7 +191,7 @@
 
 .rv2-live__story-card p:last-child {
   margin: 0.45rem 0 0;
-  color: #b8c8ec;
+  color: var(--ex-muted);
   font-size: 0.9rem;
   font-weight: 650;
   line-height: 1.35;

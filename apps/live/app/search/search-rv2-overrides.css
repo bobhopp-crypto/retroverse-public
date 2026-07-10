@@ -16,7 +16,7 @@
 }
 
 .rv2-search .search-hero__kicker {
-  color: var(--rv2-cyan, #4fd5ff);
+  color: var(--rv2-cyan, var(--ex-aqua-accent));
   letter-spacing: 0.13em;
 }
 
@@ -28,7 +28,7 @@
   line-height: 0.92;
   letter-spacing: -0.04em;
   text-transform: none;
-  color: var(--rv2-ink, #f3f7ff);
+  color: var(--rv2-ink, var(--ex-ink));
   -webkit-text-stroke: 0;
   text-shadow: none;
   word-break: break-word;
@@ -36,7 +36,7 @@
 
 .rv2-search .search-hero__counts,
 .rv2-search .search-hero__counts--solo {
-  color: var(--rv2-muted, #9db4df);
+  color: var(--rv2-muted, var(--ex-muted));
 }
 
 .rv2-search .search-hero__count-num {
@@ -48,19 +48,19 @@
   margin: 0.75rem 0;
   padding: 1.15rem 0.95rem;
   text-align: center;
-  border: 1px dashed rgba(87, 146, 255, 0.42);
+  border: 1px dashed var(--rv2-line);
   border-radius: 0.65rem;
-  background: rgba(9, 27, 57, 0.55);
+  background: var(--rv2-surface-55);
 }
 
 .rv2-search .search-idle__lead,
 .rv2-search .search-empty__lead {
-  color: var(--rv2-cyan, #4fd5ff);
+  color: var(--rv2-cyan, var(--ex-aqua-accent));
 }
 
 .rv2-search .search-idle__hint,
 .rv2-search .search-empty__hint {
-  color: var(--rv2-muted, #9db4df);
+  color: var(--rv2-muted, var(--ex-muted));
 }
 
 .rv2-search .results-panel,
@@ -75,7 +75,7 @@
 .rv2-search .results-panel--artists,
 .rv2-search .search-songs-jukebox,
 .rv2-search .search-charts-history {
-  background: rgba(9, 27, 57, 0.55);
+  background: var(--rv2-surface-55);
 }
 
 .rv2-search .results-panel__header,
@@ -84,8 +84,8 @@
 .rv2-search .search-rv-history-entry__body {
   border: 1px solid var(--panel-line);
   border-radius: 0.55rem;
-  box-shadow: 0 0 0 1px rgba(79, 213, 255, 0.06) inset;
-  background: var(--panel-bg), rgba(9, 27, 57, 0.92);
+  box-shadow: var(--rv2-inset-shadow);
+  background: var(--panel-bg), var(--rv2-surface-92);
 }
 
 .rv2-search .results-panel__header {
@@ -93,7 +93,7 @@
 }
 
 .rv2-search .results-panel--albums .results-panel__header {
-  border-color: rgba(79, 213, 255, 0.35);
+  border-color: var(--rv2-aqua-border);
 }
 
 .rv2-search .results-panel--songs .results-panel__header,
@@ -103,17 +103,17 @@
 
 .rv2-search .results-panel--artists .results-panel__header,
 .rv2-search .search-charts-history__header {
-  border-color: rgba(44, 117, 255, 0.35);
+  border-color: var(--rv2-fill-accent);
 }
 
 .rv2-search .results-panel__title,
 .rv2-search .search-songs-jukebox__title,
 .rv2-search .search-charts-history__title {
-  color: var(--rv2-ink, #f3f7ff);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-search .results-panel--albums .results-panel__title {
-  color: var(--rv2-cyan, #4fd5ff);
+  color: var(--rv2-cyan, var(--ex-aqua-accent));
 }
 
 .rv2-search .results-panel--songs .results-panel__title,
@@ -123,78 +123,78 @@
 
 .rv2-search .results-panel--artists .results-panel__title,
 .rv2-search .search-charts-history__title {
-  color: #9ec4ff;
+  color: var(--ex-ink-soft);
 }
 
 .rv2-search .results-panel__subtitle,
 .rv2-search .search-rv-history-entry__message {
-  color: var(--rv2-muted, #9db4df);
+  color: var(--rv2-muted, var(--ex-muted));
 }
 
 .rv2-search .results-panel__view-all,
 .rv2-search .search-songs-jukebox__view-all,
 .rv2-search .search-charts-history__view-all,
 .rv2-search .search-rv-history-entry__cta {
-  border: 1px solid rgba(92, 149, 255, 0.72);
+  border: 1px solid var(--rv2-border-btn-strong);
   border-radius: 0.45rem;
   box-shadow: none;
-  background: linear-gradient(180deg, #123977, #0b2450);
-  color: var(--rv2-ink, #f3f7ff);
+  background: var(--rv2-btn-gradient);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-search .results-panel--albums .results-panel__view-all {
-  background: linear-gradient(180deg, #0f6670, #0a4550);
-  border-color: rgba(79, 213, 255, 0.55);
+  background: var(--rv2-btn-gradient-aqua);
+  border-color: var(--rv2-aqua-border-strong);
 }
 
 .rv2-search .results-panel--songs .results-panel__view-all,
 .rv2-search .search-songs-jukebox__view-all {
-  background: linear-gradient(180deg, #8a5d14, #5c3d0d);
+  background: var(--rv2-btn-gradient-amber);
   border-color: rgba(231, 189, 103, 0.55);
 }
 
 .rv2-search .results-panel--artists .results-panel__view-all,
 .rv2-search .search-charts-history__view-all,
 .rv2-search .search-rv-history-entry__cta {
-  background: linear-gradient(180deg, #1f79ff, #0d4bb0);
-  border-color: #5fa0ff;
+  background: var(--rv2-btn-gradient);
+  border-color: var(--rv2-border-btn);
 }
 
 .rv2-search .results-panel__arrow {
-  border: 1px solid rgba(92, 149, 255, 0.72);
+  border: 1px solid var(--rv2-border-btn-strong);
   box-shadow: none;
 }
 
 .rv2-search .search-songs-jukebox__stack {
-  background: rgba(6, 19, 38, 0.72);
+  background: var(--rv2-surface-72);
 }
 
 .rv2-search .discover-card {
   border: 1px solid var(--panel-line);
   border-radius: 0.55rem;
-  background: rgba(9, 27, 57, 0.92);
-  box-shadow: 0 0 0 1px rgba(79, 213, 255, 0.06) inset;
+  background: var(--rv2-surface-92);
+  box-shadow: var(--rv2-inset-shadow);
 }
 
 .rv2-search .discover-card:active {
-  box-shadow: 0 0 0 1px rgba(79, 213, 255, 0.12) inset;
+  box-shadow: var(--rv2-inset-shadow-strong);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .rv2-search .discover-card:hover {
     box-shadow:
-      0 0 0 1px rgba(79, 213, 255, 0.14) inset,
+      var(--rv2-inset-shadow-strong),
       0 10px 24px rgba(0, 0, 0, 0.28);
   }
 }
 
 .rv2-search .discover-card__art {
-  background: rgba(6, 19, 38, 0.85);
+  background: var(--rv2-surface-85);
   border-bottom: 1px solid var(--panel-line);
 }
 
 .rv2-search .discover-card__art--album {
-  background: linear-gradient(160deg, rgba(13, 36, 80, 0.95), rgba(6, 19, 38, 0.9));
+  background: linear-gradient(160deg, var(--rv2-surface-92), rgba(6, 19, 38, 0.9));
 }
 
 .rv2-search .discover-card__art-icon,
@@ -204,26 +204,26 @@
 }
 
 .rv2-search .discover-card__footer {
-  background: rgba(6, 19, 38, 0.95);
-  color: var(--rv2-ink, #f3f7ff);
+  background: var(--rv2-surface-95);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-search .search-footer-tip {
-  background: rgba(9, 27, 57, 0.72);
+  background: var(--rv2-surface-72);
   border: 1px solid var(--panel-line);
   box-shadow: none;
 }
 
 /* Charts history explorer — RV2 panel skin inside search */
 .rv2-search .search-charts-history__stack .charts-history {
-  --ch-purple: #2c75ff;
-  --ch-purple-deep: #1f79ff;
-  --ch-purple-band: rgba(9, 27, 57, 0.55);
-  --ch-purple-soft: rgba(13, 36, 80, 0.92);
-  --ch-cream: rgba(6, 19, 38, 0.85);
-  --ch-ink: #9db4df;
-  --ch-orange: var(--rv2-gold, #e7bd67);
-  --ch-frame: 1px solid rgba(87, 146, 255, 0.42);
+  --ch-purple: var(--ex-purple);
+  --ch-purple-deep: var(--ex-purple-deep);
+  --ch-purple-band: var(--rv2-surface-55);
+  --ch-purple-soft: var(--rv2-surface-92);
+  --ch-cream: var(--rv2-surface-85);
+  --ch-ink: var(--ex-muted);
+  --ch-orange: var(--rv2-gold, var(--ex-amber));
+  --ch-frame: 1px solid var(--rv2-line);
 
   background: transparent;
   border: none;
@@ -235,58 +235,58 @@
 .rv2-search .charts-history-card,
 .rv2-search .charts-summary-card,
 .rv2-search .charts-history__pill {
-  border: 1px solid rgba(87, 146, 255, 0.35);
-  box-shadow: 0 0 0 1px rgba(79, 213, 255, 0.05) inset;
+  border: 1px solid var(--rv2-border-medium);
+  box-shadow: var(--rv2-inset-shadow);
 }
 
 .rv2-search .charts-history__banner {
-  background: rgba(13, 36, 80, 0.92);
+  background: var(--rv2-surface-92);
 }
 
 .rv2-search .charts-history__title,
 .rv2-search .charts-history__step-title,
 .rv2-search .charts-history-card__title,
 .rv2-search .charts-summary-card__title {
-  color: var(--rv2-ink, #f3f7ff);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-search .charts-history__subtitle,
 .rv2-search .charts-history-card__artist,
 .rv2-search .charts-history-card__facts,
 .rv2-search .charts-history__empty {
-  color: var(--rv2-muted, #9db4df);
+  color: var(--rv2-muted, var(--ex-muted));
 }
 
 .rv2-search .charts-history__pill--filter,
 .rv2-search .charts-history__tutorial,
 .rv2-search .charts-history__clear {
-  background: linear-gradient(180deg, #1f79ff, #0d4bb0);
-  border-color: #5fa0ff;
-  color: var(--rv2-ink, #f3f7ff);
+  background: var(--rv2-btn-gradient);
+  border-color: var(--rv2-border-btn);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-search .charts-history-card,
 .rv2-search .charts-summary-card {
-  background: rgba(6, 19, 38, 0.85);
+  background: var(--rv2-surface-85);
 }
 
 .rv2-search .charts-history-card--active,
 .rv2-search .charts-summary-card--active {
-  border-color: rgba(79, 213, 255, 0.65);
+  border-color: var(--rv2-aqua-border-strong);
 }
 
 .rv2-search .charts-history__pill {
-  background: rgba(9, 27, 57, 0.92);
-  color: var(--rv2-muted, #9db4df);
+  background: var(--rv2-surface-92);
+  color: var(--rv2-muted, var(--ex-muted));
 }
 
 .rv2-search .charts-history__pill--filter {
-  color: var(--rv2-ink, #f3f7ff);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-search .charts-history__step-num {
-  background: rgba(44, 117, 255, 0.35);
-  color: var(--rv2-ink, #f3f7ff);
+  background: var(--rv2-fill-accent);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-search .charts-history-card__stamp-peak {
@@ -297,35 +297,35 @@
 .rv2-search .song-stack-card--active {
   border: 1px solid var(--panel-line);
   border-radius: 0.55rem;
-  background: rgba(9, 27, 57, 0.92);
-  box-shadow: 0 0 0 1px rgba(79, 213, 255, 0.08) inset;
+  background: var(--rv2-surface-92);
+  box-shadow: var(--rv2-inset-shadow-strong);
 }
 
 .rv2-search .song-stack-card__shell,
 .rv2-search .song-stack-card--preview {
-  border: 1px solid rgba(87, 146, 255, 0.28);
-  background: rgba(6, 19, 38, 0.85);
+  border: 1px solid var(--rv2-border-soft);
+  background: var(--rv2-surface-85);
   box-shadow: none;
 }
 
 .rv2-search .song-stack-card__thumb {
-  border: 1px solid rgba(87, 146, 255, 0.28);
-  background: rgba(6, 19, 38, 0.85);
+  border: 1px solid var(--rv2-border-soft);
+  background: var(--rv2-surface-85);
 }
 
 .rv2-search .song-stack-card__title,
 .rv2-search .song-stack-card__artist {
-  color: var(--rv2-ink, #f3f7ff);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-search .song-stack-card__year,
 .rv2-search .song-stack-card__meta {
-  color: var(--rv2-muted, #9db4df);
+  color: var(--rv2-muted, var(--ex-muted));
 }
 
 .rv2-search .song-stack__arrow {
-  color: var(--rv2-ink, #f3f7ff);
-  background: rgba(9, 27, 57, 0.92);
-  border: 1px solid rgba(87, 146, 255, 0.35);
+  color: var(--rv2-ink, var(--ex-ink));
+  background: var(--rv2-surface-92);
+  border: 1px solid var(--rv2-border-medium);
   box-shadow: none;
 }

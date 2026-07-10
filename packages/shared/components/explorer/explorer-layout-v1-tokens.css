@@ -1,0 +1,42 @@
+/* Explorer Layout v1 — canonical public Live design tokens */
+
+:root,
+.rv-global-nav,
+.rv2-live,
+.explorer {
+  /* Surfaces */
+  --ex-bg: #050814;
+  --ex-bg-mid: #070818;
+  --ex-panel: rgba(7, 8, 24, 0.92);
+  --ex-panel-strong: rgba(12, 10, 32, 0.95);
+  --ex-surface: rgba(255, 255, 255, 0.04);
+  --ex-header: rgba(7, 8, 24, 0.88);
+  --ex-art-fallback: linear-gradient(145deg, #1a1040, #0a0820);
+
+  /* Ink */
+  --ex-ink: #fff5ff;
+  --ex-ink-soft: #e3d9ff;
+  --ex-muted: #b9a9d9;
+
+  /* Lines & borders */
+  --ex-line: rgba(255, 255, 255, 0.07);
+  --ex-line-accent: rgba(168, 85, 255, 0.28);
+
+  /* Accents */
+  --ex-purple: #a855ff;
+  --ex-purple-deep: #7c3aed;
+  --ex-purple-glow: rgba(168, 85, 255, 0.55);
+  --ex-purple-dim: rgba(168, 85, 255, 0.18);
+  --ex-owned: #22e7ff;
+  --ex-owned-dim: rgba(34, 231, 255, 0.22);
+  --ex-aqua-accent: #22e7ff;
+  --ex-aqua-glow: rgba(34, 231, 255, 0.45);
+  --ex-magenta: #ff44aa;
+  --ex-magenta-dim: rgba(255, 68, 170, 0.18);
+  --ex-youtube: #ff4466;
+  --ex-amber: #e7bd67;
+
+  /* Motion & touch */
+  --ex-touch: 44px;
+  --ex-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

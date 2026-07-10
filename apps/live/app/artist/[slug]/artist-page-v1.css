@@ -9,16 +9,6 @@
 }
 
 .rv2-artist .explorer {
-  --ex-ink: #fff5ff;
-  --ex-ink-soft: #e3d9ff;
-  --ex-muted: #b9a9d9;
-  --ex-line: rgba(255, 255, 255, 0.07);
-  --ex-purple: #a855ff;
-  --ex-purple-glow: rgba(168, 85, 255, 0.55);
-  --ex-owned: #22e7ff;
-  --ex-touch: 44px;
-  --ex-ease: cubic-bezier(0.22, 1, 0.36, 1);
-
   display: flex;
   flex-direction: column;
   min-height: calc(100dvh - 5.5rem);
@@ -91,7 +81,7 @@
   height: 42px;
   border-radius: 8px;
   object-fit: cover;
-  background: linear-gradient(145deg, #1a1040, #0a0820);
+  background: var(--ex-art-fallback);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -261,7 +251,7 @@
 .artist-v1__portrait--fallback {
   display: grid;
   place-items: center;
-  background: linear-gradient(145deg, #1a1040, #0a0820);
+  background: var(--ex-art-fallback);
 }
 
 .artist-v1__identity {

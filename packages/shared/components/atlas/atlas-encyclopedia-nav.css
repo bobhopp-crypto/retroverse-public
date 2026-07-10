@@ -5,13 +5,13 @@
   gap: 0.65rem 1rem;
   margin-bottom: 1.25rem;
   padding: 0.85rem 1rem;
-  border: 2px solid rgba(107, 200, 255, 0.45);
+  border: 2px solid var(--rv2-aqua-border);
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(18, 55, 119, 0.92), rgba(13, 36, 85, 0.96));
 }
 
 .atlas-ency-nav__brand {
-  color: #f5fbff;
+  color: var(--ex-ink);
   font-size: 0.95rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -38,9 +38,9 @@
 }
 
 .atlas-ency-nav__pill--active {
-  border-color: rgba(107, 200, 255, 0.65);
+  border-color: var(--rv2-aqua-border-strong);
   background: rgba(79, 213, 255, 0.18);
-  color: #f5fbff;
+  color: var(--ex-ink);
 }
 
 .atlas-ency-nav__back {

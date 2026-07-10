@@ -1,10 +1,12 @@
-/* RV2 public shell — shared chrome for Song, Live, and future public routes */
+/* RV2 public shell — Broadcast theme (Explorer Layout v1 tokens) */
+
+@import "../explorer/explorer-layout-v1-tokens.css";
 
 html:has(.rv2-live),
 html:has(.rv2-live) body {
   min-height: 100%;
   margin: 0;
-  background: #061326;
+  background: var(--ex-bg);
   color-scheme: dark;
   overflow-x: clip;
   scrollbar-gutter: stable;
@@ -20,16 +22,51 @@ html:has(.rv2-live) body::-webkit-scrollbar {
 }
 
 .rv2-live {
-  --rv2-bg: #061326;
-  --rv2-panel: rgba(9, 27, 57, 0.92);
-  --rv2-panel-strong: #0d2450;
-  --rv2-line: rgba(87, 146, 255, 0.42);
-  --rv2-line-hot: #2c75ff;
-  --rv2-ink: #f3f7ff;
-  --rv2-muted: #9db4df;
-  --rv2-cyan: #4fd5ff;
+  /* Legacy rv2 names → Explorer v1 */
+  --rv2-bg: var(--ex-bg);
+  --rv2-panel: var(--ex-panel);
+  --rv2-panel-strong: var(--ex-panel-strong);
+  --rv2-line: var(--ex-line-accent);
+  --rv2-line-hot: var(--ex-purple);
+  --rv2-ink: var(--ex-ink);
+  --rv2-ink-soft: var(--ex-ink-soft);
+  --rv2-muted: var(--ex-muted);
+  --rv2-cyan: var(--ex-aqua-accent);
   --rv2-green: #42f187;
-  --rv2-gold: #e7bd67;
+  --rv2-gold: var(--ex-amber);
+  --rv2-magenta: var(--ex-magenta);
+
+  /* Bridge tokens for migrated surfaces */
+  --rv2-border-soft: rgba(168, 85, 255, 0.22);
+  --rv2-border-medium: rgba(168, 85, 255, 0.35);
+  --rv2-border-strong: rgba(168, 85, 255, 0.45);
+  --rv2-border-faint: rgba(168, 85, 255, 0.25);
+  --rv2-border-btn: rgba(168, 85, 255, 0.55);
+  --rv2-border-btn-strong: rgba(168, 85, 255, 0.72);
+  --rv2-fill-soft: rgba(168, 85, 255, 0.12);
+  --rv2-fill-medium: rgba(168, 85, 255, 0.18);
+  --rv2-fill-strong: rgba(168, 85, 255, 0.22);
+  --rv2-fill-accent: rgba(168, 85, 255, 0.35);
+  --rv2-shadow-glow: rgba(168, 85, 255, 0.16);
+  --rv2-shadow-glow-strong: rgba(168, 85, 255, 0.22);
+  --rv2-inset-aqua: rgba(34, 231, 255, 0.07);
+  --rv2-inset-aqua-strong: rgba(34, 231, 255, 0.12);
+  --rv2-aqua-border: rgba(34, 231, 255, 0.35);
+  --rv2-aqua-border-strong: rgba(34, 231, 255, 0.55);
+  --rv2-aqua-fill: rgba(34, 231, 255, 0.14);
+  --rv2-surface-45: rgba(5, 8, 20, 0.45);
+  --rv2-surface-55: rgba(7, 8, 24, 0.55);
+  --rv2-surface-72: rgba(7, 8, 24, 0.72);
+  --rv2-surface-85: rgba(5, 8, 20, 0.85);
+  --rv2-surface-92: rgba(7, 8, 24, 0.92);
+  --rv2-surface-95: rgba(5, 8, 20, 0.95);
+  --rv2-panel-gradient: linear-gradient(180deg, rgba(7, 8, 24, 0.92), rgba(5, 8, 20, 0.9));
+  --rv2-btn-gradient: linear-gradient(180deg, rgba(124, 58, 237, 0.92), rgba(88, 28, 180, 0.98));
+  --rv2-btn-gradient-aqua: linear-gradient(180deg, rgba(14, 116, 144, 0.92), rgba(8, 72, 88, 0.98));
+  --rv2-btn-gradient-amber: linear-gradient(180deg, rgba(138, 93, 20, 0.92), rgba(92, 61, 13, 0.98));
+  --rv2-inset-shadow: 0 0 0 1px var(--rv2-inset-aqua) inset;
+  --rv2-inset-shadow-strong: 0 0 0 1px var(--rv2-inset-aqua-strong) inset;
+  --rv2-card-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
 
   position: relative;
   isolation: isolate;
@@ -37,9 +74,9 @@ html:has(.rv2-live) body::-webkit-scrollbar {
   padding: calc(0.45rem + env(safe-area-inset-top, 0px)) 0.65rem 1.35rem;
   box-sizing: border-box;
   background:
-    radial-gradient(circle at 85% 10%, rgba(50, 116, 255, 0.38), transparent 18rem),
-    radial-gradient(circle at 8% 28%, rgba(58, 214, 255, 0.16), transparent 14rem),
-    linear-gradient(180deg, #061326 0%, #071a36 56%, #061326 100%);
+    radial-gradient(circle at 85% 10%, rgba(168, 85, 255, 0.22), transparent 18rem),
+    radial-gradient(circle at 8% 28%, rgba(34, 231, 255, 0.08), transparent 14rem),
+    linear-gradient(180deg, var(--ex-bg) 0%, var(--ex-bg-mid) 56%, var(--ex-bg) 100%);
   color: var(--rv2-ink);
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
 }
@@ -51,8 +88,8 @@ html:has(.rv2-live) body::-webkit-scrollbar {
   pointer-events: none;
   opacity: 0.44;
   background-image:
-    linear-gradient(rgba(75, 132, 255, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(75, 132, 255, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(168, 85, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 255, 0.06) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
 }
@@ -97,7 +134,7 @@ html:has(.rv2-live) body::-webkit-scrollbar {
 .rv2-live__nav a {
   flex: 0 1 auto;
   padding: 0.38rem 0.48rem;
-  border: 1px solid rgba(116, 163, 255, 0.28);
+  border: 1px solid var(--rv2-border-soft);
   border-radius: 0.35rem;
   color: var(--rv2-muted);
   font-size: 0.58rem;
@@ -110,24 +147,20 @@ html:has(.rv2-live) body::-webkit-scrollbar {
 .rv2-live__nav-link--active {
   border-color: var(--rv2-line-hot);
   color: var(--rv2-ink);
-  background: rgba(44, 117, 255, 0.18);
+  background: var(--rv2-fill-medium);
 }
 
 .rv2-live__nav-link--return-live {
-  border-color: rgba(66, 241, 135, 0.55);
-  color: var(--rv2-green);
-  background: rgba(66, 241, 135, 0.12);
+  border-color: rgba(255, 68, 170, 0.45);
+  color: var(--ex-magenta);
+  background: var(--ex-magenta-dim);
 }
 
 .rv2-live__search-panel {
   border: 1px solid var(--rv2-line);
   border-radius: 0.65rem;
-  background:
-    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
-    var(--rv2-panel);
-  box-shadow:
-    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
-    0 18px 44px rgba(0, 0, 0, 0.28);
+  background: var(--rv2-panel-gradient), var(--rv2-panel);
+  box-shadow: var(--rv2-inset-shadow), var(--rv2-card-shadow);
   position: sticky;
   top: 0.45rem;
   z-index: 5;
@@ -141,7 +174,7 @@ html:has(.rv2-live) body::-webkit-scrollbar {
 .rv2-live__rvtr,
 .rv2-live__story-label {
   margin: 0;
-  color: var(--rv2-cyan);
+  color: var(--ex-aqua-accent);
   font-size: 0.62rem;
   font-weight: 950;
   letter-spacing: 0.13em;
@@ -162,9 +195,9 @@ html:has(.rv2-live) body::-webkit-scrollbar {
   flex: 1 1 auto;
   min-height: 2.45rem;
   padding: 0 0.75rem;
-  border: 1px solid rgba(134, 177, 255, 0.42);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.45rem;
-  background: rgba(2, 10, 24, 0.78);
+  background: rgba(5, 8, 20, 0.78);
   color: var(--rv2-ink);
   font: inherit;
   font-size: 0.94rem;
@@ -173,14 +206,14 @@ html:has(.rv2-live) body::-webkit-scrollbar {
 }
 
 .rv2-live__search input::placeholder {
-  color: rgba(157, 180, 223, 0.7);
+  color: rgba(185, 169, 217, 0.7);
 }
 
 .rv2-live__search button,
 .rv2-live__action {
-  border: 1px solid rgba(92, 149, 255, 0.72);
+  border: 1px solid var(--rv2-border-btn);
   border-radius: 0.45rem;
-  background: linear-gradient(180deg, #123977, #0b2450);
+  background: var(--rv2-btn-gradient);
   color: var(--rv2-ink);
   font-weight: 950;
   letter-spacing: 0.08em;

@@ -11,10 +11,10 @@
   border: 1px solid var(--rv2-line);
   border-radius: 0.65rem;
   background:
-    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
+    linear-gradient(180deg, var(--rv2-surface-92), rgba(6, 19, 38, 0.9)),
     var(--rv2-panel);
   box-shadow:
-    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    var(--rv2-inset-shadow),
     0 18px 44px rgba(0, 0, 0, 0.28);
   box-sizing: border-box;
 }
@@ -33,7 +33,7 @@
 
 .rv2-data__hero p:last-child {
   margin: 0.35rem 0 0;
-  color: #d7e6ff;
+  color: var(--ex-ink-soft);
   font-weight: 850;
 }
 
@@ -42,8 +42,8 @@
   margin-top: 0.55rem !important;
   padding: 0.35rem 0.65rem;
   border-radius: 0.45rem;
-  border: 1px solid rgba(79, 213, 255, 0.45);
-  background: rgba(79, 213, 255, 0.14);
+  border: 1px solid var(--rv2-aqua-border);
+  background: var(--rv2-aqua-fill);
   color: #9ee8ff !important;
   font-size: 0.82rem;
   font-weight: 900;
@@ -81,7 +81,7 @@
 .rv2-data__form textarea {
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid rgba(92, 149, 255, 0.38);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.45rem;
   background: rgba(2, 10, 24, 0.58);
   color: var(--rv2-ink);
@@ -103,9 +103,9 @@
 .rv2-data__correct-cover,
 .rv2-data__save-cover button {
   min-height: 2.65rem;
-  border: 1px solid rgba(92, 149, 255, 0.72);
+  border: 1px solid var(--rv2-border-btn-strong);
   border-radius: 0.45rem;
-  background: linear-gradient(180deg, #1f79ff, #0d4bb0);
+  background: var(--rv2-btn-gradient);
   color: var(--rv2-ink);
   font: inherit;
   font-size: 0.72rem;
@@ -115,7 +115,7 @@
 }
 
 .rv2-data__save-cover button:disabled {
-  border-color: rgba(116, 163, 255, 0.18);
+  border-color: var(--rv2-border-faint);
   background: rgba(2, 10, 24, 0.48);
   color: rgba(157, 180, 223, 0.72);
 }
@@ -128,7 +128,7 @@
 }
 
 .rv2-data__actions button:disabled {
-  border-color: rgba(116, 163, 255, 0.18);
+  border-color: var(--rv2-border-faint);
   background: rgba(2, 10, 24, 0.48);
   color: rgba(157, 180, 223, 0.72);
 }
@@ -142,7 +142,7 @@
 
 .rv2-data__cover-preview {
   overflow: hidden;
-  border: 1px solid rgba(92, 149, 255, 0.38);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.55rem;
   background: rgba(2, 10, 24, 0.58);
   aspect-ratio: 1;
@@ -166,10 +166,10 @@
   margin: 0;
   min-width: 0;
   padding: 0.5rem 0.58rem;
-  border: 1px solid rgba(92, 149, 255, 0.28);
+  border: 1px solid var(--rv2-border-soft);
   border-radius: 0.42rem;
   background: rgba(2, 10, 24, 0.42);
-  color: #dbe8ff;
+  color: var(--ex-ink-soft);
   font-weight: 760;
   overflow-wrap: anywhere;
 }
@@ -199,7 +199,7 @@
   display: grid;
   gap: 0.45rem;
   padding: 0.58rem;
-  border: 1px solid rgba(92, 149, 255, 0.28);
+  border: 1px solid var(--rv2-border-soft);
   border-radius: 0.48rem;
   background: rgba(2, 10, 24, 0.42);
 }
@@ -217,7 +217,7 @@
 .rv2-data__cover-tool input {
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid rgba(92, 149, 255, 0.38);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.45rem;
   background: rgba(2, 10, 24, 0.58);
   color: var(--rv2-ink);
@@ -229,9 +229,9 @@
 
 .rv2-data__cover-tool button {
   min-height: 2.5rem;
-  border: 1px solid rgba(92, 149, 255, 0.72);
+  border: 1px solid var(--rv2-border-btn-strong);
   border-radius: 0.45rem;
-  background: linear-gradient(180deg, #1f79ff, #0d4bb0);
+  background: var(--rv2-btn-gradient);
   color: var(--rv2-ink);
   font: inherit;
   font-size: 0.7rem;
@@ -257,7 +257,7 @@
   max-width: 100%;
   box-sizing: border-box;
   padding: 0.5rem;
-  border: 1px solid rgba(92, 149, 255, 0.28);
+  border: 1px solid var(--rv2-border-soft);
   border-radius: 0.48rem;
   background: rgba(2, 10, 24, 0.42);
   color: inherit;
@@ -274,7 +274,7 @@
   display: block;
   overflow: hidden;
   padding: 0;
-  border: 1px solid rgba(92, 149, 255, 0.28);
+  border: 1px solid var(--rv2-border-soft);
   border-radius: 0.35rem;
   background: rgba(2, 10, 24, 0.55);
   aspect-ratio: 1;
@@ -332,7 +332,7 @@
   overflow-x: hidden;
   box-sizing: border-box;
   padding: 0.72rem 0.72rem 5.4rem;
-  border: 1px solid rgba(92, 149, 255, 0.72);
+  border: 1px solid var(--rv2-border-btn-strong);
   border-radius: 0;
   background:
     linear-gradient(180deg, rgba(13, 36, 80, 0.98), rgba(6, 19, 38, 0.98)),
@@ -354,7 +354,7 @@
 
 .rv2-data__drawer-head button {
   min-height: 2.25rem;
-  border: 1px solid rgba(92, 149, 255, 0.38);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.4rem;
   background: rgba(2, 10, 24, 0.5);
   color: var(--rv2-ink);
@@ -377,7 +377,7 @@
 
 .rv2-data__cover-fallbacks p {
   margin: 0;
-  color: #dbe8ff;
+  color: var(--ex-ink-soft);
   font-weight: 900;
 }
 
@@ -391,7 +391,7 @@
   gap: 0.5rem;
   z-index: 2;
   padding: 0.62rem;
-  border-top: 1px solid rgba(92, 149, 255, 0.42);
+  border-top: 1px solid var(--rv2-line);
   background:
     linear-gradient(180deg, rgba(13, 36, 80, 0.98), rgba(6, 19, 38, 0.98)),
     var(--rv2-panel);
@@ -400,7 +400,7 @@
 
 .rv2-data__cancel-cover {
   min-height: 2.65rem;
-  border: 1px solid rgba(92, 149, 255, 0.38);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.45rem;
   background: rgba(2, 10, 24, 0.58);
   color: var(--rv2-ink);
@@ -413,10 +413,10 @@
 
 .rv2-data__cover-empty {
   padding: 0.75rem;
-  border: 1px solid rgba(92, 149, 255, 0.28);
+  border: 1px solid var(--rv2-border-soft);
   border-radius: 0.48rem;
   background: rgba(2, 10, 24, 0.42);
-  color: #dbe8ff;
+  color: var(--ex-ink-soft);
   font-weight: 800;
 }
 
@@ -434,7 +434,7 @@
 .rv2-data__locks label {
   grid-template-columns: auto 1fr;
   align-items: center;
-  color: #dbe8ff;
+  color: var(--ex-ink-soft);
   font-size: 0.85rem;
   letter-spacing: 0;
   text-transform: none;

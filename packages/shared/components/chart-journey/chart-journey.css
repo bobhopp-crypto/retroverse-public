@@ -20,16 +20,16 @@
 .chart-journey--rv2 {
   --cj-paper: rgba(8, 22, 46, 0.94);
   --cj-ink: #f4f8ff;
-  --cj-line: rgba(87, 146, 255, 0.35);
+  --cj-line: var(--rv2-border-medium);
   --cj-muted: rgba(196, 214, 255, 0.72);
-  --cj-teal: #4fd5ff;
+  --cj-teal: var(--ex-aqua-accent);
   border-width: 1px;
   border-radius: 0.65rem;
   background:
-    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
-    rgba(6, 19, 38, 0.95);
+    linear-gradient(180deg, var(--rv2-surface-92), rgba(6, 19, 38, 0.9)),
+    var(--rv2-surface-95);
   box-shadow:
-    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    var(--rv2-inset-shadow),
     0 18px 44px rgba(0, 0, 0, 0.28);
 }
 
@@ -213,7 +213,7 @@ a.chart-journey__row:focus-visible {
 }
 
 .chart-journey--rv2 .chart-journey__milestone {
-  background: rgba(79, 213, 255, 0.1);
+  background: var(--rv2-aqua-fill);
 }
 
 @media (min-width: 640px) {

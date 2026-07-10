@@ -1,0 +1,47 @@
+/* Additional Information — collapsed holding area for everything below the Chart Journey */
+
+.rv-song-info {
+  width: 100%;
+  max-width: 72rem;
+  margin: 2.5rem auto 3rem;
+  padding: 0 0.85rem;
+  box-sizing: border-box;
+}
+
+.rv-song-info__toggle {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--rv2-line, var(--rv2-line));
+  border-radius: 0.65rem;
+  background: var(--rv2-panel, var(--rv2-surface-92));
+  font-size: 0.95rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rv2-cyan, var(--ex-aqua-accent));
+}
+
+.rv-song-info[open] > .rv-song-info__toggle {
+  border-radius: 0.65rem 0.65rem 0 0;
+  border-bottom-color: transparent;
+}
+
+.rv-song-info__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.rv-song-info__body {
+  border: 1px solid var(--rv2-line, var(--rv2-line));
+  border-top: none;
+  border-radius: 0 0 0.65rem 0.65rem;
+  padding-bottom: 0.5rem;
+}
+
+.rv-song-info__video {
+  margin-top: 1.75rem;
+}
+
+.rv-song-info__video .rv-video-player {
+  max-width: 32rem;
+}

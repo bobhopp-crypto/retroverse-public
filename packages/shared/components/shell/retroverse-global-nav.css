@@ -1,14 +1,16 @@
-/* Retroverse global application shell — zone navigation rail */
+/* Retroverse global application shell — zone navigation rail (Explorer v1) */
+
+@import "../explorer/explorer-layout-v1-tokens.css";
 
 .rv-global-nav {
   position: sticky;
   top: 0;
   z-index: 1200;
-  border-bottom: 1px solid rgba(120, 170, 255, 0.28);
+  border-bottom: 1px solid var(--ex-line-accent);
   background:
-    linear-gradient(180deg, rgba(8, 22, 48, 0.97), rgba(6, 18, 38, 0.94));
+    linear-gradient(180deg, rgba(7, 8, 24, 0.97), rgba(5, 8, 20, 0.94));
   backdrop-filter: blur(10px);
-  color: #f3f7ff;
+  color: var(--ex-ink);
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
 }
 
@@ -24,7 +26,7 @@
 
 .rv-global-nav__home {
   flex-shrink: 0;
-  color: #f3f7ff;
+  color: var(--ex-ink);
   font-size: 0.72rem;
   font-weight: 950;
   letter-spacing: 0.14em;
@@ -34,10 +36,10 @@
 
 .rv-global-nav__return-live {
   padding: 0.35rem 0.75rem;
-  border: 1px solid rgba(125, 255, 178, 0.55);
+  border: 1px solid rgba(255, 68, 170, 0.45);
   border-radius: 999px;
-  background: rgba(66, 241, 135, 0.14);
-  color: #b8ffd4;
+  background: var(--ex-magenta-dim);
+  color: var(--ex-magenta);
   font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.06em;
@@ -56,9 +58,9 @@
 
 .rv-global-nav__zone {
   padding: 0.35rem 0.65rem;
-  border: 1px solid rgba(120, 170, 255, 0.22);
+  border: 1px solid var(--ex-line-accent);
   border-radius: 999px;
-  color: #c9dcff;
+  color: var(--ex-ink-soft);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -67,9 +69,9 @@
 }
 
 .rv-global-nav__zone--active {
-  border-color: rgba(107, 200, 255, 0.65);
-  background: rgba(107, 200, 255, 0.16);
-  color: #ffffff;
+  border-color: rgba(168, 85, 255, 0.55);
+  background: var(--ex-purple-dim);
+  color: var(--ex-ink);
 }
 
 .rv-global-nav__gear-wrap {
@@ -83,17 +85,17 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border: 1px solid rgba(120, 170, 255, 0.28);
+  border: 1px solid var(--ex-line-accent);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #c9dcff;
+  background: var(--ex-surface);
+  color: var(--ex-ink-soft);
   cursor: pointer;
 }
 
 .rv-global-nav__gear--authed {
-  border-color: rgba(125, 255, 178, 0.45);
-  background: rgba(125, 255, 178, 0.12);
-  color: #9dffd0;
+  border-color: rgba(34, 231, 255, 0.45);
+  background: var(--ex-owned-dim);
+  color: var(--ex-aqua-accent);
 }
 
 .rv-global-nav__gear-icon {
@@ -106,16 +108,16 @@
   right: 0;
   width: min(18rem, calc(100vw - 1.5rem));
   padding: 0.55rem;
-  border: 1px solid rgba(120, 170, 255, 0.32);
+  border: 1px solid var(--ex-line-accent);
   border-radius: 14px;
-  background: rgba(8, 22, 48, 0.98);
+  background: rgba(7, 8, 24, 0.98);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
 }
 
 .rv-global-nav__gear-kicker {
   margin: 0 0 0.45rem;
   padding: 0 0.35rem;
-  color: #9db4df;
+  color: var(--ex-muted);
   font-size: 0.62rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -132,27 +134,27 @@
 }
 
 .rv-global-nav__gear-item strong {
-  color: #f3f7ff;
+  color: var(--ex-ink);
   font-size: 0.82rem;
 }
 
 .rv-global-nav__gear-item span {
-  color: #9db4df;
+  color: var(--ex-muted);
   font-size: 0.72rem;
   line-height: 1.35;
 }
 
 .rv-global-nav__gear-item:hover,
 .rv-global-nav__gear-item--active {
-  background: rgba(107, 200, 255, 0.12);
+  background: var(--ex-purple-dim);
 }
 
 .rv-global-nav__gear-pin {
   display: block;
   margin-top: 0.35rem;
   padding: 0.55rem 0.6rem;
-  border-top: 1px solid rgba(120, 170, 255, 0.18);
-  color: #8bd3ff;
+  border-top: 1px solid var(--ex-line);
+  color: var(--ex-aqua-accent);
   font-size: 0.78rem;
   font-weight: 800;
   text-align: center;

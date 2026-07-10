@@ -20,8 +20,8 @@
 }
 
 .rv2-coverage-badge--youtube {
-  border: 1px solid rgba(79, 213, 255, 0.55);
-  background: rgba(79, 213, 255, 0.1);
+  border: 1px solid var(--rv2-aqua-border-strong);
+  background: var(--rv2-aqua-fill);
   color: #9deaff;
 }
 
@@ -40,10 +40,10 @@
 
 .rv2-coverage-filter__btn {
   padding: 0.32rem 0.55rem;
-  border: 1px solid rgba(87, 146, 255, 0.35);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 999px;
-  background: rgba(9, 27, 57, 0.55);
-  color: var(--rv2-muted, #9db4df);
+  background: var(--rv2-surface-55);
+  color: var(--rv2-muted, var(--ex-muted));
   font: inherit;
   font-size: 0.62rem;
   font-weight: 850;
@@ -54,9 +54,9 @@
 }
 
 .rv2-coverage-filter__btn--active {
-  border-color: var(--rv2-line-hot, #2c75ff);
-  background: rgba(44, 117, 255, 0.2);
-  color: var(--rv2-ink, #f3f7ff);
+  border-color: var(--rv2-line-hot, var(--ex-purple));
+  background: var(--rv2-fill-medium);
+  color: var(--rv2-ink, var(--ex-ink));
 }
 
 .rv2-coverage-filter__btn:active {
@@ -65,7 +65,7 @@
 
 .chart-week-portal__empty {
   padding: 0.75rem;
-  color: var(--rv2-muted, #9db4df);
+  color: var(--rv2-muted, var(--ex-muted));
   font-size: 0.82rem;
   font-weight: 750;
   text-align: center;

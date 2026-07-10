@@ -41,7 +41,7 @@
 .rv-exp-story__card {
   min-width: 0;
   padding: 0 0.15rem 1.75rem;
-  border-bottom: 1px solid rgba(92, 149, 255, 0.22);
+  border-bottom: 1px solid var(--rv2-border-soft);
   max-width: 42rem;
 }
 
@@ -65,7 +65,7 @@
   font-size: clamp(1.125rem, 3.8vw, 1.28rem);
   font-weight: 600;
   line-height: 1.55;
-  color: #dbe8ff;
+  color: var(--ex-ink-soft);
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -98,7 +98,7 @@
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 2px solid rgba(92, 149, 255, 0.35);
+  border: 2px solid var(--rv2-border-medium);
   border-radius: 0.35rem;
 }
 
@@ -113,7 +113,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0.35rem 0.65rem;
-  border: 1px solid rgba(92, 149, 255, 0.45);
+  border: 1px solid var(--rv2-border-strong);
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 800;
@@ -155,7 +155,7 @@
   width: 0.85rem;
   height: 0.85rem;
   margin-top: 0.35rem;
-  border: 2px solid rgba(92, 149, 255, 0.45);
+  border: 2px solid var(--rv2-border-strong);
   border-radius: 50%;
   background: rgba(79, 213, 255, 0.55);
 }
@@ -245,7 +245,7 @@
   flex-shrink: 0;
   aspect-ratio: 1;
   overflow: hidden;
-  border: 1px solid rgba(92, 149, 255, 0.35);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.4rem;
   background: linear-gradient(145deg, #112a5d, #07142c);
 }
@@ -315,7 +315,7 @@
 /* Behind the Story */
 .rv-exp-behind__details {
   min-width: 0;
-  border: 1px solid rgba(92, 149, 255, 0.28);
+  border: 1px solid var(--rv2-border-soft);
   border-radius: 0.55rem;
   background: rgba(2, 10, 24, 0.35);
 }
@@ -348,14 +348,14 @@
 
 .rv-exp-behind__body {
   padding: 0 1.1rem 1.1rem;
-  border-top: 1px solid rgba(92, 149, 255, 0.2);
+  border-top: 1px solid var(--rv2-border-faint);
   min-width: 0;
 }
 
 .rv-exp-behind__group + .rv-exp-behind__group {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(92, 149, 255, 0.15);
+  border-top: 1px solid var(--ex-line);
 }
 
 .rv-exp-behind__group h3 {
@@ -408,7 +408,7 @@
   min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
-  color: var(--rv2-cyan, #4fd5ff);
+  color: var(--rv2-cyan, var(--ex-aqua-accent));
 }
 
 .rv2-song__experience-flow {

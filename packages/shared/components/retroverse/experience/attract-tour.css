@@ -28,7 +28,7 @@
 .rv-attract__theme {
   margin-bottom: 1rem;
   padding: 0.85rem 1rem;
-  border: 1px solid rgba(92, 149, 255, 0.35);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.65rem;
   background: rgba(8, 22, 46, 0.72);
 }
@@ -61,7 +61,7 @@
   font-weight: 750;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #4fd5ff;
+  color: var(--ex-aqua-accent);
 }
 
 .rv-attract__artifact {
@@ -114,7 +114,7 @@
   margin: 0.35rem 0 0;
   font-size: clamp(1.35rem, 5vw, 2rem);
   font-weight: 850;
-  color: #dbe8ff;
+  color: var(--ex-ink-soft);
 }
 
 .rv-attract__year {
@@ -134,7 +134,7 @@
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 2px solid rgba(92, 149, 255, 0.35);
+  border: 2px solid var(--rv2-border-medium);
   border-radius: 0.45rem;
 }
 
@@ -165,7 +165,7 @@
   font-size: clamp(1.2rem, 4.2vw, 1.55rem);
   font-weight: 650;
   line-height: 1.45;
-  color: #dbe8ff;
+  color: var(--ex-ink-soft);
 }
 
 .rv-attract__discover-rail {
@@ -189,7 +189,7 @@
   display: block;
   aspect-ratio: 1;
   overflow: hidden;
-  border: 1px solid rgba(92, 149, 255, 0.35);
+  border: 1px solid var(--rv2-border-medium);
   border-radius: 0.35rem;
 }
 
