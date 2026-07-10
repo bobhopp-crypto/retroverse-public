@@ -13,7 +13,7 @@ import {
   RV_YEAR_EDITORIAL_MIN,
   RV_YEAR_EDITORIAL_RECORDS,
   type RvYearEditorialRecord,
-} from "../../packages/shared/lib/rv-year/editorial-records.ts";
+} from "../../packages/shared/lib/rv-year/rv-year-editorial-data.ts";
 
 function validateRecord(record: RvYearEditorialRecord, errors: string[]): void {
   const prefix = `Year ${record.year}:`;
@@ -93,10 +93,10 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  const outDir = join(process.cwd(), "data/rv-year");
+  const outDir = join(process.cwd(), "data/editorial");
   await mkdir(outDir, { recursive: true });
 
-  const outPath = join(outDir, "editorial-years.json");
+  const outPath = join(outDir, "years.json");
   await writeFile(outPath, `${JSON.stringify(RV_YEAR_EDITORIAL_RECORDS, null, 2)}\n`, "utf8");
 
   console.log(`Wrote ${RV_YEAR_EDITORIAL_RECORDS.length} editorial records to ${outPath}`);

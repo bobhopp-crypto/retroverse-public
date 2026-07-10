@@ -18,13 +18,11 @@ import {
 } from "@/lib/artist/chart-history-display";
 import { formatRvYearArtist, formatRvYearTitle } from "@/lib/rv-year/display-format";
 import { rvYearEditorial } from "@/lib/rv-year/rv-year-editorial";
-import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
 import type { RvYearDestination, YearChartLeader } from "@/lib/rv-year/rv-year-destination";
 import { rvMonthHref, rvWeekHref } from "@/lib/rv/rv-chronology-paths";
 
 import { RvChronologyScrollRestore } from "../components/rv-chronology-scroll-restore";
-import { TrackCoverageBadge } from "@/app/components/track-coverage-badge";
-import "@/app/components/track-coverage.css";
+import { RvYearCover } from "../components/rv-year-cover";
 import { RvPublicMasthead } from "../components/rv-public-masthead";
 import { RvYearNavBand } from "../components/rv-year-nav-band";
 import "@/app/artist/[slug]/artist-charts-history.css";
@@ -83,15 +81,18 @@ function renderChartLeaders(
               : `${leader.weeksAtOne} weeks at #1`;
           const rowBody = (
             <>
-              {leader.coverUrl ? (
-                <img className="rv-year-chart-leaders__cover" src={leader.coverUrl} alt="" loading="lazy" />
-              ) : (
-                <span className="rv-year-chart-leaders__cover rv-year-chart-leaders__cover--empty" aria-hidden />
-              )}
+              <RvYearCover
+                src={leader.coverUrl}
+                alt=""
+                title={leader.title}
+                artist={leader.artist}
+                className="rv-year-chart-leaders__cover"
+                fallbackClassName="rv-year-chart-leaders__cover rv-year-chart-leaders__cover--empty"
+                artworkSlot="year-chart-leader"
+              />
               <span className="rv-year-chart-leaders__text">
                 <span className="rv-year-chart-leaders__title-row">
                   <span className="rv-year-chart-leaders__title">{leader.title}</span>
-                  <TrackCoverageBadge status={leader.coverageStatus} />
                 </span>
                 <span className="rv-year-chart-leaders__artist">{leader.artist}</span>
                 <span className="rv-year-chart-leaders__meta">{weeksLabel}</span>
@@ -252,22 +253,22 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
                   className="rv-year-hero__cover-link"
                   aria-label="Open album"
                 >
-                  <img
+                  <RvYearCover
                     className="rv-year-hero__cover"
                     src={tile.coverUrl}
                     alt=""
                     loading="eager"
-                    decoding="async"
+                    artworkSlot="year-hero-cover"
                   />
                 </Link>
               ) : (
                 <div key={tile.coverUrl} className="rv-year-hero__cover-static">
-                  <img
+                  <RvYearCover
                     className="rv-year-hero__cover"
                     src={tile.coverUrl}
                     alt=""
                     loading="eager"
-                    decoding="async"
+                    artworkSlot="year-hero-cover"
                   />
                 </div>
               ),
@@ -280,15 +281,15 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
 
       {renderChartLeaders(
         "rv-top-singles",
-        "Top singles",
-        "Billboard Hot 100",
+        "Top songs",
+        "Hot 100 · weeks at #1",
         destination?.topSingles ?? [],
       )}
 
       {renderChartLeaders(
         "rv-top-albums",
         "Top albums",
-        "Billboard 200",
+        "Album chart · weeks at #1",
         destination?.topAlbums ?? [],
       )}
 
@@ -472,7 +473,15 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
                   {album.href ? (
                     <Link href={album.href} prefetch className="rv-year-album-card">
                       <span className="rv-year-album-card__art">
-                        <img src={album.coverUrl} alt="" loading="lazy" />
+                        <RvYearCover
+                          src={album.coverUrl}
+                          alt=""
+                          title={album.title}
+                          artist={album.artist}
+                          className="rv-year-album-card__cover"
+                          fallbackClassName="rv-year-album-card__cover rv-year-album-card__cover--fallback"
+                          artworkSlot="year-album-card"
+                        />
                       </span>
                       <span className="rv-year-album-card__title">{album.title}</span>
                       <span className="rv-year-album-card__caption">{album.caption}</span>
@@ -480,7 +489,15 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
                   ) : (
                     <div className="rv-year-album-card rv-year-album-card--static">
                       <span className="rv-year-album-card__art">
-                        <img src={album.coverUrl} alt="" loading="lazy" />
+                        <RvYearCover
+                          src={album.coverUrl}
+                          alt=""
+                          title={album.title}
+                          artist={album.artist}
+                          className="rv-year-album-card__cover"
+                          fallbackClassName="rv-year-album-card__cover rv-year-album-card__cover--fallback"
+                          artworkSlot="year-album-card"
+                        />
                       </span>
                       <span className="rv-year-album-card__title">{album.title}</span>
                       <span className="rv-year-album-card__caption">{album.caption}</span>
@@ -504,23 +521,33 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
                     <Link
                       href={song.href}
                       prefetch
-                      className={`rv-year-song-row${song.coverUrl ? "" : " rv-year-song-row--text-only"}`}
+                      className={`rv-year-song-row${song.coverUrl ? "" : " rv-year-song-row--with-fallback"}`}
                     >
-                      {song.coverUrl ? (
-                        <img className="rv-year-song-row__thumb" src={song.coverUrl} alt="" loading="lazy" />
-                      ) : null}
+                      <RvYearCover
+                        src={song.coverUrl}
+                        alt=""
+                        title={song.title}
+                        artist={song.artist}
+                        className="rv-year-song-row__thumb"
+                        fallbackClassName="rv-year-song-row__thumb rv-year-song-row__thumb--fallback"
+                        artworkSlot="year-song-row"
+                      />
                       <span className="rv-year-song-row__text">
                         <span className="rv-year-song-row__title">{song.title}</span>
                         <span className="rv-year-song-row__artist">{song.artist}</span>
                       </span>
                     </Link>
                   ) : (
-                    <div
-                      className={`rv-year-song-row rv-year-song-row--static${song.coverUrl ? "" : " rv-year-song-row--text-only"}`}
-                    >
-                      {song.coverUrl ? (
-                        <img className="rv-year-song-row__thumb" src={song.coverUrl} alt="" loading="lazy" />
-                      ) : null}
+                    <div className="rv-year-song-row rv-year-song-row--static rv-year-song-row--with-fallback">
+                      <RvYearCover
+                        src={song.coverUrl}
+                        alt=""
+                        title={song.title}
+                        artist={song.artist}
+                        className="rv-year-song-row__thumb"
+                        fallbackClassName="rv-year-song-row__thumb rv-year-song-row__thumb--fallback"
+                        artworkSlot="year-song-row"
+                      />
                       <span className="rv-year-song-row__text">
                         <span className="rv-year-song-row__title">{song.title}</span>
                         <span className="rv-year-song-row__artist">{song.artist}</span>

@@ -227,6 +227,21 @@
   font-weight: 900;
 }
 
+.rv-year-album-card__art img,
+.rv-year-album-card__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rv-year-song-row__thumb--fallback,
+.rv-year-album-card__cover--fallback {
+  width: 100%;
+  height: 100%;
+  min-height: 2.75rem;
+}
+
 .rv-year-hero__covers {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

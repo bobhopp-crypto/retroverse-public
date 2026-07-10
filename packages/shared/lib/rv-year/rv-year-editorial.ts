@@ -5,7 +5,7 @@ import {
   RV_YEAR_EDITORIAL_MIN,
   RV_YEAR_EDITORIAL_RECORDS,
   type RvYearEditorialRecord,
-} from "./editorial-records";
+} from "./rv-year-editorial-data";
 
 export type { RvYearEditorialRecord };
 export { RV_YEAR_EDITORIAL_MIN, RV_YEAR_EDITORIAL_MAX };
@@ -42,14 +42,15 @@ export function rvYearEditorial(year: number): RvYearEditorial {
   }
 
   return {
-    headline: "A Year in Popular Music",
-    lead: `Move through the months and rediscover what people were playing, sharing, and arguing about in ${year}.`,
-    theme: "Chart history",
-    keywords: ["Billboard Hot 100", "pop music", "charts"],
+    headline: "Charts Tell the Story",
+    lead:
+      "Move month by month through the hits that shaped this year — singles and albums trading the spotlight as listeners argued, danced, and rewound the ones that stuck. Every week on the chart left a trace you can still follow.",
+    theme: "Chart chronology",
+    keywords: ["Hot 100", "album chart", "number ones", "pop music"],
     definingMoments: [
-      "Weekly #1 singles shaped the story of the year",
-      "Albums and singles traded the spotlight month by month",
-      "Every chart week left a mark on the culture",
+      "Weekly chart leaders mapped the year's momentum",
+      "Singles and albums took turns owning the conversation",
+      "Each month added another chapter to the story",
     ],
   };
 }
