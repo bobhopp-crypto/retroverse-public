@@ -1,15 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
-import { PublicTrackPlayButton } from "@/app/components/public-track-play-button";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { formatChartDateLabel } from "@/lib/artist/chart-history-display";
-import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import type { ChartWeekPortalContext, ChartWeekPortalRow } from "@/lib/charts/chart-week-portal-types";
+import { buildYouTubeSearchUrl } from "@/lib/ops/youtube-search";
+import { playTrackByRvtr } from "@/lib/playback/play-track-client";
 import { rvWeekHref } from "@/lib/rv/rv-chronology-paths";
 import { trackPageHref } from "@/lib/search/entity-routes";
 
@@ -26,75 +25,71 @@ function explorerHeaderDate(isoDate: string): string {
   return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
-function ExplorerIndicators({ row }: { row: ChartWeekPortalRow }) {
-  const owned = row.coverageStatus === "owned";
-  const hasYoutube = row.coverageStatus === "youtube";
+/** Owned (VDJ) or matched YouTube track — use existing playback resolver. */
+function rowHasDirectPlay(row: ChartWeekPortalRow): boolean {
+  return row.coverageStatus === "owned" || row.coverageStatus === "youtube";
+}
+
+function ExplorerPlayButton({ row, isCurrent }: { row: ChartWeekPortalRow; isCurrent: boolean }) {
+  const direct = rowHasDirectPlay(row);
 
   return (
-    <>
-      <span
-        className={`explorer-ind explorer-ind--owned${owned ? "" : " explorer-ind--missing"}`}
-        aria-label={owned ? "In library" : "Not in library"}
-        title={owned ? "In library" : "Not in library"}
-      />
-      {hasYoutube ? (
-        <span className="explorer-ind explorer-ind--youtube" aria-label="YouTube available" title="YouTube">
-          YT
-        </span>
-      ) : null}
-    </>
+    <button
+      type="button"
+      className={[
+        "explorer-btn",
+        "explorer-btn--play",
+        direct ? "explorer-btn--play-direct" : "explorer-btn--play-search",
+        isCurrent ? "explorer-btn--play-current" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      aria-label={direct ? `Play ${row.title}` : `Search YouTube for ${row.title}`}
+      onClick={(event) => {
+        event.stopPropagation();
+        if (direct && row.rvtr) {
+          void playTrackByRvtr({ rvtr: row.rvtr, title: row.title, artist: row.artistName });
+          return;
+        }
+        window.open(buildYouTubeSearchUrl(row.artistName, row.title), "_blank", "noopener,noreferrer");
+      }}
+    >
+      ▶
+    </button>
+  );
+}
+
+function ExplorerLibraryButton({ row }: { row: ChartWeekPortalRow }) {
+  const inLibrary = row.coverageStatus === "owned";
+
+  return (
+    <button
+      type="button"
+      className={[
+        "explorer-btn",
+        inLibrary ? "explorer-btn--library-check" : "explorer-btn--library-acquire",
+      ].join(" ")}
+      aria-label={
+        inLibrary ? `${row.title} is in your library` : `Acquire ${row.title} into library (coming soon)`
+      }
+      disabled
+      title={inLibrary ? "In VirtualDJ library" : "Acquire into VirtualDJ library (coming soon)"}
+    >
+      {inLibrary ? "✓" : "+"}
+    </button>
   );
 }
 
 function ExplorerRowActions({ row, isCurrent }: { row: ChartWeekPortalRow; isCurrent: boolean }) {
-  const showAcquire = row.coverageStatus === "missing";
-  const infoHref = row.trackHref;
-
   return (
     <div className="explorer-row__actions">
-      {infoHref ? (
-        <Link
-          href={infoHref}
-          prefetch
-          className="explorer-btn explorer-btn--info"
-          aria-label={`Song info for ${row.title}`}
-        >
-          Info
-        </Link>
-      ) : null}
-      <PublicTrackPlayButton
-        rvtr={row.rvtr}
-        title={row.title}
-        artist={row.artistName}
-        className="explorer-btn explorer-btn--play"
-        size={isCurrent ? "md" : "sm"}
-      />
-      {showAcquire ? (
-        <button
-          type="button"
-          className="explorer-btn explorer-btn--acquire"
-          aria-label={`Acquire ${row.title} into library (coming soon)`}
-          disabled
-          title="Acquire into VirtualDJ library (coming soon)"
-        >
-          +
-        </button>
-      ) : null}
+      <ExplorerPlayButton row={row} isCurrent={isCurrent} />
+      <ExplorerLibraryButton row={row} />
     </div>
   );
 }
 
-function ExplorerSongRow({
-  row,
-  isCurrent,
-  fullChart,
-  onRefocus,
-}: {
-  row: ChartWeekPortalRow;
-  isCurrent: boolean;
-  fullChart: boolean;
-  onRefocus?: () => void;
-}) {
+function ExplorerSongRow({ row, isCurrent }: { row: ChartWeekPortalRow; isCurrent: boolean }) {
   const rowId = `explorer-row-${row.position}`;
   const rowClass = ["explorer-row", isCurrent ? "explorer-row--current" : ""].filter(Boolean).join(" ");
 
@@ -114,20 +109,16 @@ function ExplorerSongRow({
           <p className="explorer-row__artist">{row.artistName}</p>
         </div>
       </div>
-      <div className="explorer-row__meta">
-        <ExplorerIndicators row={row} />
-      </div>
     </>
   );
 
-  const hitArea =
-    !fullChart && !isCurrent && onRefocus ? (
-      <button type="button" className="explorer-row__hit" onClick={onRefocus} aria-label={`Explore chart around ${row.title}`}>
-        {mainBlock}
-      </button>
-    ) : (
-      <div className="explorer-row__hit explorer-row__hit--static">{mainBlock}</div>
-    );
+  const hitArea = row.trackHref ? (
+    <Link href={row.trackHref} prefetch className="explorer-row__hit">
+      {mainBlock}
+    </Link>
+  ) : (
+    <div className="explorer-row__hit explorer-row__hit--static">{mainBlock}</div>
+  );
 
   return (
     <li className="explorer-row-item">
@@ -140,7 +131,6 @@ function ExplorerSongRow({
 }
 
 export function ChartWeekPortalClient({ initial, focusQuery }: Props) {
-  const router = useRouter();
   const [context, setContext] = useState(initial);
   const [loading, setLoading] = useState(false);
 
@@ -200,14 +190,6 @@ export function ChartWeekPortalClient({ initial, focusQuery }: Props) {
     void fetchRange(context.rangeFrom, nextTo);
   };
 
-  const refocusRow = (row: ChartWeekPortalRow) => {
-    const href = chartWeekPortalHref(context.chartDate, {
-      focus: row.rvtr ?? row.trackId,
-      rank: row.position,
-    });
-    router.push(href);
-  };
-
   useEffect(() => {
     if (fullChart || context.focusPosition == null) return;
     const id = `explorer-row-${context.focusPosition}`;
@@ -242,8 +224,6 @@ export function ChartWeekPortalClient({ initial, focusQuery }: Props) {
                   key={`${row.position}-${row.trackId}`}
                   row={row}
                   isCurrent={isCurrent}
-                  fullChart={fullChart}
-                  onRefocus={!fullChart && !isCurrent ? () => refocusRow(row) : undefined}
                 />
               );
             })}
