@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 
-import { BroadcastViewer } from "@/components/retroverse-live/BroadcastViewer";
-import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
-import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
+import { resolveHomepageRvtr } from "@/lib/home/homepage-rvtr";
+import { loadLiveControlState } from "@/lib/live-control/state";
+import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
+import { loadSundayNightsState } from "@/lib/sunday-nights/state";
+import { loadTrackPage } from "@/lib/track/load-track-page";
 
+import { RetroverseLive2View } from "./retroverse-2/live/retroverse-live-2-view";
+
+import "./retroverse-2/live/retroverse-live-2.css";
 import "./live-home.css";
 
 export const dynamic = "force-dynamic";
@@ -15,17 +19,39 @@ export const metadata: Metadata = {
 };
 
 /**
- * retroverse.live — the live broadcast. No traditional homepage; the site IS
- * the current Broadcast Asset from the mixer.
+ * retroverse.live — public exploration homepage.
+ * Live VDJ track when on air; recommended rotation when off air.
  */
 export default async function HomePage() {
-  const initial = normalizePlayheadPayload(await buildPlayheadPayload());
+  const [state, control, homepage] = await Promise.all([
+    loadSundayNightsState(),
+    loadLiveControlState(),
+    resolveHomepageRvtr(),
+  ]);
+  const current = await buildSundayNightsCurrentPayload(state, control);
+
+  const onAir =
+    (current.live?.source === "bridge" && Boolean(current.live.title?.trim())) ||
+    current.live?.source === "channel" ||
+    control.running;
+
+  let exploringTrack = null;
+  if (!onAir) {
+    const offAirRvtr = homepage.rvtr;
+    if (offAirRvtr) {
+      exploringTrack = await loadTrackPage(offAirRvtr);
+    }
+    if (!exploringTrack) {
+      exploringTrack = await loadTrackPage("Sweet Home Alabama");
+    }
+  }
 
   return (
-    <Rv2PublicShell className="rv2-live-home" activeNav="live">
-      <div className="live-home explorer">
-        <BroadcastViewer initial={initial} />
-      </div>
-    </Rv2PublicShell>
+    <RetroverseLive2View
+      initial={current}
+      exploringTrack={exploringTrack}
+      shellClassName="rv2-live-home"
+      activeNav="live"
+    />
   );
 }

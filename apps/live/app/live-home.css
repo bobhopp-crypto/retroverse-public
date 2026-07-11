@@ -1,243 +1,72 @@
-/* Live home (/) — Explorer Design System presentation layer.
-   Scoped to .rv2-live-home only; Studio preview and /pass keep legacy stage chrome. */
+/* Public exploration homepage (/) — single nav chrome, mobile-first layout */
+
+body:has(.rv2-live-home) .rv-global-nav {
+  display: none;
+}
 
 .rv2-live-home {
-  padding-bottom: 0;
   min-height: 100dvh;
+  padding-bottom: 1.25rem;
 }
 
 .rv2-live-home .rv2-live__search-panel {
   display: none;
 }
 
-.rv2-live-home .rv2-public-shell__body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 0;
+.rv2-live-home .rv2-live__hero {
+  min-height: auto;
 }
 
-.rv2-live-home .live-home {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100dvh - 5.5rem);
-  width: 100%;
+.rv2-live-home .rv2-live__copy h1 {
+  max-width: none;
+  font-size: clamp(2.2rem, 11vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
 }
 
-.rv2-live-home .live-home > .rv-stage {
-  flex: 1;
-  min-height: 0;
-  border-radius: 0.65rem;
-  border: 1px solid var(--ex-line-accent);
-  overflow: hidden;
-  background: var(--rv2-panel-gradient), var(--ex-panel);
-  box-shadow: var(--rv2-inset-shadow), var(--rv2-card-shadow);
-  font-family: inherit;
+.rv2-live-home .rv2-live__actions--explore {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.rv2-live-home .rv-stage--broadcast-asset {
-  padding: 0;
-  border: none;
-  box-shadow: none;
-  background: transparent;
+.rv2-live-home .rv2-live__action {
+  min-height: var(--ex-touch, 2.85rem);
 }
 
-/* ── Broadcast asset composer → Explorer tokens ── */
-
-.rv2-live-home .bac {
-  --bac-cyan: var(--ex-aqua-accent);
-  --bac-pink: var(--ex-magenta);
-  --bac-mag: var(--ex-purple);
-  --bac-gold: var(--ex-amber);
-  --bac-orange: var(--ex-youtube);
-  --bac-ink: var(--ex-ink);
-  --bac-muted: var(--ex-muted);
-
-  background:
-    radial-gradient(circle at 85% 10%, rgba(168, 85, 255, 0.18), transparent 18rem),
-    radial-gradient(circle at 8% 28%, rgba(34, 231, 255, 0.08), transparent 14rem),
-    linear-gradient(180deg, var(--ex-bg) 0%, var(--ex-bg-mid) 56%, var(--ex-bg) 100%);
-  font-family: inherit;
-  border-radius: 0.65rem;
-  border: 1px solid var(--ex-line-accent);
-  box-shadow: var(--rv2-inset-shadow), var(--rv2-card-shadow);
+.rv2-live-home .rv2-live__action--primary {
+  background: var(--rv2-btn-gradient);
+  border-color: var(--rv2-border-btn);
 }
 
-.rv2-live-home .bac::before {
-  background-image:
-    linear-gradient(rgba(168, 85, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 255, 0.06) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+.rv2-live-home .rv2-live__action--disabled {
+  opacity: 0.42;
+  pointer-events: none;
+  border-color: var(--rv2-border-soft);
+  background: rgba(5, 8, 20, 0.55);
+  color: var(--rv2-muted);
 }
 
-.rv2-live-home .bac::after {
-  display: none;
+@media (min-width: 620px) {
+  .rv2-live-home .rv2-live__actions--explore {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
-.rv2-live-home .bac__topbar {
-  display: none;
-}
+@media (max-width: 639px) {
+  .rv2-live-home {
+    padding-inline: 0.5rem;
+  }
 
-.rv2-live-home .bac__rvtr {
-  color: var(--ex-muted);
-  opacity: 0.55;
-}
+  .rv2-live-home .rv2-live__hero {
+    padding: 0.55rem;
+  }
 
-.rv2-live-home .bac__kicker {
-  color: var(--ex-magenta);
-  letter-spacing: 0.14em;
-}
-
-.rv2-live-home .bac__title {
-  text-transform: none;
-  letter-spacing: -0.03em;
-  text-shadow: none;
-  color: var(--ex-ink);
-}
-
-.rv2-live-home .bac__artist {
-  color: var(--ex-aqua-accent);
-}
-
-.rv2-live-home .bac__meta {
-  color: var(--ex-ink-soft);
-}
-
-.rv2-live-home .bac__cover-glow {
-  background: conic-gradient(
-    from 220deg,
-    var(--ex-magenta),
-    var(--ex-aqua-accent),
-    var(--ex-purple),
-    var(--ex-magenta)
-  );
-  opacity: 0.65;
-}
-
-.rv2-live-home .bac__cover-fallback {
-  background: var(--ex-art-fallback);
-}
-
-.rv2-live-home .bac__cover-image,
-.rv2-live-home .bac__cover-fallback {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
-}
-
-.rv2-live-home .bac__portals {
-  gap: 8px;
-  padding-top: 12px;
-}
-
-.rv2-live-home .bac__portal {
-  min-height: var(--ex-touch);
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid var(--ex-line-accent);
-  background: var(--ex-surface);
-  box-shadow: none;
-  transition: background 0.2s var(--ex-ease), border-color 0.2s var(--ex-ease);
-}
-
-.rv2-live-home .bac__portal:not(.bac__portal--disabled):hover {
-  background: var(--ex-purple-dim);
-  border-color: rgba(168, 85, 255, 0.45);
-}
-
-.rv2-live-home .bac__portal--artist {
-  --bac-accent: var(--ex-magenta);
-}
-
-.rv2-live-home .bac__portal--album {
-  --bac-accent: var(--ex-aqua-accent);
-}
-
-.rv2-live-home .bac__portal--year {
-  --bac-accent: var(--ex-amber);
-}
-
-.rv2-live-home .bac__portal--chart {
-  --bac-accent: var(--ex-purple);
-}
-
-.rv2-live-home .bac__portal--related {
-  --bac-accent: var(--ex-purple);
-}
-
-.rv2-live-home .bac__portal-icon {
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--ex-line);
-}
-
-.rv2-live-home .bac__portal-value {
-  color: var(--ex-muted);
-}
-
-.rv2-live-home .bac__brand {
-  color: var(--ex-muted);
-  letter-spacing: 0.16em;
-}
-
-/* ── Off-air / non-composer stage cards ── */
-
-.rv2-live-home .rv-stage:not(.rv-stage--broadcast-asset) {
-  background:
-    radial-gradient(circle at 85% 10%, rgba(168, 85, 255, 0.18), transparent 18rem),
-    radial-gradient(circle at 8% 28%, rgba(34, 231, 255, 0.08), transparent 14rem),
-    linear-gradient(180deg, var(--ex-bg) 0%, var(--ex-bg-mid) 56%, var(--ex-bg) 100%);
-  color: var(--ex-ink);
-}
-
-.rv2-live-home .rv-stage__kicker {
-  color: var(--ex-purple);
-  letter-spacing: 0.14em;
-}
-
-.rv2-live-home .rv-stage__title {
-  color: var(--ex-ink);
-  text-shadow: none;
-}
-
-.rv2-live-home .rv-stage__subtitle {
-  color: var(--ex-aqua-accent);
-}
-
-.rv2-live-home .rv-stage__body {
-  color: var(--ex-ink-soft);
-}
-
-.rv2-live-home .rv-stage__countdown {
-  color: var(--ex-amber);
-}
-
-.rv2-live-home .rv-stage__countdown--done {
-  color: var(--ex-aqua-accent);
-}
-
-.rv2-live-home .rv-stage__brand {
-  color: var(--ex-muted);
-}
-
-.rv2-live-home .rv-stage--artist,
-.rv2-live-home .rv-stage--announcement,
-.rv2-live-home .rv-stage--registration,
-.rv2-live-home .rv-stage--blank {
-  background:
-    radial-gradient(circle at 85% 10%, rgba(168, 85, 255, 0.18), transparent 18rem),
-    linear-gradient(180deg, var(--ex-bg) 0%, var(--ex-bg-mid) 100%);
-}
-
-@media (min-width: 640px) {
-  .rv2-live-home .live-home {
-    min-height: calc(100dvh - 6rem);
+  .rv2-live-home .rv2-live__story {
+    margin-top: 0.55rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rv2-live-home .bac__portal {
+  .rv2-live-home .rv2-live__action {
     transition: none;
   }
 }

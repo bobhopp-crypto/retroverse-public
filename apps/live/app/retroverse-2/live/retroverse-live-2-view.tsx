@@ -5,14 +5,17 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import { AttractTourKickoff } from "@/components/retroverse/experience/AttractTourKickoff";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { slugFromArtistName } from "@/lib/artist/slug";
+import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import { RV_CHRONOLOGY_DEFAULT_YEAR, rvYearHref } from "@/lib/rv/rv-chronology-paths";
+import { artistPublicHrefFromName, trackPageHref } from "@/lib/search/entity-routes";
 import type { SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
 type Props = {
   initial: SundayNightsCurrentPayload;
   exploringTrack: TrackPageData | null;
+  shellClassName?: string;
+  activeNav?: "live" | "search" | "years" | "charts";
 };
 
 type HeroDisplay = {
@@ -22,58 +25,95 @@ type HeroDisplay = {
   coverUrl: string | null;
   songHref: string | null;
   artistHref: string | null;
+  albumHref: string | null;
   yearHref: string | null;
+  chartsHref: string | null;
   rvtr: string | null;
   track: TrackPageData | null;
 };
 
 const DEFAULT_POLL_MS = 7000;
 const CHANNEL_POLL_MS = 3000;
+const RE_RVTR = /^RVTR\d{6}$/i;
+
+function chartsHrefFromTrack(track: TrackPageData): string | null {
+  const peakDate =
+    (track.peakHot100 != null
+      ? track.trajectoryWeeks.find((week) => week.rank === track.peakHot100)?.issueDate
+      : null) ??
+    track.trajectoryWeeks[track.trajectoryWeeks.length - 1]?.issueDate ??
+    track.firstChartDate;
+
+  if (!peakDate) return "/retroverse-2/charts";
+  return chartWeekPortalHref(peakDate, {
+    focus: track.rvtr,
+    rank: track.peakHot100 ?? undefined,
+  });
+}
+
+function displayFromTrack(track: TrackPageData): HeroDisplay {
+  const album = track.albums.find((entry) => entry.href) ?? track.albums[0] ?? null;
+  return {
+    title: track.title,
+    artist: track.artistName,
+    year: track.releaseYear,
+    coverUrl: track.coverUrl,
+    songHref: trackPageHref(track.rvtr),
+    artistHref: track.artistHref,
+    albumHref: album?.href ?? null,
+    yearHref: track.rvYearHref,
+    chartsHref: chartsHrefFromTrack(track),
+    rvtr: track.rvtr,
+    track,
+  };
+}
+
+function safeSongHref(payload: SundayNightsCurrentPayload): string | null {
+  const rvtr = payload.currentTrackId?.trim() ?? "";
+  if (RE_RVTR.test(rvtr)) {
+    return trackPageHref(rvtr.toUpperCase());
+  }
+
+  const href = payload.destination.href?.trim() ?? "";
+  if (href.startsWith("/retroverse-2/song/") && !href.includes("/Users")) {
+    return href;
+  }
+
+  if (payload.live?.title?.trim() && payload.live.artist?.trim()) {
+    const q = encodeURIComponent(`${payload.live.artist.trim()} ${payload.live.title.trim()}`);
+    return `/search?q=${q}`;
+  }
+
+  return null;
+}
 
 function displayFromPayload(
   payload: SundayNightsCurrentPayload,
   exploringTrack: TrackPageData | null,
 ): HeroDisplay {
   if (payload.track) {
-    return {
-      title: payload.track.title,
-      artist: payload.track.artistName,
-      year: payload.track.releaseYear,
-      coverUrl: payload.track.coverUrl,
-      songHref: `/retroverse-2/song/${payload.track.rvtr}`,
-      artistHref: payload.track.artistHref,
-      yearHref: payload.track.rvYearHref,
-      rvtr: payload.currentTrackId,
-      track: payload.track,
-    };
+    return displayFromTrack(payload.track);
   }
 
   if (payload.live) {
+    const artistHref = artistPublicHrefFromName(payload.live.artist);
     return {
       title: payload.live.title,
       artist: payload.live.artist,
       year: payload.live.year ?? null,
       coverUrl: payload.live.coverUrl ?? null,
-      songHref: payload.destination.href,
-      artistHref: null,
-      yearHref: payload.live.year ? `/rv/${payload.live.year}` : null,
-      rvtr: payload.currentTrackId,
+      songHref: safeSongHref(payload),
+      artistHref,
+      albumHref: null,
+      yearHref: payload.live.year ? rvYearHref(payload.live.year) : null,
+      chartsHref: null,
+      rvtr: RE_RVTR.test(payload.currentTrackId ?? "") ? payload.currentTrackId : null,
       track: null,
     };
   }
 
   if (exploringTrack) {
-    return {
-      title: exploringTrack.title,
-      artist: exploringTrack.artistName,
-      year: exploringTrack.releaseYear,
-      coverUrl: exploringTrack.coverUrl,
-      songHref: `/retroverse-2/song/${exploringTrack.rvtr}`,
-      artistHref: exploringTrack.artistHref,
-      yearHref: exploringTrack.rvYearHref,
-      rvtr: exploringTrack.rvtr,
-      track: exploringTrack,
-    };
+    return displayFromTrack(exploringTrack);
   }
 
   return {
@@ -81,9 +121,11 @@ function displayFromPayload(
     artist: "Lynyrd Skynyrd",
     year: 1974,
     coverUrl: null,
-    songHref: "/search?q=Sweet%20Home%20Alabama",
+    songHref: trackPageHref("Sweet Home Alabama"),
     artistHref: "/artist/lynyrd-skynyrd",
+    albumHref: null,
     yearHref: rvYearHref(1974),
+    chartsHref: "/retroverse-2/charts",
     rvtr: null,
     track: null,
   };
@@ -136,7 +178,38 @@ function storyCards(display: HeroDisplay, isLiveNow: boolean) {
   ].filter((card): card is { label: string; title: string; copy: string } => card != null).slice(0, 3);
 }
 
-export function RetroverseLive2View({ initial, exploringTrack }: Props) {
+type ExploreAction = {
+  label: string;
+  href: string | null;
+};
+
+function ExploreActionButton({ label, href }: ExploreAction) {
+  if (!href) {
+    return (
+      <span className="rv2-live__action rv2-live__action--disabled" aria-disabled="true">
+        {label}
+      </span>
+    );
+  }
+
+  const className =
+    label === "Song"
+      ? "rv2-live__action rv2-live__action--primary"
+      : "rv2-live__action";
+
+  return (
+    <Link href={href} className={className}>
+      {label}
+    </Link>
+  );
+}
+
+export function RetroverseLive2View({
+  initial,
+  exploringTrack,
+  shellClassName,
+  activeNav = "live",
+}: Props) {
   const [payload, setPayload] = useState(initial);
   const updatedAtRef = useRef(initial.updatedAt);
   const pollMs = payload.channel?.running ? CHANNEL_POLL_MS : DEFAULT_POLL_MS;
@@ -166,7 +239,7 @@ export function RetroverseLive2View({ initial, exploringTrack }: Props) {
   }, [pollMs]);
 
   const isLiveNow =
-    payload.live?.source === "bridge" ||
+    (payload.live?.source === "bridge" && Boolean(payload.live?.title?.trim())) ||
     payload.live?.source === "channel" ||
     payload.channel?.running === true;
   const display = useMemo(
@@ -175,8 +248,26 @@ export function RetroverseLive2View({ initial, exploringTrack }: Props) {
   );
   const cards = useMemo(() => storyCards(display, isLiveNow), [display, isLiveNow]);
 
+  const exploreActions: ExploreAction[] = [
+    { label: "Song", href: display.songHref },
+    { label: "Artist", href: display.artistHref },
+    {
+      label: "Album",
+      href: display.albumHref,
+    },
+    {
+      label: "Year",
+      href: display.yearHref ?? (display.year ? rvYearHref(display.year) : null),
+    },
+    { label: "Charts", href: display.chartsHref },
+  ];
+
   return (
-    <Rv2PublicShell yearsHref={display.yearHref ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR)}>
+    <Rv2PublicShell
+      className={shellClassName}
+      activeNav={activeNav}
+      yearsHref={display.yearHref ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR)}
+    >
       <AttractTourKickoff enabled={!isLiveNow} />
       <section className="rv2-live__hero" aria-label={isLiveNow ? "Live now" : "Now exploring"}>
         <div className="rv2-live__status-row">
@@ -212,24 +303,10 @@ export function RetroverseLive2View({ initial, exploringTrack }: Props) {
           </div>
         </div>
 
-        <nav className="rv2-live__actions" aria-label="Explore current song">
-          <Link href={display.songHref ?? "/search"} className="rv2-live__action rv2-live__action--primary">
-            Explore Song
-          </Link>
-          <Link
-            href={
-              display.artistHref ??
-              (display.artist.trim()
-                ? `/artist/${slugFromArtistName(display.artist)}`
-                : "/search")
-            }
-            className="rv2-live__action"
-          >
-            Explore Artist
-          </Link>
-          <Link href={display.yearHref ?? (display.year ? `/rv/${display.year}` : "/search")} className="rv2-live__action">
-            Explore Year
-          </Link>
+        <nav className="rv2-live__actions rv2-live__actions--explore" aria-label="Explore current song">
+          {exploreActions.map((action) => (
+            <ExploreActionButton key={action.label} {...action} />
+          ))}
         </nav>
       </section>
 
