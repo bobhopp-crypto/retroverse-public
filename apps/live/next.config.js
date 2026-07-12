@@ -58,6 +58,7 @@ const nextConfig = {
     ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
     "/album/[id]": ["./data/album-chart-features.json"],
+    "/retroverse-2/song/[rvtr]": ["./data/rvbr/**"],
   },
   outputFileTracingExcludes: {
     "*": [

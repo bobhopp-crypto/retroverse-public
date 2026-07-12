@@ -74,7 +74,17 @@ function uniqueStrings(items: string[]): string[] {
 export function resolveSongEraExhibit(
   songYear: number | null | undefined,
 ): SongEraExhibit | null {
-  const profile = resolveRvbrProfileForYear(songYear);
-  if (!profile) return null;
-  return buildSongEraExhibit({ profile, songYear: songYear ?? null });
+  try {
+    const profile = resolveRvbrProfileForYear(songYear);
+    if (!profile) return null;
+    return buildSongEraExhibit({ profile, songYear: songYear ?? null });
+  } catch (error) {
+    // Era presentation is optional enrichment. A missing or malformed bundled
+    // canon/profile file must never take down the canonical Song page.
+    console.warn("[song-era-exhibit] optional era enrichment unavailable", {
+      songYear: songYear ?? null,
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return null;
+  }
 }

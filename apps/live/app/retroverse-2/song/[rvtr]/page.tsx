@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { LiveChannelFollower } from "@/components/live-channel/LiveChannelFollower";
 import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
@@ -17,7 +18,12 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { rvtr } = await params;
-  const resolution = await resolveCanonicalSongExperience(rvtr);
+  let resolution;
+  try {
+    resolution = await resolveCanonicalSongExperience(rvtr);
+  } catch {
+    return { title: "Song — Retroverse" };
+  }
 
   if (resolution.tier === "graph") {
     const { track } = resolution;
@@ -55,7 +61,27 @@ function trackYear(track: NonNullable<Awaited<ReturnType<typeof loadTrackPage>>>
  */
 export default async function Retroverse2SongPage({ params }: Props) {
   const { rvtr } = await params;
-  const resolution = await resolveCanonicalSongExperience(rvtr);
+  let resolution;
+  try {
+    resolution = await resolveCanonicalSongExperience(rvtr);
+  } catch (error) {
+    console.error("[retroverse-song] song data temporarily unavailable", {
+      rvtr,
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return (
+      <main className="rv-song-empty">
+        <p className="rv-song-empty__eyebrow">Retroverse</p>
+        <h1 className="rv-song-empty__title">This song is temporarily unavailable</h1>
+        <p className="rv-song-empty__body">
+          Please try again in a moment or continue exploring Retroverse.
+        </p>
+        <a className="rv-song-empty__cta" href="/search">
+          Search Retroverse
+        </a>
+      </main>
+    );
+  }
 
   if (resolution.tier === "graph") {
     const { track } = resolution;
@@ -86,16 +112,5 @@ export default async function Retroverse2SongPage({ params }: Props) {
     );
   }
 
-  return (
-    <main className="rv-song-empty">
-      <p className="rv-song-empty__eyebrow">Retroverse</p>
-      <h1 className="rv-song-empty__title">This song is on its way</h1>
-      <p className="rv-song-empty__body">
-        {resolution.rvtr} hasn&apos;t been added to the Retroverse library yet.
-      </p>
-      <a className="rv-song-empty__cta" href="/search">
-        Search Retroverse
-      </a>
-    </main>
-  );
+  notFound();
 }
