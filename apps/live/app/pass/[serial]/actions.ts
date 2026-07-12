@@ -1,9 +1,10 @@
 "use server";
 
-import { registerPassById } from "@/lib/ops/event-studio/pass-studio/store";
-import type { GeneratedPass } from "@/lib/ops/event-studio/pass-studio/types";
+import { registerResolvedPass, type RegistrationBoundaryResult } from "@/lib/ops/event-studio/pass-studio/registration";
+import { findPassBySerial, registerPassByResolvedId } from "@/lib/ops/event-studio/pass-studio/store";
 
 export type RegisterPassInput = {
+  serial: string;
   passId: string;
   firstName: string;
   lastName: string;
@@ -15,11 +16,11 @@ export type RegisterPassInput = {
 };
 
 /** Public, unauthenticated — guests register from the QR on their printed pass. */
-export async function registerPass(input: RegisterPassInput): Promise<GeneratedPass> {
+export async function registerPass(input: RegisterPassInput): Promise<RegistrationBoundaryResult> {
   const firstName = input.firstName.trim();
   if (!firstName) throw new Error("First name is required.");
 
-  const updated = await registerPassById(input.passId, {
+  return registerResolvedPass(input.serial, input.passId, {
     firstName,
     lastName: input.lastName.trim(),
     email: input.email.trim(),
@@ -28,8 +29,5 @@ export async function registerPass(input: RegisterPassInput): Promise<GeneratedP
     notes: input.notes.trim(),
     giveawayOptIn: input.giveawayOptIn,
     registeredAt: new Date().toISOString(),
-  });
-
-  if (!updated) throw new Error("Pass not found.");
-  return updated;
+  }, { resolveSerial: findPassBySerial, registerById: registerPassByResolvedId });
 }

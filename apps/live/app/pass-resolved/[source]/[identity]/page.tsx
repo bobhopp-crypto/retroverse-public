@@ -6,7 +6,8 @@ import { PassRegistrationView } from "@/components/pass/PassRegistrationView";
 import { BroadcastViewer } from "@/components/retroverse-live/BroadcastViewer";
 import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
 import { findPassById } from "@/lib/ops/event-studio/pass-studio/store";
-import { recordPassActivity, scanPassByExactSerial } from "@/lib/retroverse-pass/store";
+import { decodeResolvedPass, RESOLVED_PASS_HEADER } from "@/lib/retroverse-pass/resolved-payload";
+import { recordPassActivity } from "@/lib/retroverse-pass/store";
 
 import "../../../home-broadcast.css";
 
@@ -15,12 +16,13 @@ export const dynamic = "force-dynamic";
 type Props = { params: Promise<{ source: string; identity: string }> };
 
 export default async function ResolvedPassPage({ params }: Props) {
-  if ((await headers()).get("x-retroverse-pass-rewrite") !== "1") notFound();
+  const requestHeaders = await headers();
+  if (requestHeaders.get("x-retroverse-pass-rewrite") !== "1") notFound();
   const { source, identity } = await params;
 
   if (source === "postgres") {
-    const scan = await scanPassByExactSerial(identity);
-    if (!scan) notFound();
+    const scan = decodeResolvedPass(requestHeaders.get(RESOLVED_PASS_HEADER));
+    if (!scan || scan.pass.serial !== identity) notFound();
     try {
       await recordPassActivity({
         visitorId: scan.pass.visitorId,
@@ -47,4 +49,3 @@ export default async function ResolvedPassPage({ params }: Props) {
 
   notFound();
 }
-

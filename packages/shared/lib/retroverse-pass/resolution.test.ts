@@ -54,6 +54,15 @@ test("Postgres failure never falls through to JSON", async () => {
   assert.equal(fallbackCalled, false);
 });
 
+test("Postgres failure before resolved-page rendering maps to 503, never 500", async () => {
+  const result = await resolvePublicPass(normalized, {
+    scanCanonical: async () => { throw new Error("connection lost"); },
+    scanFallback: async () => ({ state: "not_found" }),
+  });
+  assert.equal(result.state, "unavailable");
+  assert.equal(statusForPublicPassResolution(result), 503);
+});
+
 test("duplicate Postgres keys return controlled ambiguity", async () => {
   const result = await resolvePublicPass(normalized, {
     scanCanonical: async () => { throw new PassSerialAmbiguityError(); },

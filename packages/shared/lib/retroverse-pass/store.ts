@@ -95,19 +95,6 @@ export async function scanPass(normalized: NormalizedPassSerial): Promise<PassSc
   }
 }
 
-/** Re-load a previously resolved Postgres primary key without normalization. */
-export async function scanPassByExactSerial(serial: string): Promise<PassScanResult | null> {
-  try {
-    const rows = await inspectQuery<PassRow>(
-      `SELECT serial, claimed, visitor_id, claimed_at FROM ${PASSES} WHERE serial = $1`,
-      [serial],
-    );
-    return rows[0] ? await resultForPassRow(rows[0]) : null;
-  } catch (err) {
-    missingTableError(err);
-  }
-}
-
 /**
  * Claim an unclaimed pass: create the visitor, mark the pass claimed,
  * and log PASS_CLAIMED. If the pass is already claimed, return the

@@ -8,7 +8,8 @@ import { opsStateDir } from "@/lib/ops/ops-state-path";
 import { findLatestPassArtworkBySlug, resolveGenerationArtwork } from "./content-creator-artwork";
 import { markSerialRecordRegistered } from "./print-batch-store";
 import { passTypeSlugFromLabel } from "./placeholder-artwork.server";
-import { applyRegistrationById, normalizePassSerial, resolveExactPass } from "./serials";
+import { appendPassesInLibraryFile, registerPassInLibraryFile, type LibraryRegistrationResult } from "./library-file";
+import { normalizePassSerial, resolveExactPass } from "./serials";
 import type { NormalizedPassSerial } from "@/lib/retroverse-pass/types";
 import type {
   GeneratedPass,
@@ -154,11 +155,7 @@ export async function loadPassLibrary(): Promise<GeneratedPass[]> {
 
 /** Appends new passes — existing library entries are never overwritten. */
 export async function appendPassesToLibrary(passes: GeneratedPass[]): Promise<void> {
-  const existing = await loadPassLibrary();
-  const existingIds = new Set(existing.map((p) => p.id));
-  const additions = passes.filter((p) => !existingIds.has(p.id));
-  const next = [...existing, ...additions];
-  await writeJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: next });
+  await appendPassesInLibraryFile(libraryPath(), passes);
 }
 
 /** Serials are sequential across the whole library — never restart at 1 per batch. */
@@ -195,18 +192,16 @@ export async function findPassById(passId: string): Promise<GeneratedPass | null
 }
 
 /** Idempotent — already-registered passes are returned unchanged, never overwritten. */
-export async function registerPassById(
+export async function registerPassByResolvedId(
+  normalized: NormalizedPassSerial,
   passId: string,
   registration: PassRegistration,
-): Promise<GeneratedPass | null> {
-  const file = await readJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: [] });
-  const result = applyRegistrationById(file.passes, passId, registration);
-  if (!result) return null;
-  if (result.passes === file.passes) return result.pass;
-  await writeJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: result.passes });
+): Promise<LibraryRegistrationResult> {
+  const result = await registerPassInLibraryFile(libraryPath(), normalized, passId, registration);
+  if (result.state !== "registered") return result;
   // Best-effort traceability mirror — never blocks registration if it fails.
-  await markSerialRecordRegistered(result.pass.serial);
-  return result.pass;
+  if (result.changed) await markSerialRecordRegistered(result.pass.serial);
+  return result;
 }
 
 export async function filterPassLibrary(

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { findPassByNormalizedSerial } from "@/lib/ops/event-studio/pass-studio/store";
 import { resolvePublicPass, statusForPublicPassResolution } from "@/lib/retroverse-pass/resolution";
+import { encodeResolvedPass, RESOLVED_PASS_HEADER } from "@/lib/retroverse-pass/resolved-payload";
 import { scanPass } from "@/lib/retroverse-pass/store";
 import { normalizePassSerial } from "@/lib/retroverse-pass/types";
 
@@ -53,5 +54,8 @@ export async function GET(request: Request, { params }: Context) {
   );
   const headers = new Headers(request.headers);
   headers.set("x-retroverse-pass-rewrite", "1");
+  if (resolution.state === "canonical") {
+    headers.set(RESOLVED_PASS_HEADER, encodeResolvedPass(resolution.scan));
+  }
   return NextResponse.rewrite(target, { request: { headers } });
 }
