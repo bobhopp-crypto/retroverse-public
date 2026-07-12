@@ -2,6 +2,7 @@ import { appendFile, mkdir } from "fs/promises";
 import { join } from "path";
 
 import { liveNowPlayingDir } from "./paths";
+import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 
 export type LiveNowPlayingLogEvent =
   | "track_detected"
@@ -23,7 +24,9 @@ export async function logLiveNowPlaying(
   event: LiveNowPlayingLogEvent,
   detail: Record<string, unknown>,
 ): Promise<void> {
-  if (process.env.VERCEL === "1") return;
+  // Postgres-backed deployments are serverless and cannot write runtime logs
+  // beneath the application bundle. Local JSON-backed Live keeps file logs.
+  if (usePostgresSundayNightsState()) return;
 
   const dir = liveNowPlayingDir();
   await mkdir(dir, { recursive: true });

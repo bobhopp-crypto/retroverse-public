@@ -6,7 +6,7 @@ import {
 import { pushBridgeLiveUpdateToPublic } from "@/lib/bobos/presentation/push-public";
 
 import { resolveLiveTrack, songKeyFromPath } from "./resolve-live-track";
-import { loadSundayNightsState, setLiveTrack } from "./state";
+import { loadSundayNightsState, saveSundayNightsState, setLiveTrack } from "./state";
 import { usePostgresSundayNightsState } from "./storage-mode";
 import type { BridgeLivePostBody, SundayNightsState } from "./types";
 
@@ -39,6 +39,19 @@ export async function applyBridgeLiveUpdate(
 
   if (!playing) {
     await logLiveNowPlaying("playback_stopped", { timestamp });
+    if (usePostgresSundayNightsState()) {
+      const current = await loadSundayNightsState();
+      const state = {
+        ...current,
+        updatedAt: new Date().toISOString(),
+        bridgePlaying: false,
+        bridgeStoppedAt: timestamp,
+        vdjTakeoverActive: false,
+        vdjStoppedAt: timestamp,
+      } satisfies SundayNightsState;
+      await saveSundayNightsState(state);
+      return state;
+    }
     await handleVdjPlaybackStopped(timestamp);
     const state = await loadSundayNightsState();
     await forwardBridgeUpdateToPublic(body);
@@ -91,7 +104,11 @@ export async function applyBridgeLiveUpdate(
     { bridgePlaying: true },
   );
 
-  await handleVdjPlaybackStarted();
+  // Broadcast Mixer takeover state is local operator infrastructure. The
+  // deployed public bridge only needs the canonical Postgres song state.
+  if (!usePostgresSundayNightsState()) {
+    await handleVdjPlaybackStarted();
+  }
 
   await logLiveNowPlaying("live_state_updated", {
     rvtr: resolved.rvtr,
