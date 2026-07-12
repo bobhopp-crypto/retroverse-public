@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import type { recordPassActivity } from "./store";
 import {
   PASS_ACTIVITY_EVENT_TYPES,
-  normalizePassSerial,
+  parsePassCredential,
   type PassActivityEventType,
 } from "./types";
 
@@ -28,14 +28,14 @@ export async function handlePassActivity(req: Request, recordActivity: RecordAct
   if (!PASS_ACTIVITY_EVENT_TYPES.includes(eventType)) {
     return NextResponse.json({ error: "Unknown event type." }, { status: 400 });
   }
-  if (payload.serial && !normalizePassSerial(payload.serial)) {
+  if (payload.serial && !parsePassCredential(payload.serial)) {
     return NextResponse.json({ error: "Invalid pass serial." }, { status: 400 });
   }
 
   try {
     await recordActivity({
       visitorId: typeof payload.visitorId === "number" ? payload.visitorId : null,
-      passSerial: payload.serial?.trim().toUpperCase() ?? null,
+      passSerial: payload.serial ? parsePassCredential(payload.serial) : null,
       eventType,
       metadata: payload.metadata ?? null,
     });

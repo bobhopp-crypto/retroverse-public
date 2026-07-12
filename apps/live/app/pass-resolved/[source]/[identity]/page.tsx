@@ -2,10 +2,8 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { PassExperienceOverlay } from "@/components/pass/PassExperienceOverlay";
-import { PassRegistrationView } from "@/components/pass/PassRegistrationView";
 import { BroadcastViewer } from "@/components/retroverse-live/BroadcastViewer";
 import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
-import { findPassById } from "@/lib/ops/event-studio/pass-studio/store";
 import { decodeResolvedPass, RESOLVED_PASS_HEADER } from "@/lib/retroverse-pass/resolved-payload";
 import { recordPassActivity } from "@/lib/retroverse-pass/store";
 
@@ -39,12 +37,6 @@ export default async function ResolvedPassPage({ params }: Props) {
         <PassExperienceOverlay scan={scan} currentEventTitle={initial.presentation?.title ?? null} />
       </main>
     );
-  }
-
-  if (source === "studio") {
-    const pass = await findPassById(identity);
-    if (!pass) notFound();
-    return <PassRegistrationView pass={pass} />;
   }
 
   notFound();

@@ -1,13 +1,12 @@
-import { inspectQuery } from "@/lib/inspect/pg";
+import { getInspectPool, inspectQuery } from "@/lib/inspect/pg";
 
 import type {
   PassActivityEventType,
   PassScanResult,
-  NormalizedPassSerial,
   RetroversePass,
   RetroverseVisitor,
 } from "./types";
-import { normalizePassSerial, PassSerialAmbiguityError } from "./types";
+import { parsePassCredential } from "./types";
 
 const PASSES = "retroverse_passes";
 const VISITORS = "retroverse_visitors";
@@ -51,21 +50,6 @@ function mapVisitor(row: VisitorRow): RetroverseVisitor {
   };
 }
 
-async function resultForPassRow(row: PassRow): Promise<PassScanResult> {
-  const pass = mapPass(row);
-  if (!pass.claimed || pass.visitorId == null) return { state: "unclaimed", pass };
-
-  const visitorRows = await inspectQuery<VisitorRow>(
-    `SELECT id, first_name, email, phone, created_at FROM ${VISITORS} WHERE id = $1`,
-    [pass.visitorId],
-  );
-  const visitorRow = visitorRows[0];
-  if (!visitorRow) {
-    return { state: "unclaimed", pass: { ...pass, claimed: false, visitorId: null } };
-  }
-  return { state: "claimed", pass, visitor: mapVisitor(visitorRow) };
-}
-
 function missingTableError(err: unknown): never {
   const msg = err instanceof Error ? err.message : String(err);
   if (msg.includes("retroverse_pass") || msg.includes("retroverse_visitors")) {
@@ -76,23 +60,102 @@ function missingTableError(err: unknown): never {
   throw err instanceof Error ? err : new Error(msg);
 }
 
-/** Look up an existing canonical pass without provisioning or mutating data. */
-export async function scanPass(normalized: NormalizedPassSerial): Promise<PassScanResult | null> {
+type QueryRows = <T extends Record<string, unknown>>(
+  text: string,
+  params?: unknown[],
+) => Promise<T[]>;
+
+/** Look up one exact opaque credential without provisioning or mutating data. */
+export async function scanPass(
+  credential: string,
+  query: QueryRows = inspectQuery,
+): Promise<PassScanResult | null> {
   try {
-    const rows = await inspectQuery<PassRow>(
+    const rows = await query<PassRow>(
       `
       SELECT serial, claimed, visitor_id, claimed_at
       FROM ${PASSES}
-      WHERE upper(serial) = ANY($1::text[])
+      WHERE serial = $1
       `,
-      [normalized.candidates],
+      [credential],
     );
     if (rows.length === 0) return null;
-    if (rows.length > 1) throw new PassSerialAmbiguityError();
-    return await resultForPassRow(rows[0]);
+    const pass = mapPass(rows[0]!);
+    if (!pass.claimed || pass.visitorId == null) return { state: "unclaimed", pass };
+    const visitors = await query<VisitorRow>(
+      `SELECT id, first_name, email, phone, created_at FROM ${VISITORS} WHERE id = $1`,
+      [pass.visitorId],
+    );
+    const visitor = visitors[0];
+    return visitor
+      ? { state: "claimed", pass, visitor: mapVisitor(visitor) }
+      : { state: "unclaimed", pass: { ...pass, claimed: false, visitorId: null } };
   } catch (err) {
     missingTableError(err);
   }
+}
+
+export class PassRegistrationInputError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "PassRegistrationInputError";
+  }
+}
+
+type TransactionClient = {
+  query<T extends Record<string, unknown>>(
+    text: string,
+    params?: unknown[],
+  ): Promise<{ rows: T[] }>;
+};
+
+/** Provision and claim one exact credential while holding its Postgres row lock. */
+export async function claimPassWithClient(
+  client: TransactionClient,
+  input: { credential: string; firstName: string; email: string; phone: string | null },
+): Promise<PassScanResult & { state: "claimed" }> {
+  await client.query(
+    `INSERT INTO ${PASSES} (serial) VALUES ($1) ON CONFLICT (serial) DO NOTHING`,
+    [input.credential],
+  );
+  const passRows = await client.query<PassRow>(
+    `SELECT serial, claimed, visitor_id, claimed_at FROM ${PASSES} WHERE serial = $1 FOR UPDATE`,
+    [input.credential],
+  );
+  const existingRow = passRows.rows[0];
+  if (!existingRow) throw new Error("Credential provisioning failed.");
+  const existing = mapPass(existingRow);
+
+  if (existing.claimed && existing.visitorId != null) {
+    const visitorRows = await client.query<VisitorRow>(
+      `SELECT id, first_name, email, phone, created_at FROM ${VISITORS} WHERE id = $1`,
+      [existing.visitorId],
+    );
+    const visitor = visitorRows.rows[0];
+    if (!visitor) throw new Error("Registered visitor is unavailable.");
+    return { state: "claimed", pass: existing, visitor: mapVisitor(visitor) };
+  }
+
+  const visitorRows = await client.query<VisitorRow>(
+    `INSERT INTO ${VISITORS} (first_name, email, phone) VALUES ($1, $2, $3)
+     RETURNING id, first_name, email, phone, created_at`,
+    [input.firstName, input.email, input.phone],
+  );
+  const visitor = mapVisitor(visitorRows.rows[0]!);
+  const claimedRows = await client.query<PassRow>(
+    `UPDATE ${PASSES} SET claimed = true, visitor_id = $2, claimed_at = now()
+     WHERE serial = $1
+     RETURNING serial, claimed, visitor_id, claimed_at`,
+    [input.credential, visitor.id],
+  );
+  const claimed = claimedRows.rows[0];
+  if (!claimed) throw new Error("Credential claim failed.");
+  await client.query(
+    `INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
+     VALUES ($1, $2, 'PASS_CLAIMED', NULL)`,
+    [visitor.id, input.credential],
+  );
+  return { state: "claimed", pass: mapPass(claimed), visitor };
 }
 
 /**
@@ -106,58 +169,31 @@ export async function claimPass(input: {
   email: string;
   phone?: string | null;
 }): Promise<PassScanResult & { state: "claimed" }> {
+  const credential = parsePassCredential(input.serial);
   const firstName = input.firstName.trim();
   const email = input.email.trim();
   const phone = input.phone?.trim() || null;
 
-  if (!firstName) throw new Error("First name is required.");
-  if (!email) throw new Error("Email is required.");
+  if (!credential) throw new PassRegistrationInputError("Invalid pass credential.");
+  if (!firstName) throw new PassRegistrationInputError("First name is required.");
+  if (!email) throw new PassRegistrationInputError("Email is required.");
 
+  const client = await getInspectPool().connect();
   try {
-    const normalized = normalizePassSerial(input.serial);
-    if (!normalized) throw new Error("Invalid pass serial.");
-    const existing = await scanPass(normalized);
-    if (!existing) throw new Error("Pass not found.");
-    if (existing.state === "claimed") return existing;
-    const canonicalSerial = existing.pass.serial;
-
-    const visitorRows = await inspectQuery<VisitorRow>(
-      `
-      INSERT INTO ${VISITORS} (first_name, email, phone)
-      VALUES ($1, $2, $3)
-      RETURNING id, first_name, email, phone, created_at
-      `,
-      [firstName, email, phone],
-    );
-    const visitor = mapVisitor(visitorRows[0]);
-
-    const passRows = await inspectQuery<PassRow>(
-      `
-      UPDATE ${PASSES}
-      SET claimed = true, visitor_id = $2, claimed_at = now()
-      WHERE serial = $1 AND claimed = false
-      RETURNING serial, claimed, visitor_id, claimed_at
-      `,
-      [canonicalSerial, visitor.id],
-    );
-
-    const passRow = passRows[0];
-    if (!passRow) {
-      // Lost a race — someone else claimed between scan and update.
-      const after = await scanPass(normalized);
-      if (after?.state === "claimed") return after;
-      throw new Error("Pass could not be claimed.");
-    }
-
-    await recordPassActivity({
-      visitorId: visitor.id,
-      passSerial: canonicalSerial,
-      eventType: "PASS_CLAIMED",
+    await client.query("BEGIN");
+    const result = await claimPassWithClient(client, {
+      credential,
+      firstName,
+      email,
+      phone,
     });
-
-    return { state: "claimed", pass: mapPass(passRow), visitor };
+    await client.query("COMMIT");
+    return result;
   } catch (err) {
+    await client.query("ROLLBACK").catch(() => undefined);
     missingTableError(err);
+  } finally {
+    client.release();
   }
 }
 

@@ -8,9 +8,6 @@ import { opsStateDir } from "@/lib/ops/ops-state-path";
 import { findLatestPassArtworkBySlug, resolveGenerationArtwork } from "./content-creator-artwork";
 import { markSerialRecordRegistered } from "./print-batch-store";
 import { passTypeSlugFromLabel } from "./placeholder-artwork.server";
-import { appendPassesInLibraryFile, registerPassInLibraryFile, type LibraryRegistrationResult } from "./library-file";
-import { normalizePassSerial, resolveExactPass } from "./serials";
-import type { NormalizedPassSerial } from "@/lib/retroverse-pass/types";
 import type {
   GeneratedPass,
   PassBatch,
@@ -155,7 +152,11 @@ export async function loadPassLibrary(): Promise<GeneratedPass[]> {
 
 /** Appends new passes — existing library entries are never overwritten. */
 export async function appendPassesToLibrary(passes: GeneratedPass[]): Promise<void> {
-  await appendPassesInLibraryFile(libraryPath(), passes);
+  const existing = await loadPassLibrary();
+  const existingIds = new Set(existing.map((p) => p.id));
+  const additions = passes.filter((p) => !existingIds.has(p.id));
+  const next = [...existing, ...additions];
+  await writeJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: next });
 }
 
 /** Serials are sequential across the whole library — never restart at 1 per batch. */
@@ -165,43 +166,35 @@ export async function nextSerialStart(): Promise<number> {
   return Math.max(...existing.map((p) => p.serialNumber)) + 1;
 }
 
-export type PassStudioResolution =
-  | { state: "found"; pass: GeneratedPass }
-  | { state: "not_found" }
-  | { state: "ambiguous" };
-
-/** Resolve only when one immutable Pass Studio credential ID matches. */
-export async function findPassBySerial(serial: string): Promise<PassStudioResolution> {
-  const normalized = normalizePassSerial(serial);
-  if (!normalized) return { state: "not_found" };
-
-  return findPassByNormalizedSerial(normalized);
-}
-
-export async function findPassByNormalizedSerial(
-  normalized: NormalizedPassSerial,
-): Promise<PassStudioResolution> {
+/** Serial alone resolves a pass — most recent match wins if duplicates ever exist. */
+export async function findPassBySerial(serial: string): Promise<GeneratedPass | null> {
   const all = await loadPassLibrary();
-  return resolveExactPass(all, normalized);
-}
-
-/** Re-load a previously resolved immutable Pass Studio credential ID. */
-export async function findPassById(passId: string): Promise<GeneratedPass | null> {
-  const all = await loadPassLibrary();
-  return all.find((pass) => pass.id === passId) ?? null;
+  const matches = all.filter((p) => p.serial === serial);
+  if (matches.length === 0) return null;
+  return matches.reduce((latest, p) => (p.createdAt > latest.createdAt ? p : latest));
 }
 
 /** Idempotent — already-registered passes are returned unchanged, never overwritten. */
-export async function registerPassByResolvedId(
-  normalized: NormalizedPassSerial,
-  passId: string,
+export async function registerPassBySerial(
+  serial: string,
   registration: PassRegistration,
-): Promise<LibraryRegistrationResult> {
-  const result = await registerPassInLibraryFile(libraryPath(), normalized, passId, registration);
-  if (result.state !== "registered") return result;
+): Promise<GeneratedPass | null> {
+  const file = await readJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: [] });
+  const index = file.passes.findIndex((p) => p.serial === serial);
+  if (index === -1) return null;
+
+  const existing = file.passes[index]!;
+  if (existing.status === "registered" && existing.registration) {
+    return existing;
+  }
+
+  const updated: GeneratedPass = { ...existing, status: "registered", registration };
+  const nextPasses = [...file.passes];
+  nextPasses[index] = updated;
+  await writeJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: nextPasses });
   // Best-effort traceability mirror — never blocks registration if it fails.
-  if (result.changed) await markSerialRecordRegistered(result.pass.serial);
-  return result;
+  await markSerialRecordRegistered(serial);
+  return updated;
 }
 
 export async function filterPassLibrary(

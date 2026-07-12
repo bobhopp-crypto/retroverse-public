@@ -3,11 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import {
-  passDisplayNumber,
-  type PassScanResult,
-  type RetroverseVisitor,
-} from "@/lib/retroverse-pass/types";
+import type { PassScanResult, RetroverseVisitor } from "@/lib/retroverse-pass/types";
 
 import "./pass-experience-overlay.css";
 
@@ -57,7 +53,6 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   const serial = scan.pass.serial;
-  const passNumber = passDisplayNumber(serial);
 
   const dismiss = useCallback(() => {
     setView("closed");
@@ -134,7 +129,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
           <>
             <p className="pass-xp__kicker">Retroverse Pass</p>
             <h1 className="pass-xp__title">Welcome to Retroverse</h1>
-            <p className="pass-xp__serial">Pass #{passNumber}</p>
+            <p className="pass-xp__serial">Credential {serial}</p>
 
             <form className="pass-xp__form" onSubmit={(e) => void handleClaim(e)}>
               <label>
@@ -186,7 +181,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
         {view === "confirmed" ? (
           <div className="pass-xp__confirmed">
-            <p className="pass-xp__kicker">Pass #{passNumber} claimed</p>
+            <p className="pass-xp__kicker">Credential {serial} claimed</p>
             <h1 className="pass-xp__title">
               You&apos;re in{visitor ? `, ${visitor.firstName}` : ""}.
             </h1>
@@ -200,7 +195,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
             <h1 className="pass-xp__title">
               Welcome back{visitor ? `, ${visitor.firstName}` : ""}.
             </h1>
-            <p className="pass-xp__serial">Pass #{passNumber}</p>
+            <p className="pass-xp__serial">Credential {serial}</p>
 
             {currentEventTitle ? (
               <div className="pass-xp__event">
@@ -232,7 +227,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
         {view === "mypass" ? (
           <>
             <p className="pass-xp__kicker">My Pass</p>
-            <h1 className="pass-xp__title">Pass #{passNumber}</h1>
+            <h1 className="pass-xp__title">Credential {serial}</h1>
 
             <dl className="pass-xp__details">
               <div>
