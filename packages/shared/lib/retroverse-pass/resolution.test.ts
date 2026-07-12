@@ -44,6 +44,15 @@ test("JSON is fallback only after a confirmed Postgres miss", async () => {
   assert.deepEqual(result, { state: "fallback", pass: fallback });
 });
 
+test("JSON read failure returns controlled 503", async () => {
+  const result = await resolvePublicPass(normalized, {
+    scanCanonical: async () => null,
+    scanFallback: async () => { throw new Error("invalid JSON"); },
+  });
+  assert.deepEqual(result, { state: "unavailable" });
+  assert.equal(statusForPublicPassResolution(result), 503);
+});
+
 test("Postgres failure never falls through to JSON", async () => {
   let fallbackCalled = false;
   const result = await resolvePublicPass(normalized, {

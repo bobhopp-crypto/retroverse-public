@@ -5,7 +5,7 @@ import { normalizePassSerial } from "./serials";
 
 export type RegistrationBoundaryResult =
   | { ok: true; pass: GeneratedPass }
-  | { ok: false; status: 404 | 409 | 503; error: string };
+  | { ok: false; status: 400 | 404 | 409 | 503; error: string };
 
 type RegistrationDependencies = {
   resolveSerial: (serial: string) => Promise<PassStudioResolution>;
@@ -25,7 +25,7 @@ export async function registerResolvedPass(
 ): Promise<RegistrationBoundaryResult> {
   try {
     const normalized = normalizePassSerial(serial);
-    if (!normalized) return { ok: false, status: 404, error: "Pass not found." };
+    if (!normalized) return { ok: false, status: 400, error: "Invalid pass serial." };
     const resolution = await dependencies.resolveSerial(serial);
     if (resolution.state === "not_found") {
       return { ok: false, status: 404, error: "Pass not found." };

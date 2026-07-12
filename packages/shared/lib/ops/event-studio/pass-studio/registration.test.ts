@@ -19,6 +19,26 @@ const registration: PassRegistration = {
   giveawayOptIn: false, registeredAt: "2026-07-12T00:00:00.000Z",
 };
 
+test("malformed JSON serial returns 400 without lookup or mutation", async () => {
+  let called = false;
+  const result = await registerResolvedPass("not-a-pass", "id-a", registration, {
+    resolveSerial: async () => { called = true; return { state: "not_found" }; },
+    registerById: async () => { called = true; return { state: "not_found" }; },
+  });
+  assert.deepEqual(result, { ok: false, status: 400, error: "Invalid pass serial." });
+  assert.equal(called, false);
+});
+
+test("valid unknown JSON serial returns 404 without mutation", async () => {
+  let mutations = 0;
+  const result = await registerResolvedPass("RVSN00999", "id-a", registration, {
+    resolveSerial: async () => ({ state: "not_found" }),
+    registerById: async () => { mutations += 1; return { state: "not_found" }; },
+  });
+  assert.deepEqual(result, { ok: false, status: 404, error: "Pass not found." });
+  assert.equal(mutations, 0);
+});
+
 test("fabricated client passId cannot mutate a pass", async () => {
   let mutations = 0;
   const result = await registerResolvedPass("0500", "fabricated", registration, {

@@ -43,7 +43,12 @@ export async function resolvePublicPass(
   }
   if (canonical) return { state: "canonical", scan: canonical };
 
-  const fallback = await dependencies.scanFallback(normalized);
+  let fallback: PassStudioResolution;
+  try {
+    fallback = await dependencies.scanFallback(normalized);
+  } catch {
+    return { state: "unavailable" };
+  }
   if (fallback.state === "found") return { state: "fallback", pass: fallback.pass };
   return fallback;
 }

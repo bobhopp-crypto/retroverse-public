@@ -1,5 +1,6 @@
 import { randomUUID } from "crypto";
-import { mkdir, open, readFile, rename, rm, writeFile } from "fs/promises";
+import { mkdir, open, readFile, rename, rm, stat, writeFile } from "fs/promises";
+import { hostname } from "os";
 import { dirname } from "path";
 
 import { applyRegistrationById, resolveExactPass } from "./serials";
@@ -8,28 +9,89 @@ import type { NormalizedPassSerial } from "@/lib/retroverse-pass/types";
 
 const LOCK_RETRY_MS = 10;
 const LOCK_TIMEOUT_MS = 5_000;
+const LOCK_STALE_MS = 60_000;
+
+type LockOptions = {
+  retryMs?: number;
+  timeoutMs?: number;
+  staleMs?: number;
+};
+
+type LockOwner = { pid: number; hostname: string; createdAt: string };
 
 async function wait(milliseconds: number): Promise<void> {
   await new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
-async function withExclusiveFileLock<T>(path: string, operation: () => Promise<T>): Promise<T> {
+function processIsAlive(pid: number): boolean {
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (error) {
+    return (error as NodeJS.ErrnoException).code === "EPERM";
+  }
+}
+
+async function recoverStaleLock(lockPath: string, staleMs: number): Promise<boolean> {
+  let lockStat: Awaited<ReturnType<typeof stat>>;
+  let owner: LockOwner | null = null;
+  try {
+    lockStat = await stat(lockPath);
+    if (Date.now() - lockStat.mtimeMs < staleMs) return false;
+    try {
+      owner = JSON.parse(await readFile(lockPath, "utf8")) as LockOwner;
+    } catch {
+      owner = null;
+    }
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return true;
+    throw error;
+  }
+
+  if (owner?.hostname === hostname() && Number.isSafeInteger(owner.pid) && processIsAlive(owner.pid)) {
+    return false;
+  }
+  const verified = await stat(lockPath);
+  if (verified.ino !== lockStat.ino || verified.mtimeMs !== lockStat.mtimeMs) return false;
+  await rm(lockPath);
+  return true;
+}
+
+export async function withExclusiveFileLock<T>(
+  path: string,
+  operation: () => Promise<T>,
+  options: LockOptions = {},
+): Promise<T> {
   const lockPath = `${path}.lock`;
-  const deadline = Date.now() + LOCK_TIMEOUT_MS;
+  const retryMs = options.retryMs ?? LOCK_RETRY_MS;
+  const deadline = Date.now() + (options.timeoutMs ?? LOCK_TIMEOUT_MS);
+  const staleMs = options.staleMs ?? LOCK_STALE_MS;
   let lock: Awaited<ReturnType<typeof open>> | null = null;
+  let heartbeat: ReturnType<typeof setInterval> | null = null;
 
   while (!lock) {
     try {
       lock = await open(lockPath, "wx");
+      const owner: LockOwner = { pid: process.pid, hostname: hostname(), createdAt: new Date().toISOString() };
+      await lock.writeFile(`${JSON.stringify(owner)}\n`, "utf8");
+      const heartbeatMs = Math.max(1, Math.floor(staleMs / 3));
+      heartbeat = setInterval(() => {
+        const now = new Date();
+        void lock?.utimes(now, now).catch(() => undefined);
+      }, heartbeatMs);
+      heartbeat.unref();
     } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== "EEXIST" || Date.now() >= deadline) throw error;
-      await wait(LOCK_RETRY_MS);
+      if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error;
+      if (await recoverStaleLock(lockPath, staleMs)) continue;
+      if (Date.now() >= deadline) throw error;
+      await wait(retryMs);
     }
   }
 
   try {
     return await operation();
   } finally {
+    if (heartbeat) clearInterval(heartbeat);
     await lock.close();
     await rm(lockPath, { force: true });
   }
