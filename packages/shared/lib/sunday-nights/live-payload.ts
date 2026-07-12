@@ -9,6 +9,7 @@ import {
 import { isSongExperienceRenderable } from "@/lib/ops/intelligence/song-experience-renderability";
 
 import { normalizeLiveTrackId } from "./resolve-live-track";
+import { currentLiveSelection } from "./live-freshness";
 import type { SundayNightsLiveSelection, SundayNightsState } from "./types";
 
 export type LiveDestinationKind = "EXPERIENCE" | "PACKAGE" | "TRACK";
@@ -78,12 +79,13 @@ export async function buildSundayNightsCurrentPayload(
   control?: LiveControlState | null,
 ): Promise<SundayNightsCurrentPayload> {
   const channelActive = control ? isLiveChannelSessionActive(control) : false;
+  const freshLive = currentLiveSelection(state);
   const bridgeState =
-    state.live?.source === "manual"
+    !freshLive || freshLive.source === "manual"
       ? { ...state, currentTrackId: null, live: null }
-      : state.live?.source === "channel" && !channelActive
+      : freshLive.source === "channel" && !channelActive
         ? { ...state, currentTrackId: null, live: null }
-        : state;
+        : { ...state, currentTrackId: freshLive.rvtr, live: freshLive };
   const track = bridgeState.currentTrackId
     ? await loadTrackPage(bridgeState.currentTrackId)
     : null;

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { AttractTourKickoff } from "@/components/retroverse/experience/AttractTourKickoff";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
@@ -211,7 +211,6 @@ export function RetroverseLive2View({
   activeNav = "live",
 }: Props) {
   const [payload, setPayload] = useState(initial);
-  const updatedAtRef = useRef(initial.updatedAt);
   const pollMs = payload.channel?.running ? CHANNEL_POLL_MS : DEFAULT_POLL_MS;
 
   useEffect(() => {
@@ -222,8 +221,9 @@ export function RetroverseLive2View({
         const res = await fetch("/api/sunday-nights/current", { cache: "no-store" });
         if (!res.ok || cancelled) return;
         const data = (await res.json()) as SundayNightsCurrentPayload;
-        if (cancelled || data.updatedAt === updatedAtRef.current) return;
-        updatedAtRef.current = data.updatedAt;
+        if (cancelled) return;
+        // Freshness can expire without a state write, so an unchanged updatedAt
+        // must not prevent the UI from switching from Live to Now Exploring.
         setPayload(data);
       } catch {
         /* keep the last good live/exploring state */
