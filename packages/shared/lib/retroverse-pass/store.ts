@@ -3,9 +3,11 @@ import { inspectQuery } from "@/lib/inspect/pg";
 import type {
   PassActivityEventType,
   PassScanResult,
+  NormalizedPassSerial,
   RetroversePass,
   RetroverseVisitor,
 } from "./types";
+import { normalizePassSerial, PassSerialAmbiguityError } from "./types";
 
 const PASSES = "retroverse_passes";
 const VISITORS = "retroverse_visitors";
@@ -49,6 +51,21 @@ function mapVisitor(row: VisitorRow): RetroverseVisitor {
   };
 }
 
+async function resultForPassRow(row: PassRow): Promise<PassScanResult> {
+  const pass = mapPass(row);
+  if (!pass.claimed || pass.visitorId == null) return { state: "unclaimed", pass };
+
+  const visitorRows = await inspectQuery<VisitorRow>(
+    `SELECT id, first_name, email, phone, created_at FROM ${VISITORS} WHERE id = $1`,
+    [pass.visitorId],
+  );
+  const visitorRow = visitorRows[0];
+  if (!visitorRow) {
+    return { state: "unclaimed", pass: { ...pass, claimed: false, visitorId: null } };
+  }
+  return { state: "claimed", pass, visitor: mapVisitor(visitorRow) };
+}
+
 function missingTableError(err: unknown): never {
   const msg = err instanceof Error ? err.message : String(err);
   if (msg.includes("retroverse_pass") || msg.includes("retroverse_visitors")) {
@@ -59,38 +76,33 @@ function missingTableError(err: unknown): never {
   throw err instanceof Error ? err : new Error(msg);
 }
 
-/**
- * Look up a pass by serial. Passes are lazily provisioned: any valid
- * RVSN serial gets an unclaimed row on first scan — printed passes work
- * without pre-seeding the whole batch.
- */
-export async function scanPass(serial: string): Promise<PassScanResult> {
+/** Look up an existing canonical pass without provisioning or mutating data. */
+export async function scanPass(normalized: NormalizedPassSerial): Promise<PassScanResult | null> {
   try {
     const rows = await inspectQuery<PassRow>(
       `
-      INSERT INTO ${PASSES} (serial)
-      VALUES ($1)
-      ON CONFLICT (serial) DO UPDATE SET serial = EXCLUDED.serial
-      RETURNING serial, claimed, visitor_id, claimed_at
+      SELECT serial, claimed, visitor_id, claimed_at
+      FROM ${PASSES}
+      WHERE upper(serial) = ANY($1::text[])
       `,
+      [normalized.candidates],
+    );
+    if (rows.length === 0) return null;
+    if (rows.length > 1) throw new PassSerialAmbiguityError();
+    return await resultForPassRow(rows[0]);
+  } catch (err) {
+    missingTableError(err);
+  }
+}
+
+/** Re-load a previously resolved Postgres primary key without normalization. */
+export async function scanPassByExactSerial(serial: string): Promise<PassScanResult | null> {
+  try {
+    const rows = await inspectQuery<PassRow>(
+      `SELECT serial, claimed, visitor_id, claimed_at FROM ${PASSES} WHERE serial = $1`,
       [serial],
     );
-    const pass = mapPass(rows[0]);
-
-    if (!pass.claimed || pass.visitorId == null) {
-      return { state: "unclaimed", pass };
-    }
-
-    const visitorRows = await inspectQuery<VisitorRow>(
-      `SELECT id, first_name, email, phone, created_at FROM ${VISITORS} WHERE id = $1`,
-      [pass.visitorId],
-    );
-    const visitorRow = visitorRows[0];
-    if (!visitorRow) {
-      return { state: "unclaimed", pass: { ...pass, claimed: false, visitorId: null } };
-    }
-
-    return { state: "claimed", pass, visitor: mapVisitor(visitorRow) };
+    return rows[0] ? await resultForPassRow(rows[0]) : null;
   } catch (err) {
     missingTableError(err);
   }
@@ -115,8 +127,12 @@ export async function claimPass(input: {
   if (!email) throw new Error("Email is required.");
 
   try {
-    const existing = await scanPass(input.serial);
+    const normalized = normalizePassSerial(input.serial);
+    if (!normalized) throw new Error("Invalid pass serial.");
+    const existing = await scanPass(normalized);
+    if (!existing) throw new Error("Pass not found.");
     if (existing.state === "claimed") return existing;
+    const canonicalSerial = existing.pass.serial;
 
     const visitorRows = await inspectQuery<VisitorRow>(
       `
@@ -135,20 +151,20 @@ export async function claimPass(input: {
       WHERE serial = $1 AND claimed = false
       RETURNING serial, claimed, visitor_id, claimed_at
       `,
-      [input.serial, visitor.id],
+      [canonicalSerial, visitor.id],
     );
 
     const passRow = passRows[0];
     if (!passRow) {
       // Lost a race — someone else claimed between scan and update.
-      const after = await scanPass(input.serial);
-      if (after.state === "claimed") return after;
+      const after = await scanPass(normalized);
+      if (after?.state === "claimed") return after;
       throw new Error("Pass could not be claimed.");
     }
 
     await recordPassActivity({
       visitorId: visitor.id,
-      passSerial: input.serial,
+      passSerial: canonicalSerial,
       eventType: "PASS_CLAIMED",
     });
 

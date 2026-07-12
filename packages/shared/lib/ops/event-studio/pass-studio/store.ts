@@ -8,7 +8,8 @@ import { opsStateDir } from "@/lib/ops/ops-state-path";
 import { findLatestPassArtworkBySlug, resolveGenerationArtwork } from "./content-creator-artwork";
 import { markSerialRecordRegistered } from "./print-batch-store";
 import { passTypeSlugFromLabel } from "./placeholder-artwork.server";
-import { normalizePassSerial, passMatchesNormalizedSerial } from "./serials";
+import { applyRegistrationById, normalizePassSerial, resolveExactPass } from "./serials";
+import type { NormalizedPassSerial } from "@/lib/retroverse-pass/types";
 import type {
   GeneratedPass,
   PassBatch,
@@ -167,38 +168,45 @@ export async function nextSerialStart(): Promise<number> {
   return Math.max(...existing.map((p) => p.serialNumber)) + 1;
 }
 
-/** Resolve public/legacy serial variants without changing the stored pass record. */
-export async function findPassBySerial(serial: string): Promise<GeneratedPass | null> {
-  const normalized = normalizePassSerial(serial);
-  if (!normalized) return null;
+export type PassStudioResolution =
+  | { state: "found"; pass: GeneratedPass }
+  | { state: "not_found" }
+  | { state: "ambiguous" };
 
+/** Resolve only when one immutable Pass Studio credential ID matches. */
+export async function findPassBySerial(serial: string): Promise<PassStudioResolution> {
+  const normalized = normalizePassSerial(serial);
+  if (!normalized) return { state: "not_found" };
+
+  return findPassByNormalizedSerial(normalized);
+}
+
+export async function findPassByNormalizedSerial(
+  normalized: NormalizedPassSerial,
+): Promise<PassStudioResolution> {
   const all = await loadPassLibrary();
-  const matches = all.filter((pass) => passMatchesNormalizedSerial(pass, normalized));
-  if (matches.length === 0) return null;
-  return matches.reduce((latest, p) => (p.createdAt > latest.createdAt ? p : latest));
+  return resolveExactPass(all, normalized);
+}
+
+/** Re-load a previously resolved immutable Pass Studio credential ID. */
+export async function findPassById(passId: string): Promise<GeneratedPass | null> {
+  const all = await loadPassLibrary();
+  return all.find((pass) => pass.id === passId) ?? null;
 }
 
 /** Idempotent — already-registered passes are returned unchanged, never overwritten. */
-export async function registerPassBySerial(
-  serial: string,
+export async function registerPassById(
+  passId: string,
   registration: PassRegistration,
 ): Promise<GeneratedPass | null> {
   const file = await readJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: [] });
-  const index = file.passes.findIndex((p) => p.serial === serial);
-  if (index === -1) return null;
-
-  const existing = file.passes[index]!;
-  if (existing.status === "registered" && existing.registration) {
-    return existing;
-  }
-
-  const updated: GeneratedPass = { ...existing, status: "registered", registration };
-  const nextPasses = [...file.passes];
-  nextPasses[index] = updated;
-  await writeJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: nextPasses });
+  const result = applyRegistrationById(file.passes, passId, registration);
+  if (!result) return null;
+  if (result.passes === file.passes) return result.pass;
+  await writeJsonFile<PassLibraryFile>(libraryPath(), { version: 1, passes: result.passes });
   // Best-effort traceability mirror — never blocks registration if it fails.
-  await markSerialRecordRegistered(serial);
-  return updated;
+  await markSerialRecordRegistered(result.pass.serial);
+  return result.pass;
 }
 
 export async function filterPassLibrary(

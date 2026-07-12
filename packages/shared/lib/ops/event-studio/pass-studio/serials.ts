@@ -1,22 +1,11 @@
 import type { PassBatchRow } from "./types";
+import type { GeneratedPass, PassRegistration } from "./types";
+import {
+  normalizePassSerial,
+  type NormalizedPassSerial,
+} from "@/lib/retroverse-pass/types";
 
-export type NormalizedPassSerial = {
-  number: number;
-};
-
-/**
- * Convert every public serial still in circulation to its stable numeric identity.
- * Accepted examples: RVSN500, RVSN-500, rvsn500, 500, and legacy 0500.
- */
-export function normalizePassSerial(raw: string): NormalizedPassSerial | null {
-  const value = raw.trim();
-  const match = /^(?:RVSN-?)?(\d+)$/i.exec(value);
-  if (!match) return null;
-
-  const number = Number(match[1]);
-  if (!Number.isSafeInteger(number) || number < 1) return null;
-  return { number };
-}
+export { normalizePassSerial };
 
 export function passMatchesNormalizedSerial(
   pass: { serial: string; serialNumber: number },
@@ -27,6 +16,44 @@ export function passMatchesNormalizedSerial(
   }
 
   return normalizePassSerial(pass.serial)?.number === normalized.number;
+}
+
+export type ExactPassResolution<T> =
+  | { state: "found"; pass: T }
+  | { state: "not_found" }
+  | { state: "ambiguous" };
+
+export function resolveExactPass<T extends { serial: string; serialNumber: number }>(
+  passes: T[],
+  normalized: NormalizedPassSerial,
+): ExactPassResolution<T> {
+  const matches = passes.filter((pass) => passMatchesNormalizedSerial(pass, normalized));
+  if (matches.length === 0) return { state: "not_found" };
+  if (matches.length > 1) return { state: "ambiguous" };
+  return { state: "found", pass: matches[0]! };
+}
+
+export function findPassIndexById(passes: { id: string }[], passId: string): number {
+  return passes.findIndex((pass) => pass.id === passId);
+}
+
+export function applyRegistrationById(
+  passes: GeneratedPass[],
+  passId: string,
+  registration: PassRegistration,
+): { passes: GeneratedPass[]; pass: GeneratedPass } | null {
+  const index = findPassIndexById(passes, passId);
+  if (index === -1) return null;
+
+  const existing = passes[index]!;
+  if (existing.status === "registered" && existing.registration) {
+    return { passes, pass: existing };
+  }
+
+  const pass: GeneratedPass = { ...existing, status: "registered", registration };
+  const next = [...passes];
+  next[index] = pass;
+  return { passes: next, pass };
 }
 
 /** Zero-padded serial, e.g. 7 → "0007". */

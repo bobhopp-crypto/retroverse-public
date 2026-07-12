@@ -30,7 +30,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Unknown event type." }, { status: 400 });
   }
 
-  const serial = payload.serial ? normalizePassSerial(payload.serial) : null;
+  const normalized = payload.serial ? normalizePassSerial(payload.serial) : null;
+  if (payload.serial && !normalized) {
+    return NextResponse.json({ error: "Invalid pass serial." }, { status: 400 });
+  }
+  const serial = payload.serial?.trim().toUpperCase() ?? null;
 
   try {
     await recordPassActivity({

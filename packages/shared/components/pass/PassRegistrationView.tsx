@@ -62,7 +62,7 @@ export function PassRegistrationView({ pass: initialPass }: Props) {
     setBusy(true);
     setError(null);
     try {
-      const updated = await registerPass({ serial: pass.serial, ...form });
+      const updated = await registerPass({ passId: pass.id, ...form });
       setPass(updated);
       setView("confirmed");
     } catch (err) {

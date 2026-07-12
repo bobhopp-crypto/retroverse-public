@@ -21,8 +21,8 @@ export async function POST(req: Request) {
     phone?: string | null;
   };
 
-  const serial = normalizePassSerial(payload.serial ?? "");
-  if (!serial) {
+  const serial = payload.serial ?? "";
+  if (!normalizePassSerial(serial)) {
     return NextResponse.json({ error: "Invalid pass serial." }, { status: 400 });
   }
 
@@ -36,7 +36,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, pass: result.pass, visitor: result.visitor });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Claim failed";
-    const status = message.includes("required") ? 400 : 500;
+    const status = message.includes("required") || message.includes("Invalid")
+      ? 400
+      : message.includes("not found")
+        ? 404
+        : message.includes("Ambiguous")
+          ? 409
+          : 503;
     return NextResponse.json({ error: message }, { status });
   }
 }

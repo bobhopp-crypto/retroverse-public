@@ -1,10 +1,10 @@
 "use server";
 
-import { findPassBySerial, registerPassBySerial } from "@/lib/ops/event-studio/pass-studio/store";
+import { registerPassById } from "@/lib/ops/event-studio/pass-studio/store";
 import type { GeneratedPass } from "@/lib/ops/event-studio/pass-studio/types";
 
 export type RegisterPassInput = {
-  serial: string;
+  passId: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -19,11 +19,7 @@ export async function registerPass(input: RegisterPassInput): Promise<GeneratedP
   const firstName = input.firstName.trim();
   if (!firstName) throw new Error("First name is required.");
 
-  const existing = await findPassBySerial(input.serial);
-  if (!existing) throw new Error("Pass not found.");
-
-  // Registration must update the existing inventory key, never the URL variant.
-  const updated = await registerPassBySerial(existing.serial, {
+  const updated = await registerPassById(input.passId, {
     firstName,
     lastName: input.lastName.trim(),
     email: input.email.trim(),
