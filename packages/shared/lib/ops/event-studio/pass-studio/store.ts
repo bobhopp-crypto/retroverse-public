@@ -8,6 +8,7 @@ import { opsStateDir } from "@/lib/ops/ops-state-path";
 import { findLatestPassArtworkBySlug, resolveGenerationArtwork } from "./content-creator-artwork";
 import { markSerialRecordRegistered } from "./print-batch-store";
 import { passTypeSlugFromLabel } from "./placeholder-artwork.server";
+import { normalizePassSerial, passMatchesNormalizedSerial } from "./serials";
 import type {
   GeneratedPass,
   PassBatch,
@@ -166,10 +167,13 @@ export async function nextSerialStart(): Promise<number> {
   return Math.max(...existing.map((p) => p.serialNumber)) + 1;
 }
 
-/** Serial alone resolves a pass — most recent match wins if duplicates ever exist. */
+/** Resolve public/legacy serial variants without changing the stored pass record. */
 export async function findPassBySerial(serial: string): Promise<GeneratedPass | null> {
+  const normalized = normalizePassSerial(serial);
+  if (!normalized) return null;
+
   const all = await loadPassLibrary();
-  const matches = all.filter((p) => p.serial === serial);
+  const matches = all.filter((pass) => passMatchesNormalizedSerial(pass, normalized));
   if (matches.length === 0) return null;
   return matches.reduce((latest, p) => (p.createdAt > latest.createdAt ? p : latest));
 }

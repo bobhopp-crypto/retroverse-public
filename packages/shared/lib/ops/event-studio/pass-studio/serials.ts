@@ -1,5 +1,34 @@
 import type { PassBatchRow } from "./types";
 
+export type NormalizedPassSerial = {
+  number: number;
+};
+
+/**
+ * Convert every public serial still in circulation to its stable numeric identity.
+ * Accepted examples: RVSN500, RVSN-500, rvsn500, 500, and legacy 0500.
+ */
+export function normalizePassSerial(raw: string): NormalizedPassSerial | null {
+  const value = raw.trim();
+  const match = /^(?:RVSN-?)?(\d+)$/i.exec(value);
+  if (!match) return null;
+
+  const number = Number(match[1]);
+  if (!Number.isSafeInteger(number) || number < 1) return null;
+  return { number };
+}
+
+export function passMatchesNormalizedSerial(
+  pass: { serial: string; serialNumber: number },
+  normalized: NormalizedPassSerial,
+): boolean {
+  if (Number.isSafeInteger(pass.serialNumber) && pass.serialNumber === normalized.number) {
+    return true;
+  }
+
+  return normalizePassSerial(pass.serial)?.number === normalized.number;
+}
+
 /** Zero-padded serial, e.g. 7 → "0007". */
 export function padSerial(n: number): string {
   return String(Math.max(0, Math.floor(n))).padStart(4, "0");

@@ -22,7 +22,8 @@ export async function registerPass(input: RegisterPassInput): Promise<GeneratedP
   const existing = await findPassBySerial(input.serial);
   if (!existing) throw new Error("Pass not found.");
 
-  const updated = await registerPassBySerial(input.serial, {
+  // Registration must update the existing inventory key, never the URL variant.
+  const updated = await registerPassBySerial(existing.serial, {
     firstName,
     lastName: input.lastName.trim(),
     email: input.email.trim(),
