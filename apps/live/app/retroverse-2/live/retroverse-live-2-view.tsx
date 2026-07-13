@@ -12,7 +12,6 @@ import type { TrackPageData } from "@/lib/track/load-track-page";
 
 type Props = {
   initial: SundayNightsCurrentPayload;
-  exploringTrack: TrackPageData | null;
   shellClassName?: string;
   activeNav?: "live" | "search" | "years" | "charts";
 };
@@ -34,6 +33,7 @@ type HeroDisplay = {
 const DEFAULT_POLL_MS = 7000;
 const CHANNEL_POLL_MS = 3000;
 const RE_RVTR = /^RVTR\d{6}$/i;
+const SAFE_FALLBACK_RVTR = "RVTR708312";
 
 function chartsHrefFromTrack(track: TrackPageData): string | null {
   const peakDate =
@@ -88,7 +88,6 @@ function safeSongHref(payload: SundayNightsCurrentPayload): string | null {
 
 function displayFromPayload(
   payload: SundayNightsCurrentPayload,
-  exploringTrack: TrackPageData | null,
 ): HeroDisplay {
   if (payload.track) {
     return displayFromTrack(payload.track);
@@ -111,21 +110,17 @@ function displayFromPayload(
     };
   }
 
-  if (exploringTrack) {
-    return displayFromTrack(exploringTrack);
-  }
-
   return {
     title: "Sweet Home Alabama",
     artist: "Lynyrd Skynyrd",
     year: 1974,
     coverUrl: null,
-    songHref: trackPageHref("Sweet Home Alabama"),
+    songHref: trackPageHref(SAFE_FALLBACK_RVTR),
     artistHref: "/artist/lynyrd-skynyrd",
     albumHref: null,
     yearHref: rvYearHref(1974),
     chartsHref: "/retroverse-2/charts",
-    rvtr: null,
+    rvtr: SAFE_FALLBACK_RVTR,
     track: null,
   };
 }
@@ -205,7 +200,6 @@ function ExploreActionButton({ label, href }: ExploreAction) {
 
 export function RetroverseLive2View({
   initial,
-  exploringTrack,
   shellClassName,
   activeNav = "live",
 }: Props) {
@@ -217,15 +211,39 @@ export function RetroverseLive2View({
 
     async function poll() {
       try {
-        const res = await fetch("/api/sunday-nights/current", { cache: "no-store" });
-        if (!res.ok || cancelled) return;
+        const res = await fetch(`/api/sunday-nights/current?ts=${Date.now()}`, {
+          cache: "no-store",
+          headers: { "Cache-Control": "no-cache" },
+        });
+        if (!res.ok) throw new Error(`Current song HTTP ${res.status}`);
+        if (cancelled) return;
         const data = (await res.json()) as SundayNightsCurrentPayload;
+        if (data.publicState?.version !== 2) {
+          throw new Error("Unsupported current-song response");
+        }
         if (cancelled) return;
         // Freshness can expire without a state write, so an unchanged updatedAt
         // must not prevent the UI from switching from Live to Now Exploring.
         setPayload(data);
       } catch {
-        /* keep the last good live/exploring state */
+        if (cancelled) return;
+        // Never preserve an old live song when the authority is unavailable.
+        setPayload((previous) => ({
+          ...previous,
+          currentTrackId: SAFE_FALLBACK_RVTR,
+          live: null,
+          track: null,
+          destination: {
+            kind: "EXPERIENCE",
+            href: trackPageHref(SAFE_FALLBACK_RVTR),
+          },
+          channel: null,
+          publicState: {
+            version: 2,
+            source: "recommendation",
+            servedAt: new Date().toISOString(),
+          },
+        }));
       }
     }
 
@@ -237,13 +255,30 @@ export function RetroverseLive2View({
     };
   }, [pollMs]);
 
+  useEffect(() => {
+    // Retire any worker/cache left by an older public build. The current Live
+    // experience has no service worker and current-song responses are no-store.
+    if ("serviceWorker" in navigator) {
+      void navigator.serviceWorker
+        .getRegistrations()
+        .then((registrations) => Promise.all(registrations.map((entry) => entry.unregister())))
+        .catch(() => undefined);
+    }
+    if ("caches" in window) {
+      void caches
+        .keys()
+        .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+        .catch(() => undefined);
+    }
+  }, []);
+
   const isLiveNow =
     (payload.live?.source === "bridge" && Boolean(payload.live?.title?.trim())) ||
     payload.live?.source === "channel" ||
     payload.channel?.running === true;
   const display = useMemo(
-    () => displayFromPayload(payload, exploringTrack),
-    [payload, exploringTrack],
+    () => displayFromPayload(payload),
+    [payload],
   );
   const cards = useMemo(() => storyCards(display, isLiveNow), [display, isLiveNow]);
 

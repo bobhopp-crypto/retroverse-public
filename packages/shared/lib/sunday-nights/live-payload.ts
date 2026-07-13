@@ -31,6 +31,11 @@ export type SundayNightsCurrentPayload = {
     durationSeconds: number;
     nextAdvanceAt: string | null;
   } | null;
+  publicState?: {
+    version: 2;
+    source: "virtualdj" | "recommendation";
+    servedAt: string;
+  };
 };
 
 function logDestination(rvtr: string | null, destination: LiveDestination) {

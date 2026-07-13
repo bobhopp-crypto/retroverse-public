@@ -1,12 +1,13 @@
 import "server-only";
 
-import { resolveHomepageRotationRvtr } from "@/lib/home/homepage-rvtr";
 import {
   buildSundayNightsCurrentPayload,
   type SundayNightsCurrentPayload,
 } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
+
+const PUBLIC_RECOMMENDATION_RVTR = "RVTR708312";
 
 export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0",
@@ -17,9 +18,12 @@ export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
 } as const;
 
 async function loadRecommendation(): Promise<TrackPageData | null> {
-  const rvtr = await resolveHomepageRotationRvtr();
-  const rotated = rvtr ? await loadTrackPage(rvtr) : null;
-  return rotated ?? (await loadTrackPage("Sweet Home Alabama"));
+  // One immutable recommendation prevents serverless instances from choosing
+  // different songs when optional rotation/enrichment data is unavailable.
+  return (
+    (await loadTrackPage(PUBLIC_RECOMMENDATION_RVTR)) ??
+    (await loadTrackPage("Sweet Home Alabama"))
+  );
 }
 
 /**
@@ -36,7 +40,14 @@ export async function loadPublicCurrentSongPayload(): Promise<SundayNightsCurren
   // from the public current-song authority.
   const payload = await buildSundayNightsCurrentPayload(state, null);
   if (payload.live?.source === "bridge" && payload.live.title.trim()) {
-    return payload;
+    return {
+      ...payload,
+      publicState: {
+        version: 2,
+        source: "virtualdj",
+        servedAt: new Date().toISOString(),
+      },
+    };
   }
 
   const track = await loadRecommendation();
@@ -52,5 +63,10 @@ export async function loadPublicCurrentSongPayload(): Promise<SundayNightsCurren
       href: `/retroverse-2/song/${encodeURIComponent(track.rvtr)}`,
     },
     channel: null,
+    publicState: {
+      version: 2,
+      source: "recommendation",
+      servedAt: new Date().toISOString(),
+    },
   };
 }

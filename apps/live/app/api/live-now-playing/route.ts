@@ -17,7 +17,13 @@ export const fetchCache = "force-no-store";
 export async function GET() {
   try {
     const payload = await loadPublicCurrentSongPayload();
-    return NextResponse.json(payload, { headers: PUBLIC_CURRENT_NO_STORE_HEADERS });
+    return NextResponse.json(payload, {
+      headers: {
+        ...PUBLIC_CURRENT_NO_STORE_HEADERS,
+        "X-Retroverse-State-Version": "2",
+        "X-Retroverse-State-Source": payload.publicState?.source ?? "unknown",
+      },
+    });
   } catch (err) {
     console.error("[live-now-playing GET]", err);
     return NextResponse.json(
