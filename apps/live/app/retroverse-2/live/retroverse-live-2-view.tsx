@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-import { AttractTourKickoff } from "@/components/retroverse/experience/AttractTourKickoff";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import { RV_CHRONOLOGY_DEFAULT_YEAR, rvYearHref } from "@/lib/rv/rv-chronology-paths";
@@ -268,7 +267,6 @@ export function RetroverseLive2View({
       activeNav={activeNav}
       yearsHref={display.yearHref ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR)}
     >
-      <AttractTourKickoff enabled={!isLiveNow} />
       <section className="rv2-live__hero" aria-label={isLiveNow ? "Live now" : "Now exploring"}>
         <div className="rv2-live__status-row">
           <p className={isLiveNow ? "rv2-live__status rv2-live__status--live" : "rv2-live__status"}>
