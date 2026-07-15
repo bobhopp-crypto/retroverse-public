@@ -10,13 +10,13 @@ import "./pass-experience-overlay.css";
 /**
  * Pass Experience overlay — sits on top of the live broadcast.
  *
- * First scan: claim form (first name, email, optional phone).
- * Returning: lightweight welcome-back panel.
+ * First scan: registration form (first name required, contact optional).
+ * Returning: told the pass is already registered, with an Edit option.
  * Dismissing always returns straight to the broadcast underneath —
  * the visitor never leaves Retroverse Live.
  */
 
-type View = "claim" | "confirmed" | "welcome" | "mypass" | "closed";
+type View = "claim" | "confirmed" | "already" | "edit" | "mypass" | "closed";
 
 type Props = {
   scan: PassScanResult;
@@ -41,7 +41,7 @@ async function recordActivity(input: {
 
 export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
   const router = useRouter();
-  const [view, setView] = useState<View>(scan.state === "claimed" ? "welcome" : "claim");
+  const [view, setView] = useState<View>(scan.state === "claimed" ? "already" : "claim");
   const [visitor, setVisitor] = useState<RetroverseVisitor | null>(
     scan.state === "claimed" ? scan.visitor : null,
   );
@@ -75,6 +75,14 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
     return () => window.clearTimeout(timer);
   }, [view, dismiss]);
 
+  function openEdit() {
+    setError(null);
+    setFirstName(visitor?.firstName ?? "");
+    setEmail(visitor?.email ?? "");
+    setPhone(visitor?.phone ?? "");
+    setView("edit");
+  }
+
   async function handleClaim(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true);
@@ -91,12 +99,39 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
         error?: string;
       };
       if (!res.ok || !data.ok || !data.visitor) {
-        throw new Error(data.error ?? "Claim failed. Please try again.");
+        throw new Error(data.error ?? "Registration failed. Please try again.");
       }
       setVisitor(data.visitor);
       setView("confirmed");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Claim failed. Please try again.");
+      setError(err instanceof Error ? err.message : "Registration failed. Please try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function handleUpdate(e: React.FormEvent) {
+    e.preventDefault();
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/pass/claim", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ serial, firstName, email, phone }),
+      });
+      const data = (await res.json()) as {
+        ok?: boolean;
+        visitor?: RetroverseVisitor;
+        error?: string;
+      };
+      if (!res.ok || !data.ok || !data.visitor) {
+        throw new Error(data.error ?? "Update failed. Please try again.");
+      }
+      setVisitor(data.visitor);
+      setView("already");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Update failed. Please try again.");
     } finally {
       setBusy(false);
     }
@@ -129,7 +164,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
           <>
             <p className="pass-xp__kicker">Retroverse Pass</p>
             <h1 className="pass-xp__title">Welcome to Retroverse</h1>
-            <p className="pass-xp__serial">Credential {serial}</p>
+            <p className="pass-xp__serial">Pass {serial}</p>
 
             <form className="pass-xp__form" onSubmit={(e) => void handleClaim(e)}>
               <label>
@@ -143,10 +178,9 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
                 />
               </label>
               <label>
-                <span>Email</span>
+                <span>Email (optional)</span>
                 <input
                   type="email"
-                  required
                   autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -167,9 +201,9 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
               <button
                 type="submit"
                 className="pass-xp__primary"
-                disabled={busy || !firstName.trim() || !email.trim()}
+                disabled={busy || !firstName.trim()}
               >
-                {busy ? "Claiming…" : "Claim My Pass"}
+                {busy ? "Registering…" : "Register My Pass"}
               </button>
             </form>
 
@@ -181,7 +215,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
         {view === "confirmed" ? (
           <div className="pass-xp__confirmed">
-            <p className="pass-xp__kicker">Credential {serial} claimed</p>
+            <p className="pass-xp__kicker">Pass {serial} registered</p>
             <h1 className="pass-xp__title">
               You&apos;re in{visitor ? `, ${visitor.firstName}` : ""}.
             </h1>
@@ -189,13 +223,13 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
           </div>
         ) : null}
 
-        {view === "welcome" ? (
+        {view === "already" ? (
           <>
             <p className="pass-xp__kicker">Retroverse Pass</p>
             <h1 className="pass-xp__title">
-              Welcome back{visitor ? `, ${visitor.firstName}` : ""}.
+              Hi{visitor ? `, ${visitor.firstName}` : ""}, this pass is already registered.
             </h1>
-            <p className="pass-xp__serial">Credential {serial}</p>
+            <p className="pass-xp__serial">Pass {serial}</p>
 
             {currentEventTitle ? (
               <div className="pass-xp__event">
@@ -209,25 +243,77 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
                 Continue Watching
               </button>
               <div className="pass-xp__secondary-row">
+                <button type="button" className="pass-xp__secondary" onClick={openEdit}>
+                  Edit
+                </button>
                 <button type="button" className="pass-xp__secondary" onClick={handleSearch}>
                   Search
                 </button>
-                <button
-                  type="button"
-                  className="pass-xp__secondary"
-                  onClick={() => setView("mypass")}
-                >
-                  My Pass
-                </button>
               </div>
+              <button type="button" className="pass-xp__skip" onClick={() => setView("mypass")}>
+                View my pass
+              </button>
             </div>
+          </>
+        ) : null}
+
+        {view === "edit" ? (
+          <>
+            <p className="pass-xp__kicker">Edit Registration</p>
+            <h1 className="pass-xp__title">Update your info</h1>
+            <p className="pass-xp__serial">Pass {serial}</p>
+
+            <form className="pass-xp__form" onSubmit={(e) => void handleUpdate(e)}>
+              <label>
+                <span>First Name</span>
+                <input
+                  type="text"
+                  required
+                  autoComplete="given-name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </label>
+              <label>
+                <span>Email (optional)</span>
+                <input
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </label>
+              <label>
+                <span>Phone (optional)</span>
+                <input
+                  type="tel"
+                  autoComplete="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </label>
+
+              {error ? <p className="pass-xp__error">{error}</p> : null}
+
+              <button
+                type="submit"
+                className="pass-xp__primary"
+                disabled={busy || !firstName.trim()}
+              >
+                {busy ? "Saving…" : "Save Changes"}
+              </button>
+            </form>
+
+            <button type="button" className="pass-xp__skip" onClick={() => setView("already")}>
+              Cancel
+            </button>
           </>
         ) : null}
 
         {view === "mypass" ? (
           <>
             <p className="pass-xp__kicker">My Pass</p>
-            <h1 className="pass-xp__title">Credential {serial}</h1>
+            <h1 className="pass-xp__title">Pass {serial}</h1>
 
             <dl className="pass-xp__details">
               <div>
@@ -252,10 +338,13 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
               <button type="button" className="pass-xp__primary" onClick={dismiss}>
                 Continue Watching
               </button>
+              <button type="button" className="pass-xp__secondary" onClick={openEdit}>
+                Edit
+              </button>
               <button
                 type="button"
                 className="pass-xp__skip"
-                onClick={() => setView("welcome")}
+                onClick={() => setView("already")}
               >
                 Back
               </button>

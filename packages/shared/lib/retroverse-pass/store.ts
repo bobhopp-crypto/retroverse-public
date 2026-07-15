@@ -22,7 +22,7 @@ type PassRow = {
 type VisitorRow = {
   id: number | string;
   first_name: string;
-  email: string;
+  email: string | null;
   phone: string | null;
   created_at: Date | string;
 };
@@ -112,7 +112,7 @@ type TransactionClient = {
 /** Provision and claim one exact credential while holding its Postgres row lock. */
 export async function claimPassWithClient(
   client: TransactionClient,
-  input: { credential: string; firstName: string; email: string; phone: string | null },
+  input: { credential: string; firstName: string; email: string | null; phone: string | null },
 ): Promise<PassScanResult & { state: "claimed" }> {
   await client.query(
     `INSERT INTO ${PASSES} (serial) VALUES ($1) ON CONFLICT (serial) DO NOTHING`,
@@ -166,17 +166,16 @@ export async function claimPassWithClient(
 export async function claimPass(input: {
   serial: string;
   firstName: string;
-  email: string;
+  email?: string | null;
   phone?: string | null;
 }): Promise<PassScanResult & { state: "claimed" }> {
   const credential = parsePassCredential(input.serial);
   const firstName = input.firstName.trim();
-  const email = input.email.trim();
+  const email = input.email?.trim() || null;
   const phone = input.phone?.trim() || null;
 
   if (!credential) throw new PassRegistrationInputError("Invalid pass credential.");
   if (!firstName) throw new PassRegistrationInputError("First name is required.");
-  if (!email) throw new PassRegistrationInputError("Email is required.");
 
   const client = await getInspectPool().connect();
   try {
@@ -191,6 +190,72 @@ export async function claimPass(input: {
     return result;
   } catch (err) {
     await client.query("ROLLBACK").catch(() => undefined);
+    missingTableError(err);
+  } finally {
+    client.release();
+  }
+}
+
+/**
+ * Edit the visitor already registered to a claimed pass, while holding its
+ * Postgres row lock. The pass must already be claimed — this is not a
+ * general visitor-update endpoint, only a correction path for the person
+ * holding that exact pass. Logs PASS_EDITED.
+ */
+export async function updateVisitorWithClient(
+  client: TransactionClient,
+  input: { credential: string; firstName: string; email: string | null; phone: string | null },
+): Promise<PassScanResult & { state: "claimed" }> {
+  const passRows = await client.query<PassRow>(
+    `SELECT serial, claimed, visitor_id, claimed_at FROM ${PASSES} WHERE serial = $1 FOR UPDATE`,
+    [input.credential],
+  );
+  const existingRow = passRows.rows[0];
+  if (!existingRow) throw new PassRegistrationInputError("This pass is not registered yet.");
+  const existing = mapPass(existingRow);
+  if (!existing.claimed || existing.visitorId == null) {
+    throw new PassRegistrationInputError("This pass is not registered yet.");
+  }
+
+  const visitorRows = await client.query<VisitorRow>(
+    `UPDATE ${VISITORS} SET first_name = $2, email = $3, phone = $4 WHERE id = $1
+     RETURNING id, first_name, email, phone, created_at`,
+    [existing.visitorId, input.firstName, input.email, input.phone],
+  );
+  const visitor = visitorRows.rows[0];
+  if (!visitor) throw new Error("Registered visitor is unavailable.");
+
+  await client.query(
+    `INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
+     VALUES ($1, $2, 'PASS_EDITED', NULL)`,
+    [existing.visitorId, input.credential],
+  );
+  return { state: "claimed", pass: existing, visitor: mapVisitor(visitor) };
+}
+
+export async function updatePassVisitor(input: {
+  serial: string;
+  firstName: string;
+  email?: string | null;
+  phone?: string | null;
+}): Promise<PassScanResult & { state: "claimed" }> {
+  const credential = parsePassCredential(input.serial);
+  const firstName = input.firstName.trim();
+  const email = input.email?.trim() || null;
+  const phone = input.phone?.trim() || null;
+
+  if (!credential) throw new PassRegistrationInputError("Invalid pass credential.");
+  if (!firstName) throw new PassRegistrationInputError("First name is required.");
+
+  const client = await getInspectPool().connect();
+  try {
+    await client.query("BEGIN");
+    const result = await updateVisitorWithClient(client, { credential, firstName, email, phone });
+    await client.query("COMMIT");
+    return result;
+  } catch (err) {
+    await client.query("ROLLBACK").catch(() => undefined);
+    if (err instanceof PassRegistrationInputError) throw err;
     missingTableError(err);
   } finally {
     client.release();
