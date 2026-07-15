@@ -1,13 +1,15 @@
 import "server-only";
 
+import type { ChannelExperienceSource } from "@/lib/channel-zero/types";
+import { resolveChannelExperience } from "@/lib/channel-zero/resolve-channel-experience";
 import {
   buildSundayNightsCurrentPayload,
+  resolveLiveDestination,
   type SundayNightsCurrentPayload,
 } from "@/lib/sunday-nights/live-payload";
+import { currentLiveSelection } from "@/lib/sunday-nights/live-freshness";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
-import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
-
-const PUBLIC_RECOMMENDATION_RVTR = "RVTR708312";
+import { loadTrackPage } from "@/lib/track/load-track-page";
 
 export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0",
@@ -17,55 +19,44 @@ export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
   Pragma: "no-cache",
 } as const;
 
-async function loadRecommendation(): Promise<TrackPageData | null> {
-  // One immutable recommendation prevents serverless instances from choosing
-  // different songs when optional rotation/enrichment data is unavailable.
-  return (
-    (await loadTrackPage(PUBLIC_RECOMMENDATION_RVTR)) ??
-    (await loadTrackPage("Sweet Home Alabama"))
-  );
+function publicSourceFromChannelZero(
+  source: ChannelExperienceSource,
+): "virtualdj" | "channel-zero" {
+  if (source === "takeover" || source === "live-signal") return "virtualdj";
+  return "channel-zero";
 }
 
 /**
  * Canonical public now-playing payload.
  *
- * Only a fresh VirtualDJ bridge selection is allowed to be live. When the
- * bridge expires, the server attaches one deterministic daily recommendation
- * so every browser receives the same off-air song from the polling endpoint.
+ * Channel Zero resolves exactly one Experience (takeover → live signal →
+ * scheduled program → default). Public V3 renders that Song Experience.
  */
 export async function loadPublicCurrentSongPayload(): Promise<SundayNightsCurrentPayload> {
   const state = await loadSundayNightsState();
+  const channelZero = resolveChannelExperience({ state });
+  const freshLive = currentLiveSelection(state);
+  const track = await loadTrackPage(channelZero.experienceId);
+  const destination = await resolveLiveDestination(channelZero.experienceId);
+  const base = await buildSundayNightsCurrentPayload(state, null);
 
-  // Omitting Live Control deliberately excludes mixer/channel/manual state
-  // from the public current-song authority.
-  const payload = await buildSundayNightsCurrentPayload(state, null);
-  if (payload.live?.source === "bridge" && payload.live.title.trim()) {
-    return {
-      ...payload,
-      publicState: {
-        version: 2,
-        source: "virtualdj",
-        servedAt: new Date().toISOString(),
-      },
-    };
-  }
-
-  const track = await loadRecommendation();
-  if (!track) return payload;
+  const liveOverlay =
+    channelZero.source === "takeover" || channelZero.source === "live-signal"
+      ? freshLive
+      : null;
 
   return {
-    ...payload,
-    currentTrackId: track.rvtr,
-    live: null,
+    ...base,
+    currentTrackId: channelZero.experienceId,
+    live: liveOverlay,
     track,
-    destination: {
-      kind: "EXPERIENCE",
-      href: `/retroverse-2/song/${encodeURIComponent(track.rvtr)}`,
-    },
+    destination,
     channel: null,
+    channelZero,
+    updatedAt: channelZero.selectedAt,
     publicState: {
       version: 2,
-      source: "recommendation",
+      source: publicSourceFromChannelZero(channelZero.source),
       servedAt: new Date().toISOString(),
     },
   };

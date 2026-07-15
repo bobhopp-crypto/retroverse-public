@@ -1,4 +1,5 @@
 import type { LiveControlState } from "@/lib/live-control/types";
+import type { ChannelZeroExperience } from "@/lib/channel-zero/types";
 import { isLiveChannelSessionActive } from "@/lib/live-control/engine";
 import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
 import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
@@ -33,9 +34,11 @@ export type SundayNightsCurrentPayload = {
   } | null;
   publicState?: {
     version: 2;
-    source: "virtualdj" | "recommendation";
+    source: "virtualdj" | "recommendation" | "channel-zero";
     servedAt: string;
   };
+  /** Channel Zero resolver output — operator-visible decision metadata. */
+  channelZero?: ChannelZeroExperience;
 };
 
 function logDestination(rvtr: string | null, destination: LiveDestination) {
