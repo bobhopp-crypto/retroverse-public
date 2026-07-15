@@ -2,6 +2,10 @@
 
 @import "../explorer/explorer-layout-v1-tokens.css";
 
+:root {
+  --rv-global-nav-height: calc(2.9rem + env(safe-area-inset-top, 0px));
+}
+
 .rv-global-nav {
   position: sticky;
   top: 0;
@@ -83,13 +87,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
+  gap: 0.35rem;
+  min-width: 2rem;
   height: 2rem;
+  padding: 0 0.55rem;
   border: 1px solid var(--ex-line-accent);
   border-radius: 999px;
   background: var(--ex-surface);
   color: var(--ex-ink-soft);
   cursor: pointer;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
 }
 
 .rv-global-nav__gear--authed {
@@ -163,7 +173,18 @@
 
 @media (max-width: 640px) {
   .rv-global-nav__inner {
-    gap: 0.45rem;
+    gap: 0.3rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .rv-global-nav__return-live {
+    padding-inline: 0.55rem;
+    font-size: 0.64rem;
+  }
+
+  .rv-global-nav__zone {
+    padding-inline: 0.5rem;
   }
 
   .rv-global-nav__zones {
@@ -174,5 +195,23 @@
 
   .rv-global-nav__zones::-webkit-scrollbar {
     display: none;
+  }
+
+  .rv-global-nav__gear {
+    width: 2rem;
+    min-width: 2rem;
+    padding: 0;
+  }
+
+  .rv-global-nav__gear > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 }

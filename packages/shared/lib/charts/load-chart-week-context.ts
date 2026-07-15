@@ -1,4 +1,5 @@
-import { coverPathToUrl } from "@/lib/artist/cover-url";
+import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
+import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import type {
   ChartWeekPortalContext,
@@ -34,12 +35,11 @@ import { coverageOwnedVideoByGraphTrackIdSql } from "@/lib/charts/coverage-owned
 import { classifyTrackCoverage, type TrackCoverageStatus } from "@/lib/charts/track-coverage";
 
 function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
-  for (const c of candidates) {
-    if (!c?.trim()) continue;
-    const url = coverPathToUrl(c) ?? coverPathToUrl(null, c);
-    if (url) return url;
-  }
-  return null;
+  return resolveAlbumCoverUrlFromRow({
+    cover_path: candidates[0],
+    artwork_path: candidates[1],
+    r2_cover_key: candidates[2],
+  });
 }
 
 function resolveTrackHref(trackId: string, rvtr: string | null): string | null {
@@ -90,14 +90,12 @@ const SLICE_SQL = `
     (
       SELECT aal.canonical_cover_path FROM album_artwork_links aal
       WHERE aal.album_id = al.id
-      ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-      LIMIT 1
+      ${WINNING_ARTWORK_LINK_ORDER}
     ) AS artwork_path,
     (
       SELECT aal.r2_cover_key FROM album_artwork_links aal
       WHERE aal.album_id = al.id
-      ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-      LIMIT 1
+      ${WINNING_ARTWORK_LINK_ORDER}
     ) AS r2_cover_key,
     (
       SELECT upper(aek.external_key)

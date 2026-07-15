@@ -1,24 +1,36 @@
 import type { ChartJourneyModel } from "@/lib/chart-journey/types";
 
-import { buildChartJourneyStory } from "@/lib/chart-journey/chart-journey-story";
-
 type Props = {
   model: ChartJourneyModel;
-  summary?: string | null;
   className?: string;
 };
 
-export function ChartJourneySummary({ model, summary, className }: Props) {
-  const story = summary ?? buildChartJourneyStory(model);
-  if (!story) return null;
+export function ChartJourneySummary({ model, className }: Props) {
+  const { metrics } = model;
+  const facts = [
+    metrics.weeksOnChart > 0
+      ? { label: "Weeks on Chart", value: String(metrics.weeksOnChart) }
+      : null,
+    metrics.peakPosition
+      ? { label: "Peak Position", value: `#${metrics.peakPosition}` }
+      : null,
+    metrics.biggestWeeklyClimb && metrics.biggestWeeklyClimb > 0
+      ? { label: "Biggest Climb", value: `+${metrics.biggestWeeklyClimb}` }
+      : null,
+  ].filter((fact): fact is { label: string; value: string } => Boolean(fact));
 
-  const panelClass = ["rv-exp-cj__story", className].filter(Boolean).join(" ");
+  if (facts.length === 0) return null;
+
+  const panelClass = ["rv-exp-cj__summary", className].filter(Boolean).join(" ");
 
   return (
-    <div className="rv-exp-cj__story-wrap">
-      <p className={panelClass} aria-label="Chart journey summary">
-        {story}
-      </p>
-    </div>
+    <dl className={panelClass} aria-label="Chart journey summary">
+      {facts.map((fact) => (
+        <div key={fact.label} className="rv-exp-cj__summary-item">
+          <dt>{fact.label}</dt>
+          <dd>{fact.value}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }

@@ -1,4 +1,5 @@
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
+import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
 import { loadTrackCoverageByRvtr } from "@/lib/charts/load-track-coverage-batch";
 import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
@@ -25,6 +26,16 @@ export type AlbumTrackRow = {
   href: string | null;
   coverageStatus: TrackCoverageStatus;
   coverUrl: string | null;
+};
+
+export type AlbumBreakoutSong = {
+  rvtr: string;
+  title: string;
+  href: string;
+  peakHot100: number;
+  chartWeeks: number;
+  firstChartDate: string | null;
+  trajectoryWeeks: TrackTrajectoryWeek[];
 };
 
 export type AlbumInfoSection = {
@@ -58,6 +69,7 @@ export type AlbumPageData = {
   description: string;
   journeySummary: string | null;
   tracks: AlbumTrackRow[];
+  breakoutSongs: AlbumBreakoutSong[];
   similarChartJourneys: SimilarAlbumMatch[];
   info: AlbumInfoSection;
   rvYearHref: string | null;
@@ -112,14 +124,12 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
       (
         SELECT aal.canonical_cover_path FROM album_artwork_links aal
         WHERE aal.album_id = al.id
-        ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-        LIMIT 1
+        ${WINNING_ARTWORK_LINK_ORDER}
       ) AS artwork_path,
       (
         SELECT aal.r2_cover_key FROM album_artwork_links aal
         WHERE aal.album_id = al.id
-        ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-        LIMIT 1
+        ${WINNING_ARTWORK_LINK_ORDER}
       ) AS r2_cover_key
     FROM album_external_keys aek
     JOIN albums al ON al.id = aek.album_id
@@ -140,7 +150,7 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
   const releaseYear = header.release_year;
   const coverUrl = pickCoverUrl(header.cover_path, header.artwork_path, header.r2_cover_key);
 
-  const [chartRows, trackRows, statsRows, hot100Singles] = await Promise.all([
+  const [chartRows, trackRows, statsRows, breakoutRows] = await Promise.all([
     inspectQuery<{
       chart_date: string;
       chart_name: string;
@@ -171,14 +181,12 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
              (
                SELECT aal.canonical_cover_path FROM album_artwork_links aal
                WHERE aal.album_id = al.id
-               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-               LIMIT 1
+        ${WINNING_ARTWORK_LINK_ORDER}
              ) AS artwork_path,
              (
                SELECT aal.r2_cover_key FROM album_artwork_links aal
                WHERE aal.album_id = al.id
-               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-               LIMIT 1
+               ${WINNING_ARTWORK_LINK_ORDER}
              ) AS r2_cover_key
       FROM canonical_album_tracks cat
       JOIN albums al ON al.id = cat.album_id
@@ -205,17 +213,58 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
       `,
       [pgAlbumId],
     ),
-    inspectQuery<{ title: string; peak_hot100: number | null }>(
+    inspectQuery<{
+      rvtr: string;
+      title: string;
+      peak_hot100: number;
+      chart_weeks: number;
+      first_chart_date: string | null;
+      hot100_weeks: Array<{
+        chart_date: string;
+        chart_position: number;
+        weeks_on_chart: number;
+      }> | null;
+    }>(
       `
-      SELECT cat.title,
-             min(ct.peak_hot100_position) AS peak_hot100
+      SELECT
+        upper(trim(ctd.track_id)) AS rvtr,
+        ctd.canonical_title AS title,
+        ctd.peak_hot100_position AS peak_hot100,
+        ctd.chart_weeks::int AS chart_weeks,
+        ctd.first_chart_date::text AS first_chart_date,
+        COALESCE(
+          json_agg(
+            json_build_object(
+              'chart_date', ca.chart_date::text,
+              'chart_position', ca.chart_position,
+              'weeks_on_chart', COALESCE(ca.weeks_on_chart, 0)::int
+            )
+            ORDER BY ca.chart_date ASC, ca.chart_position ASC
+          ) FILTER (WHERE ca.chart_date IS NOT NULL),
+          '[]'::json
+        ) AS hot100_weeks
       FROM canonical_album_tracks cat
-      JOIN canonical_tracks ct ON upper(trim(ct.track_id)) = upper(trim(cat.canonical_track_key))
+      JOIN canonical_track_display ctd
+        ON upper(trim(ctd.track_id)) = upper(trim(cat.canonical_track_key))
+      LEFT JOIN canonical_tracks ct
+        ON upper(trim(ct.track_id)) = upper(trim(ctd.track_id))
+      LEFT JOIN chart_appearances ca
+        ON ca.track_id = ct.graph_track_id
+        AND ca.chart_name = 'Billboard Hot 100'
       WHERE cat.album_id = $1
-        AND ct.peak_hot100_position IS NOT NULL
-      GROUP BY cat.title
-      ORDER BY peak_hot100 ASC NULLS LAST
-      LIMIT 8
+        AND ctd.has_hot100 = true
+        AND ctd.peak_hot100_position IS NOT NULL
+      GROUP BY
+        cat.position,
+        ctd.track_id,
+        ctd.canonical_title,
+        ctd.peak_hot100_position,
+        ctd.chart_weeks,
+        ctd.first_chart_date
+      ORDER BY
+        ctd.peak_hot100_position ASC,
+        ctd.chart_weeks DESC,
+        cat.position ASC
       `,
       [pgAlbumId],
     ),
@@ -259,10 +308,26 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
     };
   });
 
-  const majorSinglesFromChart = hot100Singles
-    .filter((row) => row.peak_hot100 != null && row.peak_hot100 <= 40)
-    .sort((a, b) => (a.peak_hot100 ?? 999) - (b.peak_hot100 ?? 999))
-    .map((row) => row.title.trim());
+  const breakoutSongs: AlbumBreakoutSong[] = breakoutRows.map((row) => ({
+    rvtr: row.rvtr.trim().toUpperCase(),
+    title: row.title.trim(),
+    href: trackPageHref(row.rvtr),
+    peakHot100: row.peak_hot100,
+    chartWeeks: row.chart_weeks,
+    firstChartDate: row.first_chart_date?.slice(0, 10) ?? null,
+    trajectoryWeeks: chartsToTrajectoryWeeks(
+      (row.hot100_weeks ?? []).map((week) => ({
+        chart_date: week.chart_date.slice(0, 10),
+        chart_position: week.chart_position,
+        weeks_on_chart: week.weeks_on_chart,
+      })),
+    ),
+  }));
+
+  const majorSinglesFromChart = breakoutSongs
+    .filter((song) => song.peakHot100 <= 40)
+    .sort((a, b) => a.peakHot100 - b.peakHot100)
+    .map((song) => song.title);
 
   const sourceHints = await loadAlbumSourceHints(title, trackRvtrs);
 
@@ -326,14 +391,12 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
                (
                  SELECT aal.canonical_cover_path FROM album_artwork_links aal
                  WHERE aal.album_id = al.id
-                 ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-                 LIMIT 1
+                 ${WINNING_ARTWORK_LINK_ORDER}
                ) AS artwork_path,
                (
                  SELECT aal.r2_cover_key FROM album_artwork_links aal
                  WHERE aal.album_id = al.id
-                 ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-                 LIMIT 1
+                 ${WINNING_ARTWORK_LINK_ORDER}
                ) AS r2_cover_key
         FROM album_external_keys aek
         JOIN albums al ON al.id = aek.album_id
@@ -401,10 +464,11 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
     firstChartDate,
     lastChartDate,
     trajectoryWeeks,
-    chartRunLabel: "Billboard 200",
+    chartRunLabel: "Album chart",
     description,
     journeySummary: null,
     tracks,
+    breakoutSongs,
     similarChartJourneys,
     info,
     rvYearHref: rvChronologyHrefFromChartDate(peakWeekDate ?? firstChartDate, rvYear),

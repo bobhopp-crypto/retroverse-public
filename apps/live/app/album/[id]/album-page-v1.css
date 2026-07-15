@@ -1,26 +1,26 @@
 /* Album Experience v2 — Editorial RV2.0 */
 
 .rv2-album-editorial {
-  --album-bg: #07131d;
-  --album-surface: #0c1b27;
-  --album-card: #122434;
-  --album-primary: #2de2c3;
-  --album-secondary: #59a8ff;
-  --album-experience: #ff9c3a;
-  --album-entity: #9a6bff;
-  --album-ink: #f4f8ff;
-  --album-ink-soft: #c8d8ea;
-  --album-muted: #8aa3bc;
-  --album-line: rgba(89, 168, 255, 0.22);
-  --album-line-soft: rgba(255, 255, 255, 0.08);
+  --album-bg: var(--ex-bg);
+  --album-surface: var(--ex-panel);
+  --album-card: var(--ex-panel-strong);
+  --album-primary: var(--ex-aqua-accent);
+  --album-secondary: var(--ex-purple);
+  --album-experience: var(--ex-magenta);
+  --album-entity: var(--ex-purple);
+  --album-ink: var(--ex-ink);
+  --album-ink-soft: var(--ex-ink-soft);
+  --album-muted: var(--ex-muted);
+  --album-line: var(--ex-line-accent);
+  --album-line-soft: var(--ex-line);
   --album-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --album-gutter: max(0.85rem, 3.5vw);
 
   padding-bottom: 0;
   background:
-    radial-gradient(circle at 88% 6%, rgba(154, 107, 255, 0.16), transparent 16rem),
-    radial-gradient(circle at 10% 24%, rgba(45, 226, 195, 0.08), transparent 14rem),
-    linear-gradient(180deg, var(--album-bg) 0%, #081722 52%, var(--album-bg) 100%) !important;
+    radial-gradient(circle at 88% 6%, var(--ex-purple-dim), transparent 16rem),
+    radial-gradient(circle at 10% 24%, rgba(34, 231, 255, 0.08), transparent 14rem),
+    linear-gradient(180deg, var(--album-bg) 0%, var(--ex-bg-mid) 52%, var(--album-bg) 100%) !important;
 }
 
 .rv2-album-editorial .rv2-live__search-panel {
@@ -83,9 +83,9 @@
   border-radius: 1rem;
   object-fit: cover;
   border: 1px solid var(--album-line);
-  background: linear-gradient(145deg, #1a2f45, #0a1520);
+  background: var(--ex-art-fallback);
   box-shadow:
-    0 0 0 1px rgba(45, 226, 195, 0.08) inset,
+    0 0 0 1px rgba(34, 231, 255, 0.08) inset,
     0 28px 64px rgba(0, 0, 0, 0.45);
 }
 
@@ -236,6 +236,34 @@
   color: var(--album-muted);
 }
 
+.album-ed__section-kicker,
+.album-ed__journey-prompt {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.album-ed__section-kicker {
+  color: var(--album-primary);
+}
+
+.album-ed__journey-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.album-ed__journey-prompt {
+  max-width: 13rem;
+  padding-bottom: 0.2rem;
+  color: var(--album-muted);
+  text-align: right;
+}
+
 /* ── Editorial feature ────────────────────────────────────────── */
 
 .album-ed__section--editorial {
@@ -271,7 +299,7 @@
 }
 
 .rv2-album-editorial .explorer-row:hover {
-  background: rgba(45, 226, 195, 0.04);
+  background: rgba(34, 231, 255, 0.04);
 }
 
 .rv2-album-editorial .explorer-row__hit {
@@ -299,7 +327,7 @@
   font-size: 15px;
   font-weight: 900;
   font-variant-numeric: tabular-nums;
-  color: rgba(154, 107, 255, 0.75);
+  color: var(--ex-purple);
   text-align: center;
 }
 
@@ -341,14 +369,14 @@
 /* ── Chart journey ────────────────────────────────────────────── */
 
 .album-ed__chart-journey.rv-exp-cj--rv2 {
-  margin-top: 1rem;
+  margin: 0;
   padding: 1rem 0.85rem 1.1rem;
   border-color: var(--album-line);
   background:
-    linear-gradient(180deg, rgba(18, 36, 52, 0.96), rgba(12, 27, 39, 0.98)),
+    linear-gradient(180deg, var(--ex-panel-strong), var(--ex-panel)),
     var(--album-surface);
   box-shadow:
-    0 0 0 1px rgba(45, 226, 195, 0.06) inset,
+    0 0 0 1px rgba(34, 231, 255, 0.06) inset,
     0 22px 48px rgba(0, 0, 0, 0.32);
 }
 
@@ -362,10 +390,257 @@
 
 .album-ed__chart-journey .rv-exp-cj__row {
   min-height: 3rem;
+  border-radius: 0.4rem;
+  padding-inline: 0.3rem;
 }
 
 .album-ed__chart-journey .rv-exp-cj__bar-wrap {
   height: clamp(1.25rem, 3.8vw, 1.65rem);
+  border-radius: 0.3rem;
+}
+
+.album-ed__chart-journey .rv-exp-cj__date,
+.album-ed__chart-journey .rv-exp-cj__rank {
+  font-variant-numeric: tabular-nums;
+}
+
+.album-ed__journey-stage {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+  /* A dedicated marker lane keeps the weekly bar lane free for a future compare rail. */
+  grid-template-areas:
+    "milestones"
+    "journey";
+}
+
+.album-ed__chart-journey {
+  grid-area: journey;
+}
+
+.album-ed__milestones {
+  grid-area: milestones;
+  min-width: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--album-line-soft);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--album-surface) 86%, transparent);
+}
+
+.album-ed__milestones-kicker {
+  margin: 0 0 0.65rem;
+  font-size: 0.6rem;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--album-experience);
+}
+
+.album-ed__milestones-kicker--songs {
+  margin-top: 1rem;
+  color: var(--album-primary);
+}
+
+.album-ed__milestones-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(9.5rem, 1fr);
+  gap: 0.6rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.15rem;
+  scrollbar-color: var(--album-line) transparent;
+}
+
+.album-ed__milestone {
+  display: grid;
+  grid-template-columns: 0.85rem minmax(0, 1fr);
+  gap: 0.35rem 0.5rem;
+  align-items: start;
+  min-width: 0;
+}
+
+.album-ed__milestone-mark {
+  grid-row: span 2;
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-top: 0.2rem;
+  border: 2px solid var(--album-primary);
+  border-radius: 50%;
+  background: var(--album-primary);
+  box-shadow: 0 0 0 3px rgba(34, 231, 255, 0.1);
+}
+
+.album-ed__milestone--top-10 .album-ed__milestone-mark,
+.album-ed__milestone--peak .album-ed__milestone-mark {
+  border-color: var(--album-entity);
+  background: var(--album-surface);
+  box-shadow: 0 0 0 3px var(--ex-purple-dim);
+}
+
+.album-ed__milestone--number-one .album-ed__milestone-mark {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 0.15rem;
+  border-color: var(--album-experience);
+  background: var(--album-experience);
+  transform: rotate(45deg);
+}
+
+.album-ed__milestone-copy {
+  display: grid;
+  gap: 0.12rem;
+}
+
+a.album-ed__milestone-copy {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.album-ed__milestone-copy:hover .album-ed__milestone-label,
+a.album-ed__milestone-copy:focus-visible .album-ed__milestone-label {
+  color: var(--album-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.album-ed__milestone-label {
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--album-ink);
+}
+
+.album-ed__milestone-detail,
+.album-ed__milestone-date {
+  font-size: 0.67rem;
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--album-muted);
+}
+
+/* ── Breakout songs ───────────────────────────────────────────── */
+
+.album-ed__breakout-list {
+  display: grid;
+  gap: 0.8rem;
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+}
+
+.album-ed__breakout-card {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--album-line);
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, var(--ex-purple-dim), var(--album-card));
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.25s var(--album-ease), transform 0.25s var(--album-ease);
+}
+
+.album-ed__breakout-card:hover,
+.album-ed__breakout-card:focus-visible {
+  border-color: var(--album-primary);
+  transform: translateY(-1px);
+}
+
+.album-ed__breakout-head {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.album-ed__breakout-title {
+  font-size: clamp(1.2rem, 5vw, 1.55rem);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.album-ed__breakout-artist {
+  font-size: 0.84rem;
+  font-weight: 750;
+  color: var(--album-muted);
+}
+
+.album-ed__breakout-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.album-ed__breakout-stats div {
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--album-line-soft);
+  border-radius: 0.55rem;
+  background: color-mix(in srgb, var(--album-surface) 75%, transparent);
+}
+
+.album-ed__breakout-stats dt {
+  font-size: 0.56rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--album-secondary);
+}
+
+.album-ed__breakout-stats dd {
+  margin: 0.18rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 950;
+  font-variant-numeric: tabular-nums;
+}
+
+.album-ed__breakout-fingerprint {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.65rem;
+  border: 1px solid var(--album-line-soft);
+  border-radius: 0.6rem;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.album-ed__breakout-week {
+  display: block;
+  height: 0.32rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.album-ed__breakout-bar {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--album-secondary), var(--album-primary));
+}
+
+.album-ed__breakout-labels,
+.album-ed__breakout-cta {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.album-ed__breakout-labels {
+  color: var(--album-experience);
+}
+
+.album-ed__breakout-cta {
+  color: var(--album-primary);
+}
+
+.album-ed__milestone-date {
+  grid-column: 2;
+  color: var(--album-secondary);
 }
 
 .album-ed__journey-story-wrap {
@@ -413,8 +688,8 @@
 }
 
 .album-ed__journey-card:hover {
-  border-color: rgba(45, 226, 195, 0.45);
-  background: rgba(18, 36, 52, 0.92);
+  border-color: var(--ex-aqua-accent);
+  background: var(--ex-surface);
   transform: translateY(-1px);
 }
 
@@ -432,6 +707,48 @@
   flex-direction: column;
   gap: 0.2rem;
   min-width: 0;
+}
+
+.album-ed__journey-pattern {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  margin-bottom: 0.1rem;
+  font-size: 0.6rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--album-primary);
+}
+
+.album-ed__journey-pattern-line {
+  display: inline-block;
+  width: 1.7rem;
+  height: 0.35rem;
+  border: 1px solid rgba(34, 231, 255, 0.5);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--album-secondary), var(--album-primary));
+}
+
+.album-ed__journey-pattern-line--slow-climb {
+  clip-path: polygon(0 82%, 28% 72%, 56% 48%, 100% 12%, 100% 100%, 0 100%);
+}
+
+.album-ed__journey-pattern-line--fast-rise {
+  clip-path: polygon(0 92%, 26% 12%, 100% 4%, 100% 100%, 0 100%);
+}
+
+.album-ed__journey-pattern-line--endurance {
+  background: linear-gradient(90deg, var(--album-secondary) 0 22%, var(--album-primary) 22% 100%);
+}
+
+.album-ed__journey-pattern-line--return {
+  background: repeating-linear-gradient(90deg, var(--album-primary) 0 0.3rem, transparent 0.3rem 0.5rem);
+}
+
+.album-ed__journey-pattern-line--summit {
+  background: linear-gradient(90deg, var(--album-secondary), var(--album-experience), var(--album-secondary));
 }
 
 .album-ed__journey-card-title {
@@ -517,7 +834,7 @@
   border: 1px solid var(--album-line);
   border-radius: 0.85rem;
   background:
-    linear-gradient(135deg, rgba(89, 168, 255, 0.1), rgba(18, 36, 52, 0.95)),
+    linear-gradient(135deg, var(--ex-purple-dim), var(--ex-panel-strong)),
     var(--album-card);
   color: inherit;
   text-decoration: none;
@@ -528,7 +845,7 @@
 }
 
 .album-ed__explore-card:hover {
-  border-color: rgba(89, 168, 255, 0.55);
+  border-color: var(--ex-purple);
   transform: translateY(-2px);
 }
 
@@ -583,6 +900,22 @@
 
   .album-ed__journey-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .album-ed__breakout-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .album-ed__journey-stage {
+    grid-template-columns: minmax(11.5rem, 14rem) minmax(0, 1fr);
+    grid-template-areas: "milestones journey";
+    align-items: start;
+  }
+
+  .album-ed__milestones-list {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    overflow: visible;
   }
 
   .album-ed__explore-grid {

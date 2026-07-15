@@ -1,0 +1,24 @@
+.rv-context-back {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--ex-muted, currentColor);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.rv-context-back:hover,
+.rv-context-back:focus-visible {
+  color: var(--ex-aqua-accent, currentColor);
+}
+
+.rv-context-back:focus-visible {
+  border-radius: 0.3rem;
+  outline: 2px solid var(--ex-purple, currentColor);
+  outline-offset: 2px;
+}
+

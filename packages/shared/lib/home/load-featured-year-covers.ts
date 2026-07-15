@@ -1,4 +1,5 @@
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
+import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { buildFeaturedYearsFromConfig } from "@/lib/ops/event-control/featured-years";
 import { loadEventControlConfig } from "@/lib/ops/event-control/store";
@@ -61,14 +62,12 @@ async function loadCoverCandidatesForYear(year: number, pool: number): Promise<C
       (
         SELECT aal.canonical_cover_path FROM album_artwork_links aal
         WHERE aal.album_id = al.id
-        ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-        LIMIT 1
+        ${WINNING_ARTWORK_LINK_ORDER}
       ) AS artwork_path,
       (
         SELECT aal.r2_cover_key FROM album_artwork_links aal
         WHERE aal.album_id = al.id
-        ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-        LIMIT 1
+        ${WINNING_ARTWORK_LINK_ORDER}
       ) AS r2_cover_key
     FROM albums al
     JOIN album_rank ar ON ar.album_id = al.id

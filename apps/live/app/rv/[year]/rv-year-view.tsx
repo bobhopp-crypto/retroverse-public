@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
+import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import {
   isUsableChartHistory,
   normalizeArtistChartHistory,
@@ -216,6 +217,11 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
         aria-labelledby="rv-year-heading"
         data-accent-mood={editorial.accentMood ?? undefined}
       >
+        <RetroverseBack
+          fallbackHref="/search"
+          fallbackLabel="Search"
+          className="rv-year-hero__back"
+        />
         <p className="rv-year-hero__label">{editorial.theme}</p>
         <h1 id="rv-year-heading" className="rv-year-hero__year">
           {rvYear}

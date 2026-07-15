@@ -28,6 +28,7 @@ export default async function HomePage() {
       initial={current}
       shellClassName="rv2-live-home"
       activeNav="live"
+      minimalHome
     />
   );
 }

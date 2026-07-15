@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-import { AttractTourExperience } from "@/components/retroverse/experience/AttractTourExperience";
+import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { LivingSongExperience } from "@/components/retroverse/experience/LivingSongExperience";
 import { LivingSongShell } from "@/components/retroverse/experience/LivingSongShell";
-import { RetroverseVideoPlayer } from "@/components/retroverse/experience/RetroverseVideoPlayer";
+import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
 import { isUsableChartHistory } from "@/lib/artist/chart-history";
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadRvYearChartHistory } from "@/lib/artist/load-chart-history";
@@ -11,10 +11,7 @@ import {
   buildRvYearDestination,
   enrichRvYearDestination,
 } from "@/lib/rv-year/enrich-rv-year-destination";
-import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import type { RvYearDestination } from "@/lib/rv-year/rv-year-destination";
-import { resolveTrackPlayback } from "@/lib/playback/resolve-track-playback";
-import { toPlaybackManifest } from "@/lib/playback/types";
 import { loadPatronSongExperience } from "@/lib/retroverse/experience/load-patron-experience";
 import { loadSongControlPackage, songControlData } from "@/lib/retroverse-2/song-control";
 import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
@@ -25,10 +22,6 @@ type Props = {
   rvtr: string;
   className?: string;
 };
-
-function titleCaseName(name: string): string {
-  return name.replace(/\b[a-z]/g, (char) => char.toUpperCase());
-}
 
 function trackYear(track: TrackPageData): number | null {
   if (track.releaseYear) return track.releaseYear;
@@ -53,17 +46,14 @@ export async function PublicSongExperience({ rvtr, className }: Props) {
     );
   }
 
-  const [artist, destination, playback, controlPackage] = await Promise.all([
+  const [artist, destination, controlPackage] = await Promise.all([
     loadArtistPage(track.artistSlug),
     yearDestination(track),
-    resolveTrackPlayback(track.rvtr, { title: track.title, artist: track.artistName }),
     loadSongControlPackage(track),
   ]);
 
   const control = songControlData(controlPackage);
   const year = trackYear(track);
-  const opsEnabled = isOpsEnabled();
-  const playbackManifest = toPlaybackManifest(playback);
   const patron = await loadPatronSongExperience({
     track,
     pkg: controlPackage,
@@ -75,8 +65,12 @@ export async function PublicSongExperience({ rvtr, className }: Props) {
   });
 
   const storyScore = patron.experience.chapters.filter((chapter) => chapter.kind === "story").length;
-  const eraExhibit = patron.eraExhibit;
-
+  const primaryAlbum = track.albums[0] ?? null;
+  const journeyWeeks = track.trajectoryWeeks.length;
+  const chartChapter = patron.experience.chapters.find(
+    (chapter): chapter is Extract<(typeof patron.experience.chapters)[number], { kind: "chart_journey" }> =>
+      chapter.kind === "chart_journey",
+  );
   return (
     <div className={className}>
       <LivingSongShell
@@ -85,53 +79,68 @@ export async function PublicSongExperience({ rvtr, className }: Props) {
         storyScore={storyScore}
         openingKind={patron.experience.director.openingKind}
       >
-        <section className="rv2-song__hero" aria-label="Song overview">
-          <div className="rv2-song__hero-top">
-            <div className="rv2-song__hero-copy">
-              {eraExhibit ? (
-                <p className="rv2-song__exhibit-kicker">
-                  {eraExhibit.eraName} · {eraExhibit.eraYears}
-                </p>
-              ) : null}
-              <h1>{track.title}</h1>
-              <p className="rv2-song__artist">{titleCaseName(track.artistName)}</p>
-              {year ? <p className="rv2-song__year">{year}</p> : null}
-              {eraExhibit?.atmosphereDescription ? (
-                <p className="rv2-song__exhibit-atmosphere">{eraExhibit.atmosphereDescription}</p>
-              ) : null}
-              {eraExhibit?.artifactReference ? (
-                <p className="rv2-song__exhibit-artifact">{eraExhibit.artifactReference}</p>
-              ) : null}
-            </div>
-            {opsEnabled ? (
-              <div className="rv2-song__hero-flags">
-                <Link href={`/retroverse-2/song/${track.rvtr}/data`} className="rv2-song__data-button">
-                  Edit
+        <header className="rv2-song__header" aria-label="Song overview">
+          <RetroverseBack fallbackHref="/search" fallbackLabel="Search" />
+          <p className="rv2-live__eyebrow">Song</p>
+          <h1>{track.title}</h1>
+          <p className="rv2-song__artist">
+            <Link href={track.artistHref} prefetch className="rv2-song__hero-link">
+              {track.artistName}
+            </Link>
+          </p>
+          {primaryAlbum ? (
+            <p className="rv2-song__album">
+              <span>Album</span>
+              {primaryAlbum.href ? (
+                <Link href={primaryAlbum.href} prefetch className="rv2-song__hero-link">
+                  {primaryAlbum.title}
                 </Link>
-              </div>
+              ) : (
+                primaryAlbum.title
+              )}
+            </p>
+          ) : null}
+          {year ? (
+            <p className="rv2-song__year">
+              {track.rvYearHref ? (
+                <Link href={track.rvYearHref} prefetch className="rv2-song__hero-link">
+                  {year}
+                </Link>
+              ) : (
+                year
+              )}
+            </p>
+          ) : null}
+          {journeyWeeks > 0 ? (
+            <p className="rv2-song__hero-summary">
+              A complete Chart Journey in {journeyWeeks} {journeyWeeks === 1 ? "week" : "weeks"}.
+            </p>
+          ) : null}
+          <nav className="rv2-song__explore-links" aria-label="Explore this song">
+            {primaryAlbum?.href ? (
+              <Link href={primaryAlbum.href} prefetch>Album</Link>
             ) : null}
+            <Link href={track.artistHref} prefetch>Artist</Link>
+            {track.rvYearHref && year ? (
+              <Link href={track.rvYearHref} prefetch>Year {year}</Link>
+            ) : null}
+          </nav>
+        </header>
+        {journeyWeeks > 0 ? (
+          <div className="rv2-song__journey-stage">
+            <ChartJourney
+              weeks={track.trajectoryWeeks}
+              peak={track.peakHot100}
+              chartLabel={track.chartRunLabel}
+              focusTrackId={track.rvtr}
+              releaseYear={year}
+              summary={chartChapter?.summary ?? null}
+              hideTimeline
+              variant="rv2"
+              className="rv2-song__chart-journey"
+            />
           </div>
-
-          <RetroverseVideoPlayer
-            posterUrl={track.coverUrl}
-            title={track.title}
-            playback={playbackManifest}
-            className="rv2-song__video-player"
-            syncPlayback
-          />
-        </section>
-
-        <AttractTourExperience
-          patron={patron}
-          hero={{
-            title: track.title,
-            artist: track.artistName,
-            year,
-            coverUrl: track.coverUrl,
-          }}
-          eraArtifact={eraExhibit?.artifactReference ?? null}
-        />
-
+        ) : null}
         <LivingSongExperience experience={patron.experience} plan={patron.living} />
       </LivingSongShell>
     </div>

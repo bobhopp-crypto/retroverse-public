@@ -1,400 +1,209 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { coverInitialsFromTitle, DiscoverCard } from "./components/discover-card";
-import { ResultsPanel } from "./components/results-panel";
-import { SearchChartsHistoryPanel } from "./components/search-charts-history-panel";
-import { SearchRvHistoryEntryPanel } from "./components/search-rv-history-entry-panel";
-import { SearchSongsJukeboxPanel } from "./components/search-songs-jukebox-panel";
-import { SearchHeader } from "./components/search-header";
-import { EMPTY_SEARCH_PANELS } from "@/lib/search/empty-panels";
-import { formatResultsStats, panelCounts } from "@/lib/search/filter-panels";
-import { searchCountParts } from "@/lib/search/format-counts";
-import { detectYearContext, normalizeRVYear } from "@/lib/search/normalize-rv-year";
+import { isAbortError } from "@/lib/search/fetch-search";
 import {
-  resolveYearOnlySearchHref,
-} from "@/lib/rv-year/rv-year-intent";
-import { rvYearHref, RV_CHRONOLOGY_DEFAULT_YEAR } from "@/lib/rv/rv-chronology-paths";
-import { fetchSearchPanels, isAbortError } from "@/lib/search/fetch-search";
-import { useSearchQuery } from "@/lib/search/use-search-query";
-import {
-  isUsableChartHistory,
-  normalizeArtistChartHistory,
-} from "@/lib/artist/chart-history";
-import type { SearchChartHistoryContext } from "@/lib/search/load-search-chart-history";
-import {
-  searchAlbumsViewAllHref,
-  searchSongsViewAllHref,
-} from "@/lib/search/search-view-all-hrefs";
-import type { SearchPanels } from "@/lib/search/types";
+  EMPTY_CURATED_SEARCH_GROUPS,
+  type CuratedSearchGroups,
+  type SearchSuggestionItem,
+} from "@/lib/search/search-suggestion-types";
 
-function panelSubtitle(
-  tone: "albums" | "songs" | "artists",
-  subject: string,
-  trimmedQuery: string,
-): string {
-  if (!trimmedQuery) {
-    return tone === "albums"
-      ? "Explore albums"
-      : tone === "songs"
-        ? "Browse songs"
-        : "Artists and chart appearances";
-  }
-  const who = subject;
-  if (tone === "albums") return `Explore ${who}'s albums`;
-  if (tone === "songs") return `Browse ${who}'s songs`;
-  return `Related artists and chart appearances for ${who}`;
-}
+type CatalogSearchResponse = {
+  ok: boolean;
+  curated: CuratedSearchGroups;
+};
 
-function coerceChartContext(
-  raw: SearchChartHistoryContext | null | undefined,
-  query: string,
-): SearchChartHistoryContext | null {
-  if (!raw || !raw.history) return null;
-  const normalized = normalizeArtistChartHistory(
-    raw.history,
-    typeof raw.artistName === "string" ? raw.artistName : query,
-  );
-  if (!normalized || !isUsableChartHistory(normalized)) return null;
-  const rvYear =
-    normalizeRVYear(
-      (raw as SearchChartHistoryContext).rvYear ?? detectYearContext(query).rvYear,
-    ) ?? null;
-
-  return {
-    artistName: raw.artistName ?? query,
-    artistSlug: raw.artistSlug ?? "",
-    viewAllHref: raw.viewAllHref ?? "#",
-    highlightTrackIds: Array.isArray(raw.highlightTrackIds) ? raw.highlightTrackIds : [],
-    history: normalized,
-    rvYear,
-  };
-}
-
-function searchHasResults(
-  panels: SearchPanels,
-  chart: SearchChartHistoryContext | null,
-  options: { showRvHistoryFull: boolean; showRvHistoryEntry: boolean },
-): boolean {
-  const hasChart =
-    options.showRvHistoryFull &&
-    chart != null &&
-    isUsableChartHistory(chart.history);
+function ResultGroup({
+  title,
+  children,
+  emphasis = false,
+}: {
+  title: string;
+  children: ReactNode;
+  emphasis?: boolean;
+}) {
+  const id = `archive-search-${title.toLowerCase().replace(/\s+/g, "-")}`;
   return (
-    panels.albums.length > 0 ||
-    panels.songs.length > 0 ||
-    panels.artistsCharts.length > 0 ||
-    hasChart ||
-    options.showRvHistoryEntry
+    <section
+      className={emphasis ? "archive-search__group archive-search__group--best" : "archive-search__group"}
+      aria-labelledby={id}
+    >
+      <h2 id={id}>{title}</h2>
+      <div className="archive-search__list">{children}</div>
+    </section>
+  );
+}
+
+function ResultCard({
+  href,
+  title,
+  detail,
+  year,
+  artwork,
+}: {
+  href: string;
+  title: string;
+  detail?: string | null;
+  year?: number | null;
+  artwork?: string | null;
+}) {
+  return (
+    <Link href={href} className="archive-search__result">
+      <span className="archive-search__art" aria-hidden>
+        {artwork ? <img src={artwork} alt="" /> : title.slice(0, 1)}
+      </span>
+      <span className="archive-search__copy">
+        <span className="archive-search__title">{title}</span>
+        {detail ? <span className="archive-search__detail">{detail}</span> : null}
+      </span>
+      {year ? <span className="archive-search__year">{year}</span> : null}
+    </Link>
+  );
+}
+
+function ResultItem({ item }: { item: SearchSuggestionItem }) {
+  return (
+    <ResultCard
+      href={item.href}
+      title={item.title}
+      detail={item.kind === "song" || item.kind === "album" ? item.artist : null}
+      year={item.kind === "year" ? null : item.year}
+      artwork={item.coverUrl}
+    />
   );
 }
 
 export default function SearchClient() {
-  const router = useRouter();
-  const { query, setQuery, commitQuery, trimmedQuery } = useSearchQuery();
-  const [panels, setPanels] = useState<SearchPanels>(EMPTY_SEARCH_PANELS);
-  const [canonicalHeader, setCanonicalHeader] = useState<string | null>(null);
-  const [chartHistory, setChartHistory] = useState<SearchChartHistoryContext | null>(null);
+  const [query, setQuery] = useState("");
+  const [groups, setGroups] = useState<CuratedSearchGroups>(EMPTY_CURATED_SEARCH_GROUPS);
   const [loading, setLoading] = useState(false);
-  const [searchError, setSearchError] = useState<string | null>(null);
-  const panelsRef = useRef(panels);
-  const canonicalHeaderRef = useRef(canonicalHeader);
-  const chartHistoryRef = useRef(chartHistory);
-  const searchRequestIdRef = useRef(0);
+  const [failed, setFailed] = useState(false);
+  const requestRef = useRef(0);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const trimmedQuery = query.trim();
 
   useEffect(() => {
-    panelsRef.current = panels;
-  }, [panels]);
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
-    canonicalHeaderRef.current = canonicalHeader;
-  }, [canonicalHeader]);
-
-  useEffect(() => {
-    chartHistoryRef.current = chartHistory;
-  }, [chartHistory]);
-
-  const yearOnlyHref = useMemo(
-    () => resolveYearOnlySearchHref(trimmedQuery),
-    [trimmedQuery],
-  );
-
-  useEffect(() => {
-    if (yearOnlyHref) {
-      router.replace(yearOnlyHref);
-    }
-  }, [yearOnlyHref, router]);
-
-  useEffect(() => {
-    const q = trimmedQuery;
-    if (q.length < 2 || yearOnlyHref) {
-      searchRequestIdRef.current += 1;
-      setPanels(EMPTY_SEARCH_PANELS);
-      setCanonicalHeader(null);
-      setChartHistory(null);
-      setSearchError(null);
+    if (trimmedQuery.length < 2) {
+      requestRef.current += 1;
+      setGroups(EMPTY_CURATED_SEARCH_GROUPS);
       setLoading(false);
+      setFailed(false);
       return;
     }
 
-    const requestId = ++searchRequestIdRef.current;
+    const requestId = ++requestRef.current;
+    let controller: AbortController | null = null;
     setLoading(true);
-    setSearchError(null);
-
+    setFailed(false);
     const timer = window.setTimeout(() => {
-      fetchSearchPanels(q)
-        .then((result) => {
-          if (requestId !== searchRequestIdRef.current) return;
-          setPanels(result.panels);
-          setCanonicalHeader(result.queryDisplay ?? null);
-          setChartHistory(coerceChartContext(result.chartHistory, q));
-          setSearchError(result.error ?? null);
+      controller = new AbortController();
+      fetch(`/api/search?q=${encodeURIComponent(trimmedQuery)}`, { signal: controller.signal })
+        .then(async (response) => {
+          const body = (await response.json()) as CatalogSearchResponse;
+          if (!response.ok || !body.ok) throw new Error("Catalog search failed");
+          if (requestId !== requestRef.current) return;
+          setGroups(body.curated ?? EMPTY_CURATED_SEARCH_GROUPS);
         })
         .catch((error) => {
-          if (requestId !== searchRequestIdRef.current) return;
-          if (isAbortError(error)) return;
-          console.error("[search]", error);
-          setPanels(EMPTY_SEARCH_PANELS);
-          setCanonicalHeader(null);
-          setChartHistory(null);
-          setSearchError(error instanceof Error ? error.message : "Search failed");
+          if (!isAbortError(error) && requestId === requestRef.current) {
+            setGroups(EMPTY_CURATED_SEARCH_GROUPS);
+            setFailed(true);
+          }
         })
         .finally(() => {
-          if (requestId === searchRequestIdRef.current) setLoading(false);
+          if (requestId === requestRef.current) setLoading(false);
         });
-    }, 280);
+    }, 200);
 
     return () => {
       window.clearTimeout(timer);
+      controller?.abort();
     };
-  }, [trimmedQuery, yearOnlyHref]);
+  }, [trimmedQuery]);
 
-  const isIdle = trimmedQuery.length < 2;
-  const isYearRedirect = yearOnlyHref != null;
-  const panelBusy = loading && !isIdle && !isYearRedirect;
-
-  const showPanels = loading ? panelsRef.current : panels;
-  const showChartHistory = loading ? chartHistoryRef.current : chartHistory;
-  const yearContext = useMemo(() => detectYearContext(trimmedQuery), [trimmedQuery]);
-  const hasChartsHistory =
-    showChartHistory != null && isUsableChartHistory(showChartHistory.history);
-  const showRvHistoryFull = yearContext.hasYear && hasChartsHistory;
-  const hasPanelResults =
-    showPanels.albums.length > 0 ||
-    showPanels.songs.length > 0 ||
-    showPanels.artistsCharts.length > 0;
-  const showRvHistoryEntry = !yearContext.hasYear && !isIdle && (hasPanelResults || panelBusy);
-
-  const counts = useMemo(() => panelCounts(showPanels), [showPanels]);
-  const statsOptions = useMemo(
-    () => ({ hasChartHistory: showRvHistoryFull || showRvHistoryEntry }),
-    [showRvHistoryFull, showRvHistoryEntry],
-  );
-  const countParts = useMemo(
-    () => searchCountParts(counts, statsOptions),
-    [counts, statsOptions],
-  );
-  const countsLabel = useMemo(() => {
-    if (isIdle) return "Type 2+ characters to open the stacks";
-    if (isYearRedirect) return "Opening year…";
-    if (loading) return "Searching the stacks…";
-    if (searchError) return searchError;
-    return formatResultsStats(counts, statsOptions);
-  }, [isIdle, isYearRedirect, loading, searchError, counts, statsOptions]);
-
-  const showCanonicalHeader = loading
-    ? canonicalHeaderRef.current
-    : canonicalHeader;
-  const queryDisplay = showCanonicalHeader
-    ? showCanonicalHeader
-    : trimmedQuery
-      ? trimmedQuery.toUpperCase()
-      : "EXPLORE";
-  const subject = showCanonicalHeader
-    ? showCanonicalHeader
-        .split(/\s+/)
-        .map((w) => w.charAt(0) + w.slice(1).toLowerCase())
-        .join(" ")
-    : trimmedQuery.length > 0
-      ? trimmedQuery.charAt(0).toUpperCase() + trimmedQuery.slice(1).toLowerCase()
-      : "Results";
-
-  const hasAnyResults = searchHasResults(showPanels, showChartHistory, {
-    showRvHistoryFull,
-    showRvHistoryEntry,
-  });
-  const showEmpty = !loading && !searchError && !hasAnyResults && !isIdle;
-
-  const hasSongs = showPanels.songs.length > 0;
-  const hasAlbums = showPanels.albums.length > 0;
-  const artistResults = showPanels.artistsCharts.filter((a) => a.kind === "artist");
-  const hasArtists = artistResults.length > 0;
-  const albumsViewAllHref = useMemo(
-    () => searchAlbumsViewAllHref(showPanels, showChartHistory?.artistSlug),
-    [showPanels, showChartHistory?.artistSlug],
-  );
-  const songsViewAllHref = useMemo(
-    () => searchSongsViewAllHref(showPanels, showChartHistory?.artistSlug),
-    [showPanels, showChartHistory?.artistSlug],
-  );
-
-  useEffect(() => {
-    if (isIdle || loading) return;
-    console.log("[search]", {
-      songs: showPanels.songs.length,
-      artists: showPanels.artistsCharts.filter((a) => a.kind === "artist").length,
-      artistsCharts: showPanels.artistsCharts.length,
-      rvHistoryEntry: showRvHistoryEntry,
-      rvHistoryFull: showRvHistoryFull,
-      rvYear: yearContext.rvYear,
-      chartEntries: showChartHistory?.history?.entries?.length ?? 0,
-      albums: showPanels.albums.length,
-      hasAnyResults,
-      showEmpty,
-    });
-  }, [
-    isIdle,
-    loading,
-    showPanels,
-    showRvHistoryEntry,
-    showRvHistoryFull,
-    yearContext.rvYear,
-    showChartHistory,
-    hasAnyResults,
-    showEmpty,
-  ]);
-
-  const yearsHref =
-    yearContext.rvYear != null
-      ? rvYearHref(yearContext.rvYear)
-      : rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR);
+  const hasResults =
+    groups.bestMatch.length +
+      groups.artists.length +
+      groups.popularSongs.length +
+      groups.albums.length +
+      groups.otherMatches.length >
+    0;
+  const showNoResults = trimmedQuery.length >= 2 && !loading && !hasResults;
 
   return (
-    <Rv2PublicShell
-      className="rv2-search"
-      yearsHref={yearsHref}
-      activeNav="search"
-      searchQuery={query}
-      onSearchQueryChange={setQuery}
-      onSearchCommit={commitQuery}
-    >
-      <div className="search-page">
-        <div className="search-page__inner">
-          <SearchHeader
-            queryDisplay={queryDisplay}
-            countsLabel={countsLabel}
-            countParts={countParts}
-            loading={loading}
+    <Rv2PublicShell className="rv2-search" broadcastChrome>
+      <section className="archive-search" aria-label="Search Retroverse">
+        <label className="archive-search__label" htmlFor="archive-search-input">
+          Search Retroverse
+        </label>
+        <div className="archive-search__field-wrap">
+          <svg className="archive-search__icon" viewBox="0 0 24 24" aria-hidden>
+            <circle cx="10.5" cy="10.5" r="6.5" />
+            <path d="m16 16 4 4" />
+          </svg>
+          <input
+            ref={inputRef}
+            id="archive-search-input"
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search songs, artists, albums, years..."
+            autoComplete="off"
+            spellCheck={false}
+            enterKeyHint="search"
           />
-
-        {isIdle || isYearRedirect ? (
-          <div className="search-idle" role="status">
-            <p className="search-idle__lead">
-              {isYearRedirect ? "Opening the year…" : "The discovery portal is open."}
-            </p>
-            {!isYearRedirect ? (
-              <p className="search-idle__hint">
-                Keep typing — results appear after 2 characters.
-              </p>
-            ) : null}
-          </div>
-        ) : null}
-
-        {showEmpty ? (
-          <div className="search-empty" role="status">
-            <p className="search-empty__lead">The crates came back quiet.</p>
-            <p className="search-empty__hint">
-              Try a canonical artist, album title, or chart year — another spelling might
-              still be in the stacks.
-            </p>
-          </div>
-        ) : null}
-
-        {hasAnyResults || panelBusy ? (
-          <div
-            className={`search-panels${panelBusy ? " search-panels--pending" : ""}`}
-            aria-busy={panelBusy}
-          >
-            {hasArtists ? (
-              <ResultsPanel
-                id="artists"
-                title="Artists"
-                subtitle={panelSubtitle("artists", subject, trimmedQuery)}
-                viewAllHref={
-                  artistResults.find((a) => a.artistHref?.startsWith("/artist/"))
-                    ?.artistHref ?? "/rv/1978"
-                }
-                viewAllLabel="Artist exhibit →"
-                tone="artists"
-              >
-                {artistResults.map((item, index) => (
-                  <DiscoverCard
-                    key={`artist-${item.id}-${index}`}
-                    variant="artist-chart"
-                    title={item.title}
-                    line2={item.subtitle}
-                    coverUrl={item.coverUrl}
-                    coverInitials={coverInitialsFromTitle(item.title)}
-                    ariaLabel={`Artist: ${item.title}`}
-                    href={item.artistHref ?? item.href}
-                  />
-                ))}
-              </ResultsPanel>
-            ) : null}
-
-            {hasAlbums ? (
-              <ResultsPanel
-                id="albums"
-                title="Albums"
-                subtitle={panelSubtitle("albums", subject, trimmedQuery)}
-                viewAllHref={albumsViewAllHref}
-                viewAllLabel="View all albums →"
-                tone="albums"
-              >
-                {showPanels.albums.map((item, index) => (
-                  <DiscoverCard
-                    key={`album-${item.id}-${index}`}
-                    variant="album"
-                    title={item.title}
-                    line2={item.artist}
-                    line3={
-                      item.chartNote ??
-                      (item.year > 0 ? String(item.year) : undefined)
-                    }
-                    releaseYear={item.year > 0 ? item.year : null}
-                    coverUrl={item.coverUrl}
-                    coverInitials={coverInitialsFromTitle(item.title)}
-                    ariaLabel={`Album: ${item.title} by ${item.artist}, ${item.year}`}
-                    href={item.href}
-                  />
-                ))}
-              </ResultsPanel>
-            ) : null}
-
-            {hasSongs ? (
-              <SearchSongsJukeboxPanel
-                key={`songs-stack-${trimmedQuery}-${showPanels.songs.length}`}
-                viewAllHref={songsViewAllHref}
-                viewAllLabel="View all songs →"
-                songs={showPanels.songs}
-              />
-            ) : null}
-
-            {showRvHistoryEntry ? <SearchRvHistoryEntryPanel /> : null}
-
-            {showRvHistoryFull && showChartHistory ? (
-              <SearchChartsHistoryPanel
-                key={`rv-history-${trimmedQuery}-${yearContext.rvYear}-${showChartHistory.history.entries.length}`}
-                context={showChartHistory}
-                initialRvYear={normalizeRVYear(yearContext.rvYear)}
-              />
-            ) : null}
-          </div>
-        ) : null}
+          {query ? (
+            <button type="button" onClick={() => setQuery("")} aria-label="Clear search">
+              ×
+            </button>
+          ) : null}
         </div>
-      </div>
+
+        {trimmedQuery.length === 0 ? (
+          <p className="archive-search__state archive-search__state--idle">Start typing to explore.</p>
+        ) : null}
+        {loading && !hasResults ? <p className="archive-search__state" role="status">Searching…</p> : null}
+        {showNoResults || (failed && !hasResults) ? (
+          <p className="archive-search__state" role="status">No matching results.</p>
+        ) : null}
+
+        {hasResults ? (
+          <div className={loading ? "archive-search__results archive-search__results--loading" : "archive-search__results"}>
+            {groups.bestMatch.length ? (
+              <ResultGroup title="Best Match" emphasis>
+                {groups.bestMatch.map((item) => <ResultItem key={item.id} item={item} />)}
+              </ResultGroup>
+            ) : null}
+            {groups.artists.length ? (
+              <ResultGroup title="Artists">
+                {groups.artists.map((item) => <ResultItem key={item.id} item={item} />)}
+              </ResultGroup>
+            ) : null}
+            {groups.popularSongs.length ? (
+              <ResultGroup title="Popular Songs">
+                {groups.popularSongs.map((item) => <ResultItem key={item.id} item={item} />)}
+              </ResultGroup>
+            ) : null}
+            {groups.albums.length ? (
+              <ResultGroup title="Albums">
+                {groups.albums.map((item) => <ResultItem key={item.id} item={item} />)}
+              </ResultGroup>
+            ) : null}
+            {groups.otherMatches.length ? (
+              <ResultGroup title="Other Matches">
+                {groups.otherMatches.map((item) => <ResultItem key={item.id} item={item} />)}
+              </ResultGroup>
+            ) : null}
+          </div>
+        ) : null}
+      </section>
     </Rv2PublicShell>
   );
 }

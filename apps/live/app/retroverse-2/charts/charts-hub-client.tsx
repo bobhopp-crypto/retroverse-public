@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 
+import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 
 import "./charts-rv2.css";
@@ -11,6 +12,7 @@ const FEATURED_YEARS = [1967, 1971, 1978, 1984, 1992, 2000, 2014];
 export function ChartsHubClient() {
   return (
     <Rv2PublicShell className="rv2-charts-hub" activeNav="charts" yearsHref="/rv/1978">
+      <RetroverseBack fallbackHref="/search" fallbackLabel="Search" />
       <section className="rv2-charts-hub__hero" aria-labelledby="charts-hub-heading">
         <p className="rv2-live__eyebrow">Charts</p>
         <h1 id="charts-hub-heading">Billboard history, year by year</h1>

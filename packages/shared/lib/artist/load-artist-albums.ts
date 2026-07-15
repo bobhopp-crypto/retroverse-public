@@ -1,6 +1,7 @@
 import { cache } from "react";
 
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
+import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
 import { artistNameFromSlug, displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
@@ -14,6 +15,11 @@ export type ArtistAlbumsData = {
   slug: string;
   displayName: string;
   albums: ArtistAlbumCard[];
+};
+
+export type LoadArtistAlbumsOptions = {
+  /** Search already has canonical covers; skip the legacy home-search cover fallback. */
+  skipSearchCoverFallback?: boolean;
 };
 
 function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
@@ -55,7 +61,10 @@ async function fetchHomeSearch(name: string) {
   }
 }
 
-async function loadArtistAlbumsImpl(slug: string): Promise<ArtistAlbumsData> {
+async function loadArtistAlbumsImpl(
+  slug: string,
+  options?: LoadArtistAlbumsOptions,
+): Promise<ArtistAlbumsData> {
   const ping = await inspectPing();
   if (!ping.ok) return fallbackAlbums(slug);
 
@@ -86,14 +95,12 @@ async function loadArtistAlbumsImpl(slug: string): Promise<ArtistAlbumsData> {
         (
           SELECT aal.canonical_cover_path FROM album_artwork_links aal
           WHERE aal.album_id = al.id
-          ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-          LIMIT 1
+          ${WINNING_ARTWORK_LINK_ORDER}
         ) AS artwork_path,
         (
           SELECT aal.r2_cover_key FROM album_artwork_links aal
           WHERE aal.album_id = al.id
-          ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-          LIMIT 1
+          ${WINNING_ARTWORK_LINK_ORDER}
         ) AS r2_cover_key
       FROM albums al
       LEFT JOIN album_external_keys aek ON aek.album_id = al.id
@@ -105,7 +112,7 @@ async function loadArtistAlbumsImpl(slug: string): Promise<ArtistAlbumsData> {
       `,
       [artistId],
     ),
-    fetchHomeSearch(canonicalName),
+    options?.skipSearchCoverFallback ? Promise.resolve(null) : fetchHomeSearch(canonicalName),
   ]);
 
   const coverFromSearch = new Map<string, string>();

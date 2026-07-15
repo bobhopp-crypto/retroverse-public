@@ -7,7 +7,6 @@ export default function ChartWeekPortalLoading() {
     <Rv2PublicShell className="rv2-chart-week rv2-explorer" activeNav="charts">
       <div className="explorer explorer--loading" aria-busy="true" aria-label="Loading chart week">
         <header className="explorer__header">
-          <span className="explorer__back">← Back</span>
           <h1 className="explorer__date">Loading…</h1>
         </header>
         <div className="explorer__list">

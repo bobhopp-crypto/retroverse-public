@@ -14,6 +14,7 @@ type Props = {
   initial: SundayNightsCurrentPayload;
   shellClassName?: string;
   activeNav?: "live" | "search" | "years" | "charts";
+  minimalHome?: boolean;
 };
 
 type HeroDisplay = {
@@ -36,17 +37,17 @@ const RE_RVTR = /^RVTR\d{6}$/i;
 const SAFE_FALLBACK_RVTR = "RVTR708312";
 
 function chartsHrefFromTrack(track: TrackPageData): string | null {
-  const peakDate =
+  const chartWeek =
     (track.peakHot100 != null
-      ? track.trajectoryWeeks.find((week) => week.rank === track.peakHot100)?.issueDate
+      ? track.trajectoryWeeks.find((week) => week.rank === track.peakHot100)
       : null) ??
-    track.trajectoryWeeks[track.trajectoryWeeks.length - 1]?.issueDate ??
-    track.firstChartDate;
+    track.trajectoryWeeks[track.trajectoryWeeks.length - 1] ??
+    null;
 
-  if (!peakDate) return "/retroverse-2/charts";
-  return chartWeekPortalHref(peakDate, {
+  if (!chartWeek) return "/retroverse-2/charts";
+  return chartWeekPortalHref(chartWeek.issueDate, {
     focus: track.rvtr,
-    rank: track.peakHot100 ?? undefined,
+    rank: chartWeek.rank,
   });
 }
 
@@ -104,7 +105,7 @@ function displayFromPayload(
       artistHref,
       albumHref: null,
       yearHref: payload.live.year ? rvYearHref(payload.live.year) : null,
-      chartsHref: null,
+      chartsHref: "/retroverse-2/charts",
       rvtr: RE_RVTR.test(payload.currentTrackId ?? "") ? payload.currentTrackId : null,
       track: null,
     };
@@ -123,53 +124,6 @@ function displayFromPayload(
     rvtr: SAFE_FALLBACK_RVTR,
     track: null,
   };
-}
-
-function storyCards(display: HeroDisplay, isLiveNow: boolean) {
-  const track = display.track;
-  const album = track?.albums.find((entry) => entry.title)?.title ?? null;
-
-  return [
-    isLiveNow
-      ? {
-          label: "Live Now",
-          title: "Playing In The Room",
-          copy: "This is the song currently leading the Retroverse journey.",
-        }
-      : {
-          label: "Now Exploring",
-          title: "Open The Story",
-          copy: "Start with this song and follow the artist, year, and album connections.",
-        },
-    track?.peakHot100
-      ? {
-          label: `Hot 100 #${track.peakHot100}`,
-          title: "Chart Success",
-          copy: `${display.title} reached #${track.peakHot100} and stayed visible for ${track.chartWeeks || "multiple"} chart weeks.`,
-        }
-      : null,
-    display.year
-      ? {
-          label: String(display.year),
-          title: `${display.year} Context`,
-          copy: `Explore the records, artists, and chart history connected to ${display.year}.`,
-        }
-      : null,
-    album
-      ? {
-          label: album,
-          title: "Album Connection",
-          copy: `${display.title} belongs to a larger album world worth exploring.`,
-        }
-      : null,
-    display.artist
-      ? {
-          label: display.artist,
-          title: "Artist Trail",
-          copy: `Follow ${display.artist} through songs, records, and chart moments.`,
-        }
-      : null,
-  ].filter((card): card is { label: string; title: string; copy: string } => card != null).slice(0, 3);
 }
 
 type ExploreAction = {
@@ -202,6 +156,7 @@ export function RetroverseLive2View({
   initial,
   shellClassName,
   activeNav = "live",
+  minimalHome = false,
 }: Props) {
   const [payload, setPayload] = useState(initial);
   const pollMs = payload.channel?.running ? CHANNEL_POLL_MS : DEFAULT_POLL_MS;
@@ -280,8 +235,6 @@ export function RetroverseLive2View({
     () => displayFromPayload(payload),
     [payload],
   );
-  const cards = useMemo(() => storyCards(display, isLiveNow), [display, isLiveNow]);
-
   const exploreActions: ExploreAction[] = [
     { label: "Song", href: display.songHref },
     { label: "Artist", href: display.artistHref },
@@ -301,8 +254,75 @@ export function RetroverseLive2View({
       className={shellClassName}
       activeNav={activeNav}
       yearsHref={display.yearHref ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR)}
+      minimalNavigation={minimalHome}
+      broadcastChrome={minimalHome}
     >
-      <section className="rv2-live__hero" aria-label={isLiveNow ? "Live now" : "Now exploring"}>
+      <section
+        className={minimalHome ? "rv2-live__hero rv2-live__hero--minimal" : "rv2-live__hero"}
+        aria-label={isLiveNow ? "Live now" : "Now exploring"}
+      >
+        {minimalHome ? (
+          <div className="rv2-live__minimal-current">
+            {display.albumHref ? (
+              <Link
+                href={display.albumHref}
+                className="rv2-live__art-wrap rv2-live__art-wrap--minimal"
+                aria-label={`Open the album for ${display.title}`}
+              >
+                {display.coverUrl ? (
+                  <img
+                    src={display.coverUrl}
+                    alt={`Album artwork for ${display.title}`}
+                    className="rv2-live__art"
+                    width={520}
+                    height={520}
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="rv2-live__art-placeholder" aria-hidden>
+                    RV
+                  </div>
+                )}
+              </Link>
+            ) : (
+              <div className="rv2-live__art-wrap rv2-live__art-wrap--minimal">
+              {display.coverUrl ? (
+                <img
+                  src={display.coverUrl}
+                  alt={`Album artwork for ${display.title}`}
+                  className="rv2-live__art"
+                  width={520}
+                  height={520}
+                  decoding="async"
+                />
+              ) : (
+                <div className="rv2-live__art-placeholder" aria-hidden>
+                  RV
+                </div>
+              )}
+              </div>
+            )}
+            <h1 className="rv2-live__minimal-title">
+              {display.songHref ? <Link href={display.songHref}>{display.title}</Link> : display.title}
+            </h1>
+            {display.artistHref ? (
+              <Link href={display.artistHref} className="rv2-live__minimal-artist">
+                {display.artist}
+              </Link>
+            ) : (
+              <p className="rv2-live__minimal-artist">{display.artist}</p>
+            )}
+            {display.year ? (
+              <Link
+                href={display.yearHref ?? rvYearHref(display.year)}
+                className="rv2-live__minimal-year"
+              >
+                {display.year}
+              </Link>
+            ) : null}
+          </div>
+        ) : (
+          <>
         <div className="rv2-live__status-row">
           <p className={isLiveNow ? "rv2-live__status rv2-live__status--live" : "rv2-live__status"}>
             <span aria-hidden />
@@ -318,22 +338,41 @@ export function RetroverseLive2View({
             {display.year ? <p className="rv2-live__year">{display.year}</p> : null}
           </div>
 
-          <div className="rv2-live__art-wrap">
-            {display.coverUrl ? (
-              <img
-                src={display.coverUrl}
-                alt=""
-                className="rv2-live__art"
-                width={520}
-                height={520}
-                decoding="async"
-              />
-            ) : (
-              <div className="rv2-live__art-placeholder" aria-hidden>
-                RV
-              </div>
-            )}
-          </div>
+          {display.albumHref ? (
+            <Link href={display.albumHref} className="rv2-live__art-wrap" aria-label={`Open ${display.title} album`}>
+              {display.coverUrl ? (
+                <img
+                  src={display.coverUrl}
+                  alt=""
+                  className="rv2-live__art"
+                  width={520}
+                  height={520}
+                  decoding="async"
+                />
+              ) : (
+                <div className="rv2-live__art-placeholder" aria-hidden>
+                  RV
+                </div>
+              )}
+            </Link>
+          ) : (
+            <div className="rv2-live__art-wrap">
+              {display.coverUrl ? (
+                <img
+                  src={display.coverUrl}
+                  alt=""
+                  className="rv2-live__art"
+                  width={520}
+                  height={520}
+                  decoding="async"
+                />
+              ) : (
+                <div className="rv2-live__art-placeholder" aria-hidden>
+                  RV
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <nav className="rv2-live__actions rv2-live__actions--explore" aria-label="Explore current song">
@@ -341,19 +380,8 @@ export function RetroverseLive2View({
             <ExploreActionButton key={action.label} {...action} />
           ))}
         </nav>
-      </section>
-
-      <section className="rv2-live__story" aria-label="Why this song matters">
-        <p className="rv2-live__eyebrow">Why This Song Matters</p>
-        <div className="rv2-live__story-grid">
-          {cards.map((card) => (
-            <article className="rv2-live__story-card" key={card.title}>
-              <p className="rv2-live__story-label">{card.label}</p>
-              <h2>{card.title}</h2>
-              <p>{card.copy}</p>
-            </article>
-          ))}
-        </div>
+          </>
+        )}
       </section>
     </Rv2PublicShell>
   );

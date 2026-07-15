@@ -26,6 +26,77 @@
   padding: 0.65rem;
 }
 
+.rv2-live__hero--minimal {
+  display: grid;
+  min-height: 0;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.rv2-live__minimal-current {
+  display: grid;
+  width: min(100%, 30rem);
+  gap: 0.28rem;
+}
+
+.rv2-live__art-wrap--minimal {
+  width: min(100%, calc(100svh - 18rem));
+  max-width: 25rem;
+  margin: 0 auto 0.65rem;
+  border-radius: 0.65rem;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.rv2-live__minimal-title,
+.rv2-live__minimal-artist,
+.rv2-live__minimal-year {
+  margin: 0;
+  text-align: center;
+}
+
+.rv2-live__minimal-title {
+  font-size: clamp(2.1rem, 11vw, 3.3rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.rv2-live__minimal-title a,
+.rv2-live__minimal-artist,
+.rv2-live__minimal-year {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rv2-live__minimal-artist {
+  color: var(--ex-ink-soft);
+  font-size: clamp(1.08rem, 5vw, 1.45rem);
+  font-weight: 800;
+}
+
+.rv2-live__minimal-year {
+  color: var(--ex-purple);
+  font-size: clamp(1.1rem, 5.4vw, 1.45rem);
+  font-weight: 950;
+}
+
+.rv2-live__art-wrap--minimal:hover,
+.rv2-live__art-wrap--minimal:focus-visible {
+  border-color: var(--rv2-line-hot);
+  transform: translateY(-2px);
+}
+
+.rv2-live__minimal-title a:hover,
+.rv2-live__minimal-title a:focus-visible,
+.rv2-live__minimal-artist:hover,
+.rv2-live__minimal-artist:focus-visible,
+.rv2-live__minimal-year:hover,
+.rv2-live__minimal-year:focus-visible {
+  color: var(--ex-aqua-accent);
+}
+
 .rv2-live__status-row {
   display: flex;
   align-items: center;

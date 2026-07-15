@@ -223,9 +223,11 @@
 
 /* ── Hero ───────────────────────────────────────────────────────── */
 .artist-v1__hero {
-  padding: 0.65rem 0.85rem 1.25rem;
+  padding: 0.8rem 0.85rem 1.15rem;
   border-bottom: 1px solid var(--ex-line);
-  background: rgba(7, 8, 24, 0.88);
+  background:
+    radial-gradient(circle at 82% 12%, rgba(168, 85, 255, 0.2), transparent 34%),
+    rgba(7, 8, 24, 0.9);
 }
 
 .artist-v1__hero-main {
@@ -240,9 +242,9 @@
 }
 
 .artist-v1__portrait {
-  width: 96px;
-  height: 96px;
-  border-radius: 14px;
+  width: 112px;
+  height: 112px;
+  border-radius: 16px;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
@@ -270,7 +272,7 @@
 
 .artist-v1__name {
   margin: 0;
-  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-size: clamp(1.7rem, 7vw, 2.45rem);
   font-weight: 950;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -296,43 +298,114 @@
   margin-right: 4px;
 }
 
+.artist-v1__hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.artist-v1__hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--ex-ink-soft);
+  font-size: 0.73rem;
+  font-weight: 850;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: background 0.2s var(--ex-ease), border-color 0.2s var(--ex-ease), color 0.2s var(--ex-ease);
+}
+
+.artist-v1__hero-link--primary {
+  border-color: rgba(168, 85, 255, 0.68);
+  background: rgba(168, 85, 255, 0.2);
+  color: var(--ex-ink);
+}
+
+.artist-v1__hero-link:hover {
+  border-color: rgba(168, 85, 255, 0.75);
+  background: rgba(168, 85, 255, 0.22);
+  color: var(--ex-ink);
+}
+
 /* ── Sections ───────────────────────────────────────────────────── */
 .artist-v1__section {
-  padding: 1.1rem 0.85rem 0.25rem;
+  padding: 1.75rem 0.85rem;
+  border-bottom: 1px solid var(--ex-line);
 }
 
 .artist-v1__section-title {
-  margin: 0 0 6px;
-  font-size: 1.05rem;
+  margin: 0;
+  font-size: clamp(1.2rem, 5vw, 1.55rem);
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.artist-v1__section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.artist-v1__section-kicker {
+  margin: 0 0 5px;
+  color: var(--ex-purple);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.artist-v1__section-link {
+  flex: 0 0 auto;
+  padding-bottom: 2px;
+  color: var(--ex-aqua-accent);
+  font-size: 0.74rem;
+  font-weight: 850;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.artist-v1__section-link:hover {
+  color: var(--ex-ink);
 }
 
 .artist-v1__section-lead {
-  margin: 0 0 8px;
+  margin: 9px 0 13px;
   font-size: 0.78rem;
   font-weight: 650;
   color: var(--ex-muted);
 }
 
-.artist-v1__overview-text {
-  margin: 0 0 8px;
-  font-size: 0.92rem;
-  font-weight: 550;
-  line-height: 1.45;
-  color: var(--ex-ink-soft);
+.artist-v1__section--songs {
+  padding-bottom: 0.55rem;
 }
 
-.artist-v1__overview-text:last-child {
-  margin-bottom: 0;
+.artist-v1__section--albums {
+  padding-bottom: 1.5rem;
+  background:
+    linear-gradient(90deg, rgba(168, 85, 255, 0.11), transparent 65%),
+    rgba(255, 255, 255, 0.012);
+}
+
+.artist-v1__section--years {
+  background: rgba(255, 255, 255, 0.018);
 }
 
 /* ── Albums shelf ───────────────────────────────────────────────── */
 .artist-v1__album-shelf {
   display: flex;
-  gap: 12px;
+  gap: 15px;
   overflow-x: auto;
-  padding: 4px 0 12px;
+  padding: 13px 0 8px;
   margin: 0;
   list-style: none;
   scroll-snap-type: x mandatory;
@@ -342,8 +415,8 @@
 .artist-v1__album-card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  width: 108px;
+  gap: 7px;
+  width: 164px;
   flex-shrink: 0;
   scroll-snap-align: start;
   text-decoration: none;
@@ -351,11 +424,12 @@
 }
 
 .artist-v1__album-art {
-  width: 108px;
-  height: 108px;
-  border-radius: 10px;
+  width: 164px;
+  height: 164px;
+  border-radius: 12px;
   object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
 .artist-v1__album-art--fallback {
@@ -364,8 +438,8 @@
 }
 
 .artist-v1__album-title {
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.88rem;
+  font-weight: 850;
   line-height: 1.15;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -374,16 +448,16 @@
 }
 
 .artist-v1__album-year {
-  font-size: 0.72rem;
-  font-weight: 650;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: var(--ex-muted);
 }
 
 /* ── Years ──────────────────────────────────────────────────────── */
 .artist-v1__year-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -393,9 +467,10 @@
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
+  gap: 4px;
   min-height: var(--ex-touch);
-  padding: 10px 14px;
+  min-width: 0;
+  padding: 14px;
   border-radius: 12px;
   border: 1px solid rgba(168, 85, 255, 0.28);
   background: rgba(168, 85, 255, 0.1);
@@ -410,22 +485,22 @@
 }
 
 .artist-v1__year-value {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 900;
   font-variant-numeric: tabular-nums;
 }
 
 .artist-v1__year-count {
-  font-size: 0.68rem;
-  font-weight: 700;
+  font-size: 0.7rem;
+  font-weight: 750;
   color: var(--ex-muted);
 }
 
 /* ── Related artists ──────────────────────────────────────────────── */
 .artist-v1__related-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -435,9 +510,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  min-height: var(--ex-touch);
-  padding: 8px 12px 8px 8px;
-  border-radius: 999px;
+  min-height: 64px;
+  padding: 9px;
+  border-radius: 12px;
   border: 1px solid var(--ex-line);
   background: rgba(255, 255, 255, 0.04);
   text-decoration: none;
@@ -450,8 +525,8 @@
 }
 
 .artist-v1__related-art {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -463,8 +538,8 @@
 }
 
 .artist-v1__related-name {
-  font-size: 0.88rem;
-  font-weight: 800;
+  font-size: 0.82rem;
+  font-weight: 850;
   padding-right: 4px;
 }
 
@@ -496,20 +571,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px 20px;
-  padding: 1.25rem 0.85rem 2rem;
+  padding: 1.5rem 0.85rem 2.25rem;
   margin-top: auto;
   border-top: 1px solid var(--ex-line);
 }
 
 .artist-v1__footer-link {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 800;
   color: var(--ex-muted);
   text-decoration: none;
-}
-
-.artist-v1__footer-link--live {
-  color: var(--ex-purple);
 }
 
 .artist-v1__footer-link:hover {
@@ -533,12 +604,17 @@
   }
 
   .artist-v1__album-card {
-    width: 124px;
+    width: 180px;
   }
 
   .artist-v1__album-art {
-    width: 124px;
-    height: 124px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .artist-v1__year-pills,
+  .artist-v1__related-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -546,7 +622,8 @@
   .rv2-artist .explorer-row,
   .rv2-artist .explorer-btn,
   .artist-v1__year-pill,
-  .artist-v1__related-card {
+  .artist-v1__related-card,
+  .artist-v1__hero-link {
     transition: none;
   }
 }

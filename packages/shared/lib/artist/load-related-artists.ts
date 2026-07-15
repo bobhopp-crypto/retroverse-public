@@ -1,5 +1,6 @@
 import { inspectQuery } from "@/lib/inspect/pg";
-import { coverPathToUrl } from "@/lib/artist/cover-url";
+import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
+import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import type { RelatedArtistCard } from "@/lib/artist/types";
 
@@ -13,12 +14,11 @@ type CoChartRow = {
 };
 
 function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
-  for (const c of candidates) {
-    if (!c?.trim()) continue;
-    const url = coverPathToUrl(c) ?? coverPathToUrl(null, c);
-    if (url) return url;
-  }
-  return null;
+  return resolveAlbumCoverUrlFromRow({
+    cover_path: candidates[0],
+    artwork_path: candidates[1],
+    r2_cover_key: candidates[2],
+  });
 }
 
 /** Chart co-occurrence neighbors — deterministic PG fallback when welcome search is unavailable. */
@@ -47,16 +47,14 @@ export async function loadRelatedArtistsFromGraph(
         FROM albums al
         JOIN album_artwork_links aal ON aal.album_id = al.id
         WHERE al.artist_id = ar2.id
-        ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-        LIMIT 1
+        ${WINNING_ARTWORK_LINK_ORDER}
       ) AS artwork_path,
       (
         SELECT aal.r2_cover_key
         FROM albums al
         JOIN album_artwork_links aal ON aal.album_id = al.id
         WHERE al.artist_id = ar2.id
-        ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-        LIMIT 1
+        ${WINNING_ARTWORK_LINK_ORDER}
       ) AS r2_cover_key
     FROM chart_appearances ca1
     JOIN tracks t1 ON t1.id = ca1.track_id

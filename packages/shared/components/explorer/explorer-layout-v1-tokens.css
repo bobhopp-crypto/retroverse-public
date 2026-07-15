@@ -34,7 +34,8 @@
   --ex-magenta: #ff44aa;
   --ex-magenta-dim: rgba(255, 68, 170, 0.18);
   --ex-youtube: #ff4466;
-  --ex-amber: #e7bd67;
+  /* Retained for older component names; Version 3 uses magenta, not gold. */
+  --ex-amber: var(--ex-magenta);
 
   /* Motion & touch */
   --ex-touch: 44px;

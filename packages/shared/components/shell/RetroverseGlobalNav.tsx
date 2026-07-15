@@ -5,14 +5,18 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import { ReturnToLiveLink } from "@/components/live-experience/ReturnToLiveLink";
+import { CANONICAL_AUDIENCE_HREF, isLiveBroadcastPath } from "@/lib/bobos/presentation/canonical-audience";
 import {
   adminMenuZones,
   detectAppZone,
   type AppZone,
   zoneHref,
 } from "@/lib/navigation/app-zones";
-import { detectPublicNavLink, PUBLIC_NAV_LINKS } from "@/lib/navigation/public-nav";
-import { isLiveBroadcastPath } from "@/lib/bobos/presentation/canonical-audience";
+import {
+  markCurrentInternalEntry,
+  readCurrentInternalEntry,
+  readStoredInternalEntry,
+} from "@/lib/navigation/internal-history";
 
 import "./retroverse-global-nav.css";
 
@@ -75,30 +79,25 @@ function AdminGearMenu({
     };
   }, [open]);
 
-  if (!opsEnabled || zones.length === 0) return null;
+  if (!opsEnabled || !opsAuthenticated || zones.length === 0) return null;
 
   return (
     <div className="rv-global-nav__gear-wrap" ref={rootRef}>
       <button
         type="button"
-        className={
-          opsAuthenticated
-            ? "rv-global-nav__gear rv-global-nav__gear--authed"
-            : "rv-global-nav__gear"
-        }
-        aria-label="Admin access"
+        className="rv-global-nav__gear rv-global-nav__gear--authed"
+        aria-label="Open BobOS settings"
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
       >
         <GearIcon />
+        <span>BobOS</span>
       </button>
 
       {open ? (
         <div className="rv-global-nav__gear-menu" role="menu" aria-label="Admin navigation">
-          <p className="rv-global-nav__gear-kicker">
-            {opsAuthenticated ? "Admin access" : "Sign in required"}
-          </p>
+          <p className="rv-global-nav__gear-kicker">Owner settings</p>
           {zones.map((zone: AppZone) => (
             <Link
               key={zone.id}
@@ -115,16 +114,6 @@ function AdminGearMenu({
               <span>{zone.description}</span>
             </Link>
           ))}
-          {!opsAuthenticated ? (
-            <Link
-              href="/internal/ops-pin?next=/ops"
-              role="menuitem"
-              className="rv-global-nav__gear-pin"
-              onClick={() => setOpen(false)}
-            >
-              Enter PIN
-            </Link>
-          ) : null}
         </div>
       ) : null}
     </div>
@@ -135,7 +124,38 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
   const pathname = usePathname() ?? "/";
   const onGalleryRoute = pathname.startsWith("/retroverse/experiences");
   const activeZone = detectAppZone(pathname);
-  const activePublicLink = detectPublicNavLink(pathname);
+  const activeEntryIdRef = useRef<string | null>(null);
+  const historyInitializedRef = useRef(false);
+
+  useEffect(() => {
+    const href = window.location.pathname;
+    const current = readCurrentInternalEntry();
+
+    if (current?.href === href) {
+      const entry = markCurrentInternalEntry(href, current.previousId);
+      activeEntryIdRef.current = entry.id;
+      historyInitializedRef.current = true;
+      return;
+    }
+
+    let previousId: string | null = null;
+    if (historyInitializedRef.current) {
+      previousId = activeEntryIdRef.current;
+    } else {
+      try {
+        const referrer = document.referrer ? new URL(document.referrer) : null;
+        if (referrer?.origin === window.location.origin) {
+          previousId = readStoredInternalEntry()?.id ?? null;
+        }
+      } catch {
+        previousId = null;
+      }
+    }
+
+    const entry = markCurrentInternalEntry(href, previousId);
+    activeEntryIdRef.current = entry.id;
+    historyInitializedRef.current = true;
+  }, [pathname]);
 
   useEffect(() => {
     if (!onGalleryRoute) return;
@@ -151,7 +171,11 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
   return (
     <header className="rv-global-nav" aria-label="Retroverse application">
       <div className="rv-global-nav__inner">
-        <Link href="/" className="rv-global-nav__home" aria-label="Retroverse home">
+        <Link
+          href={CANONICAL_AUDIENCE_HREF}
+          className="rv-global-nav__home"
+          aria-label="Retroverse public entry"
+        >
           Retroverse
         </Link>
 
@@ -159,23 +183,17 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
           {!isLiveBroadcastPath(pathname) ? (
             <ReturnToLiveLink className="rv-global-nav__return-live" />
           ) : null}
-          {PUBLIC_NAV_LINKS.map((link) => {
-            const isActive = activePublicLink === link.id;
-            return (
-              <Link
-                key={link.id}
-                href={link.href}
-                aria-current={isActive ? "page" : undefined}
-                className={
-                  isActive
-                    ? "rv-global-nav__zone rv-global-nav__zone--active"
-                    : "rv-global-nav__zone"
-                }
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          <Link
+            href="/search"
+            aria-current={pathname === "/search" ? "page" : undefined}
+            className={
+              pathname === "/search"
+                ? "rv-global-nav__zone rv-global-nav__zone--active"
+                : "rv-global-nav__zone"
+            }
+          >
+            Search
+          </Link>
         </nav>
 
         <AdminGearMenu

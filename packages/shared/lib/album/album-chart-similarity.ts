@@ -110,8 +110,8 @@ function describeDifference(
 
   if (parts.length === 0) {
     if (peakDelta <= 10 && weeksDelta <= 15) return "Similar peak strength and chart endurance.";
-    if (climbDelta <= 4) return "Similar climb timing on the Billboard 200.";
-    return "Comparable chart arc on the Billboard 200.";
+    if (climbDelta <= 4) return "Similar climb timing on the chart.";
+    return "Comparable chart arc.";
   }
 
   const lead = parts.slice(0, 2).join(" and ");

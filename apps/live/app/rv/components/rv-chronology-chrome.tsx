@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
+import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { formatChartDateLabel, monthLabel } from "@/lib/artist/chart-history-display";
 import {
   matchRvChronologyPath,
@@ -31,6 +32,16 @@ export function RvChronologyChrome({ rvYear, children, shellMode = "legacy" }: P
   const pathWeek = pathState?.week ?? null;
 
   const searchHref = rvYearHref(rvYear);
+  const backHref = pathMonth != null
+    ? pathWeek
+      ? rvMonthHref(rvYear, pathMonth)
+      : rvYearHref(rvYear)
+    : "/search";
+  const backLabel = pathMonth != null && pathWeek
+    ? `${monthLabel(pathMonth)} ${rvYear}`
+    : pathMonth != null
+      ? String(rvYear)
+      : "Search";
 
   return (
     <div className={`rv-year-world${shellMode === "rv2" ? " rv-year-world--rv2" : ""}`}>
@@ -38,6 +49,12 @@ export function RvChronologyChrome({ rvYear, children, shellMode = "legacy" }: P
       <div className="rv-year-world__grain" aria-hidden />
 
       {shellMode === "legacy" ? <RvPublicMasthead searchQuery={String(rvYear)} /> : null}
+
+      <RetroverseBack
+        fallbackHref={backHref}
+        fallbackLabel={backLabel}
+        className="rv-chronology-back"
+      />
 
       {pathMonth != null ? (
         <nav className="rv-chronology-crumb" aria-label="Where you are">

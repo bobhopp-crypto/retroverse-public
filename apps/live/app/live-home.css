@@ -1,16 +1,8 @@
 /* Public exploration homepage (/) — single nav chrome, mobile-first layout */
 
-body:has(.rv2-live-home) .rv-global-nav {
-  display: none;
-}
-
 .rv2-live-home {
   min-height: 100dvh;
   padding-bottom: 1.25rem;
-}
-
-.rv2-live-home .rv2-live__search-panel {
-  display: none;
 }
 
 .rv2-live-home .rv2-live__hero {

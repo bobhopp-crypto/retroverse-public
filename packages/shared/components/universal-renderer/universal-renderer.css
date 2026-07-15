@@ -29,9 +29,11 @@
   --urx-paper-rgb: 255,250,240;
   --urx-ink-rgb: 23,41,35;
 
-  position: fixed;
-  inset: 0;
-  z-index: 1300;
+  position: relative;
+  min-height: min(48rem, calc(100svh - 9.5rem));
+  border: 1px solid var(--ex-line-accent);
+  border-radius: 0.65rem;
+  box-shadow: var(--ex-inset-shadow), 0 18px 44px rgba(0, 0, 0, 0.28);
   background: var(--urx-bg-gradient);
   color: var(--urx-ink);
   font-family: var(--urx-font-body);
@@ -41,7 +43,7 @@
 /* ── Top bar ── */
 
 .urx__topbar {
-  position: fixed;
+  position: absolute;
   z-index: 20;
   top: 0;
   left: 0;
@@ -106,7 +108,7 @@
 .urx__viewport {
   display: flex;
   width: 100vw;
-  height: 100svh;
+  height: min(48rem, calc(100svh - 9.5rem));
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;

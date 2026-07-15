@@ -1,10 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import { ReturnToLiveLink } from "@/components/live-experience/ReturnToLiveLink";
-import { CANONICAL_AUDIENCE_HREF } from "@/lib/bobos/presentation/canonical-audience";
-import { RV_CHRONOLOGY_DEFAULT_YEAR, rvYearHref } from "@/lib/rv/rv-chronology-paths";
-
 import "./rv2-public-shell.css";
 
 export type Rv2PublicShellProps = {
@@ -23,107 +19,39 @@ export type Rv2PublicShellProps = {
   searchQuery?: string;
   onSearchQueryChange?: (value: string) => void;
   onSearchCommit?: () => void;
+  /** Home-only mode: preserve shared search while omitting destination navigation. */
+  minimalNavigation?: boolean;
+  /** Broadcast frame for the Channel Zero home and Search shell. */
+  broadcastChrome?: boolean;
 };
 
 export function Rv2PublicShell({
   children,
   className,
-  yearsHref = rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR),
-  chartsHref = "/retroverse-2/charts",
-  activeNav,
   lead,
-  searchQuery,
-  onSearchQueryChange,
-  onSearchCommit,
+  broadcastChrome = false,
 }: Rv2PublicShellProps) {
-  const controlledSearch = onSearchQueryChange != null;
-  const mainClassName = className ? `rv2-live ${className}` : "rv2-live";
+  const mainClassName = [
+    "rv2-live",
+    broadcastChrome ? "rv2-live--broadcast-chrome" : null,
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <main className={mainClassName}>
       {lead}
       <div className="rv2-live__grid-glow" aria-hidden />
-      <header className="rv2-live__topbar">
-        <nav className="rv2-live__nav rv2-live__nav--local" aria-label="Live experience">
-          {activeNav !== "live" ? (
-            <ReturnToLiveLink className="rv2-live__nav-link rv2-live__nav-link--return-live" />
-          ) : null}
-          <Link
-            href={CANONICAL_AUDIENCE_HREF}
-            aria-current={activeNav === "live" ? "page" : undefined}
-            className={activeNav === "live" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
-          >
-            Live
-          </Link>
-          <Link
-            href="/search"
-            aria-current={activeNav === "search" ? "page" : undefined}
-            className={activeNav === "search" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
-          >
-            Search
-          </Link>
-          <Link
-            href={yearsHref}
-            aria-current={activeNav === "years" ? "page" : undefined}
-            className={activeNav === "years" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
-          >
-            Years
-          </Link>
-          <Link
-            href={chartsHref}
-            aria-current={activeNav === "charts" ? "page" : undefined}
-            className={activeNav === "charts" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
-          >
-            Charts
-          </Link>
-        </nav>
-      </header>
-
-      <section className="rv2-live__search-panel" aria-label="Global search">
-        <p className="rv2-live__eyebrow">Global Search</p>
-        {controlledSearch ? (
-          <div className="rv2-live__search">
-            <input
-              name="q"
-              type="search"
-              placeholder="Search music..."
-              value={searchQuery ?? ""}
-              onChange={(event) => onSearchQueryChange(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key !== "Enter") return;
-                event.preventDefault();
-                onSearchCommit?.();
-              }}
-              autoComplete="off"
-              autoFocus
-              spellCheck={false}
-              aria-label="Search artist, album, or song"
-              enterKeyHint="search"
-            />
-            {searchQuery ? (
-              <button
-                type="button"
-                className="rv2-live__search-clear"
-                onClick={() => onSearchQueryChange("")}
-                aria-label="Clear search"
-              >
-                ×
-              </button>
-            ) : (
-              <button type="button" onClick={() => onSearchCommit?.()}>
-                Search
-              </button>
-            )}
-          </div>
-        ) : (
-          <form className="rv2-live__search" action="/search">
-            <input name="q" type="search" placeholder="Search music..." />
-            <button type="submit">Search</button>
-          </form>
-        )}
-      </section>
 
       <div className="rv2-public-shell__body">{children}</div>
+      {broadcastChrome ? (
+        <footer className="rv2-broadcast-banner rv2-broadcast-banner--bottom" aria-label="Broadcast updates">
+          <Link href="/pass" className="rv2-broadcast-banner__action">
+            Register Your Pass
+          </Link>
+        </footer>
+      ) : null}
     </main>
   );
 }

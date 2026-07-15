@@ -30,9 +30,26 @@ export type SearchSuggestionGroups = {
   years: SearchSuggestionItem[];
 };
 
+/** Search-page presentation groups after catalog candidates have been ranked. */
+export type CuratedSearchGroups = {
+  bestMatch: SearchSuggestionItem[];
+  artists: SearchSuggestionItem[];
+  popularSongs: SearchSuggestionItem[];
+  albums: SearchSuggestionItem[];
+  otherMatches: SearchSuggestionItem[];
+};
+
 export const EMPTY_SUGGESTION_GROUPS: SearchSuggestionGroups = {
   artists: [],
   songs: [],
   albums: [],
   years: [],
+};
+
+export const EMPTY_CURATED_SEARCH_GROUPS: CuratedSearchGroups = {
+  bestMatch: [],
+  artists: [],
+  popularSongs: [],
+  albums: [],
+  otherMatches: [],
 };

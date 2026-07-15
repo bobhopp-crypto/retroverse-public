@@ -2,6 +2,7 @@ import { cache } from "react";
 
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
+import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
 import {
   artistFileCode,
@@ -135,14 +136,12 @@ async function loadArtistPageImpl(
         (
           SELECT aal.canonical_cover_path FROM album_artwork_links aal
           WHERE aal.album_id = al.id
-          ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-          LIMIT 1
+          ${WINNING_ARTWORK_LINK_ORDER}
         ) AS artwork_path,
         (
           SELECT aal.r2_cover_key FROM album_artwork_links aal
           WHERE aal.album_id = al.id
-          ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
-          LIMIT 1
+          ${WINNING_ARTWORK_LINK_ORDER}
         ) AS r2_cover_key,
         count(DISTINCT cat.id)::int AS sequence_tracks
       FROM albums al

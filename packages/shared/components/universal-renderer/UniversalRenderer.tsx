@@ -1,8 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
+import { RetroverseBack } from "@/components/navigation/RetroverseBack";
+import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import type { RendererCard } from "@/lib/universal-renderer/card-types";
 import type { RvbrRendererTheme } from "@/lib/retroverse/rvbr/renderer-theme";
 import { RVBR_RENDERER_DEFAULT_VARS } from "@/lib/retroverse/rvbr/renderer-theme-defaults";
@@ -25,8 +26,10 @@ type Props = {
   cards: RendererCard[];
   /** RVBR era presentation — resolved server-side from song year. */
   theme?: RvbrRendererTheme;
-  /** Back href — defaults to Retroverse home. */
+  /** Fixed fallback destination when no internal Retroverse history exists. */
   backHref?: string;
+  /** Explicit label for a fixed fallback destination. */
+  backLabel?: string;
 };
 
 function renderCard(card: RendererCard): React.ReactNode {
@@ -48,11 +51,34 @@ export function UniversalRenderer({
   title,
   cards,
   theme,
-  backHref = "/",
+  backHref = "/search",
+  backLabel = "Search",
 }: Props) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const cssVars = theme?.cssVars ?? RVBR_RENDERER_DEFAULT_VARS;
+  // Package and VDJ songs remain part of the public Explorer. Era packages
+  // may still supply imagery and card content, but must not replace public
+  // chrome or reintroduce the retired cream renderer theme.
+  const cssVars = {
+    ...(theme?.cssVars ?? RVBR_RENDERER_DEFAULT_VARS),
+    "--urx-cream": "var(--ex-bg)",
+    "--urx-paper": "var(--ex-panel)",
+    "--urx-ink": "var(--ex-ink)",
+    "--urx-teal": "var(--ex-aqua-accent)",
+    "--urx-orange": "var(--ex-purple)",
+    "--urx-red": "var(--ex-magenta)",
+    "--urx-accent-soft": "var(--ex-aqua-dim)",
+    "--urx-border": "1px solid var(--ex-line-accent)",
+    "--urx-border-width": "1px",
+    "--urx-bg-gradient": "linear-gradient(180deg, var(--ex-bg) 0%, var(--ex-bg-mid) 56%, var(--ex-bg) 100%)",
+    "--urx-hero-placeholder": "linear-gradient(145deg, var(--ex-purple-deep), var(--ex-bg))",
+    "--urx-hero-wash": "linear-gradient(160deg, rgba(168, 85, 255, 0.52), rgba(34, 231, 255, 0.28))",
+    "--urx-hero-scrim": "linear-gradient(180deg, rgba(5, 8, 20, 0.2), rgba(5, 8, 20, 0.9))",
+    "--urx-shadow-color": "rgba(168, 85, 255, 0.2)",
+    "--urx-divider-color": "var(--ex-aqua-accent)",
+    "--urx-paper-rgb": "12, 15, 35",
+    "--urx-ink-rgb": "243, 247, 255",
+  } as React.CSSProperties;
 
   useEffect(() => {
     const el = viewportRef.current;
@@ -84,18 +110,20 @@ export function UniversalRenderer({
   );
 
   return (
-    <div
+    <Rv2PublicShell className="rv2-song rv2-universal-song">
+      <div
       className="urx"
       style={cssVars}
       data-rvbr-era={theme?.eraSlug ?? undefined}
       data-rvbr-world={theme?.visualWorldId ?? undefined}
     >
-      {/* Top bar */}
+      {/* Package navigation only; shared Explorer chrome owns public navigation. */}
       <header className="urx__topbar">
-        <Link href={backHref} className="urx__back" aria-label="Back to Retroverse">
-          Retroverse
-        </Link>
-
+        <RetroverseBack
+          fallbackHref={backHref}
+          fallbackLabel={backLabel}
+          className="urx__back"
+        />
         <div
           className="urx__dots"
           role="tablist"
@@ -128,6 +156,7 @@ export function UniversalRenderer({
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </Rv2PublicShell>
   );
 }

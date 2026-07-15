@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { LiveChannelFollower } from "@/components/live-channel/LiveChannelFollower";
 import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { UniversalRenderer } from "@/components/universal-renderer/UniversalRenderer";
@@ -90,7 +89,6 @@ export default async function Retroverse2SongPage({ params }: Props) {
       <Rv2PublicShell
         className="rv2-song"
         yearsHref={track.rvYearHref ?? (year ? `/rv/${year}` : "/search")}
-        lead={<LiveChannelFollower rvtr={track.rvtr} />}
       >
         <PublicSongExperience rvtr={track.rvtr} />
       </Rv2PublicShell>
@@ -100,15 +98,12 @@ export default async function Retroverse2SongPage({ params }: Props) {
   if (resolution.tier === "package" || resolution.tier === "vdj") {
     const { payload } = resolution;
     return (
-      <>
-        <LiveChannelFollower rvtr={payload.rvtr} />
-        <UniversalRenderer
-          artist={payload.artist}
-          title={payload.title}
-          cards={payload.cards}
-          theme={payload.theme}
-        />
-      </>
+      <UniversalRenderer
+        artist={payload.artist}
+        title={payload.title}
+        cards={payload.cards}
+        theme={payload.theme}
+      />
     );
   }
 

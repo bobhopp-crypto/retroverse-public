@@ -9,7 +9,7 @@
 .rv-exp-chapter {
   width: 100%;
   max-width: 72rem;
-  margin: 2.75rem auto 0;
+  margin: 3.25rem auto 0;
   padding: 0 0.85rem;
   box-sizing: border-box;
   min-width: 0;
@@ -17,15 +17,15 @@
 }
 
 .rv-exp-chapter__head {
-  margin-bottom: 1.35rem;
+  margin-bottom: 0.95rem;
   min-width: 0;
 }
 
 .rv-exp-chapter h2 {
   margin: 0;
-  font-size: clamp(2.125rem, 6.5vw, 2.75rem);
-  font-weight: 900;
-  line-height: 1.08;
+  font-size: clamp(1.65rem, 5.8vw, 2.25rem);
+  font-weight: 850;
+  line-height: 1.12;
   letter-spacing: -0.03em;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -34,13 +34,13 @@
 /* The Story */
 .rv-exp-story__cards {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.35rem;
   min-width: 0;
 }
 
 .rv-exp-story__card {
   min-width: 0;
-  padding: 0 0.15rem 1.75rem;
+  padding: 0 0.15rem 1.35rem;
   border-bottom: 1px solid var(--rv2-border-soft);
   max-width: 42rem;
 }
@@ -51,10 +51,10 @@
 }
 
 .rv-exp-story__card h3 {
-  margin: 0 0 0.65rem;
-  font-size: clamp(1.5rem, 4.2vw, 1.75rem);
-  font-weight: 850;
-  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.25;
   color: #e8f0ff;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -62,9 +62,9 @@
 
 .rv-exp-story__body {
   margin: 0;
-  font-size: clamp(1.125rem, 3.8vw, 1.28rem);
-  font-weight: 600;
-  line-height: 1.55;
+  font-size: clamp(1rem, 3.55vw, 1.14rem);
+  font-weight: 560;
+  line-height: 1.52;
   color: var(--ex-ink-soft);
   overflow-wrap: anywhere;
   word-break: break-word;

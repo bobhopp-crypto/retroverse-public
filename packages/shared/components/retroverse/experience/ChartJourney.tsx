@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { ChartJourneyMilestone } from "@/lib/chart-journey/types";
 import type { TimelineEvent } from "@/lib/ops/intelligence/song-package-types";
 import type { TrackTrajectoryWeek } from "@/lib/track/track-trajectory-types";
@@ -62,16 +63,16 @@ export function ChartJourney({
 
   const { model, timeline } = experience;
   const { rows, gaps } = model;
+  const simplified = variant === "rv2";
   const panelClass = [
     "rv-exp-cj",
     `rv-exp-cj--${variant}`,
+    simplified ? "rv-exp-cj--simplified" : null,
     museumMinimal ? "rv-exp-cj--museum" : null,
     className,
   ]
     .filter(Boolean)
     .join(" ");
-  const label = chartLabel.replace(/^Billboard\s+/i, "");
-
   const gapBeforeRow = new Map<number, (typeof gaps)[number]>();
   for (const gap of gaps) {
     const rowIndex = rows.findIndex((row) => row.week.issueDate === gap.returnDate);
@@ -91,37 +92,66 @@ export function ChartJourney({
     timelineByDate.set(key, bucket);
   }
 
+  const firstPeakIndex = rows.findIndex((row) => row.week.rank === model.metrics.peakPosition);
+  const journeyMarkers = (index: number): string[] => {
+    const row = rows[index]!;
+    const previous = index > 0 ? rows[index - 1]! : null;
+    const markers: string[] = [];
+    if (index === 0) markers.push("Chart Debut");
+    if (row.week.reentry || gapBeforeRow.has(index)) markers.push("Return to Chart");
+    if (row.week.rank <= 40 && (!previous || previous.week.rank > 40)) markers.push("Top 40");
+    if (row.week.rank <= 10 && (!previous || previous.week.rank > 10)) markers.push("Top 10");
+    if (row.week.rank === 1 && previous?.week.rank !== 1) markers.push("#1");
+    if (index === firstPeakIndex && row.week.rank !== 1) markers.push("Peak Position");
+    if (index === rows.length - 1) markers.push("Final Week");
+    return markers;
+  };
+
   return (
     <section className={panelClass} aria-labelledby={museumMinimal ? undefined : "rv-exp-cj-heading"}>
       {museumMinimal ? null : (
         <header className="rv-exp-cj__head">
-          <div>
-            <p className="rv-exp-cj__eyebrow">Chart Journey</p>
-            <h2 id="rv-exp-cj-heading">{label}</h2>
-          </div>
+          <h2 id="rv-exp-cj-heading">Chart Journey</h2>
         </header>
       )}
 
-      {museumMinimal ? null : <ChartJourneySummary model={model} summary={summary} />}
+      {museumMinimal || simplified ? null : <ChartJourneySummary model={model} />}
 
-      <div className="rv-exp-cj__fingerprint" aria-label={`${label} chart fingerprint`}>
+      <div className="rv-exp-cj__fingerprint" aria-label="Chart Journey">
         <ol className="rv-exp-cj__rows">
-          {rows.map((row, index) => (
-            <ChartJourneyRowView
-              key={`cj-row-${row.week.issueDate}-${row.week.rank}-${index}`}
-              row={row}
-              model={model}
-              gap={gapBeforeRow.get(index)}
-              timelineLabels={[
-                ...new Set([
-                  ...(timelineByDate.get(row.week.issueDate.slice(0, 10)) ?? []),
-                  ...(milestoneByDate.get(row.week.issueDate.slice(0, 10))
-                    ? [milestoneByDate.get(row.week.issueDate.slice(0, 10))!]
-                    : []),
-                ]),
-              ]}
-            />
-          ))}
+          {rows.map((row, index) => {
+            const previous = index > 0 ? rows[index - 1]! : null;
+            const year = row.week.issueDate.slice(0, 4);
+            const previousYear = previous?.week.issueDate.slice(0, 4);
+            const yearChanged = simplified && previousYear && previousYear !== year;
+
+            return (
+              <Fragment key={`cj-row-${row.week.issueDate}-${row.week.rank}-${index}`}>
+                {yearChanged ? (
+                  <li className="rv-exp-cj__year-divider" aria-label={`Chart year ${year}`}>
+                    <span className="rv-exp-cj__year-divider-line" aria-hidden />
+                    <span className="rv-exp-cj__year-divider-label">{year}</span>
+                    <span className="rv-exp-cj__year-divider-line" aria-hidden />
+                  </li>
+                ) : null}
+                <ChartJourneyRowView
+                  row={row}
+                  model={model}
+                  gap={gapBeforeRow.get(index)}
+                  showGap={!simplified}
+                  timelineLabels={[
+                    ...new Set([
+                      ...(timelineByDate.get(row.week.issueDate.slice(0, 10)) ?? []),
+                      ...(milestoneByDate.get(row.week.issueDate.slice(0, 10))
+                        ? [milestoneByDate.get(row.week.issueDate.slice(0, 10))!]
+                        : []),
+                    ]),
+                  ]}
+                  milestones={simplified ? [] : journeyMarkers(index)}
+                />
+              </Fragment>
+            );
+          })}
         </ol>
       </div>
 

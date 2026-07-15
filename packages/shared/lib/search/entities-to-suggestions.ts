@@ -4,7 +4,7 @@ import type {
   SearchSuggestionItem,
 } from "@/lib/search/search-suggestion-types";
 
-function entityToItem(entity: SearchEntity): SearchSuggestionItem {
+export function entityToSuggestionItem(entity: SearchEntity): SearchSuggestionItem {
   const secondary =
     entity.entityType === "year"
       ? "RV History"
@@ -48,7 +48,7 @@ export function entitiesToSuggestionGroups(
 
   for (const entity of entities) {
     if (!entity.href?.trim()) continue;
-    const item = entityToItem(entity);
+    const item = entityToSuggestionItem(entity);
     if (entity.entityType === "artist") groups.artists.push(item);
     else if (entity.entityType === "track") groups.songs.push(item);
     else if (entity.entityType === "album") groups.albums.push(item);

@@ -40,6 +40,36 @@
   overflow-x: clip;
 }
 
+.rv2-song__journey-stage {
+  width: 100%;
+  max-width: 72rem;
+  margin: 1.1rem auto 0;
+  padding-inline: 0.85rem;
+  box-sizing: border-box;
+}
+
+.rv2-song__journey-stage .rv-exp-cj {
+  padding: 1rem 0.78rem 1.3rem;
+}
+
+.rv2-song__journey-stage .rv-exp-cj__story-wrap {
+  margin-bottom: 1.15rem;
+}
+
+.rv2-song__journey-stage .rv-exp-cj__row {
+  min-height: 3rem;
+}
+
+.rv2-song__journey-stage .rv-exp-cj__bar-wrap {
+  height: clamp(1.35rem, 4vw, 1.8rem);
+  border-radius: 0.32rem;
+}
+
+.rv2-song__journey-stage .rv-exp-cj--simplified .rv-exp-cj__row {
+  min-height: 2.3rem;
+  padding-block: 0.2rem;
+}
+
 .rv2-song__section,
 .rv2-song__explore,
 .rv2-song__explore-card {
@@ -96,6 +126,25 @@
   word-break: break-word;
 }
 
+.rv2-song__album {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.08rem 0 0;
+  color: var(--ex-ink-soft);
+  font-size: clamp(0.9rem, 4vw, 1.2rem);
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.rv2-song__album > span {
+  color: var(--ex-aqua-accent);
+  font-size: 0.62em;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .rv2-song__hero-link {
   display: inline-block;
   text-decoration: none;
@@ -114,6 +163,43 @@
   font-size: clamp(1.15rem, 5.5vw, 2rem);
   font-weight: 950;
   line-height: 1.1;
+}
+
+.rv2-song__hero-summary {
+  margin: 0.42rem 0 0;
+  color: var(--ex-ink-soft);
+  font-size: clamp(0.88rem, 3.5vw, 1rem);
+  font-weight: 720;
+  line-height: 1.35;
+}
+
+.rv2-song__explore-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  margin-top: 0.45rem;
+}
+
+.rv2-song__explore-links a {
+  min-height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.36rem 0.62rem;
+  border: 1px solid var(--rv2-border-medium);
+  border-radius: 999px;
+  background: rgba(2, 10, 24, 0.44);
+  color: var(--rv2-cyan);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.075em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rv2-song__explore-links a:hover,
+.rv2-song__explore-links a:focus-visible {
+  border-color: var(--rv2-cyan);
+  background: rgba(79, 213, 255, 0.12);
 }
 
 .rv2-song__badge,
@@ -448,6 +534,14 @@
   .rv2-song__header {
     padding: 0.85rem 0.85rem 0;
     gap: 0.25rem;
+  }
+
+  .rv2-song__journey-stage {
+    margin-top: 1rem;
+  }
+
+  .rv2-song__journey-stage .rv-exp-cj {
+    padding: 0.9rem 0.66rem 1.1rem;
   }
 
   .rv2-song__header h1 {

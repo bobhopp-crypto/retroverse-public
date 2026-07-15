@@ -131,6 +131,11 @@
   box-shadow: 7px 9px 0 rgba(45, 62, 70, 0.28);
 }
 
+.rv-year-hero__back {
+  margin: -0.3rem 0 0.35rem;
+  text-align: left;
+}
+
 .rv-year-hero__label {
   margin: 0 0 0.35rem;
   font-size: 0.72rem;
@@ -771,6 +776,10 @@
 .rv-chronology-crumb__link {
   color: var(--teal-deep);
   text-decoration: none;
+}
+
+.rv-chronology-back {
+  margin: 0.25rem var(--rv-page-gutter) 0;
 }
 
 .rv-chronology-crumb__link:hover {

@@ -1,9 +1,18 @@
 import "server-only";
 
 import { slugFromArtistName } from "@/lib/artist/slug";
+import { coverPathToUrl } from "@/lib/artist/cover-url";
+import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
+import {
+  winningArtworkPathSubquery,
+  winningArtworkR2Subquery,
+} from "@/lib/artwork/winning-artwork-link-sql";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { dedupeSearchEntities } from "@/lib/search/dedupe-search-entities";
-import { refineOverlayEntities } from "@/lib/search/refine-overlay-entities";
+import {
+  applyCanonicalArtistDisplay,
+  refineOverlayEntities,
+} from "@/lib/search/refine-overlay-entities";
 import {
   albumSuggestionHref,
   coerceArtistPublicHref,
@@ -80,7 +89,7 @@ function entityHref(row: EntityRow): string | null {
   return null;
 }
 
-function rowToEntity(row: EntityRow): SearchEntity {
+function rowToEntity(row: EntityRow, includeArtwork: boolean): SearchEntity {
   const type = row.entity_type as SearchEntityType;
   return {
     entityType: type,
@@ -91,8 +100,8 @@ function rowToEntity(row: EntityRow): SearchEntity {
     href: entityHref(row) ?? "",
     artist: row.artist_name,
     year: row.release_year,
-    // Overlay is a lightweight archive drawer; cover art is a hydration-time concern.
-    coverUrl: null,
+    // Keep the lightweight overlay unchanged; full catalog search uses canonical covers.
+    coverUrl: includeArtwork ? coverPathToUrl(row.cover_path) : null,
     rank: row.match_rank * 10 + row.type_rank,
   };
 }
@@ -132,7 +141,11 @@ const INLINE_SOURCE = `
     regexp_replace(regexp_replace(lower(trim(a.canonical_name)), '^the\\s+', '', 'g'), '[^a-z0-9]+', '-', 'g') AS slug,
     NULL::text AS artist_name,
     NULL::int AS release_year,
-    NULL::text AS cover_path
+    (
+      SELECT al.canonical_cover_path FROM albums al
+      WHERE al.artist_id = a.id AND al.canonical_cover_path IS NOT NULL
+      ORDER BY al.release_year DESC NULLS LAST LIMIT 1
+    ) AS cover_path
   FROM artists a
   UNION ALL
   SELECT 'album'::text, al.title,
@@ -335,7 +348,9 @@ export async function querySearchEntities(
   );
   const rows = await inspectQuery<EntityRow & { trgm_score?: number }>(sql, params);
 
-  const deduped = dedupeSearchEntities(rows.map(rowToEntity));
+  const deduped = dedupeSearchEntities(
+    rows.map((row) => rowToEntity(row, mode === "full")),
+  );
   deduped.sort(
     (a, b) =>
       a.rank - b.rank ||
@@ -346,7 +361,9 @@ export async function querySearchEntities(
 
   const limited = capByType(deduped, limits);
   const refined =
-    mode === "overlay" ? refineOverlayEntities(limited, query) : limited;
+    mode === "overlay"
+      ? refineOverlayEntities(limited, query)
+      : applyCanonicalArtistDisplay(limited);
   const meta: SearchEntityQueryMeta = { entitySource, pgTrgm: useTrgmRaw };
 
   // Overlay skips year enrichment — avoid blocking first paint on a second PG round-trip.
@@ -354,42 +371,106 @@ export async function querySearchEntities(
     return { entities: refined, meta };
   }
 
-  // Full mode: matview track rows may omit release_year; fill from canonical_track_display.
-  const trackRvIds = limited
-    .filter((e) => e.entityType === "track" && !e.year && e.rvId)
+  // Full mode: hydrate song year and artwork from the same canonical graph used by Song pages.
+  const trackRvIds = refined
+    .filter((e) => e.entityType === "track" && e.rvId)
     .map((e) => e.rvId!.trim().toUpperCase());
 
   const uniqueTrackRvIds = [...new Set(trackRvIds)];
+  const albumRvals = [
+    ...new Set(
+      refined
+        .filter((e) => e.entityType === "album" && e.rvId)
+        .map((e) => e.rvId!.trim().toUpperCase()),
+    ),
+  ];
 
-  if (uniqueTrackRvIds.length > 0) {
-    const yearRows = await inspectQuery<{
+  if (uniqueTrackRvIds.length > 0 || albumRvals.length > 0) {
+    const [trackRows, albumRows] = await Promise.all([
+      uniqueTrackRvIds.length > 0
+        ? inspectQuery<{
       rvtr: string;
       release_year: number | null;
+      cover_path: string | null;
+      artwork_path: string | null;
+      r2_cover_key: string | null;
     }>(
       `
       SELECT
-        track_id AS rvtr,
-        extract(year FROM first_chart_date)::int AS release_year
-      FROM canonical_track_display
-      WHERE track_id = ANY($1::text[])
+        ctd.track_id AS rvtr,
+        extract(year FROM ctd.first_chart_date)::int AS release_year,
+        al.canonical_cover_path AS cover_path,
+        ${winningArtworkPathSubquery()},
+        ${winningArtworkR2Subquery()}
+      FROM canonical_track_display ctd
+      LEFT JOIN LATERAL (
+        SELECT cat.album_id
+        FROM canonical_album_tracks cat
+        WHERE upper(trim(cat.canonical_track_key)) = upper(trim(ctd.track_id))
+        ORDER BY cat.position ASC
+        LIMIT 1
+      ) canonical_album ON true
+      LEFT JOIN albums al ON al.id = canonical_album.album_id
+      WHERE upper(trim(ctd.track_id)) = ANY($1::text[])
       `,
-      [uniqueTrackRvIds],
-    );
+          [uniqueTrackRvIds],
+        )
+        : Promise.resolve([]),
+      albumRvals.length > 0
+        ? inspectQuery<{
+            rval: string;
+            cover_path: string | null;
+            artwork_path: string | null;
+            r2_cover_key: string | null;
+          }>(
+            `
+            SELECT upper(trim(aek.external_key)) AS rval,
+                   al.canonical_cover_path AS cover_path,
+                   ${winningArtworkPathSubquery()},
+                   ${winningArtworkR2Subquery()}
+            FROM album_external_keys aek
+            JOIN albums al ON al.id = aek.album_id
+            WHERE upper(trim(aek.external_key)) = ANY($1::text[])
+            `,
+            [albumRvals],
+          )
+        : Promise.resolve([]),
+    ]);
 
     const yearMap = new Map(
-      yearRows.map((r) => [r.rvtr.trim().toUpperCase(), r.release_year]),
+      trackRows.map((r) => [r.rvtr.trim().toUpperCase(), r]),
+    );
+    const albumCoverMap = new Map(
+      albumRows.map((r) => [
+        r.rval.trim().toUpperCase(),
+        resolveAlbumCoverUrlFromRow(r),
+      ]),
     );
 
     return {
-      entities: limited.map((e) => {
+      entities: refined.map((e) => {
+        if (e.entityType === "album") {
+          const key = e.rvId?.trim().toUpperCase() ?? "";
+          return { ...e, coverUrl: albumCoverMap.get(key) ?? e.coverUrl };
+        }
         if (e.entityType !== "track") return e;
-        if (e.year != null) return e;
         const key = e.rvId?.trim().toUpperCase() ?? "";
-        return { ...e, year: yearMap.get(key) ?? null };
+        const row = yearMap.get(key);
+        return {
+          ...e,
+          year: e.year ?? row?.release_year ?? null,
+          coverUrl:
+            e.coverUrl ??
+            resolveAlbumCoverUrlFromRow({
+              cover_path: row?.cover_path,
+              artwork_path: row?.artwork_path,
+              r2_cover_key: row?.r2_cover_key,
+            }),
+        };
       }),
       meta,
     };
   }
 
-  return { entities: limited, meta };
+  return { entities: refined, meta };
 }

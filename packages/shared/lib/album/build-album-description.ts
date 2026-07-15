@@ -73,9 +73,9 @@ function chartSentence(input: AlbumDescriptionInput): string | null {
   if (b200Peak == null || chartWeeks <= 0) return null;
 
   if (weeksAtNumberOne > 0) {
-    return `On the Billboard 200, it peaked at #${b200Peak} and spent ${weeksAtNumberOne} week${weeksAtNumberOne === 1 ? "" : "s"} at #1 across ${chartWeeks} total chart weeks.`;
+    return `It peaked at #${b200Peak} and spent ${weeksAtNumberOne} week${weeksAtNumberOne === 1 ? "" : "s"} at #1 across ${chartWeeks} total chart weeks.`;
   }
-  return `On the Billboard 200, it reached #${b200Peak} and charted for ${chartWeeks} weeks.`;
+  return `It reached #${b200Peak} and charted for ${chartWeeks} weeks.`;
 }
 
 function singlesSentence(singles: string[]): string | null {
@@ -110,7 +110,7 @@ export function buildAlbumDescription(input: AlbumDescriptionInput): string {
 
   let body = picked.slice(0, 3).join(" ");
   const chartPart = chartSentence(input);
-  if (chartPart && !/\bBillboard 200\b/i.test(body) && wordCount(body) < 130) {
+  if (chartPart && !/\bchart(?:\s+history|\s+journey)?\b/i.test(body) && wordCount(body) < 130) {
     body = `${body} ${chartPart}`;
   }
 

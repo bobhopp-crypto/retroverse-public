@@ -11,14 +11,18 @@ type Props = {
   row: ChartJourneyRow;
   model: ChartJourneyModel;
   gap?: ChartJourneyGap;
+  showGap?: boolean;
   timelineLabels?: string[];
+  milestones?: string[];
 };
 
 export function ChartJourneyRowView({
   row,
   model,
   gap,
+  showGap = true,
   timelineLabels = [],
+  milestones = [],
 }: Props) {
   const [open, setOpen] = useState(false);
   const detailId = useId();
@@ -70,7 +74,7 @@ export function ChartJourneyRowView({
 
   return (
     <li className="rv-exp-cj__row-item">
-      {gap ? (
+      {gap && showGap ? (
         <div className="rv-exp-cj__gap" role="separator" aria-label="Off chart gap">
           <span className="rv-exp-cj__gap-line" aria-hidden />
         </div>
@@ -78,6 +82,13 @@ export function ChartJourneyRowView({
       <div {...interactiveProps} role="button" tabIndex={0}>
         {rowBody}
       </div>
+      {milestones.length > 0 ? (
+        <div className="rv-exp-cj__markers" aria-label={`Song milestones: ${milestones.join(", ")}`}>
+          {milestones.map((milestone) => (
+            <span key={milestone} className="rv-exp-cj__marker">{milestone}</span>
+          ))}
+        </div>
+      ) : null}
       {open ? (
         <div id={detailId} className="rv-exp-cj__detail" role="region" aria-label="Chart week details">
           <p className="rv-exp-cj__detail-headline">{formatChartJourneyDate(row.detail.date)}</p>

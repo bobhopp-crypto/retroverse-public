@@ -6,17 +6,16 @@ import { BehindTheStory } from "@/components/retroverse/experience/BehindTheStor
 import { BeyondTheCharts } from "@/components/retroverse/experience/BeyondTheCharts";
 import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
 import { DiscoverMore } from "@/components/retroverse/experience/DiscoverMore";
-import { useAttractTour } from "@/components/retroverse/experience/AttractTourProvider";
 import { usePlaybackSync } from "@/components/retroverse/experience/PlaybackSyncProvider";
 import { SongStory } from "@/components/retroverse/experience/SongStory";
 import { applyMemoryToChapters } from "@/lib/retroverse/experience/apply-director-memory";
 import { chapterDirectorId } from "@/lib/retroverse/experience/experience-director";
 import type { ExperienceChapter, SongExperience } from "@/lib/retroverse/experience/experience-types";
 import {
-  getSongMemory,
   recordChapterSeen,
   recordSongVisit,
 } from "@/lib/retroverse/experience/experience-memory";
+import type { SongMemory } from "@/lib/retroverse/experience/experience-memory";
 import type { LivingSongPlan } from "@/lib/retroverse/experience/timeline-engine";
 import { revealedChapterIds, scheduleById } from "@/lib/retroverse/experience/timeline-engine";
 
@@ -25,6 +24,13 @@ import "./living-song.css";
 type Props = {
   experience: SongExperience;
   plan: LivingSongPlan;
+};
+
+const EMPTY_SONG_MEMORY: SongMemory = {
+  seenChapterIds: [],
+  visitCount: 0,
+  lastVisit: "",
+  videoPlays: 0,
 };
 
 function stableChapterId(
@@ -71,9 +77,10 @@ function renderChapterContent(chapter: ExperienceChapter) {
 
 export function LivingSongExperience({ experience, plan }: Props) {
   const sync = usePlaybackSync();
-  const tour = useAttractTour();
   const visitRecorded = useRef(false);
-  const [memory, setMemory] = useState(() => getSongMemory(experience.rvtr));
+  // This state must match the server-rendered first pass. Persisted memory is
+  // applied after hydration so localStorage cannot change the initial tree.
+  const [memory, setMemory] = useState<SongMemory>(EMPTY_SONG_MEMORY);
 
   useEffect(() => {
     if (visitRecorded.current) return;
@@ -87,7 +94,7 @@ export function LivingSongExperience({ experience, plan }: Props) {
         experience.chapters,
         experience.director,
         memory.seenChapterIds,
-      ),
+      ).filter((chapter) => chapter.kind !== "chart_journey"),
     [experience.chapters, experience.director, memory.seenChapterIds],
   );
 
@@ -114,8 +121,6 @@ export function LivingSongExperience({ experience, plan }: Props) {
   }, [revealed, experience.rvtr]);
 
   if (displayChapters.length === 0 && experience.learnMore.length === 0) return null;
-
-  if (tour.mode === "attract") return null;
 
   const rootClass = [
     "rv2-song__experience-flow",
