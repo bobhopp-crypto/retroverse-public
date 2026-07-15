@@ -1,71 +1,78 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { handlePassScan } from "./scan-handler";
+import { resolvePassScan } from "./scan-handler";
 
 const credentials = ["RVSN000100", "RVSN000001", "RVSN500"];
 
 for (const credential of credentials) {
-  test(`scan preserves valid pass serial ${credential}`, async () => {
+  test(`resolvePassScan preserves valid pass serial ${credential}`, async () => {
     let received = "";
-    const response = await handlePassScan(
-      new Request(`https://retroverse.live/pass/${encodeURIComponent(credential)}`),
-      encodeURIComponent(credential),
-      async (value) => { received = value; return null; },
-    );
+    const result = await resolvePassScan(credential, async (value) => {
+      received = value;
+      return null;
+    });
     assert.equal(received, credential);
-    assert.equal(response.status, 200);
+    assert.equal(result.type, "ok");
+    if (result.type === "ok") assert.equal(result.scan.pass.serial, credential);
   });
 }
 
-test("scan normalizes case to the canonical uppercase serial", async () => {
+test("resolvePassScan normalizes case to the canonical uppercase serial", async () => {
   let received = "";
-  const response = await handlePassScan(
-    new Request("https://retroverse.live/pass/rvsn000100"),
-    "rvsn000100",
-    async (value) => { received = value; return null; },
-  );
+  const result = await resolvePassScan("rvsn000100", async (value) => {
+    received = value;
+    return null;
+  });
   assert.equal(received, "RVSN000100");
-  assert.equal(response.status, 200);
+  assert.equal(result.type, "ok");
 });
 
-test("scan decodes URL encoding and trims only surrounding whitespace", async () => {
+test("resolvePassScan decodes URL encoding and trims only surrounding whitespace", async () => {
   let received = "";
-  const response = await handlePassScan(
-    new Request("https://retroverse.live/pass/%20RVSN000100%20"),
-    "%20RVSN000100%20",
-    async (value) => { received = value; return null; },
-  );
+  const result = await resolvePassScan("%20RVSN000100%20", async (value) => {
+    received = value;
+    return null;
+  });
   assert.equal(received, "RVSN000100");
-  assert.equal(response.status, 200);
+  assert.equal(result.type, "ok");
 });
 
 test("empty and malformed encoded credentials return 400", async () => {
-  const scan = async () => { assert.fail("database should not be called"); return null; };
-  assert.equal((await handlePassScan(new Request("https://retroverse.live/pass/x"), "%20%20", scan)).status, 400);
-  assert.equal((await handlePassScan(new Request("https://retroverse.live/pass/x"), "%E0%A4%A", scan)).status, 400);
+  const scan = async () => {
+    assert.fail("database should not be called");
+    return null;
+  };
+  for (const encoded of ["%20%20", "%E0%A4%A"]) {
+    const result = await resolvePassScan(encoded, scan);
+    assert.equal(result.type, "error");
+    if (result.type === "error") assert.equal(result.status, 400);
+  }
 });
 
 test("well-formed but unrecognized-format credentials return a clean error, never hit the database", async () => {
-  const scan = async () => { assert.fail("database should not be called"); return null; };
+  const scan = async () => {
+    assert.fail("database should not be called");
+    return null;
+  };
   const bad = ["EVENT-2026-0001", "notapass", "RVSN12", "RVSN123456789", "12345"];
   for (const credential of bad) {
-    const response = await handlePassScan(
-      new Request(`https://retroverse.live/pass/${encodeURIComponent(credential)}`),
-      encodeURIComponent(credential),
-      scan,
-    );
-    assert.equal(response.status, 404, `expected 404 for ${credential}`);
-    assert.doesNotMatch(await response.text(), /internal|error:|at\s+\w+\s*\(/i);
+    const result = await resolvePassScan(encodeURIComponent(credential), scan);
+    assert.equal(result.type, "error");
+    if (result.type === "error") {
+      assert.equal(result.status, 404, `expected 404 for ${credential}`);
+      assert.doesNotMatch(result.message, /internal|error:|at\s+\w+\s*\(/i);
+    }
   }
 });
 
 test("database failure returns 503", async () => {
-  const response = await handlePassScan(
-    new Request("https://retroverse.live/pass/RVSN500"),
-    "RVSN500",
-    async () => { throw new Error("database unavailable: internal host"); },
-  );
-  assert.equal(response.status, 503);
-  assert.doesNotMatch(await response.text(), /internal host/);
+  const result = await resolvePassScan("RVSN500", async () => {
+    throw new Error("database unavailable: internal host");
+  });
+  assert.equal(result.type, "error");
+  if (result.type === "error") {
+    assert.equal(result.status, 503);
+    assert.doesNotMatch(result.message, /internal host/);
+  }
 });
