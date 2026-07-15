@@ -34,7 +34,6 @@ type HeroDisplay = {
 const DEFAULT_POLL_MS = 7000;
 const CHANNEL_POLL_MS = 3000;
 const RE_RVTR = /^RVTR\d{6}$/i;
-const SAFE_FALLBACK_RVTR = "RVTR708312";
 
 function chartsHrefFromTrack(track: TrackPageData): string | null {
   const chartWeek =
@@ -112,16 +111,16 @@ function displayFromPayload(
   }
 
   return {
-    title: "Sweet Home Alabama",
-    artist: "Lynyrd Skynyrd",
-    year: 1974,
+    title: "Retroverse Live",
+    artist: "Current song unavailable",
+    year: null,
     coverUrl: null,
-    songHref: trackPageHref(SAFE_FALLBACK_RVTR),
-    artistHref: "/artist/lynyrd-skynyrd",
+    songHref: null,
+    artistHref: null,
     albumHref: null,
-    yearHref: rvYearHref(1974),
-    chartsHref: "/retroverse-2/charts",
-    rvtr: SAFE_FALLBACK_RVTR,
+    yearHref: null,
+    chartsHref: null,
+    rvtr: null,
     track: null,
   };
 }
@@ -182,15 +181,15 @@ export function RetroverseLive2View({
         setPayload(data);
       } catch {
         if (cancelled) return;
-        // Never preserve an old live song when the authority is unavailable.
+        // Do not replace a failed current-song lookup with a hard-coded song.
         setPayload((previous) => ({
           ...previous,
-          currentTrackId: SAFE_FALLBACK_RVTR,
+          currentTrackId: null,
           live: null,
           track: null,
           destination: {
             kind: "EXPERIENCE",
-            href: trackPageHref(SAFE_FALLBACK_RVTR),
+            href: "/",
           },
           channel: null,
           publicState: {

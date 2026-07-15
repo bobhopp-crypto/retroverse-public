@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import {
   createContext,
   useCallback,
@@ -14,7 +13,6 @@ import {
 
 import {
   ATTRACT_INACTIVITY_RESUME_MS,
-  ATTRACT_LIVE_END_DELAY_MS,
   attractSongDurationSec,
   buildDirectorAttractBeatSchedule,
   type AttractBeat,
@@ -42,7 +40,6 @@ type AttractTourContextValue = {
 
 const AttractTourContext = createContext<AttractTourContextValue | null>(null);
 
-const LIVE_POLL_MS = 2000;
 const SEED_KEY = "retroverse-attract-seed";
 const SONG_INDEX_KEY = "retroverse-attract-song-index";
 const LEGACY_THEME_INDEX_KEY = "retroverse-attract-theme-index";
@@ -96,7 +93,6 @@ export function AttractTourProvider({
   openingKind = "story",
   children,
 }: ProviderProps) {
-  const router = useRouter();
   const rvtrUpper = rvtr.toUpperCase();
 
   const [mode, setMode] = useState<AttractTourMode>("attract");
@@ -186,16 +182,9 @@ export function AttractTourProvider({
     songIndexRef.current = nextSongIndex;
     writeSessionNumber(SONG_INDEX_KEY, nextSongIndex);
 
-    const next = tourSongsRef.current[nextSongIndex];
-    if (!next) return;
-
     songStartedAtRef.current = Date.now();
     setSongElapsedSec(0);
-
-    if (next.rvtr.toUpperCase() !== rvtrUpper) {
-      router.replace(`/retroverse-2/song/${next.rvtr}`);
-    }
-  }, [router, rvtrUpper]);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -225,69 +214,6 @@ export function AttractTourProvider({
       cancelled = true;
     };
   }, [applyFullPool, syncSongIndexForRvtr, rvtrUpper]);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function pollLive() {
-      try {
-        const res = await fetch("/api/sunday-nights/current", { cache: "no-store" });
-        if (!res.ok || cancelled) return;
-        const data = (await res.json()) as {
-          currentTrackId?: string | null;
-          live?: { source?: string | null } | null;
-          channel?: { running?: boolean } | null;
-        };
-
-        const nextRvtr = data.currentTrackId?.trim().toUpperCase() ?? null;
-        const onAir =
-          Boolean(nextRvtr) &&
-          (data.live?.source === "bridge" ||
-            data.live?.source === "channel" ||
-            data.channel?.running === true);
-
-        if (onAir && nextRvtr) {
-          if (liveEndTimerRef.current != null) {
-            window.clearTimeout(liveEndTimerRef.current);
-            liveEndTimerRef.current = null;
-          }
-          liveActiveRef.current = true;
-          setLiveActive(true);
-          setLiveRvtr(nextRvtr);
-          setMode("living");
-          if (nextRvtr !== rvtrUpper) {
-            router.replace(`/retroverse-2/song/${nextRvtr}`);
-          }
-          return;
-        }
-
-        if (liveActiveRef.current) {
-          liveActiveRef.current = false;
-          setLiveActive(false);
-          setLiveRvtr(null);
-          if (liveEndTimerRef.current != null) window.clearTimeout(liveEndTimerRef.current);
-          liveEndTimerRef.current = window.setTimeout(() => {
-            if (engagedRef.current) {
-              setMode("living");
-              return;
-            }
-            setMode("attract");
-            songStartedAtRef.current = Date.now();
-            setSongElapsedSec(0);
-          }, ATTRACT_LIVE_END_DELAY_MS);
-        }
-      } catch {
-        /* keep prior live state */
-      }
-    }
-
-    const id = window.setInterval(pollLive, LIVE_POLL_MS);
-    pollLive();
-    return () => {
-      cancelled = true;
-      window.clearInterval(id);
-    };
-  }, [router, rvtrUpper]);
 
   useEffect(() => {
     if (mode !== "attract" || engaged || liveActive) {

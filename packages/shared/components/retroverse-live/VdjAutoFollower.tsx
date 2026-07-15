@@ -13,7 +13,7 @@ type Props = {
   enabledOnPaths?: RegExp;
 };
 
-const DEFAULT_PATHS = /^\/(?:$|retroverse-live|song(?:\/|$)|retroverse-2\/song(?:\/|$)|pass\/)/i;
+const DEFAULT_PATHS = /^\/$/;
 
 /**
  * Keeps patron surfaces on the canonical Broadcast player when the mixer

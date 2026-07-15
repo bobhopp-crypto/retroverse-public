@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { ReturnToLiveLink } from "@/components/live-experience/ReturnToLiveLink";
+
 import "./rv2-public-shell.css";
 
 export type Rv2PublicShellProps = {
@@ -29,7 +31,7 @@ export function Rv2PublicShell({
   children,
   className,
   lead,
-  broadcastChrome = false,
+  broadcastChrome = true,
 }: Rv2PublicShellProps) {
   const mainClassName = [
     "rv2-live",
@@ -44,11 +46,20 @@ export function Rv2PublicShell({
       {lead}
       <div className="rv2-live__grid-glow" aria-hidden />
 
+      {broadcastChrome ? (
+        <header className="rv2-broadcast-banner rv2-broadcast-banner--top" aria-label="Retroverse live banner">
+          <Link href="/" className="rv2-broadcast-banner__status">
+            Retroverse Live
+          </Link>
+          <ReturnToLiveLink className="rv2-broadcast-banner__search" />
+        </header>
+      ) : null}
+
       <div className="rv2-public-shell__body">{children}</div>
       {broadcastChrome ? (
         <footer className="rv2-broadcast-banner rv2-broadcast-banner--bottom" aria-label="Broadcast updates">
-          <Link href="/pass" className="rv2-broadcast-banner__action">
-            Register Your Pass
+          <Link href="/" className="rv2-broadcast-banner__action" aria-label="Scan a Retroverse Pass QR code to register">
+            Scan Pass QR to Register
           </Link>
         </footer>
       ) : null}
