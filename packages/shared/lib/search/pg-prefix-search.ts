@@ -4,7 +4,7 @@ import { coverPathToUrl } from "@/lib/artist/cover-url";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import {
   albumSuggestionHref,
-  coerceArtistPublicHref,
+  artistPublicHrefFromId,
   trackPageHref,
 } from "@/lib/search/entity-routes";
 import type { HomeSearchPayload } from "@/lib/search/home-search-types";
@@ -26,11 +26,12 @@ export async function loadPgPrefixSearchPayload(
 
   const [artistRows, trackRows, albumRows] = await Promise.all([
     inspectQuery<{
+      artist_id: number;
       canonical_name: string;
       cover_path: string | null;
     }>(
       `
-      SELECT a.canonical_name,
+      SELECT a.id AS artist_id, a.canonical_name,
         (
           SELECT al.canonical_cover_path FROM albums al
           WHERE al.artist_id = a.id AND al.canonical_cover_path IS NOT NULL
@@ -98,7 +99,7 @@ export async function loadPgPrefixSearchPayload(
     artists: artistRows.map((row) => ({
       kind: "artist" as const,
       name: row.canonical_name,
-      href: coerceArtistPublicHref(row.canonical_name, null) ?? "",
+      href: artistPublicHrefFromId(row.artist_id) ?? "",
       coverUrl: coverPathToUrl(row.cover_path),
     })),
     tracks: trackRows.map((row) => ({

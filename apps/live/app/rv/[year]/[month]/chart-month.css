@@ -1,0 +1,81 @@
+html:has(.chart-month-page),
+html:has(.chart-month-page) body {
+  background: #f3ead8;
+  color-scheme: light;
+}
+
+.chart-month-page {
+  min-height: calc(100vh - var(--rv-global-nav-height, 0px));
+  padding: clamp(2.5rem, 8vw, 6rem) clamp(1rem, 4vw, 2.5rem);
+  background:
+    linear-gradient(rgba(255, 253, 247, 0.2), rgba(255, 253, 247, 0.2)),
+    #f3ead8;
+  color: #252a2b;
+  font-family: "Avenir Next", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+.chart-month {
+  width: min(100%, 58rem);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+  border-top: 3px solid #252a2b;
+  border-bottom: 1px solid #9c9383;
+}
+
+.chart-month__heading {
+  margin: 0 0 1.25rem;
+  color: #252a2b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.chart-month__weeks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.chart-month__week {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid #787267;
+  border-radius: 999px;
+  background: #fbf7ed;
+  color: #235e62;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.chart-month__week:hover {
+  border-color: #235e62;
+  background: #e6f0ec;
+  color: #17494c;
+}
+
+.chart-month__week:focus-visible {
+  outline: 3px solid rgba(224, 122, 79, 0.45);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .chart-month-page {
+    padding-top: 2rem;
+  }
+
+  .chart-month__weeks {
+    gap: 0.5rem;
+  }
+
+  .chart-month__week {
+    flex: 1 1 calc(50% - 0.25rem);
+  }
+}

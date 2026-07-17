@@ -40,11 +40,15 @@ export function artistsMatch(fileArtist: string, catalogArtist: string): boolean
 /** Compact video title — strip noise tokens, years, punctuation. */
 export function normalizeVideoTitleKey(title: string): string {
   let s = title
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\b(featuring|feat\.?|ft\.?)\b/gi, " ")
+    .replace(/&/g, " and ")
     .replace(/\s*\([^)]*\)\s*/g, " ")
     .replace(/\s*\[[^\]]*\]\s*/g, " ")
     .replace(VIDEO_TITLE_NOISE, " ")
     .replace(YEAR_SUFFIX, " ")
-    .replace(/[''´`]/g, "")
+    .replace(/[\u2018\u2019\u201B\u2032'´`]/g, "")
     .toLowerCase();
   s = s.replace(/[^a-z0-9]/g, "");
   return s;

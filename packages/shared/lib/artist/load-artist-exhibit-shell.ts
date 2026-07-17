@@ -4,8 +4,6 @@ import { coverPathToUrl } from "@/lib/artist/cover-url";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
 import {
   artistFileCode,
-  artistNameFromSlug,
-  displayArtistName,
 } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 
@@ -25,28 +23,11 @@ function pickHeroCover(...candidates: (string | null | undefined)[]): string | n
   return null;
 }
 
-function degradedArtistExhibitShell(slug: string): ArtistExhibitShellData | null {
-  const key = slug.trim().toLowerCase();
-  if (!key) return null;
-
-  const known = artistNameFromSlug(key);
-  const displayName = known
-    ? displayArtistName(known)
-    : displayArtistName(key.replace(/-/g, " "));
-
-  return {
-    slug: key,
-    displayName,
-    fileCode: "RV-000",
-    heroImageUrl: null,
-  };
-}
-
 async function loadArtistExhibitShellImpl(
   slug: string,
 ): Promise<ArtistExhibitShellData | null> {
   const ping = await inspectPing();
-  if (!ping.ok) return degradedArtistExhibitShell(slug);
+  if (!ping.ok) return null;
 
   const resolved = await resolveArtistFromSlug(slug);
   if (!resolved) return null;

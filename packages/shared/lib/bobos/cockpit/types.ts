@@ -35,6 +35,7 @@ export type PanelTypeId =
   | "system-health"
   | "storage"
   | "database-health"
+  | "catalog-integrity"
   | "clock"
   | "notes"
   | "printer-panel"
@@ -43,7 +44,9 @@ export type PanelTypeId =
   | "giveaway-panel"
   | "live-display"
   | "broadcast"
-  | "retroverse-runtime";
+  | "retroverse-runtime"
+  | "graph-bridge"
+  | "six-up-viewer";
 
 export type PanelGroup = "attention" | "build" | "catalog" | "devices";
 
@@ -56,7 +59,13 @@ export type PanelAction = {
 
 export type PanelDefinition = {
   id: PanelTypeId;
+  /** Stable RV category used by future category menus and layout tooling. */
+  category?: string;
   title: string;
+  description?: string;
+  component?: PanelTypeId;
+  defaultVisible?: boolean;
+  favorite?: boolean;
   group: PanelGroup;
   defaultStatus: PanelStatus;
   summary: string;

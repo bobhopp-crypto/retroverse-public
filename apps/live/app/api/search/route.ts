@@ -30,7 +30,23 @@ function curatedTotal(groups: CuratedSearchGroups): number {
 }
 
 export async function GET(request: Request) {
-  const q = new URL(request.url).searchParams.get("q")?.trim() ?? "";
+  const url = new URL(request.url);
+  const q = url.searchParams.get("q")?.trim() ?? "";
+  const traceEnabled = process.env.NODE_ENV !== "production" && url.searchParams.get("trace") === "1";
+  const startedAt = performance.now();
+  const trace = (resolverPath: string[], entitySource: string) =>
+    traceEnabled
+      ? {
+          resolverPath,
+          discoverySources: [`search-results: ${entitySource} canonical IDs`],
+          loaderTimings: [
+            {
+              name: "canonical-search",
+              durationMs: Math.round((performance.now() - startedAt) * 100) / 100,
+            },
+          ],
+        }
+      : undefined;
 
   if (q.length < 2) {
     return NextResponse.json({
@@ -64,7 +80,14 @@ export async function GET(request: Request) {
       ...EMPTY_CURATED_SEARCH_GROUPS,
       bestMatch: suggestions.years,
     };
-    return NextResponse.json({ ok: true, q, suggestions, curated, total: 1 });
+    return NextResponse.json({
+      ok: true,
+      q,
+      suggestions,
+      curated,
+      total: 1,
+      trace: trace([`query:${q}`, `canonical_year:${year}`, "render"], "canonical year"),
+    });
   }
 
   try {
@@ -79,6 +102,10 @@ export async function GET(request: Request) {
       total: curatedTotal(curated),
       candidateTotal: total(suggestions),
       index: meta,
+      trace: trace(
+        [`query:${q}`, `canonical_candidates:${entities.length}`, "canonical IDs", "render"],
+        `${meta.entitySource} search source`,
+      ),
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);

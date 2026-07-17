@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadRelatedArtistsFromGraph } from "@/lib/artist/load-related-artists";
+import { resolveCanonicalArtist } from "@/lib/public/canonical-public-resolver";
 
 import { ArtistCover } from "../artist-cover";
 import { ArtistSectionPlaceholder } from "../section-placeholder";
@@ -10,7 +12,9 @@ type Props = { params: Promise<{ slug: string }> };
 
 export default async function ArtistRelatedPage({ params }: Props) {
   const { slug } = await params;
-  const data = await loadArtistPage(slug);
+  const canonical = await resolveCanonicalArtist(slug);
+  if (!canonical) notFound();
+  const data = await loadArtistPage(canonical.routeToken);
 
   let related = data.relatedArtists;
   if (related.length < 8 && data.artistId > 0) {

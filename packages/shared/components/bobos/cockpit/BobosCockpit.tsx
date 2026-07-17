@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { cellGridRef, cellLabel } from "@/lib/bobos/cockpit/defaults";
-import { COCKPIT_COMMAND_BAR, getPanelDefinition } from "@/lib/bobos/cockpit/panel-library";
+import { COCKPIT_COMMAND_BAR, getCockpitPanelRegistryEntry } from "@/lib/bobos/cockpit/registry";
 import type { CockpitState, CockpitWorkspaceId, PanelTypeId } from "@/lib/bobos/cockpit/types";
 import { COCKPIT_WORKSPACES } from "@/lib/bobos/cockpit/types";
+import { layoutDefinitionFromWorkspace } from "@/lib/bobos/cockpit/layouts";
 import type { CockpitPanelData } from "@/lib/bobos/cockpit/load-panel-data";
 import type { Project } from "@/lib/bobos/project-zero/types";
 
@@ -14,6 +15,8 @@ import { CockpitPanel } from "./CockpitPanel";
 import { PanelLibraryModal } from "./PanelLibraryModal";
 import { RvIdLabel, RvIdToggle } from "@/components/bobos/rv-ids";
 import { getRvIdByHref } from "@/lib/bobos/rv-ids";
+import { RV_REGISTRY } from "@/lib/bobos/rv-registry";
+import { RvCategoryBar } from "./RvCategoryBar";
 
 import "./cockpit.css";
 
@@ -30,11 +33,17 @@ export function BobosCockpit({ initialState, projects, panelData, renderAppPanel
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [selectedCell, setSelectedCell] = useState<number | null>(null);
   const [menuCell, setMenuCell] = useState<number | null>(null);
+  const [placementPanel, setPlacementPanel] = useState<PanelTypeId | null>(null);
   const [saving, setSaving] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const activeLayout = state.workspaces[state.activeWorkspace];
+  const activeLayoutDefinition = layoutDefinitionFromWorkspace(state.activeWorkspace, activeLayout);
   const latestProject = projects[0] ?? null;
+  function commandCategory(href: string): string {
+    const rvId = getRvIdByHref(href);
+    return RV_REGISTRY.find((entry) => entry.id === rvId)?.category.toLowerCase() ?? "unassigned";
+  }
 
   const persistState = useCallback(async (next: CockpitState) => {
     setSaving(true);
@@ -103,6 +112,22 @@ export function BobosCockpit({ initialState, projects, panelData, renderAppPanel
     setMenuCell(null);
   }
 
+  function selectPlacement(cellIndex: number) {
+    if (!placementPanel) return;
+    const layout = { ...activeLayout, cells: [...activeLayout.cells] };
+    layout.cells[cellIndex] = { panelType: placementPanel };
+    scheduleSave({ ...state, workspaces: { ...state.workspaces, [state.activeWorkspace]: layout } });
+    setPlacementPanel(null);
+  }
+
+  function renamePanel(cellIndex: number, title: string) {
+    const layout = { ...activeLayout, cells: [...activeLayout.cells] };
+    const cell = layout.cells[cellIndex];
+    if (!cell) return;
+    layout.cells[cellIndex] = { ...cell, config: { ...cell.config, faceplateTitle: title } };
+    scheduleSave({ ...state, workspaces: { ...state.workspaces, [state.activeWorkspace]: layout } });
+  }
+
   return (
     <div className="bobos-cockpit">
       <header className="cockpit-header">
@@ -141,25 +166,29 @@ export function BobosCockpit({ initialState, projects, panelData, renderAppPanel
         </div>
       </header>
 
+      <RvCategoryBar layout={activeLayout} panelData={panelData} onSelectPanel={setPlacementPanel} />
+      {placementPanel ? <div className="cockpit-placement-banner">PLACE: {getCockpitPanelRegistryEntry(placementPanel).rvId ?? "NO RV NUMBER"} {getCockpitPanelRegistryEntry(placementPanel).title}</div> : null}
+
       <main className="cockpit-grid-frame">
         <div className="cockpit-grid">
-          {activeLayout.cells.map((cell, index) => {
+          {Array.from({ length: 16 }, (_, index) => ({ panelType: activeLayoutDefinition.orderedPanels[index] ?? null, config: activeLayout.cells[index]?.config })).map((cell, index) => {
             if (!cell.panelType) {
               return (
                 <button
                   key={`${state.activeWorkspace}-${index}`}
                   type="button"
-                  className="cockpit-cell cockpit-cell--empty"
-                  onClick={() => openLibrary(index)}
-                  aria-label={`Add panel to cell ${cellLabel(index)}`}
+                  onClick={() => placementPanel ? selectPlacement(index) : openLibrary(index)}
+                  aria-label={placementPanel ? `Place panel in cell ${cellLabel(index)}` : `Add panel to cell ${cellLabel(index)}`}
+                  className={`cockpit-cell cockpit-cell--empty${placementPanel ? " cockpit-cell--placement-target" : ""}`}
                 >
                   <span className="cockpit-cell__ref">{cellGridRef(index)}</span>
-                  <span className="cockpit-cell__add">+ Add Panel</span>
+                  <span className="cockpit-cell__add">UNASSIGNED</span>
+                  <span className="cockpit-cell__empty-action">SELECT PANEL</span>
                 </button>
               );
             }
 
-            const def = getPanelDefinition(cell.panelType);
+            const def = getCockpitPanelRegistryEntry(cell.panelType);
             return (
               <CockpitPanel
                 key={`${state.activeWorkspace}-${index}-${cell.panelType}`}
@@ -172,6 +201,10 @@ export function BobosCockpit({ initialState, projects, panelData, renderAppPanel
                 onChangePanel={() => openLibrary(index)}
                 onRemove={() => removePanel(index)}
                 renderAppPanel={renderAppPanel}
+                placementMode={Boolean(placementPanel)}
+                onPlacementSelect={() => selectPlacement(index)}
+                cellConfig={cell.config}
+                onRename={(title) => renamePanel(index, title)}
               />
             );
           })}
@@ -182,7 +215,7 @@ export function BobosCockpit({ initialState, projects, panelData, renderAppPanel
         <p className="cockpit-command-bar__label">Command</p>
         <div className="cockpit-command-bar__buttons">
           {COCKPIT_COMMAND_BAR.map((cmd) => (
-            <Link key={cmd.label} href={cmd.href} className="cockpit-cmd-btn">
+            <Link key={cmd.label} href={cmd.href} className={`cockpit-cmd-btn cockpit-cmd-btn--${commandCategory(cmd.href)}`}>
               <RvIdLabel rvId={getRvIdByHref(cmd.href)} label={cmd.label} />
             </Link>
           ))}

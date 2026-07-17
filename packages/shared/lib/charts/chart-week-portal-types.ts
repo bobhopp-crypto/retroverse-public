@@ -8,7 +8,7 @@ export type ChartWeekPortalRow = {
   artistName: string;
   artistSlug: string;
   trackHref: string | null;
-  artistHref: string;
+  artistHref: string | null;
   albumHref: string | null;
   coverUrl: string | null;
   /** Prior week chart position; null if new entry or unknown. */
@@ -21,6 +21,8 @@ export type ChartWeekPortalRow = {
 export type ChartWeekPortalContext = {
   chartDate: string;
   chartLabel: string;
+  previousChartDate: string | null;
+  nextChartDate: string | null;
   /** Null when viewing the full chart (no focus query). */
   focusPosition: number | null;
   focusTrackId: string | null;

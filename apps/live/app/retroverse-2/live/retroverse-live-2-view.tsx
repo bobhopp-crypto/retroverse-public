@@ -9,6 +9,7 @@ import { RV_CHRONOLOGY_DEFAULT_YEAR, rvYearHref } from "@/lib/rv/rv-chronology-p
 import { artistPublicHrefFromName, trackPageHref } from "@/lib/search/entity-routes";
 import type { SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import type { TrackPageData } from "@/lib/track/load-track-page";
+import { discoveryShelf } from "@/lib/public/discovery-contract";
 
 type Props = {
   initial: SundayNightsCurrentPayload;
@@ -258,7 +259,7 @@ export function RetroverseLive2View({
     >
       <section
         className={minimalHome ? "rv2-live__hero rv2-live__hero--minimal" : "rv2-live__hero"}
-        aria-label={isLiveNow ? "Live now" : "Now exploring"}
+        aria-label={isLiveNow ? "Live now" : discoveryShelf("homeCurrentSong").displayLabel}
       >
         {minimalHome ? (
           <div className="rv2-live__minimal-current">
@@ -325,7 +326,7 @@ export function RetroverseLive2View({
         <div className="rv2-live__status-row">
           <p className={isLiveNow ? "rv2-live__status rv2-live__status--live" : "rv2-live__status"}>
             <span aria-hidden />
-            {isLiveNow ? "Live Now" : "Now Exploring"}
+            {isLiveNow ? "Live Now" : discoveryShelf("homeCurrentSong").displayLabel}
           </p>
         </div>
 

@@ -1,4 +1,3 @@
-import { slugFromArtistName } from "@/lib/artist/slug";
 import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
 import {
   loadSongPackage,
@@ -27,7 +26,7 @@ export type LiveExperienceShellModel = {
 
 function actionSet(
   rvtr: string | null,
-  artist: string,
+  artistId: number | null,
   hasPackage: boolean,
   experienceReady: boolean,
 ): LiveExperienceAction[] {
@@ -36,7 +35,7 @@ function actionSet(
     { label: "Story", href: rvtr && hasPackage ? `/rvtr/${rvtr}/song-sheet` : null },
     { label: "Song", href: experienceHref },
     { label: "Chart", href: rvtr ? trackPageHref(rvtr) : null },
-    { label: "Artist", href: artist.trim() ? `/artist/${slugFromArtistName(artist)}` : null },
+    { label: "Artist", href: artistId != null && artistId > 0 ? `/artist/${artistId}` : null },
     { label: "Live", href: "/live" },
   ];
 }
@@ -77,6 +76,7 @@ export async function buildLiveExperienceShellModel(input: {
   rvtr: string | null;
   title: string;
   artist: string;
+  artistId?: number | null;
   year: number | null;
   peakHot100?: number | null;
   activeTab: LiveExperienceTab;
@@ -96,7 +96,7 @@ export async function buildLiveExperienceShellModel(input: {
     },
     status,
     activeTab: input.activeTab,
-    actions: actionSet(rvtr, input.artist, hasPackage, experienceReady),
+    actions: actionSet(rvtr, input.artistId ?? null, hasPackage, experienceReady),
     primaryHref: primary.href,
     primaryLabel: primary.label,
   };
@@ -112,6 +112,7 @@ export async function buildLiveShellFromCurrent(
       rvtr: track.rvtr,
       title: track.title,
       artist: track.artistName,
+      artistId: track.artistId,
       year: track.releaseYear,
       peakHot100: track.peakHot100,
       activeTab,
@@ -123,6 +124,7 @@ export async function buildLiveShellFromCurrent(
     rvtr: live?.rvtr ?? null,
     title: live?.title ?? "Waiting for the next song",
     artist: live?.artist ?? "Retroverse Live",
+    artistId: null,
     year: live?.year ?? null,
     peakHot100: null,
     activeTab,

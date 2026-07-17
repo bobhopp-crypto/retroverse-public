@@ -1,18 +1,12 @@
 import { cache } from "react";
 
-import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
+import { inspectPing } from "@/lib/inspect/pg";
+import { loadCanonicalArtistTracks } from "@/lib/artist/load-canonical-artist-tracks";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
-import { artistNameFromSlug, displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
+import { resolveCanonicalTracksBatch } from "@/lib/public/canonical-public-resolver";
 import { trackPageHref } from "@/lib/search/entity-routes";
 
 import type { ArtistChartedSong, ArtistChartedSongsData } from "./charted-song-types";
-
-const CHARTED_SONGS_LIMIT = 500;
-
-const ARTIST_NAME_MATCH = `
-  lower(regexp_replace(trim(canonical_artist_name), '^the\\s+', '', 'i'))
-  = lower(regexp_replace(trim($1), '^the\\s+', '', 'i'))
-`;
 
 function yearFromDate(value: string | null | undefined): number | null {
   if (!value?.trim()) return null;
@@ -21,14 +15,11 @@ function yearFromDate(value: string | null | undefined): number | null {
 }
 
 function fallbackChartedSongs(slugParam: string): ArtistChartedSongsData {
-  const key = slugParam.trim().toLowerCase();
-  const knownName = artistNameFromSlug(key);
-  const displayName = knownName
-    ? displayArtistName(knownName)
-    : displayArtistName(key.replace(/-/g, " "));
+  const key = /^\d+$/.test(slugParam.trim()) ? slugParam.trim() : "0";
+  const displayName = "Unknown artist";
 
   return {
-    slug: key || slugFromArtistName(displayName),
+    slug: key,
     displayName,
     songs: [],
   };
@@ -41,28 +32,10 @@ async function loadArtistChartedSongsImpl(slug: string): Promise<ArtistChartedSo
   const resolved = await resolveArtistFromSlug(slug);
   if (!resolved) return fallbackChartedSongs(slug);
 
-  const { canonicalName, displayName, slug: canonicalSlug } = resolved;
+  const { artistId, displayName, slug: canonicalSlug } = resolved;
 
-  const trackRows = await inspectQuery<{
-    track_id: string;
-    canonical_title: string;
-    peak_hot100_position: number | null;
-    chart_weeks: number;
-    first_chart_date: string | null;
-    has_vdj_media: boolean;
-  }>(
-    `
-    SELECT track_id, canonical_title, peak_hot100_position, chart_weeks,
-           first_chart_date::text AS first_chart_date, has_vdj_media
-    FROM canonical_track_display
-    WHERE ${ARTIST_NAME_MATCH}
-      AND has_hot100 = true
-      AND peak_hot100_position IS NOT NULL
-    ORDER BY first_chart_date ASC NULLS LAST,
-             canonical_title ASC
-    LIMIT ${CHARTED_SONGS_LIMIT}
-    `,
-    [canonicalName],
+  const trackRows = (await loadCanonicalArtistTracks(artistId)).filter(
+    (row) => row.has_hot100 && row.peak_hot100_position != null,
   );
 
   if (trackRows.length === 0) {
@@ -70,21 +43,12 @@ async function loadArtistChartedSongsImpl(slug: string): Promise<ArtistChartedSo
   }
 
   const rvtrs = trackRows.map((row) => row.track_id.trim().toUpperCase());
-  const albumRows = await inspectQuery<{ track_key: string; album_title: string }>(
-    `
-    SELECT DISTINCT ON (cat.canonical_track_key)
-      cat.canonical_track_key AS track_key,
-      al.title AS album_title
-    FROM canonical_album_tracks cat
-    JOIN albums al ON al.id = cat.album_id
-    WHERE cat.canonical_track_key = ANY($1::text[])
-    ORDER BY cat.canonical_track_key, cat.position ASC
-    `,
-    [rvtrs],
-  );
-
+  const canonicalTracks = await resolveCanonicalTracksBatch(rvtrs);
   const albumByTrack = new Map(
-    albumRows.map((row) => [row.track_key.toUpperCase(), row.album_title.trim()]),
+    [...canonicalTracks].map(([rvtr, track]) => [
+      rvtr,
+      track.albumResolution.primaryAlbum?.title ?? null,
+    ]),
   );
 
   const songs: ArtistChartedSong[] = trackRows.map((row) => {

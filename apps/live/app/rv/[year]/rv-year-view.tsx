@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
@@ -11,16 +10,14 @@ import {
 } from "@/lib/artist/chart-history";
 import type { ArtistChartHistory } from "@/lib/artist/chart-history-types";
 import {
-  formatChartDateLabel,
-  isAlbumChartSnapshot,
   monthChartSnapshotGroups,
   monthLabel,
   weeklyEntriesFromHistory,
 } from "@/lib/artist/chart-history-display";
-import { formatRvYearArtist, formatRvYearTitle } from "@/lib/rv-year/display-format";
+import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import { rvYearEditorial } from "@/lib/rv-year/rv-year-editorial";
-import type { RvYearDestination, YearChartLeader } from "@/lib/rv-year/rv-year-destination";
-import { rvMonthHref, rvWeekHref } from "@/lib/rv/rv-chronology-paths";
+import { isUsableCoverUrl } from "@/lib/rv-year/hero-cover-fill";
+import type { RvYearDestination } from "@/lib/rv-year/rv-year-destination";
 
 import { RvChronologyScrollRestore } from "../components/rv-chronology-scroll-restore";
 import { RvYearCover } from "../components/rv-year-cover";
@@ -57,82 +54,11 @@ function useMobileTimeline() {
   return isMobile;
 }
 
-function renderChartLeaders(
-  id: string,
-  title: string,
-  kicker: string,
-  leaders: YearChartLeader[],
-) {
-  if (!leaders.length) return null;
-
-  return (
-    <section
-      className="rv-year-section rv-year-section--chart-primary"
-      aria-labelledby={id}
-    >
-      <p className="rv-year-section__kicker">{kicker}</p>
-      <h2 id={id} className="rv-year-section__title">
-        {title}
-      </h2>
-      <ol className="rv-year-chart-leaders">
-        {leaders.map((leader, index) => {
-          const weeksLabel =
-            leader.weeksAtOne === 1
-              ? "1 week at #1"
-              : `${leader.weeksAtOne} weeks at #1`;
-          const rowBody = (
-            <>
-              <RvYearCover
-                src={leader.coverUrl}
-                alt=""
-                title={leader.title}
-                artist={leader.artist}
-                className="rv-year-chart-leaders__cover"
-                fallbackClassName="rv-year-chart-leaders__cover rv-year-chart-leaders__cover--empty"
-                artworkSlot="year-chart-leader"
-              />
-              <span className="rv-year-chart-leaders__text">
-                <span className="rv-year-chart-leaders__title-row">
-                  <span className="rv-year-chart-leaders__title">{leader.title}</span>
-                </span>
-                <span className="rv-year-chart-leaders__artist">{leader.artist}</span>
-                <span className="rv-year-chart-leaders__meta">{weeksLabel}</span>
-              </span>
-            </>
-          );
-
-          return (
-            <li key={`${leader.title}|${leader.artist}|${index}`}>
-              <span className="rv-year-chart-leaders__rank" aria-hidden>
-                {index + 1}
-              </span>
-              {leader.href ? (
-                <Link href={leader.href} prefetch className="rv-year-chart-leaders__link">
-                  {rowBody}
-                </Link>
-              ) : (
-                <div className="rv-year-chart-leaders__link rv-year-chart-leaders__link--static">{rowBody}</div>
-              )}
-            </li>
-          );
-        })}
-      </ol>
-    </section>
-  );
-}
-
 export function RvYearView({ rvYear, history, destination, shellMode = "legacy" }: RvYearViewProps) {
-  const router = useRouter();
   const isMobileTimeline = useMobileTimeline();
   const [expandedMonth, setExpandedMonth] = useState(1);
+  const [unavailableArtwork, setUnavailableArtwork] = useState<Set<string>>(() => new Set());
   const artistName = `RV ${rvYear}`;
-
-  const openMonth = useCallback(
-    (month: number) => {
-      router.push(rvMonthHref(rvYear, month));
-    },
-    [router, rvYear],
-  );
 
   const safeHistory = useMemo(
     () => normalizeArtistChartHistory(history, artistName),
@@ -145,57 +71,42 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
     return Array.from({ length: 12 }, (_, idx) => {
       const month = idx + 1;
       const groups = monthChartSnapshotGroups(weekly, rvYear, month, 3);
-      const song = groups.singleSnapshots[0] ?? null;
-      const album = groups.albumSnapshots[0] ?? null;
-      const notable = [...groups.singleSnapshots, ...groups.albumSnapshots]
-        .map((row) => ({
-          id: row.id,
-          title: formatRvYearTitle(row.title),
-          artist: formatRvYearArtist(row.artist),
-          href: rvWeekHref(rvYear, month, row.chartDate),
-          chartDate: row.chartDate,
-          isAlbum: isAlbumChartSnapshot(row),
-        }))
-        .filter((row, index, list) => {
-          const dedupeKey = `${row.isAlbum ? "album" : "song"}|${row.title}|${row.artist}`.toLowerCase();
-          return (
-            list.findIndex((entry) => {
-              const entryKey = `${entry.isAlbum ? "album" : "song"}|${entry.title}|${entry.artist}`.toLowerCase();
-              return entryKey === dedupeKey;
-            }) === index
-          );
-        })
-        .filter((row) => {
-          if (song && !row.isAlbum && row.title === formatRvYearTitle(song.title) && row.artist === formatRvYearArtist(song.artist)) {
-            return false;
-          }
-          if (album && row.isAlbum && row.title === formatRvYearTitle(album.title) && row.artist === formatRvYearArtist(album.artist)) {
-            return false;
-          }
-          return true;
-        })
-        .slice(0, 2);
+      const weekDates = Array.from(
+        new Set(
+          weekly
+            .filter((entry) => entry.year === rvYear && entry.month === month && entry.chartDate)
+            .map((entry) => entry.chartDate.slice(0, 10)),
+        ),
+      ).sort();
       return {
         month,
-        song: song
-          ? {
-              title: formatRvYearTitle(song.title),
-              artist: formatRvYearArtist(song.artist),
-            }
-          : null,
-        album: album
-          ? {
-              title: formatRvYearTitle(album.title),
-              artist: formatRvYearArtist(album.artist),
-            }
-          : null,
-        notable,
-        hasActivity: groups.singleSnapshots.length > 0 || groups.albumSnapshots.length > 0,
+        weekDates,
+        hasActivity: weekDates.length > 0 || groups.singleSnapshots.length > 0 || groups.albumSnapshots.length > 0,
       };
     });
   }, [safeHistory, rvYear]);
 
   const editorial = useMemo(() => rvYearEditorial(rvYear), [rvYear]);
+  const heroCoverUrls = useMemo(() => new Set(destination.heroCovers.map((cover) => cover.coverUrl)), [destination.heroCovers]);
+  const songCoverUrls = useMemo(
+    () => new Set(destination.definingSongs
+      .filter((song) => isUsableCoverUrl(song.coverUrl) && song.href && !heroCoverUrls.has(song.coverUrl!))
+      .slice(0, 4)
+      .map((song) => song.coverUrl!)),
+    [destination.definingSongs, heroCoverUrls],
+  );
+  const yearFacts = useMemo(
+    () => [
+      ["Chart weeks", new Set(weeklyEntriesFromHistory(safeHistory!).filter((row) => row.year === rvYear).map((row) => row.chartDate)).size],
+      ["Featured songs", destination.topSingles.length],
+      ["Featured albums", destination.topAlbums.length],
+      ["Artists represented", new Set(destination.topSingles.map((row) => row.artist.toLowerCase())).size],
+    ].filter(([, value]) => Number(value) > 0),
+    [destination.topAlbums.length, destination.topSingles, rvYear, safeHistory],
+  );
+  const hideArtwork = useCallback((key: string) => {
+    setUnavailableArtwork((current) => new Set(current).add(key));
+  }, []);
 
   if (!safeHistory || !isUsableChartHistory(safeHistory)) {
     return null;
@@ -222,31 +133,11 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
           fallbackLabel="Search"
           className="rv-year-hero__back"
         />
-        <p className="rv-year-hero__label">{editorial.theme}</p>
+        <p className="rv-year-hero__label">Retroverse Year</p>
         <h1 id="rv-year-heading" className="rv-year-hero__year">
           {rvYear}
         </h1>
-        {editorial.shortDeck ? (
-          <p className="rv-year-hero__deck">{editorial.shortDeck}</p>
-        ) : null}
-        <h2 className="rv-year-hero__headline">{editorial.headline}</h2>
         <p className="rv-year-hero__lead">{editorial.lead}</p>
-
-        {editorial.keywords.length ? (
-          <ul className="rv-year-hero__keywords" aria-label="Year keywords">
-            {editorial.keywords.map((keyword) => (
-              <li key={keyword}>{keyword}</li>
-            ))}
-          </ul>
-        ) : null}
-
-        {editorial.definingMoments.length ? (
-          <ul className="rv-year-hero__moments" aria-label="Defining moments">
-            {editorial.definingMoments.map((moment) => (
-              <li key={moment}>{moment}</li>
-            ))}
-          </ul>
-        ) : null}
 
         {destination?.heroCovers.length ? (
           <div className="rv-year-hero__covers" aria-label="Albums from this year">
@@ -285,20 +176,45 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
 
       <RvYearNavBand rvYear={rvYear} />
 
-      {renderChartLeaders(
-        "rv-top-singles",
-        "Top songs",
-        "Hot 100 · weeks at #1",
-        destination?.topSingles ?? [],
-      )}
+      {yearFacts.length ? <section className="rv-year-facts" aria-labelledby="rv-year-facts-title">
+        <h2 id="rv-year-facts-title" className="sr-only">Year facts</h2>
+        <div className="rv-year-facts__grid">
+          {yearFacts.map(([label, value]) => (
+            <div className="rv-year-fact" key={String(label)}><strong>{value}</strong><span>{label}</span></div>
+          ))}
+        </div>
+      </section> : null}
 
-      {renderChartLeaders(
-        "rv-top-albums",
-        "Top albums",
-        "Album chart · weeks at #1",
-        destination?.topAlbums ?? [],
-      )}
+      {destination.definingSongs.filter((song) => isUsableCoverUrl(song.coverUrl) && song.href && !heroCoverUrls.has(song.coverUrl!)).slice(0, 4).length >= 4 ? (
+        <section id="songs" className="rv-year-section rv-year-section--songs" aria-labelledby="rv-defining-songs">
+          <p className="rv-year-section__kicker">Songs</p>
+          <h2 id="rv-defining-songs" className="rv-year-section__title">Songs that shaped the chart</h2>
+          <div className="rv-year-art-shelf rv-year-art-shelf--songs">
+            {destination.definingSongs.filter((song) => isUsableCoverUrl(song.coverUrl) && song.href && !heroCoverUrls.has(song.coverUrl!) && !unavailableArtwork.has(`song|${song.title}|${song.artist}`)).slice(0, 4).map((song) => (
+              <Link key={`${song.title}|${song.artist}`} href={song.href!} className="rv-year-art-card">
+                <RvYearCover src={song.coverUrl} alt="" title={song.title} artist={song.artist} className="rv-year-art-card__cover" artworkSlot="year-defining-song" onArtworkError={() => hideArtwork(`song|${song.title}|${song.artist}`)} />
+                <span className="rv-year-art-card__title">{song.title}</span><span className="rv-year-art-card__caption">{song.artist}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
+      {destination.essentialAlbums.filter((album) => isUsableCoverUrl(album.coverUrl) && album.href && !heroCoverUrls.has(album.coverUrl) && !songCoverUrls.has(album.coverUrl!)).slice(0, 4).length >= 4 ? (
+        <section id="albums" className="rv-year-section rv-year-section--albums" aria-labelledby="rv-year-albums">
+          <p className="rv-year-section__kicker">Albums</p><h2 id="rv-year-albums" className="rv-year-section__title">Albums that defined the year</h2>
+          <div className="rv-year-art-shelf rv-year-art-shelf--albums">
+            {destination.essentialAlbums.filter((album) => isUsableCoverUrl(album.coverUrl) && album.href && !heroCoverUrls.has(album.coverUrl) && !songCoverUrls.has(album.coverUrl!) && !unavailableArtwork.has(`album|${album.title}|${album.artist}`)).slice(0, 4).map((album) => (
+              <Link key={`${album.title}|${album.artist}`} href={album.href!} className="rv-year-art-card">
+                <RvYearCover src={album.coverUrl} alt="" title={album.title} artist={album.artist} className="rv-year-art-card__cover" artworkSlot="year-album" onArtworkError={() => hideArtwork(`album|${album.title}|${album.artist}`)} />
+                <span className="rv-year-art-card__title">{album.title}</span><span className="rv-year-art-card__caption">{album.artist}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {/* TODO(V4): Add Related Years when the existing similarity source is exposed to this route. */}
       <section className="rv-year-chronicle rv-year-chronicle--primary" aria-label={`${rvYear} through the year`}>
         <header className="rv-year-chronicle__head">
           <h2 className="rv-year-chronicle__title">Through the year</h2>
@@ -319,30 +235,11 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
                 id={monthAnchor}
                 className={[
                   "rv-month-card",
-                  isMobileTimeline ? "rv-month-card--accordion" : "rv-month-card--tappable",
+                  isMobileTimeline ? "rv-month-card--accordion" : "",
                   isMobileTimeline && isOpen ? "rv-month-card--open" : "",
                 ]
                   .filter(Boolean)
                   .join(" ")}
-                role={isMobileTimeline ? undefined : "link"}
-                tabIndex={isMobileTimeline ? undefined : 0}
-                onClick={
-                  isMobileTimeline
-                    ? undefined
-                    : () => {
-                        openMonth(card.month);
-                      }
-                }
-                onKeyDown={
-                  isMobileTimeline
-                    ? undefined
-                    : (e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          openMonth(card.month);
-                        }
-                      }
-                }
               >
                 <header
                   className="rv-month-card__head"
@@ -383,61 +280,13 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
 
                 {isOpen ? (
                   <div className="rv-month-card__body">
-                    <div className="rv-month-card__leaders">
-                      <div className="rv-month-card__leader">
-                        <p className="rv-month-card__label">Top hit</p>
-                        {card.song ? (
-                          <p className="rv-month-card__value">
-                            {card.song.title} · {card.song.artist}
-                          </p>
-                        ) : (
-                          <p className="rv-month-card__value rv-month-card__value--muted">—</p>
-                        )}
-                      </div>
-
-                      <div className="rv-month-card__leader">
-                        <p className="rv-month-card__label">Top album</p>
-                        {card.album ? (
-                          <p className="rv-month-card__value">
-                            {card.album.title} · {card.album.artist}
-                          </p>
-                        ) : (
-                          <p className="rv-month-card__value rv-month-card__value--muted">—</p>
-                        )}
-                      </div>
+                    <div className="rv-month-card__weeks" aria-label={`${monthName} chart weeks`}>
+                      {card.weekDates.map((date) => (
+                        <Link key={date} className="rv-month-card__week-pill" href={chartWeekPortalHref(date)}>
+                          {new Date(`${date}T12:00:00`).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                        </Link>
+                      ))}
                     </div>
-
-                    {card.notable.length > 0 ? (
-                      <ul
-                        className="rv-month-card__notable"
-                        aria-label={`${monthName} highlights`}
-                      >
-                        {card.notable.map((item) => (
-                          <li key={item.id}>
-                            <Link href={item.href} prefetch onClick={(e) => e.stopPropagation()}>
-                              {item.isAlbum ? "Album" : "Song"} · {item.title} · {item.artist}
-                              <span className="rv-month-card__week">
-                                {" "}
-                                · {formatChartDateLabel(item.chartDate)}
-                              </span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-
-                    {isMobileTimeline ? (
-                      <button
-                        type="button"
-                        className="rv-month-card__open"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          openMonth(card.month);
-                        }}
-                      >
-                        Explore {monthName}
-                      </button>
-                    ) : null}
                   </div>
                 ) : null}
               </article>
@@ -445,127 +294,6 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
           })}
         </div>
       </section>
-
-      <div className="rv-year-editorial" aria-label="Editorial highlights">
-        {destination?.definingArtists.length ? (
-          <section className="rv-year-section rv-year-section--editorial" aria-labelledby="rv-defining-artists">
-            <h2 id="rv-defining-artists" className="rv-year-section__title">
-              Voices of the year
-            </h2>
-            <ul className="rv-year-artist-grid">
-              {destination.definingArtists.map((artist) => (
-                <li key={artist.slug}>
-                  {artist.href ? (
-                    <Link href={artist.href} prefetch className="rv-year-artist-card">
-                      {artist.name}
-                    </Link>
-                  ) : (
-                    <span className="rv-year-artist-card rv-year-artist-card--static">{artist.name}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-
-        {destination?.essentialAlbums.length ? (
-          <section className="rv-year-section rv-year-section--editorial" aria-labelledby="rv-essential-albums">
-            <h2 id="rv-essential-albums" className="rv-year-section__title">
-              Albums that mattered
-            </h2>
-            <ul className="rv-year-album-grid">
-              {destination.essentialAlbums.map((album) => (
-                <li key={`${album.title}|${album.artist}`}>
-                  {album.href ? (
-                    <Link href={album.href} prefetch className="rv-year-album-card">
-                      <span className="rv-year-album-card__art">
-                        <RvYearCover
-                          src={album.coverUrl}
-                          alt=""
-                          title={album.title}
-                          artist={album.artist}
-                          className="rv-year-album-card__cover"
-                          fallbackClassName="rv-year-album-card__cover rv-year-album-card__cover--fallback"
-                          artworkSlot="year-album-card"
-                        />
-                      </span>
-                      <span className="rv-year-album-card__title">{album.title}</span>
-                      <span className="rv-year-album-card__caption">{album.caption}</span>
-                    </Link>
-                  ) : (
-                    <div className="rv-year-album-card rv-year-album-card--static">
-                      <span className="rv-year-album-card__art">
-                        <RvYearCover
-                          src={album.coverUrl}
-                          alt=""
-                          title={album.title}
-                          artist={album.artist}
-                          className="rv-year-album-card__cover"
-                          fallbackClassName="rv-year-album-card__cover rv-year-album-card__cover--fallback"
-                          artworkSlot="year-album-card"
-                        />
-                      </span>
-                      <span className="rv-year-album-card__title">{album.title}</span>
-                      <span className="rv-year-album-card__caption">{album.caption}</span>
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-
-        {destination?.definingSongs.length ? (
-          <section className="rv-year-section rv-year-section--editorial" aria-labelledby="rv-defining-songs">
-            <h2 id="rv-defining-songs" className="rv-year-section__title">
-              The songs
-            </h2>
-            <ol className="rv-year-song-list">
-              {destination.definingSongs.map((song) => (
-                <li key={`${song.title}|${song.artist}`}>
-                  {song.href ? (
-                    <Link
-                      href={song.href}
-                      prefetch
-                      className={`rv-year-song-row${song.coverUrl ? "" : " rv-year-song-row--with-fallback"}`}
-                    >
-                      <RvYearCover
-                        src={song.coverUrl}
-                        alt=""
-                        title={song.title}
-                        artist={song.artist}
-                        className="rv-year-song-row__thumb"
-                        fallbackClassName="rv-year-song-row__thumb rv-year-song-row__thumb--fallback"
-                        artworkSlot="year-song-row"
-                      />
-                      <span className="rv-year-song-row__text">
-                        <span className="rv-year-song-row__title">{song.title}</span>
-                        <span className="rv-year-song-row__artist">{song.artist}</span>
-                      </span>
-                    </Link>
-                  ) : (
-                    <div className="rv-year-song-row rv-year-song-row--static rv-year-song-row--with-fallback">
-                      <RvYearCover
-                        src={song.coverUrl}
-                        alt=""
-                        title={song.title}
-                        artist={song.artist}
-                        className="rv-year-song-row__thumb"
-                        fallbackClassName="rv-year-song-row__thumb rv-year-song-row__thumb--fallback"
-                        artworkSlot="year-song-row"
-                      />
-                      <span className="rv-year-song-row__text">
-                        <span className="rv-year-song-row__title">{song.title}</span>
-                        <span className="rv-year-song-row__artist">{song.artist}</span>
-                      </span>
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ol>
-          </section>
-        ) : null}
-      </div>
 
       {shellMode === "legacy" ? (
         <footer className="rv-year-footer">

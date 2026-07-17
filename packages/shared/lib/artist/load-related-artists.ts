@@ -1,7 +1,6 @@
 import { inspectQuery } from "@/lib/inspect/pg";
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
-import { slugFromArtistName } from "@/lib/artist/slug";
 import type { RelatedArtistCard } from "@/lib/artist/types";
 
 type CoChartRow = {
@@ -80,10 +79,13 @@ export async function loadRelatedArtistsFromGraph(
   for (const row of rows) {
     const name = row.canonical_name?.trim();
     if (!name) continue;
-    const slug = slugFromArtistName(name);
+    const artistId = Number(row.artist_id);
+    if (!Number.isSafeInteger(artistId) || artistId <= 0) continue;
+    const slug = String(artistId);
     if (seen.has(slug)) continue;
     seen.add(slug);
     out.push({
+      artistId,
       name,
       slug,
       coverUrl: pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key),

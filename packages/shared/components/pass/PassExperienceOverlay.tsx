@@ -49,6 +49,10 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [marketingOptIn, setMarketingOptIn] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -91,7 +95,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
       const res = await fetch("/api/pass/claim", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ serial, firstName, email, phone }),
+        body: JSON.stringify({ serial, firstName, lastName, email, phone, birthday, postalCode, marketingOptIn }),
       });
       const data = (await res.json()) as {
         ok?: boolean;
@@ -118,7 +122,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
       const res = await fetch("/api/pass/claim", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ serial, firstName, email, phone }),
+        body: JSON.stringify({ serial, firstName, lastName, email, phone, birthday, postalCode, marketingOptIn }),
       });
       const data = (await res.json()) as {
         ok?: boolean;
@@ -177,6 +181,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </label>
+              <label><span>Last Name (optional)</span><input type="text" autoComplete="family-name" value={lastName} onChange={(e) => setLastName(e.target.value)} /></label>
               <label>
                 <span>Email (optional)</span>
                 <input
@@ -195,6 +200,9 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </label>
+              <label><span>Birthday (optional)</span><input type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} /></label>
+              <label><span>Postal Code (optional)</span><input type="text" autoComplete="postal-code" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} /></label>
+              <label className="pass-xp__check"><input type="checkbox" checked={marketingOptIn} onChange={(e) => setMarketingOptIn(e.target.checked)} /><span>Send me Retroverse updates</span></label>
 
               {error ? <p className="pass-xp__error">{error}</p> : null}
 
@@ -274,6 +282,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </label>
+              <label><span>Last Name (optional)</span><input type="text" autoComplete="family-name" value={lastName} onChange={(e) => setLastName(e.target.value)} /></label>
               <label>
                 <span>Email (optional)</span>
                 <input
@@ -283,6 +292,9 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
+              <label><span>Birthday (optional)</span><input type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} /></label>
+              <label><span>Postal Code (optional)</span><input type="text" autoComplete="postal-code" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} /></label>
+              <label className="pass-xp__check"><input type="checkbox" checked={marketingOptIn} onChange={(e) => setMarketingOptIn(e.target.checked)} /><span>Send me Retroverse updates</span></label>
               <label>
                 <span>Phone (optional)</span>
                 <input

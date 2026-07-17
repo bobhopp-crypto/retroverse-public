@@ -6,11 +6,13 @@ import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { UniversalRenderer } from "@/components/universal-renderer/UniversalRenderer";
 import { resolveCanonicalSongExperience } from "@/lib/retroverse/experience/resolve-canonical-song";
 import { loadTrackPage } from "@/lib/track/load-track-page";
+import { localPublicTraceEnabled } from "@/lib/public/local-trace";
 
 import "./retroverse-song-empty.css";
 
 type Props = {
   params: Promise<{ rvtr: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export const dynamic = "force-dynamic";
@@ -58,8 +60,9 @@ function trackYear(track: NonNullable<Awaited<ReturnType<typeof loadTrackPage>>>
  *   graph (Postgres + patron experience) → package (any status) → VDJ
  *   library entry → honest empty state. Never a blank 404.
  */
-export default async function Retroverse2SongPage({ params }: Props) {
+export default async function Retroverse2SongPage({ params, searchParams }: Props) {
   const { rvtr } = await params;
+  const traceEnabled = localPublicTraceEnabled(searchParams ? await searchParams : undefined);
   let resolution;
   try {
     resolution = await resolveCanonicalSongExperience(rvtr);
@@ -90,13 +93,25 @@ export default async function Retroverse2SongPage({ params }: Props) {
         className="rv2-song"
         yearsHref={track.rvYearHref ?? (year ? `/rv/${year}` : "/search")}
       >
-        <PublicSongExperience rvtr={track.rvtr} />
+        <PublicSongExperience rvtr={track.rvtr} trackData={track} traceEnabled={traceEnabled} />
       </Rv2PublicShell>
     );
   }
 
   if (resolution.tier === "package" || resolution.tier === "vdj") {
     const { payload } = resolution;
+    const track = await loadTrackPage(payload.rvtr);
+    if (track) {
+      const year = trackYear(track);
+      return (
+        <Rv2PublicShell
+          className="rv2-song"
+          yearsHref={track.rvYearHref ?? (year ? `/rv/${year}` : "/search")}
+        >
+          <PublicSongExperience rvtr={track.rvtr} trackData={track} traceEnabled={traceEnabled} />
+        </Rv2PublicShell>
+      );
+    }
     return (
       <UniversalRenderer
         artist={payload.artist}

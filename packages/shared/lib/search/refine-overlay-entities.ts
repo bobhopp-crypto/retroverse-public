@@ -79,33 +79,6 @@ function titleNorm(title: string): string {
   return normalizeSearchLabel(title);
 }
 
-function softAnchorFromTitleMatches(
-  tracks: SearchEntity[],
-  query: string,
-): string | null {
-  const q = normalizeSearchQuery(query);
-  const exact = tracks.filter((t) => {
-    const title = titleNorm(t.label);
-    return title === q || title.startsWith(`${q} `) || title.startsWith(q);
-  });
-  if (exact.length === 0) return null;
-
-  const counts = new Map<string, { count: number; display: string }>();
-  for (const track of exact) {
-    if (!track.artist?.trim()) continue;
-    const key = normalizeArtistMatchKey(track.artist);
-    const prev = counts.get(key);
-    if (prev) prev.count += 1;
-    else counts.set(key, { count: 1, display: track.artist });
-  }
-
-  let best: { count: number; display: string } | null = null;
-  for (const entry of counts.values()) {
-    if (!best || entry.count > best.count) best = entry;
-  }
-  return best ? displayArtistName(best.display) : null;
-}
-
 function dedupeTracksByRvId(tracks: SearchEntity[]): SearchEntity[] {
   const seen = new Set<string>();
   const out: SearchEntity[] = [];
@@ -153,8 +126,7 @@ export function prioritizeOverlayTracks(
     artists.find((a) => a.rank <= 15 && artistKeysMatch(a.label, query)) ??
     artists[0] ??
     null;
-  const softAnchorName =
-    hardAnchor?.label ?? softAnchorFromTitleMatches(allTracks, query);
+  const softAnchorName = hardAnchor?.label ?? null;
   const anchorName = softAnchorName;
 
   const nonTracks = entities.filter((e) => e.entityType !== "track");

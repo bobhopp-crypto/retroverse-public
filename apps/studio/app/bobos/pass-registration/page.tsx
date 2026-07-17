@@ -1,0 +1,3 @@
+import { PassRegistrationWorkspace } from "./workspace";
+export const dynamic = "force-dynamic";
+export default function Page(){ return <PassRegistrationWorkspace/>; }

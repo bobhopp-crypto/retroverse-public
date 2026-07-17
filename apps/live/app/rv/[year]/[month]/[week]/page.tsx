@@ -1,17 +1,9 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
-import { isUsableChartHistory } from "@/lib/artist/chart-history";
-import { loadRvYearChartHistory } from "@/lib/artist/load-chart-history";
 import { formatChartDateLabel, monthLabel } from "@/lib/artist/chart-history-display";
-import { loadTrackCoverageRecord } from "@/lib/charts/load-track-coverage-batch";
-import { rvtrsForChartMonth } from "@/lib/charts/rvtrs-from-chart-history";
+import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 import { parseRvMonthParam, parseRvWeekParam } from "@/lib/rv/rv-chronology-paths";
-
-import { RvChronologyDrill } from "../../../components/rv-chronology-drill";
-import { Rv2ChronologyFrame } from "../../../components/rv2-chronology-frame";
-
-import "../../rv-year.css";
 
 type Props = {
   params: Promise<{ year: string; month: string; week: string }>;
@@ -41,23 +33,5 @@ export default async function RvWeekPage({ params }: Props) {
   const weekMonth = Number.parseInt(week.slice(5, 7), 10);
   if (weekMonth !== month) notFound();
 
-  const history = await loadRvYearChartHistory(rvYear);
-  if (!history || !isUsableChartHistory(history)) notFound();
-
-  const coverageByRvtr = await loadTrackCoverageRecord(
-    rvtrsForChartMonth(history, rvYear, month),
-  );
-
-  return (
-    <Rv2ChronologyFrame rvYear={rvYear}>
-      <RvChronologyDrill
-        rvYear={rvYear}
-        history={history}
-        initialMonth={month}
-        highlightChartDate={week}
-        shellMode="rv2"
-        coverageByRvtr={coverageByRvtr}
-      />
-    </Rv2ChronologyFrame>
-  );
+  redirect(chartWeekPortalHref(week));
 }

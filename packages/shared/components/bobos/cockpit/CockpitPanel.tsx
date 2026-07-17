@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 import { cellGridRef, cellLabel } from "@/lib/bobos/cockpit/defaults";
 import type { CockpitPanelData } from "@/lib/bobos/cockpit/load-panel-data";
 import type { PanelAction, PanelDefinition } from "@/lib/bobos/cockpit/types";
 import { getRvIdByPanelType } from "@/lib/bobos/rv-ids";
+import { RV_CATEGORY_BY_ID, getRvByPanelType } from "@/lib/bobos/rv-registry";
 import type { Project } from "@/lib/bobos/project-zero/types";
 
 import { RvIdLabel } from "@/components/bobos/rv-ids";
-import { BroadcastPanel } from "./BroadcastPanel";
+import { cockpitStatus } from "./cockpit-status";
 
 type Props = {
   cellIndex: number;
@@ -24,18 +24,11 @@ type Props = {
   /** Render slot for app-specific panels (e.g. Studio's Runtime panel).
    *  Kept as a prop so packages/shared never imports Studio-only server actions. */
   renderAppPanel?: (id: string) => React.ReactNode;
+  placementMode?: boolean;
+  onPlacementSelect?: () => void;
+  cellConfig?: Record<string, string>;
+  onRename?: (title: string) => void;
 };
-
-function formatRecentWhen(iso: string): string {
-  try {
-    return new Date(iso).toLocaleString(undefined, {
-      dateStyle: "short",
-      timeStyle: "short",
-    });
-  } catch {
-    return iso;
-  }
-}
 
 function panelSummary(def: PanelDefinition, project: Project | null, data: CockpitPanelData): string {
   switch (def.id) {
@@ -121,17 +114,18 @@ export function CockpitPanel({
   definition,
   project,
   panelData,
-  menuOpen,
-  onToggleMenu,
-  onChangePanel,
-  onRemove,
   renderAppPanel,
+  placementMode = false,
+  onPlacementSelect,
+  cellConfig,
+  onRename,
 }: Props) {
   const isClock = definition.id === "clock";
   const [clockTime, setClockTime] = useState<string | null>(null);
   const [liveSummary, setLiveSummary] = useState(() => panelSummary(definition, project, panelData));
+  const [activationMessage, setActivationMessage] = useState<string | null>(null);
   const actions = useMemo(() => panelActions(definition, panelData), [definition, panelData]);
-  const [primaryAction, ...secondaryActions] = actions;
+  const primaryAction = actions[0];
   const summaryText = isClock ? (clockTime ?? "") : liveSummary;
 
   useEffect(() => {
@@ -145,84 +139,61 @@ export function CockpitPanel({
     setLiveSummary(panelSummary(definition, project, panelData));
   }, [definition, project, panelData, isClock]);
 
-  const statusClass = `cockpit-lamp cockpit-lamp--${definition.defaultStatus === "nominal" ? "green" : definition.defaultStatus === "warning" ? "amber" : definition.defaultStatus === "alert" ? "red" : "dim"}`;
+  const status = cockpitStatus(definition, panelData);
+  const statusClass = `cockpit-lamp cockpit-lamp--${status.tone}`;
+  const faceplateTitle = cellConfig?.faceplateTitle?.trim() || definition.title;
+  const rvCategory = (getRvByPanelType(definition.id)?.category ?? "unassigned").toLowerCase();
+  const rvCategoryId = getRvByPanelType(definition.id)?.category;
+  const rvCategoryLabel = rvCategoryId ? RV_CATEGORY_BY_ID[rvCategoryId].title : "Unassigned";
+
+  async function activateModule() {
+    if (placementMode) {
+      onPlacementSelect?.();
+      return;
+    }
+    if (definition.id === "six-up-viewer") {
+      setActivationMessage("Checking Live…");
+      try {
+        const response = await fetch("/api/bobos/runtime/live-viewer", { method: "POST", cache: "no-store" });
+        const data = (await response.json()) as { url?: string; error?: string };
+        if (!response.ok || !data.url) throw new Error(data.error ?? "Live server could not be started.");
+        window.location.assign(data.url);
+      } catch (error) {
+        setActivationMessage(error instanceof Error ? error.message : "Live server could not be started.");
+        window.setTimeout(() => setActivationMessage(null), 5000);
+      }
+      return;
+    }
+    if (primaryAction?.href) window.location.assign(primaryAction.href);
+  }
+
+  function editFaceplate() {
+    const next = window.prompt("Rename faceplate", faceplateTitle)?.trim();
+    if (next && next !== faceplateTitle) onRename?.(next);
+  }
 
   return (
-    <article className="cockpit-cell cockpit-cell--filled">
+    <article
+      onClick={activateModule}
+      onDoubleClick={(event) => { event.stopPropagation(); editFaceplate(); }}
+      onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); activateModule(); } }}
+      role="button"
+      tabIndex={0}
+      aria-label={`${definition.title}: ${status.label}`}
+      className={`cockpit-cell cockpit-cell--filled cockpit-module cockpit-module--${status.tone} cockpit-module--${rvCategory}${placementMode ? " cockpit-cell--placement-target" : ""}`}
+      style={{ "--rv-category-accent": RV_CATEGORY_BY_ID[getRvByPanelType(definition.id)?.category ?? "RV01"].accent } as React.CSSProperties}
+    >
       <header className="cockpit-panel__head">
-        <span className="cockpit-panel__num">{cellLabel(cellIndex)}</span>
-        <span className="cockpit-panel__ref">{cellGridRef(cellIndex)}</span>
         <h2 className="cockpit-panel__title">
-          <RvIdLabel rvId={getRvIdByPanelType(definition.id)} label={definition.title} />
+          {faceplateTitle}
         </h2>
-        <span className={statusClass} title={definition.defaultStatus} aria-hidden="true" />
-        <div className="cockpit-panel__menu-wrap">
-          <button
-            type="button"
-            className="cockpit-panel__menu-btn"
-            aria-expanded={menuOpen}
-            aria-label={`Panel menu for ${definition.title}`}
-            onClick={onToggleMenu}
-          >
-            ⋯
-          </button>
-          {menuOpen ? (
-            <div className="cockpit-panel__menu" role="menu">
-              <button type="button" role="menuitem" onClick={onChangePanel}>
-                Change Panel
-              </button>
-              <button type="button" role="menuitem" onClick={onRemove}>
-                Remove Panel
-              </button>
-            </div>
-          ) : null}
-        </div>
       </header>
+      <span className={statusClass} title={status.label} aria-label={`Status: ${status.label}`} role="status" />
 
-      {definition.id === "broadcast" ? (
-        /* Interactive controller — owns its own status polling and actions */
-        <BroadcastPanel initialStatus={null} />
-      ) : renderAppPanel?.(definition.id) != null ? (
-        renderAppPanel(definition.id)
-      ) : (
-        <>
-          {summaryText.includes(" · ") ? (
-            /* Instrument readout — split the summary into stacked status lines */
-            <ul className="cockpit-panel__metrics">
-              {summaryText.split(" · ").map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-          ) : (
-            <p className="cockpit-panel__data">{summaryText}</p>
-          )}
-
-          {definition.id === "pass-registration" && panelData.passRegistration.recent.length > 0 ? (
-            <ul className="cockpit-panel__list" aria-label="Recent pass registrations">
-              {panelData.passRegistration.recent.map((entry) => (
-                <li key={entry.serial}>
-                  #{entry.serial} · {entry.name} · {formatRecentWhen(entry.registeredAt)}
-                </li>
-              ))}
-            </ul>
-          ) : null}
-
-          <div className="cockpit-panel__actions">
-            {primaryAction ? (
-              <Link href={primaryAction.href} className="cockpit-panel__btn cockpit-panel__btn--primary">
-                {primaryAction.label}
-              </Link>
-            ) : (
-              <span className="cockpit-panel__btn cockpit-panel__btn--disabled">No route</span>
-            )}
-            {secondaryActions.map((action) => (
-              <Link key={`${action.href}-${action.label}`} href={action.href} className="cockpit-panel__btn cockpit-panel__btn--secondary">
-                {action.label}
-              </Link>
-            ))}
-          </div>
-        </>
-      )}
+      <p className="cockpit-panel__data">{isClock ? summaryText : status.label}</p>
+      {activationMessage ? <span className="cockpit-module__activation" role="status">{activationMessage}</span> : null}
+      <span className="cockpit-module__rv-id">{getRvIdByPanelType(definition.id) ?? "NO RV NUMBER"}</span>
+      <span className="cockpit-module__category">{rvCategoryLabel}</span>
     </article>
   );
 }

@@ -1,21 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 
-import { RetroverseBack } from "@/components/navigation/RetroverseBack";
-import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { formatChartDateLabel, monthLabel } from "@/lib/artist/chart-history-display";
+import { formatChartDateLabel } from "@/lib/artist/chart-history-display";
 import type { ChartWeekPortalContext, ChartWeekPortalRow } from "@/lib/charts/chart-week-portal-types";
+import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import { buildYouTubeSearchUrl } from "@/lib/ops/youtube-search";
 import { playTrackByRvtr } from "@/lib/playback/play-track-client";
-import { rvMonthHref } from "@/lib/rv/rv-chronology-paths";
 
 import "./chart-week-portal.css";
 
 type Props = {
   initial: ChartWeekPortalContext;
-  focusQuery: string | null;
+  operatorMode: boolean;
 };
 
 function explorerHeaderDate(isoDate: string): string {
@@ -29,19 +27,13 @@ function rowHasDirectPlay(row: ChartWeekPortalRow): boolean {
   return row.coverageStatus === "owned" || row.coverageStatus === "youtube";
 }
 
-function ExplorerPlayButton({ row, isCurrent }: { row: ChartWeekPortalRow; isCurrent: boolean }) {
+function ExplorerPlayButton({ row }: { row: ChartWeekPortalRow }) {
   const direct = rowHasDirectPlay(row);
 
   return (
     <button
       type="button"
-      className={[
-        "explorer-btn",
-        "explorer-btn--play",
-        isCurrent ? "explorer-btn--play-current" : "",
-      ]
-        .filter(Boolean)
-        .join(" ")}
+      className="explorer-btn explorer-btn--play"
       aria-label={`Play ${row.title} by ${row.artistName}`}
       onClick={(event) => {
         event.stopPropagation();
@@ -52,37 +44,53 @@ function ExplorerPlayButton({ row, isCurrent }: { row: ChartWeekPortalRow; isCur
         window.open(buildYouTubeSearchUrl(row.artistName, row.title), "_blank", "noopener,noreferrer");
       }}
     >
-      ▶
+      <span aria-hidden>▶</span>
+      <span>Play</span>
     </button>
   );
 }
 
 function ExplorerLibraryButton({ row }: { row: ChartWeekPortalRow }) {
+  const inLibrary = row.coverageStatus === "owned";
+
   return (
     <button
       type="button"
-      className="explorer-btn explorer-btn--add"
-      aria-label={`Add ${row.title} by ${row.artistName}`}
-      title={`Add ${row.title}`}
-      onClick={(event) => {
-        event.stopPropagation();
-      }}
+      className={[
+        "explorer-btn",
+        inLibrary ? "explorer-btn--owned" : "explorer-btn--add",
+      ].join(" ")}
+      aria-label={
+        inLibrary
+          ? `${row.title} is in your VirtualDJ library`
+          : `Add ${row.title} to your VirtualDJ library (coming soon)`
+      }
+      title={inLibrary ? "In VirtualDJ library" : "Add to VirtualDJ library (coming soon)"}
+      disabled
     >
-      +
+      {inLibrary ? "✓" : "+"}
     </button>
   );
 }
 
-function ExplorerRowActions({ row, isCurrent }: { row: ChartWeekPortalRow; isCurrent: boolean }) {
+function ExplorerRowActions({ row, operatorMode }: { row: ChartWeekPortalRow; operatorMode: boolean }) {
   return (
     <div className="explorer-row__actions">
-      <ExplorerPlayButton row={row} isCurrent={isCurrent} />
-      <ExplorerLibraryButton row={row} />
+      <ExplorerPlayButton row={row} />
+      {operatorMode ? <ExplorerLibraryButton row={row} /> : null}
     </div>
   );
 }
 
-function ExplorerSongRow({ row, isCurrent }: { row: ChartWeekPortalRow; isCurrent: boolean }) {
+function ExplorerSongRow({
+  row,
+  isCurrent,
+  operatorMode,
+}: {
+  row: ChartWeekPortalRow;
+  isCurrent: boolean;
+  operatorMode: boolean;
+}) {
   const rowId = `explorer-row-${row.position}`;
   const rowClass = [
     "explorer-row",
@@ -96,125 +104,98 @@ function ExplorerSongRow({ row, isCurrent }: { row: ChartWeekPortalRow; isCurren
   return (
     <li className="explorer-row-item">
       <article id={rowId} className={rowClass} aria-current={isCurrent ? "true" : undefined}>
-        <span className="explorer-row__rank">{row.position}</span>
-        <div className="explorer-row__text">
-          {row.trackHref ? (
-            <Link href={row.trackHref} prefetch className="explorer-row__title">
-              {row.title}
-            </Link>
-          ) : (
-            <p className="explorer-row__title">{row.title}</p>
-          )}
-          <Link href={row.artistHref} prefetch className="explorer-row__artist">
-            {row.artistName}
+        {row.trackHref ? (
+          <Link
+            href={row.trackHref}
+            prefetch
+            className="explorer-row__hit"
+            aria-label={`Open ${row.title} by ${row.artistName}`}
+          >
+            <span className="explorer-row__rank">
+              {String(row.position).padStart(2, "0")}
+            </span>
+            <span className="explorer-row__text">
+              <span className="explorer-row__title">{row.title}</span>
+              <span className="explorer-row__artist">{row.artistName}</span>
+            </span>
           </Link>
-        </div>
-        <ExplorerRowActions row={row} isCurrent={isCurrent} />
+        ) : (
+          <div className="explorer-row__hit explorer-row__hit--static">
+            <span className="explorer-row__rank">
+              {String(row.position).padStart(2, "0")}
+            </span>
+            <span className="explorer-row__text">
+              <span className="explorer-row__title">{row.title}</span>
+              <span className="explorer-row__artist">{row.artistName}</span>
+            </span>
+          </div>
+        )}
+        <ExplorerRowActions row={row} operatorMode={operatorMode} />
       </article>
     </li>
   );
 }
 
-export function ChartWeekPortalClient({ initial, focusQuery }: Props) {
-  const [context, setContext] = useState(initial);
-  const [loading, setLoading] = useState(false);
-
-  const year = Number.parseInt(context.chartDate.slice(0, 4), 10);
-  const month = Number.parseInt(context.chartDate.slice(5, 7), 10);
-  const fullChart = context.focusPosition == null;
+export function ChartWeekPortalClient({ initial: context, operatorMode }: Props) {
   const headerDate = explorerHeaderDate(context.chartDate);
-
-  const backHref = rvMonthHref(year, month);
-  const backLabel = `${monthLabel(month)} ${year}`;
-
-  const canExpandAbove = context.rangeFrom > context.chartMin;
-  const canExpandBelow = context.rangeTo < context.chartMax;
-
-  const fetchRange = useCallback(
-    async (from: number, to: number) => {
-      setLoading(true);
-      try {
-        const qs = new URLSearchParams({
-          date: context.chartDate,
-          from: String(from),
-          to: String(to),
-        });
-        if (focusQuery) qs.set("focus", focusQuery);
-        if (context.focusPosition != null) {
-          qs.set("rank", String(context.focusPosition));
-        }
-        const res = await fetch(`/api/charts/week?${qs.toString()}`, { cache: "no-store" });
-        const body = await res.json();
-        if (body.ok && body.context) setContext(body.context as ChartWeekPortalContext);
-      } finally {
-        setLoading(false);
-      }
-    },
-    [context.chartDate, context.focusPosition, focusQuery],
-  );
-
-  const expandAbove = () => {
-    if (!canExpandAbove || loading) return;
-    const span = context.rangeTo - context.rangeFrom + 1;
-    const nextFrom = Math.max(context.chartMin, context.rangeFrom - span);
-    void fetchRange(nextFrom, context.rangeTo);
-  };
-
-  const expandBelow = () => {
-    if (!canExpandBelow || loading) return;
-    const span = context.rangeTo - context.rangeFrom + 1;
-    const nextTo = Math.min(context.chartMax, context.rangeTo + span);
-    void fetchRange(context.rangeFrom, nextTo);
-  };
+  const hasFocusedRow = context.focusPosition != null;
 
   useEffect(() => {
-    if (fullChart || context.focusPosition == null) return;
+    if (!hasFocusedRow || context.focusPosition == null) return;
     const id = `explorer-row-${context.focusPosition}`;
     requestAnimationFrame(() => {
       const el = document.getElementById(id);
       el?.scrollIntoView({ block: "center", behavior: "smooth" });
     });
-  }, [context.focusPosition, context.rows.length, fullChart]);
+  }, [context.focusPosition, context.rows.length, hasFocusedRow]);
 
   return (
-    <Rv2PublicShell className="rv2-chart-week rv2-explorer" chartsHref="/retroverse-2/charts" activeNav="charts">
+    <main
+      className={
+        operatorMode
+          ? "chart-week-page chart-week-page--operator"
+          : "chart-week-page"
+      }
+    >
       <div className="explorer">
-        <header className="explorer__header">
-          <RetroverseBack
-            fallbackHref={backHref}
-            fallbackLabel={backLabel}
-            className="explorer__back"
-          />
-          <h1 className="explorer__date">{headerDate}</h1>
+        <header className="explorer__masthead">
+          <h1 className="explorer__chart-name">{context.chartLabel}</h1>
+          <p className="explorer__date">Week ending {headerDate}</p>
+          <nav className="explorer__week-nav" aria-label="Chart week navigation">
+            {context.previousChartDate ? (
+              <Link href={chartWeekPortalHref(context.previousChartDate)} prefetch>
+                ← Previous Week
+              </Link>
+            ) : (
+              <span aria-disabled="true">← Previous Week</span>
+            )}
+            {context.nextChartDate ? (
+              <Link href={chartWeekPortalHref(context.nextChartDate)} prefetch>
+                Next Week →
+              </Link>
+            ) : (
+              <span aria-disabled="true">Next Week →</span>
+            )}
+          </nav>
         </header>
 
-        <div className="explorer__list" aria-busy={loading} aria-label="Chart songs">
-          {canExpandAbove ? (
-            <button type="button" className="explorer-expand" disabled={loading} onClick={expandAbove}>
-              More above
-            </button>
-          ) : null}
-
-          <ol className="explorer-rows">
-            {context.rows.map((row) => {
-              const isCurrent = !fullChart && row.position === context.focusPosition;
-              return (
-                <ExplorerSongRow
-                  key={`${row.position}-${row.trackId}`}
-                  row={row}
-                  isCurrent={isCurrent}
-                />
-              );
-            })}
-          </ol>
-
-          {canExpandBelow ? (
-            <button type="button" className="explorer-expand" disabled={loading} onClick={expandBelow}>
-              More below
-            </button>
-          ) : null}
+        <div className="explorer__columns" aria-hidden="true">
+          <span>#</span>
+          <span>Title</span>
+          <span>Artist</span>
         </div>
+
+        <ol className="explorer-rows" aria-label={`${context.chartLabel} for week ending ${headerDate}`}>
+          {context.rows.map((row) => (
+            <ExplorerSongRow
+              key={`${row.position}-${row.trackId}`}
+              row={row}
+              isCurrent={hasFocusedRow && row.position === context.focusPosition}
+              operatorMode={operatorMode}
+            />
+          ))}
+        </ol>
       </div>
-    </Rv2PublicShell>
+    </main>
   );
 }

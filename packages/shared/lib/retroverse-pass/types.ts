@@ -13,6 +13,11 @@ export type RetroverseVisitor = {
   firstName: string;
   email: string | null;
   phone: string | null;
+  lastName?: string | null;
+  birthday?: string | null;
+  postalCode?: string | null;
+  marketingOptIn?: boolean;
+  notes?: string | null;
   createdAt: string;
 };
 
@@ -21,6 +26,7 @@ export type RetroversePass = {
   claimed: boolean;
   visitorId: number | null;
   claimedAt: string | null;
+  status?: "never_registered" | "registered" | "checked_in" | "disabled";
 };
 
 /** Recorded actions only — never inferred behavior. */

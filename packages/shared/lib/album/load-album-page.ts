@@ -1,9 +1,11 @@
+import { cache } from "react";
+
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
-import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
 import { loadTrackCoverageByRvtr } from "@/lib/charts/load-track-coverage-batch";
 import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
+import { resolveCanonicalAlbum } from "@/lib/public/canonical-public-resolver";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
 import { chartsToTrajectoryWeeks } from "@/lib/track/charts-to-trajectory-weeks";
 import { rvChronologyHrefFromChartDate, rvYearHref } from "@/lib/rv/rv-chronology-paths";
@@ -94,61 +96,22 @@ function weeksAtPeakRank(weeks: TrackTrajectoryWeek[], peak: number | null): num
   return weeks.filter((week) => week.rank === peak).length;
 }
 
-type AlbumHeaderRow = {
-  pg_album_id: number;
-  artist_id: number;
-  title: string;
-  release_year: number | null;
-  artist_name: string;
-  cover_path: string | null;
-  artwork_path: string | null;
-  r2_cover_key: string | null;
-};
-
-export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | null> {
+async function loadAlbumPageImpl(rvalParam: string): Promise<AlbumPageData | null> {
   const ping = await inspectPing();
   if (!ping.ok) return null;
 
   const rval = rvalParam.trim().toUpperCase();
   if (!RE_RVAL.test(rval)) return null;
 
-  const headerRows = await inspectQuery<AlbumHeaderRow>(
-    `
-    SELECT
-      al.id AS pg_album_id,
-      al.artist_id,
-      al.title,
-      al.release_year,
-      ar.canonical_name AS artist_name,
-      al.canonical_cover_path AS cover_path,
-      (
-        SELECT aal.canonical_cover_path FROM album_artwork_links aal
-        WHERE aal.album_id = al.id
-        ${WINNING_ARTWORK_LINK_ORDER}
-      ) AS artwork_path,
-      (
-        SELECT aal.r2_cover_key FROM album_artwork_links aal
-        WHERE aal.album_id = al.id
-        ${WINNING_ARTWORK_LINK_ORDER}
-      ) AS r2_cover_key
-    FROM album_external_keys aek
-    JOIN albums al ON al.id = aek.album_id
-    JOIN artists ar ON ar.id = al.artist_id
-    WHERE upper(trim(aek.external_key)) = upper(trim($1))
-    LIMIT 1
-    `,
-    [rval],
-  );
+  const canonical = await resolveCanonicalAlbum(rval);
+  if (!canonical) return null;
 
-  const header = headerRows[0];
-  if (!header) return null;
-
-  const pgAlbumId = header.pg_album_id;
-  const title = header.title.trim();
-  const artistName = displayArtistName(header.artist_name.trim());
-  const artistSlug = slugFromArtistName(artistName);
-  const releaseYear = header.release_year;
-  const coverUrl = pickCoverUrl(header.cover_path, header.artwork_path, header.r2_cover_key);
+  const pgAlbumId = canonical.albumId;
+  const title = canonical.title;
+  const artistName = canonical.artistDisplayName;
+  const artistSlug = String(canonical.artistId);
+  const releaseYear = canonical.releaseYear;
+  const coverUrl = canonical.coverUrl;
 
   const [chartRows, trackRows, statsRows, breakoutRows] = await Promise.all([
     inspectQuery<{
@@ -444,7 +407,7 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
       majorSinglesFromChart.length > 0
         ? majorSinglesFromChart
         : sourceHints.majorSingles,
-    artistHref: `/artist/${artistSlug}`,
+    artistHref: canonical.artistHref,
     yearHref: rvYear != null ? rvYearHref(rvYear) : null,
     relatedExperiences,
   };
@@ -454,7 +417,7 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
     title,
     artistName,
     artistSlug,
-    artistHref: `/artist/${artistSlug}`,
+    artistHref: canonical.artistHref,
     releaseYear: rvYear,
     coverUrl,
     b200Peak,
@@ -474,3 +437,6 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
     rvYearHref: rvChronologyHrefFromChartDate(peakWeekDate ?? firstChartDate, rvYear),
   };
 }
+
+/** Dedupes Album metadata and page rendering within one request. */
+export const loadAlbumPage = cache(loadAlbumPageImpl);

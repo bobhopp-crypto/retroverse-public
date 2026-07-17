@@ -1,7 +1,6 @@
 import { artistKeysMatch, normalizeSearchQuery } from "@/lib/search/canonicalize-search";
 import { textMatchScore } from "@/lib/search/display-format";
 import {
-  artistPublicHrefFromName,
   trackPageHref,
   yearSuggestionHref,
 } from "@/lib/search/entity-routes";
@@ -53,6 +52,14 @@ function destinationFromSuggestion(item: SearchSuggestionItem): SearchDestinatio
   return { kind, href };
 }
 
+function uniqueDestination(items: SearchSuggestionItem[]): SearchDestination | null {
+  const destinations = items
+    .map(destinationFromSuggestion)
+    .filter((item): item is SearchDestination => item != null);
+  const unique = new Map(destinations.map((item) => [item.href, item]));
+  return unique.size === 1 ? [...unique.values()][0]! : null;
+}
+
 export function searchDiscoveryHref(query: string): SearchDestination {
   const trimmed = query.trim();
   return {
@@ -84,43 +91,41 @@ export function resolveHighConfidenceDestination(
     }
   }
 
-  for (const item of suggestions.artists) {
-    if (artistKeysMatch(item.title, trimmed)) {
-      const resolved = destinationFromSuggestion(item);
-      if (resolved) return resolved;
-      const href = artistPublicHrefFromName(item.title);
-      if (href) return { kind: "artist", href };
-    }
+  const artistMatches = suggestions.artists.filter((item) =>
+    artistKeysMatch(item.title, trimmed),
+  );
+  if (artistMatches.length > 0) {
+    return uniqueDestination(artistMatches);
   }
 
   const normalizedQuery = normalizeSearchQuery(trimmed);
   const queryTokens = normalizedQuery.split(/\s+/).filter(Boolean);
 
-  for (const item of suggestions.albums) {
-    if (isConfidentTitleMatch(trimmed, item.title)) {
-      const resolved = destinationFromSuggestion(item);
-      if (resolved) return resolved;
-    }
+  const albumMatches = suggestions.albums.filter((item) =>
+    isConfidentTitleMatch(trimmed, item.title),
+  );
+  if (albumMatches.length > 0) {
+    return uniqueDestination(albumMatches);
   }
 
-  for (const item of suggestions.songs) {
+  const songMatches = suggestions.songs.filter((item) => {
     const titleMatch = isConfidentTitleMatch(trimmed, item.title);
     const artistTitleMatch =
       item.artist != null &&
       queryTokens.length >= 2 &&
       isConfidentTitleMatch(trimmed, `${item.artist} ${item.title}`);
-    if (titleMatch || artistTitleMatch) {
-      const resolved = destinationFromSuggestion(item);
-      if (resolved) return resolved;
-    }
+    return titleMatch || artistTitleMatch;
+  });
+  if (songMatches.length > 0) {
+    return uniqueDestination(songMatches);
   }
 
   return null;
 }
 
 /**
- * Resolve a query to a patron destination (legacy helper — includes first-result fallback).
- * Prefer tap navigation + `searchDiscoveryHref` for ambiguous queries.
+ * Resolve only an exact canonical destination. Ambiguous input remains Search;
+ * public navigation never chooses a first result.
  */
 export function resolveSearchDestination(
   query: string,
@@ -133,14 +138,6 @@ export function resolveSearchDestination(
 
   const highConfidence = resolveHighConfidenceDestination(trimmed, suggestions);
   if (highConfidence) return highConfidence;
-
-  const priority: (keyof SearchSuggestionGroups)[] = ["artists", "albums", "songs", "years"];
-  for (const key of priority) {
-    const item = suggestions[key][0];
-    if (!item) continue;
-    const resolved = destinationFromSuggestion(item);
-    if (resolved) return resolved;
-  }
 
   return searchDiscoveryHref(trimmed);
 }

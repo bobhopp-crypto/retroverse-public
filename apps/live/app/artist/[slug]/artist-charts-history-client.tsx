@@ -62,6 +62,7 @@ import "./artist-charts-history.css";
 
 type Props = {
   artistName: string;
+  canonicalArtistId?: number | null;
   history: ArtistChartHistory;
   highlightTrackIds?: string[];
   viewAllHref?: string;
@@ -104,6 +105,7 @@ function snapshotEntityHref(snapshot: RvChartSnapshot): string | null {
 
 export function ArtistChartsHistoryClient({
   artistName,
+  canonicalArtistId = null,
   history: historyProp,
   highlightTrackIds,
   viewAllHref,
@@ -152,6 +154,10 @@ export function ArtistChartsHistoryClient({
     () => slugFromArtistName(artistName),
     [artistName],
   );
+  const artistRouteToken =
+    canonicalArtistId != null && Number.isInteger(canonicalArtistId) && canonicalArtistId > 0
+      ? String(canonicalArtistId)
+      : null;
 
   const urlState = useMemo(
     () =>
@@ -484,7 +490,7 @@ export function ArtistChartsHistoryClient({
       artist: snapshot.artist || artistName,
       rvtr: snapshot.trackId,
       href: entityHref,
-      artistSlug: artistStorageKey,
+      artistSlug: artistRouteToken,
       chartYear: snapshot.year,
       chartDate: snapshot.chartDate,
       chartsHref: chartsContextHref,

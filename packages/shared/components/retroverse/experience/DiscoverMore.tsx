@@ -30,13 +30,7 @@ export function DiscoverMore({ shelves, heading, className }: Props) {
               {shelf.cards.map((card) => (
                 <li key={card.id}>
                   <Link href={card.href} className="rv-exp-discover__card" prefetch>
-                    <span className="rv-exp-discover__cover-wrap">
-                      {card.coverUrl ? (
-                        <img src={card.coverUrl} alt="" className="rv-exp-discover__cover" />
-                      ) : (
-                        <span className="rv-exp-discover__cover rv-exp-discover__cover--empty" aria-hidden />
-                      )}
-                    </span>
+                    {card.coverUrl ? <span className="rv-exp-discover__cover-wrap"><img src={card.coverUrl} alt="" className="rv-exp-discover__cover" /></span> : null}
                     <span className="rv-exp-discover__copy">
                       <span className="rv-exp-discover__title">{card.title}</span>
                     </span>

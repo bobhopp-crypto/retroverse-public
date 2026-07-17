@@ -4,11 +4,8 @@ import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-u
 import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
-import { artistNameFromSlug, displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
-import { normalizeHomeSearchPayload } from "@/lib/search/map-home-search";
 import type { ArtistAlbumCard } from "@/lib/artist/types";
 
-const RE_RVAL_HREF = /\/albums\/(RVAL\d{6})/i;
 const ALBUMS_LIMIT = 500;
 
 export type ArtistAlbumsData = {
@@ -31,39 +28,19 @@ function pickCoverUrl(...candidates: (string | null | undefined)[]): string | nu
 }
 
 function fallbackAlbums(slugParam: string): ArtistAlbumsData {
-  const key = slugParam.trim().toLowerCase();
-  const knownName = artistNameFromSlug(key);
-  const displayName = knownName
-    ? displayArtistName(knownName)
-    : displayArtistName(key.replace(/-/g, " "));
+  const key = /^\d+$/.test(slugParam.trim()) ? slugParam.trim() : "0";
+  const displayName = "Unknown artist";
 
   return {
-    slug: key || slugFromArtistName(displayName),
+    slug: key,
     displayName,
     albums: [],
   };
 }
 
-async function fetchHomeSearch(name: string) {
-  const base =
-    process.env.SEARCH_UPSTREAM_BASE_URL?.trim() ||
-    process.env.RETROVERSE_WELCOME_URL?.trim() ||
-    "http://localhost:3000";
-  try {
-    const res = await fetch(
-      `${base.replace(/\/$/, "")}/api/home-search?q=${encodeURIComponent(name)}`,
-      { headers: { Accept: "application/json" }, cache: "no-store" },
-    );
-    if (!res.ok) return null;
-    return normalizeHomeSearchPayload(await res.json(), name);
-  } catch {
-    return null;
-  }
-}
-
 async function loadArtistAlbumsImpl(
   slug: string,
-  options?: LoadArtistAlbumsOptions,
+  _options?: LoadArtistAlbumsOptions,
 ): Promise<ArtistAlbumsData> {
   const ping = await inspectPing();
   if (!ping.ok) return fallbackAlbums(slug);
@@ -71,10 +48,9 @@ async function loadArtistAlbumsImpl(
   const resolved = await resolveArtistFromSlug(slug);
   if (!resolved) return fallbackAlbums(slug);
 
-  const { artistId, canonicalName, displayName, slug: canonicalSlug } = resolved;
+  const { artistId, displayName, slug: canonicalSlug } = resolved;
 
-  const [albumRows, homeSearch] = await Promise.all([
-    inspectQuery<{
+  const albumRows = await inspectQuery<{
       pg_album_id: number;
       title: string;
       release_year: number | null;
@@ -111,23 +87,11 @@ async function loadArtistAlbumsImpl(
       LIMIT ${ALBUMS_LIMIT}
       `,
       [artistId],
-    ),
-    options?.skipSearchCoverFallback ? Promise.resolve(null) : fetchHomeSearch(canonicalName),
-  ]);
-
-  const coverFromSearch = new Map<string, string>();
-  if (homeSearch) {
-    for (const a of homeSearch.albums) {
-      const m = a.href.match(RE_RVAL_HREF);
-      if (m && a.coverUrl) coverFromSearch.set(m[1]!.toUpperCase(), a.coverUrl);
-    }
-  }
+    );
 
   const albums: ArtistAlbumCard[] = albumRows.map((a) => {
     const rval = a.rval?.toUpperCase() ?? null;
-    const coverUrl =
-      (rval ? coverFromSearch.get(rval) : null) ??
-      pickCoverUrl(a.cover_path, a.artwork_path, a.r2_cover_key);
+    const coverUrl = pickCoverUrl(a.cover_path, a.artwork_path, a.r2_cover_key);
     return {
       pgAlbumId: a.pg_album_id,
       title: a.title,

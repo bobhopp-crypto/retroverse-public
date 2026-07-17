@@ -14,7 +14,14 @@ import {
 type CatalogSearchResponse = {
   ok: boolean;
   curated: CuratedSearchGroups;
+  trace?: {
+    resolverPath: string[];
+    discoverySources: string[];
+    loaderTimings: Array<{ name: string; durationMs: number }>;
+  };
 };
+
+type SearchClientProps = { traceEnabled?: boolean };
 
 function ResultGroup({
   title,
@@ -76,11 +83,12 @@ function ResultItem({ item }: { item: SearchSuggestionItem }) {
   );
 }
 
-export default function SearchClient() {
+export default function SearchClient({ traceEnabled = false }: SearchClientProps) {
   const [query, setQuery] = useState("");
   const [groups, setGroups] = useState<CuratedSearchGroups>(EMPTY_CURATED_SEARCH_GROUPS);
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [trace, setTrace] = useState<CatalogSearchResponse["trace"]>(undefined);
   const requestRef = useRef(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const trimmedQuery = query.trim();
@@ -95,6 +103,7 @@ export default function SearchClient() {
       setGroups(EMPTY_CURATED_SEARCH_GROUPS);
       setLoading(false);
       setFailed(false);
+      setTrace(undefined);
       return;
     }
 
@@ -104,12 +113,13 @@ export default function SearchClient() {
     setFailed(false);
     const timer = window.setTimeout(() => {
       controller = new AbortController();
-      fetch(`/api/search?q=${encodeURIComponent(trimmedQuery)}`, { signal: controller.signal })
+      fetch(`/api/search?q=${encodeURIComponent(trimmedQuery)}${traceEnabled ? "&trace=1" : ""}`, { signal: controller.signal })
         .then(async (response) => {
           const body = (await response.json()) as CatalogSearchResponse;
           if (!response.ok || !body.ok) throw new Error("Catalog search failed");
           if (requestId !== requestRef.current) return;
           setGroups(body.curated ?? EMPTY_CURATED_SEARCH_GROUPS);
+          setTrace(traceEnabled ? body.trace : undefined);
         })
         .catch((error) => {
           if (!isAbortError(error) && requestId === requestRef.current) {
@@ -202,6 +212,26 @@ export default function SearchClient() {
               </ResultGroup>
             ) : null}
           </div>
+        ) : null}
+        {traceEnabled && trace ? (
+          <aside data-canonical-public-trace="local-only" aria-label="Canonical resolver trace">
+            <details open>
+              <summary>Canonical resolver trace (local only)</summary>
+              <dl>
+                <dt>RVTR</dt><dd>—</dd>
+                <dt>Artist ID</dt><dd>—</dd>
+                <dt>Album ID</dt><dd>—</dd>
+                <dt>Primary Album</dt><dd>—</dd>
+                <dt>Resolver path</dt><dd><code>{trace.resolverPath.join(" → ")}</code></dd>
+                <dt>Discovery sources</dt>
+                <dd><ul>{trace.discoverySources.map((source) => <li key={source}>{source}</li>)}</ul></dd>
+                <dt>Loader timings</dt>
+                <dd><ul>{trace.loaderTimings.map((timing) => (
+                  <li key={timing.name}>{timing.name}: {timing.durationMs.toFixed(2)} ms</li>
+                ))}</ul></dd>
+              </dl>
+            </details>
+          </aside>
         ) : null}
       </section>
     </Rv2PublicShell>

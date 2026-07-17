@@ -17,7 +17,7 @@ SELECT
     ' ',
     'g'
   ) AS normalized_label,
-  NULL::text AS rv_id,
+  a.id::text AS rv_id,
   regexp_replace(
     regexp_replace(lower(trim(a.canonical_name)), '^the\s+', '', 'g'),
     '[^a-z0-9]+',
@@ -26,6 +26,10 @@ SELECT
   ) AS slug,
   NULL::text AS artist_name,
   NULL::int AS release_year,
+  NULL::int AS peak_hot100_position,
+  NULL::int AS chart_weeks,
+  NULL::boolean AS has_hot100,
+  NULL::boolean AS has_vdj_media,
   (
     SELECT al.canonical_cover_path
     FROM albums al
@@ -50,6 +54,10 @@ SELECT
   regexp_replace(lower(trim(al.title)), '[^a-z0-9]+', '-', 'g'),
   ar.canonical_name,
   al.release_year,
+  NULL::int,
+  NULL::int,
+  NULL::boolean,
+  NULL::boolean,
   al.canonical_cover_path
 FROM albums al
 JOIN artists ar ON ar.id = al.artist_id
@@ -70,8 +78,13 @@ SELECT
   regexp_replace(lower(trim(ctd.canonical_title)), '[^a-z0-9]+', '-', 'g'),
   ctd.canonical_artist_name,
   NULL::int,
+  ctd.peak_hot100_position,
+  ctd.chart_weeks,
+  ctd.has_hot100,
+  ctd.has_vdj_media,
   NULL::text
 FROM canonical_track_display ctd
+WHERE COALESCE(ctd.review_flag, 'ok') NOT LIKE 'duplicate_of:%'
 
 UNION ALL
 
@@ -83,6 +96,10 @@ SELECT
   y.year_label,
   NULL::text,
   y.year_num,
+  NULL::int,
+  NULL::int,
+  NULL::boolean,
+  NULL::boolean,
   NULL::text
 FROM (
   SELECT DISTINCT

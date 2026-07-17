@@ -1,4 +1,7 @@
+import { notFound } from "next/navigation";
+
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
+import { resolveCanonicalArtist } from "@/lib/public/canonical-public-resolver";
 
 import { ArtistSectionPlaceholder } from "../section-placeholder";
 
@@ -6,7 +9,9 @@ type Props = { params: Promise<{ slug: string }> };
 
 export default async function ArtistExplorePage({ params }: Props) {
   const { slug } = await params;
-  const data = await loadArtistPage(slug);
+  const canonical = await resolveCanonicalArtist(slug);
+  if (!canonical) notFound();
+  const data = await loadArtistPage(canonical.routeToken);
 
   if (data.exploreLinks.length === 0) {
     return (

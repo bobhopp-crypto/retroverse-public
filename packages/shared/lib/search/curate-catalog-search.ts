@@ -45,9 +45,9 @@ type ExpandedCandidates = {
 };
 
 const TYPE_BEST_MATCH_ORDER: Record<SearchEntity["entityType"], number> = {
-  artist: 0,
-  album: 1,
-  track: 2,
+  track: 0,
+  artist: 1,
+  album: 2,
   year: 3,
 };
 

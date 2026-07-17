@@ -8,7 +8,9 @@ import {
 } from "@/lib/charts/coverage-summary";
 import { loadTrackCoverageByRvtr } from "@/lib/charts/load-track-coverage-batch";
 import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
-import { loadArtistChartedSongs } from "@/lib/artist/load-artist-charted-songs";
+import { loadCanonicalArtistTracks } from "@/lib/artist/load-canonical-artist-tracks";
+import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
+import { trackPageHref } from "@/lib/search/entity-routes";
 
 export type ArtistCoverageSong = {
   rvtr: string;
@@ -29,26 +31,44 @@ export type ArtistCoverageSummary = {
 };
 
 async function loadArtistCoverageSummaryImpl(slug: string): Promise<ArtistCoverageSummary> {
-  const charted = await loadArtistChartedSongs(slug);
-  const rvtrs = charted.songs.map((song) => song.rvtr);
+  const artist = await resolveArtistFromSlug(slug);
+  if (!artist) {
+    return {
+      slug: "0",
+      displayName: "Unknown artist",
+      summary: aggregateCoverageSummary([]),
+      songs: [],
+    };
+  }
+
+  const trackRows = (await loadCanonicalArtistTracks(artist.artistId)).filter(
+    (row) => row.has_hot100 && row.peak_hot100_position != null,
+  );
+  const rvtrs = trackRows.map((row) => row.track_id.trim().toUpperCase());
   const coverageMap = await loadTrackCoverageByRvtr(rvtrs);
 
-  const songs: ArtistCoverageSong[] = charted.songs.map((song) => ({
-    rvtr: song.rvtr,
-    title: song.title,
-    trackHref: song.trackHref,
-    peakHot100: song.peakHot100,
-    chartWeeks: song.chartWeeks,
-    firstChartYear: song.firstChartYear,
-    firstChartDate: song.firstChartDate,
-    coverageStatus: coverageMap.get(song.rvtr) ?? "missing",
-  }));
+  const songs: ArtistCoverageSong[] = trackRows.map((row) => {
+    const rvtr = row.track_id.trim().toUpperCase();
+    const firstChartDate = row.first_chart_date?.trim() || null;
+    const firstChartYear = firstChartDate ? Number(firstChartDate.slice(0, 4)) : null;
+    return {
+      rvtr,
+      title: row.canonical_title.trim(),
+      trackHref: trackPageHref(rvtr),
+      peakHot100: row.peak_hot100_position,
+      chartWeeks: row.chart_weeks,
+      firstChartYear:
+        firstChartYear != null && Number.isFinite(firstChartYear) ? firstChartYear : null,
+      firstChartDate,
+      coverageStatus: coverageMap.get(rvtr) ?? "missing",
+    };
+  });
 
   const summary = aggregateCoverageSummary(songs.map((song) => song.coverageStatus));
 
   return {
-    slug: charted.slug,
-    displayName: charted.displayName,
+    slug: artist.slug,
+    displayName: artist.displayName,
     summary,
     songs,
   };

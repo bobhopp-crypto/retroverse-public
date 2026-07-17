@@ -103,7 +103,7 @@ Reserved for later (not yet implemented — see `docs/studio/` planning notes): 
 | ID | Display name | Route |
 |----|--------------|-------|
 | RV 06-01 | Media Lab | `/ops/media-lab` |
-| RV 06-02 | Media Collections | `/ops/media-collections` |
+| RV 06-02 | Graph Bridge | `/ops/graph-bridge` |
 | RV 06-03 | Cover Review | `/ops/review/covers` |
 
 ## RV07 — Finance

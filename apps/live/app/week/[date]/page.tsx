@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
 
 import { loadChartWeekContext } from "@/lib/charts/load-chart-week-context";
 import { parseChartWeekDateParam } from "@/lib/charts/chart-week-portal-href";
 import { formatChartDateLabel } from "@/lib/artist/chart-history-display";
+import { OPS_GATE_COOKIE, isOpsEnabled } from "@/lib/ops/ops-gate";
 
 import { ChartWeekPortalClient } from "./chart-week-portal-client";
 
@@ -51,10 +53,19 @@ export default async function ChartWeekPortalPage({ params, searchParams }: Prop
     chartDate,
     focusTrackId: focus,
     rankHint: rank,
-    ...(hasFocus ? { radius: 3 } : {}),
+    ...(hasFocus ? { rangeFrom: 1, rangeTo: 100 } : {}),
   });
 
   if (!context) notFound();
 
-  return <ChartWeekPortalClient initial={context} focusQuery={focus} />;
+  const cookieStore = await cookies();
+  const operatorMode =
+    isOpsEnabled() && cookieStore.get(OPS_GATE_COOKIE)?.value === "ok";
+
+  return (
+    <ChartWeekPortalClient
+      initial={context}
+      operatorMode={operatorMode}
+    />
+  );
 }

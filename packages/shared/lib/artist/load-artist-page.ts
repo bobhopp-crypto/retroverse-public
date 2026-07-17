@@ -4,11 +4,9 @@ import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
+import { loadCanonicalArtistTracks } from "@/lib/artist/load-canonical-artist-tracks";
 import {
   artistFileCode,
-  artistNameFromSlug,
-  displayArtistName,
-  slugFromArtistName,
 } from "@/lib/artist/slug";
 import type {
   ArtistAlbumCard,
@@ -25,10 +23,8 @@ import {
   type ArtistChartHistoryScope,
 } from "@/lib/artist/load-chart-history";
 import { loadRelatedArtistsFromGraph } from "@/lib/artist/load-related-artists";
-import { normalizeHomeSearchPayload } from "@/lib/search/map-home-search";
 import { albumSuggestionHref } from "@/lib/search/entity-routes";
-
-const RE_RVAL_HREF = /\/albums\/(RVAL\d{6})/i;
+import { resolveCanonicalTracksBatch } from "@/lib/public/canonical-public-resolver";
 
 function pickCoverUrl(
   ...candidates: (string | null | undefined)[]
@@ -41,14 +37,11 @@ function pickCoverUrl(
 }
 
 function fallbackArtistPageData(slugParam: string): ArtistPageData {
-  const key = slugParam.trim().toLowerCase();
-  const knownName = artistNameFromSlug(key);
-  const displayName = knownName
-    ? displayArtistName(knownName)
-    : displayArtistName(key.replace(/-/g, " "));
+  const key = /^\d+$/.test(slugParam.trim()) ? slugParam.trim() : "0";
+  const displayName = "Unknown artist";
 
   return {
-    slug: key || slugFromArtistName(displayName),
+    slug: key,
     displayName,
     canonicalName: displayName,
     artistId: 0,
@@ -71,25 +64,8 @@ function fallbackArtistPageData(slugParam: string): ArtistPageData {
     },
     chartHistory: null,
     relatedArtists: [],
-    exploreLinks: [{ label: "Artist exhibit", href: `/artist/${key || slugFromArtistName(displayName)}` }],
+    exploreLinks: key !== "0" ? [{ label: "Artist exhibit", href: `/artist/${key}` }] : [],
   };
-}
-
-async function fetchHomeSearch(name: string) {
-  const base =
-    process.env.SEARCH_UPSTREAM_BASE_URL?.trim() ||
-    process.env.RETROVERSE_WELCOME_URL?.trim() ||
-    "http://localhost:3000";
-  try {
-    const res = await fetch(
-      `${base.replace(/\/$/, "")}/api/home-search?q=${encodeURIComponent(name)}`,
-      { headers: { Accept: "application/json" }, cache: "no-store" },
-    );
-    if (!res.ok) return null;
-    return normalizeHomeSearchPayload(await res.json(), name);
-  } catch {
-    return null;
-  }
 }
 
 export type LoadArtistPageOptions = {
@@ -113,7 +89,7 @@ async function loadArtistPageImpl(
 
   const { artistId, canonicalName, displayName, slug: canonicalSlug } = resolved;
 
-  const [albumRows, trackRows, yearRows, decadeRows, statsRows, homeSearch] = await Promise.all([
+  const [albumRows, allTrackRows, yearRows, decadeRows, statsRows] = await Promise.all([
     inspectQuery<{
       pg_album_id: number;
       title: string;
@@ -155,25 +131,7 @@ async function loadArtistPageImpl(
       `,
       [artistId],
     ),
-    inspectQuery<{
-      track_id: string;
-      canonical_title: string;
-      peak_hot100_position: number | null;
-      chart_weeks: number;
-      first_chart_date: string | null;
-      has_vdj_media: boolean;
-    }>(
-      `
-      SELECT track_id, canonical_title, peak_hot100_position, chart_weeks,
-             first_chart_date::text AS first_chart_date, has_vdj_media
-      FROM canonical_track_display
-      WHERE lower(regexp_replace(trim(canonical_artist_name), '^the\\s+', '', 'i'))
-        = lower(regexp_replace(trim($1), '^the\\s+', '', 'i'))
-      ORDER BY first_chart_date ASC NULLS LAST, canonical_title ASC
-      LIMIT 12
-      `,
-      [canonicalName],
-    ),
+    loadCanonicalArtistTracks(artistId),
     inspectQuery<{ year: number; count: number }>(
       `
       SELECT extract(year FROM ca.chart_date)::int AS year, count(*)::int AS count
@@ -215,8 +173,7 @@ async function loadArtistPageImpl(
         (SELECT count(*)::int FROM chart_appearances ca
           JOIN tracks t ON t.id = ca.track_id WHERE t.artist_id = $1 AND ca.chart_name = 'Billboard Hot 100') AS hot100_rows,
         (SELECT count(*)::int FROM canonical_track_display ctd
-          WHERE lower(regexp_replace(trim(ctd.canonical_artist_name), '^the\\s+', '', 'i'))
-            = lower(regexp_replace(trim($2), '^the\\s+', '', 'i'))
+          WHERE ctd.artist_id = $1
             AND ctd.peak_hot100_position IS NOT NULL AND ctd.peak_hot100_position <= 10) AS top10_hits,
         (SELECT count(DISTINCT al.id)::int FROM albums al
           JOIN chart_appearances ca ON ca.album_id = al.id
@@ -227,28 +184,18 @@ async function loadArtistPageImpl(
         (SELECT min(al.release_year)::int FROM albums al WHERE al.artist_id = $1) AS min_year,
         (SELECT max(al.release_year)::int FROM albums al WHERE al.artist_id = $1) AS max_year,
         (SELECT count(*)::int FROM canonical_track_display ctd
-          WHERE lower(regexp_replace(trim(ctd.canonical_artist_name), '^the\\s+', '', 'i'))
-            = lower(regexp_replace(trim($2), '^the\\s+', '', 'i'))
+          WHERE ctd.artist_id = $1
             AND ctd.has_vdj_media) AS library_tracks
       `,
-      [artistId, canonicalName],
+      [artistId],
     ),
-    fetchHomeSearch(canonicalName),
   ]);
 
-  const coverFromSearch = new Map<string, string>();
-  if (homeSearch) {
-    for (const a of homeSearch.albums) {
-      const m = a.href.match(RE_RVAL_HREF);
-      if (m && a.coverUrl) coverFromSearch.set(m[1]!.toUpperCase(), a.coverUrl);
-    }
-  }
+  const trackRows = allTrackRows.slice(0, 12);
 
   const essentialAlbums: ArtistAlbumCard[] = albumRows.map((a) => {
     const rval = a.rval?.toUpperCase() ?? null;
-    const coverUrl =
-      (rval ? coverFromSearch.get(rval) : null) ??
-      pickCoverUrl(a.cover_path, a.artwork_path, a.r2_cover_key);
+    const coverUrl = pickCoverUrl(a.cover_path, a.artwork_path, a.r2_cover_key);
     return {
       pgAlbumId: a.pg_album_id,
       title: a.title,
@@ -259,10 +206,11 @@ async function loadArtistPageImpl(
     };
   });
 
-  const albumCoverByRval = new Map(
-    essentialAlbums.filter((a) => a.rval && a.coverUrl).map((a) => [a.rval!, a.coverUrl!]),
-  );
   const fallbackAlbumCover = essentialAlbums.find((a) => a.coverUrl)?.coverUrl ?? null;
+
+  const canonicalSignatureTracks = await resolveCanonicalTracksBatch(
+    trackRows.map((track) => track.track_id),
+  );
 
   const signatureTracks: ArtistTrackCard[] = trackRows.map((t) => {
     let releaseYear: number | null = null;
@@ -276,32 +224,11 @@ async function loadArtistPageImpl(
       releaseYear,
       peakHot100: t.peak_hot100_position,
       chartWeeks: t.chart_weeks,
-      coverUrl: fallbackAlbumCover,
+      coverUrl:
+        canonicalSignatureTracks.get(t.track_id.trim().toUpperCase())?.albumResolution
+          .primaryAlbum?.coverUrl ?? null,
     };
   });
-
-  const rvtrs = signatureTracks.map((t) => t.rvtr);
-  if (rvtrs.length > 0) {
-    const linkRows = await inspectQuery<{ track_key: string; rval: string }>(
-      `
-      SELECT DISTINCT ON (cat.canonical_track_key)
-        cat.canonical_track_key AS track_key,
-        aek.external_key AS rval
-      FROM canonical_album_tracks cat
-      JOIN album_external_keys aek ON aek.album_id = cat.album_id
-      WHERE cat.canonical_track_key = ANY($1::text[])
-      ORDER BY cat.canonical_track_key, cat.position
-      `,
-      [rvtrs],
-    );
-    const rvalByTrack = new Map(
-      linkRows.map((r) => [r.track_key.toUpperCase(), r.rval.toUpperCase()]),
-    );
-    for (const tr of signatureTracks) {
-      const rval = rvalByTrack.get(tr.rvtr.toUpperCase());
-      if (rval && albumCoverByRval.has(rval)) tr.coverUrl = albumCoverByRval.get(rval)!;
-    }
-  }
 
   const dominantYearsRaw: DominantYearBar[] = yearRows
     .filter((y) => y.year >= 1960 && y.year <= 2030)
@@ -337,36 +264,13 @@ async function loadArtistPageImpl(
       : "—";
 
   const relatedArtists: RelatedArtistCard[] = [];
-  if (homeSearch) {
-    const seenSlugs = new Set<string>([canonicalSlug]);
-    for (const a of homeSearch.artists) {
-      if (a.name.toLowerCase() === canonicalName.toLowerCase()) continue;
-      const s = slugFromArtistName(a.name);
-      if (seenSlugs.has(s)) continue;
-      seenSlugs.add(s);
-      relatedArtists.push({
-        name: a.name,
-        slug: s,
-        coverUrl: a.coverUrl ?? null,
-      });
-      if (relatedArtists.length >= 4) break;
-    }
-  }
-  if (relatedArtists.length === 0) {
-    relatedArtists.push(
-      ...(await loadRelatedArtistsFromGraph(artistId, canonicalSlug, 4)),
-    );
-  }
+  relatedArtists.push(
+    ...(await loadRelatedArtistsFromGraph(artistId, canonicalSlug, 4)),
+  );
 
-  const heroFromSearch =
-    homeSearch?.artists.find(
-      (a) => a.name.trim().toLowerCase() === canonicalName.trim().toLowerCase(),
-    )?.coverUrl ?? null;
   const heroImageUrl =
-    heroFromSearch ??
     essentialAlbums.find((a) => a.b200Peak != null && a.coverUrl)?.coverUrl ??
     essentialAlbums.find((a) => a.coverUrl)?.coverUrl ??
-    homeSearch?.albums.find((a) => a.coverUrl)?.coverUrl ??
     null;
 
   const libraryTracks = stats?.library_tracks ?? trackRows.filter((t) => t.has_vdj_media).length;

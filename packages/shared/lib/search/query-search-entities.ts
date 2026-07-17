@@ -8,15 +8,14 @@ import {
   winningArtworkR2Subquery,
 } from "@/lib/artwork/winning-artwork-link-sql";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
+import { resolveCanonicalTracksBatch } from "@/lib/public/canonical-public-resolver";
+import type { CanonicalTrackBatchItem } from "@/lib/public/canonical-public-resolver";
 import { dedupeSearchEntities } from "@/lib/search/dedupe-search-entities";
 import {
   applyCanonicalArtistDisplay,
   refineOverlayEntities,
 } from "@/lib/search/refine-overlay-entities";
 import {
-  albumSuggestionHref,
-  coerceArtistPublicHref,
-  coerceTrackPublicHref,
   trackPageHref,
   yearSuggestionHref,
 } from "@/lib/search/entity-routes";
@@ -48,6 +47,10 @@ type EntityRow = {
   slug: string | null;
   artist_name: string | null;
   release_year: number | null;
+  peak_hot100_position: number | null;
+  chart_weeks: number | null;
+  has_hot100: boolean | null;
+  has_vdj_media: boolean | null;
   cover_path: string | null;
   match_rank: number;
   type_rank: number;
@@ -60,33 +63,31 @@ function sanitizePattern(query: string): string {
 function entityHref(row: EntityRow): string | null {
   const type = row.entity_type as SearchEntityType;
   if (type === "artist") {
-    const upstream =
-      row.slug?.trim() && !/^RVAR\d{6}$/i.test(row.slug.trim())
-        ? `/artist/${row.slug.trim().toLowerCase()}`
-        : null;
-    return (
-      coerceArtistPublicHref(row.label, upstream) ??
-      coerceArtistPublicHref(row.label, null)
-    );
+    const artistId = row.rv_id?.trim() ?? "";
+    return /^\d+$/.test(artistId) ? `/artist/${artistId}` : null;
   }
   if (type === "track") {
-    const id = row.rv_id?.trim() || row.slug?.trim() || row.label;
-    return (
-      coerceTrackPublicHref(row.label, row.rv_id ? `/tracks/${row.rv_id}` : null, id) ??
-      trackPageHref(id)
-    );
+    const rvtr = row.rv_id?.trim().toUpperCase() ?? "";
+    return /^RVTR\d{6}$/.test(rvtr) ? trackPageHref(rvtr) : null;
   }
   if (type === "album") {
-    return albumSuggestionHref(
-      row.label,
-      row.rv_id ? `/albums/${row.rv_id}` : null,
-    );
+    const rval = row.rv_id?.trim().toUpperCase() ?? "";
+    return /^RVAL\d{6}$/.test(rval) ? `/album/${rval}` : null;
   }
   if (type === "year") {
     const y = row.release_year ?? Number.parseInt(row.label, 10);
     if (Number.isFinite(y)) return yearSuggestionHref(y);
   }
   return null;
+}
+
+function chartRankAdjustment(row: EntityRow): number {
+  if (row.entity_type !== "track") return 0;
+  const chartBonus = row.has_hot100 ? -1_200 : 0;
+  const peak = row.peak_hot100_position != null ? row.peak_hot100_position * 5 : 900;
+  const weeks = -Math.min(row.chart_weeks ?? 0, 100) * 3;
+  const catalogBonus = row.has_vdj_media ? -80 : 0;
+  return chartBonus + peak + weeks + catalogBonus;
 }
 
 function rowToEntity(row: EntityRow, includeArtwork: boolean): SearchEntity {
@@ -96,13 +97,16 @@ function rowToEntity(row: EntityRow, includeArtwork: boolean): SearchEntity {
     label: row.label,
     normalizedLabel: row.normalized_label,
     rvId: row.rv_id,
-    slug: row.slug?.trim() || slugFromArtistName(row.label),
+    slug:
+      type === "artist" && /^\d+$/.test(row.rv_id?.trim() ?? "")
+        ? row.rv_id!.trim()
+        : row.slug?.trim() || slugFromArtistName(row.label),
     href: entityHref(row) ?? "",
     artist: row.artist_name,
     year: row.release_year,
     // Keep the lightweight overlay unchanged; full catalog search uses canonical covers.
     coverUrl: includeArtwork ? coverPathToUrl(row.cover_path) : null,
-    rank: row.match_rank * 10 + row.type_rank,
+    rank: row.match_rank * 10 + row.type_rank + chartRankAdjustment(row),
   };
 }
 
@@ -137,10 +141,14 @@ const INLINE_SOURCE = `
     'artist'::text AS entity_type,
     a.canonical_name AS label,
     regexp_replace(regexp_replace(lower(trim(a.canonical_name)), '^the\\s+', '', 'g'), '[^a-z0-9]+', ' ', 'g') AS normalized_label,
-    NULL::text AS rv_id,
+    a.id::text AS rv_id,
     regexp_replace(regexp_replace(lower(trim(a.canonical_name)), '^the\\s+', '', 'g'), '[^a-z0-9]+', '-', 'g') AS slug,
     NULL::text AS artist_name,
     NULL::int AS release_year,
+    NULL::int AS peak_hot100_position,
+    NULL::int AS chart_weeks,
+    NULL::boolean AS has_hot100,
+    NULL::boolean AS has_vdj_media,
     (
       SELECT al.canonical_cover_path FROM albums al
       WHERE al.artist_id = a.id AND al.canonical_cover_path IS NOT NULL
@@ -152,7 +160,9 @@ const INLINE_SOURCE = `
     regexp_replace(lower(trim(al.title) || ' ' || trim(ar.canonical_name)), '[^a-z0-9]+', ' ', 'g'),
     upper(trim(aek.external_key)),
     regexp_replace(lower(trim(al.title)), '[^a-z0-9]+', '-', 'g'),
-    ar.canonical_name, al.release_year, NULL::text
+    ar.canonical_name, al.release_year,
+    NULL::int, NULL::int, NULL::boolean, NULL::boolean,
+    NULL::text
   FROM albums al
   JOIN artists ar ON ar.id = al.artist_id
   LEFT JOIN album_external_keys aek ON aek.album_id = al.id
@@ -160,10 +170,15 @@ const INLINE_SOURCE = `
   SELECT 'track'::text, ctd.canonical_title,
     regexp_replace(lower(trim(ctd.canonical_title) || ' ' || trim(ctd.canonical_artist_name)), '[^a-z0-9]+', ' ', 'g'),
     upper(trim(ctd.track_id)), regexp_replace(lower(trim(ctd.canonical_title)), '[^a-z0-9]+', '-', 'g'),
-    ctd.canonical_artist_name, NULL::int, NULL::text
+    ctd.canonical_artist_name, NULL::int,
+    ctd.peak_hot100_position, ctd.chart_weeks, ctd.has_hot100, ctd.has_vdj_media,
+    NULL::text
   FROM canonical_track_display ctd
+  WHERE COALESCE(ctd.review_flag, 'ok') NOT LIKE 'duplicate_of:%'
   UNION ALL
-  SELECT 'year'::text, y.year_label, y.year_label, NULL::text, y.year_label, NULL::text, y.year_num, NULL::text
+  SELECT 'year'::text, y.year_label, y.year_label, NULL::text, y.year_label, NULL::text, y.year_num,
+    NULL::int, NULL::int, NULL::boolean, NULL::boolean,
+    NULL::text
   FROM (
     SELECT DISTINCT extract(year FROM ca.chart_date)::int AS year_num,
       extract(year FROM ca.chart_date)::text AS year_label
@@ -228,10 +243,12 @@ function buildMatchSql(
 
   const sql = `
     SELECT entity_type, label, normalized_label, rv_id, slug,
-      artist_name, release_year, cover_path, match_rank, type_rank
+      artist_name, release_year, peak_hot100_position, chart_weeks, has_hot100,
+      has_vdj_media, cover_path, match_rank, type_rank
     FROM (
       SELECT se.entity_type, se.label, se.normalized_label, se.rv_id, se.slug,
-        se.artist_name, se.release_year, se.cover_path,
+        se.artist_name, se.release_year, se.peak_hot100_position, se.chart_weeks,
+        se.has_hot100, se.has_vdj_media, se.cover_path,
         ${matchRank} AS match_rank,
         ${typeRank} AS type_rank
         ${trgmRank},
@@ -325,14 +342,12 @@ export async function querySearchEntities(
   const sqlPerType =
     mode === "overlay" ? overlaySearchSqlFetchLimit(tier) : searchSqlFetchLimit(tier);
   const tokens = searchQueryTokens(query);
-  const [useTrgmRaw, useMatview] = await Promise.all([
-    resolvePgTrgm(),
-    resolveSearchEntitiesMatview(),
-  ]);
+  const useTrgmRaw = await resolvePgTrgm();
   // Overlay: skip fuzzy trgm — prefix + artist/title ranks are more trustworthy.
   const useTrgm = useTrgmRaw && mode !== "overlay";
-  const entitySource = useMatview ? "matview" : "inline";
-  const fromClause = useMatview ? `search_entities se` : `(${INLINE_SOURCE}) se`;
+  const hasMatview = await resolveSearchEntitiesMatview();
+  const entitySource = hasMatview ? "matview" : ("inline" as const);
+  const fromClause = hasMatview ? "search_entities se" : `(${INLINE_SOURCE}) se`;
 
   const { sql, params } = buildMatchSql(
     pattern,
@@ -386,36 +401,10 @@ export async function querySearchEntities(
   ];
 
   if (uniqueTrackRvIds.length > 0 || albumRvals.length > 0) {
-    const [trackRows, albumRows] = await Promise.all([
+    const [canonicalTracks, albumRows] = await Promise.all([
       uniqueTrackRvIds.length > 0
-        ? inspectQuery<{
-      rvtr: string;
-      release_year: number | null;
-      cover_path: string | null;
-      artwork_path: string | null;
-      r2_cover_key: string | null;
-    }>(
-      `
-      SELECT
-        ctd.track_id AS rvtr,
-        extract(year FROM ctd.first_chart_date)::int AS release_year,
-        al.canonical_cover_path AS cover_path,
-        ${winningArtworkPathSubquery()},
-        ${winningArtworkR2Subquery()}
-      FROM canonical_track_display ctd
-      LEFT JOIN LATERAL (
-        SELECT cat.album_id
-        FROM canonical_album_tracks cat
-        WHERE upper(trim(cat.canonical_track_key)) = upper(trim(ctd.track_id))
-        ORDER BY cat.position ASC
-        LIMIT 1
-      ) canonical_album ON true
-      LEFT JOIN albums al ON al.id = canonical_album.album_id
-      WHERE upper(trim(ctd.track_id)) = ANY($1::text[])
-      `,
-          [uniqueTrackRvIds],
-        )
-        : Promise.resolve([]),
+        ? resolveCanonicalTracksBatch(uniqueTrackRvIds)
+        : Promise.resolve(new Map<string, CanonicalTrackBatchItem>()),
       albumRvals.length > 0
         ? inspectQuery<{
             rval: string;
@@ -437,9 +426,6 @@ export async function querySearchEntities(
         : Promise.resolve([]),
     ]);
 
-    const yearMap = new Map(
-      trackRows.map((r) => [r.rvtr.trim().toUpperCase(), r]),
-    );
     const albumCoverMap = new Map(
       albumRows.map((r) => [
         r.rval.trim().toUpperCase(),
@@ -455,17 +441,15 @@ export async function querySearchEntities(
         }
         if (e.entityType !== "track") return e;
         const key = e.rvId?.trim().toUpperCase() ?? "";
-        const row = yearMap.get(key);
+        const canonicalTrack = canonicalTracks.get(key);
         return {
           ...e,
-          year: e.year ?? row?.release_year ?? null,
+          artist: canonicalTrack?.artist.displayName ?? e.artist,
+          year: e.year ?? canonicalTrack?.canonicalYear ?? null,
           coverUrl:
-            e.coverUrl ??
-            resolveAlbumCoverUrlFromRow({
-              cover_path: row?.cover_path,
-              artwork_path: row?.artwork_path,
-              r2_cover_key: row?.r2_cover_key,
-            }),
+            canonicalTrack
+              ? canonicalTrack.albumResolution.primaryAlbum?.coverUrl ?? null
+              : e.coverUrl,
         };
       }),
       meta,

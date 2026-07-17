@@ -10,6 +10,7 @@ import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import type { AlbumBreakoutSong, AlbumPageData } from "@/lib/album/load-album-page";
 import type { SimilarAlbumMatch } from "@/lib/album/album-chart-similarity";
 import { formatSongYear } from "@/lib/artist/format-track-card";
+import { discoveryShelf } from "@/lib/public/discovery-contract";
 
 import { AlbumExplorerTrackRows } from "./album-explorer-track-rows";
 import { AlbumHeroCover } from "./album-hero-cover";
@@ -522,7 +523,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
           <section className="album-ed__section album-ed__section--breakouts" aria-labelledby="album-breakout-songs">
             <p className="album-ed__section-kicker">The songs behind the run</p>
             <h2 id="album-breakout-songs" className="album-ed__section-title">
-              Breakout songs
+              {discoveryShelf("albumBreakoutSongs").displayLabel}
             </h2>
             <p className="album-ed__section-lead">
               The album’s tracks with chart history. Open a song to follow its full journey.
@@ -560,7 +561,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
             aria-labelledby="album-similar-journeys"
           >
             <h2 id="album-similar-journeys" className="album-ed__section-title">
-              Albums with similar chart journeys
+              {discoveryShelf("albumSimilarJourneys").displayLabel}
             </h2>
             <p className="album-ed__section-lead">
               Albums with similar chart journeys share comparable chart arcs — how they
@@ -628,7 +629,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
             aria-labelledby="album-keep-exploring"
           >
             <h2 id="album-keep-exploring" className="album-ed__section-title">
-              Keep exploring
+              {discoveryShelf("albumRelatedEntities").displayLabel}
             </h2>
             <ul className="album-ed__explore-grid">
               {exploreCards.map((card) => (

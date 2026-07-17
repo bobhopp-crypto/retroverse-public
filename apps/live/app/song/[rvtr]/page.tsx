@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 const RVTR_RE = /^RVTR\d{6}$/i;
 
@@ -22,6 +22,7 @@ export async function generateMetadata(_props: Props): Promise<Metadata> {
 export default async function SongMobileExperiencePage({ params }: Props) {
   const { rvtr } = await params;
   const decoded = decodeURIComponent(rvtr).trim();
-  const target = RVTR_RE.test(decoded) ? decoded.toUpperCase() : decoded;
+  if (!RVTR_RE.test(decoded)) notFound();
+  const target = decoded.toUpperCase();
   redirect(`/retroverse-2/song/${target}`);
 }

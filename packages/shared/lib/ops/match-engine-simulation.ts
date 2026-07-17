@@ -88,6 +88,7 @@ export type MatchEngineSimulationReport = {
     vdjToCanonical: SimulationRow[];
     reviewToAuto: SimulationRow[];
   };
+  allRows: SimulationRow[];
 };
 
 function pct(n: number, total: number): number {
@@ -444,6 +445,7 @@ export async function runMatchEngineSimulation(): Promise<MatchEngineSimulationR
       vdjToCanonical: rows.filter((r) => r.vdjToCanonical).slice(0, 10),
       reviewToAuto: rows.filter((r) => wouldReview(r.currentBucket as ConfidenceBucket) && wouldAutoAssign(r.simulatedBucket as ConfidenceBucket)).slice(0, 10),
     },
+    allRows: rows,
   };
 }
 

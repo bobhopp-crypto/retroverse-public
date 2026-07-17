@@ -1,4 +1,3 @@
-import { slugFromArtistName } from "@/lib/artist/slug";
 import { rvYearHref, RV_CHRONOLOGY_DEFAULT_YEAR } from "@/lib/rv/rv-chronology-paths";
 import { SONG_EXPERIENCE_PREFIX } from "@/lib/search/entity-routes";
 
@@ -13,17 +12,11 @@ export function resolveSearchArtistSlug(
   panels: SearchPanels,
   artistSlug?: string | null,
 ): string | null {
-  if (artistSlug?.trim()) return artistSlug.trim().toLowerCase();
+  if (/^\d+$/.test(artistSlug?.trim() ?? "")) return artistSlug!.trim();
   for (const item of panels.artistsCharts) {
     if (item.kind !== "artist") continue;
     const slug = slugFromArtistHref(item.artistHref);
-    if (slug) return slug;
-  }
-  if (panels.songs[0]?.artist?.trim()) {
-    return slugFromArtistName(panels.songs[0].artist);
-  }
-  if (panels.albums[0]?.artist?.trim()) {
-    return slugFromArtistName(panels.albums[0].artist);
+    if (slug && /^\d+$/.test(slug)) return slug;
   }
   return null;
 }

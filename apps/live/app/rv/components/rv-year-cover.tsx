@@ -14,6 +14,7 @@ type RvYearCoverProps = {
   loading?: "lazy" | "eager";
   artist?: string;
   title?: string;
+  onArtworkError?: () => void;
 };
 
 export function RvYearCover({
@@ -25,6 +26,7 @@ export function RvYearCover({
   loading = "lazy",
   artist = "RetroVerse",
   title = alt || "Record",
+  onArtworkError,
 }: RvYearCoverProps) {
   const [broken, setBroken] = useState(false);
 
@@ -54,7 +56,10 @@ export function RvYearCover({
       loading={loading}
       decoding="async"
       data-artwork-slot={artworkSlot}
-      onError={() => setBroken(true)}
+      onError={() => {
+        setBroken(true);
+        onArtworkError?.();
+      }}
     />
   );
 }

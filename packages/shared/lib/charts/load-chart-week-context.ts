@@ -1,6 +1,9 @@
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
-import { slugFromArtistName } from "@/lib/artist/slug";
+import {
+  resolveCanonicalTracksBatch,
+  type CanonicalTrackBatchItem,
+} from "@/lib/public/canonical-public-resolver";
 import type {
   ChartWeekPortalContext,
   ChartWeekPortalRow,
@@ -11,6 +14,10 @@ import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
 const RE_RVTR = /^RVTR\d{6}$/i;
 
 type WeekBoundsRow = { min_pos: number; max_pos: number };
+type NeighborWeekRow = {
+  previous_chart_date: string | null;
+  next_chart_date: string | null;
+};
 type FocusRow = { chart_position: number; track_id: string; track_title: string; artist_name: string };
 type SliceRow = {
   chart_position: number;
@@ -49,12 +56,13 @@ function resolveTrackHref(trackId: string, rvtr: string | null): string | null {
   return trackPageHref(trackId);
 }
 
-function mapSliceRow(row: SliceRow): ChartWeekPortalRow {
+function mapSliceRow(row: SliceRow, canonical: CanonicalTrackBatchItem | null): ChartWeekPortalRow {
   const rvtr = row.rvtr?.trim().toUpperCase() ?? null;
-  const artistName = row.artist_name.trim() || "Unknown artist";
-  const title = row.track_title.trim() || "—";
-  const artistSlug = slugFromArtistName(artistName);
-  const rval = row.rval?.trim().toUpperCase() ?? null;
+  const artistName = canonical?.artist.displayName ?? (row.artist_name.trim() || "Unknown artist");
+  const title = canonical?.title ?? (row.track_title.trim() || "—");
+  const artistSlug = canonical?.artist.routeToken ?? "";
+  const primaryAlbum = canonical?.albumResolution.primaryAlbum ?? null;
+  const rval = primaryAlbum?.rval ?? null;
   return {
     position: row.chart_position,
     trackId: row.track_id,
@@ -63,14 +71,15 @@ function mapSliceRow(row: SliceRow): ChartWeekPortalRow {
     artistName,
     artistSlug,
     trackHref: resolveTrackHref(row.track_id, rvtr),
-    artistHref: `/artist/${artistSlug}`,
+    artistHref: canonical?.artist.href ?? null,
     albumHref:
-      row.album_title?.trim() && rval
-        ? albumSuggestionHref(row.album_title.trim(), `/albums/${rval}`)
-        : row.album_title?.trim()
-          ? albumSuggestionHref(row.album_title.trim(), null)
-          : null,
-    coverUrl: pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key),
+      primaryAlbum?.title && rval
+        ? albumSuggestionHref(primaryAlbum.title, `/albums/${rval}`)
+        : null,
+    coverUrl:
+      canonical
+        ? primaryAlbum?.coverUrl ?? null
+        : pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key),
     prevPosition: row.prev_position,
     peakHot100: row.peak_hot100_position,
     weeksOnChart: row.weeks_on_chart,
@@ -230,6 +239,26 @@ export async function loadChartWeekContext(params: {
   const bounds = boundsRows[0];
   if (!bounds?.max_pos) return null;
 
+  const neighborRows = await inspectQuery<NeighborWeekRow>(
+    `
+    SELECT
+      (
+        SELECT max(ca.chart_date)::date::text
+        FROM chart_appearances ca
+        WHERE ca.chart_name = 'Billboard Hot 100'
+          AND ca.chart_date::date < $1::date
+      ) AS previous_chart_date,
+      (
+        SELECT min(ca.chart_date)::date::text
+        FROM chart_appearances ca
+        WHERE ca.chart_name = 'Billboard Hot 100'
+          AND ca.chart_date::date > $1::date
+      ) AS next_chart_date
+    `,
+    [chartDate],
+  );
+  const neighbors = neighborRows[0];
+
   const chartMin = Math.max(1, bounds.min_pos ?? 1);
   const chartMax = Math.min(100, bounds.max_pos);
 
@@ -277,11 +306,18 @@ export async function loadChartWeekContext(params: {
   const slice = await inspectQuery<SliceRow>(SLICE_SQL, [chartDate, rangeFrom, rangeTo]);
   if (slice.length === 0) return null;
 
-  const rows = slice.map(mapSliceRow);
+  const canonical = await resolveCanonicalTracksBatch(
+    slice.map((row) => row.rvtr ?? "").filter(Boolean),
+  );
+  const rows = slice.map((row) =>
+    mapSliceRow(row, row.rvtr ? (canonical.get(row.rvtr.trim().toUpperCase()) ?? null) : null),
+  );
 
   return {
     chartDate,
     chartLabel: "Billboard Hot 100",
+    previousChartDate: neighbors?.previous_chart_date?.slice(0, 10) ?? null,
+    nextChartDate: neighbors?.next_chart_date?.slice(0, 10) ?? null,
     focusPosition,
     focusTrackId: focus?.track_id ?? params.focusTrackId ?? null,
     focusTitle: focus?.track_title ?? null,

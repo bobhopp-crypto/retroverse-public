@@ -1,12 +1,11 @@
-import { RV_CHRONOLOGY_DEFAULT_YEAR } from "@/lib/rv/rv-chronology-paths";
-
-import { RvChronologyLoading } from "../../components/rv-chronology-loading";
-import { Rv2ChronologyFrame } from "../../components/rv2-chronology-frame";
+import "./chart-month.css";
 
 export default function RvMonthLoading() {
   return (
-    <Rv2ChronologyFrame rvYear={RV_CHRONOLOGY_DEFAULT_YEAR}>
-      <RvChronologyLoading rvYear={RV_CHRONOLOGY_DEFAULT_YEAR} shellMode="rv2" />
-    </Rv2ChronologyFrame>
+    <main className="chart-month-page" aria-busy="true">
+      <section className="chart-month">
+        <h1 className="chart-month__heading">Loading…</h1>
+      </section>
+    </main>
   );
 }

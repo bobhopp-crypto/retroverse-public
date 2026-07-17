@@ -1,23 +1,12 @@
-import { slugFromArtistName } from "@/lib/artist/slug";
-
 import type { SearchSuggestionKind } from "./search-suggestion-types";
 
-const RE_RVAR = /^RVAR\d{6}$/i;
 const RE_RVAL = /^RVAL\d{6}$/i;
 const RE_RVTR = /^RVTR\d{6}$/i;
 const RE_RVTR_LABEL = /^(?:DK_|PK_)?(RVTR\d{6})$/i;
 const RE_HOT100_TRACK = /^hot100-/i;
-const RE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const RE_ARTIST_ID = /^\d+$/;
 
 export const SONG_EXPERIENCE_PREFIX = "/retroverse-2/song";
-
-function slugFromEntityTitle(title: string): string {
-  return title
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
 
 function pathnameFromHref(href: string): string | null {
   const raw = href.trim();
@@ -48,26 +37,19 @@ function isBlockedRoot(path: string | null): boolean {
 function artistSegmentFromPath(path: string): string | null {
   if (!path.startsWith("/artist/")) return null;
   const seg = decodeSegment(path.slice("/artist/".length).split("/")[0] ?? "");
-  if (!seg || RE_RVAR.test(seg) || !RE_SLUG.test(seg.toLowerCase())) return null;
-  return seg.toLowerCase();
+  return RE_ARTIST_ID.test(seg) ? seg : null;
 }
 
 function albumSegmentFromPath(path: string): string | null {
   if (!path.startsWith("/album/")) return null;
   const seg = decodeSegment(path.slice("/album/".length).split("/")[0] ?? "");
-  if (!seg) return null;
-  if (RE_RVAL.test(seg)) return seg.toUpperCase();
-  const slug = seg.toLowerCase();
-  return RE_SLUG.test(slug) ? slug : null;
+  return RE_RVAL.test(seg) ? seg.toUpperCase() : null;
 }
 
 function legacyTrackSegmentFromPath(path: string): string | null {
   if (!path.startsWith("/track/")) return null;
   const seg = decodeSegment(path.slice("/track/".length).split("/")[0] ?? "");
-  if (!seg || RE_HOT100_TRACK.test(seg)) return null;
-  if (RE_RVTR.test(seg)) return seg.toUpperCase();
-  const slug = seg.toLowerCase();
-  return RE_SLUG.test(slug) ? slug : null;
+  return RE_RVTR.test(seg) ? seg.toUpperCase() : null;
 }
 
 function songSegmentFromPath(path: string): string | null {
@@ -75,10 +57,7 @@ function songSegmentFromPath(path: string): string | null {
     const seg = decodeSegment(
       path.slice(`${SONG_EXPERIENCE_PREFIX}/`.length).split("/")[0] ?? "",
     );
-    if (!seg || RE_HOT100_TRACK.test(seg)) return null;
-    if (RE_RVTR.test(seg)) return seg.toUpperCase();
-    const slug = seg.toLowerCase();
-    return RE_SLUG.test(slug) ? slug : null;
+    return RE_RVTR.test(seg) ? seg.toUpperCase() : null;
   }
   return legacyTrackSegmentFromPath(path);
 }
@@ -87,7 +66,7 @@ function songExperienceHrefFromSegment(segment: string): string {
   if (RE_RVTR.test(segment)) {
     return `${SONG_EXPERIENCE_PREFIX}/${segment.toUpperCase()}`;
   }
-  return `${SONG_EXPERIENCE_PREFIX}/${segment.toLowerCase()}`;
+  return `${SONG_EXPERIENCE_PREFIX}/unknown`;
 }
 
 function rvYearFromPath(path: string): string | null {
@@ -119,15 +98,12 @@ export function normalizeEntityRouteHref(
     if (path!.startsWith("/artist/")) {
       return artistSegmentFromPath(path!) ? path!.toLowerCase() : null;
     }
-    if (RE_RVAR.test(segment)) return null;
-    const slug = segment.toLowerCase();
-    return RE_SLUG.test(slug) ? `/artist/${slug}` : null;
+    return RE_ARTIST_ID.test(segment) ? `/artist/${segment}` : null;
   }
 
   if (kind === "album") {
     if (RE_RVAL.test(segment)) return `/album/${segment.toUpperCase()}`;
-    const slug = segment.toLowerCase();
-    return RE_SLUG.test(slug) ? `/album/${slug}` : null;
+    return null;
   }
 
   if (kind === "song") {
@@ -137,16 +113,20 @@ export function normalizeEntityRouteHref(
       const coerced = songSegmentFromPath(path!);
       return coerced ? songExperienceHrefFromSegment(coerced) : null;
     }
-    const slug = segment.toLowerCase();
-    return RE_SLUG.test(slug) ? songExperienceHrefFromSegment(slug) : null;
+    return null;
   }
 
   return null;
 }
 
 export function artistPublicHrefFromName(name: string): string | null {
-  const slug = slugFromArtistName(name);
-  return slug && RE_SLUG.test(slug) ? `/artist/${slug}` : null;
+  void name;
+  return null;
+}
+
+export function artistPublicHrefFromId(artistId: string | number): string | null {
+  const id = String(artistId).trim();
+  return RE_ARTIST_ID.test(id) && Number(id) > 0 ? `/artist/${id}` : null;
 }
 
 /** Never returns `/`, `/search`, `/artist/`, or RVAR canonical paths. */
@@ -154,7 +134,8 @@ export function coerceArtistPublicHref(
   name: string,
   upstreamHref?: string | null,
 ): string | null {
-  const fallback = artistPublicHrefFromName(name);
+  void name;
+  const fallback = null;
   const raw = upstreamHref?.trim() ?? "";
   if (!raw) return fallback;
 
@@ -176,8 +157,8 @@ export function coerceAlbumPublicHref(
   title: string,
   upstreamHref?: string | null,
 ): string | null {
-  const fallbackSlug = slugFromEntityTitle(title);
-  const fallback = fallbackSlug ? `/album/${fallbackSlug}` : null;
+  void title;
+  const fallback = null;
   const raw = upstreamHref?.trim() ?? "";
   if (!raw) return fallback;
 
@@ -205,9 +186,10 @@ export function coerceTrackPublicHref(
   upstreamHref?: string | null,
   rvId?: string | null,
 ): string | null {
-  const id = rvId?.trim() || title.trim();
-  const fallback = trackPageHref(id);
-  if (!fallback.startsWith(`${SONG_EXPERIENCE_PREFIX}/`)) return null;
+  void title;
+  const id = rvId?.trim() ?? "";
+  const fallback = RE_RVTR.test(id) ? trackPageHref(id) : null;
+  if (!fallback) return null;
 
   const raw = upstreamHref?.trim() ?? "";
   if (!raw) return fallback;
@@ -248,11 +230,10 @@ export function albumSuggestionHref(
 /** Canonical public song destination — Song Experience route. */
 export function trackPageHref(rvtrOrSlug: string): string {
   const raw = rvtrOrSlug.trim();
-  if (!raw) return `${SONG_EXPERIENCE_PREFIX}/unknown`;
+  if (!raw) return "/search";
   const rvtr = raw.match(RE_RVTR_LABEL)?.[1];
   if (rvtr) return `${SONG_EXPERIENCE_PREFIX}/${rvtr.toUpperCase()}`;
-  const slug = slugFromEntityTitle(raw);
-  return slug ? `${SONG_EXPERIENCE_PREFIX}/${slug}` : `${SONG_EXPERIENCE_PREFIX}/unknown`;
+  return "/search";
 }
 
 export function trackSuggestionHref(

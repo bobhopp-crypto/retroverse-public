@@ -1,4 +1,3 @@
-import { slugFromArtistName } from "@/lib/artist/slug";
 import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { SONG_EXPERIENCE_PREFIX, trackPageHref } from "@/lib/search/entity-routes";
 
@@ -41,8 +40,8 @@ export function songPageHrefForTarget(target: SongActionTarget): string | null {
 }
 
 export function songArtistHref(target: SongActionTarget): string | null {
-  const slug = target.artistSlug?.trim() || slugFromArtistName(target.artist);
-  return slug ? `/artist/${slug}` : null;
+  const artistId = target.artistSlug?.trim() ?? "";
+  return /^\d+$/.test(artistId) && Number(artistId) > 0 ? `/artist/${artistId}` : null;
 }
 
 export function songRvYearHref(target: SongActionTarget): string | null {

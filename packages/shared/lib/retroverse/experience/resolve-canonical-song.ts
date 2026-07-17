@@ -6,9 +6,9 @@
  * to render there by attempting, in order, the richest source that already
  * has content for the RVTR — never generating anything new.
  *
- *   1. Published/graph-backed track  (Postgres canonical_track_display)
- *   2. Any SongPackage on disk       (draft / review / cards_ready / published)
- *   3. VirtualDJ library entry       (Label field carries the RVTR)
+ *   1. VirtualDJ library entry       (Label field carries the RVTR)
+ *   2. Published/graph-backed track  (Postgres canonical_track_display)
+ *   3. Any SongPackage on disk       (draft / review / cards_ready / published)
  *   4. Nothing found                 (caller renders a minimal, honest empty state)
  *
  * Server-only.
@@ -37,19 +37,19 @@ export async function resolveCanonicalSongExperience(
 ): Promise<CanonicalSongResolution> {
   const raw = decodeURIComponent(rvtrParam).trim();
 
-  const track = await loadTrackPage(raw);
-  if (track) return { tier: "graph", track };
-
   const rvtr = raw.toUpperCase();
   if (!RVTR_RE.test(rvtr)) {
     return { tier: "empty", rvtr: raw };
   }
 
-  const packagePayload = await loadUniversalPackage(rvtr);
-  if (packagePayload) return { tier: "package", payload: packagePayload };
-
   const vdjPayload = await loadVdjBasePackageByRvtr(rvtr);
   if (vdjPayload) return { tier: "vdj", payload: vdjPayload };
+
+  const track = await loadTrackPage(raw);
+  if (track) return { tier: "graph", track };
+
+  const packagePayload = await loadUniversalPackage(rvtr);
+  if (packagePayload) return { tier: "package", payload: packagePayload };
 
   return { tier: "empty", rvtr };
 }

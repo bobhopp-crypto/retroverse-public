@@ -13,6 +13,7 @@ import "./artist-charts-history.css";
 
 type Props = {
   artistName: string;
+  canonicalArtistId?: number | null;
   history: ArtistChartHistory;
   highlightTrackIds?: string[];
   viewAllHref?: string;
@@ -41,6 +42,7 @@ export function ArtistChartsHistory(props: Props) {
     >
       <ArtistChartsHistoryClient
         artistName={props.artistName}
+        canonicalArtistId={props.canonicalArtistId}
         history={safe}
         highlightTrackIds={highlightTrackIds}
         viewAllHref={props.viewAllHref}

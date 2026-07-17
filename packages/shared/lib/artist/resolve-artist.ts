@@ -1,169 +1,80 @@
 import { cache } from "react";
 
+import { displayArtistName } from "@/lib/artist/slug";
 import { inspectQuery } from "@/lib/inspect/pg";
 import {
-  artistMatchKeys,
-  normalizeArtistMatchKey,
-} from "@/lib/search/canonicalize-search";
-import {
-  ARTIST_SLUGS,
-  displayArtistName,
-  slugFromArtistName,
-} from "@/lib/artist/slug";
+  canonicalArtistHref,
+  resolveCanonicalArtist,
+} from "@/lib/public/canonical-public-resolver";
+import { normalizeArtistMatchKey } from "@/lib/search/canonicalize-search";
 
-const CANONICAL_ARTIST_WHERE = `
-  lower(regexp_replace(trim(canonical_name), '^the\\s+', '', 'i'))
-  = lower(regexp_replace(trim($1), '^the\\s+', '', 'i'))
-`;
-
-async function resolveArtistId(
-  name: string,
-): Promise<{ id: number; canonicalName: string } | null> {
-  const keys = artistMatchKeys(name);
-  for (const key of keys) {
-    const exact = await inspectQuery<{ id: number; canonical_name: string }>(
-      `SELECT id, canonical_name FROM artists WHERE lower(trim(canonical_name)) = lower(trim($1)) LIMIT 1`,
-      [key],
-    );
-    if (exact[0]) return { id: exact[0].id, canonicalName: exact[0].canonical_name };
-  }
-
-  const matchKey = normalizeArtistMatchKey(name);
-  if (matchKey) {
-    const byKey = await inspectQuery<{ id: number; canonical_name: string }>(
-      `SELECT id, canonical_name FROM artists WHERE ${CANONICAL_ARTIST_WHERE} LIMIT 1`,
-      [matchKey],
-    );
-    if (byKey[0]) return { id: byKey[0].id, canonicalName: byKey[0].canonical_name };
-  }
-
-  const fuzzyNeedle = (matchKey || name).replace(/[%_]/g, " ");
-  const fuzzy = await inspectQuery<{ id: number; canonical_name: string }>(
-    `
-    SELECT id, canonical_name FROM artists
-    WHERE lower(regexp_replace(trim(canonical_name), '^the\\s+', '', 'i'))
-      LIKE '%' || $1 || '%'
-    ORDER BY length(canonical_name), canonical_name
-    LIMIT 1
-    `,
-    [fuzzyNeedle],
-  );
-  return fuzzy[0] ? { id: fuzzy[0].id, canonicalName: fuzzy[0].canonical_name } : null;
-}
-
-/** Public artist exhibit route — slug matches search + `/artist/[slug]`. */
-export function artistPagePath(name: string): string | null {
-  const slug = slugFromArtistName(name);
-  return slug ? `/artist/${slug}` : null;
-}
-
-async function resolveArtistFromSlugImpl(slug: string): Promise<{
+export type ResolvedArtistIdentity = {
   artistId: number;
+  rvar: string;
   canonicalName: string;
   displayName: string;
+  /** Canonical RVAR route token; retained as `slug` for view compatibility. */
   slug: string;
-} | null> {
-  const key = slug.trim().toLowerCase();
+};
+
+/** Public artist paths are canonical numeric artist IDs. Names never mint routes. */
+export function artistPagePath(rvar: string): string | null {
+  const raw = String(rvar).trim().toUpperCase();
+  if (!/^RVAR\d{6}$/.test(raw)) return null;
+  return canonicalArtistHref(raw);
+}
+
+async function resolveArtistRouteIdentityImpl(routeToken: string): Promise<ResolvedArtistIdentity | null> {
+  const resolved = await resolveCanonicalArtist(routeToken);
+  if (!resolved) return null;
+  return {
+    artistId: resolved.artistId,
+    rvar: resolved.rvar,
+    canonicalName: resolved.canonicalName,
+    displayName: resolved.displayName,
+    slug: resolved.routeToken,
+  };
+}
+
+/** Compatibility export: the input is a canonical RVAR route token, never a name slug or database ID. */
+export const resolveArtistFromSlug = cache(resolveArtistRouteIdentityImpl);
+
+async function resolveUnambiguousArtistName(name: string): Promise<ResolvedArtistIdentity | null> {
+  const key = normalizeArtistMatchKey(name);
   if (!key) return null;
-
-  const knownName = ARTIST_SLUGS[key];
-  if (knownName) {
-    const r = await resolveArtistId(knownName);
-    if (r) {
-      return {
-        artistId: r.id,
-        canonicalName: r.canonicalName,
-        displayName: displayArtistName(r.canonicalName),
-        slug: key,
-      };
-    }
-  }
-
-  const bySlug = await inspectQuery<{ id: number; canonical_name: string }>(
+  const rows = await inspectQuery<{ id: string | number; rvar: string; canonical_name: string }>(
     `
-    SELECT id, canonical_name FROM artists
-    WHERE lower(regexp_replace(trim(canonical_name), '[^a-z0-9]+', '-', 'g')) = lower($1)
-       OR lower(regexp_replace(
-            regexp_replace(trim(canonical_name), '^the\\s+', '', 'i'),
-            '[^a-z0-9]+', '-', 'g'
-          )) = lower($1)
-    LIMIT 1
+    SELECT id, canonical_name
+    FROM artists
+    WHERE lower(regexp_replace(trim(canonical_name), '^the\\s+', '', 'i')) = $1
+    ORDER BY id
+    LIMIT 2
     `,
     [key],
   );
-  if (bySlug[0]) {
-    return {
-      artistId: bySlug[0].id,
-      canonicalName: bySlug[0].canonical_name,
-      displayName: displayArtistName(bySlug[0].canonical_name),
-      slug: slugFromArtistName(bySlug[0].canonical_name),
-    };
-  }
-
-  const guess = key.replace(/-/g, " ");
-  const byGuess = await resolveArtistId(guess);
-  if (byGuess) {
-    return {
-      artistId: byGuess.id,
-      canonicalName: byGuess.canonicalName,
-      displayName: displayArtistName(byGuess.canonicalName),
-      slug: slugFromArtistName(byGuess.canonicalName),
-    };
-  }
-
-  return null;
+  // Ambiguous normalized labels are discovery results, never identity decisions.
+  if (rows.length !== 1) return null;
+  const artistId = Number(rows[0]!.id);
+  if (!Number.isSafeInteger(artistId) || artistId <= 0) return null;
+  const canonicalName = rows[0]!.canonical_name.trim();
+  return {
+    artistId,
+    rvar: rows[0]!.rvar.trim().toUpperCase(),
+    canonicalName,
+    displayName: displayArtistName(canonicalName),
+    slug: rows[0]!.rvar.trim().toUpperCase(),
+  };
 }
 
-export const resolveArtistFromSlug = cache(resolveArtistFromSlugImpl);
-
-/** Resolve artist for search chart history — query + panel artist/song hints. */
+/** Search-only exact candidate resolution. It never chooses a fuzzy or first result. */
 export async function resolveArtistForSearchQuery(
   query: string,
   artistHints: string[] = [],
-): Promise<{
-  artistId: number;
-  canonicalName: string;
-  displayName: string;
-  slug: string;
-} | null> {
-  const q = query.trim();
-  if (q.length < 2) return null;
-
-  const slugCandidates = new Set<string>();
-  for (const key of artistMatchKeys(q)) {
-    slugCandidates.add(slugFromArtistName(key));
+): Promise<ResolvedArtistIdentity | null> {
+  const candidates = [query, ...artistHints].map((value) => value.trim()).filter(Boolean);
+  for (const candidate of candidates) {
+    const resolved = await resolveUnambiguousArtistName(candidate);
+    if (resolved) return resolved;
   }
-  for (const name of artistHints) {
-    if (!name?.trim()) continue;
-    for (const key of artistMatchKeys(name)) {
-      slugCandidates.add(slugFromArtistName(key));
-    }
-  }
-
-  for (const slug of slugCandidates) {
-    if (!slug) continue;
-    const bySlug = await resolveArtistFromSlug(slug);
-    if (bySlug) return bySlug;
-  }
-
-  const nameCandidates = new Set<string>();
-  for (const key of artistMatchKeys(q)) nameCandidates.add(key);
-  for (const name of artistHints) {
-    if (!name?.trim()) continue;
-    for (const key of artistMatchKeys(name)) nameCandidates.add(key);
-  }
-  nameCandidates.add(q);
-
-  for (const name of nameCandidates) {
-    const row = await resolveArtistId(name);
-    if (!row) continue;
-    return {
-      artistId: row.id,
-      canonicalName: row.canonicalName,
-      displayName: displayArtistName(row.canonicalName),
-      slug: slugFromArtistName(row.canonicalName),
-    };
-  }
-
   return null;
 }

@@ -10,7 +10,7 @@ import {
   createProductionCockpitLayout,
   CURRENT_COCKPIT_LAYOUT_VERSION,
 } from "./defaults";
-import { PANEL_LIBRARY } from "./panel-library";
+import { COCKPIT_PANEL_REGISTRY as PANEL_LIBRARY } from "./registry";
 import type { CockpitState, CockpitWorkspaceId, PanelTypeId } from "./types";
 import { COCKPIT_GRID_SIZE, COCKPIT_WORKSPACES } from "./types";
 

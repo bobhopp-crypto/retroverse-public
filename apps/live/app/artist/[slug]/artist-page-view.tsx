@@ -9,6 +9,7 @@ import type { ArtistPageData } from "@/lib/artist/types";
 import { albumSuggestionHref } from "@/lib/search/entity-routes";
 import { sortChartedSongsByPerformance } from "@/lib/songs/sort-charted-songs";
 import { rvYearHref } from "@/lib/rv/rv-chronology-paths";
+import { discoveryShelf } from "@/lib/public/discovery-contract";
 
 import "./artist-page-v1.css";
 
@@ -62,7 +63,7 @@ function buildSongRows(data: ArtistPageData, coverage: ArtistCoverageSummary): A
     artistName: data.displayName,
     year: song.firstChartYear,
     peakHot100: song.peakHot100,
-    coverUrl: coverByRvtr.get(song.rvtr.toUpperCase()) ?? data.heroImageUrl,
+    coverUrl: coverByRvtr.get(song.rvtr.toUpperCase()) ?? null,
     trackHref: song.trackHref,
     coverageStatus: song.coverageStatus,
   }));
@@ -158,7 +159,7 @@ export function ArtistPageView({ data, coverage }: Props) {
               <div>
                 <p className="artist-v1__section-kicker">Start here</p>
                 <h2 id="artist-top-songs" className="artist-v1__section-title">
-                  Songs that defined the run
+                  {discoveryShelf("artistTopSongs").displayLabel}
                 </h2>
               </div>
               <Link href={`/artist/${data.slug}/songs`} prefetch className="artist-v1__section-link">
@@ -175,7 +176,7 @@ export function ArtistPageView({ data, coverage }: Props) {
               <div>
                 <p className="artist-v1__section-kicker">Go deeper</p>
                 <h2 id="artist-albums" className="artist-v1__section-title">
-                  Albums to explore
+                  {discoveryShelf("artistAlbums").displayLabel}
                 </h2>
               </div>
               <Link href={`/artist/${data.slug}/library`} prefetch className="artist-v1__section-link">
@@ -224,7 +225,7 @@ export function ArtistPageView({ data, coverage }: Props) {
               <div>
                 <p className="artist-v1__section-kicker">Follow the momentum</p>
                 <h2 id="artist-years" className="artist-v1__section-title">
-                  Years in motion
+                  {discoveryShelf("artistYears").displayLabel}
                 </h2>
               </div>
               <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__section-link">
@@ -251,7 +252,9 @@ export function ArtistPageView({ data, coverage }: Props) {
             <div className="artist-v1__section-heading">
               <div>
                 <p className="artist-v1__section-kicker">Keep exploring</p>
-                <h2 id="artist-related" className="artist-v1__section-title">Keep exploring</h2>
+                <h2 id="artist-related" className="artist-v1__section-title">
+                  {discoveryShelf("artistRelatedArtists").displayLabel}
+                </h2>
               </div>
             </div>
             <ul className="artist-v1__related-list">

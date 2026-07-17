@@ -8,6 +8,11 @@ CREATE TABLE IF NOT EXISTS retroverse_visitors (
   phone text,
   created_at timestamptz NOT NULL DEFAULT now()
 );
+ALTER TABLE retroverse_visitors ADD COLUMN IF NOT EXISTS last_name text;
+ALTER TABLE retroverse_visitors ADD COLUMN IF NOT EXISTS birthday date;
+ALTER TABLE retroverse_visitors ADD COLUMN IF NOT EXISTS postal_code text;
+ALTER TABLE retroverse_visitors ADD COLUMN IF NOT EXISTS marketing_opt_in boolean NOT NULL DEFAULT false;
+ALTER TABLE retroverse_visitors ADD COLUMN IF NOT EXISTS notes text;
 
 CREATE INDEX IF NOT EXISTS retroverse_visitors_email_idx
   ON retroverse_visitors (lower(email));

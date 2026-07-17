@@ -4,7 +4,10 @@ import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-u
 import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-sql";
 import type { ArtistChartHistory, ChartHistoryEntry } from "@/lib/artist/chart-history-types";
 import { inspectQuery } from "@/lib/inspect/pg";
+import { resolveCanonicalTracksBatch } from "@/lib/public/canonical-public-resolver";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
+
+const RE_RVTR = /^RVTR\d{6}$/i;
 
 function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
   return resolveAlbumCoverUrlFromRow({
@@ -44,32 +47,27 @@ const COVER_SUBQUERY = `
 function hot100Branch(
   artistIdClause: string,
   yearClause: string,
-  artistNameFallback = "$1::text",
 ): string {
   return `
     SELECT
-      t.id::text AS track_id,
-      t.title AS track_title,
+      upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), ctd.track_id))) AS track_id,
+      ctd.canonical_title AS track_title,
       ca.chart_date::text AS chart_date,
       ca.chart_position,
       COALESCE(ca.weeks_on_chart, 0)::int AS weeks_on_chart,
       ca.chart_name,
-      COALESCE(ar.canonical_name, ${artistNameFallback}) AS artist_name,
-      al.canonical_cover_path AS cover_path,
+      ar.canonical_name AS artist_name,
+      NULL::text AS cover_path,
       NULL::int AS release_year,
-      ${COVER_SUBQUERY}
+      NULL::text AS artwork_path,
+      NULL::text AS r2_cover_key
     FROM chart_appearances ca
     JOIN tracks t ON t.id = ca.track_id
-    JOIN artists ar ON ar.id = t.artist_id
-    LEFT JOIN LATERAL (
-      SELECT cat.album_id
-      FROM canonical_album_tracks cat
-      WHERE upper(trim(cat.canonical_track_key::text)) = upper(trim(t.id::text))
-      ORDER BY cat.position
-      LIMIT 1
-    ) link ON true
-    LEFT JOIN albums al ON al.id = link.album_id
+    JOIN canonical_tracks ct ON ct.graph_track_id = t.id
+    JOIN canonical_track_display ctd ON ctd.id = ct.id
+    JOIN artists ar ON ar.id = ctd.artist_id
     WHERE ca.chart_name = 'Billboard Hot 100'
+      AND upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), ctd.track_id))) ~ '^RVTR\\d{6}$'
     ${artistIdClause}
     ${yearClause}
   `;
@@ -110,37 +108,25 @@ function album200Branch(artistIdClause: string, yearClause: string): string {
 function rvYearHot100Branch(yearClause: string): string {
   return `
     SELECT
-      (
-        SELECT upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), ctd.track_id)))
-        FROM canonical_tracks ct
-        JOIN canonical_track_display ctd ON ctd.id = ct.id
-        WHERE ct.graph_track_id = t.id
-          AND upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), ctd.track_id))) ~ '^RVTR\\d{6}$'
-        LIMIT 1
-      ) AS track_id,
-      t.title AS track_title,
+      upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), ctd.track_id))) AS track_id,
+      ctd.canonical_title AS track_title,
       ca.chart_date::text AS chart_date,
       ca.chart_position,
       COALESCE(ca.weeks_on_chart, 0)::int AS weeks_on_chart,
       ca.chart_name,
-      COALESCE(ar.canonical_name, '') AS artist_name,
-      al.canonical_cover_path AS cover_path,
+      ar.canonical_name AS artist_name,
+      NULL::text AS cover_path,
       NULL::int AS release_year,
       NULL::text AS artwork_path,
       NULL::text AS r2_cover_key
     FROM chart_appearances ca
     JOIN tracks t ON t.id = ca.track_id
-    JOIN artists ar ON ar.id = t.artist_id
-    LEFT JOIN LATERAL (
-      SELECT cat.album_id
-      FROM canonical_album_tracks cat
-      WHERE upper(trim(cat.canonical_track_key::text)) = upper(trim(t.id::text))
-      ORDER BY cat.position
-      LIMIT 1
-    ) link ON true
-    LEFT JOIN albums al ON al.id = link.album_id
+    JOIN canonical_tracks ct ON ct.graph_track_id = t.id
+    JOIN canonical_track_display ctd ON ctd.id = ct.id
+    JOIN artists ar ON ar.id = ctd.artist_id
     WHERE ca.chart_name = 'Billboard Hot 100'
       AND ca.chart_position = 1
+      AND upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), ctd.track_id))) ~ '^RVTR\\d{6}$'
     ${yearClause}
   `;
 }
@@ -148,12 +134,14 @@ function rvYearHot100Branch(yearClause: string): string {
 function rvYearAlbum200Branch(yearClause: string): string {
   return `
     SELECT
-      (
-        SELECT upper(aek.external_key)
-        FROM album_external_keys aek
-        WHERE aek.album_id = al.id
-          AND aek.external_key ~* '^RVAL\\d{6}$'
-        LIMIT 1
+      COALESCE(
+        (
+          SELECT upper(aek.external_key)
+          FROM album_external_keys aek
+          WHERE aek.album_id = al.id
+            AND aek.external_key ~* '^RVAL\\d{6}$'
+          LIMIT 1
+        ), 'album-' || al.id::text
       ) AS track_id,
       al.title AS track_title,
       ca.chart_date::text AS chart_date,
@@ -187,10 +175,9 @@ function rowsToChartHistory(
     const year = Number(dateKey.slice(0, 4));
     const month = Number(dateKey.slice(5, 7));
     const trackId = r.track_id?.trim() ?? "";
-    const coverUrl =
-      coverByTrackId.get(trackId.toUpperCase()) ??
-      pickCoverUrl(r.cover_path, r.artwork_path, r.r2_cover_key) ??
-      fallbackCover;
+    const coverUrl = RE_RVTR.test(trackId)
+      ? coverByTrackId.get(trackId.toUpperCase()) ?? null
+      : pickCoverUrl(r.cover_path, r.artwork_path, r.r2_cover_key) ?? fallbackCover;
     const releaseYear =
       typeof r.release_year === "number" && Number.isFinite(r.release_year) && r.release_year > 0
         ? r.release_year
@@ -225,6 +212,22 @@ function rowsToChartHistory(
   }
 
   return { entries, activeYears };
+}
+
+async function canonicalCoverMap(
+  rows: ChartHistoryRow[],
+  supplied: Map<string, string>,
+): Promise<Map<string, string>> {
+  const rvtrs = rows
+    .map((row) => row.track_id.trim().toUpperCase())
+    .filter((trackId) => RE_RVTR.test(trackId));
+  const canonical = await resolveCanonicalTracksBatch(rvtrs);
+  const covers = new Map(supplied);
+  for (const [rvtr, track] of canonical) {
+    const cover = track.albumResolution.primaryAlbum?.coverUrl;
+    if (cover) covers.set(rvtr, cover);
+  }
+  return covers;
 }
 
 async function queryWeeklyChartRows(
@@ -271,20 +274,18 @@ function artistWeeklyChartSql(
 
 async function fetchArtistWeeklyChartRows(
   artistId: number,
-  artistName: string,
+  _artistName: string,
   scope: ArtistChartHistoryScope,
   rvYear?: number | null,
 ): Promise<ChartHistoryRow[]> {
   const resolvedYear = normalizeRVYear(rvYear);
-  const artistClause = "AND t.artist_id = $2";
-  const albumArtistClause = "AND al.artist_id = $2";
+  const artistClause = "AND ctd.artist_id = $1";
+  const albumArtistClause = "AND al.artist_id = $1";
   const yearClause =
-    resolvedYear != null ? "AND EXTRACT(YEAR FROM ca.chart_date)::int = $3" : "";
-  const albumYearClause =
-    resolvedYear != null ? "AND EXTRACT(YEAR FROM ca.chart_date)::int = $3" : "";
+    resolvedYear != null ? "AND EXTRACT(YEAR FROM ca.chart_date)::int = $2" : "";
 
   const params: (string | number)[] =
-    resolvedYear != null ? [artistName, artistId, resolvedYear] : [artistName, artistId];
+    resolvedYear != null ? [artistId, resolvedYear] : [artistId];
 
   return queryWeeklyChartRows(
     artistWeeklyChartSql(artistClause, albumArtistClause, yearClause, scope),
@@ -298,7 +299,7 @@ const cachedArtistWeeklyChartRows = (
 ) =>
   unstable_cache(
     () => fetchArtistWeeklyChartRows(artistId, "", scope, null),
-    [`artist-chart-rows-v1-${artistId}-${scope}`],
+    [`artist-chart-rows-v2-${artistId}-${scope}`],
     { revalidate: 3600, tags: [`artist-chart-${artistId}`] },
   );
 
@@ -318,7 +319,8 @@ export async function loadArtistChartHistory(
     ? await cachedArtistWeeklyChartRows(artistId, scope)()
     : await fetchArtistWeeklyChartRows(artistId, artistName, scope, rvYear);
 
-  const history = rowsToChartHistory(rows, coverByTrackId, fallbackCover, resolvedYear);
+  const canonicalCovers = await canonicalCoverMap(rows, coverByTrackId);
+  const history = rowsToChartHistory(rows, canonicalCovers, fallbackCover, resolvedYear);
   if (!history) return null;
   return { ...history, weeklyEntries: history.entries };
 }
@@ -341,7 +343,8 @@ async function loadRvYearChartHistoryCore(
     [resolvedYear],
   );
 
-  const history = rowsToChartHistory(rows, coverByTrackId, fallbackCover, resolvedYear);
+  const canonicalCovers = await canonicalCoverMap(rows, coverByTrackId);
+  const history = rowsToChartHistory(rows, canonicalCovers, fallbackCover, resolvedYear);
   if (!history) return null;
   return { ...history, weeklyEntries: history.entries };
 }
@@ -349,7 +352,7 @@ async function loadRvYearChartHistoryCore(
 const cachedRvYearChartHistory = (resolvedYear: number) =>
   unstable_cache(
     () => loadRvYearChartHistoryCore(resolvedYear, new Map(), null),
-    [`rv-year-chart-history-v4-${resolvedYear}`],
+    [`rv-year-chart-history-v5-${resolvedYear}`],
     { revalidate: 3600, tags: [`rv-year-${resolvedYear}`] },
   );
 

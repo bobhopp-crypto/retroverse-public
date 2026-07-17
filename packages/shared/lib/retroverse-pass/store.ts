@@ -24,6 +24,10 @@ type VisitorRow = {
   first_name: string;
   email: string | null;
   phone: string | null;
+  last_name?: string | null;
+  birthday?: Date | string | null;
+  postal_code?: string | null;
+  marketing_opt_in?: boolean;
   created_at: Date | string;
 };
 
@@ -37,6 +41,7 @@ function mapPass(row: PassRow): RetroversePass {
     claimed: row.claimed,
     visitorId: row.visitor_id == null ? null : Number(row.visitor_id),
     claimedAt: row.claimed_at == null ? null : iso(row.claimed_at),
+    status: row.claimed ? "registered" : "never_registered",
   };
 }
 
@@ -46,6 +51,10 @@ function mapVisitor(row: VisitorRow): RetroverseVisitor {
     firstName: row.first_name,
     email: row.email,
     phone: row.phone,
+    lastName: row.last_name ?? null,
+    birthday: row.birthday == null ? null : String(row.birthday),
+    postalCode: row.postal_code ?? null,
+    marketingOptIn: row.marketing_opt_in ?? false,
     createdAt: iso(row.created_at),
   };
 }
@@ -109,15 +118,14 @@ type TransactionClient = {
   ): Promise<{ rows: T[] }>;
 };
 
-/** Provision and claim one exact credential while holding its Postgres row lock. */
+type VisitorInput = { firstName: string; lastName?: string | null; email: string | null; phone: string | null; birthday?: string | null; postalCode?: string | null; marketingOptIn?: boolean };
+
+/** Create or claim one credential while holding its Postgres row lock. */
 export async function claimPassWithClient(
   client: TransactionClient,
-  input: { credential: string; firstName: string; email: string | null; phone: string | null },
+  input: { credential: string } & VisitorInput,
 ): Promise<PassScanResult & { state: "claimed" }> {
-  await client.query(
-    `INSERT INTO ${PASSES} (serial) VALUES ($1) ON CONFLICT (serial) DO NOTHING`,
-    [input.credential],
-  );
+  await client.query(`INSERT INTO ${PASSES} (serial) VALUES ($1) ON CONFLICT (serial) DO NOTHING`, [input.credential]);
   const passRows = await client.query<PassRow>(
     `SELECT serial, claimed, visitor_id, claimed_at FROM ${PASSES} WHERE serial = $1 FOR UPDATE`,
     [input.credential],
@@ -128,7 +136,7 @@ export async function claimPassWithClient(
 
   if (existing.claimed && existing.visitorId != null) {
     const visitorRows = await client.query<VisitorRow>(
-      `SELECT id, first_name, email, phone, created_at FROM ${VISITORS} WHERE id = $1`,
+      `SELECT id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in, created_at FROM ${VISITORS} WHERE id = $1`,
       [existing.visitorId],
     );
     const visitor = visitorRows.rows[0];
@@ -136,10 +144,15 @@ export async function claimPassWithClient(
     return { state: "claimed", pass: existing, visitor: mapVisitor(visitor) };
   }
 
-  const visitorRows = await client.query<VisitorRow>(
-    `INSERT INTO ${VISITORS} (first_name, email, phone) VALUES ($1, $2, $3)
-     RETURNING id, first_name, email, phone, created_at`,
-    [input.firstName, input.email, input.phone],
+  const matchedRows = await client.query<VisitorRow>(
+    `SELECT id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in, created_at FROM ${VISITORS}
+     WHERE ($1::text IS NOT NULL AND lower(email)=lower($1)) OR ($2::text IS NOT NULL AND phone=$2) ORDER BY created_at ASC LIMIT 1`,
+    [input.email, input.phone],
+  );
+  const visitorRows = matchedRows.rows.length ? { rows: matchedRows.rows } : await client.query<VisitorRow>(
+    `INSERT INTO ${VISITORS} (first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in) VALUES ($1, $2, $3, $4, $5, $6, $7)
+     RETURNING id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in, created_at`,
+    [input.firstName, input.lastName ?? null, input.email, input.phone, input.birthday || null, input.postalCode ?? null, input.marketingOptIn ?? false],
   );
   const visitor = mapVisitor(visitorRows.rows[0]!);
   const claimedRows = await client.query<PassRow>(
@@ -168,6 +181,7 @@ export async function claimPass(input: {
   firstName: string;
   email?: string | null;
   phone?: string | null;
+  lastName?: string | null; birthday?: string | null; postalCode?: string | null; marketingOptIn?: boolean;
 }): Promise<PassScanResult & { state: "claimed" }> {
   const credential = parsePassCredential(input.serial);
   const firstName = input.firstName.trim();
@@ -183,8 +197,12 @@ export async function claimPass(input: {
     const result = await claimPassWithClient(client, {
       credential,
       firstName,
+      lastName: input.lastName,
       email,
       phone,
+      birthday: input.birthday,
+      postalCode: input.postalCode,
+      marketingOptIn: input.marketingOptIn,
     });
     await client.query("COMMIT");
     return result;
@@ -204,7 +222,7 @@ export async function claimPass(input: {
  */
 export async function updateVisitorWithClient(
   client: TransactionClient,
-  input: { credential: string; firstName: string; email: string | null; phone: string | null },
+  input: { credential: string } & VisitorInput,
 ): Promise<PassScanResult & { state: "claimed" }> {
   const passRows = await client.query<PassRow>(
     `SELECT serial, claimed, visitor_id, claimed_at FROM ${PASSES} WHERE serial = $1 FOR UPDATE`,
@@ -218,9 +236,9 @@ export async function updateVisitorWithClient(
   }
 
   const visitorRows = await client.query<VisitorRow>(
-    `UPDATE ${VISITORS} SET first_name = $2, email = $3, phone = $4 WHERE id = $1
-     RETURNING id, first_name, email, phone, created_at`,
-    [existing.visitorId, input.firstName, input.email, input.phone],
+    `UPDATE ${VISITORS} SET first_name = $2, last_name = $3, email = $4, phone = $5, birthday = $6, postal_code = $7, marketing_opt_in = $8 WHERE id = $1
+     RETURNING id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in, created_at`,
+    [existing.visitorId, input.firstName, input.lastName ?? null, input.email, input.phone, input.birthday || null, input.postalCode ?? null, input.marketingOptIn ?? false],
   );
   const visitor = visitorRows.rows[0];
   if (!visitor) throw new Error("Registered visitor is unavailable.");
@@ -238,6 +256,7 @@ export async function updatePassVisitor(input: {
   firstName: string;
   email?: string | null;
   phone?: string | null;
+  lastName?: string | null; birthday?: string | null; postalCode?: string | null; marketingOptIn?: boolean;
 }): Promise<PassScanResult & { state: "claimed" }> {
   const credential = parsePassCredential(input.serial);
   const firstName = input.firstName.trim();
@@ -250,7 +269,7 @@ export async function updatePassVisitor(input: {
   const client = await getInspectPool().connect();
   try {
     await client.query("BEGIN");
-    const result = await updateVisitorWithClient(client, { credential, firstName, email, phone });
+    const result = await updateVisitorWithClient(client, { credential, firstName, lastName: input.lastName, email, phone, birthday: input.birthday, postalCode: input.postalCode, marketingOptIn: input.marketingOptIn });
     await client.query("COMMIT");
     return result;
   } catch (err) {

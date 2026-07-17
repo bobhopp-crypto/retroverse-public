@@ -6,6 +6,7 @@ import { loadEventControlConfig } from "@/lib/ops/event-control/store";
 import { loadGiveawayStudio } from "@/lib/ops/event-studio/giveaway/load-giveaway-studio";
 import { productionModuleStatusLabel } from "@/lib/ops/event-studio/producer/module-status";
 import { getActiveProducerPlan, loadProducerState } from "@/lib/ops/event-studio/producer/producer-state";
+import { loadIntegrityDashboard } from "@/lib/ops/integrity/load-integrity-dashboard";
 import { loadSundayEventMode } from "@/lib/sunday-nights/event-mode";
 import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
@@ -47,11 +48,22 @@ export type CockpitLiveDisplayData = {
   publicDisplayHref: string;
 };
 
+export type CockpitCatalogIntegrityData = {
+  totalOpenIssues: number;
+  duplicateArtists: number;
+  duplicateAlbums: number;
+  duplicateTracks: number;
+  aliasConflicts: number;
+  missingCovers: number;
+  status: "Healthy" | "Attention" | "Critical";
+};
+
 export type CockpitPanelData = {
   publicHomepage: CockpitPublicHomepageData;
   passRegistration: CockpitPassRegistrationData;
   giveaway: CockpitGiveawayData;
   liveDisplay: CockpitLiveDisplayData;
+  catalogIntegrity: CockpitCatalogIntegrityData;
 };
 
 const EMPTY_PUBLIC_HOMEPAGE: CockpitPublicHomepageData = {
@@ -83,6 +95,16 @@ const EMPTY_LIVE_DISPLAY: CockpitLiveDisplayData = {
   channelRunning: false,
   liveSource: null,
   publicDisplayHref: "/sunday-nights",
+};
+
+const EMPTY_CATALOG_INTEGRITY: CockpitCatalogIntegrityData = {
+  totalOpenIssues: 0,
+  duplicateArtists: 0,
+  duplicateAlbums: 0,
+  duplicateTracks: 0,
+  aliasConflicts: 0,
+  missingCovers: 0,
+  status: "Healthy",
 };
 
 const LIVE_MODE_LABELS: Record<string, string> = {
@@ -230,12 +252,32 @@ async function loadLiveDisplayData(): Promise<CockpitLiveDisplayData> {
   }
 }
 
+async function loadCatalogIntegrityData(): Promise<CockpitCatalogIntegrityData> {
+  try {
+    const dashboard = await loadIntegrityDashboard();
+    if (!dashboard.ok) return EMPTY_CATALOG_INTEGRITY;
+    const byId = new Map(dashboard.cards.map((card) => [card.id, card.count]));
+    return {
+      totalOpenIssues: dashboard.totalOpenIssues,
+      duplicateArtists: byId.get("duplicate-artists") ?? 0,
+      duplicateAlbums: byId.get("duplicate-albums") ?? 0,
+      duplicateTracks: byId.get("duplicate-tracks") ?? 0,
+      aliasConflicts: byId.get("alias-conflicts") ?? 0,
+      missingCovers: byId.get("missing-covers") ?? 0,
+      status: dashboard.cockpitStatus,
+    };
+  } catch {
+    return EMPTY_CATALOG_INTEGRITY;
+  }
+}
+
 export async function loadCockpitPanelData(): Promise<CockpitPanelData> {
-  const [publicHomepage, passRegistration, giveaway, liveDisplay] = await Promise.all([
+  const [publicHomepage, passRegistration, giveaway, liveDisplay, catalogIntegrity] = await Promise.all([
     loadPublicHomepageData(),
     loadPassRegistrationData(),
     loadGiveawayData(),
     loadLiveDisplayData(),
+    loadCatalogIntegrityData(),
   ]);
 
   return {
@@ -243,5 +285,6 @@ export async function loadCockpitPanelData(): Promise<CockpitPanelData> {
     passRegistration,
     giveaway,
     liveDisplay,
+    catalogIntegrity,
   };
 }

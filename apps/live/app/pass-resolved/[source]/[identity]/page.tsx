@@ -1,42 +1,30 @@
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
-import { PassExperienceOverlay } from "@/components/pass/PassExperienceOverlay";
-import { BroadcastViewer } from "@/components/retroverse-live/BroadcastViewer";
-import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
 import { decodeResolvedPass, RESOLVED_PASS_HEADER } from "@/lib/retroverse-pass/resolved-payload";
-import { recordPassActivity } from "@/lib/retroverse-pass/store";
+import { PassExperienceShell } from "@/lib/retroverse-pass/pass-experience-shell";
 
 import "../../../home-broadcast.css";
 
 export const dynamic = "force-dynamic";
 
-type Props = { params: Promise<{ source: string; identity: string }> };
+type Props = {
+  params: Promise<{ source: string; identity: string }>;
+  searchParams: Promise<{ p?: string }>;
+};
 
-export default async function ResolvedPassPage({ params }: Props) {
+export default async function ResolvedPassPage({ params, searchParams }: Props) {
   const requestHeaders = await headers();
-  if (requestHeaders.get("x-retroverse-pass-rewrite") !== "1") notFound();
   const { source, identity } = await params;
+  const { p } = await searchParams;
+  const rewritten = requestHeaders.get("x-retroverse-pass-rewrite") === "1";
 
   if (source === "postgres") {
-    const scan = decodeResolvedPass(requestHeaders.get(RESOLVED_PASS_HEADER));
-    if (!scan || scan.pass.serial !== identity) notFound();
-    try {
-      await recordPassActivity({
-        visitorId: scan.pass.visitorId,
-        passSerial: scan.pass.serial,
-        eventType: "PASS_SCANNED",
-      });
-    } catch {
-      // Activity logging must never block a valid pass.
-    }
-    const initial = await buildPlayheadPayload();
-    return (
-      <main className="home-broadcast">
-        <BroadcastViewer initial={initial} />
-        <PassExperienceOverlay scan={scan} currentEventTitle={initial.presentation?.title ?? null} />
-      </main>
+    const scan = decodeResolvedPass(
+      rewritten ? requestHeaders.get(RESOLVED_PASS_HEADER) : (p ?? null),
     );
+    if (!scan || scan.pass.serial !== identity) notFound();
+    return <PassExperienceShell scan={scan} />;
   }
 
   notFound();

@@ -1,6 +1,5 @@
-import { slugFromArtistName } from "@/lib/artist/slug";
 import { numberOneEntriesForWeeks } from "@/lib/artist/chart-snapshot-shaping";
-import { chartFamilyKey, weeklyEntriesFromHistory } from "@/lib/artist/chart-history-display";
+import { weeklyEntriesFromHistory } from "@/lib/artist/chart-history-display";
 import type { ArtistChartHistory, ChartHistoryEntry } from "@/lib/artist/chart-history-types";
 import { chartEntryPublicHref } from "@/lib/public/canonical-public-hrefs";
 import {
@@ -24,6 +23,7 @@ export type YearEssentialAlbum = {
 };
 
 export type YearDefiningSong = {
+  rvtr: string | null;
   title: string;
   artist: string;
   coverUrl: string | null;
@@ -31,6 +31,8 @@ export type YearDefiningSong = {
 };
 
 export type YearDefiningArtist = {
+  artistId: number | null;
+  rvtr: string | null;
   name: string;
   slug: string;
   href: string | null;
@@ -70,8 +72,6 @@ type EntityWeeks = {
 };
 
 type YearCoverPools = {
-  artistCover: Map<string, string>;
-  albumCoverByArtist: Map<string, string>;
   allCovers: string[];
 };
 
@@ -129,33 +129,22 @@ function rankNumberOnes(
 }
 
 function buildCoverPools(entries: ChartHistoryEntry[], rvYear: number): YearCoverPools {
-  const artistCover = new Map<string, string>();
-  const albumCoverByArtist = new Map<string, string>();
   const allCovers: string[] = [];
   const seen = new Set<string>();
 
   for (const row of entries) {
     if (row.year !== rvYear || !isUsableCover(row.coverUrl)) continue;
-    const artistKey = row.artist.trim().toLowerCase();
-    if (!artistCover.has(artistKey)) artistCover.set(artistKey, row.coverUrl);
-    if (chartFamilyKey(row.chartName) === "album-200" && !albumCoverByArtist.has(artistKey)) {
-      albumCoverByArtist.set(artistKey, row.coverUrl);
-    }
     if (!seen.has(row.coverUrl)) {
       seen.add(row.coverUrl);
       allCovers.push(row.coverUrl);
     }
   }
 
-  return { artistCover, albumCoverByArtist, allCovers };
+  return { allCovers };
 }
 
-function resolveSongCover(row: EntityWeeks, pools: YearCoverPools): string | null {
-  if (isUsableCover(row.coverUrl)) return row.coverUrl;
-  const artistKey = row.artist.trim().toLowerCase();
-  const album = pools.albumCoverByArtist.get(artistKey);
-  if (album) return album;
-  return pools.artistCover.get(artistKey) ?? null;
+function resolveSongCover(row: EntityWeeks): string | null {
+  return isUsableCover(row.coverUrl) ? row.coverUrl : null;
 }
 
 function definingArtistsFromYear(
@@ -174,9 +163,11 @@ function definingArtistsFromYear(
     if (seen.has(key)) continue;
     seen.add(key);
     artists.push({
+      artistId: null,
+      rvtr: row.trackId?.match(/RVTR\d{6}/i)?.[0]?.toUpperCase() ?? null,
       name,
-      slug: slugFromArtistName(name),
-      href: `/artist/${slugFromArtistName(name)}`,
+      slug: "",
+      href: null,
     });
     if (artists.length >= limit) break;
   }
@@ -205,7 +196,7 @@ function buildHeroCoverCandidateList(
     })),
     definingSongCovers: definingSongs.map((song) => song.coverUrl),
     rankedAlbumCovers: albumRank.map((row) => row.coverUrl),
-    rankedSongCovers: songRank.map((row) => resolveSongCover(row, pools)),
+    rankedSongCovers: songRank.map((row) => resolveSongCover(row)),
     poolCovers: pools.allCovers,
     weeklyCovers: weeklyCoverScanOrder(weekly, rvYear),
     hrefByCoverUrl,
@@ -235,9 +226,10 @@ export function buildRvYearDestination(
 
   const songRank = rankNumberOnes(weekly, rvYear, "hot-100", 12);
   const definingSongs: YearDefiningSong[] = songRank.slice(0, 8).map((row) => ({
+    rvtr: row.trackId?.match(/RVTR\d{6}/i)?.[0]?.toUpperCase() ?? null,
     title: formatRvYearTitle(row.title),
     artist: formatRvYearArtist(row.artist),
-    coverUrl: resolveSongCover(row, pools),
+    coverUrl: resolveSongCover(row),
     href: entryHref(row, false),
   }));
 
@@ -254,7 +246,7 @@ export function buildRvYearDestination(
   const topSingles: YearChartLeader[] = songRank.slice(0, 5).map((row) => ({
     title: formatRvYearTitle(row.title),
     artist: formatRvYearArtist(row.artist),
-    coverUrl: resolveSongCover(row, pools),
+    coverUrl: resolveSongCover(row),
     href: entryHref(row, false),
     weeksAtOne: row.weeksAtOne,
     rvtr: row.trackId?.match(/RVTR\d{6}/i)?.[0]?.toUpperCase() ?? null,

@@ -11,6 +11,10 @@ type ClaimPayload = {
   firstName?: string;
   email?: string;
   phone?: string | null;
+  lastName?: string | null;
+  birthday?: string | null;
+  postalCode?: string | null;
+  marketingOptIn?: boolean;
 };
 
 export async function handlePassClaim(req: Request, claim: Claim = claimPass) {
@@ -31,8 +35,12 @@ export async function handlePassClaim(req: Request, claim: Claim = claimPass) {
     const result = await claim({
       serial: credential,
       firstName: payload.firstName ?? "",
+      lastName: payload.lastName,
       email: payload.email,
       phone: payload.phone,
+      birthday: payload.birthday,
+      postalCode: payload.postalCode,
+      marketingOptIn: payload.marketingOptIn,
     });
     return NextResponse.json({ ok: true, pass: result.pass, visitor: result.visitor });
   } catch (err) {
@@ -65,8 +73,12 @@ export async function handlePassUpdate(req: Request, update: Update = updatePass
     const result = await update({
       serial: credential,
       firstName: payload.firstName ?? "",
+      lastName: payload.lastName,
       email: payload.email,
       phone: payload.phone,
+      birthday: payload.birthday,
+      postalCode: payload.postalCode,
+      marketingOptIn: payload.marketingOptIn,
     });
     return NextResponse.json({ ok: true, pass: result.pass, visitor: result.visitor });
   } catch (err) {

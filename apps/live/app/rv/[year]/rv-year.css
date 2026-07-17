@@ -1,4 +1,4 @@
-/* RV Year world — retrospective issue, not analytics dashboard */
+/* Version 3 Year page — an artwork-led Billboard history sequence. */
 
 .rv-year-world {
   --rv-page-gutter: max(0.55rem, 2.5vw);
@@ -38,6 +38,36 @@
   mix-blend-mode: multiply;
   z-index: 0;
 }
+
+/* Version 3: artwork-led year sequence. */
+.rv-year-facts {
+  position: relative;
+  z-index: 1;
+  margin: 1rem var(--rv-page-gutter);
+  padding: .55rem .75rem;
+  border: 1px solid rgba(143,240,212,.24);
+  background: #15132b;
+  box-shadow: none;
+  color: #f4efe6;
+}
+.rv-year-facts__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .35rem; }
+.rv-year-fact { display: flex; align-items: baseline; gap: .3rem; min-width: 0; padding: .2rem .25rem; }
+.rv-year-fact strong { font-size: 1.3rem; line-height: 1; color: #8ff0d4; }
+.rv-year-fact span { font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #e0a458; }
+.rv-year-art-shelf { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+.rv-year-art-card { display: block; min-width: 0; color: inherit; text-decoration: none; }
+.rv-year-art-card__cover { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border: 2px solid rgba(244,239,230,.28); box-shadow: 3px 4px 0 rgba(0,0,0,.2); transition: transform .18s ease, box-shadow .18s ease; }
+.rv-year-art-card:hover .rv-year-art-card__cover { transform: translateY(-4px); box-shadow: 5px 7px 0 rgba(0,0,0,.24); }
+.rv-year-art-card__title { display: block; margin-top: .55rem; font-weight: 900; line-height: 1.1; }
+.rv-year-art-card__caption { display: block; margin-top: .2rem; font-size: .78rem; color: #8ff0d4; }
+@media (max-width: 767px) {
+  .rv-year-art-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem .7rem; }
+  .rv-year-facts__grid { gap: .5rem; }
+  .rv-year-fact { padding: .2rem 0; }
+  .rv-year-fact strong { font-size: 1.05rem; }
+  .rv-year-fact span { font-size: .5rem; }
+}
+
 
 .rv-year-topbar {
   position: relative;
@@ -242,21 +272,6 @@
   font-weight: 900;
 }
 
-.rv-year-album-card__art img,
-.rv-year-album-card__cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.rv-year-song-row__thumb--fallback,
-.rv-year-album-card__cover--fallback {
-  width: 100%;
-  height: 100%;
-  min-height: 2.75rem;
-}
-
 .rv-year-hero__covers {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -393,156 +408,6 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--charcoal);
-}
-
-.rv-year-album-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.65rem 0.55rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.rv-year-album-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.28rem;
-  text-decoration: none;
-  color: inherit;
-}
-
-.rv-year-album-card__art {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  border: 2px solid rgba(45, 62, 70, 0.75);
-  border-radius: 2px;
-  overflow: hidden;
-  box-shadow: 3px 3px 0 rgba(45, 62, 70, 0.14);
-  background: rgba(244, 233, 211, 0.65);
-}
-
-.rv-year-album-card__art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.rv-year-album-card__title {
-  font-size: 0.88rem;
-  font-weight: 900;
-  line-height: 1.15;
-  color: var(--charcoal);
-}
-
-.rv-year-album-card:hover .rv-year-album-card__title {
-  color: var(--teal-deep);
-}
-
-.rv-year-album-card__caption {
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: rgba(45, 62, 70, 0.72);
-}
-
-.rv-year-album-card--static,
-.rv-year-song-row--static,
-.rv-year-artist-card--static {
-  cursor: default;
-  pointer-events: none;
-}
-
-.rv-year-album-card--static:hover .rv-year-album-card__title {
-  color: inherit;
-}
-
-.rv-year-artist-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.rv-year-artist-card {
-  display: inline-block;
-  padding: 0.45rem 0.7rem;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: var(--teal-deep);
-  background: rgba(111, 168, 161, 0.14);
-  border: 2px solid rgba(31, 94, 99, 0.28);
-  border-radius: 3px;
-  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.12);
-}
-
-.rv-year-artist-card:hover {
-  background: rgba(31, 94, 99, 0.12);
-}
-
-.rv-year-song-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.45rem;
-  counter-reset: rv-song;
-}
-
-.rv-year-song-row {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 0.5rem;
-  text-decoration: none;
-  color: inherit;
-  border: 2px solid rgba(45, 62, 70, 0.12);
-  border-radius: 3px;
-  background: rgba(244, 233, 211, 0.45);
-}
-
-.rv-year-song-row:hover {
-  border-color: rgba(31, 94, 99, 0.35);
-  background: rgba(244, 233, 211, 0.75);
-}
-
-.rv-year-song-row--text-only {
-  padding-left: 0.65rem;
-}
-
-.rv-year-song-row__thumb {
-  flex: 0 0 auto;
-  width: 2.75rem;
-  height: 2.75rem;
-  object-fit: cover;
-  border: 2px solid rgba(45, 62, 70, 0.65);
-  border-radius: 2px;
-}
-
-.rv-year-song-row__text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.08rem;
-  min-width: 0;
-}
-
-.rv-year-song-row__title {
-  font-size: 0.92rem;
-  font-weight: 900;
-  line-height: 1.15;
-  color: var(--charcoal);
-}
-
-.rv-year-song-row__artist {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: rgba(45, 62, 70, 0.75);
 }
 
 /* —— Month by month (final major section) —— */
@@ -696,6 +561,39 @@
   font-size: 0.72rem;
   font-weight: 700;
   color: rgba(45, 62, 70, 0.65);
+}
+
+.rv-month-card__weeks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.rv-month-card__week-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.62rem;
+  border: 1px solid rgba(31, 94, 99, 0.35);
+  border-radius: 999px;
+  background: rgba(31, 94, 99, 0.08);
+  color: var(--teal-deep);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rv-month-card__week-pill:hover,
+.rv-month-card__week-pill:focus-visible {
+  background: rgba(31, 94, 99, 0.16);
+  border-color: rgba(31, 94, 99, 0.58);
+}
+
+.rv-month-card__week-pill:focus-visible {
+  outline: 2px solid var(--teal-deep);
+  outline-offset: 2px;
 }
 
 .rv-month-card__leaders {
@@ -941,10 +839,6 @@
 
   .rv-year-hero__covers {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .rv-year-album-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .rv-year-chronicle {

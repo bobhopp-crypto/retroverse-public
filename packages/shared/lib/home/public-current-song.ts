@@ -3,7 +3,6 @@ import "server-only";
 import type { ChannelExperienceSource } from "@/lib/channel-zero/types";
 import { resolveChannelExperience } from "@/lib/channel-zero/resolve-channel-experience";
 import {
-  buildSundayNightsCurrentPayload,
   resolveLiveDestination,
   type SundayNightsCurrentPayload,
 } from "@/lib/sunday-nights/live-payload";
@@ -38,7 +37,6 @@ export async function loadPublicCurrentSongPayload(): Promise<SundayNightsCurren
   const freshLive = currentLiveSelection(state);
   const track = await loadTrackPage(channelZero.experienceId);
   const destination = await resolveLiveDestination(channelZero.experienceId);
-  const base = await buildSundayNightsCurrentPayload(state, null);
 
   const liveOverlay =
     channelZero.source === "takeover" || channelZero.source === "live-signal"
@@ -46,7 +44,6 @@ export async function loadPublicCurrentSongPayload(): Promise<SundayNightsCurren
       : null;
 
   return {
-    ...base,
     currentTrackId: channelZero.experienceId,
     live: liveOverlay,
     track,

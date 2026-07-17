@@ -36,7 +36,9 @@ export type ChartAlbumSpotlight = {
 };
 
 export type RelatedArtistCard = {
+  artistId: number;
   name: string;
+  /** Canonical numeric route token; retained as `slug` for view compatibility. */
   slug: string;
   coverUrl: string | null;
 };

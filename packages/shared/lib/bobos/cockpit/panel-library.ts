@@ -1,6 +1,15 @@
 import type { PanelDefinition, PanelGroup, PanelTypeId } from "./types";
+import { RV_REGISTRY } from "../rv-registry";
 
 export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
+  "six-up-viewer": {
+    id: "six-up-viewer",
+    title: "6-Up Viewer",
+    group: "catalog",
+    defaultStatus: "nominal",
+    summary: "Review six connected Retroverse public experiences using one canonical song.",
+    primaryAction: { label: "Open 6-Up Viewer", href: "/review/public-v3" },
+  },
   "current-event": {
     id: "current-event",
     title: "Current Event",
@@ -197,6 +206,14 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     summary: "Graph index and data store connectivity.",
     primaryAction: null,
   },
+  "catalog-integrity": {
+    id: "catalog-integrity",
+    title: "Catalog Integrity",
+    group: "catalog",
+    defaultStatus: "warning",
+    summary: "Catalog identity health and open integrity issues.",
+    primaryAction: { label: "Open Integrity Dashboard", href: "/ops/integrity" },
+  },
   clock: {
     id: "clock",
     title: "Clock",
@@ -286,12 +303,21 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     primaryAction: { label: "Open Studio", href: "http://localhost:3000" },
     secondaryActions: [{ label: "Open Live", href: "http://localhost:3100" }],
   },
+  "graph-bridge": {
+    id: "graph-bridge",
+    title: "Album Link Panel",
+    group: "catalog",
+    defaultStatus: "nominal",
+    summary: "Read-only song-to-album relationship surface.",
+    primaryAction: { label: "Open Album Link Panel", href: "/ops/graph-bridge" },
+  },
 };
 
 export const PANEL_LIBRARY_GROUPS: PanelGroup[] = ["attention", "build", "catalog", "devices"];
 
 export function panelsInGroup(group: PanelGroup): PanelDefinition[] {
-  return Object.values(PANEL_LIBRARY).filter((panel) => panel.group === group);
+  const registeredPanelTypes = new Set(RV_REGISTRY.filter((entry) => entry.panelEligible && entry.panelType).map((entry) => entry.panelType));
+  return Object.values(PANEL_LIBRARY).filter((panel) => panel.group === group && registeredPanelTypes.has(panel.id));
 }
 
 export function getPanelDefinition(id: PanelTypeId): PanelDefinition {
@@ -300,6 +326,7 @@ export function getPanelDefinition(id: PanelTypeId): PanelDefinition {
 
 /** Bottom command bar — quick navigation outside the grid. */
 export const COCKPIT_COMMAND_BAR = [
+  { label: "RV Directory", href: "/bobos/rv-directory" },
   { label: "Event Producer", href: "/bobos/producer" },
   { label: "Design Builder", href: "/bobos/passes" },
   { label: "Posters", href: "/bobos/event" },
