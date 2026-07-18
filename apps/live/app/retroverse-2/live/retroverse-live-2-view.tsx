@@ -4,15 +4,16 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
+import { PresentationStage } from "@/components/retroverse-live/PresentationStage";
 import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
+import type { PublicHomepagePayload } from "@/lib/home/public-current-song";
 import { RV_CHRONOLOGY_DEFAULT_YEAR, rvYearHref } from "@/lib/rv/rv-chronology-paths";
 import { artistPublicHrefFromName, trackPageHref } from "@/lib/search/entity-routes";
-import type { SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { discoveryShelf } from "@/lib/public/discovery-contract";
 
 type Props = {
-  initial: SundayNightsCurrentPayload;
+  initial: PublicHomepagePayload;
   shellClassName?: string;
   activeNav?: "live" | "search" | "years" | "charts";
   minimalHome?: boolean;
@@ -68,7 +69,7 @@ function displayFromTrack(track: TrackPageData): HeroDisplay {
   };
 }
 
-function safeSongHref(payload: SundayNightsCurrentPayload): string | null {
+function safeSongHref(payload: PublicHomepagePayload): string | null {
   const rvtr = payload.currentTrackId?.trim() ?? "";
   if (RE_RVTR.test(rvtr)) {
     return trackPageHref(rvtr.toUpperCase());
@@ -88,7 +89,7 @@ function safeSongHref(payload: SundayNightsCurrentPayload): string | null {
 }
 
 function displayFromPayload(
-  payload: SundayNightsCurrentPayload,
+  payload: PublicHomepagePayload,
 ): HeroDisplay {
   if (payload.track) {
     return displayFromTrack(payload.track);
@@ -172,7 +173,7 @@ export function RetroverseLive2View({
         });
         if (!res.ok) throw new Error(`Current song HTTP ${res.status}`);
         if (cancelled) return;
-        const data = (await res.json()) as SundayNightsCurrentPayload;
+        const data = (await res.json()) as PublicHomepagePayload;
         if (data.publicState?.version !== 2) {
           throw new Error("Unsupported current-song response");
         }
@@ -248,6 +249,11 @@ export function RetroverseLive2View({
     },
     { label: "Charts", href: display.chartsHref },
   ];
+  const manualOverride = payload.manualOverride;
+  const manualAspectRatio =
+    manualOverride?.rvba.mediaWidth && manualOverride.rvba.mediaHeight
+      ? `${manualOverride.rvba.mediaWidth} / ${manualOverride.rvba.mediaHeight}`
+      : "16 / 9";
 
   return (
     <Rv2PublicShell
@@ -257,10 +263,24 @@ export function RetroverseLive2View({
       minimalNavigation={minimalHome}
       broadcastChrome={minimalHome}
     >
-      <section
-        className={minimalHome ? "rv2-live__hero rv2-live__hero--minimal" : "rv2-live__hero"}
-        aria-label={isLiveNow ? "Live now" : discoveryShelf("homeCurrentSong").displayLabel}
-      >
+      {manualOverride ? (
+        <section
+          className="rv2-live__hero rv2-live__hero--minimal"
+          aria-label="Manual broadcast presentation"
+          style={{ aspectRatio: manualAspectRatio, maxHeight: "calc(100svh - 8rem)" }}
+        >
+          <PresentationStage
+            key={manualOverride.rvba.id}
+            rvba={manualOverride.rvba}
+            broadcast={manualOverride.broadcast}
+            offAirTitle="Retroverse Live"
+          />
+        </section>
+      ) : (
+        <section
+          className={minimalHome ? "rv2-live__hero rv2-live__hero--minimal" : "rv2-live__hero"}
+          aria-label={isLiveNow ? "Live now" : discoveryShelf("homeCurrentSong").displayLabel}
+        >
         {minimalHome ? (
           <div className="rv2-live__minimal-current">
             {display.albumHref ? (
@@ -382,7 +402,8 @@ export function RetroverseLive2View({
         </nav>
           </>
         )}
-      </section>
+        </section>
+      )}
     </Rv2PublicShell>
   );
 }

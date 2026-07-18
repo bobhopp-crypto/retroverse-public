@@ -507,11 +507,6 @@ export async function playDeck(deckId: DeckId): Promise<{ mixer: MixerState; sta
   await movePlayhead({ op: "jump", itemId: currentEntry.entryId }, "cockpit");
   await movePlayhead({ op: "play" }, "cockpit");
 
-  const state = await loadPresentationState();
-  state.manualTakeActive = true;
-  state.autoFollowVdj = false;
-  await savePresentationState(state);
-
   mixer.liveDeckId = deckId;
   await saveMixerState(mixer);
 
@@ -827,7 +822,6 @@ export async function queueSequence(options: QueueSequenceOptions): Promise<Broa
   const now = new Date().toISOString();
   state.activePresentationId = presentation.id;
   state.manualTakeActive = true;
-  state.autoFollowVdj = false;
   state.playhead = {
     presentationId: presentation.id,
     anchorItemId: firstEnabled?.id ?? null,

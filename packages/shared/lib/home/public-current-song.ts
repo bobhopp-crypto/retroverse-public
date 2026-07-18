@@ -1,5 +1,9 @@
 import "server-only";
 
+import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
+import type { PlayheadPayload } from "@/lib/bobos/presentation/types";
+import type { CurrentBroadcast } from "@/lib/broadcast/current-broadcast";
+import type { Rvba } from "@/lib/broadcast/rvba";
 import type { ChannelExperienceSource } from "@/lib/channel-zero/types";
 import { resolveChannelExperience } from "@/lib/channel-zero/resolve-channel-experience";
 import {
@@ -18,6 +22,46 @@ export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
   Pragma: "no-cache",
 } as const;
 
+export type PublicHomepageManualOverride = {
+  broadcast: CurrentBroadcast;
+  rvba: Rvba;
+};
+
+export type PublicHomepagePayload = SundayNightsCurrentPayload & {
+  /** Weekend compatibility bridge: only an active manual take may override Channel Zero. */
+  manualOverride?: PublicHomepageManualOverride | null;
+};
+
+export function resolvePublicHomepageManualOverride(
+  playhead: PlayheadPayload,
+): PublicHomepageManualOverride | null {
+  if (
+    playhead.manualTakeActive !== true ||
+    !playhead.onAir ||
+    !playhead.presentation ||
+    !playhead.item ||
+    !playhead.rvba ||
+    playhead.broadcast.state === "off-air"
+  ) {
+    return null;
+  }
+
+  return {
+    broadcast: playhead.broadcast,
+    rvba: playhead.rvba,
+  };
+}
+
+export function applyPublicHomepageManualOverride(
+  channelZeroPayload: SundayNightsCurrentPayload,
+  playhead: PlayheadPayload,
+): PublicHomepagePayload {
+  return {
+    ...channelZeroPayload,
+    manualOverride: resolvePublicHomepageManualOverride(playhead),
+  };
+}
+
 function publicSourceFromChannelZero(
   source: ChannelExperienceSource,
 ): "virtualdj" | "channel-zero" {
@@ -31,8 +75,11 @@ function publicSourceFromChannelZero(
  * Channel Zero resolves exactly one Experience (takeover → live signal →
  * scheduled program → default). Public V3 renders that Song Experience.
  */
-export async function loadPublicCurrentSongPayload(): Promise<SundayNightsCurrentPayload> {
-  const state = await loadSundayNightsState();
+export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayload> {
+  const [state, playhead] = await Promise.all([
+    loadSundayNightsState(),
+    buildPlayheadPayload(),
+  ]);
   const channelZero = resolveChannelExperience({ state });
   const freshLive = currentLiveSelection(state);
   const track = await loadTrackPage(channelZero.experienceId);
@@ -43,7 +90,7 @@ export async function loadPublicCurrentSongPayload(): Promise<SundayNightsCurren
       ? freshLive
       : null;
 
-  return {
+  const channelZeroPayload: SundayNightsCurrentPayload = {
     currentTrackId: channelZero.experienceId,
     live: liveOverlay,
     track,
@@ -57,4 +104,6 @@ export async function loadPublicCurrentSongPayload(): Promise<SundayNightsCurren
       servedAt: new Date().toISOString(),
     },
   };
+
+  return applyPublicHomepageManualOverride(channelZeroPayload, playhead);
 }

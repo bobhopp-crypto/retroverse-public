@@ -12,6 +12,7 @@ import {
   playDeck,
   removeDeckEntry,
   reorderDeckEntry,
+  returnBroadcastToLive,
   setDeckCue,
   setDeckOutput,
   setDeckPlaybackMode,
@@ -90,6 +91,20 @@ export function BroadcastMixerView({ initialStatus, initialMixer }: Props) {
     },
     [],
   );
+
+  const handleReturnToAuto = useCallback(async () => {
+    busyRef.current = true;
+    setBusyDeck(activeDeckId);
+    setError(null);
+    try {
+      setStatus(await returnBroadcastToLive());
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      busyRef.current = false;
+      setBusyDeck(null);
+    }
+  }, [activeDeckId]);
 
   const handleAddAsset = useCallback(
     (deckId: DeckId, asset: AssetReference) => {
@@ -229,6 +244,15 @@ export function BroadcastMixerView({ initialStatus, initialMixer }: Props) {
             />
           ) : null}
         </label>
+
+        <button
+          type="button"
+          className="bmx-btn bmx-btn--small"
+          disabled={busyDeck !== null || !status.local.manualTakeActive}
+          onClick={() => void handleReturnToAuto()}
+        >
+          Return to Auto
+        </button>
       </div>
 
       <div className="bmx-top">

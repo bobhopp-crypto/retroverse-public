@@ -218,6 +218,9 @@ export async function setAutoFollowVdj(enabled: boolean): Promise<PresentationSt
 /** VirtualDJ started or changed songs — pause broadcast rotation. */
 export async function handleVdjPlaybackStarted(): Promise<void> {
   if (!(await isAutoFollowEnabled())) return;
+  // Manual Take is an operator override. VDJ updates remain available as an
+  // input, but must not clear or pause the active manual presentation.
+  if (await isManualTakeActive()) return;
 
   const sn = await loadSundayNightsState();
   await saveSundayNightsState({
@@ -232,13 +235,10 @@ export async function handleVdjPlaybackStarted(): Promise<void> {
   const pres = await loadPresentationState();
   pres.vdjTakeoverActive = true;
   pres.vdjStoppedAt = null;
-  // Deck cueing sets manualTakeActive; live VDJ playback re-asserts AUTO follow.
-  pres.manualTakeActive = false;
   await savePresentationState(pres);
 
   const snapshot = await loadBroadcastSnapshot();
   if (snapshot) {
-    snapshot.manualTakeActive = false;
     snapshot.updatedAt = new Date().toISOString();
     await saveBroadcastSnapshot(snapshot);
     await pushBroadcastToPublic(snapshot).catch(() => undefined);
