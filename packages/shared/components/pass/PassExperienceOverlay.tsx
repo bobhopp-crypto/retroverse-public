@@ -166,11 +166,19 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
       >
         {view === "claim" ? (
           <>
-            <p className="pass-xp__kicker">Retroverse Pass</p>
-            <h1 className="pass-xp__title">Welcome to Retroverse</h1>
-            <p className="pass-xp__serial">Pass {serial}</p>
+            <header className="pass-xp__header">
+              <p className="pass-xp__kicker">Retroverse Pass</p>
+              <h1 className="pass-xp__title">Welcome to Retroverse</h1>
+              <p className="pass-xp__serial">
+                <span>Pass</span>
+                <strong>{serial}</strong>
+              </p>
+              <p className="pass-xp__intro">
+                Register your pass to unlock Retroverse experiences, rewards, and live events.
+              </p>
+            </header>
 
-            <form className="pass-xp__form" onSubmit={(e) => void handleClaim(e)}>
+            <form className="pass-xp__form pass-xp__form--claim" onSubmit={(e) => void handleClaim(e)}>
               <label>
                 <span>First Name</span>
                 <input
@@ -223,21 +231,28 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
         {view === "confirmed" ? (
           <div className="pass-xp__confirmed">
+            <div className="pass-xp__success-mark" aria-hidden="true">✓</div>
             <p className="pass-xp__kicker">Pass {serial} registered</p>
             <h1 className="pass-xp__title">
               You&apos;re in{visitor ? `, ${visitor.firstName}` : ""}.
             </h1>
+            <p className="pass-xp__success-copy">Your Retroverse Pass is officially registered.</p>
             <p className="pass-xp__note">Returning you to the show…</p>
           </div>
         ) : null}
 
         {view === "already" ? (
           <>
-            <p className="pass-xp__kicker">Retroverse Pass</p>
-            <h1 className="pass-xp__title">
-              Hi{visitor ? `, ${visitor.firstName}` : ""}, this pass is already registered.
-            </h1>
-            <p className="pass-xp__serial">Pass {serial}</p>
+            <header className="pass-xp__header">
+              <p className="pass-xp__kicker">Retroverse Pass</p>
+              <h1 className="pass-xp__title">
+                Hi{visitor ? `, ${visitor.firstName}` : ""}, this pass is already registered.
+              </h1>
+              <p className="pass-xp__serial">
+                <span>Pass</span>
+                <strong>{serial}</strong>
+              </p>
+            </header>
 
             {currentEventTitle ? (
               <div className="pass-xp__event">
@@ -267,9 +282,14 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
         {view === "edit" ? (
           <>
-            <p className="pass-xp__kicker">Edit Registration</p>
-            <h1 className="pass-xp__title">Update your info</h1>
-            <p className="pass-xp__serial">Pass {serial}</p>
+            <header className="pass-xp__header">
+              <p className="pass-xp__kicker">Edit Registration</p>
+              <h1 className="pass-xp__title">Update your info</h1>
+              <p className="pass-xp__serial">
+                <span>Pass</span>
+                <strong>{serial}</strong>
+              </p>
+            </header>
 
             <form className="pass-xp__form" onSubmit={(e) => void handleUpdate(e)}>
               <label>
@@ -324,8 +344,10 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
         {view === "mypass" ? (
           <>
-            <p className="pass-xp__kicker">My Pass</p>
-            <h1 className="pass-xp__title">Pass {serial}</h1>
+            <header className="pass-xp__header">
+              <p className="pass-xp__kicker">My Pass</p>
+              <h1 className="pass-xp__title">Pass {serial}</h1>
+            </header>
 
             <dl className="pass-xp__details">
               <div>
