@@ -43,6 +43,11 @@ import {
 } from "@/lib/ops/creative-lab/pass-text-governance";
 import type { PassQrPlacement } from "@/lib/ops/creative-lab/types";
 import {
+  DEFAULT_PASS_COLOR_SCHEME,
+  PASS_COLOR_SCHEME_OPTIONS,
+  type PassColorSchemeId,
+} from "@/lib/bobos/project-zero/creative-brief";
+import {
   COLLECTOR_DECK_RANKS,
   COLLECTOR_DECK_YEAR_SUITS,
   COLLECTOR_DECK_YEARS,
@@ -56,8 +61,30 @@ import {
   type CollectorDeckYear,
 } from "@/lib/ops/content-creator/collector-card";
 
+export type VNextGenerationResult = {
+  generationId: string;
+  frontArtworkUrl: string;
+  backArtworkUrl: string;
+  event: string;
+  venue: string;
+  date: string;
+};
+
+export type VNextPassSeed = {
+  event?: string;
+  venue?: string;
+  date?: string;
+  secondaryLine?: string;
+  passTypeLabel?: ControlledPassTypeLabel;
+  qrUrl?: string;
+  colorScheme?: PassColorSchemeId;
+};
+
 type Props = {
   eras: ContentCreatorEraOption[];
+  embedded?: boolean;
+  initialPassFields?: VNextPassSeed;
+  onGenerationComplete?: (generation: VNextGenerationResult) => void | Promise<void>;
 };
 
 type ProviderApiBody = {
@@ -545,16 +572,27 @@ function defaultFields(): ContentFields {
   };
 }
 
+function seededPassFields(seed?: VNextPassSeed): ContentFields {
+  const defaults = defaultFields();
+  return {
+    ...defaults,
+    ...seed,
+    passTypeLabel: normalizePassTypeLabel(seed?.passTypeLabel ?? defaults.passTypeLabel),
+  };
+}
+
 function creativePayload(
   creativeDirection: CreativeDirectionId,
   avoidEraTropes: boolean,
   maximizeVariation: boolean,
+  colorScheme: PassColorSchemeId,
 ) {
   return {
     creativeDirection,
     avoidEraTropes,
     maximizeVariation,
     artifactArchetype: CONTENT_CREATOR_DEFAULTS.artifactArchetype,
+    colorScheme,
   };
 }
 
@@ -639,12 +677,20 @@ function sameQrPlacement(a: PassQrPlacement, b: PassQrPlacement): boolean {
   return a.left === b.left && a.top === b.top && a.size === b.size;
 }
 
-export function VNextWorkspace({ eras }: Props) {
+export function VNextWorkspace({
+  eras,
+  embedded = false,
+  initialPassFields,
+  onGenerationComplete,
+}: Props) {
   const searchParams = useSearchParams();
   const [artifact, setArtifact] = useState<ContentArtifactType>("pass");
   const [eraSlug, setEraSlug] = useState(eras[0]?.slug ?? "");
   const [creativeDirection, setCreativeDirection] = useState<CreativeDirectionId>(
     CONTENT_CREATOR_DEFAULTS.creativeDirection,
+  );
+  const [colorScheme, setColorScheme] = useState<PassColorSchemeId>(
+    initialPassFields?.colorScheme ?? DEFAULT_PASS_COLOR_SCHEME,
   );
   const [avoidEraTropes, setAvoidEraTropes] = useState(CONTENT_CREATOR_DEFAULTS.avoidEraTropes);
   const [maximizeVariation, setMaximizeVariation] = useState(CONTENT_CREATOR_DEFAULTS.maximizeVariation);
@@ -655,9 +701,9 @@ export function VNextWorkspace({ eras }: Props) {
   const [customFormat, setCustomFormat] = useState(CONTENT_CREATOR_DEFAULTS.customFormat);
   const [qrPlacement, setQrPlacement] = useState<PassQrPlacement>(() => resolveQrPlacement(null));
   const [savedQrPlacement, setSavedQrPlacement] = useState<PassQrPlacement>(() => resolveQrPlacement(null));
-  const [top, setTop] = useState(defaultFields);
-  const [front, setFront] = useState(defaultFields);
-  const [back, setBack] = useState(defaultFields);
+  const [top, setTop] = useState<ContentFields>(() => seededPassFields(initialPassFields));
+  const [front, setFront] = useState<ContentFields>(() => seededPassFields(initialPassFields));
+  const [back, setBack] = useState<ContentFields>(() => seededPassFields(initialPassFields));
   const [collectorCardContent, setCollectorCardContent] = useState<CollectorCardContent>(DEFAULT_COLLECTOR_CARD.content);
   const [collectorCardPresentation, setCollectorCardPresentation] = useState<CollectorCardPresentation>(
     DEFAULT_COLLECTOR_CARD.presentation,
@@ -693,7 +739,7 @@ export function VNextWorkspace({ eras }: Props) {
   const [collectorConceptError, setCollectorConceptError] = useState<string | null>(null);
   const [frontOpen, setFrontOpen] = useState(false);
   const [backOpen, setBackOpen] = useState(false);
-  const [advancedOpen, setAdvancedOpen] = useState(false);
+  const [advancedOpen, setAdvancedOpen] = useState(embedded);
   const [qrEditMode, setQrEditMode] = useState(false);
 
   const [busy, setBusy] = useState(false);
@@ -1205,7 +1251,7 @@ export function VNextWorkspace({ eras }: Props) {
       qrUrl: artifact === "collector-card" ? cardFields.qrUrl : top.qrUrl,
       compositionSeed: Date.now(),
       ...(artifact === "collector-card" ? collectorCardPayload(collectorCardContent, collectorCardPresentation) : {}),
-      ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+      ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, colorScheme),
     };
 
     const [frontRes, backRes] = await Promise.all([
@@ -1279,6 +1325,20 @@ export function VNextWorkspace({ eras }: Props) {
     throw new Error("job_timeout");
   }
 
+  async function publishGeneration(next: RunState): Promise<void> {
+    setRun(next);
+    if (onGenerationComplete && next.runId && next.frontUrl && next.backUrl) {
+      await onGenerationComplete({
+        generationId: next.runId,
+        frontArtworkUrl: next.frontUrl,
+        backArtworkUrl: next.backUrl,
+        event: top.event,
+        venue: top.venue,
+        date: top.date,
+      });
+    }
+  }
+
   async function generate() {
     setBusy(true);
     setError(null);
@@ -1295,7 +1355,7 @@ export function VNextWorkspace({ eras }: Props) {
         ...fieldsPayload("front", f),
         ...fieldsPayload("back", b),
         ...(artifact === "collector-card" ? collectorCardPayload(collectorCardContent, collectorCardPresentation) : {}),
-        ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+        ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, colorScheme),
         background: true,
       };
       const res = await fetch("/api/ops/content-creator/vnext/generate", {
@@ -1315,14 +1375,14 @@ export function VNextWorkspace({ eras }: Props) {
 
       if (data.background && data.jobId) {
         const result = await pollJobUntilDone(data.jobId);
-        setRun(result);
+        await publishGeneration(result);
         setSavedQrPlacement(qrPlacement);
         return;
       }
 
       const t = Date.now();
       const backUrl = `${data.backUrl}?t=${t}`;
-      setRun({
+      await publishGeneration({
         runId: data.runId,
         frontUrl: `${data.frontUrl}?t=${t}`,
         backUrl,
@@ -1385,12 +1445,12 @@ export function VNextWorkspace({ eras }: Props) {
           runId: run.runId,
           eraSlug,
           ...fieldsPayload("front", front),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, colorScheme),
         }),
       });
       const data = (await res.json()) as RunState & ProviderApiBody & { ok?: boolean };
       if (!res.ok || !data.ok) raiseApiError(data, "regenerate_failed");
-      setRun({
+      await publishGeneration({
         ...run,
         frontUrl: `${data.frontUrl}?t=${Date.now()}`,
         exportZipUrl: undefined,
@@ -1419,14 +1479,14 @@ export function VNextWorkspace({ eras }: Props) {
           runId: run.runId,
           eraSlug,
           ...fieldsPayload("back", back),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, colorScheme),
         }),
       });
       const data = (await res.json()) as RunState & ProviderApiBody & { ok?: boolean };
       if (!res.ok || !data.ok) raiseApiError(data, "regenerate_failed");
       const t = Date.now();
       const backUrl = `${data.backUrl}?t=${t}`;
-      setRun({
+      await publishGeneration({
         ...run,
         backUrl,
         artworkBackUrl: backUrl,
@@ -1724,6 +1784,67 @@ export function VNextWorkspace({ eras }: Props) {
       run.qrVerification.printSizeWarning ||
       !run.qrVerification.decodePass);
 
+  const qrStatusSummary = (
+    <div className="cc-creator__qr-status" aria-live="polite">
+      <p className={`cc-creator__qr-badge cc-creator__qr-badge--${qrStatus}`}>
+        QR: {QR_STATUS_LABELS[qrStatus]}
+      </p>
+      {qrPlacementDirty ? <p className="cc-creator__qr-hint">Placement changed — save or export to apply.</p> : null}
+    </div>
+  );
+
+  const qrUrlControl = (
+    <label className="cc-creator__field cc-creator__field--wide">
+      <span>QR URL</span>
+      <input
+        value={top.qrUrl}
+        onChange={(e) => {
+          const qrUrl = e.target.value;
+          setTop({ ...top, qrUrl });
+          setBack({ ...back, qrUrl });
+        }}
+      />
+    </label>
+  );
+
+  const saveQrAreaButton = (
+    <button
+      type="button"
+      className="cc-creator__btn cc-creator__btn--secondary cc-creator__save-qr"
+      disabled={busy || !run?.runId || !qrPlacementDirty}
+      onClick={() => void saveQrPlacement()}
+    >
+      Save QR Area
+    </button>
+  );
+
+  const qrVerificationFeedback = (
+    <>
+      {run?.qrVerification ? (
+        <p className="cc-creator__qr-meta">
+          Matrix fill: {run.qrVerification.matrixFillPercent.toFixed(1)}% · Physical:{" "}
+          {run.qrVerification.physicalWidthIn.toFixed(2)}&quot; × {run.qrVerification.physicalHeightIn.toFixed(2)}&quot;
+        </p>
+      ) : null}
+      {qrWarn ? (
+        <div className="cc-creator__qr-warning" role="alert">
+          {run?.qrVerification?.printSizeWarning
+            ? `QR below recommended print size (${run?.qrVerification?.physicalWidthIn.toFixed(2)}"). `
+            : null}
+          {run?.qrVerification?.matrixFillWarning
+            ? `Matrix fill ${run?.qrVerification?.matrixFillPercent.toFixed(0)}% below 85% target. `
+            : null}
+          {run?.qrVerification && !run.qrVerification.modulesPresent ? "QR modules missing — export blocked." : null}
+          {run?.qrVerification?.modulesPresent && !run?.qrVerification?.decodePass
+            ? "Decode test failed — export blocked."
+            : null}
+        </div>
+      ) : null}
+      {qrStatus === "not_exported" ? <p className="cc-creator__qr-hint">{QR_EXPORT_REQUIRED_MESSAGE}</p> : null}
+      {error ? <ProviderErrorAlert message={error} detail={providerError} /> : null}
+    </>
+  );
+
   function statusForSlot(rank: CollectorDeckRank, content: CollectorCardContent | null): CollectorDeckSlotStatus {
     if (!content || !content.song) return "empty";
     if (
@@ -1787,13 +1908,15 @@ export function VNextWorkspace({ eras }: Props) {
     COLLECTOR_CARD_EMPTY_CONTENT;
 
   return (
-    <div className="cc-creator">
-      <JobQueuePanel />
-      <header className="cc-creator__titlebar">
-        <h1>Content Creator</h1>
-      </header>
+    <div className={`cc-creator${embedded ? " cc-creator--embedded" : ""}`}>
+      {!embedded ? <JobQueuePanel /> : null}
+      {!embedded ? (
+        <header className="cc-creator__titlebar">
+          <h1>Content Creator</h1>
+        </header>
+      ) : null}
 
-      <section className="cc-creator__create-panel" aria-label="Create product type">
+      {!embedded ? <section className="cc-creator__create-panel" aria-label="Create product type">
         <span className="cc-creator__setup-label">Create</span>
         <div className="cc-creator__radio-row">
           <label className="cc-creator__radio-choice">
@@ -1817,7 +1940,7 @@ export function VNextWorkspace({ eras }: Props) {
             <span>Collector Card</span>
           </label>
         </div>
-      </section>
+      </section> : null}
 
       {artifact === "pass" ? <section className="cc-creator__hero" aria-label="Artwork previews">
         <figure className="cc-creator__preview">
@@ -1849,8 +1972,8 @@ export function VNextWorkspace({ eras }: Props) {
         </figure>
       </section> : null}
 
-      <section className="cc-creator__action-bar" aria-label="Primary actions">
-        {artifact === "pass" ? <button
+      {!embedded || artifact === "collector-card" ? <section className="cc-creator__action-bar" aria-label="Primary actions">
+        {!embedded && artifact === "pass" ? <button
           type="button"
           className="cc-creator__btn cc-creator__btn--generate"
           disabled={busy || !eraSlug || !creativeDirection}
@@ -1858,7 +1981,7 @@ export function VNextWorkspace({ eras }: Props) {
         >
           {busy ? "Creating…" : "Generate"}
         </button> : null}
-        {artifact === "pass" ? <button
+        {!embedded && artifact === "pass" ? <button
           type="button"
           className="cc-creator__btn cc-creator__btn--export"
           disabled={busy || !run}
@@ -1866,7 +1989,7 @@ export function VNextWorkspace({ eras }: Props) {
         >
           Export
         </button> : null}
-        {artifact === "pass" ? <button
+        {!embedded && artifact === "pass" ? <button
           type="button"
           className="cc-creator__btn cc-creator__btn--secondary"
           disabled={busy || !run}
@@ -1874,7 +1997,7 @@ export function VNextWorkspace({ eras }: Props) {
         >
           Print Sheet
         </button> : null}
-        {artifact === "pass" ? <button
+        {!embedded && artifact === "pass" ? <button
           type="button"
           className={`cc-creator__btn cc-creator__btn--secondary${qrEditMode ? " is-on" : ""}`}
           disabled={!run?.backUrl}
@@ -1883,13 +2006,15 @@ export function VNextWorkspace({ eras }: Props) {
         >
           Edit QR Area
         </button> : null}
-        <Link href="/ops/content-creator" className="cc-creator__btn cc-creator__btn--secondary">
-          Library
-        </Link>
+        {!embedded ? (
+          <Link href="/ops/content-creator" className="cc-creator__btn cc-creator__btn--secondary">
+            Library
+          </Link>
+        ) : null}
         {artifact === "collector-card" ? (
           <span className="cc-creator__validation-note">Deck Review mode: generation disabled.</span>
         ) : null}
-      </section>
+      </section> : null}
 
       {artifact === "collector-card" ? (
         <section className="cc-creator__event-panel cc-creator__card-panel" aria-label="Collector card workflow">
@@ -2516,12 +2641,7 @@ export function VNextWorkspace({ eras }: Props) {
       {artifact === "pass" ? <section className="cc-creator__event-panel" aria-label="Event details and QR controls">
         <div className="cc-creator__event-head">
           <h2>Event Details</h2>
-          <div className="cc-creator__qr-status" aria-live="polite">
-            <p className={`cc-creator__qr-badge cc-creator__qr-badge--${qrStatus}`}>
-              QR: {QR_STATUS_LABELS[qrStatus]}
-            </p>
-            {qrPlacementDirty ? <p className="cc-creator__qr-hint">Placement changed — save or export to apply.</p> : null}
-          </div>
+          {!embedded ? qrStatusSummary : null}
         </div>
         <div className="cc-creator__field-grid cc-creator__field-grid--event">
           <label className="cc-creator__field">
@@ -2543,51 +2663,13 @@ export function VNextWorkspace({ eras }: Props) {
               onChange={(e) => setTop({ ...top, secondaryLine: e.target.value })}
             />
           </label>
-          <label className="cc-creator__field cc-creator__field--wide">
-            <span>QR URL</span>
-            <input
-              value={top.qrUrl}
-              onChange={(e) => {
-                const qrUrl = e.target.value;
-                setTop({ ...top, qrUrl });
-                setBack({ ...back, qrUrl });
-              }}
-            />
-          </label>
-          <button
-            type="button"
-            className="cc-creator__btn cc-creator__btn--secondary"
-            disabled={busy || !run?.runId || !qrPlacementDirty}
-            onClick={() => void saveQrPlacement()}
-          >
-            Save QR Area
-          </button>
+          {!embedded ? qrUrlControl : null}
+          {!embedded ? saveQrAreaButton : null}
         </div>
-        {run?.qrVerification ? (
-          <p className="cc-creator__qr-meta">
-            Matrix fill: {run.qrVerification.matrixFillPercent.toFixed(1)}% · Physical:{" "}
-            {run.qrVerification.physicalWidthIn.toFixed(2)}" × {run.qrVerification.physicalHeightIn.toFixed(2)}"
-          </p>
-        ) : null}
-        {qrWarn ? (
-          <div className="cc-creator__qr-warning" role="alert">
-            {run?.qrVerification?.printSizeWarning
-              ? `QR below recommended print size (${run?.qrVerification?.physicalWidthIn.toFixed(2)}"). `
-              : null}
-            {run?.qrVerification?.matrixFillWarning
-              ? `Matrix fill ${run?.qrVerification?.matrixFillPercent.toFixed(0)}% below 85% target. `
-              : null}
-            {run?.qrVerification && !run.qrVerification.modulesPresent ? "QR modules missing — export blocked." : null}
-            {run?.qrVerification?.modulesPresent && !run?.qrVerification?.decodePass
-              ? "Decode test failed — export blocked."
-              : null}
-          </div>
-        ) : null}
-        {qrStatus === "not_exported" ? <p className="cc-creator__qr-hint">{QR_EXPORT_REQUIRED_MESSAGE}</p> : null}
-        {error ? <ProviderErrorAlert message={error} detail={providerError} /> : null}
+        {!embedded ? qrVerificationFeedback : null}
       </section> : null}
 
-      {artifact === "pass" && run?.downloads?.exportZipUrl ? (
+      {!embedded && artifact === "pass" && run?.downloads?.exportZipUrl ? (
         <section className="cc-creator__download-panel" aria-label="Print downloads">
           <h2 className="cc-creator__download-title">Print package</h2>
           <div className="cc-creator__download-grid">
@@ -2617,9 +2699,13 @@ export function VNextWorkspace({ eras }: Props) {
       ) : null}
 
       <section className="cc-creator__panels">
-        <CollapsiblePanel title="Advanced Settings" open={advancedOpen} onToggle={() => setAdvancedOpen((v) => !v)}>
+        <CollapsiblePanel
+          title={embedded ? "Creative Settings" : "Advanced Settings"}
+          open={advancedOpen}
+          onToggle={() => setAdvancedOpen((v) => !v)}
+        >
           <div className="cc-creator__advanced-grid">
-            <div className="cc-creator__setup-group">
+            {!embedded ? <div className="cc-creator__setup-group">
               <span className="cc-creator__setup-label">Artifact</span>
               <div className="cc-creator__chips">
                 {ARTIFACTS.map((a) => (
@@ -2634,9 +2720,10 @@ export function VNextWorkspace({ eras }: Props) {
                   </button>
                 ))}
               </div>
-            </div>
+            </div> : null}
 
-            <div className="cc-creator__setup-group">
+            <div className="cc-creator__setup-group cc-creator__setup-group--era">
+              {embedded ? <span className="cc-creator__column-label">Style</span> : null}
               <span className="cc-creator__setup-label">Era</span>
               <select
                 className="cc-creator__era-select"
@@ -2652,7 +2739,23 @@ export function VNextWorkspace({ eras }: Props) {
               </select>
             </div>
 
-            <div className="cc-creator__setup-group cc-creator__setup-group--wide">
+            <div className="cc-creator__setup-group cc-creator__setup-group--color">
+              <span className="cc-creator__setup-label">Color Scheme</span>
+              <select
+                className="cc-creator__era-select"
+                value={colorScheme}
+                onChange={(e) => setColorScheme(e.target.value as PassColorSchemeId)}
+                aria-label="Color Scheme"
+              >
+                {PASS_COLOR_SCHEME_OPTIONS.map((option) => (
+                  <option key={option.id} value={option.id}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="cc-creator__setup-group cc-creator__setup-group--wide cc-creator__setup-group--direction">
               <span className="cc-creator__setup-label">Creative Direction</span>
               <div className="cc-creator__direction-grid" role="group" aria-label="Creative Direction">
                 {CREATIVE_DIRECTION_IDS.map((id) => (
@@ -2669,12 +2772,12 @@ export function VNextWorkspace({ eras }: Props) {
               </div>
             </div>
 
-            {artifact === "pass" ? <div className="cc-creator__setup-group">
+            {artifact === "pass" ? <div className="cc-creator__setup-group cc-creator__setup-group--artifact-type">
               <span className="cc-creator__setup-label">Artifact Type</span>
               <p className="cc-creator__fixed-archetype">{RETROVERSE_COLLECTIBLE_CREDENTIAL_LABEL}</p>
             </div> : null}
 
-            <div className="cc-creator__toggles">
+            <div className="cc-creator__toggles cc-creator__toggles--variation">
               <label className="cc-creator__toggle">
                 <input
                   type="checkbox"
@@ -2693,8 +2796,10 @@ export function VNextWorkspace({ eras }: Props) {
               </label>
             </div>
 
-            {artifact === "pass" ? <div className="cc-creator__setup-group cc-creator__setup-group--wide">
-              <span className="cc-creator__setup-label">QR Advanced</span>
+            {artifact === "pass" ? <div className="cc-creator__setup-group cc-creator__setup-group--wide cc-creator__setup-group--qr-production">
+              {embedded ? <span className="cc-creator__column-label">Production</span> : null}
+              <span className="cc-creator__setup-label">{embedded ? "QR" : "QR Advanced"}</span>
+              {embedded ? qrUrlControl : null}
               <div className="cc-creator__field-grid cc-creator__field-grid--qr-advanced">
                 <label className="cc-creator__field">
                   <span>QR Size</span>
@@ -2736,11 +2841,16 @@ export function VNextWorkspace({ eras }: Props) {
                   />
                 </label>
               </div>
+              {embedded ? <div className="cc-creator__qr-production-status">
+                {qrStatusSummary}
+                {saveQrAreaButton}
+              </div> : null}
+              {embedded ? qrVerificationFeedback : null}
             </div> : null}
 
-            {artifact === "pass" ? <div className="cc-creator__setup-group cc-creator__numbering">
+            {artifact === "pass" ? <div className="cc-creator__setup-group cc-creator__numbering cc-creator__setup-group--numbering">
               <span className="cc-creator__setup-label">Pass numbering</span>
-              <label className="cc-creator__toggle">
+              <label className="cc-creator__toggle cc-creator__toggle--serial">
                 <input
                   type="checkbox"
                   checked={printSerialNumbers}
@@ -2749,7 +2859,7 @@ export function VNextWorkspace({ eras }: Props) {
                 <span>Print serial numbers</span>
               </label>
               {!printSerialNumbers ? (
-                <label className="cc-creator__toggle">
+                <label className="cc-creator__toggle cc-creator__toggle--collector">
                   <input
                     type="checkbox"
                     checked={collectorEdition}
@@ -2762,8 +2872,8 @@ export function VNextWorkspace({ eras }: Props) {
                 </label>
               ) : (
                 <>
-                  <span className="cc-creator__setup-sublabel">Number format</span>
-                  <div className="cc-creator__chips">
+                  <span className="cc-creator__setup-sublabel cc-creator__setup-sublabel--format">Number format</span>
+                  <div className="cc-creator__chips cc-creator__chips--format">
                     {PASS_NUMBER_FORMAT_OPTIONS.map((opt) => (
                       <button
                         key={opt.id}
@@ -2776,7 +2886,7 @@ export function VNextWorkspace({ eras }: Props) {
                     ))}
                   </div>
                   {numberFormat === "custom" ? (
-                    <label className="cc-creator__field">
+                    <label className="cc-creator__field cc-creator__field--custom-format">
                       <span>Custom format</span>
                       <input
                         value={customFormat}
@@ -2796,8 +2906,8 @@ export function VNextWorkspace({ eras }: Props) {
                 </>
               )}
 
-              <span className="cc-creator__setup-sublabel">Quantity</span>
-              <div className="cc-creator__chips">
+              <span className="cc-creator__setup-sublabel cc-creator__setup-sublabel--quantity">Quantity</span>
+              <div className="cc-creator__chips cc-creator__chips--quantity">
                 {PRINT_QUANTITY_PRESETS.map((n) => (
                   <button
                     key={n}
@@ -2826,32 +2936,45 @@ export function VNextWorkspace({ eras }: Props) {
               )}
             </div> : null}
 
-            <section className="cc-creator__secondary-actions">
-              {artifact === "pass" ? <button
-                type="button"
-                className="cc-creator__btn cc-creator__btn--secondary"
-                disabled={busy || !run}
-                onClick={() => void regenerateFront()}
-              >
-                Regenerate Front
-              </button> : null}
-              {artifact === "pass" ? <button
-                type="button"
-                className="cc-creator__btn cc-creator__btn--secondary"
-                disabled={busy || !run}
-                onClick={() => void regenerateBack()}
-              >
-                Regenerate Back
-              </button> : null}
-              <button
-                type="button"
-                className="cc-creator__btn cc-creator__btn--secondary"
-                disabled={busy || !eraSlug}
-                onClick={() => void viewPrompt()}
-              >
-                View Prompt
-              </button>
-            </section>
+            <div className="cc-creator__generation-actions">
+              <section className="cc-creator__secondary-actions">
+                {artifact === "pass" ? <button
+                  type="button"
+                  className="cc-creator__btn cc-creator__btn--secondary"
+                  disabled={busy || !run}
+                  onClick={() => void regenerateFront()}
+                >
+                  Regenerate Front
+                </button> : null}
+                {artifact === "pass" ? <button
+                  type="button"
+                  className="cc-creator__btn cc-creator__btn--secondary"
+                  disabled={busy || !run}
+                  onClick={() => void regenerateBack()}
+                >
+                  Regenerate Back
+                </button> : null}
+                <button
+                  type="button"
+                  className="cc-creator__btn cc-creator__btn--secondary"
+                  disabled={busy || !eraSlug}
+                  onClick={() => void viewPrompt()}
+                >
+                  View Prompt
+                </button>
+              </section>
+
+              {embedded && artifact === "pass" ? (
+                <button
+                  type="button"
+                  className="cc-creator__btn cc-creator__btn--generate cc-creator__embedded-generate"
+                  disabled={busy || !eraSlug || !creativeDirection}
+                  onClick={() => void generate()}
+                >
+                  {busy ? "Creating…" : "Generate Artwork"}
+                </button>
+              ) : null}
+            </div>
           </div>
 
           {qualityScores ? <QualityPanel scores={qualityScores} /> : null}

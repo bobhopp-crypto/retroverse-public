@@ -185,7 +185,7 @@ export const COMMAND_CENTER_LEGACY_LINKS: CommandCenterLink[] = [
   { label: "Healing", href: "/ops/healing" },
   { label: "Media Lab", href: "/ops/media-lab" },
   { label: "Media Sync", href: "/ops/media-sync" },
-  { label: "Pass Registrations", href: "/ops/pass-registrations" },
+  { label: "Pass Management", href: "/bobos/pass-management" },
   { label: "Experience Director Pilot", href: "/ops/experience-director-pilot" },
   { label: "Operations Hub", href: "/ops/hub" },
   { label: "Recovery Operations", href: "/ops/recovery" },

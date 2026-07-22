@@ -12,19 +12,19 @@ import {
 } from "@/lib/ops/content-creator/library";
 import { runVNextGenerate } from "@/lib/ops/content-creator/vnext-run";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
-import { eventIdFromName } from "@/lib/ops/event-studio/pass-studio/default-templates";
-import { passTypeSlugFromLabel } from "@/lib/ops/event-studio/pass-studio/placeholder-artwork.server";
-import { passQrUrl, renderPassQrSvg } from "@/lib/ops/event-studio/pass-studio/qr";
+import { eventIdFromName } from "@/lib/bobos/pass-studio/default-templates";
+import { passTypeSlugFromLabel } from "@/lib/bobos/pass-studio/placeholder-artwork.server";
+import { passQrUrl, renderPassQrSvg } from "@/lib/bobos/pass-studio/qr";
 import {
   computeBatchRows,
   padSerial,
   serialRangeForRows,
   totalPassesForRows,
-} from "@/lib/ops/event-studio/pass-studio/serials";
-import { appendPassesToLibrary, nextSerialStart, savePassBatch } from "@/lib/ops/event-studio/pass-studio/store";
-import type { GeneratedPass, PassBatch } from "@/lib/ops/event-studio/pass-studio/types";
-import { createPrintBatch, reserveSerialRecords } from "@/lib/ops/event-studio/pass-studio/print-batch-store";
-import type { PrintBatch } from "@/lib/ops/event-studio/pass-studio/print-batch-types";
+} from "@/lib/bobos/pass-studio/serials";
+import { appendPassesToLibrary, nextSerialStart, savePassBatch } from "@/lib/bobos/pass-studio/store";
+import type { GeneratedPass, PassBatch } from "@/lib/bobos/pass-studio/types";
+import { createPrintBatch, reserveSerialRecords } from "@/lib/bobos/pass-studio/print-batch-store";
+import type { PrintBatch } from "@/lib/bobos/pass-studio/print-batch-types";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 import {
   emptyCreativeBriefSeed,

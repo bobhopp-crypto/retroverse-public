@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { cellGridRef, cellLabel } from "@/lib/bobos/cockpit/defaults";
+import { PANEL_DOCS_LIBRARY_HREF } from "@/lib/bobos/cockpit/panel-docs";
 import { COCKPIT_COMMAND_BAR, getCockpitPanelRegistryEntry } from "@/lib/bobos/cockpit/registry";
 import type { CockpitState, CockpitWorkspaceId, PanelTypeId } from "@/lib/bobos/cockpit/types";
 import { COCKPIT_WORKSPACES } from "@/lib/bobos/cockpit/types";
@@ -146,7 +147,12 @@ export function BobosCockpit({ initialState, projects, panelData, renderAppPanel
               </p>
             </div>
           </div>
-          <RvIdToggle />
+          <div className="cockpit-header__tools">
+            <Link href={PANEL_DOCS_LIBRARY_HREF} className="cockpit-docs-launch">
+              <RvIdLabel rvId="RV00-00" label="Documentation" />
+            </Link>
+            <RvIdToggle />
+          </div>
         </div>
 
         <div className="cockpit-workspaces" role="tablist" aria-label="Workspaces">

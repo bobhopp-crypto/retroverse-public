@@ -1,12 +1,12 @@
 import "server-only";
 
 import { getLiveControlStatus } from "@/lib/live-control/engine";
-import { loadPassLibrary } from "@/lib/ops/event-studio/pass-studio/store";
 import { loadEventControlConfig } from "@/lib/ops/event-control/store";
 import { loadGiveawayStudio } from "@/lib/ops/event-studio/giveaway/load-giveaway-studio";
 import { productionModuleStatusLabel } from "@/lib/ops/event-studio/producer/module-status";
 import { getActiveProducerPlan, loadProducerState } from "@/lib/ops/event-studio/producer/producer-state";
 import { loadIntegrityDashboard } from "@/lib/ops/integrity/load-integrity-dashboard";
+import { searchPassManagement } from "@/lib/retroverse-pass/pass-management";
 import { loadSundayEventMode } from "@/lib/sunday-nights/event-mode";
 import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
@@ -18,16 +18,17 @@ export type CockpitPublicHomepageData = {
   homepageMode: string | null;
 };
 
-export type CockpitPassRegistrationEntry = {
+export type CockpitPassClaimsEntry = {
   serial: string;
   name: string;
   registeredAt: string;
 };
 
-export type CockpitPassRegistrationData = {
+/** Claim inventory snapshot for the Pass Management cockpit faceplate. */
+export type CockpitPassClaimsData = {
   totalPasses: number;
   registeredCount: number;
-  recent: CockpitPassRegistrationEntry[];
+  recent: CockpitPassClaimsEntry[];
   testPassHref: string | null;
 };
 
@@ -58,12 +59,33 @@ export type CockpitCatalogIntegrityData = {
   status: "Healthy" | "Attention" | "Critical";
 };
 
+/**
+ * Functional health for RV01-02 Runtime.
+ * HEALTHY only when destination responds, HTML looks like Runtime, and status API works.
+ */
+export type CockpitRuntimeHealthLevel =
+  | "healthy"
+  | "process-online"
+  | "app-degraded"
+  | "route-broken"
+  | "offline";
+
+export type CockpitRuntimeHealthData = {
+  level: CockpitRuntimeHealthLevel;
+  label: string;
+  destination: string;
+  httpStatus: number | null;
+  statusApiOk: boolean;
+  responseMs: number | null;
+};
+
 export type CockpitPanelData = {
   publicHomepage: CockpitPublicHomepageData;
-  passRegistration: CockpitPassRegistrationData;
+  passClaims: CockpitPassClaimsData;
   giveaway: CockpitGiveawayData;
   liveDisplay: CockpitLiveDisplayData;
   catalogIntegrity: CockpitCatalogIntegrityData;
+  runtime: CockpitRuntimeHealthData;
 };
 
 const EMPTY_PUBLIC_HOMEPAGE: CockpitPublicHomepageData = {
@@ -73,7 +95,7 @@ const EMPTY_PUBLIC_HOMEPAGE: CockpitPublicHomepageData = {
   homepageMode: null,
 };
 
-const EMPTY_PASS_REGISTRATION: CockpitPassRegistrationData = {
+const EMPTY_PASS_CLAIMS: CockpitPassClaimsData = {
   totalPasses: 0,
   registeredCount: 0,
   recent: [],
@@ -105,6 +127,17 @@ const EMPTY_CATALOG_INTEGRITY: CockpitCatalogIntegrityData = {
   aliasConflicts: 0,
   missingCovers: 0,
   status: "Healthy",
+};
+
+export const RUNTIME_DESTINATION = "/bobos/runtime";
+
+const EMPTY_RUNTIME_HEALTH: CockpitRuntimeHealthData = {
+  level: "offline",
+  label: "OFFLINE",
+  destination: RUNTIME_DESTINATION,
+  httpStatus: null,
+  statusApiOk: false,
+  responseMs: null,
 };
 
 const LIVE_MODE_LABELS: Record<string, string> = {
@@ -155,36 +188,31 @@ async function loadPublicHomepageData(): Promise<CockpitPublicHomepageData> {
   }
 }
 
-async function loadPassRegistrationData(): Promise<CockpitPassRegistrationData> {
+async function loadPassClaimsData(): Promise<CockpitPassClaimsData> {
   try {
-    const library = await loadPassLibrary();
-    const registered = library.filter((pass) => pass.status === "registered" && pass.registration);
-    const recent = registered
+    const { passes, summary } = await searchPassManagement();
+    const claimed = passes.filter((pass) => pass.claimed);
+    const recent = claimed
       .slice()
-      .sort((a, b) =>
-        (b.registration?.registeredAt ?? "").localeCompare(a.registration?.registeredAt ?? ""),
-      )
+      .sort((a, b) => (b.claimedAt ?? "").localeCompare(a.claimedAt ?? ""))
       .slice(0, 3)
       .map((pass) => ({
         serial: pass.serial,
-        name: `${pass.registration!.firstName} ${pass.registration!.lastName}`.trim() || "Guest",
-        registeredAt: pass.registration!.registeredAt,
+        name: `${pass.firstName ?? ""} ${pass.lastName ?? ""}`.trim() || "Guest",
+        registeredAt: pass.claimedAt ?? "",
       }));
 
     const testPass =
-      library.find((pass) => pass.status === "available") ??
-      library.find((pass) => pass.status === "registered") ??
-      library[0] ??
-      null;
+      passes.find((pass) => !pass.claimed) ?? passes.find((pass) => pass.claimed) ?? null;
 
     return {
-      totalPasses: library.length,
-      registeredCount: registered.length,
+      totalPasses: summary.totalPasses,
+      registeredCount: summary.claimed,
       recent,
       testPassHref: testPass ? `/pass/${encodeURIComponent(testPass.serial)}` : null,
     };
   } catch {
-    return EMPTY_PASS_REGISTRATION;
+    return EMPTY_PASS_CLAIMS;
   }
 }
 
@@ -271,20 +299,150 @@ async function loadCatalogIntegrityData(): Promise<CockpitCatalogIntegrityData> 
   }
 }
 
+function studioListenPort(): number {
+  const raw = process.env.PORT?.trim();
+  const n = raw ? Number(raw) : NaN;
+  return Number.isFinite(n) && n > 0 ? n : 3000;
+}
+
+/** Probe the Runtime user destination + its status dependency (not panel registration). */
+async function loadRuntimeAppHealth(): Promise<CockpitRuntimeHealthData> {
+  const destination = RUNTIME_DESTINATION;
+  let statusApiOk = false;
+  try {
+    const { getRetroverseRuntimeStatus } = await import("@/lib/bobos/runtime/dev-control");
+    await getRetroverseRuntimeStatus();
+    statusApiOk = true;
+  } catch {
+    statusApiOk = false;
+  }
+
+  const url = `http://127.0.0.1:${studioListenPort()}${destination}`;
+  try {
+    const started = Date.now();
+    const res = await fetch(url, {
+      cache: "no-store",
+      redirect: "manual",
+      signal: AbortSignal.timeout(4_000),
+      headers: { Accept: "text/html" },
+    });
+    const responseMs = Date.now() - started;
+
+    if (res.status === 404 || res.status >= 500 || (res.status >= 300 && res.status < 400)) {
+      return {
+        level: "route-broken",
+        label: "ROUTE BROKEN",
+        destination,
+        httpStatus: res.status,
+        statusApiOk,
+        responseMs,
+      };
+    }
+
+    const html = await res.text();
+    const looksLikeRuntime =
+      /Runtime\s*[—-]\s*BobOS|Retroverse Runtime|\/bobos\/runtime\//i.test(html);
+    const hasAppError = /Application error:\s*a client/i.test(html);
+
+    if (hasAppError || !looksLikeRuntime) {
+      return {
+        level: "app-degraded",
+        label: "APP DEGRADED",
+        destination,
+        httpStatus: res.status,
+        statusApiOk,
+        responseMs,
+      };
+    }
+
+    // Reject HTML that references Next chunks the Studio process cannot serve
+    // (stale shell / wrong-app HTML — root of originalFactory.call false greens).
+    const assetPaths = [
+      ...html.matchAll(/\/_next\/(?:static|development)\/[^"'\\\s)]+/g),
+    ]
+      .map((m) => m[0].replace(/\\u0026/g, "&").split("?")[0])
+      .filter((p, i, arr) => arr.indexOf(p) === i)
+      .slice(0, 8);
+    const origin = `http://127.0.0.1:${studioListenPort()}`;
+    for (const assetPath of assetPaths) {
+      try {
+        const assetRes = await fetch(`${origin}${assetPath}`, {
+          cache: "no-store",
+          signal: AbortSignal.timeout(3_000),
+        });
+        if (assetRes.status === 404 || assetRes.status >= 500) {
+          return {
+            level: "app-degraded",
+            label: "APP DEGRADED",
+            destination,
+            httpStatus: res.status,
+            statusApiOk,
+            responseMs,
+          };
+        }
+      } catch {
+        return {
+          level: "app-degraded",
+          label: "APP DEGRADED",
+          destination,
+          httpStatus: res.status,
+          statusApiOk,
+          responseMs,
+        };
+      }
+    }
+
+    if (!statusApiOk) {
+      return {
+        level: "app-degraded",
+        label: "APP DEGRADED",
+        destination,
+        httpStatus: res.status,
+        statusApiOk,
+        responseMs,
+      };
+    }
+
+    return {
+      level: "healthy",
+      label: "Healthy",
+      destination,
+      httpStatus: res.status,
+      statusApiOk,
+      responseMs,
+    };
+  } catch {
+    if (statusApiOk) {
+      return {
+        level: "process-online",
+        label: "PROCESS ONLINE",
+        destination,
+        httpStatus: null,
+        statusApiOk,
+        responseMs: null,
+      };
+    }
+    return { ...EMPTY_RUNTIME_HEALTH, statusApiOk };
+  }
+}
+
 export async function loadCockpitPanelData(): Promise<CockpitPanelData> {
-  const [publicHomepage, passRegistration, giveaway, liveDisplay, catalogIntegrity] = await Promise.all([
-    loadPublicHomepageData(),
-    loadPassRegistrationData(),
-    loadGiveawayData(),
-    loadLiveDisplayData(),
-    loadCatalogIntegrityData(),
-  ]);
+  const [publicHomepage, passClaims, giveaway, liveDisplay, catalogIntegrity, runtime] =
+    await Promise.all([
+      loadPublicHomepageData(),
+      loadPassClaimsData(),
+      loadGiveawayData(),
+      loadLiveDisplayData(),
+      loadCatalogIntegrityData(),
+      loadRuntimeAppHealth(),
+    ]);
 
   return {
     publicHomepage,
-    passRegistration,
+    passClaims,
     giveaway,
     liveDisplay,
     catalogIntegrity,
+    runtime,
   };
 }

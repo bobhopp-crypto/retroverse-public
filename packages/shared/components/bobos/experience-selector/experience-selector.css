@@ -1,0 +1,298 @@
+.xs-root {
+  --xs-ink: #1a1612;
+  --xs-paper: #f3ead8;
+  --xs-panel: #ebe0c8;
+  --xs-teal: #0d6e6e;
+  --xs-line: #2a241c;
+  --xs-muted: #6a5f52;
+  /* Physical phone viewports — fixed, never fluid */
+  --xs-phone-w: 220px;
+  --xs-phone-h: 476px;
+  --xs-phone-design-w: 390px;
+  --xs-phone-design-h: 844px;
+  --xs-phone-scale: calc(var(--xs-phone-w) / var(--xs-phone-design-w));
+  --xs-output-w: 320px;
+  --xs-output-h: 693px;
+  --xs-output-scale: calc(var(--xs-output-w) / var(--xs-phone-design-w));
+  min-height: 100vh;
+  padding: 1.25rem 1.5rem 2rem;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(13, 110, 110, 0.12), transparent 45%),
+    radial-gradient(ellipse at 90% 10%, rgba(196, 75, 26, 0.1), transparent 40%),
+    var(--xs-paper);
+  color: var(--xs-ink);
+  font-family: "IBM Plex Sans", "Trebuchet MS", sans-serif;
+  box-sizing: border-box;
+}
+
+.xs-root *,
+.xs-root *::before,
+.xs-root *::after {
+  box-sizing: border-box;
+}
+
+.xs-chrome {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.xs-chrome__kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--xs-teal);
+  font-weight: 700;
+}
+
+.xs-chrome__title {
+  margin: 0.15rem 0 0;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.xs-chrome__subtitle {
+  margin: 0.35rem 0 0;
+  color: var(--xs-muted);
+  font-size: 1rem;
+}
+
+.xs-chrome__back {
+  color: var(--xs-ink);
+  text-decoration: none;
+  font-weight: 700;
+  border: 3px solid var(--xs-line);
+  background: var(--xs-panel);
+  padding: 0.45rem 0.8rem;
+  align-self: center;
+}
+
+.xs-chrome__back:hover {
+  background: #fff8ea;
+}
+
+/* Four phones in one horizontal row — never a wrapping/fluid grid */
+.xs-phones {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+}
+
+.xs-card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: calc(var(--xs-phone-w) + 1.5rem);
+  gap: 0.45rem;
+  padding: 0.65rem;
+  border: 4px solid var(--xs-line);
+  background: var(--xs-panel);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  font: inherit;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.xs-card:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--xs-line);
+}
+
+.xs-card[data-selected="yes"] {
+  border-color: var(--xs-teal);
+  box-shadow: 0 0 0 4px rgba(13, 110, 110, 0.35), 6px 6px 0 var(--xs-line);
+  background: #fff8ea;
+  cursor: default;
+}
+
+.xs-card[data-available="no"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(0.35);
+}
+
+.xs-card__name {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.xs-card__phone {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--xs-phone-w);
+  height: var(--xs-phone-h);
+  margin: 0 auto;
+  border: 3px solid var(--xs-line);
+  border-radius: 1.35rem;
+  background: #111;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 2px #2a241c;
+}
+
+.xs-card__phone-notch {
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  z-index: 2;
+  width: 2.4rem;
+  height: 0.35rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #2a241c;
+}
+
+.xs-card__preview {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.xs-card__preview .rv-stage {
+  width: var(--xs-phone-design-w);
+  height: var(--xs-phone-design-h);
+  transform: scale(var(--xs-phone-scale));
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.xs-card__status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--xs-muted);
+  text-align: center;
+}
+
+.xs-card[data-selected="yes"] .xs-card__status {
+  color: var(--xs-teal);
+}
+
+.xs-output {
+  border: 4px solid var(--xs-line);
+  background: #1a1612;
+  padding: 0.85rem 1rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.xs-output__label {
+  margin: 0 0 0.65rem;
+  color: #f3ead8;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+}
+
+.xs-output__phone {
+  position: relative;
+  width: var(--xs-output-w);
+  height: var(--xs-output-h);
+  margin: 0 auto;
+  border: 3px solid #3a332a;
+  border-radius: 1.75rem;
+  background: #000;
+  overflow: hidden;
+}
+
+.xs-output__phone-notch {
+  position: absolute;
+  top: 0.45rem;
+  left: 50%;
+  z-index: 2;
+  width: 3rem;
+  height: 0.4rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #3a332a;
+}
+
+.xs-output__stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.xs-output__stage .rv-stage {
+  width: var(--xs-phone-design-w);
+  height: var(--xs-phone-design-h);
+  transform: scale(var(--xs-output-scale));
+  transform-origin: top left;
+}
+
+.xs-output__selected {
+  margin: 0.75rem 0 0;
+  color: #f3ead8;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.xs-output__error {
+  margin: 0.4rem 0 0;
+  color: #ffb4a0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.xs-runtime {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.25rem;
+  padding: 0.65rem 0.85rem;
+  border: 3px solid var(--xs-line);
+  background: var(--xs-panel);
+}
+
+.xs-runtime__label {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+.xs-runtime__lamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.xs-runtime__dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  border: 2px solid var(--xs-line);
+  background: #9a9080;
+}
+
+.xs-runtime__lamp[data-tone="green"] .xs-runtime__dot {
+  background: #1f9d55;
+}
+
+.xs-runtime__lamp[data-tone="yellow"] .xs-runtime__dot {
+  background: #d4a017;
+}
+
+.xs-runtime__lamp[data-tone="red"] .xs-runtime__dot {
+  background: #c0392b;
+}
+
+.xs-runtime__lamp[data-tone="unknown"] .xs-runtime__dot {
+  background: #9a9080;
+}

@@ -1,4 +1,8 @@
--- Collector pass registrations (run once against retroverse Postgres)
+-- RETIRED TABLE — do not use for new registrations.
+-- Canonical V1 store: retroverse_passes + retroverse_visitors + retroverse_pass_activity
+-- See: docs/migrations/retire-collector-pass-registrations.sql
+--
+-- Historical DDL (table retained until drop is approved):
 CREATE TABLE IF NOT EXISTS collector_pass_registrations (
   id bigserial PRIMARY KEY,
   pass_number text NOT NULL,

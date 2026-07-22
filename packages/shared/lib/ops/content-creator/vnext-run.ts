@@ -219,6 +219,7 @@ export async function runVNextRegenerateFront(args: {
   profile: RvbrProfile;
   frontFields: ArtDirectorFields;
   creativeSettings?: CreativeDirectionSettings;
+  styleDirective?: RvbrStyleDirective;
 }): Promise<VNextManifest> {
   const manifest = await loadVNextManifest(args.runId);
   const fields = { ...args.frontFields, passTypeLabel: normalizePassTypeLabel(args.frontFields.passTypeLabel) };
@@ -232,7 +233,7 @@ export async function runVNextRegenerateFront(args: {
     compositionSeed,
     creativeSettings,
     manifest.artifact,
-    manifest.styleDirective,
+    args.styleDirective ?? manifest.styleDirective,
   );
   const result = await generateArtwork(
     artworkContext(artDirectorPromptText(composed), fields, args.profile),
@@ -248,6 +249,7 @@ export async function runVNextRegenerateFront(args: {
   manifest.frontFields = fields;
   manifest.compositionSeed = compositionSeed;
   manifest.creativeSettings = creativeSettings;
+  manifest.styleDirective = args.styleDirective ?? manifest.styleDirective;
   if (manifest.promptInspector) {
     manifest.promptInspector.front = composed;
   } else {
@@ -267,6 +269,7 @@ export async function runVNextRegenerateBack(args: {
   profile: RvbrProfile;
   backFields: ArtDirectorFields;
   creativeSettings?: CreativeDirectionSettings;
+  styleDirective?: RvbrStyleDirective;
 }): Promise<VNextManifest> {
   const manifest = await loadVNextManifest(args.runId);
   const fields = { ...args.backFields, passTypeLabel: normalizePassTypeLabel(args.backFields.passTypeLabel) };
@@ -281,7 +284,7 @@ export async function runVNextRegenerateBack(args: {
     compositionSeed,
     creativeSettings,
     manifest.artifact,
-    manifest.styleDirective,
+    args.styleDirective ?? manifest.styleDirective,
   );
   const result = await generateArtwork(
     artworkContext(artDirectorPromptText(composed), fields, args.profile),
@@ -297,6 +300,7 @@ export async function runVNextRegenerateBack(args: {
   await writePng(manifest.runDir, manifest.backFilename, image.buffer);
   manifest.backFields = fields;
   manifest.creativeSettings = creativeSettings;
+  manifest.styleDirective = args.styleDirective ?? manifest.styleDirective;
   if (manifest.promptInspector) {
     manifest.promptInspector.back = composed;
   } else {

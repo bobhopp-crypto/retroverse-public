@@ -18,7 +18,8 @@ export const getRvIdByNavId = (navId: string): RvId | null => RV_REGISTRY.find((
 export const getRvIdByDirectoryId = (directoryId: string): RvId | null => RV_REGISTRY.find((entry) => entry.directoryId === directoryId)?.id ?? null;
 export function getRvIdByPathname(pathname: string): RvId | null {
   const path = normalize(pathname);
-  if (path === "/ops/event-studio/producer") return "RV02-02";
-  return getRvIdByHref(path) ?? (path.startsWith("/ops/event-studio") ? "RV02-05" : null);
+  // Legacy producer URL redirects to /bobos/producer but may still appear in logs/maps.
+  if (path === "/ops/event-studio/producer" || path === "/bobos/producer") return "RV02-02";
+  return getRvIdByHref(path) ?? (path.startsWith("/ops/event-studio") ? "RV02-06" : null);
 }
 export function formatRvId(id: RvId | string): string { const normalized = id.trim().toUpperCase(); return normalized.replace(/^RV(?=\d)/, "RV "); }

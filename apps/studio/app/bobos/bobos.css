@@ -31,6 +31,44 @@
   font-size: var(--bobos-type-body);
 }
 
+/* Full-window creative workspaces keep their approved canvas inside BobOS chrome. */
+.bobos-shell:has(> .credentials-root),
+.bobos-shell:has(> .exp-insp-app),
+.bobos-shell:has(> .booth-root) {
+  min-height: calc(100svh - var(--rv-global-nav-height, 2.9rem));
+  height: calc(100svh - var(--rv-global-nav-height, 2.9rem));
+  display: flex;
+  flex-direction: column;
+}
+
+.bobos-shell:has(> .exp-insp-app) > .bobos-nav {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.bobos-shell > .exp-insp-app {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+.bobos-shell:has(> .credentials-root) > .bobos-nav,
+.bobos-shell:has(> .booth-root) > .bobos-nav {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.bobos-shell > .credentials-root {
+  height: auto;
+  flex: 1 1 auto;
+}
+
+.bobos-shell > .booth-root {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
 /* ── Shared page shell — identical width, top spacing, and section rhythm ── */
 
 .bobos-page {
@@ -1288,6 +1326,15 @@
 .pz-card__status--done {
   background: rgba(70, 180, 100, 0.22);
   color: #5ec47a;
+}
+
+.pz-card__system-verified {
+  margin: 0;
+  color: #5ec47a;
+  font-size: var(--bobos-type-label);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .pz-card__open {

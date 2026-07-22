@@ -16,7 +16,9 @@ export type PanelTypeId =
   | "current-sprint"
   | "alerts"
   | "next-action"
+  | "credentials"
   | "pass-production"
+  | "event-producer"
   | "event-studio"
   | "poster-builder"
   | "print-queue"
@@ -40,13 +42,14 @@ export type PanelTypeId =
   | "notes"
   | "printer-panel"
   | "public-homepage"
-  | "pass-registration"
+  | "pass-management"
   | "giveaway-panel"
   | "live-display"
   | "broadcast"
   | "retroverse-runtime"
   | "graph-bridge"
-  | "six-up-viewer";
+  | "six-up-viewer"
+  | "experience-inspector";
 
 export type PanelGroup = "attention" | "build" | "catalog" | "devices";
 

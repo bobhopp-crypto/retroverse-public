@@ -18,8 +18,11 @@ export function middleware(request: NextRequest) {
   if (
     pathname === "/local" ||
     pathname.startsWith("/local/") ||
+    pathname === "/credentials" ||
+    pathname.startsWith("/credentials/") ||
     pathname === "/bobos" ||
     pathname.startsWith("/bobos/") ||
+    pathname.startsWith("/api/bobos/") ||
     pathname.startsWith("/api/ops/content-creator/library/files/") ||
     pathname.startsWith("/api/ops/bobos/broadcast-collections/")
   ) {
@@ -63,6 +66,8 @@ export const config = {
   matcher: [
     "/local",
     "/local/:path*",
+    "/credentials",
+    "/credentials/:path*",
     "/bobos",
     "/bobos/:path*",
     "/ops",
@@ -72,5 +77,6 @@ export const config = {
     "/internal/ops-pin",
     "/api/internal/ops-auth",
     "/api/ops/:path*",
+    "/api/bobos/:path*",
   ],
 };

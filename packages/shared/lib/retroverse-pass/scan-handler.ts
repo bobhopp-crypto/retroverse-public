@@ -1,5 +1,5 @@
 import { scanPass } from "./store";
-import { normalizePassSerial, parsePassCredential, type PassScanResult } from "./types";
+import { normalizePassSerial, type PassScanResult } from "./types";
 
 type Scan = typeof scanPass;
 
@@ -22,20 +22,12 @@ export async function resolvePassScan(
       status: 400,
     };
   }
-  if (!parsePassCredential(raw)) {
-    return {
-      type: "error",
-      message: "The pass credential is malformed. Please scan the QR code again.",
-      status: 400,
-    };
-  }
   const credential = normalizePassSerial(raw);
   if (!credential) {
     return {
       type: "error",
-      message:
-        "This doesn&rsquo;t look like a valid Retroverse pass. Double-check the QR code or web address and try again.",
-      status: 404,
+      message: "The pass credential is malformed. Please scan the QR code again.",
+      status: 400,
     };
   }
 

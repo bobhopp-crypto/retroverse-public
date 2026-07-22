@@ -308,3 +308,13 @@ export function styleDirectiveFromBrief(
     colorSchemeDirection,
   };
 }
+
+/** Shared VNext bridge for the production-facing Color Scheme selector. */
+export function styleDirectiveForColorScheme(colorScheme: string): RvbrStyleDirective {
+  const normalized = passColorSchemeById(colorScheme)?.id ?? DEFAULT_PASS_COLOR_SCHEME;
+  return styleDirectiveFromBrief({
+    style: DEFAULT_PASS_STYLE,
+    colorScheme: normalized,
+    customColors: "",
+  });
+}

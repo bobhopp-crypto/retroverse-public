@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 
 import type { PassWorkspaceTemplate } from "@/lib/bobos/project-zero/load-pass-workspace-data";
-import { computeBatchRows, padSerial, totalPassesForRows } from "@/lib/ops/event-studio/pass-studio/serials";
+import { computeBatchRows, padSerial, totalPassesForRows } from "@/lib/bobos/pass-studio/serials";
 
 function passTypeLabel(template: PassWorkspaceTemplate): string {
   return template.name.replace(/\s+Pass$/i, "").trim() || template.name;

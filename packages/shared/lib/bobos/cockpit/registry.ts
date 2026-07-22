@@ -21,7 +21,7 @@ export type CockpitPanelRegistryEntry = PanelDefinition & {
   favorite: boolean;
 };
 
-const canonicalRvFor = (id: PanelTypeId) => RV_REGISTRY.find((entry) => entry.panelType === id && /^RV\d{2}-\d{2}$/.test(entry.id)) ?? null;
+const canonicalRvFor = (id: PanelTypeId) => RV_REGISTRY.find((entry) => entry.panelType === id) ?? null;
 
 export function getCockpitPanelRegistryEntry(id: PanelTypeId): CockpitPanelRegistryEntry {
   const panel = COCKPIT_PANEL_REGISTRY[id];

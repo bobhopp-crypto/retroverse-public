@@ -15,6 +15,7 @@ import {
   normalizeCollectorCardContent,
   normalizeCollectorCardPresentation,
 } from "@/lib/ops/content-creator/collector-card";
+import { styleDirectiveForColorScheme } from "@/lib/bobos/project-zero/creative-brief";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -75,6 +76,8 @@ export async function POST(req: Request) {
   const frontFields = body.frontEvent ? parseFields(body, "front") : top;
   const backFields = body.backEvent ? parseFields(body, "back") : top;
   const creativeSettings = parseCreativeDirectionSettings(body);
+  const styleDirective =
+    typeof body.colorScheme === "string" ? styleDirectiveForColorScheme(body.colorScheme) : undefined;
 
   if (body.background === true) {
     const job = await enqueueContentCreatorJob({
@@ -92,6 +95,7 @@ export async function POST(req: Request) {
       frontFields,
       backFields,
       creativeSettings,
+      styleDirective,
     });
     return NextResponse.json({
       ok: true,

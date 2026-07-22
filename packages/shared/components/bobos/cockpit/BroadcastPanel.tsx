@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { getBroadcastStatus, type BroadcastStatus } from "@/app/bobos/broadcast/actions";
 
 /**
- * Broadcast Control — status widget only. Operator controls live in The Booth.
+ * Broadcast Control — status widget only. Operator controls live in Experience Selector.
  */
 
 const POLL_MS = 2000;
@@ -60,7 +60,7 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
 
       <div className="cockpit-panel__actions">
         <a href="/bobos/booth" className="cockpit-panel__btn cockpit-panel__btn--primary">
-          Open The Booth
+          Experience Selector
         </a>
         <a
           href="http://localhost:3100/"

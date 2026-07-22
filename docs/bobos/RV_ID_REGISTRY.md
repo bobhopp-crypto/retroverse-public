@@ -29,7 +29,7 @@ Stable operator/admin identifiers for BobOS subsystems. Display names may change
 
 | ID | Display name | Route / surface |
 |----|--------------|-----------------|
-| RV 00-00 | Retroverse | `tools/mac/RETROVERSE.command` + `tools/retroverse/launch.ts` (outside the browser — cold-starts BobOS) |
+| RV 00-00 | Retroverse | Cold-start: `tools/mac/RETROVERSE.command` + `tools/retroverse/launch.ts`. Browser documentation library: `/bobos/docs` (indexed panel manuals) |
 
 Reserved for later (not yet implemented — see `docs/studio/` planning notes): RV 00-01 Configuration, RV 00-02 Updates, RV 00-03 Diagnostics, RV 00-04 Backup & Restore, RV 00-05 Logs.
 
@@ -59,15 +59,21 @@ Reserved for later (not yet implemented — see `docs/studio/` planning notes): 
 
 ## RV02 — Events
 
-| ID | Display name | Route |
-|----|--------------|-------|
-| RV 02-01 | Event Hub | `/bobos/event` |
-| RV 02-02 | Event Producer | `/bobos/producer` |
-| RV 02-03 | Design Builder | `/bobos/passes` |
-| RV 02-04 | Pass Registrations | `/ops/pass-registrations` |
-| RV 02-05 | Legacy Event Tools | `/ops/event-studio` |
-| RV 02-16 | Content Creator (Passes) | `/ops/content-creator` |
-| RV 02-17 | Show Builder | `/ops/show-builder` |
+**RV02 Pass System: NOT VERIFIED** — Owner: BobOS · Repo: RETROVERSE_PUBLIC.  
+Contains: Event Hub, Event Producer, Design Builder, Pass Management.  
+Blocked on Design Builder (RV02-03) full generate + print package. Event Studio integration is out of scope.  
+See `docs/bobos/RV02_PASS_SYSTEM.md`.
+
+| ID | Display name | Route | Panel verification |
+|----|--------------|-------|--------------------|
+| RV 02-01 | Event Hub | `/bobos/event` | VERIFIED (launcher) |
+| RV 02-02 | Event Producer | `/bobos/producer` | VERIFIED |
+| RV 02-03 | Design Builder | `/bobos/passes` | **NOT VERIFIED** |
+| RV 02-04 | Pass Registration | `/bobos/pass-registration` → Pass Management | **Retired** (public claim = RV05-05) |
+| RV 02-05 | Pass Management | `/bobos/pass-management` | VERIFIED |
+| RV 02-06 | Legacy Event Tools | `/ops/event-studio` | Deprecated (out of Pass System closure) |
+| RV 02-16 | Content Creator (Passes) | `/ops/content-creator` | Not in Pass System closure |
+| RV 02-17 | Show Builder | `/ops/show-builder` | Not in Pass System closure |
 
 ## RV03 — Music
 

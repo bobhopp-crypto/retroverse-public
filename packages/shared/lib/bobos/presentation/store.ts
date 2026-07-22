@@ -4,9 +4,7 @@ import { randomUUID } from "crypto";
 import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
-import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
 import { opsStateDir } from "@/lib/ops/ops-state-path";
-import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 
 import { injectBoothItemIntoQueue } from "@/lib/bobos/booth/publish";
 
@@ -19,8 +17,6 @@ import {
   type PlayheadCommand,
   type PlayheadMover,
   type PlayheadPayload,
-  type PlayheadPayloadCore,
-  type PlayheadVdjState,
   type Presentation,
   type PresentationItem,
   type PresentationQueue,
@@ -28,11 +24,7 @@ import {
 } from "./types";
 import { enabledItems, resolvePlayhead, stepIndex } from "./resolve-playhead";
 import { BoothAuthorityError, isBoothSessionActive } from "./booth-authority";
-import {
-  applyVdjPresentationItem,
-  buildPlayheadVdjStateFromSundayNights,
-  normalizePresentationStateFields,
-} from "./vdj-takeover";
+import { normalizePresentationStateFields } from "./vdj-takeover";
 
 /* ── Storage: RETROVERSE_DATA/ops/bobos/presentation/{presentations,state}.json ── */
 
@@ -374,144 +366,15 @@ export async function movePlayhead(
 
 /* ── Public payload ── */
 
-const OFF_AIR_VDJ: PlayheadVdjState = {
-  playing: false,
-  rvtr: null,
-  takeoverActive: false,
-  resumeBroadcastAt: null,
-};
-
-const OFF_AIR: Omit<PlayheadPayloadCore, "updatedAt"> = {
-  onAir: false,
-  presentation: null,
-  item: null,
-  itemIndex: -1,
-  itemCount: 0,
-  mode: "paused",
-  elapsedSeconds: 0,
-  nextItem: null,
-  queue: null,
-  publishedAt: null,
-  autoFollowVdj: true,
-  manualTakeActive: false,
-  vdj: OFF_AIR_VDJ,
-};
-
 /**
- * The Broadcast Output Contract: derive CurrentBroadcast + Rvba from the
- * fully-resolved payload core and attach them. This is the only place a
- * PlayheadPayloadCore becomes a real PlayheadPayload.
- */
-function withCurrentBroadcast(payload: PlayheadPayloadCore, now: Date): PlayheadPayload {
-  return normalizePlayheadPayload(payload, now);
-}
-
-function nextEnabledItem(
-  queue: PresentationQueue,
-  currentIndex: number,
-): PresentationItem | null {
-  const items = enabledItems(queue);
-  if (items.length === 0 || currentIndex < 0) return null;
-  if (currentIndex + 1 < items.length) return items[currentIndex + 1];
-  return queue.loop && items.length > 1 ? items[0] : null;
-}
-
-/**
- * Answer the only question every audience surface asks: what is the current
- * presentation item?
+ * Answer the only question every audience surface asks:
+ * which experience is selected for retroverse.live?
  *
- * MANUAL take (manualTakeActive): queue item wins even when autoFollowVdj is on.
- * AUTO mode (autoFollowVdj on, no manual take): item is the current VirtualDJ track.
- * One resolver — Broadcast Panel, retroverse.live, and all renderers call here.
+ * Experience Selector owns that answer. Booth ownership / auto-follow are not used.
  */
 export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
-  // Read-only: never resume / change ownership as a side effect of GET/poll.
-  const now = new Date();
-  const [snapshot, sn] = await Promise.all([loadBroadcastSnapshot(), loadSundayNightsState()]);
-  const vdj = buildPlayheadVdjStateFromSundayNights(sn);
-
-  if (snapshot) {
-    const boothActive = snapshot.boothPublisher?.sessionActive === true;
-    const boothSource = snapshot.boothPublisher?.source ?? null;
-    // Booth Program is operator-driven — hold the anchor (no duration auto-walk).
-    // AUTO is out of scope for Booth V1; NEXT/PREVIOUS/JUMP move the anchor explicitly.
-    const playheadForResolve =
-      boothActive && boothSource === "Program"
-        ? { ...snapshot.playhead, mode: "paused" as const }
-        : snapshot.playhead;
-    const resolved = resolvePlayhead(snapshot.queue, playheadForResolve, now);
-    // Program: public item is the authoritative playhead (pause must keep asset).
-    // Interrupts: public item is the Booth-injected air item.
-    const boothPublicItem =
-      boothSource === "Program"
-        ? resolved.item
-        : snapshot.boothPublisher?.item ?? null;
-    const boothOnAir = boothActive && boothPublicItem != null;
-    const core: PlayheadPayloadCore = {
-      onAir: boothActive ? boothOnAir : resolved.available && resolved.item !== null,
-      presentation: { id: snapshot.presentationId, title: snapshot.title },
-      item: boothActive && boothSource !== "Program" ? boothPublicItem : resolved.item,
-      itemIndex:
-        boothActive && boothSource !== "Program"
-          ? boothPublicItem
-            ? 0
-            : -1
-          : resolved.index,
-      itemCount: resolved.enabledCount,
-      mode: snapshot.playhead.mode,
-      elapsedSeconds: resolved.elapsedSeconds,
-      nextItem: nextEnabledItem(snapshot.queue, resolved.index),
-      queue: snapshot.queue,
-      publishedAt: snapshot.publishedAt,
-      updatedAt: snapshot.updatedAt,
-      autoFollowVdj: boothActive ? false : snapshot.autoFollowVdj !== false,
-      manualTakeActive: boothActive ? boothOnAir : snapshot.manualTakeActive === true,
-      vdj,
-    };
-    // Booth session owns the air — do not let VDJ auto-follow override.
-    const resolvedCore = boothActive ? core : applyVdjPresentationItem(core, sn, now);
-    return withCurrentBroadcast(resolvedCore, now);
-  }
-
-  const state = await loadPresentationState();
-  const autoFollowVdj = state.autoFollowVdj !== false;
-  const manualTakeActive = state.manualTakeActive === true;
-  const activeId = state.activePresentationId;
-  const presentation = activeId ? await getPresentation(activeId) : null;
-  const published = presentation?.published ?? null;
-  if (!presentation || !published) {
-    return withCurrentBroadcast(
-      applyVdjPresentationItem(
-        { ...OFF_AIR, autoFollowVdj, manualTakeActive, vdj, updatedAt: state.playhead.updatedAt },
-        sn,
-        now,
-      ),
-      now,
-    );
-  }
-
-  const resolved = resolvePlayhead(published.queue, state.playhead, now);
-  return withCurrentBroadcast(
-    applyVdjPresentationItem(
-      {
-        onAir: resolved.available && resolved.item !== null,
-        presentation: { id: presentation.id, title: published.title },
-        item: resolved.item,
-        itemIndex: resolved.index,
-        itemCount: resolved.enabledCount,
-        mode: state.playhead.mode,
-        elapsedSeconds: resolved.elapsedSeconds,
-        nextItem: nextEnabledItem(published.queue, resolved.index),
-        queue: published.queue,
-        publishedAt: published.publishedAt,
-        updatedAt: state.playhead.updatedAt,
-        autoFollowVdj,
-        manualTakeActive,
-        vdj,
-      },
-      sn,
-      now,
-    ),
-    now,
+  const { buildSelectedPlayheadPayload } = await import(
+    "@/lib/bobos/experience-selector/resolve"
   );
+  return buildSelectedPlayheadPayload(new Date());
 }

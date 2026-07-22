@@ -81,6 +81,7 @@ export function shouldAllowOpsRoutes(host?: string | null): boolean {
 /** Path prefixes blocked on the public production site. */
 export const LOCAL_ONLY_PATH_PREFIXES = [
   "/local",
+  "/credentials",
   "/bobos",
   "/ops",
   "/diagnostics",

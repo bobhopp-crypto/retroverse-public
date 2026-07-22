@@ -25,9 +25,15 @@ export const BOBOS_EVENT_HUB_ACTIONS: BobosEventHubAction[] = [
     href: "/ops/event-studio/giveaway",
   },
   {
+    id: "pass-management",
+    label: "Pass Management",
+    description: "Search, edit, reset, and manage permanent pass claims.",
+    href: "/bobos/pass-management",
+  },
+  {
     id: "registration",
-    label: "Registration",
-    description: "Door pass sign-ups and registration page configuration.",
+    label: "Giveaway Registration",
+    description: "Giveaway registration page configuration.",
     href: "/ops/event-studio/giveaway/registration",
   },
   {
@@ -40,11 +46,13 @@ export const BOBOS_EVENT_HUB_ACTIONS: BobosEventHubAction[] = [
 
 export const BOBOS_PRIMARY_NAV = [
   { id: "cockpit", label: "Cockpit", href: "/bobos" },
+  { id: "credentials", label: "Credentials", href: "/bobos/credentials" },
   { id: "event", label: "Event Hub", href: "/bobos/event" },
   { id: "passes", label: "Design Builder", href: "/bobos/passes" },
+  { id: "pass-management", label: "Pass Management", href: "/bobos/pass-management" },
   { id: "producer", label: "Producer", href: "/bobos/producer" },
   { id: "presentation", label: "Presentation Control", href: "/bobos/presentation" },
-  { id: "broadcast", label: "Broadcast Mixer", href: "/bobos/broadcast" },
+  { id: "booth", label: "Booth", href: "/bobos/booth" },
   { id: "bridge", label: "Bridge", href: "/bobos/bridge" },
   { id: "pipeline", label: "Pipeline", href: "/bobos/pipeline" },
   { id: "ai", label: "AI Usage", href: "/bobos/ai" },

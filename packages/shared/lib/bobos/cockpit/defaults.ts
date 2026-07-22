@@ -2,8 +2,8 @@ import type { CockpitCell, CockpitState, CockpitWorkspaceId, PanelTypeId } from 
 import { COCKPIT_GRID_SIZE } from "./types";
 import { DEFAULT_COCKPIT_LAYOUT, layoutCells } from "./layouts";
 
-/** Bump when the default cockpit grid changes — older saved layouts are regenerated. */
-export const CURRENT_COCKPIT_LAYOUT_VERSION = 4;
+/** Bump when DEFAULT_COCKPIT_LAYOUT panel order changes (resets saved cockpit grid). */
+export const CURRENT_COCKPIT_LAYOUT_VERSION = 7;
 
 /** Production cockpit grid — matches the operator Mission Control layout. */
 function emptyCells(): CockpitCell[] {

@@ -25,6 +25,9 @@ export type Rv2PublicShellProps = {
   minimalNavigation?: boolean;
   /** Broadcast frame for the Channel Zero home and Search shell. */
   broadcastChrome?: boolean;
+  /** Optional replacement for the persistent bottom banner contents. */
+  bottomBannerContent?: ReactNode;
+  bottomBannerAriaLabel?: string;
 };
 
 export function Rv2PublicShell({
@@ -32,6 +35,8 @@ export function Rv2PublicShell({
   className,
   lead,
   broadcastChrome = true,
+  bottomBannerContent,
+  bottomBannerAriaLabel,
 }: Rv2PublicShellProps) {
   const mainClassName = [
     "rv2-live",
@@ -57,10 +62,15 @@ export function Rv2PublicShell({
 
       <div className="rv2-public-shell__body">{children}</div>
       {broadcastChrome ? (
-        <footer className="rv2-broadcast-banner rv2-broadcast-banner--bottom" aria-label="Broadcast updates">
-          <Link href="/" className="rv2-broadcast-banner__action" aria-label="Scan a Retroverse Pass QR code to register">
-            Scan Pass QR to Register
-          </Link>
+        <footer
+          className="rv2-broadcast-banner rv2-broadcast-banner--bottom"
+          aria-label={bottomBannerAriaLabel ?? "Broadcast updates"}
+        >
+          {bottomBannerContent ?? (
+            <Link href="/" className="rv2-broadcast-banner__action" aria-label="Scan a Retroverse Pass QR code to register">
+              Scan Pass QR to Register
+            </Link>
+          )}
         </footer>
       ) : null}
     </main>

@@ -25,29 +25,26 @@ export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
 export type PublicHomepageManualOverride = {
   broadcast: CurrentBroadcast;
   itemIndex: number;
-  presentation: NonNullable<PlayheadPayload["presentation"]>;
+  presentation: PlayheadPayload["presentation"];
   publishedAt: string | null;
-  queue: PresentationQueue;
+  queue: PresentationQueue | null;
   rvba: Rvba;
   updatedAt: string;
 };
 
 export type PublicHomepagePayload = SundayNightsCurrentPayload & {
-  /** Weekend compatibility bridge: only an active manual take may override Channel Zero. */
+  /** Selected experience from the Experience Selector (when on air). */
   manualOverride?: PublicHomepageManualOverride | null;
 };
 
+/** Show the selected experience on the homepage when the selector has one on air. */
 export function resolvePublicHomepageManualOverride(
   playhead: PlayheadPayload,
 ): PublicHomepageManualOverride | null {
   if (
-    playhead.manualTakeActive !== true ||
     !playhead.onAir ||
-    !playhead.presentation ||
-    !playhead.item ||
-    playhead.itemIndex < 0 ||
-    !playhead.queue ||
     !playhead.rvba ||
+    !playhead.broadcast ||
     playhead.broadcast.state === "off-air"
   ) {
     return null;

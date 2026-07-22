@@ -9,13 +9,18 @@ import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
 import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
 import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 
-import "@/app/retroverse-2/song/[rvtr]/retroverse-song-2.css";
+import "./public-song-experience.css";
 
 type Props = {
   rvtr: string;
   trackData?: TrackPageData;
   traceEnabled?: boolean;
   className?: string;
+  /**
+   * Workspace / embedded preview: same public content, without public chrome
+   * (graph header, back link, discover nav that leaves BobOS).
+   */
+  embedded?: boolean;
 };
 
 function trackYear(track: TrackPageData): number | null {
@@ -54,7 +59,13 @@ function definingMoment(track: TrackPageData): { label: string; detail: string; 
   return { label: "Final Week", detail: weeks.length ? weeks[weeks.length - 1]!.issueDate : "Chart record", href: weeks.length ? rvChronologyHrefFromChartDate(weeks[weeks.length - 1]!.issueDate, track.releaseYear) : null };
 }
 
-export async function PublicSongExperience({ rvtr, trackData, traceEnabled = false, className }: Props) {
+export async function PublicSongExperience({
+  rvtr,
+  trackData,
+  traceEnabled = false,
+  className,
+  embedded = false,
+}: Props) {
   const track = trackData ?? await loadTrackPage(rvtr);
   if (!track) {
     return null;
@@ -64,22 +75,27 @@ export async function PublicSongExperience({ rvtr, trackData, traceEnabled = fal
   const primaryAlbum = track.primaryAlbum;
   const journeyWeeks = track.trajectoryWeeks.length;
   const moment = definingMoment(track);
+  const rootClass = ["rv2-song", embedded ? "rv2-song--embedded" : null, className]
+    .filter(Boolean)
+    .join(" ");
   return (
     <>
-    <div className={className}>
-      <GraphHeader data={{
-        rvtr: track.rvtr,
-        rvar: track.artistSlug,
-        rval: primaryAlbum?.rval,
-        rvyr: year,
-        rvwk: track.firstChartDate,
-        integrity: track.hasHot100 ? "canonical Hot 100" : "outside Hot 100",
-        relationshipStatus: primaryAlbum ? `${track.albums.length} album relationship${track.albums.length === 1 ? "" : "s"}` : null,
-        historicalAlbum: primaryAlbum?.title,
-        artworkAlbum: track.coverUrl ? track.albums.find((album) => album.coverUrl === track.coverUrl)?.title : null,
-        albumAppearanceCount: track.albums.length,
-        enrichmentStatus: null,
-      }} />
+    <div className={rootClass}>
+      {!embedded ? (
+        <GraphHeader data={{
+          rvtr: track.rvtr,
+          rvar: track.artistSlug,
+          rval: primaryAlbum?.rval,
+          rvyr: year,
+          rvwk: track.firstChartDate,
+          integrity: track.hasHot100 ? "canonical Hot 100" : "outside Hot 100",
+          relationshipStatus: primaryAlbum ? `${track.albums.length} album relationship${track.albums.length === 1 ? "" : "s"}` : null,
+          historicalAlbum: primaryAlbum?.title,
+          artworkAlbum: track.coverUrl ? track.albums.find((album) => album.coverUrl === track.coverUrl)?.title : null,
+          albumAppearanceCount: track.albums.length,
+          enrichmentStatus: null,
+        }} />
+      ) : null}
       <LivingSongShell
         rvtr={track.rvtr}
         durationSec={Math.max(30, journeyWeeks * 2)}
@@ -87,18 +103,28 @@ export async function PublicSongExperience({ rvtr, trackData, traceEnabled = fal
         openingKind="chart_journey"
       >
         <header className="rv2-song__header" aria-label="Song overview">
-          <RetroverseBack fallbackHref="/search" fallbackLabel="Search" />
+          {!embedded ? (
+            <RetroverseBack fallbackHref="/search" fallbackLabel="Search" />
+          ) : null}
+          {embedded && track.coverUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img className="rv2-song__cover" src={track.coverUrl} alt="" />
+          ) : null}
           <p className="rv2-live__eyebrow">Song</p>
           <h1>{track.title}</h1>
           <p className="rv2-song__artist">
-            <Link href={track.artistHref} prefetch className="rv2-song__hero-link">
-              {track.artistName}
-            </Link>
+            {embedded ? (
+              <span>{track.artistName}</span>
+            ) : (
+              <Link href={track.artistHref} prefetch className="rv2-song__hero-link">
+                {track.artistName}
+              </Link>
+            )}
           </p>
           {primaryAlbum ? (
             <p className="rv2-song__album">
               <span>Album</span>
-              {primaryAlbum.href ? (
+              {!embedded && primaryAlbum.href ? (
                 <Link href={primaryAlbum.href} prefetch className="rv2-song__hero-link">
                   {primaryAlbum.title}
                 </Link>
@@ -109,7 +135,7 @@ export async function PublicSongExperience({ rvtr, trackData, traceEnabled = fal
           ) : null}
           {year ? (
             <p className="rv2-song__year">
-              {track.rvYearHref ? (
+              {!embedded && track.rvYearHref ? (
                 <Link href={track.rvYearHref} prefetch className="rv2-song__hero-link">
                   {year}
                 </Link>
@@ -118,17 +144,24 @@ export async function PublicSongExperience({ rvtr, trackData, traceEnabled = fal
               )}
             </p>
           ) : null}
-          <div className="rv2-song__continue-label">Continue Exploring</div>
-          <nav className="rv2-song__explore-links" aria-label="Continue Exploring">
-            {primaryAlbum?.href ? (
-              <Link href={primaryAlbum.href} prefetch>Album</Link>
-            ) : null}
-            <Link href={track.artistHref} prefetch>Artist</Link>
-            {track.rvYearHref && year ? (
-              <Link href={track.rvYearHref} prefetch>Year {year}</Link>
-            ) : null}
-            {moment.href ? <Link href={moment.href} prefetch>Peak Week</Link> : null}
-          </nav>
+          {track.chartRunLabel ? (
+            <p className="rv2-song__subtitle">{track.chartRunLabel}</p>
+          ) : null}
+          {!embedded ? (
+            <>
+              <div className="rv2-song__continue-label">Continue Exploring</div>
+              <nav className="rv2-song__explore-links" aria-label="Continue Exploring">
+                {primaryAlbum?.href ? (
+                  <Link href={primaryAlbum.href} prefetch>Album</Link>
+                ) : null}
+                <Link href={track.artistHref} prefetch>Artist</Link>
+                {track.rvYearHref && year ? (
+                  <Link href={track.rvYearHref} prefetch>Year {year}</Link>
+                ) : null}
+                {moment.href ? <Link href={moment.href} prefetch>Peak Week</Link> : null}
+              </nav>
+            </>
+          ) : null}
         </header>
         {journeyWeeks > 0 ? (
           <div className="rv2-song__journey-stage">
@@ -164,18 +197,20 @@ export async function PublicSongExperience({ rvtr, trackData, traceEnabled = fal
         ) : null}
       </LivingSongShell>
     </div>
-    <CanonicalPublicTrace
-      enabled={traceEnabled}
-      rvtr={track.rvtr}
-      artistId={track.artistId}
-      albumId={track.primaryAlbum?.albumId ?? null}
-      primaryAlbum={track.primaryAlbum?.title ?? null}
-      resolverPath={track.resolverPath}
-      discoverySources={discoverySourcesForPage("song")}
-      loaderTimings={[
-        ...track.loaderTimings,
-      ]}
-    />
+    {!embedded ? (
+      <CanonicalPublicTrace
+        enabled={traceEnabled}
+        rvtr={track.rvtr}
+        artistId={track.artistId}
+        albumId={track.primaryAlbum?.albumId ?? null}
+        primaryAlbum={track.primaryAlbum?.title ?? null}
+        resolverPath={track.resolverPath}
+        discoverySources={discoverySourcesForPage("song")}
+        loaderTimings={[
+          ...track.loaderTimings,
+        ]}
+      />
+    ) : null}
     </>
   );
 }

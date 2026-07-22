@@ -25,17 +25,34 @@ test("unknown credential is provisioned once and repeat registration returns exi
         pass ??= { serial: String(params[0]), claimed: false, visitor_id: null, claimed_at: null };
         return { rows: [] as T[] };
       }
-      if (sql.startsWith("SELECT serial")) return { rows: [pass as T] };
+      if (sql.startsWith("SELECT serial")) return { rows: (pass ? [pass as T] : []) };
+      if (sql.includes("FROM retroverse_visitors") && sql.includes("lower(email)")) {
+        // Pre-insert email/phone match — empty until a visitor exists.
+        return { rows: visitor ? [visitor as T] : [] };
+      }
       if (sql.startsWith("INSERT INTO retroverse_visitors")) {
         visitorInsertCount += 1;
-        visitor = { id: 12, first_name: params[0], email: params[1], phone: params[2], created_at: new Date(0) };
+        visitor = {
+          id: 12,
+          first_name: params[0],
+          last_name: params[1],
+          email: params[2],
+          phone: params[3],
+          birthday: params[4],
+          postal_code: params[5],
+          marketing_opt_in: params[6],
+          created_at: new Date(0),
+        };
         return { rows: [visitor as T] };
       }
       if (sql.startsWith("UPDATE retroverse_passes")) {
         pass = { ...pass!, claimed: true, visitor_id: 12, claimed_at: new Date(0) };
         return { rows: [pass as T] };
       }
-      if (sql.startsWith("SELECT id")) return { rows: [visitor as T] };
+      if (sql.startsWith("SELECT id") || (sql.includes("FROM retroverse_visitors") && sql.includes("WHERE id"))) {
+        return { rows: visitor ? [visitor as T] : [] };
+      }
+      if (sql.startsWith("INSERT INTO retroverse_pass_activity")) return { rows: [] as T[] };
       return { rows: [] as T[] };
     },
   };
@@ -55,16 +72,33 @@ test("claiming with first name only stores null email and phone", async () => {
       if (sql.startsWith("SELECT serial")) {
         return { rows: [{ serial: "RVSN00427", claimed: false, visitor_id: null, claimed_at: null } as T] };
       }
+      if (sql.includes("FROM retroverse_visitors") && sql.includes("lower(email)")) {
+        return { rows: [] as T[] };
+      }
       if (sql.startsWith("INSERT INTO retroverse_visitors")) {
-        assert.equal(params[1], null);
+        // first_name, last_name, email, phone, ...
         assert.equal(params[2], null);
+        assert.equal(params[3], null);
         return {
-          rows: [{ id: 5, first_name: params[0], email: null, phone: null, created_at: new Date(0) } as T],
+          rows: [
+            {
+              id: 5,
+              first_name: params[0],
+              last_name: params[1],
+              email: null,
+              phone: null,
+              birthday: null,
+              postal_code: null,
+              marketing_opt_in: false,
+              created_at: new Date(0),
+            } as T,
+          ],
         };
       }
       if (sql.startsWith("UPDATE retroverse_passes")) {
         return { rows: [{ serial: "RVSN00427", claimed: true, visitor_id: 5, claimed_at: new Date(0) } as T] };
       }
+      if (sql.startsWith("INSERT INTO retroverse_pass_activity")) return { rows: [] as T[] };
       return { rows: [] as T[] };
     },
   };
@@ -86,9 +120,20 @@ test("editing an already-claimed pass updates the visitor and logs PASS_EDITED",
         return { rows: [{ serial: "RVSN00001", claimed: true, visitor_id: 1, claimed_at: new Date(0) } as T] };
       }
       if (sql.startsWith("UPDATE retroverse_visitors")) {
+        // id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in
         return {
           rows: [
-            { id: 1, first_name: params[1], email: params[2], phone: params[3], created_at: new Date(0) } as T,
+            {
+              id: 1,
+              first_name: params[1],
+              last_name: params[2],
+              email: params[3],
+              phone: params[4],
+              birthday: params[5],
+              postal_code: params[6],
+              marketing_opt_in: params[7],
+              created_at: new Date(0),
+            } as T,
           ],
         };
       }

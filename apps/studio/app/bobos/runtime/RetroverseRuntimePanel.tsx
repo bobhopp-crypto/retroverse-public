@@ -392,7 +392,7 @@ export function RetroverseRuntimePanel({ compact = false }: Props) {
 
       <div className="cockpit-panel__actions">
         <a
-          href="http://localhost:3000"
+          href="/bobos"
           target="_blank"
           rel="noopener noreferrer"
           className="cockpit-panel__btn cockpit-panel__btn--secondary"
@@ -400,7 +400,7 @@ export function RetroverseRuntimePanel({ compact = false }: Props) {
           Open Studio
         </a>
         <a
-          href="http://localhost:3100"
+          href="http://localhost:3100/"
           target="_blank"
           rel="noopener noreferrer"
           className="cockpit-panel__btn cockpit-panel__btn--secondary"
