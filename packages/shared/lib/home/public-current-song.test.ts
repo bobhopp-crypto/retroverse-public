@@ -34,32 +34,33 @@ function channelZeroPayload(
 }
 
 function liveAidPlayhead(overrides: Partial<PlayheadPayload> = {}): PlayheadPayload {
+  const item: NonNullable<PlayheadPayload["item"]> = {
+    id: "live-aid-slide-1",
+    type: "slide",
+    title: "Live Aid",
+    subtitle: "The Global Jukebox",
+    body: "",
+    enabled: true,
+    durationSeconds: 20,
+    transition: "fade",
+    trigger: "automatic",
+    link: null,
+    countdownTarget: null,
+    notes: "",
+    mediaUrl: "/api/retroverse-live/broadcast-media/live-aid/slides/001.png",
+    mediaWidth: 1600,
+    mediaHeight: 900,
+  };
   return {
     onAir: true,
     presentation: { id: "live-aid", title: "Live Aid" },
-    item: {
-      id: "live-aid-slide-1",
-      type: "slide",
-      title: "Live Aid",
-      subtitle: "The Global Jukebox",
-      body: "",
-      enabled: true,
-      durationSeconds: 20,
-      transition: "fade",
-      trigger: "automatic",
-      link: null,
-      countdownTarget: null,
-      notes: "",
-      mediaUrl: "/api/retroverse-live/broadcast-media/live-aid/slides/001.png",
-      mediaWidth: 1600,
-      mediaHeight: 900,
-    },
+    item,
     itemIndex: 0,
     itemCount: 5,
     mode: "playing",
     elapsedSeconds: 0,
     nextItem: null,
-    queue: null,
+    queue: { items: [item], loop: false },
     publishedAt: "2026-07-17T12:00:00.000Z",
     updatedAt: "2026-07-17T12:00:00.000Z",
     autoFollowVdj: true,
@@ -115,6 +116,10 @@ test("manual Live Aid take selects the existing manual RVBA", () => {
 
   assert.equal(result.manualOverride?.rvba.id, "live-aid-slide-1");
   assert.equal(result.manualOverride?.broadcast.mode, "manual");
+  assert.equal(result.manualOverride?.presentation.id, "live-aid");
+  assert.equal(result.manualOverride?.itemIndex, 0);
+  assert.equal(result.manualOverride?.queue.items.length, 1);
+  assert.equal(result.manualOverride?.publishedAt, "2026-07-17T12:00:00.000Z");
 });
 
 test("manual take wins while VirtualDJ is fresh", () => {
@@ -158,6 +163,8 @@ test("invalid or missing manual RVBA safely falls back to Channel Zero", () => {
     liveAidPlayhead({ onAir: false }),
     liveAidPlayhead({ presentation: null }),
     liveAidPlayhead({ item: null }),
+    liveAidPlayhead({ itemIndex: -1 }),
+    liveAidPlayhead({ queue: null }),
     liveAidPlayhead({ rvba: null }),
     liveAidPlayhead({ broadcast: { ...liveAidPlayhead().broadcast, state: "off-air" } }),
   ];

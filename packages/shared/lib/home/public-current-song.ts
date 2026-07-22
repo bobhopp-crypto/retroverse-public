@@ -1,7 +1,7 @@
 import "server-only";
 
 import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
-import type { PlayheadPayload } from "@/lib/bobos/presentation/types";
+import type { PlayheadPayload, PresentationQueue } from "@/lib/bobos/presentation/types";
 import type { CurrentBroadcast } from "@/lib/broadcast/current-broadcast";
 import type { Rvba } from "@/lib/broadcast/rvba";
 import type { ChannelExperienceSource } from "@/lib/channel-zero/types";
@@ -24,7 +24,12 @@ export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
 
 export type PublicHomepageManualOverride = {
   broadcast: CurrentBroadcast;
+  itemIndex: number;
+  presentation: NonNullable<PlayheadPayload["presentation"]>;
+  publishedAt: string | null;
+  queue: PresentationQueue;
   rvba: Rvba;
+  updatedAt: string;
 };
 
 export type PublicHomepagePayload = SundayNightsCurrentPayload & {
@@ -40,6 +45,8 @@ export function resolvePublicHomepageManualOverride(
     !playhead.onAir ||
     !playhead.presentation ||
     !playhead.item ||
+    playhead.itemIndex < 0 ||
+    !playhead.queue ||
     !playhead.rvba ||
     playhead.broadcast.state === "off-air"
   ) {
@@ -48,7 +55,12 @@ export function resolvePublicHomepageManualOverride(
 
   return {
     broadcast: playhead.broadcast,
+    itemIndex: playhead.itemIndex,
+    presentation: playhead.presentation,
+    publishedAt: playhead.publishedAt,
+    queue: playhead.queue,
     rvba: playhead.rvba,
+    updatedAt: playhead.updatedAt,
   };
 }
 

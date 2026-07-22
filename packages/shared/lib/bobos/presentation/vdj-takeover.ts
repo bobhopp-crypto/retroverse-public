@@ -97,8 +97,28 @@ export function normalizePresentationStateFields(
   parsed: Partial<PresentationState>,
 ): Pick<
   PresentationState,
-  "autoFollowVdj" | "manualTakeActive" | "vdjTakeoverActive" | "vdjStoppedAt" | "broadcastSourceMeta"
+  | "autoFollowVdj"
+  | "manualTakeActive"
+  | "vdjTakeoverActive"
+  | "vdjStoppedAt"
+  | "broadcastSourceMeta"
+  | "boothPublisher"
+  | "lastBoothPublishedKey"
 > {
+  const boothRaw = parsed.boothPublisher;
+  const boothPublisher =
+    boothRaw && typeof boothRaw === "object"
+      ? {
+          sessionActive: boothRaw.sessionActive === true,
+          source: typeof boothRaw.source === "string" ? boothRaw.source : null,
+          item:
+            boothRaw.item && typeof boothRaw.item === "object" && typeof boothRaw.item.id === "string"
+              ? boothRaw.item
+              : null,
+          ownershipAt: typeof boothRaw.ownershipAt === "number" ? boothRaw.ownershipAt : null,
+        }
+      : null;
+
   return {
     autoFollowVdj: parsed.autoFollowVdj !== false,
     manualTakeActive: parsed.manualTakeActive === true,
@@ -108,7 +128,18 @@ export function normalizePresentationStateFields(
         ? parsed.vdjStoppedAt.trim()
         : null,
     broadcastSourceMeta: parsed.broadcastSourceMeta ?? null,
+    boothPublisher,
+    lastBoothPublishedKey:
+      typeof parsed.lastBoothPublishedKey === "string" ? parsed.lastBoothPublishedKey : null,
   };
+}
+
+async function isBoothPublisherActive(): Promise<boolean> {
+  const snapshot = await loadBroadcastSnapshot();
+  if (snapshot?.boothPublisher?.sessionActive === true) return true;
+  const { loadPresentationState } = await import("./store");
+  const pres = await loadPresentationState();
+  return pres.boothPublisher?.sessionActive === true;
 }
 
 async function isAutoFollowEnabled(): Promise<boolean> {
@@ -174,6 +205,13 @@ async function resumeBroadcastRotation(): Promise<void> {
 }
 
 export async function setAutoFollowVdj(enabled: boolean): Promise<PresentationState> {
+  if (await isBoothPublisherActive()) {
+    const { BoothAuthorityError } = await import("./booth-authority");
+    throw new BoothAuthorityError(
+      "The Booth owns The Air — Return to Auto / VDJ follow rejected while Booth session is active",
+    );
+  }
+
   const state = await loadPresentationState();
   state.autoFollowVdj = enabled;
 
@@ -217,6 +255,8 @@ export async function setAutoFollowVdj(enabled: boolean): Promise<PresentationSt
 
 /** VirtualDJ started or changed songs — pause broadcast rotation. */
 export async function handleVdjPlaybackStarted(): Promise<void> {
+  // The Booth owns the public playhead during an active Booth session.
+  if (await isBoothPublisherActive()) return;
   if (!(await isAutoFollowEnabled())) return;
   // Manual Take is an operator override. VDJ updates remain available as an
   // input, but must not clear or pause the active manual presentation.
@@ -249,6 +289,7 @@ export async function handleVdjPlaybackStarted(): Promise<void> {
 
 /** VirtualDJ playback stopped — start idle timeout before resuming broadcast. */
 export async function handleVdjPlaybackStopped(timestamp: string): Promise<void> {
+  if (await isBoothPublisherActive()) return;
   if (!(await isAutoFollowEnabled())) return;
   if (await isManualTakeActive()) return;
 
@@ -270,6 +311,7 @@ export async function handleVdjPlaybackStopped(timestamp: string): Promise<void>
 
 /** Lazy resume — called on every playhead read after idle timeout elapses. */
 export async function maybeResumeBroadcastAfterVdjIdle(): Promise<boolean> {
+  if (await isBoothPublisherActive()) return false;
   const sn = await loadSundayNightsState();
   if (!(await isAutoFollowEnabled()) || !sn.vdjTakeoverActive) return false;
   if (await isManualTakeActive()) return false;

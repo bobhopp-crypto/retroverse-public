@@ -119,6 +119,7 @@ export function PresentationStudio({
   const [publishing, setPublishing] = useState(false);
   const [newTitle, setNewTitle] = useState("");
   const [creating, setCreating] = useState(false);
+  const [transportError, setTransportError] = useState<string | null>(null);
 
   const active = presentations.find((p) => p.id === activeId) ?? null;
   const isOnAir = Boolean(active && active.id === onAirId && active.published);
@@ -183,11 +184,18 @@ export function PresentationStudio({
   const transport = useCallback(
     async (command: PlayheadCommand) => {
       if (isOnAir) {
-        const payload = await movePlayheadAction(command);
-        setServerPlayhead(payload);
+        try {
+          setTransportError(null);
+          const payload = await movePlayheadAction(command);
+          setServerPlayhead(payload);
+        } catch (error) {
+          const message = error instanceof Error ? error.message : String(error);
+          setTransportError(message);
+        }
         return;
       }
       if (!active) return;
+      setTransportError(null);
       setLocalPlayhead((prev) => applyLocalCommand(prev, command, active));
     },
     [isOnAir, active],
@@ -347,6 +355,9 @@ export function PresentationStudio({
         const res = await fetch("/api/retroverse-live/playhead", { cache: "no-store" });
         if (res.ok) setServerPlayhead((await res.json()) as PlayheadPayload);
       }
+      setTransportError(null);
+    } catch (error) {
+      setTransportError(error instanceof Error ? error.message : String(error));
     } finally {
       setPublishing(false);
     }
@@ -480,6 +491,11 @@ export function PresentationStudio({
                       }`}
                   {isOnAir ? " · ON AIR" : " · Draft preview"}
                 </p>
+                {transportError ? (
+                  <p className="pst-transport__status" role="alert">
+                    {transportError}
+                  </p>
+                ) : null}
               </div>
             </section>
 

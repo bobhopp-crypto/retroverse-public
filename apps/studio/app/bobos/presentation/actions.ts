@@ -36,11 +36,13 @@ export async function saveDraftAction(
 
 export async function publishPresentationAction(id: string): Promise<Presentation | null> {
   assertLocalStudio();
+  // Rejected with BoothAuthorityError while Booth owns The Air.
   return publishPresentation(id);
 }
 
 export async function movePlayheadAction(command: PlayheadCommand): Promise<PlayheadPayload> {
   assertLocalStudio();
+  // Legacy surface — rejected with BoothAuthorityError while Booth owns The Air.
   await movePlayhead(command, "manual");
   return buildPlayheadPayload();
 }

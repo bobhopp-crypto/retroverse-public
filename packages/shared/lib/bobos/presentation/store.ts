@@ -8,10 +8,13 @@ import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 
+import { injectBoothItemIntoQueue } from "@/lib/bobos/booth/publish";
+
 import { loadBroadcastSnapshot, saveBroadcastSnapshot } from "./broadcast-snapshot";
 import { pushBroadcastToPublic, type PublicPushResult } from "./push-public";
 import {
   defaultPresentationState,
+  type BoothPublisherState,
   type BroadcastSnapshot,
   type PlayheadCommand,
   type PlayheadMover,
@@ -24,10 +27,10 @@ import {
   type PresentationState,
 } from "./types";
 import { enabledItems, resolvePlayhead, stepIndex } from "./resolve-playhead";
+import { BoothAuthorityError, isBoothSessionActive } from "./booth-authority";
 import {
   applyVdjPresentationItem,
   buildPlayheadVdjStateFromSundayNights,
-  maybeResumeBroadcastAfterVdjIdle,
   normalizePresentationStateFields,
 } from "./vdj-takeover";
 
@@ -73,6 +76,7 @@ export async function loadPresentationState(): Promise<PresentationState> {
       version: 1,
       activePresentationId: parsed.activePresentationId ?? null,
       playhead: parsed.playhead,
+      lastBoothPublishedKey: fields.lastBoothPublishedKey ?? null,
       ...fields,
     };
   } catch {
@@ -135,11 +139,73 @@ export async function saveDraft(
 
 /* ── Broadcast sync ── */
 
+function applyBoothPublisherToSnapshot(
+  snapshot: BroadcastSnapshot,
+  booth: BoothPublisherState | null | undefined,
+  nowIso: string,
+): BroadcastSnapshot {
+  if (!booth?.sessionActive) {
+    return {
+      ...snapshot,
+      boothPublisher: booth ?? null,
+    };
+  }
+
+  // Program owns The Air — authoritative queue + playhead already set. No inject.
+  if (booth.source === "Program") {
+    return {
+      ...snapshot,
+      boothPublisher: booth,
+      autoFollowVdj: false,
+      manualTakeActive: true,
+      updatedAt: nowIso,
+    };
+  }
+
+  if (!booth.item) {
+    return {
+      ...snapshot,
+      boothPublisher: booth,
+      autoFollowVdj: false,
+      manualTakeActive: false,
+      playhead: {
+        ...snapshot.playhead,
+        mode: "paused",
+        movedBy: "cockpit",
+        updatedAt: nowIso,
+      },
+      updatedAt: nowIso,
+    };
+  }
+
+  // Interrupt Sources — inject Booth air item onto the snapshot.
+  const queue = injectBoothItemIntoQueue(snapshot.queue, booth.item);
+  return {
+    ...snapshot,
+    queue,
+    boothPublisher: booth,
+    autoFollowVdj: false,
+    manualTakeActive: true,
+    playhead: {
+      presentationId: snapshot.presentationId,
+      anchorItemId: booth.item.id,
+      anchorStartedAt: nowIso,
+      mode: "playing",
+      movedBy: "cockpit",
+      updatedAt: nowIso,
+    },
+    updatedAt: nowIso,
+  };
+}
+
 /**
  * Rebuild the Broadcast Snapshot from the active published presentation and
  * its playhead, save it locally, and push it to the deployed site.
  * Called after every mutation (publish, transport) so localhost and the
  * public site stay in lockstep.
+ *
+ * When The Booth session is active, Booth ownership is re-applied onto the
+ * snapshot so Mixer/transport sync cannot silently steal the air.
  */
 export async function syncBroadcast(): Promise<PublicPushResult> {
   const state = await loadPresentationState();
@@ -150,23 +216,32 @@ export async function syncBroadcast(): Promise<PublicPushResult> {
     return { status: "unconfigured", detail: "No published presentation on air" };
   }
 
-  const snapshot: BroadcastSnapshot = {
+  const nowIso = new Date().toISOString();
+  const base: BroadcastSnapshot = {
     version: 1,
     presentationId: presentation.id,
     title: published.title,
     queue: published.queue,
     playhead: state.playhead,
     publishedAt: published.publishedAt,
-    updatedAt: new Date().toISOString(),
+    updatedAt: nowIso,
     autoFollowVdj: state.autoFollowVdj !== false,
     manualTakeActive: state.manualTakeActive === true,
+    boothPublisher: state.boothPublisher ?? null,
   };
+  const snapshot = applyBoothPublisherToSnapshot(base, state.boothPublisher, nowIso);
   await saveBroadcastSnapshot(snapshot);
   return pushBroadcastToPublic(snapshot);
 }
 
 /** Snapshot the draft queue as the published copy and put it on air. */
 export async function publishPresentation(id: string): Promise<Presentation | null> {
+  if (await isBoothSessionActive()) {
+    throw new BoothAuthorityError(
+      "The Booth owns The Air — publishing a presentation is rejected while Booth session is active",
+    );
+  }
+
   const file = await loadPresentationsFile();
   const presentation = file.presentations.find((p) => p.id === id);
   if (!presentation) return null;
@@ -206,11 +281,20 @@ export async function publishPresentation(id: string): Promise<Presentation | nu
 /**
  * Apply a transport command to the on-air playhead.
  * All commands re-anchor: the resolved current item becomes the new anchor.
+ *
+ * While a Booth session is active, only `authority: "booth"` may mutate.
+ * Legacy callers receive BoothAuthorityError (clear rejection).
  */
 export async function movePlayhead(
   command: PlayheadCommand,
   movedBy: PlayheadMover = "manual",
+  options?: { sync?: boolean; authority?: "booth" | "legacy" },
 ): Promise<PresentationState> {
+  const authority = options?.authority ?? "legacy";
+  if (authority !== "booth" && (await isBoothSessionActive())) {
+    throw new BoothAuthorityError();
+  }
+
   const state = await loadPresentationState();
   const activeId = state.activePresentationId;
   if (!activeId) return state;
@@ -221,9 +305,13 @@ export async function movePlayhead(
 
   const items = enabledItems(queue);
   const now = new Date();
-  const resolved = resolvePlayhead(queue, state.playhead, now);
+  // Transport steps from the stored anchor — never from a duration-walked resolve.
+  // (Walking is for audience display when Booth is not operator-driving Program.)
+  const anchorIndex = items.findIndex((item) => item.id === state.playhead.anchorItemId);
+  const anchorAvailable = anchorIndex >= 0;
 
-  let anchorItemId = resolved.item?.id ?? null;
+  // Preserve last valid stored anchor when unavailable — never invent index 0.
+  let anchorItemId = state.playhead.anchorItemId;
   let mode = state.playhead.mode;
 
   switch (command.op) {
@@ -235,18 +323,28 @@ export async function movePlayhead(
       break;
     case "next":
     case "previous": {
+      if (!anchorAvailable) {
+        // Fail closed — do not step from a missing anchor.
+        return state;
+      }
       const target = stepIndex(
         items.length,
-        resolved.index,
+        anchorIndex,
         command.op === "next" ? 1 : -1,
         queue.loop,
       );
-      if (target !== null) anchorItemId = items[target].id;
+      if (target === null) {
+        // End/beginning with no loop — keep current anchor (no silent restart).
+        return state;
+      }
+      anchorItemId = items[target]!.id;
       break;
     }
     case "jump": {
+      // Exact id only — never fall back to first/current on miss.
       const target = items.find((item) => item.id === command.itemId);
-      if (target) anchorItemId = target.id;
+      if (!target) return state;
+      anchorItemId = target.id;
       break;
     }
   }
@@ -268,7 +366,9 @@ export async function movePlayhead(
     updatedAt: now.toISOString(),
   };
   await savePresentationState(state);
-  await syncBroadcast();
+  if (options?.sync !== false) {
+    await syncBroadcast();
+  }
   return state;
 }
 
@@ -325,37 +425,52 @@ function nextEnabledItem(
  * One resolver — Broadcast Panel, retroverse.live, and all renderers call here.
  */
 export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
-  await maybeResumeBroadcastAfterVdjIdle();
-
+  // Read-only: never resume / change ownership as a side effect of GET/poll.
   const now = new Date();
   const [snapshot, sn] = await Promise.all([loadBroadcastSnapshot(), loadSundayNightsState()]);
   const vdj = buildPlayheadVdjStateFromSundayNights(sn);
 
   if (snapshot) {
-    const resolved = resolvePlayhead(snapshot.queue, snapshot.playhead, now);
-    return withCurrentBroadcast(
-      applyVdjPresentationItem(
-        {
-          onAir: resolved.item !== null,
-          presentation: { id: snapshot.presentationId, title: snapshot.title },
-          item: resolved.item,
-          itemIndex: resolved.index,
-          itemCount: resolved.enabledCount,
-          mode: snapshot.playhead.mode,
-          elapsedSeconds: resolved.elapsedSeconds,
-          nextItem: nextEnabledItem(snapshot.queue, resolved.index),
-          queue: snapshot.queue,
-          publishedAt: snapshot.publishedAt,
-          updatedAt: snapshot.updatedAt,
-          autoFollowVdj: snapshot.autoFollowVdj !== false,
-          manualTakeActive: snapshot.manualTakeActive === true,
-          vdj,
-        },
-        sn,
-        now,
-      ),
-      now,
-    );
+    const boothActive = snapshot.boothPublisher?.sessionActive === true;
+    const boothSource = snapshot.boothPublisher?.source ?? null;
+    // Booth Program is operator-driven — hold the anchor (no duration auto-walk).
+    // AUTO is out of scope for Booth V1; NEXT/PREVIOUS/JUMP move the anchor explicitly.
+    const playheadForResolve =
+      boothActive && boothSource === "Program"
+        ? { ...snapshot.playhead, mode: "paused" as const }
+        : snapshot.playhead;
+    const resolved = resolvePlayhead(snapshot.queue, playheadForResolve, now);
+    // Program: public item is the authoritative playhead (pause must keep asset).
+    // Interrupts: public item is the Booth-injected air item.
+    const boothPublicItem =
+      boothSource === "Program"
+        ? resolved.item
+        : snapshot.boothPublisher?.item ?? null;
+    const boothOnAir = boothActive && boothPublicItem != null;
+    const core: PlayheadPayloadCore = {
+      onAir: boothActive ? boothOnAir : resolved.available && resolved.item !== null,
+      presentation: { id: snapshot.presentationId, title: snapshot.title },
+      item: boothActive && boothSource !== "Program" ? boothPublicItem : resolved.item,
+      itemIndex:
+        boothActive && boothSource !== "Program"
+          ? boothPublicItem
+            ? 0
+            : -1
+          : resolved.index,
+      itemCount: resolved.enabledCount,
+      mode: snapshot.playhead.mode,
+      elapsedSeconds: resolved.elapsedSeconds,
+      nextItem: nextEnabledItem(snapshot.queue, resolved.index),
+      queue: snapshot.queue,
+      publishedAt: snapshot.publishedAt,
+      updatedAt: snapshot.updatedAt,
+      autoFollowVdj: boothActive ? false : snapshot.autoFollowVdj !== false,
+      manualTakeActive: boothActive ? boothOnAir : snapshot.manualTakeActive === true,
+      vdj,
+    };
+    // Booth session owns the air — do not let VDJ auto-follow override.
+    const resolvedCore = boothActive ? core : applyVdjPresentationItem(core, sn, now);
+    return withCurrentBroadcast(resolvedCore, now);
   }
 
   const state = await loadPresentationState();
@@ -379,7 +494,7 @@ export async function buildPlayheadPayload(): Promise<PlayheadPayload> {
   return withCurrentBroadcast(
     applyVdjPresentationItem(
       {
-        onAir: resolved.item !== null,
+        onAir: resolved.available && resolved.item !== null,
         presentation: { id: presentation.id, title: published.title },
         item: resolved.item,
         itemIndex: resolved.index,

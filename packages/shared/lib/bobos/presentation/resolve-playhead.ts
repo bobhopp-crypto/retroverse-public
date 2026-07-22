@@ -6,20 +6,30 @@
  * Auto-advance therefore happens "for free" on every read: the Studio
  * preview, the public player, and the API all compute the same answer
  * from the same stored anchor.
+ *
+ * Missing / disabled anchors fail closed — never fall back to queue index 0.
  */
 
 import type { Playhead, PresentationItem, PresentationQueue } from "./types";
 
 export type ResolvedPlayhead = {
   item: PresentationItem | null;
-  /** Index within the *enabled* items of the queue. -1 when empty. */
+  /** Index within the *enabled* items of the queue. -1 when empty or unavailable. */
   index: number;
   enabledCount: number;
   /** Seconds the current item has been on screen. */
   elapsedSeconds: number;
+  /** False when the anchor is missing/disabled — do not fabricate a current item. */
+  available: boolean;
 };
 
-const EMPTY: ResolvedPlayhead = { item: null, index: -1, enabledCount: 0, elapsedSeconds: 0 };
+const EMPTY: ResolvedPlayhead = {
+  item: null,
+  index: -1,
+  enabledCount: 0,
+  elapsedSeconds: 0,
+  available: false,
+};
 
 export function enabledItems(queue: PresentationQueue): PresentationItem[] {
   return queue.items.filter((item) => item.enabled);
@@ -29,6 +39,7 @@ export function enabledItems(queue: PresentationQueue): PresentationItem[] {
  * Resolve the current item for a queue given the stored playhead anchor.
  *
  * Rules:
+ * - Missing/null/disabled anchor: unavailable (no index-0 fallback).
  * - Paused: hold on the anchor item; elapsed clock stays at 0.
  * - Playing: consume elapsed wall time through item durations from the anchor.
  * - Duration 0 means "hold until moved manually" — walking stops there.
@@ -43,17 +54,44 @@ export function resolvePlayhead(
   const items = enabledItems(queue);
   if (items.length === 0) return EMPTY;
 
-  let index = items.findIndex((item) => item.id === playhead.anchorItemId);
-  if (index === -1) index = 0;
+  const anchorId = playhead.anchorItemId;
+  if (anchorId == null || !String(anchorId).trim()) {
+    return {
+      item: null,
+      index: -1,
+      enabledCount: items.length,
+      elapsedSeconds: 0,
+      available: false,
+    };
+  }
+
+  const index = items.findIndex((item) => item.id === anchorId);
+  if (index === -1) {
+    // Anchor points at a missing/disabled item — fail closed.
+    return {
+      item: null,
+      index: -1,
+      enabledCount: items.length,
+      elapsedSeconds: 0,
+      available: false,
+    };
+  }
 
   if (playhead.mode === "paused") {
-    return { item: items[index], index, enabledCount: items.length, elapsedSeconds: 0 };
+    return {
+      item: items[index]!,
+      index,
+      enabledCount: items.length,
+      elapsedSeconds: 0,
+      available: true,
+    };
   }
 
   const anchorMs = Date.parse(playhead.anchorStartedAt);
   let remaining = Number.isFinite(anchorMs)
     ? Math.max(0, (now.getTime() - anchorMs) / 1000)
     : 0;
+  let walkIndex = index;
 
   // Walk forward through durations. Bounded by one full pass beyond the
   // current cycle so a long-idle looping queue resolves in O(n).
@@ -61,43 +99,55 @@ export function resolvePlayhead(
     const cycle = items.reduce((sum, item) => sum + item.durationSeconds, 0);
     const holds = items.some((item) => item.durationSeconds <= 0);
     if (cycle > 0 && !holds) {
-      // Skip whole loops, then walk the remainder below.
       const offsetToAnchor = items
-        .slice(0, index)
+        .slice(0, walkIndex)
         .reduce((sum, item) => sum + item.durationSeconds, 0);
       remaining = (offsetToAnchor + remaining) % cycle;
-      index = 0;
+      walkIndex = 0;
     }
   }
 
   for (let steps = 0; steps <= items.length; steps += 1) {
-    const item = items[index];
+    const item = items[walkIndex]!;
     if (item.durationSeconds <= 0 || remaining < item.durationSeconds) {
       return {
         item,
-        index,
+        index: walkIndex,
         enabledCount: items.length,
         elapsedSeconds: Math.floor(remaining),
+        available: true,
       };
     }
     remaining -= item.durationSeconds;
-    if (index === items.length - 1) {
+    if (walkIndex === items.length - 1) {
       if (!queue.loop) {
-        // Hold on the final item once the queue runs out.
-        return { item, index, enabledCount: items.length, elapsedSeconds: Math.floor(remaining) };
+        return {
+          item,
+          index: walkIndex,
+          enabledCount: items.length,
+          elapsedSeconds: Math.floor(remaining),
+          available: true,
+        };
       }
-      index = 0;
+      walkIndex = 0;
     } else {
-      index += 1;
+      walkIndex += 1;
     }
   }
 
-  // Unreachable in practice; hold on the anchor as a safe fallback.
-  const item = items[Math.min(index, items.length - 1)];
-  return { item, index: Math.min(index, items.length - 1), enabledCount: items.length, elapsedSeconds: 0 };
+  return {
+    item: items[index]!,
+    index,
+    enabledCount: items.length,
+    elapsedSeconds: 0,
+    available: true,
+  };
 }
 
-/** Enabled-item index for prev/next/jump controls. Returns null when empty. */
+/**
+ * Enabled-item index for prev/next controls.
+ * Returns null when empty or when current index is unavailable (fail closed).
+ */
 export function stepIndex(
   enabledCount: number,
   currentIndex: number,
@@ -105,8 +155,9 @@ export function stepIndex(
   loop: boolean,
 ): number | null {
   if (enabledCount === 0) return null;
+  if (currentIndex < 0 || currentIndex >= enabledCount) return null;
   const next = currentIndex + direction;
-  if (next < 0) return loop ? enabledCount - 1 : 0;
-  if (next >= enabledCount) return loop ? 0 : enabledCount - 1;
+  if (next < 0) return loop ? enabledCount - 1 : null;
+  if (next >= enabledCount) return loop ? 0 : null;
   return next;
 }

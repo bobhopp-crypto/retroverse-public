@@ -141,6 +141,10 @@ export async function getBroadcastStatus(options?: {
 
 export async function broadcastTransport(command: PlayheadCommand): Promise<BroadcastStatus> {
   assertLocalStudio();
+  const { assertBoothLegacyMutationAllowed } = await import(
+    "@/lib/bobos/presentation/booth-authority"
+  );
+  await assertBoothLegacyMutationAllowed();
   await movePlayhead(command, "cockpit");
   return getBroadcastStatus({ forcePublicCheck: true });
 }
@@ -458,6 +462,10 @@ export async function setDeckCue(deckId: DeckId, index: number): Promise<MixerSt
   deck.currentIndex = index;
   await saveMixerState(mixer);
   if (mixer.liveDeckId === deckId) {
+    const { assertBoothLegacyMutationAllowed } = await import(
+      "@/lib/bobos/presentation/booth-authority"
+    );
+    await assertBoothLegacyMutationAllowed();
     await movePlayhead({ op: "jump", itemId: deck.playlist[index].entryId }, "cockpit");
   }
   return mixer;
@@ -468,6 +476,10 @@ export async function setDeckOutput(deckId: DeckId, output: MixerOutputId | null
   const mixer = await loadMixerState();
   deckOf(mixer, deckId).output = output;
   if (mixer.liveDeckId === deckId && output !== "website") {
+    const { assertBoothLegacyMutationAllowed } = await import(
+      "@/lib/bobos/presentation/booth-authority"
+    );
+    await assertBoothLegacyMutationAllowed();
     // Deck no longer targets the real output — release it and pause the engine.
     mixer.liveDeckId = null;
     await movePlayhead({ op: "pause" }, "cockpit");
@@ -483,6 +495,10 @@ export async function setDeckOutput(deckId: DeckId, output: MixerOutputId | null
  */
 export async function playDeck(deckId: DeckId): Promise<{ mixer: MixerState; status: BroadcastStatus }> {
   assertLocalStudio();
+  const { assertBoothLegacyMutationAllowed } = await import(
+    "@/lib/bobos/presentation/booth-authority"
+  );
+  await assertBoothLegacyMutationAllowed();
   const mixer = await loadMixerState();
   const deck = deckOf(mixer, deckId);
   if (deck.playlist.length === 0) {
@@ -518,6 +534,10 @@ export async function pauseDeck(deckId: DeckId): Promise<{ mixer: MixerState; st
   assertLocalStudio();
   const mixer = await loadMixerState();
   if (mixer.liveDeckId === deckId) {
+    const { assertBoothLegacyMutationAllowed } = await import(
+      "@/lib/bobos/presentation/booth-authority"
+    );
+    await assertBoothLegacyMutationAllowed();
     await movePlayhead({ op: "pause" }, "cockpit");
   }
   return { mixer, status: await getBroadcastStatus({ forcePublicCheck: true }) };
@@ -534,6 +554,10 @@ export async function stepDeck(
   const deck = deckOf(mixer, deckId);
 
   if (mixer.liveDeckId === deckId) {
+    const { assertBoothLegacyMutationAllowed } = await import(
+      "@/lib/bobos/presentation/booth-authority"
+    );
+    await assertBoothLegacyMutationAllowed();
     await movePlayhead({ op: direction }, "cockpit");
     const status = await getBroadcastStatus({ forcePublicCheck: true });
     const activeEntryId = status.local.item?.id ?? null;
@@ -839,6 +863,10 @@ export async function queueSequence(options: QueueSequenceOptions): Promise<Broa
 /** Return audience view to VirtualDJ auto-follow after a manual segment. */
 export async function returnBroadcastToLive(): Promise<BroadcastStatus> {
   assertLocalStudio();
+  const { assertBoothLegacyMutationAllowed } = await import(
+    "@/lib/bobos/presentation/booth-authority"
+  );
+  await assertBoothLegacyMutationAllowed();
   const { setAutoFollowVdj } = await import("@/lib/bobos/presentation/vdj-takeover");
   await setAutoFollowVdj(true);
   return getBroadcastStatus({ forcePublicCheck: true });

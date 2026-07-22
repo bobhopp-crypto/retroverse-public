@@ -7,7 +7,22 @@ import { opsStateDir } from "@/lib/ops/ops-state-path";
 import { pgSundayNightsGet, pgSundayNightsSet } from "@/lib/sunday-nights/pg-state";
 import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 
-import type { BroadcastSnapshot } from "./types";
+import type { BoothPublisherState, BroadcastSnapshot, PresentationItem } from "./types";
+
+function normalizeBoothPublisher(raw: unknown): BoothPublisherState | null {
+  if (!raw || typeof raw !== "object") return null;
+  const obj = raw as Partial<BoothPublisherState>;
+  const item =
+    obj.item && typeof obj.item === "object" && typeof (obj.item as PresentationItem).id === "string"
+      ? (obj.item as PresentationItem)
+      : null;
+  return {
+    sessionActive: obj.sessionActive === true,
+    source: typeof obj.source === "string" ? obj.source : null,
+    item,
+    ownershipAt: typeof obj.ownershipAt === "number" ? obj.ownershipAt : null,
+  };
+}
 
 /**
  * Broadcast Snapshot storage.
@@ -49,6 +64,7 @@ export function normalizeBroadcastSnapshot(raw: unknown): BroadcastSnapshot | nu
     updatedAt: typeof obj.updatedAt === "string" ? obj.updatedAt : new Date().toISOString(),
     autoFollowVdj: obj.autoFollowVdj !== false,
     manualTakeActive: obj.manualTakeActive === true,
+    boothPublisher: normalizeBoothPublisher(obj.boothPublisher),
   };
 }
 

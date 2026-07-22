@@ -160,6 +160,20 @@ export type Playhead = {
   updatedAt: string;
 };
 
+/* ── Booth Publisher (Sprint 5) ── */
+
+/**
+ * When sessionActive, The Booth owns the public playhead.
+ * Other producers (VDJ auto-follow, Mixer) must not independently publish.
+ */
+export type BoothPublisherState = {
+  sessionActive: boolean;
+  source: string | null;
+  item: PresentationItem | null;
+  /** Client ownership timestamp (ms) — rejects stale in-flight publishes. */
+  ownershipAt?: number | null;
+};
+
 /* ── Presentation State ── */
 
 /** Global engine state: which presentation is on air, and its playhead. */
@@ -186,6 +200,10 @@ export type PresentationState = {
     generatedAt: string;
     songDurationSeconds: number;
   } | null;
+  /** The Booth as sole playhead publisher for the active session. */
+  boothPublisher?: BoothPublisherState | null;
+  /** Last Booth publish key — duplicate detection / idempotency. */
+  lastBoothPublishedKey?: string | null;
 };
 
 /* ── Defaults ── */
@@ -234,6 +252,8 @@ export function defaultPresentationState(): PresentationState {
     manualTakeActive: false,
     vdjTakeoverActive: false,
     vdjStoppedAt: null,
+    boothPublisher: null,
+    lastBoothPublishedKey: null,
   };
 }
 
@@ -315,4 +335,6 @@ export type BroadcastSnapshot = {
   updatedAt: string;
   autoFollowVdj: boolean;
   manualTakeActive: boolean;
+  /** Present when The Booth owns the public playhead for this session. */
+  boothPublisher?: BoothPublisherState | null;
 };
