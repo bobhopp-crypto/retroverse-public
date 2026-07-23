@@ -52,7 +52,7 @@ export const BOBOS_PRIMARY_NAV = [
   { id: "pass-management", label: "Pass Management", href: "/bobos/pass-management" },
   { id: "producer", label: "Producer", href: "/bobos/producer" },
   { id: "presentation", label: "Presentation Control", href: "/bobos/presentation" },
-  { id: "booth", label: "Booth", href: "/bobos/booth" },
+  { id: "broadcast", label: "Broadcast Mixer", href: "/bobos/broadcast" },
   { id: "bridge", label: "Bridge", href: "/bobos/bridge" },
   { id: "pipeline", label: "Pipeline", href: "/bobos/pipeline" },
   { id: "ai", label: "AI Usage", href: "/bobos/ai" },

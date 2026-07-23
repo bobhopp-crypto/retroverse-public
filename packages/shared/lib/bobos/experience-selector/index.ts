@@ -11,8 +11,14 @@ export {
 export { loadSelectorState, saveSelectorState, setSelectedId } from "./store";
 export { getAllExperiences, getExperience } from "./sources";
 export {
-  buildSelectedPlayheadPayload,
+  alignSelectedExperiencePayload,
+  currentExperienceStageKey,
+  experiencePayloadFromPlayhead,
   playheadFromExperience,
+} from "./current-experience";
+export {
+  buildSelectedPlayheadPayload,
+  resolveCurrentExperience,
   resolveSelectedExperience,
   selectExperience,
 } from "./resolve";

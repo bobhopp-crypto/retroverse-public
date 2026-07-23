@@ -12,7 +12,7 @@ import {
   savePresentationState,
   syncBroadcast,
 } from "@/lib/bobos/presentation/store";
-import { enabledItems } from "@/lib/bobos/presentation/resolve-playhead";
+import { enabledItems, resolvePlayhead } from "@/lib/bobos/presentation/resolve-playhead";
 import { publicSiteBaseUrl } from "@/lib/bobos/presentation/push-public";
 import {
   newPresentationItem,
@@ -32,7 +32,7 @@ import {
   sequenceToDeckEntries,
   type MixerCollectionItem,
 } from "@/lib/bobos/mixer/collections";
-import { loadMixerState, saveMixerState } from "@/lib/bobos/mixer/store";
+import { loadMixerState, saveMixerState, saveNamedPlaylist, loadNamedPlaylist } from "@/lib/bobos/mixer/store";
 import { RVBA_TEMPLATES } from "@/lib/bobos/mixer/rvba-templates";
 import {
   formatAssetId,
@@ -57,6 +57,99 @@ function assertLocalStudio() {
   if (!shouldAllowOpsRoutes()) {
     throw new Error("Broadcast Panel is localhost-only.");
   }
+}
+
+/** Program-editing bridge for the Broadcast Mixer UI. */
+export async function getMixerStateForProgram(): Promise<MixerState> {
+  assertLocalStudio();
+  return loadMixerState();
+}
+
+export type ProgramTransportState = {
+  mixer: MixerState;
+  activeItemId: string | null;
+  mode: "playing" | "paused";
+  elapsedSeconds: number;
+  remainingSeconds: number | null;
+};
+
+export async function getProgramTransportState(): Promise<ProgramTransportState> {
+  assertLocalStudio();
+  const mixer = await loadMixerState();
+  const queue = await deckPlaylistToQueue(mixer.left, mixer.autoAdvanceSeconds);
+  const presentationState = await loadPresentationState();
+  const resolved = resolvePlayhead(queue, presentationState.playhead, new Date());
+  if (resolved.available && resolved.index !== mixer.left.currentIndex) {
+    mixer.left.currentIndex = resolved.index;
+    await saveMixerState(mixer);
+  }
+  const duration = resolved.item?.durationSeconds ?? null;
+  return {
+    mixer,
+    activeItemId: resolved.item?.id ?? mixer.left.playlist[mixer.left.currentIndex]?.entryId ?? null,
+    mode: resolved.available ? presentationState.playhead.mode : "paused",
+    elapsedSeconds: resolved.elapsedSeconds,
+    remainingSeconds: duration == null ? null : Math.max(0, duration - resolved.elapsedSeconds),
+  };
+}
+
+export async function stopProgramDeck(): Promise<ProgramTransportState> {
+  assertLocalStudio();
+  const mixer = await loadMixerState();
+  mixer.left.currentIndex = 0;
+  await saveMixerState(mixer);
+  const first = mixer.left.playlist[0];
+  if (first) {
+    await movePlayhead({ op: "jump", itemId: first.entryId }, "cockpit");
+    await movePlayhead({ op: "pause" }, "cockpit");
+  }
+  return getProgramTransportState();
+}
+
+export async function updateProgramEntry(
+  entryId: string,
+  patch: { durationSeconds?: number | null; loop?: boolean },
+): Promise<MixerState> {
+  assertLocalStudio();
+  const mixer = await loadMixerState();
+  const entry = mixer.left.playlist.find((item) => item.entryId === entryId);
+  if (entry) {
+    if (patch.durationSeconds !== undefined) entry.durationSeconds = patch.durationSeconds;
+    if (patch.loop !== undefined) entry.loop = patch.loop;
+    await saveMixerState(mixer);
+    await republishIfLive(mixer, "left");
+  }
+  return mixer;
+}
+
+export async function reorderProgramEntry(entryId: string, toIndex: number): Promise<MixerState> {
+  assertLocalStudio();
+  const mixer = await loadMixerState();
+  const playlist = mixer.left.playlist;
+  const fromIndex = playlist.findIndex((item) => item.entryId === entryId);
+  if (fromIndex >= 0 && toIndex >= 0 && toIndex < playlist.length && fromIndex !== toIndex) {
+    const [entry] = playlist.splice(fromIndex, 1);
+    playlist.splice(toIndex, 0, entry);
+    await saveMixerState(mixer);
+    await republishIfLive(mixer, "left");
+  }
+  return mixer;
+}
+
+export async function saveProgramPlaylist(name: string): Promise<MixerState> {
+  assertLocalStudio();
+  const mixer = await loadMixerState();
+  await saveNamedPlaylist(name, mixer.left.playlist);
+  return mixer;
+}
+
+export async function loadProgramPlaylist(name: string): Promise<MixerState> {
+  assertLocalStudio();
+  const mixer = await loadMixerState();
+  mixer.left.playlist = await loadNamedPlaylist(name);
+  mixer.left.currentIndex = 0;
+  await saveMixerState(mixer);
+  return mixer;
 }
 
 /* ── Status ── */
@@ -101,12 +194,17 @@ async function checkPublicSync(local: PlayheadPayload, force: boolean): Promise<
         const payload = (await res.json()) as PlayheadPayload;
         if (!payload.onAir && !local.onAir) {
           result = { state: "off-air", detail: "Both sites off air", checkedAt };
-        } else if (payload.item?.id === local.item?.id && payload.mode === local.mode) {
+        } else if (
+          payload.rvba?.id === local.rvba?.id &&
+          payload.broadcast?.id === local.broadcast?.id &&
+          payload.item?.id === local.item?.id &&
+          payload.mode === local.mode
+        ) {
           result = { state: "synced", detail: "Public playhead matches local", checkedAt };
         } else {
           result = {
             state: "drift",
-            detail: `Public shows "${payload.item?.title ?? "off air"}"`,
+            detail: `Public shows "${payload.rvba?.title ?? payload.item?.title ?? "off air"}"`,
             checkedAt,
           };
         }

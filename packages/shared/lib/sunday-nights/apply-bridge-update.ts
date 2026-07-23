@@ -4,8 +4,9 @@ import {
   handleVdjPlaybackStopped,
 } from "@/lib/bobos/presentation/vdj-takeover";
 import { pushBridgeLiveUpdateToPublic } from "@/lib/bobos/presentation/push-public";
+import { resolveRvtrFromVdjFilePath } from "@/lib/ops/intelligence/experience-inspector/vdj-rvtr-entries";
 
-import { resolveLiveTrack, songKeyFromPath } from "./resolve-live-track";
+import { songKeyFromPath } from "./resolve-live-track";
 import { loadSundayNightsState, saveSundayNightsState, setLiveTrack } from "./state";
 import { usePostgresSundayNightsState } from "./storage-mode";
 import type { BridgeLivePostBody, SundayNightsState } from "./types";
@@ -69,37 +70,37 @@ export async function applyBridgeLiveUpdate(
 
   await logLiveNowPlaying("track_detected", { filepath, artist, title, deck, timestamp, playing });
 
-  const resolved = await resolveLiveTrack({ filepath, artist, title });
+  const linked = await resolveRvtrFromVdjFilePath(filepath);
+  const rvtr = linked?.rvtr ?? null;
+  const resolution = linked ? "vdj-library" : "unresolved";
 
-  if (resolved.resolution === "filepath") {
-    await logLiveNowPlaying("rvtr_resolved", { rvtr: resolved.rvtr, method: "filepath", filepath });
-  } else if (resolved.resolution === "vdj-library") {
+  if (linked) {
     await logLiveNowPlaying("rvtr_resolved", {
-      rvtr: resolved.rvtr,
+      rvtr,
       method: "vdj-library",
       filepath,
-      artist,
-      title,
+      label: linked.entry.label,
     });
-  } else if (resolved.resolution === "fallback") {
-    await logLiveNowPlaying("rvtr_fallback", { rvtr: resolved.rvtr, filepath, artist, title });
   } else {
-    await logLiveNowPlaying("rvtr_unresolved", { filepath, artist, title });
+    await logLiveNowPlaying("rvtr_unresolved", {
+      filepath,
+      reason: "VirtualDJ database record has no attached RVTR label",
+    });
   }
 
   const state = await setLiveTrack(
     {
-      rvtr: resolved.rvtr,
+      rvtr,
       artist,
       title,
-      year: resolved.year,
-      coverUrl: resolved.coverUrl,
+      year: linked?.entry.year ?? null,
+      coverUrl: null,
       songKey: songKeyFromPath(filepath),
       source: "bridge",
       filepath,
       deck,
       bridgeTimestamp: timestamp,
-      resolution: resolved.resolution,
+      resolution,
     },
     { bridgePlaying: true },
   );
@@ -111,8 +112,8 @@ export async function applyBridgeLiveUpdate(
   }
 
   await logLiveNowPlaying("live_state_updated", {
-    rvtr: resolved.rvtr,
-    resolution: resolved.resolution,
+    rvtr,
+    resolution,
     deck,
     playing: true,
     updatedAt: state.updatedAt,

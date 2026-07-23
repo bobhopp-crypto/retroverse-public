@@ -78,17 +78,43 @@ function publicSourceFromChannelZero(
   return "channel-zero";
 }
 
+function payloadFromCurrentExperience(playhead: PlayheadPayload): PublicHomepagePayload {
+  const manualOverride = resolvePublicHomepageManualOverride(playhead);
+  const rvtr = playhead.rvba?.link?.id?.trim() ?? null;
+
+  return {
+    currentTrackId: rvtr,
+    live: null,
+    track: null,
+    destination: {
+      kind: "EXPERIENCE",
+      href: "/",
+    },
+    channel: null,
+    updatedAt: playhead.updatedAt,
+    publicState: {
+      version: 2,
+      source: "experience-selector",
+      servedAt: new Date().toISOString(),
+    },
+    manualOverride,
+  };
+}
+
 /**
  * Canonical public now-playing payload.
  *
- * Channel Zero resolves exactly one Experience (takeover → live signal →
- * scheduled program → default). Public V3 renders that Song Experience.
+ * When the Experience Selector has a current experience on air, retroverse.live
+ * renders that exact payload and does not fall back to Channel Zero.
  */
 export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayload> {
-  const [state, playhead] = await Promise.all([
-    loadSundayNightsState(),
-    buildPlayheadPayload(),
-  ]);
+  const playhead = await buildPlayheadPayload();
+  const manualOverride = resolvePublicHomepageManualOverride(playhead);
+  if (manualOverride) {
+    return payloadFromCurrentExperience(playhead);
+  }
+
+  const state = await loadSundayNightsState();
   const channelZero = resolveChannelExperience({ state });
   const freshLive = currentLiveSelection(state);
   const track = await loadTrackPage(channelZero.experienceId);

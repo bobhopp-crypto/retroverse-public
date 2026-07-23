@@ -1,52 +1,53 @@
 import "server-only";
 
-import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
-import type { PlayheadPayload, PlayheadPayloadCore } from "@/lib/bobos/presentation/types";
+import { pushSelectorStateToPublic } from "@/lib/bobos/presentation/push-public";
+import type { PlayheadPayload } from "@/lib/bobos/presentation/types";
 
+import {
+  alignSelectedExperiencePayload,
+  playheadFromExperience,
+} from "./current-experience";
 import { getAllExperiences, getExperience } from "./sources";
 import { loadSelectorState, setSelectedId } from "./store";
 import { pickAvailableId, type Experience, type ExperienceId } from "./types";
 
 export { pickAvailableId };
 
-function emptyCore(now: Date): PlayheadPayloadCore {
-  return {
-    onAir: false,
-    presentation: null,
-    item: null,
-    itemIndex: -1,
-    itemCount: 0,
-    mode: "paused",
-    elapsedSeconds: 0,
-    nextItem: null,
-    queue: null,
-    publishedAt: null,
-    updatedAt: now.toISOString(),
-    autoFollowVdj: false,
-    manualTakeActive: true,
-    vdj: {
-      playing: false,
-      rvtr: null,
-      takeoverActive: false,
-      resumeBroadcastAt: null,
-    },
-  };
+async function persistSelectedId(id: ExperienceId): Promise<void> {
+  const state = await setSelectedId(id);
+  await pushSelectorStateToPublic(state).catch(() => undefined);
 }
 
-/** Build a playhead payload from a common Experience (website contract). */
-export function playheadFromExperience(experience: Experience, now: Date = new Date()): PlayheadPayload {
-  const core = emptyCore(now);
-  return normalizePlayheadPayload(
-    {
-      ...core,
-      onAir: experience.available && experience.payload.rvba != null,
-      manualTakeActive: true,
-      autoFollowVdj: false,
-      broadcast: experience.payload.broadcast ?? undefined,
-      rvba: experience.payload.rvba,
-    },
-    now,
+/**
+ * Resolve the one current public experience.
+ *
+ * Returns the exact PlayheadPayload every consumer must render, plus source
+ * previews for non-selected cards.
+ */
+export async function resolveCurrentExperience(now: Date = new Date()): Promise<{
+  selectedId: ExperienceId;
+  experience: Experience;
+  experiences: Experience[];
+  currentExperience: PlayheadPayload;
+  failedOver: boolean;
+}> {
+  const resolved = await resolveSelectedExperience(now);
+  const currentExperience = playheadFromExperience(resolved.experience, now);
+  const experiences = alignSelectedExperiencePayload(
+    resolved.experiences,
+    resolved.selectedId,
+    currentExperience,
   );
+  const experience =
+    experiences.find((entry) => entry.id === resolved.selectedId) ?? resolved.experience;
+
+  return {
+    selectedId: resolved.selectedId,
+    experience,
+    experiences,
+    currentExperience,
+    failedOver: resolved.failedOver,
+  };
 }
 
 /**
@@ -61,21 +62,10 @@ export async function resolveSelectedExperience(now: Date = new Date()): Promise
 }> {
   const state = await loadSelectorState();
   const experiences = await getAllExperiences(now);
-  const availableId = pickAvailableId(experiences, state.selectedId);
-
-  let selectedId = state.selectedId;
-  let failedOver = false;
-
-  if (availableId && availableId !== state.selectedId) {
-    const current = experiences.find((e) => e.id === state.selectedId);
-    if (!current?.available) {
-      await setSelectedId(availableId);
-      selectedId = availableId;
-      failedOver = true;
-    }
-  } else if (availableId) {
-    selectedId = availableId;
-  }
+  // The operator's click is authoritative. A transient source gap must not
+  // silently route the audience back to Program or change the selector.
+  const selectedId = state.selectedId;
+  const failedOver = false;
 
   const experience =
     experiences.find((e) => e.id === selectedId) ??
@@ -88,8 +78,8 @@ export async function resolveSelectedExperience(now: Date = new Date()): Promise
 export async function buildSelectedPlayheadPayload(
   now: Date = new Date(),
 ): Promise<PlayheadPayload> {
-  const { experience } = await resolveSelectedExperience(now);
-  return playheadFromExperience(experience, now);
+  const { currentExperience } = await resolveCurrentExperience(now);
+  return currentExperience;
 }
 
 /** Operator selects an experience. Unavailable ids are rejected. */
@@ -98,35 +88,42 @@ export async function selectExperience(id: ExperienceId): Promise<{
   selectedId: ExperienceId;
   experience: Experience;
   experiences: Experience[];
+  currentExperience: PlayheadPayload;
   error?: string;
 }> {
   const now = new Date();
   const experiences = await getAllExperiences(now);
   const target = experiences.find((e) => e.id === id);
   if (!target) {
+    const { currentExperience } = await resolveCurrentExperience(now);
     return {
       ok: false,
       selectedId: (await loadSelectorState()).selectedId,
       experience: await getExperience(id, now),
       experiences,
+      currentExperience,
       error: "Unknown experience",
     };
   }
   if (!target.available) {
+    const { currentExperience } = await resolveCurrentExperience(now);
     return {
       ok: false,
       selectedId: (await loadSelectorState()).selectedId,
       experience: target,
       experiences,
+      currentExperience,
       error: `${target.name} is unavailable`,
     };
   }
 
-  await setSelectedId(id);
+  await persistSelectedId(id);
+  const resolved = await resolveCurrentExperience(now);
   return {
     ok: true,
     selectedId: id,
-    experience: target,
-    experiences,
+    experience: resolved.experience,
+    experiences: resolved.experiences,
+    currentExperience: resolved.currentExperience,
   };
 }

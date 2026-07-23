@@ -19,7 +19,7 @@
 
 import "server-only";
 
-import { findSlideByRvbaId, slideMediaUrl } from "@/lib/bobos/importer";
+import { findSlideByRvbaId, slideMediaUrl } from "@/lib/bobos/importer/lookup";
 import {
   newPresentationItem,
   type PresentationItem,
@@ -51,6 +51,7 @@ function durationForPlaybackMode(
   playbackMode: PlaybackMode,
   autoAdvanceSeconds: number,
 ): number {
+  if (entry.durationSeconds != null) return Math.max(0, entry.durationSeconds);
   if (playbackMode === "manual") return 0;
   if (entry.kind === "track" || entry.kind === "vdj-live") {
     return ASSET_KIND_DEFAULT_DURATION[entry.kind];

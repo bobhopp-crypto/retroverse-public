@@ -350,7 +350,7 @@ export function buildPlayheadVdjStateFromSundayNights(sn: SundayNightsState): Pl
 
   return {
     playing,
-    rvtr: sn.currentTrackId,
+    rvtr: sn.currentTrackId ?? sn.live?.rvtr ?? null,
     takeoverActive,
     resumeBroadcastAt,
   };

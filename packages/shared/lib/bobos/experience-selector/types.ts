@@ -5,6 +5,7 @@
 
 import type { CurrentBroadcast } from "@/lib/broadcast/current-broadcast";
 import type { Rvba } from "@/lib/broadcast/rvba";
+import type { PlayheadPayloadCore, PresentationQueue } from "@/lib/bobos/presentation/types";
 
 export const EXPERIENCE_IDS = [
   "program",
@@ -39,6 +40,10 @@ export type Experience = {
     rvba: Rvba | null;
     broadcast: CurrentBroadcast | null;
   };
+  /** Canonical runtime state for this source, preserved through selection. */
+  playhead?: PlayheadPayloadCore;
+  /** Operator workspace data; the public player never needs this. */
+  queue?: PresentationQueue | null;
 };
 
 /** Entire selector store. */

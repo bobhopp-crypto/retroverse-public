@@ -1,8 +1,6 @@
 import "server-only";
 
 import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
-import { loadBroadcastSnapshot } from "@/lib/bobos/presentation/broadcast-snapshot";
-import { resolvePlayhead } from "@/lib/bobos/presentation/resolve-playhead";
 import type {
   PlayheadPayloadCore,
   PlayheadVdjState,
@@ -15,6 +13,11 @@ import {
 } from "@/lib/bobos/presentation/vdj-takeover";
 import { currentLiveSelection } from "@/lib/sunday-nights/live-freshness";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
+import { loadMixerState } from "@/lib/bobos/mixer/store";
+import { deckPlaylistToQueue } from "@/lib/bobos/mixer/playback-adapter";
+import { loadPresentationState } from "@/lib/bobos/presentation/store";
+import { resolvePlayhead } from "@/lib/bobos/presentation/resolve-playhead";
+import { loadBroadcastSnapshot } from "@/lib/bobos/presentation/broadcast-snapshot";
 
 import {
   EXPERIENCE_NAMES,
@@ -87,74 +90,38 @@ function toExperience(
       rvba: payload.rvba,
       broadcast: payload.broadcast,
     },
+    playhead: core,
+    queue: extras?.queue ?? null,
   };
-}
-
-async function resolveProgramItem(now: Date): Promise<{
-  item: PresentationItem | null;
-  extras: Partial<PlayheadPayloadCore>;
-}> {
-  const snapshot = await loadBroadcastSnapshot();
-  if (snapshot) {
-    const resolved = resolvePlayhead(
-      snapshot.queue,
-      { ...snapshot.playhead, mode: "paused" },
-      now,
-    );
-    return {
-      item: resolved.item,
-      extras: {
-        presentation: { id: snapshot.presentationId, title: snapshot.title },
-        itemIndex: resolved.index,
-        itemCount: resolved.enabledCount,
-        mode: "paused",
-        elapsedSeconds: resolved.elapsedSeconds,
-        queue: snapshot.queue,
-        publishedAt: snapshot.publishedAt,
-        updatedAt: snapshot.updatedAt,
-      },
-    };
-  }
-
-  // Dynamic import avoids cycle: presentation/store → resolve → sources.
-  const { getPresentation, loadPresentationState } = await import(
-    "@/lib/bobos/presentation/store"
-  );
-  const state = await loadPresentationState();
-  const activeId = state.activePresentationId;
-  const presentation = activeId ? await getPresentation(activeId) : null;
-  const published = presentation?.published ?? null;
-  if (!presentation || !published) {
-    return { item: null, extras: { updatedAt: state.playhead.updatedAt } };
-  }
-
-  const resolved = resolvePlayhead(published.queue, state.playhead, now);
-  return {
-    item: resolved.item,
-    extras: {
-      presentation: { id: presentation.id, title: published.title },
-      itemIndex: resolved.index,
-      itemCount: resolved.enabledCount,
-      mode: state.playhead.mode,
-      elapsedSeconds: resolved.elapsedSeconds,
-      queue: published.queue,
-      publishedAt: published.publishedAt,
-      updatedAt: state.playhead.updatedAt,
-    },
-  };
-}
-
-function findQueueItem(
-  queue: { items: PresentationItem[] } | null | undefined,
-  match: (item: PresentationItem) => boolean,
-): PresentationItem | null {
-  if (!queue) return null;
-  return queue.items.find((item) => item.enabled && match(item)) ?? null;
 }
 
 async function programExperience(now: Date): Promise<Experience> {
-  const { item, extras } = await resolveProgramItem(now);
-  return toExperience("program", item != null, item, now, extras);
+  const mixer = await loadMixerState();
+  const deck = mixer.left;
+  const localQueue = await deckPlaylistToQueue(deck, mixer.autoAdvanceSeconds);
+  const presentationState = await loadPresentationState();
+  const publicSnapshot = localQueue.items.length ? null : await loadBroadcastSnapshot();
+  const queue = publicSnapshot?.queue ?? localQueue;
+  const playhead = publicSnapshot?.playhead ?? presentationState.playhead;
+  const resolved = resolvePlayhead(queue, playhead, now);
+  const fallbackIndex = queue.items.length
+    ? Math.min(Math.max(0, deck.currentIndex), queue.items.length - 1)
+    : -1;
+  const itemIndex = resolved.available ? resolved.index : fallbackIndex;
+  const item = resolved.available ? resolved.item : itemIndex >= 0 ? queue.items[itemIndex] ?? null : null;
+  const nextItem = itemIndex >= 0 ? queue.items[itemIndex + 1] ?? null : null;
+
+  return toExperience("program", item != null, item, now, {
+    presentation: item ? { id: publicSnapshot?.presentationId ?? "broadcast-mixer-program", title: "Program" } : null,
+    itemIndex,
+    itemCount: queue.items.length,
+    mode: resolved.available ? playhead.mode : "paused",
+    elapsedSeconds: resolved.available ? resolved.elapsedSeconds : 0,
+    nextItem,
+    queue,
+    publishedAt: null,
+    updatedAt: now.toISOString(),
+  });
 }
 
 async function virtualdjExperience(now: Date): Promise<Experience> {
@@ -168,8 +135,13 @@ async function virtualdjExperience(now: Date): Promise<Experience> {
 
   const sn = await loadSundayNightsState();
   const vdj = buildPlayheadVdjStateFromSundayNights(sn);
-  // Fresh bridge selection only — never sticky/cached sn.live after stop or stale timestamp.
-  const live = currentLiveSelection(sn, now.getTime());
+  // Use the fresh bridge selection while VDJ is reporting. If the bridge
+  // pauses, disconnects, or stops, retain the last known track so the
+  // selected input remains a stable audience source until another input is
+  // clicked.
+  const freshLive = currentLiveSelection(sn, now.getTime());
+  const cachedLive = sn.live?.title?.trim() && sn.live?.artist?.trim() ? sn.live : null;
+  const live = freshLive ?? cachedLive;
   const hasIdentity = Boolean(live?.title?.trim() && live?.artist?.trim());
   if (!hasIdentity || !live) {
     return toExperience("virtualdj", false, null, now, { vdj });
@@ -183,18 +155,18 @@ async function virtualdjExperience(now: Date): Promise<Experience> {
     `${live.artist.trim()}|${live.title.trim()}`;
   item.id = `${VDJ_LIVE_ITEM_ID}:${trackStamp}`;
   let elapsedSeconds = 0;
-  const startedAt = live.bridgeTimestamp?.trim();
-  if (startedAt) {
+  const startedAt = freshLive?.bridgeTimestamp?.trim();
+  if (startedAt && (vdj.playing || sn.bridgePlaying === true)) {
     elapsedSeconds = Math.max(0, Math.floor((now.getTime() - Date.parse(startedAt)) / 1000));
   }
 
   return toExperience("virtualdj", true, item, now, {
     itemIndex: -1,
-    mode: vdj.playing || sn.bridgePlaying === true ? "playing" : "paused",
+    mode: freshLive && (vdj.playing || sn.bridgePlaying === true) ? "playing" : "paused",
     elapsedSeconds,
     vdj: {
       ...vdj,
-      playing: vdj.playing || sn.bridgePlaying === true,
+      playing: Boolean(freshLive && (vdj.playing || sn.bridgePlaying === true)),
       rvtr: live.rvtr?.trim() || vdj.rvtr,
     },
     updatedAt: live.bridgeTimestamp?.trim() || sn.updatedAt || now.toISOString(),
@@ -205,53 +177,25 @@ async function stageExperience(
   id: "announcement" | "giveaway",
   now: Date,
 ): Promise<Experience> {
-  const { extras } = await resolveProgramItem(now);
-  const queue = extras.queue;
-
-  if (id === "announcement") {
-    const fromQueue = findQueueItem(
-      queue,
-      (item) =>
-        item.type === "announcement" ||
-        item.title.toLowerCase().includes("announcement"),
-    );
-    const item =
-      fromQueue ??
-      stageItem(
-        "experience-announcement",
-        "announcement",
-        "Announcement",
-        "Retroverse",
-        "Stand by for an announcement.",
-      );
-    return toExperience(id, true, item, now, {
-      ...extras,
-      itemIndex: 0,
-      itemCount: 1,
-      mode: "paused",
-    });
-  }
-
-  const fromQueue = findQueueItem(
-    queue,
-    (item) =>
-      item.title.toLowerCase().includes("giveaway") ||
-      item.body.toLowerCase().includes("giveaway"),
+  // AUX inputs are independent workspaces. They never read or borrow the
+  // Program queue; future drag/drop mutations will update only this input.
+  const isAuxOne = id === "announcement";
+  const item = stageItem(
+    isAuxOne ? "aux-1-ready" : "aux-2-ready",
+    "announcement",
+    isAuxOne ? "AUX 1 Ready" : "AUX 2 Ready",
+    "Retroverse",
+    isAuxOne ? "AUX 1 queue" : "AUX 2 queue",
   );
-  const item =
-    fromQueue ??
-    stageItem(
-      "experience-giveaway",
-      "announcement",
-      "Giveaway",
-      "Retroverse",
-      "Stand by for the giveaway.",
-    );
   const experience = toExperience(id, true, item, now, {
-    ...extras,
+    presentation: {
+      id: isAuxOne ? "aux-1" : "aux-2",
+      title: isAuxOne ? "AUX 1" : "AUX 2",
+    },
     itemIndex: 0,
     itemCount: 1,
     mode: "paused",
+    queue: { items: [item], loop: true },
   });
   if (experience.payload.rvba) {
     return {

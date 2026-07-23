@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import {
   isExperienceId,
-  resolveSelectedExperience,
+  resolveCurrentExperience,
   selectExperience,
 } from "@/lib/bobos/experience-selector";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
@@ -13,17 +13,19 @@ function forbidden() {
   return NextResponse.json({ ok: false, error: "Not available" }, { status: 404 });
 }
 
-/** Snapshot: selected id + all experience previews. */
+/** Snapshot: selected id, source previews, and the one current experience payload. */
 export async function GET() {
   if (!shouldAllowOpsRoutes()) return forbidden();
 
   try {
-    const { selectedId, experience, experiences } = await resolveSelectedExperience();
+    const { selectedId, experience, experiences, currentExperience } =
+      await resolveCurrentExperience();
     return NextResponse.json({
       ok: true,
       selectedId,
       experience,
       experiences,
+      currentExperience,
     });
   } catch (error) {
     return NextResponse.json(

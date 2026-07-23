@@ -321,11 +321,11 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
   },
   broadcast: {
     id: "broadcast",
-    title: "Broadcast Control",
+    title: "Broadcast Mixer",
     group: "devices",
     defaultStatus: "nominal",
-    summary: "Choose which experience appears on retroverse.live.",
-    primaryAction: { label: "Experience Selector", href: "/bobos/booth" },
+    summary: "Select which of four inputs feeds retroverse.live.",
+    primaryAction: { label: "Open Broadcast Mixer", href: "/bobos/broadcast" },
     secondaryActions: [
       { label: "Open Local", href: "http://localhost:3100/" },
       { label: "Open Public", href: "https://retroverse.live/" },
@@ -365,7 +365,7 @@ export function getPanelDefinition(id: PanelTypeId): PanelDefinition {
 export const COCKPIT_COMMAND_BAR = [
   { label: "Documentation", href: "/bobos/docs" },
   { label: "RV Directory", href: "/bobos/rv-directory" },
-  { label: "Experience Selector", href: "/bobos/booth" },
+  { label: "Broadcast Mixer", href: "/bobos/broadcast" },
   { label: "Credentials", href: "/bobos/credentials" },
   { label: "Event Producer", href: "/bobos/producer" },
   { label: "Design Builder", href: "/bobos/passes" },
