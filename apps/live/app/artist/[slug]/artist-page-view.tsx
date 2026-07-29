@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { ArtistExplorerSongRows, type ArtistExplorerSongRow } from "@/app/artist/[slug]/artist-explorer-song-rows";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
+import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import type { ArtistCoverageSummary } from "@/lib/artist/load-artist-coverage-summary";
 import type { ArtistPageData } from "@/lib/artist/types";
@@ -283,6 +284,7 @@ export function ArtistPageView({ data, coverage }: Props) {
           </Link>
         </footer>
       </div>
+      <ExternalDiscoveryLinks entityType="artist" artist={data.displayName} />
     </Rv2PublicShell>
   );
 }

@@ -8,11 +8,17 @@ import type { ChannelExperienceSource } from "@/lib/channel-zero/types";
 import { resolveChannelExperience } from "@/lib/channel-zero/resolve-channel-experience";
 import {
   resolveLiveDestination,
+  type LiveDestination,
   type SundayNightsCurrentPayload,
 } from "@/lib/sunday-nights/live-payload";
 import { currentLiveSelection } from "@/lib/sunday-nights/live-freshness";
+import { resolveLiveTrack, songKeyFromPath } from "@/lib/sunday-nights/resolve-live-track";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
+import type { SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
+import { loadPublicSongPayload, type PublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 import { loadTrackPage } from "@/lib/track/load-track-page";
+
+const RE_RVTR = /^RVTR\d{6}$/i;
 
 export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0",
@@ -35,6 +41,8 @@ export type PublicHomepageManualOverride = {
 export type PublicHomepagePayload = SundayNightsCurrentPayload & {
   /** Selected experience from the Experience Selector (when on air). */
   manualOverride?: PublicHomepageManualOverride | null;
+  /** Unified public song payload for the current track when RVTR is known. */
+  publicSong?: PublicSongPayload | null;
 };
 
 /** Show the selected experience on the homepage when the selector has one on air. */
@@ -78,18 +86,91 @@ function publicSourceFromChannelZero(
   return "channel-zero";
 }
 
-function payloadFromCurrentExperience(playhead: PlayheadPayload): PublicHomepagePayload {
-  const manualOverride = resolvePublicHomepageManualOverride(playhead);
-  const rvtr = playhead.rvba?.link?.id?.trim() ?? null;
+function liveSelectionFromPresentation(
+  playhead: PlayheadPayload,
+  bridgeLive: SundayNightsLiveSelection | null,
+): SundayNightsLiveSelection | null {
+  const rvba = playhead.rvba;
+  const title = rvba?.title?.trim() || bridgeLive?.title?.trim() || "";
+  const artist = rvba?.subtitle?.trim() || bridgeLive?.artist?.trim() || "";
+  if (!title || !artist) return bridgeLive;
 
   return {
-    currentTrackId: rvtr,
-    live: null,
-    track: null,
-    destination: {
-      kind: "EXPERIENCE",
-      href: "/",
-    },
+    rvtr: bridgeLive?.rvtr ?? null,
+    artist,
+    title,
+    year: bridgeLive?.year ?? null,
+    coverUrl: bridgeLive?.coverUrl ?? null,
+    songKey: bridgeLive?.songKey ?? null,
+    source: bridgeLive?.source ?? "manual",
+    filepath: bridgeLive?.filepath ?? null,
+    deck: bridgeLive?.deck ?? null,
+    bridgeTimestamp: bridgeLive?.bridgeTimestamp ?? null,
+    resolution: bridgeLive?.resolution ?? null,
+  };
+}
+
+async function payloadFromCurrentExperience(playhead: PlayheadPayload): Promise<PublicHomepagePayload> {
+  const manualOverride = resolvePublicHomepageManualOverride(playhead);
+  const linkId = playhead.rvba?.link?.id?.trim() ?? null;
+  const state = await loadSundayNightsState();
+  const live = liveSelectionFromPresentation(playhead, state.live);
+  const title = live?.title?.trim() ?? "";
+  const artist = live?.artist?.trim() ?? "";
+
+  let currentTrackId = linkId;
+  let track = null as Awaited<ReturnType<typeof loadTrackPage>>;
+  let publicSong: PublicSongPayload | null = null;
+  let destination: LiveDestination = { kind: "EXPERIENCE", href: "/" };
+
+  if (linkId && RE_RVTR.test(linkId)) {
+    const rvtr = linkId.toUpperCase();
+    currentTrackId = rvtr;
+    [track, publicSong] = await Promise.all([
+      loadTrackPage(rvtr),
+      loadPublicSongPayload(rvtr).catch(() => null),
+    ]);
+    destination = await resolveLiveDestination(rvtr);
+  } else if (linkId?.toLowerCase().startsWith("vdj:") && title && artist) {
+    const filepath = linkId.slice(4);
+    const resolved = await resolveLiveTrack({ filepath, artist, title }).catch(() => null);
+    if (resolved?.rvtr) {
+      currentTrackId = resolved.rvtr;
+      [track, publicSong] = await Promise.all([
+        loadTrackPage(resolved.rvtr),
+        loadPublicSongPayload(resolved.rvtr).catch(() => null),
+      ]);
+      destination = await resolveLiveDestination(resolved.rvtr);
+      if (live) {
+        live.rvtr = resolved.rvtr;
+        live.year = resolved.year ?? publicSong?.year ?? live.year;
+        live.coverUrl = resolved.coverUrl ?? publicSong?.coverUrl ?? live.coverUrl;
+        live.resolution = resolved.resolution;
+      }
+    } else {
+      destination = await resolveLiveDestination(linkId);
+      if (live) {
+        live.filepath = filepath;
+        live.songKey = songKeyFromPath(filepath);
+        live.source = "bridge";
+        live.resolution = "vdj-library";
+      }
+    }
+  } else if (linkId) {
+    destination = await resolveLiveDestination(linkId);
+  }
+
+  if (live && publicSong) {
+    live.rvtr = publicSong.rvtr;
+    live.year = publicSong.year ?? live.year;
+    live.coverUrl = publicSong.coverUrl ?? live.coverUrl;
+  }
+
+  return {
+    currentTrackId,
+    live,
+    track: publicSong?.track ?? track,
+    destination,
     channel: null,
     updatedAt: playhead.updatedAt,
     publicState: {
@@ -98,6 +179,7 @@ function payloadFromCurrentExperience(playhead: PlayheadPayload): PublicHomepage
       servedAt: new Date().toISOString(),
     },
     manualOverride,
+    publicSong,
   };
 }
 
@@ -111,13 +193,17 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
   const playhead = await buildPlayheadPayload();
   const manualOverride = resolvePublicHomepageManualOverride(playhead);
   if (manualOverride) {
-    return payloadFromCurrentExperience(playhead);
+    return await payloadFromCurrentExperience(playhead);
   }
 
   const state = await loadSundayNightsState();
   const channelZero = resolveChannelExperience({ state });
   const freshLive = currentLiveSelection(state);
-  const track = await loadTrackPage(channelZero.experienceId);
+  const rvtr = channelZero.experienceId;
+  const [track, publicSong] = await Promise.all([
+    loadTrackPage(rvtr),
+    loadPublicSongPayload(rvtr).catch(() => null),
+  ]);
   const destination = await resolveLiveDestination(channelZero.experienceId);
 
   const liveOverlay =
@@ -128,7 +214,7 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
   const channelZeroPayload: SundayNightsCurrentPayload = {
     currentTrackId: channelZero.experienceId,
     live: liveOverlay,
-    track,
+    track: publicSong?.track ?? track,
     destination,
     channel: null,
     channelZero,
@@ -140,5 +226,8 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
     },
   };
 
-  return applyPublicHomepageManualOverride(channelZeroPayload, playhead);
+  return {
+    ...applyPublicHomepageManualOverride(channelZeroPayload, playhead),
+    publicSong,
+  };
 }

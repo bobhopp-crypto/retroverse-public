@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
+import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
 import { buildChartJourneyStory } from "@/lib/chart-journey/chart-journey-story";
 import { buildChartJourney } from "@/lib/chart-journey/build-chart-journey";
@@ -644,6 +645,11 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
           </section>
         ) : null}
       </article>
+      <ExternalDiscoveryLinks
+        entityType="album"
+        artist={data.artistName}
+        album={data.title}
+      />
     </Rv2PublicShell>
   );
 }

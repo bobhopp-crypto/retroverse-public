@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 
-import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
-import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { UniversalRenderer } from "@/components/universal-renderer/UniversalRenderer";
-import { rvtrFromNowPlayingRvba } from "@/lib/broadcast/rvba";
-import { playheadStageKey } from "@/lib/broadcast/normalize-playhead";
-import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
-import { resolveCanonicalSongExperience } from "@/lib/retroverse/experience/resolve-canonical-song";
-import { loadTrackPage } from "@/lib/track/load-track-page";
-import type { UniversalPackagePayload } from "@/lib/universal-renderer/load-package";
+import { PublicHomepageView } from "@/app/components/public-homepage-view";
+import { loadFeaturedYearCovers } from "@/lib/home/load-featured-year-covers";
+import { loadHomepageDocument } from "@/lib/home/load-homepage-document";
+import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
+import { resolveHomepageRotationRvtr } from "@/lib/home/homepage-rvtr";
+import { buildHomepageHero } from "@/lib/ops/event-control/homepage-hero";
+import { loadEventControlConfig } from "@/lib/ops/event-control/store";
+import { trackPageHref } from "@/lib/search/entity-routes";
+import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 
-import { AudiencePlayheadRefresh } from "./live-audience/AudiencePlayheadRefresh";
-import { RetroverseLivePlayer } from "./retroverse-live/player";
+import "@/app/retroverse-2/live/retroverse-live-2.css";
+import "@/app/live-home.css";
+import "@/app/public-homepage.css";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -22,80 +23,47 @@ export const metadata: Metadata = {
   description: "Press Play for the Past.",
 };
 
-/** retroverse.live — the one audience experience published by Broadcast Mixer. */
+/** retroverse.live — fixed six-panel homepage; current song drives the first four panels. */
 export default async function HomePage() {
-  const playhead = await buildPlayheadPayload();
-  const rvtr = playhead.rvba
-    ? rvtrFromNowPlayingRvba(playhead.rvba, playhead.broadcast)
-    : null;
-  let track: Awaited<ReturnType<typeof loadTrackPage>> = null;
-  let fallbackPayload: UniversalPackagePayload | null = null;
-  if (rvtr) {
-    try {
-      const song = await resolveCanonicalSongExperience(rvtr);
-      if (song.tier === "graph") {
-        track = song.track;
-      } else if (song.tier === "package" || song.tier === "vdj") {
-        track = await loadTrackPage(song.payload.rvtr);
-        fallbackPayload = track ? null : song.payload;
+  void loadFeaturedYearCovers();
+
+  const [initial, eventConfig, rotationRvtr] = await Promise.all([
+    loadPublicCurrentSongPayload(),
+    loadEventControlConfig().catch(() => null),
+    resolveHomepageRotationRvtr(),
+  ]);
+
+  const hero = eventConfig ? buildHomepageHero(eventConfig) : null;
+
+  const featuredRvtr =
+    initial.publicSong?.rvtr ??
+    (initial.currentTrackId?.match(/^RVTR\d{6}$/i) ? initial.currentTrackId.toUpperCase() : null) ??
+    rotationRvtr;
+
+  const featuredDocument = featuredRvtr ? await loadHomepageDocument(featuredRvtr).catch(() => null) : null;
+  const featuredPayload = featuredRvtr ? await loadPublicSongPayload(featuredRvtr).catch(() => null) : null;
+
+  const featuredExperience = featuredDocument
+    ? {
+        title: featuredDocument.title,
+        subtitle: featuredDocument.artist,
+        href: trackPageHref(featuredDocument.rvtr),
+        coverUrl: featuredDocument.coverUrl ?? featuredDocument.heroUrl ?? null,
       }
-    } catch {
-      track = null;
-    }
-  }
-  const refresh = <AudiencePlayheadRefresh initialKey={playheadStageKey(playhead)} />;
-
-  if (track) {
-    const year = track.releaseYear ??
-      (track.firstChartDate ? Number(track.firstChartDate.slice(0, 4)) : null) ??
-      track.albums[0]?.releaseYear ?? null;
-    return (
-      <>
-        {refresh}
-        <Rv2PublicShell
-          className="rv2-song"
-          yearsHref={track.rvYearHref ?? (year ? `/rv/${year}` : "/search")}
-        >
-          <PublicSongExperience rvtr={track.rvtr} trackData={track} />
-        </Rv2PublicShell>
-      </>
-    );
-  }
-
-  if (fallbackPayload) {
-    return (
-      <>
-        {refresh}
-        <UniversalRenderer
-          artist={fallbackPayload.artist}
-          title={fallbackPayload.title}
-          cards={fallbackPayload.cards}
-          theme={fallbackPayload.theme}
-        />
-      </>
-    );
-  }
-
-  if (playhead.rvba?.type === "now-playing" && !rvtr) {
-    console.error("[retroverse-live] Published now-playing output is missing canonical RVTR", {
-      rvbaId: playhead.rvba.id,
-      linkId: playhead.rvba.link?.id ?? null,
-    });
-    return (
-      <>
-        {refresh}
-        <main aria-live="polite">
-          <h1>Unable to display Song Journey</h1>
-          <p>Published Output is missing its canonical RVTR identity.</p>
-        </main>
-      </>
-    );
-  }
+    : featuredPayload
+      ? {
+          title: featuredPayload.title,
+          subtitle: featuredPayload.artist,
+          href: featuredPayload.links.songHref,
+          coverUrl: featuredPayload.coverUrl,
+        }
+      : null;
 
   return (
-    <>
-      {refresh}
-      <RetroverseLivePlayer initial={playhead} />
-    </>
+    <PublicHomepageView
+      initial={initial}
+      hero={hero}
+      featuredExperience={featuredExperience}
+    />
   );
 }

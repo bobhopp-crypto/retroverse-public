@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
+import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import {
   isUsableChartHistory,
   normalizeArtistChartHistory,
@@ -301,6 +302,8 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
           <Link href={`/rv/${rvYear}`}>Search music</Link>
         </footer>
       ) : null}
+
+      <ExternalDiscoveryLinks entityType="year" year={rvYear} />
     </div>
   );
 }
