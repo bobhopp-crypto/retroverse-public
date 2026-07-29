@@ -166,6 +166,14 @@
   line-height: 1.1;
 }
 
+.rv2-song__limited-notice {
+  margin: 0.65rem 0 0;
+  max-width: 36rem;
+  color: var(--rv2-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
 .rv2-song__hero-summary {
   margin: 0.42rem 0 0;
   color: var(--ex-ink-soft);
@@ -751,6 +759,24 @@
   font-weight: 700;
 }
 .rv-song-credits{display:grid;gap:.55rem;padding:1rem}.rv-song-credits div{display:grid;grid-template-columns:minmax(7rem,.35fr) 1fr;gap:.75rem;border-bottom:1px solid var(--rv2-line);padding-bottom:.45rem}.rv-song-credits dt{font-weight:800;color:var(--rv2-ink-soft)}.rv-song-credits dd{margin:0;color:var(--rv2-ink)}.rv-song-media{display:flex;flex-wrap:wrap;gap:.55rem;padding:1rem}.rv-song-media a{display:inline-flex;align-items:center;min-height:44px;padding:.55rem .8rem;border:1px solid var(--ex-purple-dim);border-radius:.45rem;color:var(--rv2-ink);text-decoration:none}.rv-song-media a:focus-visible{outline:2px solid var(--ex-magenta);outline-offset:2px}
+
+.rv2-song .rv-exp-discover__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-top: 0.2rem;
+  color: rgba(156, 196, 255, 0.78);
+  font-size: clamp(0.65rem, 2.6vw, 0.72rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.rv2-song .rv-exp-discover__year::before {
+  content: "·";
+  margin-right: 0.35rem;
+  color: rgba(108, 165, 255, 0.9);
+}
 
 .rv2-song__rvtr-id {
   margin: 0.35rem 0 0;

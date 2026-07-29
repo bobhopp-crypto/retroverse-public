@@ -10,10 +10,11 @@ import type { PublicSongPayload } from "@/lib/retroverse/experience/load-public-
 import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
 import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
-import { normalizeSongContent } from "@/lib/retroverse/song-content";
+import { preparePublicSongSections, filterPublicText } from "@/lib/retroverse/experience/public-song-display";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
 import "./public-song-experience.css";
+import "@/components/retroverse/experience/song-experience.css";
 
 type Props = {
   payload?: PublicSongPayload;
@@ -116,10 +117,19 @@ export async function PublicSongExperience({
   const journeyWeeks = track?.trajectoryWeeks.length ?? 0;
   const moment = track ? definingMoment(track, year) : null;
   const storyText = track ? chartStory(track) : "";
-  const content = track ? normalizeSongContent(track) : { sections: [] };
+  const sections = preparePublicSongSections({
+    storyText,
+    storyCards: payload.storyCards,
+    trivia: payload.trivia,
+    timeline: payload.timeline,
+  });
+  const hasStory = sections.storyParagraphs.length > 0 || sections.storyCards.length > 0;
   const artistHref = payload.links.artistHref;
   const albumHref = payload.links.albumHref ?? primaryAlbum?.href ?? null;
   const yearHref = payload.links.yearHref;
+  const isVdjOnly = payload.resolutionTier === "vdj-only";
+  const hasExploreLinks =
+    journeyWeeks > 0 || hasStory || Boolean(moment?.href) || Boolean(albumHref) || Boolean(artistHref) || Boolean(yearHref && year);
 
   const rootClass = ["rv2-song", embedded ? "rv2-song--embedded" : null, className]
     .filter(Boolean)
@@ -201,18 +211,18 @@ export async function PublicSongExperience({
             {track?.chartRunLabel ? (
               <p className="rv2-song__subtitle">{track.chartRunLabel}</p>
             ) : null}
+            {isVdjOnly ? (
+              <p className="rv2-song__limited-notice">
+                Retroverse has limited internal information for this song. Use the links below to explore further.
+              </p>
+            ) : null}
             <p className="rv2-song__rvtr-id">{payload.rvtr}</p>
-            {!embedded ? (
+            {!embedded && hasExploreLinks ? (
               <>
-                {content.sections.find((section) => section.id === "song-journey")?.summary ? (
-                  <p className="rv2-song__summary">
-                    {content.sections.find((section) => section.id === "song-journey")?.summary}
-                  </p>
-                ) : null}
                 <div className="rv2-song__continue-label">Explore This Song</div>
                 <nav className="rv2-song__explore-links" aria-label="Explore this song">
                   {journeyWeeks > 0 ? <a href="#song-journey">Journey</a> : null}
-                  {storyText || payload.storyCards.length ? <a href="#song-story">Story</a> : null}
+                  {hasStory ? <a href="#song-story">Story</a> : null}
                   {moment?.href ? <Link href={moment.href} prefetch>Chart</Link> : null}
                   {albumHref ? <Link href={albumHref} prefetch>Album</Link> : null}
                   {artistHref ? <Link href={artistHref} prefetch>Artist</Link> : null}
@@ -263,26 +273,18 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {storyText ? (
-            <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-song-story-heading">
+          {hasStory ? (
+            <section id="song-story" className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-song-story-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-song-story-heading">The Story</h2>
               </header>
               <div className="rv-exp-story__cards">
-                <article className="rv-exp-story__card">
-                  <p className="rv-exp-story__body">{storyText}</p>
-                </article>
-              </div>
-            </section>
-          ) : null}
-
-          {payload.storyCards.length > 0 ? (
-            <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-package-story-heading">
-              <header className="rv-exp-chapter__head">
-                <h2 id="rv-package-story-heading">Story Cards</h2>
-              </header>
-              <div className="rv-exp-story__cards">
-                {payload.storyCards.map((card) => (
+                {sections.storyParagraphs.map((paragraph) => (
+                  <article key={paragraph.slice(0, 48)} className="rv-exp-story__card">
+                    <p className="rv-exp-story__body">{paragraph}</p>
+                  </article>
+                ))}
+                {sections.storyCards.map((card) => (
                   <article key={`${card.headline}-${card.body.slice(0, 24)}`} className="rv-exp-story__card">
                     <h3>{card.headline}</h3>
                     <p className="rv-exp-story__body">{card.body}</p>
@@ -297,26 +299,26 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {payload.trivia.length > 0 ? (
+          {sections.trivia.length > 0 ? (
             <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-trivia-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-trivia-heading">TRIVIA</h2>
               </header>
               <ul className="rv-song-trivia">
-                {payload.trivia.map((fact) => (
+                {sections.trivia.map((fact) => (
                   <li key={fact}>{fact}</li>
                 ))}
               </ul>
             </section>
           ) : null}
 
-          {payload.timeline.length > 0 ? (
+          {sections.timeline.length > 0 ? (
             <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-timeline-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-timeline-heading">TIMELINE</h2>
               </header>
               <ol className="rv-song-timeline">
-                {payload.timeline.map((event) => (
+                {sections.timeline.map((event) => (
                   <li key={event.id}>
                     <strong>
                       {event.year ? `${event.year} · ` : ""}
@@ -350,9 +352,11 @@ export async function PublicSongExperience({
                       >
                         <span className="rv-exp-discover__copy">
                           <span className="rv-exp-discover__title">{song.title}</span>
-                          <span>
-                            Same artist
-                            {song.releaseYear ? ` · ${song.releaseYear}` : ""}
+                          <span className="rv-exp-discover__meta">
+                            <span className="rv-exp-discover__reason">Same artist</span>
+                            {song.releaseYear ? (
+                              <span className="rv-exp-discover__year">{song.releaseYear}</span>
+                            ) : null}
                           </span>
                         </span>
                       </Link>
@@ -362,21 +366,21 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {localContent?.sections?.overview?.text ? (
+          {localContent?.sections?.overview?.text && filterPublicText(localContent.sections.overview.text) ? (
             <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-overview-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-overview-heading">OVERVIEW</h2>
               </header>
-              <p className="rv-exp-story__body">{localContent.sections.overview.text}</p>
+              <p className="rv-exp-story__body">{filterPublicText(localContent.sections.overview.text)}</p>
             </section>
           ) : null}
 
-          {localContent?.sections?.whyItMattered?.text ? (
+          {localContent?.sections?.whyItMattered?.text && filterPublicText(localContent.sections.whyItMattered.text) ? (
             <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-why-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-why-heading">WHY IT MATTERED</h2>
               </header>
-              <p className="rv-exp-story__body">{localContent.sections.whyItMattered.text}</p>
+              <p className="rv-exp-story__body">{filterPublicText(localContent.sections.whyItMattered.text)}</p>
             </section>
           ) : null}
 

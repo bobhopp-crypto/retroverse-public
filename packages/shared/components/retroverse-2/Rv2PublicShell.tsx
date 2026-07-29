@@ -25,6 +25,8 @@ export type Rv2PublicShellProps = {
   minimalNavigation?: boolean;
   /** Broadcast frame for the Channel Zero home and Search shell. */
   broadcastChrome?: boolean;
+  /** Top live banner — off on entity pages that already use global nav. */
+  showTopBroadcastBanner?: boolean;
   /** Optional replacement for the persistent bottom banner contents. */
   bottomBannerContent?: ReactNode;
   bottomBannerAriaLabel?: string;
@@ -35,6 +37,7 @@ export function Rv2PublicShell({
   className,
   lead,
   broadcastChrome = true,
+  showTopBroadcastBanner = true,
   bottomBannerContent,
   bottomBannerAriaLabel,
 }: Rv2PublicShellProps) {
@@ -46,12 +49,14 @@ export function Rv2PublicShell({
     .filter(Boolean)
     .join(" ");
 
+  const topBanner = broadcastChrome && showTopBroadcastBanner;
+
   return (
     <main className={mainClassName}>
       {lead}
       <div className="rv2-live__grid-glow" aria-hidden />
 
-      {broadcastChrome ? (
+      {topBanner ? (
         <header className="rv2-broadcast-banner rv2-broadcast-banner--top" aria-label="Retroverse live banner">
           <Link href="/" className="rv2-broadcast-banner__status">
             Retroverse Live

@@ -20,8 +20,15 @@ import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
 import type { RendererCard } from "@/lib/universal-renderer/card-types";
 import type { UniversalPackagePayload } from "@/lib/universal-renderer/load-package";
 import { loadUniversalPackage } from "@/lib/universal-renderer/load-package";
-import { loadVdjBasePackageByRvtr } from "@/lib/universal-renderer/load-vdj-base";
+import {
+  loadBundledVdjRvtrPackage,
+  loadVdjBasePackageByRvtr,
+} from "@/lib/universal-renderer/load-vdj-base";
 import type { ExternalDiscoveryQuery } from "@/lib/public/external-search";
+import {
+  sanitizeDisplayAlbumTitle,
+  trimDisplayField,
+} from "@/lib/retroverse/experience/public-song-display";
 
 const RVTR_RE = /^RVTR\d{6}$/i;
 
@@ -34,6 +41,25 @@ export type PublicSongVdjHint = {
 };
 
 export type PublicSongResolutionStatus = "graph" | "package" | "vdj" | "partial" | "empty";
+
+/** Patron-facing resolution tier for routing and partial-page UI. */
+export type PublicSongResolutionTier = "canonical" | "fallback" | "vdj-only" | "unresolved";
+
+export function publicSongResolutionTier(
+  resolution: PublicSongResolutionStatus,
+): PublicSongResolutionTier {
+  switch (resolution) {
+    case "graph":
+      return "canonical";
+    case "package":
+      return "fallback";
+    case "vdj":
+    case "partial":
+      return "vdj-only";
+    default:
+      return "unresolved";
+  }
+}
 
 export type PublicSongStoryCard = {
   headline: string;
@@ -65,6 +91,7 @@ export type PublicSongPayload = {
   };
   externalDiscovery: ExternalDiscoveryQuery;
   resolution: PublicSongResolutionStatus;
+  resolutionTier: PublicSongResolutionTier;
   warnings: string[];
   resolverPath: string[];
 };
@@ -124,6 +151,21 @@ function albumFromVdjCards(cards: RendererCard[] | null | undefined): string | n
   return null;
 }
 
+async function loadVdjFallbackPackage(rvtr: string): Promise<{
+  payload: UniversalPackagePayload | null;
+  resolverStep: "vdj:loadVdjBasePackageByRvtr" | "vdj:loadBundledVdjRvtrPackage" | null;
+}> {
+  const live = await loadVdjBasePackageByRvtr(rvtr);
+  if (live) {
+    return { payload: live, resolverStep: "vdj:loadVdjBasePackageByRvtr" };
+  }
+  const bundled = await loadBundledVdjRvtrPackage(rvtr);
+  if (bundled) {
+    return { payload: bundled, resolverStep: "vdj:loadBundledVdjRvtrPackage" };
+  }
+  return { payload: null, resolverStep: null };
+}
+
 function buildPayload(
   rvtr: string,
   input: {
@@ -132,6 +174,7 @@ function buildPayload(
     universalCards: RendererCard[] | null;
     universalPackage: UniversalPackagePayload | null;
     vdjPayload: UniversalPackagePayload | null;
+    vdjResolverStep: "vdj:loadVdjBasePackageByRvtr" | "vdj:loadBundledVdjRvtrPackage" | null;
     localContent: LocalSongContent | null;
     vdjHint: PublicSongVdjHint | null;
   },
@@ -139,12 +182,13 @@ function buildPayload(
   const warnings: string[] = [];
   const resolverPath: string[] = [];
 
-  const { track, songPackage, universalCards, universalPackage, vdjPayload, localContent, vdjHint } = input;
+  const { track, songPackage, universalCards, universalPackage, vdjPayload, vdjResolverStep, localContent, vdjHint } =
+    input;
 
   if (track) resolverPath.push("graph:loadTrackPage");
   if (songPackage) resolverPath.push("package:loadSongPackage");
   if (universalCards?.length) resolverPath.push("package:loadUniversalPackage");
-  if (vdjPayload) resolverPath.push("vdj:loadVdjBasePackageByRvtr");
+  if (vdjResolverStep) resolverPath.push(vdjResolverStep);
   if (vdjHint?.title || vdjHint?.artist) resolverPath.push("vdj:runtime-hint");
 
   const vdjMeta: PublicSongVdjHint | null = vdjPayload
@@ -165,6 +209,8 @@ function buildPayload(
         }
       : null;
 
+  const storyCards = extractStoryCards(songPackage);
+
   const title =
     track?.title?.trim() ||
     songPackage?.metadata.title?.trim() ||
@@ -173,18 +219,17 @@ function buildPayload(
     "";
 
   const artist =
-    track?.artistName?.trim() ||
-    songPackage?.metadata.artist?.trim() ||
-    vdjPayload?.artist?.trim() ||
-    vdjHint?.artist?.trim() ||
+    trimDisplayField(track?.artistName) ||
+    trimDisplayField(songPackage?.metadata.artist) ||
+    trimDisplayField(vdjPayload?.artist) ||
+    trimDisplayField(vdjHint?.artist) ||
     "";
 
   const album =
-    track?.primaryAlbum?.title?.trim() ||
-    albumTitleFromPackage(songPackage) ||
-    albumFromVdjCards(vdjPayload?.cards) ||
-    albumFromVdjCards(universalCards) ||
-    vdjHint?.album?.trim() ||
+    sanitizeDisplayAlbumTitle(track?.primaryAlbum?.title) ||
+    sanitizeDisplayAlbumTitle(albumTitleFromPackage(songPackage)) ||
+    sanitizeDisplayAlbumTitle(albumFromVdjCards(vdjPayload?.cards)) ||
+    sanitizeDisplayAlbumTitle(vdjHint?.album) ||
     null;
 
   const year =
@@ -202,7 +247,7 @@ function buildPayload(
 
   const artistHref = track?.artistHref ?? null;
   const albumHref = track?.primaryAlbum?.href ?? null;
-  const yearHref = track?.rvYearHref ?? (year ? `/rv/${year}` : null);
+  const yearHref = track?.rvYearHref ?? null;
 
   if (!title || !artist) {
     if (!title) warnings.push("missing-title");
@@ -228,7 +273,7 @@ function buildPayload(
     localContent,
     trivia: extractTrivia(songPackage),
     timeline: extractTimeline(songPackage),
-    storyCards: extractStoryCards(songPackage),
+    storyCards,
     packageCards: universalCards,
     universalPackage: input.universalPackage,
     vdjPackage: vdjPayload,
@@ -247,6 +292,7 @@ function buildPayload(
       year,
     },
     resolution,
+    resolutionTier: publicSongResolutionTier(resolution),
     warnings,
     resolverPath,
   };
@@ -264,16 +310,17 @@ async function loadPublicSongPayloadImpl(
       universalCards: null,
       universalPackage: null,
       vdjPayload: null,
+      vdjResolverStep: null,
       localContent: null,
       vdjHint: vdjHint ?? null,
     });
   }
 
-  const [track, songPackage, universalPackage, vdjPayload, localContent] = await Promise.all([
+  const [track, songPackage, universalPackage, vdjFallback, localContent] = await Promise.all([
     loadTrackPage(rvtr),
     loadSongPackage(rvtr),
     loadUniversalPackage(rvtr),
-    loadVdjBasePackageByRvtr(rvtr),
+    loadVdjFallbackPackage(rvtr),
     loadApprovedLocalSongContent(rvtr),
   ]);
 
@@ -282,7 +329,8 @@ async function loadPublicSongPayloadImpl(
     songPackage,
     universalCards: universalPackage?.cards ?? null,
     universalPackage,
-    vdjPayload,
+    vdjPayload: vdjFallback.payload,
+    vdjResolverStep: vdjFallback.resolverStep,
     localContent,
     vdjHint: vdjHint ?? null,
   });
@@ -291,5 +339,6 @@ async function loadPublicSongPayloadImpl(
 export const loadPublicSongPayload = cache(loadPublicSongPayloadImpl);
 
 export function isPublicSongPayloadRenderable(payload: PublicSongPayload): boolean {
-  return payload.resolution !== "empty" && Boolean(payload.title.trim() && payload.artist.trim());
+  if (payload.resolutionTier === "unresolved") return false;
+  return Boolean(payload.title.trim() || payload.artist.trim());
 }

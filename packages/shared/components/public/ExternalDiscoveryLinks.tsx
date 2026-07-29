@@ -52,10 +52,10 @@ export function ExternalDiscoveryLinks({
             href={link.href!}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`${link.label} — opens search in a new tab`}
           >
             {link.label}
-            <span aria-hidden> ↗</span>
-            <span className="sr-only">Opens {link.label} search in a new tab</span>
+            <span aria-hidden="true"> ↗</span>
           </a>
         ))}
       </div>

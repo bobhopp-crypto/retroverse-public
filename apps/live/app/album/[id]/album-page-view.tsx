@@ -362,7 +362,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
   const songMilestones = buildSongMilestones(data.breakoutSongs);
 
   return (
-    <Rv2PublicShell className="rv2-album rv2-album-editorial" activeNav="search">
+    <Rv2PublicShell className="rv2-album rv2-album-editorial" activeNav="search" showTopBroadcastBanner={false}>
       <article className="album-ed" aria-label={`${data.title} album experience`}>
         <header className="album-ed__hero">
           <RetroverseBack

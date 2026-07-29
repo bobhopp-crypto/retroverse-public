@@ -1,6 +1,19 @@
+import { existsSync } from "fs";
 import { join } from "path";
 
 import { retroverseDataRoot } from "@/lib/retroverse-data-root";
+
+function resolveRepoDataPath(...segments: string[]): string {
+  let dir = process.cwd();
+  for (let i = 0; i < 6; i += 1) {
+    const candidate = join(dir, "data", ...segments);
+    if (existsSync(candidate)) return candidate;
+    const parent = join(dir, "..");
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return join(process.cwd(), "data", ...segments);
+}
 
 export function intelligenceRoot(): string {
   return join(retroverseDataRoot(), "ops", "intelligence");
@@ -27,7 +40,7 @@ export function bundledSongPackageIndexPath(): string {
 }
 
 export function bundledVdjRvtrIndexPath(): string {
-  return join(process.cwd(), "data", "ops", "vdj-rvtr-index.json");
+  return resolveRepoDataPath("ops", "vdj-rvtr-index.json");
 }
 
 export function bundledDeckIndexPath(): string {

@@ -26,8 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       return { title: "Song — Retroverse" };
     }
     return {
-      title: `${payload.title} — Retroverse`,
-      description: `${payload.title} by ${payload.artist} — chart journey, story, and discovery.`,
+      title: `${payload.title || payload.artist} — Retroverse`,
+      description: payload.title && payload.artist
+        ? `${payload.title} by ${payload.artist} — chart journey, story, and discovery.`
+        : `${payload.title || payload.artist} — song discovery on Retroverse.`,
     };
   } catch {
     return { title: "Song — Retroverse" };
@@ -51,7 +53,7 @@ export default async function Retroverse2SongPage({ params, searchParams }: Prop
       error: error instanceof Error ? error.message : String(error),
     });
     return (
-      <Rv2PublicShell className="rv2-song" yearsHref="/search">
+      <Rv2PublicShell className="rv2-song" yearsHref="/search" showTopBroadcastBanner={false}>
         <main className="rv-song-empty">
           <p className="rv-song-empty__eyebrow">Retroverse</p>
           <h1 className="rv-song-empty__title">This song is temporarily unavailable</h1>
@@ -73,7 +75,7 @@ export default async function Retroverse2SongPage({ params, searchParams }: Prop
   const yearHref = payload.links.yearHref ?? (payload.year ? `/rv/${payload.year}` : "/search");
 
   return (
-    <Rv2PublicShell className="rv2-song" yearsHref={yearHref}>
+    <Rv2PublicShell className="rv2-song" yearsHref={yearHref} showTopBroadcastBanner={false}>
       <PublicSongExperience payload={payload} traceEnabled={traceEnabled} />
     </Rv2PublicShell>
   );

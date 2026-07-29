@@ -91,7 +91,7 @@ export function ArtistPageView({ data, coverage }: Props) {
     related.length === 0;
 
   return (
-    <Rv2PublicShell className="rv2-artist rv2-explorer" activeNav="search">
+    <Rv2PublicShell className="rv2-artist rv2-explorer" activeNav="search" showTopBroadcastBanner={false}>
       <div className="explorer artist-v1">
         <header className="artist-v1__hero" aria-label={`${data.displayName} artist page`}>
           <RetroverseBack

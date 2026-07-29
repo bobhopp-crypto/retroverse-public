@@ -19,6 +19,7 @@ const target = path.join(root, "apps", "live", "data");
 const SUBSETS = [
   "ops/studio",
   "ops/retroverse-map.json",
+  "ops/vdj-rvtr-index.json",
   "sunday-nights",
   "rvbr",
   "album-chart-features.json",
