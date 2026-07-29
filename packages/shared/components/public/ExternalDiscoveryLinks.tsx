@@ -1,5 +1,5 @@
 import {
-  externalDiscoveryQuery,
+  discoveryQueryForProvider,
   externalSearchHref,
   type ExternalDiscoveryEntityType,
   type ExternalDiscoveryQuery,
@@ -32,10 +32,9 @@ export function ExternalDiscoveryLinks({
   className,
 }: Props) {
   const queryInput: ExternalDiscoveryQuery = { entityType, title, artist, album, year };
-  const query = externalDiscoveryQuery(queryInput);
   const links = PROVIDERS.map((provider) => ({
     ...provider,
-    href: externalSearchHref(provider.kind, query),
+    href: externalSearchHref(provider.kind, discoveryQueryForProvider(provider.kind, queryInput)),
   })).filter((entry) => entry.href);
 
   if (!links.length) return null;

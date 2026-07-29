@@ -18,6 +18,55 @@ function cleanParts(parts: Array<string | null | undefined>): string {
     .replace(/\s+/g, " ");
 }
 
+function normalizeDiscoveryTerm(value: string | null | undefined): string {
+  return (value ?? "").trim().replace(/\s+/g, " ");
+}
+
+function quoteDiscoveryTerm(value: string | null | undefined): string | null {
+  const normalized = normalizeDiscoveryTerm(value);
+  if (!normalized) return null;
+  return `"${normalized}"`;
+}
+
+/** Quoted, entity-aware Wikipedia search text — not used for other providers. */
+export function wikipediaDiscoveryQuery(input: ExternalDiscoveryQuery): string {
+  const title = normalizeDiscoveryTerm(input.title);
+  const artist = normalizeDiscoveryTerm(input.artist);
+  const album = normalizeDiscoveryTerm(input.album);
+  const year =
+    input.year != null && String(input.year).trim()
+      ? normalizeDiscoveryTerm(String(input.year))
+      : "";
+
+  switch (input.entityType) {
+    case "song": {
+      const parts = [quoteDiscoveryTerm(title), quoteDiscoveryTerm(artist)].filter(Boolean) as string[];
+      return parts.join(" ");
+    }
+    case "artist": {
+      return quoteDiscoveryTerm(artist || title) ?? "";
+    }
+    case "album": {
+      const albumTerm = quoteDiscoveryTerm(album || title);
+      const artistTerm = quoteDiscoveryTerm(artist);
+      const parts = [albumTerm, artistTerm].filter(Boolean) as string[];
+      return parts.join(" ");
+    }
+    case "year":
+      return cleanParts([year, "music"]);
+    default:
+      return "";
+  }
+}
+
+export function discoveryQueryForProvider(
+  kind: ExternalSearchKind,
+  input: ExternalDiscoveryQuery,
+): string {
+  if (kind === "wikipedia") return wikipediaDiscoveryQuery(input);
+  return externalDiscoveryQuery(input);
+}
+
 export function publicSearchQuery(...parts: Array<string | null | undefined>): string {
   return cleanParts(parts);
 }
