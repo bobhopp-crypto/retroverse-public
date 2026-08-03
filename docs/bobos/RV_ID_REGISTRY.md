@@ -40,6 +40,7 @@ Reserved for later (not yet implemented — see `docs/studio/` planning notes): 
 | RV 01-01 | BobOS Cockpit | `/bobos` |
 | RV 01-02 | Runtime | Cockpit panel `retroverse-runtime` — monitors/restarts services once BobOS is already running |
 | RV 01-03 | Broadcast Control | Cockpit panel `broadcast` |
+| RV 01-21 | Song Requests | `/bobos/song-requests` — local live-request operator screen |
 | RV 01-04 | VirtualDJ Bridge | `/bobos/bridge` |
 | RV 01-05 | Operations Directory | `/ops` |
 | RV 01-06 | Operations Hub | `/ops/hub` *(directory; route TBD)* |

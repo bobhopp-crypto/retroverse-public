@@ -79,6 +79,11 @@ export type CockpitRuntimeHealthData = {
   responseMs: number | null;
 };
 
+export type CockpitSongRequestsHealthData = {
+  available: boolean;
+  label: "Available" | "Unavailable";
+};
+
 export type CockpitPanelData = {
   publicHomepage: CockpitPublicHomepageData;
   passClaims: CockpitPassClaimsData;
@@ -86,6 +91,7 @@ export type CockpitPanelData = {
   liveDisplay: CockpitLiveDisplayData;
   catalogIntegrity: CockpitCatalogIntegrityData;
   runtime: CockpitRuntimeHealthData;
+  songRequests: CockpitSongRequestsHealthData;
 };
 
 const EMPTY_PUBLIC_HOMEPAGE: CockpitPublicHomepageData = {
@@ -138,6 +144,11 @@ const EMPTY_RUNTIME_HEALTH: CockpitRuntimeHealthData = {
   httpStatus: null,
   statusApiOk: false,
   responseMs: null,
+};
+
+const EMPTY_SONG_REQUESTS_HEALTH: CockpitSongRequestsHealthData = {
+  available: false,
+  label: "Unavailable",
 };
 
 const LIVE_MODE_LABELS: Record<string, string> = {
@@ -436,6 +447,9 @@ export async function loadCockpitPanelData(): Promise<CockpitPanelData> {
       loadCatalogIntegrityData(),
       loadRuntimeAppHealth(),
     ]);
+  const songRequests = runtime.httpStatus !== null
+    ? { available: true, label: "Available" as const }
+    : EMPTY_SONG_REQUESTS_HEALTH;
 
   return {
     publicHomepage,
@@ -444,5 +458,6 @@ export async function loadCockpitPanelData(): Promise<CockpitPanelData> {
     liveDisplay,
     catalogIntegrity,
     runtime,
+    songRequests,
   };
 }

@@ -340,6 +340,14 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     primaryAction: { label: "Open Runtime", href: "/bobos/runtime" },
     secondaryActions: [{ label: "Open Live", href: "http://localhost:3100/" }],
   },
+  "song-requests": {
+    id: "song-requests",
+    title: "Song Requests",
+    group: "devices",
+    defaultStatus: "offline",
+    summary: "Review and manage live audience requests",
+    primaryAction: { label: "Open Song Requests", href: "http://localhost:3000/bobos/song-requests" },
+  },
   "graph-bridge": {
     id: "graph-bridge",
     title: "Album Link Panel",
@@ -375,5 +383,6 @@ export const COCKPIT_COMMAND_BAR = [
   { label: "AI Workbench", href: "/ops/intelligence" },
   { label: "Terminal", href: "/ops/atlas/scripts" },
   { label: "VirtualDJ", href: "/ops/browser-plus" },
+  { label: "Song Requests", href: "http://localhost:3000/bobos/song-requests", panelType: "song-requests" },
   { label: "Printer", href: "/bobos/passes" },
 ] as const;

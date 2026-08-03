@@ -15,6 +15,22 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get("host");
   const { pathname } = request.nextUrl;
 
+  if (pathname === "/ops/song-requests") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/bobos/song-requests";
+    return NextResponse.redirect(url);
+  }
+
+  if (pathname === "/bobos/song-requests" || pathname.startsWith("/bobos/song-requests/")) {
+    if (!shouldAllowOpsRoutes(host)) return blockLocalOnlyRoute(request);
+    if (!isOpsEnabled(host)) return new NextResponse("Not found", { status: 404 });
+    if (opsGateCookieValue(request)) return NextResponse.next();
+    const url = request.nextUrl.clone();
+    url.pathname = "/internal/ops-pin";
+    url.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
+    return NextResponse.redirect(url);
+  }
+
   if (
     pathname === "/local" ||
     pathname.startsWith("/local/") ||
