@@ -19,17 +19,10 @@ export type FactoryBrowserRow = {
   canonicalPreflight?: HomePageCanonicalPreflight;
 };
 
-/** Operator-facing states only. */
-export type OperatorStatus = "READY" | "PREPARING" | "REVIEW" | "COMPLETE" | "NEEDS ATTENTION";
+export type OperatorStatus = "READY" | "REVIEW" | "COMPLETE" | "NEEDS ATTENTION";
 
-export type FactoryAction =
-  | "EXTRACT 4 FRAMES"
-  | "PREPARE ARTWORK"
-  | "GENERATE ARTWORK"
-  | "REGENERATE ARTWORK"
-  | "APPROVE HOMEPAGE"
-  | "OPEN HOMEPAGE"
-  | "NEXT VIDEO";
+/** V1 exposes only frame review and record-only approval actions. */
+export type FactoryAction = "APPROVE HOMEPAGE" | "CHOOSE DIFFERENT FRAME" | "OPEN HOMEPAGE" | "NEXT VIDEO";
 
 export type FactoryViewModel = {
   identity: {
@@ -48,24 +41,34 @@ export type FactoryViewModel = {
   };
   status: OperatorStatus;
   statusReason: string;
-  sourceVideo: { available: boolean; thumbnailHref: string | null; durationSeconds: number | null };
+  sourceVideo: {
+    available: boolean;
+    thumbnailHref: string | null;
+    posterHref: string | null;
+    durationSeconds: number | null;
+  };
   frameEvidence: {
-    state: "available" | "absent" | "pending" | "failed";
+    state: "available" | "absent";
     contactSheetHref: string | null;
     frameCount: number;
-  };
-  artwork: {
-    available: boolean;
-    previewHref: string | null;
-    reviewState: "none" | "pending-review" | "approved" | "rejected";
   };
   homepage: {
     available: boolean;
     previewHref: string | null;
     approved: boolean;
   };
+  magazineMode: boolean;
+  heroFrame: {
+    available: boolean;
+    previewHref: string | null;
+    timestamp: number | null;
+    reason: string | null;
+  };
   primaryAction: FactoryAction;
+  secondaryAction: FactoryAction | null;
+  nextVideoIsPrimary: boolean;
   actionEnabled: boolean;
+  secondaryActionEnabled: boolean;
   actionHint: string;
 };
 
@@ -90,8 +93,18 @@ export function homePageJobFor(
   return jobs.find((job) => job.rvtr === row.rvtr) ?? null;
 }
 
+function hasSelectedHeroFrame(job: IssueGenerationMonitorJob | null): boolean {
+  return Boolean(job?.magazineHeroFrame?.available);
+}
+
+function v1ReviewState(job: IssueGenerationMonitorJob | null): "pending-review" | "approved" | "rejected" {
+  return job?.reviewState === "approved" || job?.reviewState === "rejected" ? job.reviewState : "pending-review";
+}
+
 /**
- * Map detailed checkpoint / eligibility into five operator states.
+ * V1 status is intentionally limited to local video eligibility, selected real
+ * frame, and record-only review state. Experimental artwork/pilot fields are
+ * retained in the monitor for archive compatibility but never determine this UI.
  */
 export function operatorStatusFor(
   row: FactoryBrowserRow,
@@ -100,103 +113,63 @@ export function operatorStatusFor(
   if (!isProductionEligible(row)) {
     return { status: "NEEDS ATTENTION", reason: eligibilityReason(row) };
   }
-
-  if (!job || job.origin === "prototype") {
-    return { status: "READY", reason: "Eligible · no production artifacts yet" };
+  if (!hasSelectedHeroFrame(job)) {
+    return { status: "READY", reason: "Select a real hero frame" };
   }
-
-  if (job.status === "pending") {
-    return { status: "PREPARING", reason: "Preparation in progress" };
+  if (v1ReviewState(job) === "approved") {
+    return { status: "COMPLETE", reason: "Homepage approval recorded" };
   }
-
-  if (job.status === "failed" || job.status === "skipped") {
-    return { status: "NEEDS ATTENTION", reason: job.reason ?? "Production step failed" };
-  }
-
-  if (job.status === "succeeded") {
-    const review = job.generatedOutput?.reviewState;
-    if (review === "approved") {
-      return { status: "COMPLETE", reason: "Homepage artwork approved" };
-    }
-    if (review === "rejected") {
-      return { status: "REVIEW", reason: job.generatedOutput?.reviewReason ?? "Marked for regeneration" };
-    }
-    if (job.generatedOutput?.available) {
-      return { status: "REVIEW", reason: "Artwork ready for operator review" };
-    }
-    if (job.frameSelection?.contactSheetAvailable) {
-      return { status: "READY", reason: "Frames ready · artwork not generated" };
-    }
-    return { status: "NEEDS ATTENTION", reason: job.reason ?? "Output incomplete" };
-  }
-
-  return { status: "READY", reason: "Eligible for homepage production" };
+  return { status: "REVIEW", reason: "Selected frame ready · awaiting approval" };
 }
 
 function actionFor(
   status: OperatorStatus,
-  job: IssueGenerationMonitorJob | null,
   publicReady: boolean,
-): { action: FactoryAction; enabled: boolean; hint: string } {
+): {
+  action: FactoryAction;
+  enabled: boolean;
+  hint: string;
+  secondary: FactoryAction | null;
+  secondaryEnabled: boolean;
+  nextVideoIsPrimary: boolean;
+} {
   if (status === "NEEDS ATTENTION") {
-    const retryable = job?.status === "failed";
     return {
-      action: "EXTRACT 4 FRAMES",
-      enabled: false,
-      hint: retryable
-        ? "Retry available in a later phase · see status reason"
-        : "Fix the attention reason before continuing",
+      action: "NEXT VIDEO",
+      enabled: true,
+      hint: "Resolve the attention reason before selecting a frame",
+      secondary: null,
+      secondaryEnabled: false,
+      nextVideoIsPrimary: true,
     };
   }
-
-  if (status === "PREPARING") {
-    return { action: "PREPARE ARTWORK", enabled: false, hint: "Preparation in progress" };
+  if (status === "READY") {
+    return {
+      action: "CHOOSE DIFFERENT FRAME",
+      enabled: true,
+      hint: "Choose an existing real video frame",
+      secondary: "NEXT VIDEO",
+      secondaryEnabled: true,
+      nextVideoIsPrimary: false,
+    };
   }
-
   if (status === "COMPLETE") {
     return {
       action: "OPEN HOMEPAGE",
-      enabled: Boolean(job?.previewHref),
-      hint: job?.previewHref
-        ? "Open approved homepage preview"
-        : "Approved · public homepage preview not wired yet",
-    };
-  }
-
-  if (status === "REVIEW") {
-    if (job?.generatedOutput?.reviewState === "rejected") {
-      return {
-        action: "REGENERATE ARTWORK",
-        enabled: false,
-        hint: "Regeneration not wired in Phase 1 · review existing artwork",
-      };
-    }
-    return {
-      action: "APPROVE HOMEPAGE",
-      enabled: publicReady,
-      hint: publicReady
-        ? "Record approval · does not publish"
-        : "Song route required before approve",
-    };
-  }
-
-  // READY
-  const hasFrames = Boolean(job?.frameSelection?.contactSheetAvailable);
-  const hasArtwork = Boolean(job?.generatedOutput?.available);
-  if (hasArtwork) {
-    return { action: "APPROVE HOMEPAGE", enabled: publicReady, hint: "Artwork available for review" };
-  }
-  if (hasFrames) {
-    return {
-      action: "PREPARE ARTWORK",
-      enabled: false,
-      hint: "Frames ready · Ollama prepare not wired in Phase 1",
+      enabled: true,
+      hint: "Open the approved local homepage preview",
+      secondary: "CHOOSE DIFFERENT FRAME",
+      secondaryEnabled: true,
+      nextVideoIsPrimary: false,
     };
   }
   return {
-    action: "EXTRACT 4 FRAMES",
-    enabled: false,
-    hint: "Frame extraction not wired in Phase 1 · inspect existing evidence when available",
+    action: "APPROVE HOMEPAGE",
+    enabled: publicReady,
+    hint: publicReady ? "Record approval · does not publish" : "Song route required before approve",
+    secondary: "CHOOSE DIFFERENT FRAME",
+    secondaryEnabled: true,
+    nextVideoIsPrimary: false,
   };
 }
 
@@ -207,11 +180,13 @@ export function factoryViewModelFor(
   const { status, reason } = operatorStatusFor(row, job);
   const publicReady = row.canonicalPreflight?.publicReady ?? Boolean(row.rvtr);
   const warnings = row.canonicalPreflight?.warnings ?? [];
-  const { action, enabled, hint } = actionFor(status, job, publicReady);
-  const frameAvailable = Boolean(job?.frameSelection?.contactSheetAvailable);
-  const frameFailed = status === "NEEDS ATTENTION" && /frame|sample/i.test(reason);
-  const artworkAvailable = Boolean(job?.generatedOutput?.available);
-  const approved = job?.generatedOutput?.reviewState === "approved";
+  const { action, enabled, hint, secondary, secondaryEnabled, nextVideoIsPrimary } = actionFor(status, publicReady);
+  const rvtr = row.rvtr;
+  const heroAvailable = hasSelectedHeroFrame(job);
+  const approved = v1ReviewState(job) === "approved";
+  const heroFrameHref = heroAvailable && rvtr ? `/api/ops/issue-generation/hero-frame?rvtr=${rvtr}` : null;
+  const previewHref = heroAvailable && rvtr ? `/bobos/browser-plus/preview/${rvtr}?mode=magazine` : null;
+  const sourceHref = rvtr ? `/api/ops/issue-generation/source-frame?rvtr=${rvtr}` : null;
 
   return {
     identity: {
@@ -233,25 +208,31 @@ export function factoryViewModelFor(
     sourceVideo: {
       available: Boolean(row.fileExists && row.isVideo),
       thumbnailHref: row.thumbnailUrl,
+      posterHref: heroFrameHref ?? sourceHref,
       durationSeconds: row.lengthSeconds,
     },
     frameEvidence: {
-      state: frameAvailable ? "available" : frameFailed ? "failed" : status === "PREPARING" ? "pending" : "absent",
-      contactSheetHref: frameAvailable && row.rvtr ? `/api/ops/issue-generation/frame-sheet?rvtr=${row.rvtr}` : null,
+      state: heroAvailable ? "available" : "absent",
+      contactSheetHref: rvtr ? `/api/ops/issue-generation/frame-sheet?rvtr=${rvtr}` : null,
       frameCount: job?.frameSelection?.selectedTimestamps.length ?? 0,
     },
-    artwork: {
-      available: artworkAvailable,
-      previewHref: job?.generatedOutput?.operatorPreviewHref ?? null,
-      reviewState: job?.generatedOutput?.reviewState ?? "none",
-    },
     homepage: {
-      available: Boolean(job?.previewHref),
-      previewHref: job?.previewHref ?? null,
+      available: Boolean(previewHref),
+      previewHref,
       approved,
     },
+    magazineMode: heroAvailable,
+    heroFrame: {
+      available: heroAvailable,
+      previewHref: heroFrameHref,
+      timestamp: job?.magazineHeroFrame?.timestamp ?? null,
+      reason: job?.magazineHeroFrame?.reason ?? null,
+    },
     primaryAction: action,
+    secondaryAction: secondary,
+    nextVideoIsPrimary,
     actionEnabled: enabled,
+    secondaryActionEnabled: secondaryEnabled,
     actionHint: hint,
   };
 }
@@ -268,7 +249,13 @@ export function filterFactoryRows(
       const text = `${row.artist} ${row.title} ${row.album} ${row.rvtr ?? ""}`.toLowerCase();
       return text.includes(needle);
     })
-    .sort((a, b) => (b.playCount ?? 0) - (a.playCount ?? 0));
+    .sort((a, b) => {
+      const aJob = homePageJobFor(jobs, a);
+      const bJob = homePageJobFor(jobs, b);
+      const aHasHero = hasSelectedHeroFrame(aJob) ? 1 : 0;
+      const bHasHero = hasSelectedHeroFrame(bJob) ? 1 : 0;
+      return bHasHero - aHasHero || (b.playCount ?? 0) - (a.playCount ?? 0);
+    });
 }
 
 export function nextVideoId(rows: FactoryBrowserRow[], currentId: string | null): string | null {
@@ -277,4 +264,8 @@ export function nextVideoId(rows: FactoryBrowserRow[], currentId: string | null)
   const index = rows.findIndex((row) => row.id === currentId);
   if (index < 0) return rows[0]?.id ?? null;
   return rows[(index + 1) % rows.length]?.id ?? null;
+}
+
+export function requiresSkipConfirmation(status: OperatorStatus): boolean {
+  return status === "REVIEW" || status === "NEEDS ATTENTION";
 }

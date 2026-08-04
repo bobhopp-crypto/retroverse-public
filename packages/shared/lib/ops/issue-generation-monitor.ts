@@ -14,6 +14,8 @@ export type IssueGenerationMonitorJob = {
   status: IssueGenerationStatus;
   origin: "checkpoint" | "prototype";
   reason?: string;
+  /** V1 Factory review state, independent of generated artwork. */
+  reviewState?: "pending-review" | "approved" | "rejected";
   frameSelection?: {
     candidateCount: number;
     selectedTimestamps: number[];
@@ -46,6 +48,16 @@ export type IssueGenerationMonitorJob = {
       reviewState: "not-generated" | "pending-review" | "approved" | "rejected";
     }>;
   }>;
+  magazineHeroFrame?: {
+    available: boolean;
+    operatorPreviewHref: string;
+    path: string;
+    timestamp: number;
+    sha256: string;
+    reason: string;
+    sourceVideoPath?: string;
+    selectedAt: string;
+  };
   updatedAt: string;
 };
 
@@ -61,6 +73,15 @@ type StoredJob = Partial<IssueGenerationMonitorJob> & {
   previewPath?: string;
   reviewState?: "pending-review" | "approved" | "rejected";
   reviewReason?: string;
+  magazineHeroFrame?: {
+    path?: string;
+    sourcePath?: string;
+    timestamp?: number;
+    sha256?: string;
+    reason?: string;
+    sourceVideoPath?: string;
+    selectedAt?: string;
+  };
   generationVersions?: Array<{
     versionNumber?: number;
     createdAt?: string;
@@ -116,6 +137,29 @@ function sanitizeCheckpointJob(job: StoredJob): IssueGenerationMonitorJob | null
       }
     : undefined;
 
+  const magazineRecord = job.magazineHeroFrame;
+  const magazinePath =
+    typeof magazineRecord?.path === "string" && magazineRecord.path.length > 0 ? magazineRecord.path : null;
+  const magazineHeroFrame =
+    magazinePath && existsSync(magazinePath)
+      ? {
+          available: true,
+          operatorPreviewHref: `/api/ops/issue-generation/hero-frame?rvtr=${job.rvtr!.toUpperCase()}`,
+          path: magazinePath,
+          timestamp: typeof magazineRecord?.timestamp === "number" ? magazineRecord.timestamp : 0,
+          sha256: typeof magazineRecord?.sha256 === "string" ? magazineRecord.sha256 : "",
+          reason: typeof magazineRecord?.reason === "string" ? magazineRecord.reason : "",
+          sourceVideoPath:
+            typeof magazineRecord?.sourceVideoPath === "string" ? magazineRecord.sourceVideoPath : undefined,
+          selectedAt:
+            typeof magazineRecord?.selectedAt === "string"
+              ? magazineRecord.selectedAt
+              : typeof job.updatedAt === "string"
+                ? job.updatedAt
+                : "",
+        }
+      : undefined;
+
   return {
     rvtr: job.rvtr.toUpperCase(),
     title: typeof job.title === "string" ? job.title : "",
@@ -124,6 +168,10 @@ function sanitizeCheckpointJob(job: StoredJob): IssueGenerationMonitorJob | null
     playCount: typeof job.playCount === "number" ? job.playCount : 0,
     status,
     origin: "checkpoint",
+    reviewState:
+      job.reviewState === "approved" || job.reviewState === "rejected"
+        ? job.reviewState
+        : "pending-review",
     reason: typeof job.reason === "string" ? job.reason : undefined,
     frameSelection: selection
       ? {
@@ -141,6 +189,7 @@ function sanitizeCheckpointJob(job: StoredJob): IssueGenerationMonitorJob | null
       : undefined,
     previewHref: safePreviewHref(job.previewHref),
     generatedOutput,
+    magazineHeroFrame,
     updatedAt: typeof job.updatedAt === "string" ? job.updatedAt : "1970-01-01T00:00:00.000Z",
   };
 }
@@ -249,6 +298,11 @@ async function loadPilotFrameEvidence(
 }
 
 export async function loadIssueGenerationMonitor(): Promise<IssueGenerationMonitorData> {
+  const { ensureMagazineHeroFrame, MAGAZINE_BENCHMARK_RVTR } = await import(
+    "@/lib/ops/issue-generation/magazine-hero-frame"
+  );
+  await ensureMagazineHeroFrame(MAGAZINE_BENCHMARK_RVTR);
+
   const stateDirs = resolveIssueStateDirs();
   const byRvtr = new Map<string, IssueGenerationMonitorJob>();
   let updatedAt: string | null = null;
@@ -264,18 +318,16 @@ export async function loadIssueGenerationMonitor(): Promise<IssueGenerationMonit
         byRvtr.set(job.rvtr, job);
         continue;
       }
-      // Prefer the job that has generated output or newer timestamp.
+      // V1 Factory prioritizes an explicit selected real frame over generated output.
       const existingScore =
-        (existing.generatedOutput?.available ? 2 : 0) + (existing.frameSelection?.contactSheetAvailable ? 1 : 0);
+        (existing.magazineHeroFrame?.available ? 2 : 0) + (existing.frameSelection?.contactSheetAvailable ? 1 : 0);
       const nextScore =
-        (job.generatedOutput?.available ? 2 : 0) + (job.frameSelection?.contactSheetAvailable ? 1 : 0);
+        (job.magazineHeroFrame?.available ? 2 : 0) + (job.frameSelection?.contactSheetAvailable ? 1 : 0);
       if (nextScore > existingScore || Date.parse(job.updatedAt) > Date.parse(existing.updatedAt)) {
         byRvtr.set(job.rvtr, job);
       }
     }
   }
-
-  await loadPilotFrameEvidence(byRvtr);
 
   const jobs = [...byRvtr.values()].sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt));
   const counts = { ...EMPTY_COUNTS };

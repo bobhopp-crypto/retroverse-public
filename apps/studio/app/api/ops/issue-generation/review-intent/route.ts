@@ -36,13 +36,15 @@ export async function POST(request: Request) {
             reviewState?: string;
             reviewReason?: string;
             updatedAt?: string;
+            magazineHeroFrame?: { path?: string };
           }
         >;
       };
       const entry = Object.entries(state.jobs ?? {}).find(([, job]) => job.rvtr?.toUpperCase() === rvtr);
-      if (!entry?.[1]?.previewPath || entry[1].status !== "succeeded") continue;
+      if (!entry?.[1]?.magazineHeroFrame?.path) continue;
       entry[1].reviewState = body.intent === "approve" ? "approved" : "rejected";
-      entry[1].reviewReason = body.reason?.slice(0, 200);
+      entry[1].reviewReason =
+        body.intent === "approve" ? undefined : body.reason?.slice(0, 200) ?? entry[1].reviewReason;
       entry[1].updatedAt = new Date().toISOString();
       await writeFile(path, `${JSON.stringify(state, null, 2)}\n`);
       return NextResponse.json({ ok: true, rvtr, reviewState: entry[1].reviewState });
@@ -51,5 +53,5 @@ export async function POST(request: Request) {
     }
   }
 
-  return NextResponse.json({ ok: false, error: "Generated output not found." }, { status: 404 });
+  return NextResponse.json({ ok: false, error: "Selected hero frame not found." }, { status: 404 });
 }

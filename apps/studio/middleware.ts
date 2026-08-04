@@ -11,9 +11,19 @@ function blockLocalOnlyRoute(request: NextRequest): NextResponse {
   return NextResponse.redirect(new URL("/", request.url));
 }
 
+function isFactoryHomepagePreviewPath(pathname: string): boolean {
+  return /^\/bobos\/browser-plus\/preview\/RVTR\d{6}\/?$/i.test(pathname);
+}
+
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host");
   const { pathname } = request.nextUrl;
+
+  if (isFactoryHomepagePreviewPath(pathname)) {
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-factory-homepage-preview", "1");
+    return NextResponse.next({ request: { headers: requestHeaders } });
+  }
 
   if (pathname === "/ops/song-requests") {
     const url = request.nextUrl.clone();
