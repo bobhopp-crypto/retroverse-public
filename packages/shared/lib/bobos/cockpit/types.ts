@@ -50,7 +50,8 @@ export type PanelTypeId =
   | "song-requests"
   | "graph-bridge"
   | "six-up-viewer"
-  | "experience-inspector";
+  | "experience-inspector"
+  | "home-page-factory";
 
 export type PanelGroup = "attention" | "build" | "catalog" | "devices";
 

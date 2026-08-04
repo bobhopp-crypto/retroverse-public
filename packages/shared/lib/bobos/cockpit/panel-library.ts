@@ -10,6 +10,14 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     summary: "Review six connected Retroverse public experiences using one canonical song.",
     primaryAction: { label: "Open 6-Up Viewer", href: "/review/public-v3" },
   },
+  "home-page-factory": {
+    id: "home-page-factory",
+    title: "Home Page Factory",
+    group: "catalog",
+    defaultStatus: "nominal",
+    summary: "One-video production line for Retroverse homepage artwork.",
+    primaryAction: { label: "Open Home Page Factory", href: "/bobos/browser-plus" },
+  },
   "current-event": {
     id: "current-event",
     title: "Current Event",
@@ -383,6 +391,7 @@ export const COCKPIT_COMMAND_BAR = [
   { label: "AI Workbench", href: "/ops/intelligence" },
   { label: "Terminal", href: "/ops/atlas/scripts" },
   { label: "VirtualDJ", href: "/ops/browser-plus" },
+  { label: "Home Page Factory", href: "/bobos/browser-plus", panelType: "home-page-factory" },
   { label: "Song Requests", href: "http://localhost:3000/bobos/song-requests", panelType: "song-requests" },
   { label: "Printer", href: "/bobos/passes" },
 ] as const;

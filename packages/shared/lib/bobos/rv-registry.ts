@@ -71,6 +71,7 @@ export const RV_REGISTRY: readonly RvRegistryEntry[] = [
   e("RV02-17", "RV02", "Show Builder", "/ops/show-builder", "Show assembly workspace.", "Events"),
   e("RV03-01", "RV03", "VirtualDJ Browser+", "/ops/browser-plus", "DJ browser surface.", "Music", { status: "Active" }),
   e("RV03-02", "RV03", "Browser+ 2.0", "/ops/browser-plus-2", "Next browser surface.", "Music", { status: "Experimental" }),
+  e("RV03-05", "RV03", "Home Page Factory", "/bobos/browser-plus", "Turn eligible VirtualDJ videos into Retroverse homepages one at a time.", "Music", { panelType: "home-page-factory", status: "Active" }),
   e("RV03-03", "RV03", "Production Library", "/ops/library", "Music production library.", "Music"),
   e("RV03-04", "RV03", "Year Workspace", "/ops/year/[year]", "Year-based catalog workspace.", "Music", { panelType: "years" }),
   e("RV03-12", "RV03", "Artist Pipeline", "/bobos/pipeline", "Artist package pipeline.", "Music", { panelType: "artist-package" }),
