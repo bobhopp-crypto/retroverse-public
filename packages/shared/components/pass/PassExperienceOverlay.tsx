@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 
 import type { PassScanResult, RetroverseVisitor } from "@/lib/retroverse-pass/types";
 
+import { GuestSongRequestPanel } from "./GuestSongRequestPanel";
+
 import "./pass-experience-overlay.css";
 
 /**
@@ -71,12 +73,6 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [view, dismiss]);
-
-  useEffect(() => {
-    if (view !== "confirmed") return;
-    const timer = window.setTimeout(dismiss, 1800);
-    return () => window.clearTimeout(timer);
   }, [view, dismiss]);
 
   function openEdit() {
@@ -237,7 +233,10 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
               You&apos;re in{visitor ? `, ${visitor.firstName}` : ""}.
             </h1>
             <p className="pass-xp__success-copy">Your Retroverse Pass is officially registered.</p>
-            <p className="pass-xp__note">Returning you to the show…</p>
+            <GuestSongRequestPanel serial={serial} />
+            <button type="button" className="pass-xp__skip" onClick={dismiss}>
+              Continue to the show
+            </button>
           </div>
         ) : null}
 
@@ -260,6 +259,8 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
                 <span className="pass-xp__event-title">{currentEventTitle}</span>
               </div>
             ) : null}
+
+            <GuestSongRequestPanel serial={serial} />
 
             <div className="pass-xp__actions">
               <button type="button" className="pass-xp__primary" onClick={dismiss}>
