@@ -1,6 +1,6 @@
 import { spawn } from "node:child_process";
 import { createReadStream, existsSync } from "node:fs";
-import { access, mkdir, readFile, writeFile } from "fs/promises";
+import { access, mkdir, readFile, readdir, rename, writeFile } from "fs/promises";
 import { join } from "path";
 
 export const FILMSTRIP_INTERVAL_SEC = 10;
@@ -11,6 +11,8 @@ export type FilmstripManifest = {
   endSec: number;
   intervalSec: number;
   cacheKey: string;
+  sourceFingerprint?: string;
+  profile?: string;
   frames: { sec: number; file: string }[];
 };
 
@@ -18,9 +20,13 @@ export function buildFilmstripCacheKey(
   chapterId: string,
   startSec: number,
   endSec: number,
+  sourceFingerprint = "",
+  profile = "chapter",
 ): string {
   const safeId = chapterId.replace(/[^a-z0-9_-]/gi, "") || "chapter";
-  return `${safeId}_${Math.round(startSec * 1000)}_${Math.round(endSec * 1000)}`;
+  const safeProfile = profile.replace(/[^a-z0-9_-]/gi, "") || "chapter";
+  const safeFingerprint = sourceFingerprint.replace(/[^a-f0-9]/gi, "").slice(0, 16) || "nofingerprint";
+  return `${safeProfile}_${safeId}_${safeFingerprint}_${Math.round(startSec * 1000)}_${Math.round(endSec * 1000)}`;
 }
 
 export function filmstripCacheDir(outputDir: string, cacheKey: string): string {
@@ -71,6 +77,8 @@ export async function extractFrame(
       "1",
       "-q:v",
       "4",
+      "-strict",
+      "unofficial",
       "-y",
       outPath,
     ];
@@ -108,8 +116,11 @@ export async function ensureFilmstrip(
   chapterId: string,
   startSec: number,
   endSec: number,
+  options: { sourceFingerprint?: string; profile?: string; count?: number } = {},
 ): Promise<FilmstripManifest> {
-  const cacheKey = buildFilmstripCacheKey(chapterId, startSec, endSec);
+  const profile = options.profile ?? "chapter";
+  const sourceFingerprint = options.sourceFingerprint ?? "";
+  const cacheKey = buildFilmstripCacheKey(chapterId, startSec, endSec, sourceFingerprint, profile);
   const dir = filmstripCacheDir(outputDir, cacheKey);
   await mkdir(dir, { recursive: true });
 
@@ -117,6 +128,8 @@ export async function ensureFilmstrip(
   if (
     existing &&
     existing.chapterId === chapterId &&
+    existing.sourceFingerprint === sourceFingerprint &&
+    existing.profile === profile &&
     Math.abs(existing.startSec - startSec) < 0.01 &&
     Math.abs(existing.endSec - endSec) < 0.01 &&
     existing.frames.length > 0
@@ -125,9 +138,49 @@ export async function ensureFilmstrip(
       existing.frames.map((f) => fileExists(join(dir, f.file))),
     );
     if (complete.every(Boolean)) return existing;
+    const availableFrames = existing.frames.filter((_, index) => complete[index]);
+    if (availableFrames.length >= 2) {
+      return { ...existing, frames: availableFrames };
+    }
   }
 
-  const times = filmstripTimes(startSec, endSec);
+  if (!existing) {
+    const cachedFiles = (await readdir(dir).catch(() => []))
+      .filter((file) => /^frame_\d+\.jpg$/i.test(file))
+      .sort();
+    const cachedFrames = (
+      await Promise.all(
+        cachedFiles.map(async (file) => ({
+          file,
+          available: await fileExists(join(dir, file)),
+          sec: Number(file.match(/^frame_(\d+)\.jpg$/i)?.[1] ?? "0") / 1000,
+        })),
+      )
+    )
+      .filter((frame) => frame.available)
+      .map(({ file, sec }) => ({ file, sec }));
+    if (cachedFrames.length >= 2) {
+      const recovered: FilmstripManifest = {
+        chapterId,
+        startSec,
+        endSec,
+        intervalSec: FILMSTRIP_INTERVAL_SEC,
+        cacheKey,
+        sourceFingerprint,
+        profile,
+        frames: cachedFrames,
+      };
+      const manifestPath = join(dir, "manifest.json");
+      const temporaryPath = join(dir, `.manifest-${process.pid}-${Date.now()}.json`);
+      await writeFile(temporaryPath, `${JSON.stringify(recovered, null, 2)}\n`, "utf8");
+      await rename(temporaryPath, manifestPath);
+      return recovered;
+    }
+  }
+
+  const count = Math.max(2, Math.min(48, Math.round(options.count ?? Math.ceil((endSec - startSec) / FILMSTRIP_INTERVAL_SEC))));
+  const safeEndSec = Math.max(startSec, endSec - Math.min(0.05, (endSec - startSec) / 100));
+  const times = Array.from({ length: count }, (_, index) => Math.round((startSec + ((safeEndSec - startSec) * index) / (count - 1)) * 1000) / 1000);
   const frames: { sec: number; file: string }[] = [];
 
   for (const sec of times) {
@@ -145,9 +198,14 @@ export async function ensureFilmstrip(
     endSec,
     intervalSec: FILMSTRIP_INTERVAL_SEC,
     cacheKey,
+    sourceFingerprint,
+    profile,
     frames,
   };
-  await writeFile(join(dir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+  const manifestPath = join(dir, "manifest.json");
+  const temporaryPath = join(dir, `.manifest-${process.pid}-${Date.now()}.json`);
+  await writeFile(temporaryPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+  await rename(temporaryPath, manifestPath);
   return manifest;
 }
 

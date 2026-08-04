@@ -20,6 +20,7 @@ import {
 import { readEditorialMeta } from "./editorial-meta";
 import type { EditorialChapterRow } from "./editorial-types";
 import { suggestAdjacentMerges, type MergeSuggestion } from "./merge-suggestions";
+import { refineOversizedChapters, type RefinedChapterSuggestion } from "./chapter-refinement";
 import {
   computeChapterReviewFlags,
   summarizeReviewMetrics,
@@ -45,6 +46,7 @@ export type EditorialBundle = {
   assetRoutes: AssetRouteSummary[];
   chapters: EditorialChapterRow[];
   suggestions: MergeSuggestion[];
+  refinedSuggestions: RefinedChapterSuggestion[];
   reviewMetrics: ReviewMetricsSummary;
   tagSuggestions: Record<string, ClipTagSuggestion>;
   segments: TranscriptSegment[];
@@ -77,6 +79,11 @@ export async function loadEditorialBundle(
   const normalized = normalizeChapterTimeline(withEditorialIds(raw), videoEnd);
   const segments = await readSegments(outputDir);
   const suggestions = suggestAdjacentMerges(normalized, segments);
+  const refinedSuggestions = refineOversizedChapters(normalized, segments, {
+    sourceFingerprint: job.sourceFingerprint,
+    analysisRunId: job.createdAt ?? `${job.year}-${job.jobSlug}`,
+    generatedAt: job.createdAt,
+  });
   const tagMap = suggestAllChapterTags(normalized, segments);
   const editorialMeta = await readEditorialMeta(outputDir);
   const flagMap = computeChapterReviewFlags(normalized, segments, suggestions);
@@ -109,6 +116,7 @@ export async function loadEditorialBundle(
       lengthSeconds: editorialMeta.chapters[ch.id]?.lengthSeconds,
     })),
     suggestions,
+    refinedSuggestions,
     reviewMetrics,
     tagSuggestions: Object.fromEntries(tagMap.entries()),
     segments,

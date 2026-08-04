@@ -27,6 +27,7 @@ type ClipTranscriptStripProps = {
   variant?: "default" | "deck";
   /** Hide Off/Live/Full toolbar (e.g. main deck — controls live in Advanced). */
   hideToolbar?: boolean;
+  onSeek?: (sec: number) => void;
 };
 
 type TranscriptModeControlsProps = {
@@ -90,6 +91,7 @@ export function ClipTranscriptStrip(props: ClipTranscriptStripProps) {
   const activeRef = useRef<HTMLParagraphElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [fullExpanded, setFullExpanded] = useState(false);
+  const [selectedStartSec, setSelectedStartSec] = useState<number | null>(null);
   const variant = props.variant ?? "default";
   const isDeck = variant === "deck";
 
@@ -173,6 +175,7 @@ export function ClipTranscriptStrip(props: ClipTranscriptStripProps) {
     : "ops-ml-transcript-strip";
 
   function renderDeckLine(line: TranscriptLine, isActive: boolean) {
+    const isSelected = selectedStartSec === line.seg.start;
     return (
       <p
         key={`${line.seg.start}-${line.index}`}
@@ -180,10 +183,17 @@ export function ClipTranscriptStrip(props: ClipTranscriptStripProps) {
         className={[
           "ops-ml-transcript-strip__line",
           isActive ? "ops-ml-transcript-strip__line--active" : "",
+          isSelected ? "ops-ml-transcript-strip__line--selected" : "",
           line.isContext ? "ops-ml-transcript-strip__line--context" : "",
         ]
           .filter(Boolean)
           .join(" ")}
+        onClick={() => {
+          setSelectedStartSec(line.seg.start);
+          props.onSeek?.(line.seg.start);
+        }}
+        role="button"
+        tabIndex={0}
       >
         <span className="ops-ml-transcript-strip__time">{formatChapterClock(line.seg.start)}</span>
         <span className="ops-ml-transcript-strip__text">
@@ -239,7 +249,13 @@ export function ClipTranscriptStrip(props: ClipTranscriptStripProps) {
                 ref={idx === activeIndex ? activeRef : undefined}
                 className={`ops-ml-transcript-strip__line${
                   idx === activeIndex ? " ops-ml-transcript-strip__line--active" : ""
-                }`}
+                }${selectedStartSec === line.start ? " ops-ml-transcript-strip__line--selected" : ""}`}
+                onClick={() => {
+                  setSelectedStartSec(line.start);
+                  props.onSeek?.(line.start);
+                }}
+                role="button"
+                tabIndex={0}
               >
                 {line.text.trim()}
               </p>
@@ -267,7 +283,13 @@ export function ClipTranscriptStrip(props: ClipTranscriptStripProps) {
               ref={index === activeIndex ? activeRef : undefined}
               className={`ops-ml-transcript-strip__line${
                 index === activeIndex ? " ops-ml-transcript-strip__line--active" : ""
-              }`}
+              }${selectedStartSec === line.start ? " ops-ml-transcript-strip__line--selected" : ""}`}
+              onClick={() => {
+                setSelectedStartSec(line.start);
+                props.onSeek?.(line.start);
+              }}
+              role="button"
+              tabIndex={0}
             >
               {index === activeIndex ? `>> ${line.text.trim()} <<` : line.text.trim()}
             </p>
