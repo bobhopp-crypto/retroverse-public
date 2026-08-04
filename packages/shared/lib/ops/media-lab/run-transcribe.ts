@@ -1,5 +1,6 @@
 import { spawn } from "child_process";
-import { join } from "path";
+import { existsSync } from "fs";
+import { dirname, join, resolve } from "path";
 
 import type { MediaLabJobMeta } from "./job-meta";
 
@@ -14,7 +15,12 @@ export type TranscribeJobResult = {
 export type { MediaLabJobMeta } from "./job-meta";
 
 function repoRoot(): string {
-  return process.cwd();
+  let current = resolve(process.cwd());
+  for (let i = 0; i < 6; i += 1) {
+    if (existsSync(join(current, "tools", "media-lab", "transcribe.py"))) return current;
+    current = dirname(current);
+  }
+  return resolve(process.cwd());
 }
 
 export function transcribeScriptPath(): string {

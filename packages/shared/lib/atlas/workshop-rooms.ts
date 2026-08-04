@@ -63,7 +63,7 @@ export const WORKSHOP_ROOMS: WorkshopRoom[] = [
     tools: [
       { label: "Healing", href: "/ops/healing" },
       { label: "Media Collections", href: "/ops/media-collections" },
-      { label: "Media Lab", href: "/ops/media-lab" },
+      { label: "Media Lab", href: "/bobos/media-lab" },
     ],
   },
 ];

@@ -171,7 +171,7 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     group: "catalog",
     defaultStatus: "nominal",
     summary: "Local media assets and content library.",
-    primaryAction: { label: "Content Creator", href: "/ops/content-creator" },
+    primaryAction: { label: "Open Media Lab", href: "/bobos/media-lab" },
   },
   "media-coverage": {
     id: "media-coverage",

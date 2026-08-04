@@ -5,9 +5,11 @@ export type MediaLabJobMeta = {
   jobSlug: string;
   sourceVideo: string;
   sourceFilename: string;
+  sourceFingerprint?: string;
   outputDir: string;
   createdAt: string;
   model: string;
+  transcriptionRuntime?: string;
   durationSeconds: number | null;
   segmentCount: number;
   chapterCount: number;

@@ -41,6 +41,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  if (pathname === "/bobos/media-lab" || pathname.startsWith("/bobos/media-lab/")) {
+    if (!shouldAllowOpsRoutes(host)) return blockLocalOnlyRoute(request);
+    if (!isOpsEnabled(host)) return new NextResponse("Not found", { status: 404 });
+    if (opsGateCookieValue(request)) return NextResponse.next();
+    const url = request.nextUrl.clone();
+    url.pathname = "/internal/ops-pin";
+    url.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
+    return NextResponse.redirect(url);
+  }
+
   if (
     pathname === "/local" ||
     pathname.startsWith("/local/") ||

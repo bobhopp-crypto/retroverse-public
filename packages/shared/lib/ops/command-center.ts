@@ -78,6 +78,7 @@ export const COMMAND_CENTER_DEPARTMENTS: CommandCenterDepartment[] = [
     accent: "#2A5BFF",
     links: [
       { label: "Song Package Pipeline", href: "/ops/studio" },
+      { label: "Media Lab", href: "/bobos/media-lab" },
       { label: "Library", href: "/ops/library" },
       { label: "Research", href: "/ops/intelligence" },
       { label: "Event Hub", href: "/bobos/event" },
