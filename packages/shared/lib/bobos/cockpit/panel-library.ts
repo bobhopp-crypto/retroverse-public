@@ -173,6 +173,14 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     summary: "Local media assets and content library.",
     primaryAction: { label: "Content Creator", href: "/ops/content-creator" },
   },
+  "media-coverage": {
+    id: "media-coverage",
+    title: "Media Coverage",
+    group: "catalog",
+    defaultStatus: "nominal",
+    summary: "Billboard-to-VirtualDJ audio and video coverage.",
+    primaryAction: { label: "Open Media Coverage", href: "/bobos/virtualdj-media-coverage" },
+  },
   collectibles: {
     id: "collectibles",
     title: "Collectibles",

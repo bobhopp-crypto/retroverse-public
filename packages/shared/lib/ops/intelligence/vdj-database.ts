@@ -1,8 +1,12 @@
 import { readFile, stat } from "fs/promises";
 import { homedir } from "os";
-import { join } from "path";
+import { extname, join } from "path";
 
 import { isOpsPlayableVideoPath } from "@/lib/ops/ops-video-media";
+import {
+  classifyManagedMediaPath,
+  type ManagedMediaClass,
+} from "@/lib/ops/virtualdj-media-coverage/managed-roots";
 
 import type { VdjIntelligenceSnapshot } from "./vdj-intelligence-types";
 
@@ -59,6 +63,10 @@ export type VdjLibraryEntry = {
   lastPlayed: string | null;
   firstSeen: string | null;
   isVideo: boolean;
+  durationSeconds?: number | null;
+  fileSizeBytes?: number | null;
+  extension?: string;
+  managedClass?: ManagedMediaClass;
 };
 
 export type VdjDatabaseScan = {
@@ -94,11 +102,13 @@ export async function scanVdjDatabase(options?: { force?: boolean }): Promise<Vd
   const entries: VdjLibraryEntry[] = [];
 
   const songRe =
-    /<Song\s+FilePath="([^"]*)"[^>]*>([\s\S]*?)<\/Song>/g;
+    /<Song\s+([^>]*?)\/>|<Song\s+([^>]*)>([\s\S]*?)<\/Song>/g;
   let m: RegExpExecArray | null;
   while ((m = songRe.exec(xml)) !== null) {
-    const rawPath = decodeXmlAttr(m[1]!);
-    const inner = m[2] ?? "";
+    const songAttrs = ` ${m[1] ?? m[2] ?? ""}`;
+    const rawPath = readAttr(songAttrs, "FilePath");
+    if (!rawPath) continue;
+    const inner = m[3] ?? "";
     const tagsMatch = inner.match(/<Tags([^>]*)\/?>/);
     const infosMatch = inner.match(/<Infos([^>]*)\/?>/);
     const tagsAttrs = tagsMatch?.[1] ?? "";
@@ -111,6 +121,10 @@ export async function scanVdjDatabase(options?: { force?: boolean }): Promise<Vd
     const playCount = playRaw ? Number(playRaw) : null;
     const ratingRaw = readAttr(infosAttrs, "Rating");
     const ratingNum = Number(ratingRaw);
+    const durationRaw = readAttr(infosAttrs, "SongLength");
+    const durationNum = Number(durationRaw);
+    const fileSizeRaw = readAttr(songAttrs, "FileSize");
+    const fileSizeNum = Number(fileSizeRaw);
     const normalized = normVdjPath(rawPath);
 
     entries.push({
@@ -130,6 +144,12 @@ export async function scanVdjDatabase(options?: { force?: boolean }): Promise<Vd
       lastPlayed: readAttr(infosAttrs, "LastPlay") || readAttr(infosAttrs, "LastPlayed") || null,
       firstSeen: readAttr(infosAttrs, "FirstSeen") || null,
       isVideo: isOpsPlayableVideoPath(rawPath),
+      durationSeconds:
+        Number.isFinite(durationNum) && durationNum > 0 ? durationNum : null,
+      fileSizeBytes:
+        Number.isFinite(fileSizeNum) && fileSizeNum >= 0 ? fileSizeNum : null,
+      extension: extname(rawPath).replace(/^\./, "").toLowerCase(),
+      managedClass: classifyManagedMediaPath(rawPath),
     });
   }
 
