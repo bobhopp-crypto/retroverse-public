@@ -102,6 +102,26 @@ th { position: sticky; top: 0; z-index: 1; color: var(--vmc-muted); background: 
 .vmc-handoff { display: inline-block; margin-top: 10px; text-decoration: none; }
 .vmc-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
+.vmc-batch { max-width: 1400px; margin: 0 auto 18px; padding: 16px; border: 1px solid var(--vmc-line); border-radius: 14px; background: var(--vmc-panel); }
+.vmc-batch__toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.vmc-batch__pilot { color: var(--vmc-muted); font-size: 12px; }
+.vmc-batch__message { margin: 10px 0 0; }
+.vmc-batch__summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-top: 14px; }
+.vmc-batch__summary-card { padding: 10px 12px; border: 1px solid var(--vmc-line); border-radius: 10px; background: var(--vmc-panel-2); }
+.vmc-batch__summary-card strong { display: block; font-size: 20px; }
+.vmc-batch__summary-card span { color: var(--vmc-muted); font-size: 12px; }
+.vmc-batch__preview, .vmc-batch__rescan { margin-top: 14px; padding: 14px; border: 1px solid var(--vmc-line); border-radius: 10px; background: var(--vmc-panel-2); }
+.vmc-batch__preview ol, .vmc-batch__rescan ol { margin: 10px 0 0; padding-left: 20px; }
+.vmc-batch__preview-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.vmc-batch__drawer { position: fixed; inset: 0 0 0 auto; z-index: 60; width: min(520px, 96vw); overflow: auto; padding: 18px; border-left: 1px solid var(--vmc-line); background: #141618; box-shadow: -16px 0 40px #0009; }
+.vmc-batch__drawer-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+.vmc-batch__review-card { margin-top: 12px; padding: 12px; border: 1px solid var(--vmc-line); border-radius: 10px; background: var(--vmc-panel); }
+.vmc-batch__review-main { display: flex; gap: 12px; }
+.vmc-batch__thumb { width: 120px; height: 68px; object-fit: cover; border-radius: 8px; flex: 0 0 auto; }
+.vmc-batch__reasons { margin: 8px 0 0; padding-left: 18px; color: var(--vmc-muted); font-size: 12px; }
+.vmc-batch__review-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.vmc-batch__choose-list { display: grid; gap: 8px; margin-top: 10px; }
+
 @media (max-width: 900px) {
   .vmc-inventory, .vmc-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vmc-results__tools { grid-template-columns: 1fr; }

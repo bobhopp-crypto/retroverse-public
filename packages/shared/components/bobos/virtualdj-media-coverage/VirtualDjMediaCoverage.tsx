@@ -14,6 +14,8 @@ import type {
   InventorySummary,
 } from "@/lib/ops/virtualdj-media-coverage/types";
 
+import { BatchAcquirePanel } from "./BatchAcquirePanel";
+
 type CoverageFilter =
   | "all"
   | "audio_ready"
@@ -651,6 +653,12 @@ export function VirtualDjMediaCoverage() {
               </button>
             ))}
           </section>
+          <BatchAcquirePanel
+            scanId={scan.id}
+            filter={filter}
+            disabled={busy}
+            onRescanComplete={() => void loadScan(scan.id)}
+          />
           <section className="vmc-results">
             <div className="vmc-results__tools">
               <div>
