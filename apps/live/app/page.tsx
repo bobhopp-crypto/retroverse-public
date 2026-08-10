@@ -23,8 +23,8 @@ export const revalidate = 0;
 export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
-  title: "Retroverse Live",
-  description: "Press Play for the Past.",
+  title: "Now Playing",
+  description: "The song playing right now.",
 };
 
 /** retroverse.live — preserves programmed experiences and uses a focused live-song surface for VDJ songs. */

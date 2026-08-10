@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 import type { PassScanResult, RetroverseVisitor } from "@/lib/retroverse-pass/types";
 
@@ -25,24 +24,7 @@ type Props = {
   currentEventTitle: string | null;
 };
 
-async function recordActivity(input: {
-  serial: string;
-  visitorId: number | null;
-  eventType: string;
-}): Promise<void> {
-  try {
-    await fetch("/api/pass/activity", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(input),
-    });
-  } catch {
-    // Activity logging must never block the visitor experience.
-  }
-}
-
 export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
-  const router = useRouter();
   const [view, setView] = useState<View>(scan.state === "claimed" ? "already" : "claim");
   const [visitor, setVisitor] = useState<RetroverseVisitor | null>(
     scan.state === "claimed" ? scan.visitor : null,
@@ -62,8 +44,9 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
   const dismiss = useCallback(() => {
     setView("closed");
-    // Land the visitor on the live homepage without remounting the broadcast.
-    window.history.replaceState(null, "", "/");
+    // Reload the canonical live page so its server payload cannot retain the
+    // stale Playhead song that was underneath the registration modal.
+    window.location.assign("/");
   }, []);
 
   useEffect(() => {
@@ -74,6 +57,13 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [view, dismiss]);
+
+  useEffect(() => {
+    if (view !== "confirmed") return;
+    requestAnimationFrame(() => {
+      document.querySelector(".pass-request")?.scrollIntoView({ block: "start", behavior: "smooth" });
+    });
+  }, [view]);
 
   function openEdit() {
     setError(null);
@@ -135,11 +125,6 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
     } finally {
       setBusy(false);
     }
-  }
-
-  function handleSearch() {
-    void recordActivity({ serial, visitorId: visitor?.id ?? null, eventType: "SEARCH" });
-    router.push("/search");
   }
 
   if (view === "closed") return null;
@@ -264,19 +249,16 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
             <div className="pass-xp__actions">
               <button type="button" className="pass-xp__primary" onClick={dismiss}>
-                Continue Watching
+                Return to Live
               </button>
-              <div className="pass-xp__secondary-row">
+              <div className="pass-xp__secondary-row" aria-label="My Details">
                 <button type="button" className="pass-xp__secondary" onClick={openEdit}>
                   Edit
                 </button>
-                <button type="button" className="pass-xp__secondary" onClick={handleSearch}>
-                  Search
+                <button type="button" className="pass-xp__secondary" onClick={() => setView("mypass")}>
+                  My Details
                 </button>
               </div>
-              <button type="button" className="pass-xp__skip" onClick={() => setView("mypass")}>
-                View my pass
-              </button>
             </div>
           </>
         ) : null}
@@ -371,7 +353,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
             <div className="pass-xp__actions">
               <button type="button" className="pass-xp__primary" onClick={dismiss}>
-                Continue Watching
+                Return to Live
               </button>
               <button type="button" className="pass-xp__secondary" onClick={openEdit}>
                 Edit
