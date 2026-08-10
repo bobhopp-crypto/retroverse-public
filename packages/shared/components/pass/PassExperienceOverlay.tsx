@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { PassScanResult, RetroverseVisitor } from "@/lib/retroverse-pass/types";
 
 import { GuestSongRequestPanel } from "./GuestSongRequestPanel";
+import { rememberRegisteredPass } from "./GlobalSongRequestBadge";
 
 import "./pass-experience-overlay.css";
 
@@ -41,6 +42,10 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   const serial = scan.pass.serial;
+
+  useEffect(() => {
+    if (scan.state === "claimed") rememberRegisteredPass(serial);
+  }, [scan.state, serial]);
 
   const dismiss = useCallback(() => {
     setView("closed");
@@ -91,6 +96,7 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
       if (!res.ok || !data.ok || !data.visitor) {
         throw new Error(data.error ?? "Registration failed. Please try again.");
       }
+      rememberRegisteredPass(serial);
       setVisitor(data.visitor);
       setView("confirmed");
     } catch (err) {

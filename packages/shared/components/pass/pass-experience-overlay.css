@@ -100,11 +100,13 @@
 
 /* Event song request — guest-safe artist/title/year projection only. */
 .pass-request {
+  position: relative;
   display: grid;
   gap: 0.75rem;
   margin: 1rem 0 0.25rem;
   text-align: left;
 }
+.pass-request__badge{position:absolute;top:0;right:0;display:inline-flex;align-items:center;gap:.35rem;min-width:3.4rem;min-height:3.4rem;justify-content:center;border:2px solid var(--xp-magenta);border-radius:999px;background:var(--xp-purple);color:#fff;font-size:1.25rem;cursor:pointer}.pass-request__badge strong{font-size:1.35rem}.pass-request__action-panel{display:grid;gap:.65rem;padding-top:.5rem}.pass-request__action-panel>p{margin:0;font-weight:800;text-transform:none}.pass-request__more{min-height:44px;border:1px solid currentColor;background:transparent;color:inherit;padding:.65rem .8rem;font-weight:800;cursor:pointer}.pass-request__more:disabled{opacity:.7}.pass-request__error{color:#b00020;font-weight:700}
 
 .pass-request__launch {
   min-height: 4.25rem;
@@ -120,6 +122,15 @@
   font-weight: 950;
   letter-spacing: 0.1em;
   cursor: pointer;
+}
+
+.pass-request__availability {
+  margin: 0;
+  color: var(--xp-aqua);
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-align: center;
 }
 
 .pass-request__launch:hover {
@@ -207,6 +218,7 @@
   gap: 0.8rem;
   margin: 0;
   padding: clamp(1.05rem, 4.2vw, 1.65rem);
+  padding-bottom: max(clamp(1.05rem, 4.2vw, 1.65rem), env(safe-area-inset-bottom));
   overflow: hidden;
   border: 1px solid rgba(168, 85, 255, 0.58);
   border-radius: 22px;
@@ -233,6 +245,11 @@
   font-weight: 950;
   letter-spacing: 0.025em;
   line-height: 1;
+}
+
+.pass-request__catalog-head .pass-request__availability {
+  margin-top: 0.55rem;
+  text-align: left;
 }
 
 .pass-request__instruction {
@@ -363,7 +380,7 @@
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 0 0.15rem 0.35rem 0;
+  padding: 0 0.15rem max(0.35rem, env(safe-area-inset-bottom)) 0;
   scrollbar-color: rgba(168, 85, 255, 0.46) transparent;
 }
 
@@ -482,6 +499,31 @@
     min-width: 5.15rem;
     padding-inline: 0.6rem;
   }
+}
+
+.global-song-request-badge {
+  position: fixed;
+  top: calc(var(--rv-global-nav-height, 2.9rem) + 0.65rem);
+  right: 0.8rem;
+  z-index: 900;
+  color-scheme: dark;
+  --xp-purple: #7f35e8;
+  --xp-magenta: #ff44aa;
+  --xp-aqua: #22e7ff;
+  --xp-dim: rgba(220, 228, 255, 0.78);
+  --xp-muted: rgba(180, 196, 230, 0.62);
+}
+
+.global-song-request-badge .pass-request {
+  margin: 0;
+}
+
+.global-song-request-badge .pass-request--catalog {
+  position: fixed;
+  inset: calc(var(--rv-global-nav-height, 2.9rem) + 0.65rem) 0.65rem 0.65rem;
+  width: auto;
+  height: auto;
+  max-height: none;
 }
 
 .pass-xp__header {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
 import { RetroverseGlobalNav } from "@/components/shell/RetroverseGlobalNav";
+import { GlobalSongRequestBadge } from "@/components/pass/GlobalSongRequestBadge";
 import { VdjAutoFollower } from "@/components/retroverse-live/VdjAutoFollower";
 import { OPS_GATE_COOKIE, isOpsEnabled } from "@/lib/ops/ops-gate";
 
@@ -30,6 +31,7 @@ export default async function RootLayout({
           opsEnabled={opsEnabled}
           opsAuthenticated={opsAuthenticated}
         />
+        <GlobalSongRequestBadge />
         <VdjAutoFollower />
         {children}
       </body>
