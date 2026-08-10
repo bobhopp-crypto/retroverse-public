@@ -358,14 +358,14 @@ html:has(.request-ops) body {
 }
 
 .request-card button {
-  min-height: 3rem;
+  min-height: 4rem;
   border: 1px solid var(--rq-line);
   border-radius: 8px;
   padding: 0.45rem;
   color: var(--rq-text);
   background: rgba(255,255,255,0.055);
   font: inherit;
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   font-weight: 850;
   cursor: pointer;
 }
@@ -402,3 +402,38 @@ html:has(.request-ops) body {
   .request-source__selection strong { text-align: left; }
   .request-card__actions { grid-template-columns: repeat(5, 1fr); }
 }
+
+.request-ops__header > button {
+  min-height: 3rem;
+  border: 1px solid var(--rq-line);
+  border-radius: 9px;
+  padding: 0.55rem 0.8rem;
+  color: var(--rq-text);
+  background: rgba(255,255,255,0.04);
+  font: inherit;
+  font-weight: 800;
+}
+
+.request-card__top span {
+  font-size: 0.82rem;
+}
+
+.request-card__artist {
+  font-size: 1.15rem;
+}
+
+.request-card h3 {
+  font-size: clamp(1.45rem, 6vw, 2rem);
+  line-height: 1.1;
+}
+
+@media (max-width: 420px) {
+  .request-ops { padding: 0.65rem; }
+  .request-ops__header h1 { font-size: 1.45rem; }
+  .request-queue { padding: 0.7rem; }
+  .request-card { padding: 0.7rem; }
+  .request-card__actions { gap: 0.45rem; }
+  .request-card button { min-height: 4.25rem; font-size: 0.9rem; }
+}
+
+.request-notice{display:grid;gap:.65rem;margin:1rem 0;padding:1rem;border:2px solid #ef3f9c;background:#24182d;border-radius:12px}.request-notice strong{font-size:1.1rem}.request-notice span{color:#c9b9d0}.request-notice div{display:flex;gap:.6rem;flex-wrap:wrap}.request-notice button{min-height:44px;padding:.65rem .8rem;border:1px solid #a855ff;background:#a855ff;color:#fff;font-weight:800;cursor:pointer}.request-notice button+button{background:transparent}
