@@ -25,11 +25,8 @@ export async function resolveHeroForRvtr(rvtrParam: string): Promise<ResolvedHer
   ]);
 
   const pkg = rawPkg ? hydratePackageIntel(rawPkg) : null;
-  const resolved = resolveHeroFromSongPackage(pkg, track?.coverUrl ?? null);
-  if (resolved.url) return resolved;
-
   const videoHero = await resolveVisualAssetPath(rvtr, "hero-video.jpg");
-  return videoHero
-    ? { url: experienceVisualAssetUrl(rvtr, "hero-video.jpg"), tier: "primary" }
-    : resolved;
+  if (videoHero) return { url: experienceVisualAssetUrl(rvtr, "hero-video.jpg"), tier: "primary" };
+
+  return resolveHeroFromSongPackage(pkg, track?.coverUrl ?? null);
 }
