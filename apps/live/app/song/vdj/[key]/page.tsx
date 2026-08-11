@@ -1,7 +1,8 @@
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
-import { loadVdjBasePackage } from "@/lib/universal-renderer/load-vdj-base";
-import { trackPageHref } from "@/lib/search/entity-routes";
+import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
+import { EditorialPageShell } from "@/app/components/editorial/editorial-primitives";
+import { isPublicSongPayloadRenderable, loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 
 type Props = {
   params: Promise<{ key: string }>;
@@ -12,7 +13,7 @@ type Props = {
  */
 export default async function VdjBaseSongPage({ params }: Props) {
   const { key } = await params;
-  const payload = await loadVdjBasePackage(key);
-  if (!payload) redirect("/search");
-  redirect(trackPageHref(payload.rvtr));
+  const payload = await loadPublicSongPayload(`VDJ:${key}`);
+  if (!isPublicSongPayloadRenderable(payload)) notFound();
+  return <EditorialPageShell><PublicSongExperience payload={payload} /></EditorialPageShell>;
 }

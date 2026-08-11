@@ -1,17 +1,27 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import "./arvey-assistant.css";
 
 type Props = { currentSong: { title: string; artist: string; year: number | null } };
 type Message = { role: "user" | "assistant"; content: string };
 
 export function ArveyAssistant({ currentSong }: Props) {
+  const [activeSong, setActiveSong] = useState(currentSong);
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const onSongContext = (event: Event) => {
+      const detail = (event as CustomEvent<Props["currentSong"]>).detail;
+      if (detail?.title && detail?.artist) setActiveSong(detail);
+    };
+    window.addEventListener("retroverse:song-context", onSongContext);
+    return () => window.removeEventListener("retroverse:song-context", onSongContext);
+  }, []);
 
   async function submit(event: FormEvent) {
     event.preventDefault();
@@ -20,7 +30,7 @@ export function ArveyAssistant({ currentSong }: Props) {
     const next = [...messages, { role: "user" as const, content: question }];
     setMessages(next); setInput(""); setError(""); setLoading(true);
     try {
-      const response = await fetch("/api/arvey", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: next, currentSong }) });
+      const response = await fetch("/api/arvey", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: next, currentSong: activeSong }) });
       const data = await response.json() as { answer?: string; error?: string };
       if (!response.ok || !data.answer) throw new Error(data.error || "Arvey is unavailable.");
       setMessages([...next, { role: "assistant", content: data.answer }]);

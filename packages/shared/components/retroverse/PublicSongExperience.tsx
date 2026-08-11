@@ -5,13 +5,13 @@ import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { LivingSongShell } from "@/components/retroverse/experience/LivingSongShell";
 import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
 import { CanonicalPublicTrace } from "@/components/public/CanonicalPublicTrace";
-import { GraphHeader } from "@/components/public/GraphHeader";
 import type { PublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
 import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { preparePublicSongSections, filterPublicText } from "@/lib/retroverse/experience/public-song-display";
 import type { TrackPageData } from "@/lib/track/load-track-page";
+import { SongArveyContext } from "./SongArveyContext";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
@@ -31,7 +31,7 @@ function trackYearFromPayload(payload: PublicSongPayload, track: TrackPageData |
   if (track.releaseYear) return track.releaseYear;
   const fromChart = track.firstChartDate ? Number(track.firstChartDate.slice(0, 4)) : NaN;
   if (Number.isFinite(fromChart) && fromChart > 0) return fromChart;
-  return track.albums[0]?.releaseYear ?? null;
+  return null;
 }
 
 function chartStory(track: TrackPageData): string {
@@ -137,46 +137,24 @@ export async function PublicSongExperience({
 
   return (
     <>
-      <div className={rootClass}>
-        {!embedded && track ? (
-          <GraphHeader
-            data={{
-              rvtr: payload.rvtr,
-              rvar: track.artistSlug,
-              rval: primaryAlbum?.rval,
-              rvyr: year,
-              rvwk: track.firstChartDate,
-              integrity: track.hasHot100 ? "canonical Hot 100" : "outside Hot 100",
-              relationshipStatus: primaryAlbum
-                ? `${track.albums.length} album relationship${track.albums.length === 1 ? "" : "s"}`
-                : null,
-              historicalAlbum: primaryAlbum?.title,
-              artworkAlbum: track.coverUrl
-                ? track.albums.find((album) => album.coverUrl === track.coverUrl)?.title
-                : null,
-              albumAppearanceCount: track.albums.length,
-              enrichmentStatus: null,
-            }}
-          />
-        ) : null}
-
+      <div className={`${rootClass} editorial-song`}>
         <LivingSongShell
           rvtr={payload.rvtr}
           durationSec={Math.max(30, journeyWeeks * 2)}
           storyScore={Math.max(journeyWeeks, payload.storyCards.length)}
           openingKind={journeyWeeks > 0 ? "chart_journey" : "story"}
         >
-          <header className="rv2-song__header" aria-label="Song overview">
+          <header className="rv2-song__header" aria-label="Song overview" data-year-source={payload.yearSource} data-resolution={payload.resolution}>
             {!embedded ? (
               <RetroverseBack fallbackHref="/search" fallbackLabel="Search" />
             ) : null}
-            {(embedded && payload.coverUrl) || (!embedded && payload.coverUrl) ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img className="rv2-song__cover" src={payload.coverUrl!} alt="" />
-            ) : null}
-            <p className="rv2-live__eyebrow">Song</p>
-            <h1>{payload.title}</h1>
-            <p className="rv2-song__artist">
+            <div className="canonical-song__hero">
+              {payload.heroUrl ? <img className="canonical-song__hero-image" src={payload.heroUrl} alt="" /> : <div className="canonical-song__hero-fallback" aria-hidden="true" />}
+              <div className="canonical-song__hero-veil" />
+              <div className="canonical-song__hero-copy">
+                <p className="canonical-song__eyebrow">{isVdjOnly ? "VirtualDJ selection" : "Song experience"}</p>
+                <h1>{payload.title || "Untitled song"}</h1>
+                <p className="rv2-song__artist">
               {embedded || !artistHref ? (
                 <span>{payload.artist}</span>
               ) : (
@@ -184,49 +162,29 @@ export async function PublicSongExperience({
                   {payload.artist}
                 </Link>
               )}
-            </p>
-            {payload.album ? (
-              <p className="rv2-song__album">
-                <span>Album</span>
-                {!embedded && albumHref ? (
-                  <Link href={albumHref} prefetch className="rv2-song__hero-link">
-                    {payload.album}
-                  </Link>
-                ) : (
-                  payload.album
-                )}
-              </p>
-            ) : null}
-            {year ? (
-              <p className="rv2-song__year">
-                {!embedded && yearHref ? (
-                  <Link href={yearHref} prefetch className="rv2-song__hero-link">
-                    {year}
-                  </Link>
-                ) : (
-                  year
-                )}
-              </p>
-            ) : null}
-            {track?.chartRunLabel ? (
-              <p className="rv2-song__subtitle">{track.chartRunLabel}</p>
-            ) : null}
+                </p>
+                {year ? <p className="canonical-song__year">{year}</p> : <p className="canonical-song__year">Year unavailable</p>}
+              </div>
+            </div>
+            {track?.chartRunLabel ? <p className="rv2-song__subtitle">{track.chartRunLabel}</p> : null}
             {isVdjOnly ? (
               <p className="rv2-song__limited-notice">
                 Retroverse has limited internal information for this song. Use the links below to explore further.
               </p>
             ) : null}
-            <p className="rv2-song__rvtr-id">{payload.rvtr}</p>
+            <div className="canonical-song__lead"><p>{sections.storyCards[0]?.body ?? sections.storyParagraphs[0] ?? `Explore the music, chart history, and context behind ${payload.title}.`}</p></div>
+            <div className="canonical-song__meta">
+              {payload.album ? <span>{payload.album}</span> : null}
+              {year ? <Link href={yearHref ?? `/rv/${year}`}>Explore {year}</Link> : null}
+            </div>
             {!embedded && hasExploreLinks ? (
               <>
                 <div className="rv2-song__continue-label">Explore This Song</div>
                 <nav className="rv2-song__explore-links" aria-label="Explore this song">
-                  {journeyWeeks > 0 ? <a href="#song-journey">Journey</a> : null}
-                  {hasStory ? <a href="#song-story">Story</a> : null}
-                  {moment?.href ? <Link href={moment.href} prefetch>Chart</Link> : null}
-                  {albumHref ? <Link href={albumHref} prefetch>Album</Link> : null}
                   {artistHref ? <Link href={artistHref} prefetch>Artist</Link> : null}
-                  {yearHref && year ? <Link href={yearHref} prefetch>Year {year}</Link> : null}
+                  {albumHref ? <Link href={albumHref} prefetch>Album</Link> : null}
+                  {yearHref && year ? <Link href={yearHref} prefetch>Year</Link> : null}
+                  {moment?.href ? <Link href={moment.href} prefetch>Charts</Link> : null}
                 </nav>
                 {journeyWeeks > 0 ? (
                   <p className="rv2-song__continue-cue">Continue below ↓ Song Journey</p>
@@ -234,6 +192,8 @@ export async function PublicSongExperience({
               </>
             ) : null}
           </header>
+
+          {!embedded ? <SongArveyContext title={payload.title} artist={payload.artist} year={year} /> : null}
 
           {journeyWeeks > 0 && track ? (
             <div id="song-journey" className="rv2-song__journey-stage" aria-labelledby="song-journey-heading">
@@ -337,7 +297,7 @@ export async function PublicSongExperience({
                 <h2 id="rv-related-music-heading">RELATED MUSIC</h2>
               </header>
               <p className="rv-exp-story__context">
-                More songs from the same artist in the Retroverse chart graph.
+                More songs from the same artist in chart history.
               </p>
               <ul className="rv-exp-discover__rail">
                 {Array.from(new Map(track.relatedTracks.map((song) => [song.rvtr, song])).values())

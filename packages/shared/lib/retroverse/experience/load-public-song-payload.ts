@@ -22,8 +22,10 @@ import type { UniversalPackagePayload } from "@/lib/universal-renderer/load-pack
 import { loadUniversalPackage } from "@/lib/universal-renderer/load-package";
 import {
   loadBundledVdjRvtrPackage,
+  loadVdjBasePackage,
   loadVdjBasePackageByRvtr,
 } from "@/lib/universal-renderer/load-vdj-base";
+import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 import type { ExternalDiscoveryQuery } from "@/lib/public/external-search";
 import {
   sanitizeDisplayAlbumTitle,
@@ -31,6 +33,7 @@ import {
 } from "@/lib/retroverse/experience/public-song-display";
 
 const RVTR_RE = /^RVTR\d{6}$/i;
+const VDJ_RE = /^VDJ:[0-9A-F]{16}$/i;
 
 export type PublicSongVdjHint = {
   artist?: string | null;
@@ -73,7 +76,10 @@ export type PublicSongPayload = {
   artist: string;
   album: string | null;
   year: number | null;
+  yearSource: "canonical" | "package" | "album" | "vdj" | "unknown";
   coverUrl: string | null;
+  heroUrl: string | null;
+  heroSource: "approved-song-hero" | "album-art" | "fallback" | "none";
   track: TrackPageData | null;
   localContent: LocalSongContent | null;
   trivia: string[];
@@ -98,14 +104,14 @@ export type PublicSongPayload = {
 
 function normalizeRvtr(raw: string): string | null {
   const decoded = decodeURIComponent(raw).trim().toUpperCase();
-  return RVTR_RE.test(decoded) ? decoded : null;
+  return RVTR_RE.test(decoded) || VDJ_RE.test(decoded) ? decoded : null;
 }
 
 function trackYear(track: TrackPageData): number | null {
   if (track.releaseYear) return track.releaseYear;
   const fromChart = track.firstChartDate ? Number(track.firstChartDate.slice(0, 4)) : NaN;
   if (Number.isFinite(fromChart) && fromChart > 0) return fromChart;
-  return track.albums[0]?.releaseYear ?? null;
+  return null;
 }
 
 function albumTitleFromPackage(pkg: SongPackage | null): string | null {
@@ -177,12 +183,14 @@ function buildPayload(
     vdjResolverStep: "vdj:loadVdjBasePackageByRvtr" | "vdj:loadBundledVdjRvtrPackage" | null;
     localContent: LocalSongContent | null;
     vdjHint: PublicSongVdjHint | null;
+    heroUrl: string | null;
+    heroSource: PublicSongPayload["heroSource"];
   },
 ): PublicSongPayload {
   const warnings: string[] = [];
   const resolverPath: string[] = [];
 
-  const { track, songPackage, universalCards, universalPackage, vdjPayload, vdjResolverStep, localContent, vdjHint } =
+  const { track, songPackage, universalCards, universalPackage, vdjPayload, vdjResolverStep, localContent, vdjHint, heroUrl, heroSource } =
     input;
 
   if (track) resolverPath.push("graph:loadTrackPage");
@@ -232,12 +240,12 @@ function buildPayload(
     sanitizeDisplayAlbumTitle(vdjHint?.album) ||
     null;
 
-  const year =
-    (track ? trackYear(track) : null) ??
-    yearFromPackage(songPackage) ??
-    vdjPayload?.year ??
-    vdjHint?.year ??
-    null;
+  const canonicalYear = track ? trackYear(track) : null;
+  const packageYear = yearFromPackage(songPackage);
+  const albumYear = track?.albums[0]?.releaseYear ?? null;
+  const vdjYear = vdjPayload?.year ?? vdjHint?.year ?? null;
+  const year = canonicalYear ?? packageYear ?? albumYear ?? vdjYear ?? null;
+  const yearSource = canonicalYear != null ? "canonical" : packageYear != null ? "package" : albumYear != null ? "album" : vdjYear != null ? "vdj" : "unknown";
 
   const coverUrl =
     track?.coverUrl ??
@@ -268,7 +276,10 @@ function buildPayload(
     artist,
     album,
     year,
+    yearSource,
     coverUrl,
+    heroUrl,
+    heroSource,
     track,
     localContent,
     trivia: extractTrivia(songPackage),
@@ -279,7 +290,7 @@ function buildPayload(
     vdjPackage: vdjPayload,
     vdj: vdjMeta,
     links: {
-      songHref: trackPageHref(rvtr),
+      songHref: VDJ_RE.test(rvtr) ? `/song/vdj/${rvtr.slice(4).toLowerCase()}` : trackPageHref(rvtr),
       artistHref,
       albumHref,
       yearHref,
@@ -313,15 +324,34 @@ async function loadPublicSongPayloadImpl(
       vdjResolverStep: null,
       localContent: null,
       vdjHint: vdjHint ?? null,
+      heroUrl: null,
+      heroSource: "none",
     });
   }
 
-  const [track, songPackage, universalPackage, vdjFallback, localContent] = await Promise.all([
+  if (VDJ_RE.test(rvtr)) {
+    const vdjPayload = await loadVdjBasePackage(rvtr.slice(4).toLowerCase()).catch(() => null);
+    return buildPayload(rvtr, {
+      track: null,
+      songPackage: null,
+      universalCards: vdjPayload?.cards ?? null,
+      universalPackage: vdjPayload,
+      vdjPayload,
+      vdjResolverStep: vdjPayload ? "vdj:loadVdjBasePackageByRvtr" : null,
+      localContent: null,
+      vdjHint: vdjHint ?? null,
+      heroUrl: null,
+      heroSource: "none",
+    });
+  }
+
+  const [track, songPackage, universalPackage, vdjFallback, localContent, hero] = await Promise.all([
     loadTrackPage(rvtr),
     loadSongPackage(rvtr),
     loadUniversalPackage(rvtr),
     loadVdjFallbackPackage(rvtr),
     loadApprovedLocalSongContent(rvtr),
+    resolveHeroForRvtr(rvtr).catch(() => ({ url: null, tier: null })),
   ]);
 
   return buildPayload(rvtr, {
@@ -333,6 +363,8 @@ async function loadPublicSongPayloadImpl(
     vdjResolverStep: vdjFallback.resolverStep,
     localContent,
     vdjHint: vdjHint ?? null,
+    heroUrl: hero.url,
+    heroSource: hero.tier === "primary" ? "approved-song-hero" : hero.tier === "secondary" ? "album-art" : hero.url ? "fallback" : "none",
   });
 }
 
