@@ -1,6 +1,6 @@
 # VirtualDJ Library Coverage
 
-Generated: 2026-08-11T17:21:43.148Z
+Generated: 2026-08-11T17:35:01.834Z
 Source: /Users/bobhopp/Library/Application Support/VirtualDJ/database.xml
 
 ## Reconciliation
@@ -23,9 +23,9 @@ The corrected denominator is **8829** current existing physical files under /Use
 - Canonical identity: {"unresolved":3719,"resolved":5110}
 - Year source: {"vdj_fallback":4031,"canonical/trusted":4788,"unknown":7,"trusted_package":3}
 - Story: {"MISSING":7996,"READY":750,"PARTIAL":83}
-- Hero: {"VIDEO_AVAILABLE_HERO_NOT_PREPARED":8794,"PREPARED_VIDEO_HERO":35}
+- Hero: {"VIDEO_AVAILABLE_HERO_NOT_PREPARED":8487,"PREPARED_VIDEO_HERO":342}
 - Chart Journey: {"UNAVAILABLE":4041,"AVAILABLE":4788}
-- Preparation: {"UNRESOLVED_IDENTITY":3719,"NEEDS_HERO":788,"NEEDS_HERO_AND_STORY":4287,"READY":34,"NEEDS_STORY":1}
+- Preparation: {"UNRESOLVED_IDENTITY":3719,"READY":341,"NEEDS_HERO_AND_STORY":4287,"NEEDS_HERO":481,"NEEDS_STORY":1}
 
 Percentages use 8829 as the denominator. Canonical/trusted year: 4788 (54.2%); VDJ fallback: 4031 (45.7%); unknown: 7 (0.1%).
 
@@ -66,7 +66,7 @@ Percentages use 8829 as the denominator. Canonical/trusted year: 4788 (54.2%); V
 - Andrews Sisters — Boogie Woogie Bugle Boy: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1944 (vdj_fallback); chart=UNAVAILABLE
 - Animation — Vintage Banned Cartoons: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1950 (vdj_fallback); chart=UNAVAILABLE
 - Big Band — Rhapsody in Blue: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1948 (vdj_fallback); chart=UNAVAILABLE
-- Big Bopper — Chantilly Lace: RVTR952686; NEEDS_HERO; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=READY; year=1958 (canonical/trusted); chart=AVAILABLE
+- Big Bopper — Chantilly Lace: RVTR952686; READY; hero=PREPARED_VIDEO_HERO; story=READY; year=1958 (canonical/trusted); chart=AVAILABLE
 - Bill Haley — Lets Rip It Up: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1957 (vdj_fallback); chart=UNAVAILABLE
 - Bill Haley & His Comets — Rock Around The Clock: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1955 (vdj_fallback); chart=UNAVAILABLE
 - Billie Davis — I Want You To Be My Baby: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1953 (vdj_fallback); chart=UNAVAILABLE
