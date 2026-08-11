@@ -26,6 +26,7 @@ import {
   loadVdjBasePackageByRvtr,
 } from "@/lib/universal-renderer/load-vdj-base";
 import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
+import { resolveVisualAssetPath } from "@/lib/ops/studio/collector/visual-extraction";
 import type { ExternalDiscoveryQuery } from "@/lib/public/external-search";
 import {
   sanitizeDisplayAlbumTitle,
@@ -34,6 +35,11 @@ import {
 
 const RVTR_RE = /^RVTR\d{6}$/i;
 const VDJ_RE = /^VDJ:[0-9A-F]{16}$/i;
+
+function experienceVisualAssetUrl(rvtr: string, filename: string): string {
+  const params = new URLSearchParams({ rvtr: rvtr.trim().toUpperCase(), file: filename });
+  return `/api/experience/visual-asset?${params.toString()}`;
+}
 
 export type PublicSongVdjHint = {
   artist?: string | null;
@@ -331,6 +337,8 @@ async function loadPublicSongPayloadImpl(
 
   if (VDJ_RE.test(rvtr)) {
     const vdjPayload = await loadVdjBasePackage(rvtr.slice(4).toLowerCase()).catch(() => null);
+    const vdjHeroIdentity = `VDJ-${rvtr.slice(4).toLowerCase()}`;
+    const hasVdjHero = await resolveVisualAssetPath(vdjHeroIdentity, "hero-video.jpg");
     return buildPayload(rvtr, {
       track: null,
       songPackage: null,
@@ -340,8 +348,8 @@ async function loadPublicSongPayloadImpl(
       vdjResolverStep: vdjPayload ? "vdj:loadVdjBasePackageByRvtr" : null,
       localContent: null,
       vdjHint: vdjHint ?? null,
-      heroUrl: null,
-      heroSource: "none",
+      heroUrl: hasVdjHero ? experienceVisualAssetUrl(vdjHeroIdentity, "hero-video.jpg") : null,
+      heroSource: hasVdjHero ? "approved-song-hero" : "none",
     });
   }
 

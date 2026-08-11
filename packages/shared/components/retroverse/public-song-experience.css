@@ -54,6 +54,7 @@
 .editorial-shell:has(.canonical-song__hero) .editorial-shell__masthead,
 .editorial-shell:has(.canonical-song__hero) .editorial-shell__footer { border-color: rgba(196, 214, 255, .24); color: #e8f0ff; }
 .editorial-shell:has(.canonical-song__hero) .editorial-shell__search { border-color: rgba(196, 214, 255, .24); }
+.editorial-shell:has(.canonical-song__hero) .editorial-shell__search { display: none; }
 .editorial-shell:has(.canonical-song__hero) .home-search-trigger { border-color: rgba(196, 214, 255, .6); background: #101f2e; color: #f7f2e9; }
 .editorial-song .canonical-song__hero-copy h1 { color: #f7f2e9; }
 .editorial-song .canonical-song__hero-copy .rv2-song__artist { color: #fff; }

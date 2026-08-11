@@ -146,7 +146,7 @@ export async function PublicSongExperience({
         >
           <header className="rv2-song__header" aria-label="Song overview" data-year-source={payload.yearSource} data-resolution={payload.resolution}>
             {!embedded ? (
-              <RetroverseBack fallbackHref="/search" fallbackLabel="Search" />
+              <RetroverseBack fallbackHref="/search" fallbackLabel="Archive" />
             ) : null}
             <div className="canonical-song__hero">
               {payload.heroUrl ? <img className="canonical-song__hero-image" src={payload.heroUrl} alt="" /> : <div className="canonical-song__hero-fallback" aria-hidden="true" />}
