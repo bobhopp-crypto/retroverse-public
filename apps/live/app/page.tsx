@@ -87,6 +87,24 @@ export default async function HomePage() {
     </>;
   }
 
+  if (featuredPayload) {
+    const featuredHomepagePayload = {
+      ...initial,
+      currentTrackId: featuredPayload.rvtr,
+      live: null,
+      publicSong: featuredPayload,
+      track: featuredPayload.track,
+    };
+    return (
+      <LiveSongView
+        payload={featuredHomepagePayload}
+        heroUrl={featuredDocument?.heroUrl ?? featuredPayload.coverUrl ?? null}
+        heroRvtr={featuredPayload.rvtr}
+        mode="featured"
+      />
+    );
+  }
+
   return (
     <>
       <PublicHomepageView
