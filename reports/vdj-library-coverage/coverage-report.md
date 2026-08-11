@@ -1,61 +1,78 @@
 # VirtualDJ Library Coverage
 
-Generated: 2026-08-11T17:01:06.608Z
+Generated: 2026-08-11T17:12:53.143Z
 Source: /Users/bobhopp/Library/Application Support/VirtualDJ/database.xml
 
-## Totals
+## Reconciliation
 
-- Total VDJ video tracks: **13292**
-- Canonical identity: {"unresolved":7303,"resolved":5989}
-- Year source: {"unknown":1521,"vdj_fallback":6640,"canonical/trusted":5128,"trusted_package":3}
-- Story: {"MISSING":12459,"READY":750,"PARTIAL":83}
-- Hero: {"VIDEO_AVAILABLE_HERO_NOT_PREPARED":13108,"NO_USABLE_VISUAL":181,"PREPARED_VIDEO_HERO":3}
-- Chart Journey: {"UNAVAILABLE":8164,"AVAILABLE":5128}
-- Preparation: {"UNRESOLVED_IDENTITY":7303,"NEEDS_HERO_AND_STORY":5161,"NEEDS_HERO":822,"NEEDS_STORY":6}
+- Original inventory path records: **13,292**
+- Raw XML video records: **13294**
+- Raw XML unique path records: **13292**
+- Raw XML duplicate references: **2**
+- Parsed video-extension database records: **13292**
+- Records under the actual VIDEO root: **8872**
+- Unique existing physical VIDEO files: **8829**
+- Duplicate VDJ references removed: **0**
+- Missing/stale VIDEO-root references: **43**
+- Existing records outside the actual VIDEO root: **4420**
 
-Percentages use 13292 as the denominator. Canonical/trusted year: 5128 (38.6%); VDJ fallback: 6640 (50.0%); unknown: 1521 (11.4%).
+The corrected denominator is **8829** current existing physical files under /Users/bobhopp/DJ MEDIA/VIDEO/. This is two below the VirtualDJ UI reference of 8,832; the current filesystem scan found 8,830 files, while the database has 8,874 VIDEO-root references including 42 stale references and two duplicate records. The remaining two-file difference cannot be reconciled from the current database/filesystem snapshot alone and should be checked against the VirtualDJ UI's inclusion rules or refresh timing.
+
+## Coverage totals
+
+- Canonical identity: {"unresolved":3719,"resolved":5110}
+- Year source: {"vdj_fallback":4031,"canonical/trusted":4788,"unknown":7,"trusted_package":3}
+- Story: {"MISSING":7996,"READY":750,"PARTIAL":83}
+- Hero: {"VIDEO_AVAILABLE_HERO_NOT_PREPARED":8828,"PREPARED_VIDEO_HERO":1}
+- Chart Journey: {"UNAVAILABLE":4041,"AVAILABLE":4788}
+- Preparation: {"UNRESOLVED_IDENTITY":3719,"NEEDS_HERO":822,"NEEDS_HERO_AND_STORY":4287,"NEEDS_STORY":1}
+
+Percentages use 8829 as the denominator. Canonical/trusted year: 4788 (54.2%); VDJ fallback: 4031 (45.7%); unknown: 7 (0.1%).
 
 ## Major library folders / decades
 
-- 1950s: 100
-- 1960s: 847
-- 1970s: 1320
-- 1980s: 1932
-- 1990s: 1247
-- 2000s: 1080
-- 2010s: 1294
+- 1950s: 99
+- 1960s: 814
+- 1970s: 1309
+- 1980s: 1923
+- 1990s: 1241
+- 2000s: 1077
+- 2010s: 1292
 - 2020s: 306
-- other: 5166
+- other: 768
 
 ## Validation sample: 20 real tracks
 
--  — : unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
--  — : unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
--  — : unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
--  — : unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
--  — : unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
--  — : unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
--  — : unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
--  — : unresolved; UNRESOLVED_IDENTITY; hero=NO_USABLE_VISUAL; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
--  — : unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Jax — Victoria’s Secret: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=2022 (vdj_fallback); chart=UNAVAILABLE
--  — BOOTCAMP MTV Hold On to the Night: unresolved; UNRESOLVED_IDENTITY; hero=NO_USABLE_VISUAL; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 001: RVTR937961; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 002: RVTR828930; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 003: RVTR420352; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 004: RVTR898002; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 005: RVTR248464; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 006: RVTR814189; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 007: RVTR600450; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 008: RVTR343803; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Romance Background — 009: RVTR312279; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
+- Andrews Sisters — Boogie Woogie Bugle Boy: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1944 (vdj_fallback); chart=UNAVAILABLE
+- Animation — Vintage Banned Cartoons: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1950 (vdj_fallback); chart=UNAVAILABLE
+- Big Band — Rhapsody in Blue: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1948 (vdj_fallback); chart=UNAVAILABLE
+- Big Bopper — Chantilly Lace: RVTR952686; NEEDS_HERO; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=READY; year=1958 (canonical/trusted); chart=AVAILABLE
+- Bill Haley — Lets Rip It Up: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1957 (vdj_fallback); chart=UNAVAILABLE
+- Bill Haley & His Comets — Rock Around The Clock: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1955 (vdj_fallback); chart=UNAVAILABLE
+- Billie Davis — I Want You To Be My Baby: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1953 (vdj_fallback); chart=UNAVAILABLE
+- Bo Diddley — Please Mr. Engineer: RVTR083367; NEEDS_HERO_AND_STORY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1959 (vdj_fallback); chart=UNAVAILABLE
+- Bobby Darin — Queen Of The Hop: RVTR740400; NEEDS_HERO_AND_STORY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1958 (canonical/trusted); chart=AVAILABLE
+- Buddy Holly — Not Fade Away and Peggy Sue: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1956 (vdj_fallback); chart=UNAVAILABLE
+- Cab Calloway — Minnie the Moocher (Blue Brothers): unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1980 (vdj_fallback); chart=UNAVAILABLE
+- Cab Calloway — St. James Infirmary Blues: RVTR160225; NEEDS_HERO_AND_STORY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1933 (vdj_fallback); chart=UNAVAILABLE
+- Cab Calloway and the Nicholas Brothers — Jumpin Jive: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=2006 (vdj_fallback); chart=UNAVAILABLE
+- Carl Perkins — Blue Suede Shoes: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1956 (vdj_fallback); chart=UNAVAILABLE
+- Carl Perkins — Glad All Over: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1957 (vdj_fallback); chart=UNAVAILABLE
+- Chords — Sh-Boom: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1954 (vdj_fallback); chart=UNAVAILABLE
+- Chuck Berry — Johnny B. Goode (Back to the Future): RVTR979650; NEEDS_HERO_AND_STORY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1958 (canonical/trusted); chart=AVAILABLE
+- Chuck Berry — Memphis Tennessee: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1959 (vdj_fallback); chart=UNAVAILABLE
+- Chuck Berry — School Days: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1957 (vdj_fallback); chart=UNAVAILABLE
+- Chuck Berry — You Can't Catch Me: RVTR937487; NEEDS_HERO_AND_STORY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1956 (vdj_fallback); chart=UNAVAILABLE
 
 ## Approved prototype songs
 
-- Benny Benassi f./Kelis, apl.de.ap & Jean-Baptiste — Spaceship: RVTR461330; UNRESOLVED_IDENTITY; hero=PREPARED_VIDEO_HERO; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Clean Bandit feat. Ellie Goulding — Mama: RVTR009363; UNRESOLVED_IDENTITY; hero=PREPARED_VIDEO_HERO; story=MISSING; year=unknown (unknown); chart=UNAVAILABLE
-- Nancy Sinatra — These Boots Are Made For Walking: RVTR251858; NEEDS_STORY; hero=PREPARED_VIDEO_HERO; story=MISSING; year=1966 (canonical/trusted); chart=AVAILABLE
-- Paul Simon — Graceland & You Can Call Me Al: RVTR285085; NEEDS_HERO; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=READY; year=1986 (canonical/trusted); chart=AVAILABLE
-- Paul Simon — You Can Call Me Al: RVTR285085; NEEDS_HERO; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=READY; year=1986 (canonical/trusted); chart=AVAILABLE
+- Nancy Sinatra — These Boots Are Made For Walking: RVTR251858; NEEDS_STORY; hero=PREPARED_VIDEO_HERO; story=MISSING; year=1966; chart=AVAILABLE
+- Paul Simon — Graceland & You Can Call Me Al: RVTR285085; NEEDS_HERO; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=READY; year=1986; chart=AVAILABLE
+- Paul Simon — You Can Call Me Al: RVTR285085; NEEDS_HERO; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=READY; year=1986; chart=AVAILABLE
+- Gladys Knight & The Pips — The Best Thing That Ever Happened: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1974; chart=UNAVAILABLE
+
+## Prototype reconciliation
+
+- Paul Simon — You Can Call Me Al: in corrected VIDEO inventory, in corrected VIDEO inventory\n- Benny Benassi — Spaceship: excluded: outside VIDEO root\n- Gladys Knight & The Pips — The Best Thing That Ever Happened: in corrected VIDEO inventory, excluded: outside VIDEO root, excluded: outside VIDEO root\n- Nancy Sinatra — These Boots Are Made for Walkin’: in corrected VIDEO inventory\n- Clean Bandit feat. Ellie Goulding — Mama: excluded: outside VIDEO root
 
 Identity resolution is exact-label-only in this inventory; unresolved records are not fuzzy matched. No stories or video frames were generated.
