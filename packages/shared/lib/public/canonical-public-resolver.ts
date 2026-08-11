@@ -78,6 +78,9 @@ export type CanonicalTrackBatchItem = {
   artist: CanonicalArtistIdentity;
   canonicalYear: number | null;
   albumResolution: PrimaryAlbumResolution;
+  chartWeeks: number;
+  peakHot100Position: number | null;
+  hasHot100: boolean;
 };
 
 type TrackIdentityRow = {
@@ -542,6 +545,9 @@ export async function resolveCanonicalTracksBatch(rvtrParams: string[]): Promise
             canonicalYear,
             candidates: candidatesByRvtr.get(rvtr) ?? [],
           }),
+          chartWeeks: track.chart_weeks ?? 0,
+          peakHot100Position: track.peak_hot100_position ?? null,
+          hasHot100: Boolean(track.has_hot100),
         },
       ] as const;
     }),
