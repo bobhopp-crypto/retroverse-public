@@ -12,6 +12,7 @@ import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { preparePublicSongSections, filterPublicText } from "@/lib/retroverse/experience/public-song-display";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { SongArveyContext } from "./SongArveyContext";
+import { loadChartTrajectoryRecommendations, SHE_IS_A_BEAUTY_ARTICLE } from "@/lib/retroverse/experience/editorial-song-prototype";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
@@ -128,6 +129,10 @@ export async function PublicSongExperience({
   const albumHref = payload.links.albumHref ?? primaryAlbum?.href ?? null;
   const yearHref = payload.links.yearHref;
   const isVdjOnly = payload.resolutionTier === "vdj-only";
+  const isEditorialPrototype = payload.rvtr === "RVTR111098";
+  const trajectoryRecommendations = isEditorialPrototype && track
+    ? await loadChartTrajectoryRecommendations(track)
+    : [];
   const hasExploreLinks =
     journeyWeeks > 0 || hasStory || Boolean(moment?.href) || Boolean(albumHref) || Boolean(artistHref) || Boolean(yearHref && year);
 
@@ -172,23 +177,21 @@ export async function PublicSongExperience({
                 Retroverse has limited internal information for this song. Use the links below to explore further.
               </p>
             ) : null}
-            <div className="canonical-song__lead"><p>{sections.storyCards[0]?.body ?? sections.storyParagraphs[0] ?? `Explore the music, chart history, and context behind ${payload.title}.`}</p></div>
+            <div className="canonical-song__lead"><p>{isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0] ?? `Explore the music, chart history, and context behind ${payload.title}.`}</p></div>
             <div className="canonical-song__meta">
               {payload.album ? <span>{payload.album}</span> : null}
               {year ? <Link href={yearHref ?? `/rv/${year}`}>Explore {year}</Link> : null}
             </div>
             {!embedded && hasExploreLinks ? (
               <>
-                <div className="rv2-song__continue-label">Explore This Song</div>
+                <div className="rv2-song__continue-label">Explore</div>
                 <nav className="rv2-song__explore-links" aria-label="Explore this song">
                   {artistHref ? <Link href={artistHref} prefetch>Artist</Link> : null}
                   {albumHref ? <Link href={albumHref} prefetch>Album</Link> : null}
                   {yearHref && year ? <Link href={yearHref} prefetch>Year</Link> : null}
                   {moment?.href ? <Link href={moment.href} prefetch>Charts</Link> : null}
                 </nav>
-                {journeyWeeks > 0 ? (
-                  <p className="rv2-song__continue-cue">Continue below ↓ Song Journey</p>
-                ) : null}
+                {journeyWeeks > 0 ? <p className="rv2-song__continue-cue">Chart Journey below ↓</p> : null}
               </>
             ) : null}
           </header>
@@ -214,7 +217,7 @@ export async function PublicSongExperience({
             </div>
           ) : null}
 
-          {moment ? (
+          {moment && !isEditorialPrototype ? (
             <section id="song-story" className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-defining-moment-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-defining-moment-heading">DEFINING MOMENT</h2>
@@ -233,7 +236,16 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {hasStory ? (
+          {isEditorialPrototype ? (
+            <article className="rv2-song__editorial-article" aria-labelledby="rv-editorial-headline">
+              <p className="rv2-song__editorial-kicker">The feature</p>
+              <h2 id="rv-editorial-headline">{SHE_IS_A_BEAUTY_ARTICLE.headline}</h2>
+              {SHE_IS_A_BEAUTY_ARTICLE.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <p className="rv2-song__editorial-source">
+                <a href={SHE_IS_A_BEAUTY_ARTICLE.sourceUrl} target="_blank" rel="noopener noreferrer">Research note · {SHE_IS_A_BEAUTY_ARTICLE.sourceLabel} ↗</a>
+              </p>
+            </article>
+          ) : hasStory ? (
             <section id="song-story" className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-song-story-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-song-story-heading">The Story</h2>
@@ -259,7 +271,7 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {sections.trivia.length > 0 ? (
+          {!isEditorialPrototype && sections.trivia.length > 0 ? (
             <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-trivia-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-trivia-heading">TRIVIA</h2>
@@ -272,7 +284,7 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {sections.timeline.length > 0 ? (
+          {!isEditorialPrototype && sections.timeline.length > 0 ? (
             <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-timeline-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-timeline-heading">TIMELINE</h2>
@@ -291,16 +303,14 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {track && track.relatedTracks.length > 0 ? (
+          {track && (isEditorialPrototype ? trajectoryRecommendations.length > 0 : track.relatedTracks.length > 0) ? (
             <section className="rv-exp-chapter rv-exp-discover" aria-labelledby="rv-related-music-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-related-music-heading">RELATED MUSIC</h2>
               </header>
-              <p className="rv-exp-story__context">
-                More songs from the same artist in chart history.
-              </p>
+              <p className="rv-exp-story__context">Chart-trajectory matches — selected from existing Hot 100 journeys, not artist similarity.</p>
               <ul className="rv-exp-discover__rail">
-                {Array.from(new Map(track.relatedTracks.map((song) => [song.rvtr, song])).values())
+                {(isEditorialPrototype ? trajectoryRecommendations : Array.from(new Map(track.relatedTracks.map((song) => [song.rvtr, song])).values()).map((song) => ({ ...song, reason: "Same artist", score: 0 })))
                   .slice(0, 6)
                   .map((song) => (
                     <li key={song.rvtr}>
@@ -308,12 +318,12 @@ export async function PublicSongExperience({
                         href={song.href}
                         className="rv-exp-discover__card"
                         prefetch
-                        aria-label={`${song.title}, related because it is by the same artist`}
+                        aria-label={`${song.title}, ${song.reason}`}
                       >
                         <span className="rv-exp-discover__copy">
                           <span className="rv-exp-discover__title">{song.title}</span>
                           <span className="rv-exp-discover__meta">
-                            <span className="rv-exp-discover__reason">Same artist</span>
+                            <span className="rv-exp-discover__reason">{song.reason}</span>
                             {song.releaseYear ? (
                               <span className="rv-exp-discover__year">{song.releaseYear}</span>
                             ) : null}
