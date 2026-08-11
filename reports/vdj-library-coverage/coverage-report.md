@@ -1,6 +1,6 @@
 # VirtualDJ Library Coverage
 
-Generated: 2026-08-11T17:12:53.143Z
+Generated: 2026-08-11T17:14:39.738Z
 Source: /Users/bobhopp/Library/Application Support/VirtualDJ/database.xml
 
 ## Reconciliation
@@ -12,7 +12,7 @@ Source: /Users/bobhopp/Library/Application Support/VirtualDJ/database.xml
 - Parsed video-extension database records: **13292**
 - Records under the actual VIDEO root: **8872**
 - Unique existing physical VIDEO files: **8829**
-- Duplicate VDJ references removed: **0**
+- Duplicate VDJ references removed: **2**
 - Missing/stale VIDEO-root references: **43**
 - Existing records outside the actual VIDEO root: **4420**
 
@@ -73,6 +73,10 @@ Percentages use 8829 as the denominator. Canonical/trusted year: 4788 (54.2%); V
 
 ## Prototype reconciliation
 
-- Paul Simon — You Can Call Me Al: in corrected VIDEO inventory, in corrected VIDEO inventory\n- Benny Benassi — Spaceship: excluded: outside VIDEO root\n- Gladys Knight & The Pips — The Best Thing That Ever Happened: in corrected VIDEO inventory, excluded: outside VIDEO root, excluded: outside VIDEO root\n- Nancy Sinatra — These Boots Are Made for Walkin’: in corrected VIDEO inventory\n- Clean Bandit feat. Ellie Goulding — Mama: excluded: outside VIDEO root
+- Paul Simon — You Can Call Me Al: in corrected VIDEO inventory, in corrected VIDEO inventory
+- Benny Benassi — Spaceship: excluded: outside VIDEO root
+- Gladys Knight & The Pips — The Best Thing That Ever Happened: in corrected VIDEO inventory, excluded: outside VIDEO root, excluded: outside VIDEO root
+- Nancy Sinatra — These Boots Are Made for Walkin’: in corrected VIDEO inventory
+- Clean Bandit feat. Ellie Goulding — Mama: excluded: outside VIDEO root
 
 Identity resolution is exact-label-only in this inventory; unresolved records are not fuzzy matched. No stories or video frames were generated.
