@@ -1,6 +1,6 @@
 # VirtualDJ Library Coverage
 
-Generated: 2026-08-11T17:16:20.989Z
+Generated: 2026-08-11T17:21:43.148Z
 Source: /Users/bobhopp/Library/Application Support/VirtualDJ/database.xml
 
 ## Reconciliation
@@ -23,9 +23,9 @@ The corrected denominator is **8829** current existing physical files under /Use
 - Canonical identity: {"unresolved":3719,"resolved":5110}
 - Year source: {"vdj_fallback":4031,"canonical/trusted":4788,"unknown":7,"trusted_package":3}
 - Story: {"MISSING":7996,"READY":750,"PARTIAL":83}
-- Hero: {"VIDEO_AVAILABLE_HERO_NOT_PREPARED":8828,"PREPARED_VIDEO_HERO":1}
+- Hero: {"VIDEO_AVAILABLE_HERO_NOT_PREPARED":8794,"PREPARED_VIDEO_HERO":35}
 - Chart Journey: {"UNAVAILABLE":4041,"AVAILABLE":4788}
-- Preparation: {"UNRESOLVED_IDENTITY":3719,"NEEDS_HERO":822,"NEEDS_HERO_AND_STORY":4287,"NEEDS_STORY":1}
+- Preparation: {"UNRESOLVED_IDENTITY":3719,"NEEDS_HERO":788,"NEEDS_HERO_AND_STORY":4287,"READY":34,"NEEDS_STORY":1}
 
 Percentages use 8829 as the denominator. Canonical/trusted year: 4788 (54.2%); VDJ fallback: 4031 (45.7%); unknown: 7 (0.1%).
 
@@ -87,8 +87,8 @@ Percentages use 8829 as the denominator. Canonical/trusted year: 4788 (54.2%); V
 ## Approved prototype songs
 
 - Nancy Sinatra — These Boots Are Made For Walking: RVTR251858; NEEDS_STORY; hero=PREPARED_VIDEO_HERO; story=MISSING; year=1966; chart=AVAILABLE
-- Paul Simon — Graceland & You Can Call Me Al: RVTR285085; NEEDS_HERO; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=READY; year=1986; chart=AVAILABLE
-- Paul Simon — You Can Call Me Al: RVTR285085; NEEDS_HERO; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=READY; year=1986; chart=AVAILABLE
+- Paul Simon — Graceland & You Can Call Me Al: RVTR285085; READY; hero=PREPARED_VIDEO_HERO; story=READY; year=1986; chart=AVAILABLE
+- Paul Simon — You Can Call Me Al: RVTR285085; READY; hero=PREPARED_VIDEO_HERO; story=READY; year=1986; chart=AVAILABLE
 - Gladys Knight & The Pips — The Best Thing That Ever Happened: unresolved; UNRESOLVED_IDENTITY; hero=VIDEO_AVAILABLE_HERO_NOT_PREPARED; story=MISSING; year=1974; chart=UNAVAILABLE
 
 ## Prototype reconciliation
