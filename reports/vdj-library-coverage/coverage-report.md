@@ -1,6 +1,6 @@
 # VirtualDJ Library Coverage
 
-Generated: 2026-08-11T17:35:01.834Z
+Generated: 2026-08-11T17:47:51.959Z
 Source: /Users/bobhopp/Library/Application Support/VirtualDJ/database.xml
 
 ## Reconciliation
@@ -23,9 +23,9 @@ The corrected denominator is **8829** current existing physical files under /Use
 - Canonical identity: {"unresolved":3719,"resolved":5110}
 - Year source: {"vdj_fallback":4031,"canonical/trusted":4788,"unknown":7,"trusted_package":3}
 - Story: {"MISSING":7996,"READY":750,"PARTIAL":83}
-- Hero: {"VIDEO_AVAILABLE_HERO_NOT_PREPARED":8487,"PREPARED_VIDEO_HERO":342}
+- Hero: {"VIDEO_AVAILABLE_HERO_NOT_PREPARED":8089,"PREPARED_VIDEO_HERO":740}
 - Chart Journey: {"UNAVAILABLE":4041,"AVAILABLE":4788}
-- Preparation: {"UNRESOLVED_IDENTITY":3719,"READY":341,"NEEDS_HERO_AND_STORY":4287,"NEEDS_HERO":481,"NEEDS_STORY":1}
+- Preparation: {"UNRESOLVED_IDENTITY":3719,"READY":739,"NEEDS_HERO_AND_STORY":4287,"NEEDS_HERO":83,"NEEDS_STORY":1}
 
 Percentages use 8829 as the denominator. Canonical/trusted year: 4788 (54.2%); VDJ fallback: 4031 (45.7%); unknown: 7 (0.1%).
 

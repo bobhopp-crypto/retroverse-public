@@ -4,9 +4,9 @@ import { sampleFrames } from "@/lib/ops/issue-generation/sample-frames";
 
 const ROOT = "/Users/bobhopp/DJ MEDIA/VIDEO/";
 const INVENTORY = join(process.cwd(), "reports/vdj-library-coverage/inventory.json");
-const OUT = join(process.cwd(), "reports/song-preparation-batch-250");
+const LIMIT = Number(process.env.RETROVERSE_BATCH_LIMIT ?? "250");
+const OUT = join(process.cwd(), `reports/song-preparation-batch-${LIMIT}`);
 const ASSET_ROOT = join(process.cwd(), "data/ops/intelligence/research-department");
-const LIMIT = 250;
 
 type Row = Record<string, any>;
 function eligible(r: Row) {
