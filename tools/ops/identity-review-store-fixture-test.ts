@@ -8,7 +8,7 @@ async function fixture(decision: "APPROVE" | "REJECT" | "SKIP") {
   await writeFile(join(dir, "queue.json"), JSON.stringify({ version: 1, records: [{ videoPath, vdj: "Artist — Song", candidates: [{ rvtr: "RVTR123456", artist: "Artist", title: "Song", year: 1984, source: "hot100" }], evidence: "Fixture evidence", question: "Fixture question" }] }));
   await writeFile(join(dir, "manifest.json"), JSON.stringify({ version: 1, records: [{ normalizedPath: videoPath, rvtr: null, identityStatus: "IDENTITY_REQUIRED", overallStatus: "IDENTITY_REQUIRED", heroStatus: "PREPARATION_REQUIRED", collectorStatus: "MISSING", editorialStatus: "MISSING", relatedMusicStatus: "PREPARATION_REQUIRED", validationStatus: "NOT_VALIDATED", preparationNeeds: ["identity"] }] }));
   await writeFile(join(dir, "history.json"), JSON.stringify({ version: 1, records: [] }));
-  const store = await import("../../packages/shared/lib/ops/identity-review-store");
+  const store = await import("../../packages/shared/lib/bobos/identity-review-store");
   await store.applyIdentityReviewDecision({ videoPath, decision, candidateRvtr: decision === "SKIP" ? null : "RVTR123456" }, { queuePath: join(dir, "queue.json"), manifestPath: join(dir, "manifest.json"), historyPath: join(dir, "history.json") });
   const manifest = JSON.parse(await readFile(join(dir, "manifest.json"), "utf8"));
   const queue = JSON.parse(await readFile(join(dir, "queue.json"), "utf8"));

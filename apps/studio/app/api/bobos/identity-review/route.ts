@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { applyIdentityReviewDecision } from "@/lib/ops/identity-review-store";
+import { applyIdentityReviewDecision } from "@/lib/bobos/identity-review-store";
 
 export const dynamic = "force-dynamic";
 

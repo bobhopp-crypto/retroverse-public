@@ -55,5 +55,6 @@ export const BOBOS_PRIMARY_NAV = [
   { id: "broadcast", label: "Broadcast Mixer", href: "/bobos/broadcast" },
   { id: "bridge", label: "Bridge", href: "/bobos/bridge" },
   { id: "pipeline", label: "Pipeline", href: "/bobos/pipeline" },
+  { id: "identity-review", label: "Identity Review", href: "/bobos/identity-review" },
   { id: "ai", label: "AI Usage", href: "/bobos/ai" },
 ] as const;

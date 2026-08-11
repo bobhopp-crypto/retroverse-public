@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { IdentityReviewItem } from "@/lib/ops/identity-review-store";
+import type { IdentityReviewItem } from "@/lib/bobos/identity-review-store";
 
 export function IdentityReviewConsole({ initialQueue }: { initialQueue: IdentityReviewItem[] }) {
   const [queue, setQueue] = useState(initialQueue);
@@ -20,7 +20,7 @@ export function IdentityReviewConsole({ initialQueue }: { initialQueue: Identity
   async function decide(decision: "APPROVE" | "REJECT" | "SKIP") {
     if (!item || busy) return;
     setBusy(true); setMessage("");
-    const response = await fetch("/api/ops/identity-review", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ videoPath: item.videoPath, decision, candidateRvtr }) });
+    const response = await fetch("/api/bobos/identity-review", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ videoPath: item.videoPath, decision, candidateRvtr }) });
     const body = await response.json() as { error?: string; lifecycleState?: string };
     if (!response.ok) { setMessage(body.error ?? "Action failed"); setBusy(false); return; }
     if (decision !== "SKIP") setQueue((current) => current.filter((_, currentIndex) => currentIndex !== index)); else setIndex((current) => Math.min(current + 1, queue.length - 1));
