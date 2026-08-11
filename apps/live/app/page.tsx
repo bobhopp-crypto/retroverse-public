@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { PublicHomepageView } from "@/app/components/public-homepage-view";
 import { LiveSongView } from "@/app/components/live-song-view";
+import { ArveyAssistant } from "@/app/components/arvey-assistant";
 import { loadFeaturedYearCovers } from "@/lib/home/load-featured-year-covers";
 import { loadHomepageDocument } from "@/lib/home/load-homepage-document";
 import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
@@ -82,19 +83,25 @@ export default async function HomePage() {
     (initial.live?.source === "bridge" || initial.live?.source === "channel");
 
   if (isNormalLiveSong) {
-    return <LiveSongView payload={initial} heroUrl={featuredDocument?.heroUrl ?? null} heroRvtr={featuredRvtr} />;
+    return <>
+      <ArveyAssistant currentSong={{ title: initial.live?.title ?? "Now playing", artist: initial.live?.artist ?? "Retroverse Live", year: initial.live?.year ?? null }} />
+      <LiveSongView payload={initial} heroUrl={featuredDocument?.heroUrl ?? null} heroRvtr={featuredRvtr} />
+    </>;
   }
 
   return (
-    <PublicHomepageView
-      initial={initial}
-      hero={authority.hero}
-      panelA={authority.panelA}
-      panelB={authority.panelB}
-      chyron={authority.chyron}
-      idleChyron={eventConfig?.homepage.idleChyron ?? ""}
-      featuredExperience={featuredExperience}
-      magazine={magazine}
-    />
+    <>
+      <ArveyAssistant currentSong={{ title: initial.publicSong?.title ?? initial.live?.title ?? initial.track?.title ?? "Now playing", artist: initial.publicSong?.artist ?? initial.live?.artist ?? initial.track?.artistName ?? "Retroverse Live", year: initial.publicSong?.year ?? initial.live?.year ?? initial.track?.releaseYear ?? null }} />
+      <PublicHomepageView
+        initial={initial}
+        hero={authority.hero}
+        panelA={authority.panelA}
+        panelB={authority.panelB}
+        chyron={authority.chyron}
+        idleChyron={eventConfig?.homepage.idleChyron ?? ""}
+        featuredExperience={featuredExperience}
+        magazine={magazine}
+      />
+    </>
   );
 }
