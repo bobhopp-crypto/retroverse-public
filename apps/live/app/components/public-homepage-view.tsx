@@ -10,20 +10,27 @@ import {
   externalSearchHref,
 } from "@/lib/public/external-search";
 import type { PublicHomepagePayload } from "@/lib/home/public-current-song";
-import type { HomepageHero } from "@/lib/ops/event-control/types";
+import type { HomepageHero } from "@/lib/event-control/types";
 import { RV_CHRONOLOGY_DEFAULT_YEAR, rvYearHref } from "@/lib/rv/rv-chronology-paths";
 import { artistPublicHrefFromName, trackPageHref } from "@/lib/search/entity-routes";
 import { discoveryShelf } from "@/lib/public/discovery-contract";
+import { Pre1970MagazineHome, type MagazineHomeModel } from "./pre-1970-magazine-home";
+import "./public-homepage-editorial-closure.css";
 
 type Props = {
   initial: PublicHomepagePayload;
   hero: HomepageHero | null;
+  panelA: { id: string; label: string; title: string; message?: string | null; actionLabel?: string | null; href?: string | null } | null;
+  panelB: { id: string; label: string; title: string; message?: string | null; actionLabel?: string | null; href?: string | null } | null;
+  chyron: string;
+  idleChyron: string;
   featuredExperience: {
     title: string;
     subtitle: string;
     href: string | null;
     coverUrl: string | null;
   } | null;
+  magazine: MagazineHomeModel | null;
 };
 
 type PanelModel = {
@@ -115,7 +122,17 @@ function extractHomepageIdentity(payload: PublicHomepagePayload): HomepageIdenti
 function buildIdlePanels(
   featuredExperience: Props["featuredExperience"],
   hero: HomepageHero | null,
+  configuredPanels: Array<Props["panelA"]>,
 ): PanelModel[] {
+  const configured = configuredPanels.filter((panel): panel is NonNullable<Props["panelA"]> => Boolean(panel)).map((panel, index) => ({
+    key: `programmed-${panel.id}-${index}`,
+    label: panel.label,
+    title: panel.title,
+    subtitle: panel.message ?? "",
+    href: panel.href ?? null,
+    externalHref: null,
+    coverUrl: null,
+  }));
   return [
     {
       key: "song",
@@ -139,7 +156,7 @@ function buildIdlePanels(
       key: "album",
       label: "Album",
       title: "Explore albums",
-      subtitle: "Album pages in Retroverse",
+      subtitle: "Album pages in the music archive",
       href: "/search",
       externalHref: null,
       coverUrl: null,
@@ -168,12 +185,13 @@ function buildIdlePanels(
     {
       key: "event",
       label: "Event or Action",
-      title: hero?.headline ?? "Retroverse Live",
+      title: hero?.headline ?? "Live music",
       subtitle: hero?.subheadline ?? hero?.description ?? "Press Play for the Past",
       href: hero?.ctaLink ?? "/search",
       externalHref: null,
       coverUrl: hero?.featureImageUrl ?? null,
     },
+    ...configured,
   ];
 }
 
@@ -181,10 +199,11 @@ function buildPanels(
   payload: PublicHomepagePayload,
   featuredExperience: Props["featuredExperience"],
   hero: HomepageHero | null,
+  configuredPanels: Array<Props["panelA"]>,
 ): PanelModel[] {
   const identity = extractHomepageIdentity(payload);
   if (!identity.hasPresentation) {
-    return buildIdlePanels(featuredExperience, hero);
+    return buildIdlePanels(featuredExperience, hero, configuredPanels);
   }
 
   const { title, artist, album, year, coverUrl, songHref, artistHref, albumHref, yearHref } = identity;
@@ -206,6 +225,15 @@ function buildPanels(
     ? externalSearchHref("youtube", externalDiscoveryQuery({ entityType: "year", year }))
     : null;
 
+  const configured = configuredPanels.filter((panel): panel is NonNullable<Props["panelA"]> => Boolean(panel)).map((panel, index) => ({
+    key: `programmed-${panel.id}-${index}`,
+    label: panel.label,
+    title: panel.title,
+    subtitle: panel.message ?? "",
+    href: panel.href ?? null,
+    externalHref: null,
+    coverUrl: null,
+  }));
   return [
     {
       key: "song",
@@ -264,12 +292,13 @@ function buildPanels(
     {
       key: "event",
       label: "Event or Action",
-      title: hero?.headline ?? "Retroverse Live",
+      title: hero?.headline ?? "Live music",
       subtitle: hero?.subheadline ?? hero?.description ?? "Press Play for the Past",
       href: hero?.ctaLink ?? "/search",
       externalHref: null,
       coverUrl: hero?.featureImageUrl ?? null,
     },
+    ...configured,
   ];
 }
 
@@ -323,7 +352,7 @@ function HomepagePanel({ panel }: { panel: PanelModel }) {
   );
 }
 
-export function PublicHomepageView({ initial, hero, featuredExperience }: Props) {
+export function PublicHomepageView({ initial, hero, panelA, panelB, chyron, idleChyron, featuredExperience, magazine }: Props) {
   const [payload, setPayload] = useState(initial);
   const pollMs = payload.channel?.running ? CHANNEL_POLL_MS : DEFAULT_POLL_MS;
 
@@ -360,9 +389,11 @@ export function PublicHomepageView({ initial, hero, featuredExperience }: Props)
     payload.channel?.running === true;
 
   const panels = useMemo(
-    () => buildPanels(payload, featuredExperience, hero),
-    [payload, featuredExperience, hero],
+    () => buildPanels(payload, featuredExperience, hero, [panelA, panelB]),
+    [payload, featuredExperience, hero, panelA, panelB],
   );
+
+  if (magazine) return <Pre1970MagazineHome model={magazine} />;
 
   return (
     <Rv2PublicShell
@@ -370,23 +401,24 @@ export function PublicHomepageView({ initial, hero, featuredExperience }: Props)
       activeNav="live"
       yearsHref={panels.find((panel) => panel.key === "year")?.href ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR)}
       minimalNavigation
+      broadcastChrome={false}
     >
       <div className="public-home__board">
         <header className="public-home__header">
           <p className="public-home__kicker">
             {isLiveNow ? "Live Now" : discoveryShelf("homeCurrentSong").displayLabel}
           </p>
-          <h1 className="public-home__title">Retroverse</h1>
+          <h1 className="public-home__title">Music archive</h1>
           <p className="public-home__tagline">Press Play for the Past</p>
         </header>
 
-        <section className="public-home__search" aria-label="Search Retroverse">
+        <section className="public-home__search" aria-label="Search music">
           <HomeSearchInput />
         </section>
 
         {hero ? (
           <section className="public-home__headline" aria-label="Announcement">
-            <p className="public-home__headline-kicker">{hero.featureLabel}</p>
+            <p className="public-home__headline-kicker">{hero.featureLabel.replace(/retroverse/gi, "")}</p>
             <p className="public-home__headline-text">{hero.headline}</p>
             {hero.subheadline ? <p className="public-home__headline-sub">{hero.subheadline}</p> : null}
           </section>
@@ -397,6 +429,7 @@ export function PublicHomepageView({ initial, hero, featuredExperience }: Props)
             <HomepagePanel key={panel.key} panel={panel} />
           ))}
         </section>
+        <section className="public-home__chyron" aria-label="Now playing"><span>{chyron || (isLiveNow ? "NOW PLAYING..." : idleChyron || "NOW PLAYING...")}</span>{isLiveNow && (payload.publicSong?.artist || payload.live?.artist) ? <span> · {payload.publicSong?.artist ?? payload.live?.artist} — {payload.publicSong?.title ?? payload.live?.title ?? ""}</span> : null}</section>
       </div>
     </Rv2PublicShell>
   );

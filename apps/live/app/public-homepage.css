@@ -70,6 +70,18 @@
   gap: 0.65rem;
 }
 
+.public-home__chyron {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--ex-line-accent);
+  border-radius: 0.65rem;
+  background: var(--ex-panel);
+  color: var(--ex-ink);
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
 .public-home__panel,
 .public-home__panel--static {
   display: grid;

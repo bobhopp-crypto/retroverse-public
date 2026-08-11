@@ -1,0 +1,22 @@
+body:has(.magazine-home) .rv-global-nav{display:none}
+.magazine-home{--magazine-paper:#f1ead8;--magazine-ink:#171817;--magazine-accent:#c33e2f;min-height:100dvh;background:#d9d0bd;color:var(--magazine-ink);font-family:Georgia,serif}
+.magazine-home__page{width:min(100%,430px);min-height:844px;margin:auto;background:var(--magazine-paper);overflow:hidden}
+.magazine-home__header{height:58px;display:flex;align-items:center;justify-content:center;padding:0 18px;border-bottom:2px solid var(--magazine-ink);font:700 12px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.magazine-home__search{height:53px;padding:8px 12px;border-bottom:1px solid var(--magazine-ink)}
+.magazine-home__hero{width:100%;height:310px;position:relative;background:#59605b;overflow:hidden}
+.magazine-home__hero img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(.72) contrast(1.08);display:block}
+.magazine-home__editorial{margin:0;padding:28px 18px 34px;color:var(--magazine-ink);font:700 clamp(1.35rem,6vw,1.8rem)/1.15 Georgia,serif;max-width:29rem}
+.magazine-home__rows{border-top:1px solid var(--magazine-ink)}
+.magazine-row{min-height:62px;display:grid;grid-template-columns:24px 1fr 30px;align-items:center;gap:12px;padding:8px 14px;border-bottom:1px solid var(--magazine-ink);color:inherit;text-decoration:none}
+.magazine-row__label{width:100%;height:3.2em;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font:800 9px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+.magazine-row__value{font:700 clamp(1.35rem,6.4vw,1.9rem)/.95 Arial Narrow,Arial,sans-serif;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+.magazine-row:nth-child(1) .magazine-row__value{font-size:clamp(1.55rem,7.2vw,2.15rem);-webkit-line-clamp:2}.magazine-row:nth-child(2) .magazine-row__value{-webkit-line-clamp:2}.magazine-row:nth-child(3) .magazine-row__value{font-size:clamp(1.2rem,5.6vw,1.65rem);-webkit-line-clamp:2}.magazine-row:nth-child(4) .magazine-row__value{font-size:clamp(1.45rem,6.5vw,1.9rem);-webkit-line-clamp:1}
+.magazine-row__arrow{width:30px;height:100%;display:grid;place-items:center;font:700 25px/1 Arial,sans-serif;color:var(--magazine-accent)}.magazine-row--primary{background:var(--magazine-accent);color:#fff8e8}.magazine-row--primary .magazine-row__arrow{color:#fff8e8}.magazine-row--secondary,.magazine-row--paper{background:var(--magazine-paper)}
+.magazine-home__feature,.magazine-home__event{min-height:88px;padding:10px 14px;display:grid;align-content:center;gap:3px;color:var(--magazine-ink);text-decoration:none;border-bottom:1px solid var(--magazine-ink)}.magazine-home__feature{background:#ddc078}.magazine-home__event{min-height:95px;background:#e6b4a0}.magazine-home__feature span,.magazine-home__event span{font:800 10px/1 Arial,sans-serif;letter-spacing:.14em}.magazine-home__feature strong,.magazine-home__event strong{font:700 1.15rem/.98 Arial Narrow,Arial,sans-serif}.magazine-home__feature small,.magazine-home__event small{font-size:.78rem}
+.magazine-home__live{height:52px;display:flex;align-items:center;gap:8px;padding:0 14px;background:var(--magazine-ink);color:var(--magazine-paper);font:800 10px/1 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.magazine-home__live-dot{width:8px;height:8px;border-radius:50%;background:var(--magazine-accent)}
+.magazine-home .home-search-trigger{width:100%;min-height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;border:1px solid var(--magazine-ink);border-radius:0;background:var(--magazine-paper);color:var(--magazine-ink);font:700 12px/1 Arial,sans-serif;letter-spacing:.02em;text-align:left;box-shadow:none}
+.magazine-home .home-search-trigger:focus-visible{outline:2px solid var(--magazine-accent);outline-offset:2px}
+.magazine-home .home-search-trigger__hint{color:var(--magazine-ink)}
+.magazine-home .home-search-trigger__icon{width:12px;height:12px;border:2px solid var(--magazine-ink);border-radius:50%;position:relative}
+.magazine-home .home-search-trigger__icon::after{content:"";position:absolute;width:6px;height:2px;right:-5px;bottom:-2px;transform:rotate(45deg);background:var(--magazine-ink)}
+@media(max-width:389px){.magazine-row{grid-template-columns:22px 1fr 27px;gap:9px}.magazine-row__value{font-size:clamp(1.2rem,6vw,1.7rem)}}
