@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { inspectQuery } from "@/lib/inspect/pg";
 import { trackPageHref } from "@/lib/search/entity-routes";
@@ -16,10 +18,33 @@ export type ChartTrajectoryRecommendation = {
   releaseYear: number | null;
   href: string;
   reason: string;
-  score: number;
+  score?: number;
+};
+
+export type EditorialDiversityRecord = {
+  rvtr: string;
+  artist: string;
+  title: string;
+  year: number | null;
+  yearSource: string;
+  headline: string;
+  paragraphs: string[];
+  articleWordCount: number;
+  researchSources: string[];
+  related: Array<ChartTrajectoryRecommendation & { method: string; ownedVideoPath: string; canonicalRoute: string }>;
 };
 
 const PROTOTYPE_RVTR = "RVTR111098";
+
+export async function loadEditorialDiversityRecord(rvtr: string): Promise<EditorialDiversityRecord | null> {
+  try {
+    const raw = await readFile(join(process.cwd(), "data/ops/intelligence/editorial-diversity-25.json"), "utf8");
+    const data = JSON.parse(raw) as { records?: EditorialDiversityRecord[] };
+    return data.records?.find((record) => record.rvtr === rvtr.toUpperCase()) ?? null;
+  } catch {
+    return null;
+  }
+}
 
 export const SHE_IS_A_BEAUTY_ARTICLE: EditorialSongArticle = {
   headline: "A strange little world made for the first MTV generation",

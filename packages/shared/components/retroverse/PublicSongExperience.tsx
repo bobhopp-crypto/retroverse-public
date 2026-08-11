@@ -12,7 +12,7 @@ import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { preparePublicSongSections, filterPublicText } from "@/lib/retroverse/experience/public-song-display";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { SongArveyContext } from "./SongArveyContext";
-import { loadChartTrajectoryRecommendations, SHE_IS_A_BEAUTY_ARTICLE } from "@/lib/retroverse/experience/editorial-song-prototype";
+import { loadChartTrajectoryRecommendations, loadEditorialDiversityRecord, SHE_IS_A_BEAUTY_ARTICLE } from "@/lib/retroverse/experience/editorial-song-prototype";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
@@ -129,8 +129,11 @@ export async function PublicSongExperience({
   const albumHref = payload.links.albumHref ?? primaryAlbum?.href ?? null;
   const yearHref = payload.links.yearHref;
   const isVdjOnly = payload.resolutionTier === "vdj-only";
+  const editorialRecord = await loadEditorialDiversityRecord(payload.rvtr);
   const isEditorialPrototype = payload.rvtr === "RVTR111098";
-  const trajectoryRecommendations = isEditorialPrototype && track
+  const trajectoryRecommendations = editorialRecord
+    ? editorialRecord.related
+    : isEditorialPrototype && track
     ? await loadChartTrajectoryRecommendations(track)
     : [];
   const hasExploreLinks =
@@ -171,13 +174,13 @@ export async function PublicSongExperience({
                 {year ? <p className="canonical-song__year">{year}</p> : <p className="canonical-song__year">Year unavailable</p>}
               </div>
             </div>
-            {track?.chartRunLabel ? <p className="rv2-song__subtitle">{track.chartRunLabel}</p> : null}
+            {journeyWeeks > 0 && track?.chartRunLabel ? <p className="rv2-song__subtitle">{track.chartRunLabel}</p> : null}
             {isVdjOnly ? (
               <p className="rv2-song__limited-notice">
                 Retroverse has limited internal information for this song. Use the links below to explore further.
               </p>
             ) : null}
-            <div className="canonical-song__lead"><p>{isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0] ?? `Explore the music, chart history, and context behind ${payload.title}.`}</p></div>
+            <div className="canonical-song__lead"><p>{editorialRecord?.paragraphs[0] ?? (isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0] ?? `Explore the music, chart history, and context behind ${payload.title}.`)}</p></div>
             <div className="canonical-song__meta">
               {payload.album ? <span>{payload.album}</span> : null}
               {year ? <Link href={yearHref ?? `/rv/${year}`}>Explore {year}</Link> : null}
@@ -199,10 +202,7 @@ export async function PublicSongExperience({
           {!embedded ? <SongArveyContext title={payload.title} artist={payload.artist} year={year} /> : null}
 
           {journeyWeeks > 0 && track ? (
-            <div id="song-journey" className="rv2-song__journey-stage" aria-labelledby="song-journey-heading">
-              <h2 id="song-journey-heading" className="rv2-song__journey-title">
-                Song Journey
-              </h2>
+            <div id="song-journey" className="rv2-song__journey-stage" aria-label="Chart Journey">
               <ChartJourney
                 weeks={track.trajectoryWeeks}
                 peak={track.peakHot100}
@@ -217,7 +217,7 @@ export async function PublicSongExperience({
             </div>
           ) : null}
 
-          {moment && !isEditorialPrototype ? (
+          {moment && !editorialRecord ? (
             <section id="song-story" className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-defining-moment-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-defining-moment-heading">DEFINING MOMENT</h2>
@@ -236,13 +236,13 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {isEditorialPrototype ? (
+          {editorialRecord ? (
             <article className="rv2-song__editorial-article" aria-labelledby="rv-editorial-headline">
               <p className="rv2-song__editorial-kicker">The feature</p>
-              <h2 id="rv-editorial-headline">{SHE_IS_A_BEAUTY_ARTICLE.headline}</h2>
-              {SHE_IS_A_BEAUTY_ARTICLE.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <h2 id="rv-editorial-headline">{editorialRecord.headline}</h2>
+              {editorialRecord.paragraphs.slice(1).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               <p className="rv2-song__editorial-source">
-                <a href={SHE_IS_A_BEAUTY_ARTICLE.sourceUrl} target="_blank" rel="noopener noreferrer">Research note · {SHE_IS_A_BEAUTY_ARTICLE.sourceLabel} ↗</a>
+                {editorialRecord.researchSources[0] ? <a href={editorialRecord.researchSources[0]} target="_blank" rel="noopener noreferrer">Research note ↗</a> : null}
               </p>
             </article>
           ) : hasStory ? (
@@ -271,7 +271,7 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {!isEditorialPrototype && sections.trivia.length > 0 ? (
+          {!editorialRecord && sections.trivia.length > 0 ? (
             <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-trivia-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-trivia-heading">TRIVIA</h2>
@@ -284,7 +284,7 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {!isEditorialPrototype && sections.timeline.length > 0 ? (
+          {!editorialRecord && sections.timeline.length > 0 ? (
             <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-timeline-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-timeline-heading">TIMELINE</h2>
@@ -303,25 +303,26 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {track && (isEditorialPrototype ? trajectoryRecommendations.length > 0 : track.relatedTracks.length > 0) ? (
+          {(editorialRecord ? editorialRecord.related.length > 0 : track && track.relatedTracks.length > 0) ? (
             <section className="rv-exp-chapter rv-exp-discover" aria-labelledby="rv-related-music-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-related-music-heading">RELATED MUSIC</h2>
               </header>
-              <p className="rv-exp-story__context">Chart-trajectory matches — selected from existing Hot 100 journeys, not artist similarity.</p>
+              <p className="rv-exp-story__context">{editorialRecord?.related[0]?.method === "contextual" ? "Selected from the owned video collection by musical and cultural context." : "Chart-trajectory matches — selected from existing Hot 100 journeys, not artist similarity."}</p>
               <ul className="rv-exp-discover__rail">
-                {(isEditorialPrototype ? trajectoryRecommendations : Array.from(new Map(track.relatedTracks.map((song) => [song.rvtr, song])).values()).map((song) => ({ ...song, reason: "Same artist", score: 0 })))
+                {(editorialRecord ? trajectoryRecommendations : Array.from(new Map((track?.relatedTracks ?? []).map((song) => [song.rvtr, song])).values()).map((song) => ({ ...song, reason: "Same artist", score: 0 })))
                   .slice(0, 6)
                   .map((song) => (
                     <li key={song.rvtr}>
                       <Link
-                        href={song.href}
+                        href={String("canonicalRoute" in song ? song.canonicalRoute : song.href)}
                         className="rv-exp-discover__card"
                         prefetch
                         aria-label={`${song.title}, ${song.reason}`}
                       >
                         <span className="rv-exp-discover__copy">
                           <span className="rv-exp-discover__title">{song.title}</span>
+                          <span className="rv-exp-discover__artist">{"artist" in song ? String(song.artist) : payload.artist}</span>
                           <span className="rv-exp-discover__meta">
                             <span className="rv-exp-discover__reason">{song.reason}</span>
                             {song.releaseYear ? (
