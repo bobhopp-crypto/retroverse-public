@@ -1,6 +1,6 @@
 # VirtualDJ Library Coverage
 
-Generated: 2026-08-11T17:14:39.738Z
+Generated: 2026-08-11T17:16:20.989Z
 Source: /Users/bobhopp/Library/Application Support/VirtualDJ/database.xml
 
 ## Reconciliation
@@ -28,6 +28,26 @@ The corrected denominator is **8829** current existing physical files under /Use
 - Preparation: {"UNRESOLVED_IDENTITY":3719,"NEEDS_HERO":822,"NEEDS_HERO_AND_STORY":4287,"NEEDS_STORY":1}
 
 Percentages use 8829 as the denominator. Canonical/trusted year: 4788 (54.2%); VDJ fallback: 4031 (45.7%); unknown: 7 (0.1%).
+
+## Top contributing folders
+
+- 1916: /Users/bobhopp/DJ MEDIA/VIDEO/1980's
+- 1309: /Users/bobhopp/DJ MEDIA/VIDEO/1970's
+- 1292: /Users/bobhopp/DJ MEDIA/VIDEO/2010's
+- 1241: /Users/bobhopp/DJ MEDIA/VIDEO/1990's
+- 1077: /Users/bobhopp/DJ MEDIA/VIDEO/2000's
+- 814: /Users/bobhopp/DJ MEDIA/VIDEO/1960's
+- 435: /Users/bobhopp/DJ MEDIA/VIDEO/TECHNO
+- 333: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL
+- 306: /Users/bobhopp/DJ MEDIA/VIDEO/2020's
+- 99: /Users/bobhopp/DJ MEDIA/VIDEO/1950's
+- 1: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/00.06.10.000-Ashford & Simpson 
+- 1: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/00.31.44.000-Thompson Twins / Steve Stevens / Nile Rodgers 
+- 1: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/00.45.20.000-Hall & Oates / Eddie Kendricks 
+- 1: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/00.49.31.000-Elton John 
+- 1: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/00.55.09.000-Elton John 
+- 1: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/01.07.09.000-Mick Jagger / Tina Turner - State Of Shock 
+- 1: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/01.12.06.000-Bob Dylan / Keith Richards 
 
 ## Major library folders / decades
 
