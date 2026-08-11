@@ -4,6 +4,7 @@
  * Wraps tools/next-dev.mjs and dev-server/ownership.mjs (same paths as npm run dev / dev:live).
  */
 import { spawn } from "node:child_process";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -17,6 +18,8 @@ import { getService, healthUrlFor } from "./service-registry.mjs";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const OWNER = "bobos-runtime";
+const DATA_ROOT = process.env.RETROVERSE_DATA_ROOT || path.join(root, "..", "RETROVERSE_DATA");
+const MANUAL_LIVE_STOP = path.join(DATA_ROOT, "live", "auto-start-disabled");
 
 // Ports/suffixes/health URLs come from the shared registry (service-registry.json) —
 // the same values used by tools/retroverse/launch.ts (RV 00-00) and
@@ -149,6 +152,7 @@ async function spawnDevApp(appKey) {
 }
 
 export async function startDevApps(appKeys = ["studio", "live"]) {
+  if (appKeys.includes("live")) fs.rmSync(MANUAL_LIVE_STOP, { force: true });
   const results = [];
   for (const appKey of appKeys) {
     results.push(await spawnDevApp(appKey));
@@ -157,6 +161,10 @@ export async function startDevApps(appKeys = ["studio", "live"]) {
 }
 
 export async function stopDevApps(appKeys = ["live", "studio"]) {
+  if (appKeys.includes("live")) {
+    fs.mkdirSync(path.dirname(MANUAL_LIVE_STOP), { recursive: true });
+    fs.writeFileSync(MANUAL_LIVE_STOP, `${new Date().toISOString()}\n`, "utf8");
+  }
   const results = [];
   for (const appKey of appKeys) {
     const config = APPS[appKey];
