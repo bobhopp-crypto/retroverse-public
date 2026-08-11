@@ -183,17 +183,6 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
           {!isLiveBroadcastPath(pathname) ? (
             <ReturnToLiveLink className="rv-global-nav__return-live" />
           ) : null}
-          <Link
-            href="/search"
-            aria-current={pathname === "/search" ? "page" : undefined}
-            className={
-              pathname === "/search"
-                ? "rv-global-nav__zone rv-global-nav__zone--active"
-                : "rv-global-nav__zone"
-            }
-          >
-            Search
-          </Link>
         </nav>
 
         <AdminGearMenu
