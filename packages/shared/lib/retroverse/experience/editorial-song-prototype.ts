@@ -32,6 +32,8 @@ export type EditorialDiversityRecord = {
   articleWordCount: number;
   researchSources: string[];
   related: Array<ChartTrajectoryRecommendation & { method: string; ownedVideoPath: string; canonicalRoute: string }>;
+  classification?: string;
+  finalStatus?: string;
 };
 
 const PROTOTYPE_RVTR = "RVTR111098";
@@ -39,6 +41,16 @@ const PROTOTYPE_RVTR = "RVTR111098";
 export async function loadEditorialDiversityRecord(rvtr: string): Promise<EditorialDiversityRecord | null> {
   try {
     const raw = await readFile(join(process.cwd(), "data/ops/intelligence/editorial-diversity-25.json"), "utf8");
+    const data = JSON.parse(raw) as { records?: EditorialDiversityRecord[] };
+    return data.records?.find((record) => record.rvtr === rvtr.toUpperCase()) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export async function loadEditorialProductionRecord(rvtr: string): Promise<EditorialDiversityRecord | null> {
+  try {
+    const raw = await readFile(join(process.cwd(), "data/ops/intelligence/editorial-production-100.json"), "utf8");
     const data = JSON.parse(raw) as { records?: EditorialDiversityRecord[] };
     return data.records?.find((record) => record.rvtr === rvtr.toUpperCase()) ?? null;
   } catch {
