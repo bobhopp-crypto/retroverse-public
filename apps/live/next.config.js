@@ -54,6 +54,8 @@ const nextConfig = {
       "../../node_modules/pgpass/**",
       "../../node_modules/split2/**",
       "../../node_modules/xtend/**",
+      "../../node_modules/sharp/**",
+      "../../node_modules/@img/**",
       "./data/album-chart-features.json",
     ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
