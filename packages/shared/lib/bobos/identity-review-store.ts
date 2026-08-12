@@ -2,11 +2,11 @@ import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export type IdentityReviewCandidate = { rvtr: string; artist: string; title: string; album?: string | null; year?: number | string | null; source?: string | null };
-export type IdentityReviewItem = { videoPath: string; vdj: string; vdjArtist?: string; vdjTitle?: string; vdjYear?: string | number | null; vdjAlbum?: string | null; playCount?: number; candidates: IdentityReviewCandidate[]; evidence: string; question: string; classification?: string; v2Outcome?: string; chartEvidence?: { found: boolean; debut?: string | null; peak?: number | null; weeks?: number; chartJourney?: boolean }; underlyingSongs?: Array<{ title: string; rvtr?: string | null; artist?: string; chartEvidence?: Record<string, any> }>; needsRereview?: boolean; reviewDecision?: "APPROVED" | "REJECTED" | "SPECIAL_CASE"; reviewedAt?: string; rejectedRvtrs?: string[] };
+export type IdentityReviewItem = { videoPath: string; vdj: string; vdjArtist?: string; vdjTitle?: string; vdjYear?: string | number | null; vdjAlbum?: string | null; playCount?: number; candidates: IdentityReviewCandidate[]; proposed?: IdentityReviewCandidate | null; evidence: string; question: string; classification?: string; v2Outcome?: string; chartEvidence?: { found: boolean; debut?: string | null; peak?: number | null; weeks?: number; chartJourney?: boolean }; underlyingSongs?: Array<{ title: string; rvtr?: string | null; artist?: string; chartEvidence?: Record<string, any> }>; needsRereview?: boolean; reviewDecision?: "APPROVED" | "REJECTED" | "SPECIAL_CASE"; reviewedAt?: string; rejectedRvtrs?: string[] };
 export type IdentityReviewDecision = "APPROVE" | "WRONG_MATCH" | "SPECIAL_CASE" | "SKIP" | "UNDO";
 
 const ROOT = process.cwd();
-const QUEUE_PATH = process.env.IDENTITY_REVIEW_QUEUE_PATH ?? join(ROOT, "reports/identity-resolution-pilot-50-v2/review-queue.json");
+const QUEUE_PATH = process.env.IDENTITY_REVIEW_QUEUE_PATH ?? join(ROOT, "reports/canonical-optional-completion-50/review-queue.json");
 const MANIFEST_PATH = process.env.IDENTITY_REVIEW_MANIFEST_PATH ?? join(ROOT, "data/ops/manifest/video-completion-manifest.json");
 const HISTORY_PATH = process.env.IDENTITY_REVIEW_HISTORY_PATH ?? join(ROOT, "data/ops/manifest/identity-review-history.json");
 export type IdentityReviewStorePaths = { queuePath?: string; manifestPath?: string; historyPath?: string };

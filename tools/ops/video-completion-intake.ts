@@ -1,4 +1,5 @@
 import { access, mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { join, relative, resolve } from "node:path";
 
 const ROOT = process.cwd();
@@ -10,9 +11,10 @@ type AnyRow = Record<string, any>;
 
 function arg(name: string, fallback: string) { const value = process.argv.find((item) => item.startsWith(`--${name}=`)); return value ? value.slice(name.length + 3) : fallback; }
 function normalizePath(filePath: string) { return resolve(filePath); }
+function videoExperienceId(filePath: string) { return `VDJ:${createHash("sha256").update(filePath.toLowerCase()).digest("hex").slice(0, 16)}`; }
 function needsFor(record: AnyRow) {
   const needs: string[] = [];
-  if (record.identityStatus !== "RESOLVED") needs.push("identity");
+  if (!record.videoExperienceId || !["RESOLVED", "MEDIA_RESOLVED"].includes(record.identityStatus)) needs.push("identity");
   if (!record.heroStatus.startsWith("PREPARED") && record.heroStatus !== "APPROVED_FALLBACK") needs.push("hero");
   if (record.collectorStatus !== "READY") needs.push("collector");
   if (record.editorialStatus !== "READY") needs.push(record.editorialStatus === "RESEARCH_REQUIRED" ? "editorial-research" : "editorial");
@@ -48,6 +50,8 @@ async function main() {
   for (const row of inventory.records ?? []) if (row.physicalPath) inventoryByPath.set(normalizePath(row.physicalPath), row);
   const diversity = await readJson(join(ROOT, "data/ops/intelligence/editorial-diversity-25.json"), { records: [] });
   const production = await readJson(join(ROOT, "data/ops/intelligence/editorial-production-100.json"), { records: [] });
+  const mediaClassification = await readJson(join(ROOT, "reports/media-aware-identity-50/media-classification-manifest.json"), { records: [] });
+  const mediaByPath = new Map<string, AnyRow>((mediaClassification.records ?? []).map((record: AnyRow) => [normalizePath(record.videoPath), record]));
   const editorialByRvtr = new Map<string, AnyRow>([...(diversity.records ?? []), ...(production.records ?? [])].map((record: AnyRow) => [record.rvtr, record]));
   const videos = await listVideos(videoRoot);
   const records: AnyRow[] = [];
@@ -57,6 +61,9 @@ async function main() {
     const priorRecord = priorByPath.get(filePath);
     const priorProvenRvtr = priorRecord?.identityStatus === "RESOLVED" ? priorRecord.rvtr : null;
     const rvtr = row?.canonicalStatus === "resolved" ? row.rvtr : priorProvenRvtr;
+    const media = mediaByPath.get(filePath);
+    const experienceId = rvtr ?? priorRecord?.videoExperienceId ?? videoExperienceId(filePath);
+    const mediaResolved = Boolean(media?.identityOutcome?.startsWith("MEDIA_PROVEN_"));
     const editorial = rvtr ? editorialByRvtr.get(rvtr) : null;
     const changed = Boolean(priorRecord && (priorRecord.fileSize !== file.size || priorRecord.fileModifiedAt !== file.mtime.toISOString()));
     const heroPrepared = row?.heroStatus === "PREPARED_VIDEO_HERO" || Boolean(editorial?.heroSource === "prepared-video-frame");
@@ -64,10 +71,10 @@ async function main() {
     const editorialReady = Boolean(editorial?.finalStatus === "READY" || editorial?.articleWordCount);
     const relatedReady = Boolean(editorial?.related?.length);
     const validated = Boolean(editorial && (diversity.records ?? []).some((record: AnyRow) => record.rvtr === rvtr) || editorial && (production.records ?? []).some((record: AnyRow) => record.rvtr === rvtr));
-    const record: AnyRow = { vdjPath: row?.vdjPath ?? filePath, normalizedPath: filePath, fileSize: file.size, fileModifiedAt: file.mtime.toISOString(), rvtr, artist: row?.canonicalStatus === "resolved" ? row.canonicalArtist : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.artist : row?.vdjArtist ?? null), title: row?.canonicalStatus === "resolved" ? row.canonicalTitle : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.title : row?.vdjTitle ?? null), album: row?.canonicalStatus === "resolved" ? row.canonicalAlbum : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.album : row?.vdjAlbum ?? null), displayYear: row?.canonicalStatus === "resolved" ? row.displayYear : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.displayYear : row?.vdjYear ?? null), displayYearSource: row?.canonicalStatus === "resolved" ? row.displayYearSource : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.displayYearSource : (row?.vdjYear ? "VDJ_FALLBACK" : "UNKNOWN")), identityStatus: rvtr ? "RESOLVED" : "IDENTITY_REQUIRED", heroStatus: heroPrepared ? "PREPARED_VIDEO_HERO" : "PREPARATION_REQUIRED", collectorStatus: collectorReady ? "READY" : "MISSING", editorialStatus: editorialReady ? "READY" : (row?.storyStatus === "PARTIAL" ? "RESEARCH_REQUIRED" : "MISSING"), relatedMusicStatus: relatedReady ? "READY" : "PREPARATION_REQUIRED", validationStatus: validated ? "VALIDATED" : "NOT_VALIDATED", chartJourneyStatus: row?.chartJourneyStatus === "AVAILABLE" ? "AVAILABLE" : "UNAVAILABLE", overallStatus: "NEW", preparationVersion: priorRecord?.preparationVersion ?? 1, lastPreparedAt: priorRecord?.lastPreparedAt ?? null, lastValidatedAt: validated ? (priorRecord?.lastValidatedAt ?? null) : null, blockingReason: null, preparationNeeds: [], changeStatus: priorRecord ? (changed ? "CHANGED_SINCE_PREPARATION" : "UNCHANGED") : (hasPriorManifest ? "NEW" : "NEW"), identityProvenance: priorRecord?.identityProvenance ?? null };
+    const record: AnyRow = { vdjPath: row?.vdjPath ?? filePath, normalizedPath: filePath, fileSize: file.size, fileModifiedAt: file.mtime.toISOString(), rvtr, videoExperienceId: experienceId, canonicalRvtrs: rvtr ? [rvtr] : [], underlyingSongRelationships: media?.underlyingSongs ?? [], mediaClassification: media?.mediaClassification ?? null, performanceContext: media?.versionContext ?? null, chartRelationships: media?.chartRelationships ?? [], canonicalOptional: true, vdjArtist: row?.vdjArtist ?? null, vdjTitle: row?.vdjTitle ?? null, vdjAlbum: row?.vdjAlbum ?? null, vdjYear: row?.vdjYear ?? null, artist: row?.canonicalStatus === "resolved" ? row.canonicalArtist : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.artist : row?.vdjArtist ?? null), title: row?.canonicalStatus === "resolved" ? row.canonicalTitle : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.title : row?.vdjTitle ?? null), album: row?.canonicalStatus === "resolved" ? row.canonicalAlbum : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.album : row?.vdjAlbum ?? null), displayYear: row?.canonicalStatus === "resolved" ? row.displayYear : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.displayYear : row?.vdjYear ?? null), displayYearSource: row?.canonicalStatus === "resolved" ? row.displayYearSource : (priorRecord?.identityStatus === "RESOLVED" ? priorRecord.displayYearSource : (row?.vdjYear ? "VDJ_FALLBACK" : "UNKNOWN")), identityStatus: rvtr ? "RESOLVED" : mediaResolved ? "MEDIA_RESOLVED" : "IDENTITY_REQUIRED", heroStatus: heroPrepared ? "PREPARED_VIDEO_HERO" : "PREPARATION_REQUIRED", collectorStatus: collectorReady ? "READY" : "MISSING", editorialStatus: editorialReady ? "READY" : (row?.storyStatus === "PARTIAL" ? "RESEARCH_REQUIRED" : "MISSING"), relatedMusicStatus: relatedReady ? "READY" : "PREPARATION_REQUIRED", validationStatus: validated ? "VALIDATED" : "NOT_VALIDATED", chartJourneyStatus: row?.chartJourneyStatus === "AVAILABLE" ? "AVAILABLE" : "UNAVAILABLE", overallStatus: "NEW", preparationVersion: priorRecord?.preparationVersion ?? 2, lastPreparedAt: priorRecord?.lastPreparedAt ?? null, lastValidatedAt: validated ? (priorRecord?.lastValidatedAt ?? null) : null, blockingReason: null, preparationNeeds: [], changeStatus: priorRecord ? (changed ? "CHANGED_SINCE_PREPARATION" : "UNCHANGED") : (hasPriorManifest ? "NEW" : "NEW"), identityProvenance: priorRecord?.identityProvenance ?? null };
     if (!row) record.overallStatus = "IDENTITY_REQUIRED";
     else if (changed) record.overallStatus = priorRecord?.overallStatus === "COMPLETE" ? "PREPARATION_REQUIRED" : "PREPARATION_REQUIRED";
-    else if (record.identityStatus !== "RESOLVED") record.overallStatus = "IDENTITY_REQUIRED";
+    else if (!["RESOLVED", "MEDIA_RESOLVED"].includes(record.identityStatus)) record.overallStatus = "IDENTITY_REQUIRED";
     else if (record.editorialStatus === "RESEARCH_REQUIRED") record.overallStatus = "RESEARCH_REQUIRED";
     else if (record.heroStatus !== "PREPARED_VIDEO_HERO" || record.collectorStatus !== "READY" || record.relatedMusicStatus !== "READY") record.overallStatus = "PREPARATION_REQUIRED";
     else if (record.validationStatus !== "VALIDATED") record.overallStatus = "READY_FOR_VALIDATION";

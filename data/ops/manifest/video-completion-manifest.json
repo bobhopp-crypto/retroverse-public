@@ -1,95 +1,209 @@
 {
-  "version": 1,
+  "version": 2,
   "manifestAuthority": "video-completion-lifecycle",
   "videoRoot": "/Users/bobhopp/DJ MEDIA/VIDEO",
-  "generatedAt": "2026-08-11T20:30:38.545Z",
+  "generatedAt": "2026-08-12T00:01:04.157Z",
   "records": [
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Andrews Sisters - Boogie Woogie Bugle Boy.mp4",
       "normalizedPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Andrews Sisters - Boogie Woogie Bugle Boy.mp4",
       "fileSize": 17145887,
       "fileModifiedAt": "2026-07-16T20:20:36.775Z",
-      "rvtr": null,
+      "rvtr": "RVTR933068",
       "artist": "Andrews Sisters",
       "title": "Boogie Woogie Bugle Boy",
       "album": "Boogie Woogie Bugle Boy",
       "displayYear": 1944,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
       "preparationNeeds": [
-        "identity"
+        "hero",
+        "collector",
+        "editorial",
+        "relatedMusic",
+        "validation"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": {
+        "method": "HUMAN_APPROVED",
+        "approvalSource": "human",
+        "evidence": "A plausible candidate exists, but the available local evidence does not safely establish the recording/version.",
+        "approvedCandidate": {
+          "rvtr": "RVTR933068",
+          "artist": "Andrews Sisters",
+          "title": "Boogie Woogie Bugle Boy",
+          "album": null,
+          "year": null,
+          "source": "vdj"
+        },
+        "reviewedAt": "2026-08-11T21:44:34.739Z",
+        "previousLifecycleState": "IDENTITY_REQUIRED"
+      },
+      "canonicalOptional": true,
+      "videoExperienceId": "RVTR933068",
+      "canonicalRvtrs": [
+        "RVTR933068"
+      ],
+      "underlyingSongRelationships": [
+        {
+          "title": "Boogie Woogie Bugle Boy",
+          "artist": "Andrews Sisters",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Andrews Sisters",
+      "vdjTitle": "Boogie Woogie Bugle Boy",
+      "vdjAlbum": "Boogie Woogie Bugle Boy",
+      "vdjYear": 1944
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Animation - Vintage Banned Cartoons.mp4",
       "normalizedPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Animation - Vintage Banned Cartoons.mp4",
       "fileSize": 118762056,
       "fileModifiedAt": "2026-06-19T17:18:56.583Z",
-      "rvtr": null,
+      "rvtr": "RVTR794354",
       "artist": "Animation",
       "title": "Vintage Banned Cartoons",
       "album": null,
       "displayYear": 1950,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
       "preparationNeeds": [
-        "identity"
+        "hero",
+        "collector",
+        "editorial",
+        "relatedMusic",
+        "validation"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": {
+        "method": "HUMAN_APPROVED",
+        "approvalSource": "human",
+        "evidence": "A plausible candidate exists, but the available local evidence does not safely establish the recording/version.",
+        "approvedCandidate": {
+          "rvtr": "RVTR794354",
+          "artist": "Animation",
+          "title": "Vintage Banned Cartoons",
+          "album": null,
+          "year": null,
+          "source": "vdj"
+        },
+        "reviewedAt": "2026-08-11T21:44:50.436Z",
+        "previousLifecycleState": "IDENTITY_REQUIRED"
+      },
+      "canonicalOptional": true,
+      "videoExperienceId": "RVTR794354",
+      "canonicalRvtrs": [
+        "RVTR794354"
+      ],
+      "underlyingSongRelationships": [
+        {
+          "title": "Vintage Banned Cartoons",
+          "artist": "Animation",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "NON_SONG_CONTEXT",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Animation",
+      "vdjTitle": "Vintage Banned Cartoons",
+      "vdjAlbum": null,
+      "vdjYear": 1950
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Big Band - Rhapsody in Blue.mp4",
       "normalizedPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Big Band - Rhapsody in Blue.mp4",
       "fileSize": 79595979,
       "fileModifiedAt": "2026-07-16T20:20:37.873Z",
-      "rvtr": null,
+      "rvtr": "RVTR023620",
       "artist": "Big Band",
       "title": "Rhapsody In Blue",
       "album": "The Bay Big Band - The Brussels World's Fair Salutes Glenn Miller Orchestra",
       "displayYear": 1948,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
       "preparationNeeds": [
-        "identity"
+        "hero",
+        "collector",
+        "editorial",
+        "relatedMusic",
+        "validation"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": {
+        "method": "HUMAN_APPROVED",
+        "approvalSource": "human",
+        "evidence": "A plausible candidate exists, but the available local evidence does not safely establish the recording/version.",
+        "approvedCandidate": {
+          "rvtr": "RVTR023620",
+          "artist": "Big Band",
+          "title": "Rhapsody In Blue",
+          "album": null,
+          "year": null,
+          "source": "vdj"
+        },
+        "reviewedAt": "2026-08-11T21:45:02.040Z",
+        "previousLifecycleState": "IDENTITY_REQUIRED"
+      },
+      "canonicalOptional": true,
+      "videoExperienceId": "RVTR023620",
+      "canonicalRvtrs": [
+        "RVTR023620"
+      ],
+      "underlyingSongRelationships": [
+        {
+          "title": "Rhapsody In Blue",
+          "artist": "Big Band",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Big Band",
+      "vdjTitle": "Rhapsody In Blue",
+      "vdjAlbum": "The Bay Big Band - The Brussels World's Fair Salutes Glenn Miller Orchestra",
+      "vdjYear": 1948
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Big Bopper - Chantilly Lace.mp4",
@@ -122,29 +236,67 @@
       "normalizedPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Bill Haley - Lets Rip It Up.mp4",
       "fileSize": 14469505,
       "fileModifiedAt": "2026-07-16T20:20:35.262Z",
-      "rvtr": null,
+      "rvtr": "RVTR367218",
       "artist": "Bill Haley",
       "title": "Lets Rip It Up",
       "album": "Bill Haley Y Sus Cometas - Rock-Collection",
       "displayYear": 1957,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
       "preparationNeeds": [
-        "identity"
+        "hero",
+        "collector",
+        "editorial",
+        "relatedMusic",
+        "validation"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": {
+        "method": "HUMAN_APPROVED",
+        "approvalSource": "human",
+        "evidence": "A plausible candidate exists, but the available local evidence does not safely establish the recording/version.",
+        "approvedCandidate": {
+          "rvtr": "RVTR367218",
+          "artist": "Bill Haley",
+          "title": "Lets Rip It Up",
+          "album": null,
+          "year": null,
+          "source": "vdj"
+        },
+        "reviewedAt": "2026-08-11T21:45:06.548Z",
+        "previousLifecycleState": "IDENTITY_REQUIRED"
+      },
+      "canonicalOptional": true,
+      "videoExperienceId": "RVTR367218",
+      "canonicalRvtrs": [
+        "RVTR367218"
+      ],
+      "underlyingSongRelationships": [
+        {
+          "title": "Lets Rip It Up",
+          "artist": "Bill Haley",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Bill Haley",
+      "vdjTitle": "Lets Rip It Up",
+      "vdjAlbum": "Bill Haley Y Sus Cometas - Rock-Collection",
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Bill Haley & His Comets - Rock Around The Clock.mp4",
@@ -165,7 +317,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -173,7 +325,39 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:c2a3e3aefc06b9f8",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Rock Around The Clock",
+          "artist": "bill haley and his comets",
+          "rvtr": null,
+          "chartRelationship": {
+            "found": true,
+            "debut": "1974-03-16",
+            "peak": 39,
+            "weeks": 14,
+            "chartJourney": true
+          }
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [
+        {
+          "found": true,
+          "debut": "1974-03-16",
+          "peak": 39,
+          "weeks": 14,
+          "chartJourney": true
+        }
+      ],
+      "vdjArtist": "bill haley and his comets",
+      "vdjTitle": "Rock Around The Clock",
+      "vdjAlbum": "Bill Haley & The Comets - Framed / Rock Around The Clock",
+      "vdjYear": 1955
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Billie Davis - I Want You To Be My Baby.mp4",
@@ -194,7 +378,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -202,7 +386,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:10fe2b1265cb90c3",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "I Want You To Be My Baby",
+          "artist": "Billie Davis",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Billie Davis",
+      "vdjTitle": "I Want You To Be My Baby",
+      "vdjAlbum": "I Want You To Be My Baby",
+      "vdjYear": 1953
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Bo Diddley - Please Mr. Engineer.mp4",
@@ -279,23 +481,51 @@
       "album": "A Rock & Roll Collection",
       "displayYear": 1956,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "MEDIA_RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
-      "preparationNeeds": [
-        "identity"
-      ],
+      "preparationNeeds": [],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:c305df3fd542fac7",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Peggy Sue",
+          "rvtr": null,
+          "artist": "Buddy Holly",
+          "chartEvidence": {
+            "found": false,
+            "chartJourney": false
+          }
+        },
+        {
+          "title": "Not Fade Away",
+          "rvtr": null,
+          "artist": "Buddy Holly",
+          "chartEvidence": {
+            "found": false,
+            "chartJourney": false
+          }
+        }
+      ],
+      "mediaClassification": "MULTI_SONG",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "buddy holly",
+      "vdjTitle": "Not Fade Away And Peggy Sue",
+      "vdjAlbum": "A Rock & Roll Collection",
+      "vdjYear": 1956
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Cab Calloway - Minnie the Moocher (Blue Brothers).mp4",
@@ -308,23 +538,39 @@
       "album": "The Blues Brothers - The Blues Brothers (Original Soundtrack Recording)",
       "displayYear": 1980,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "MEDIA_RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
-      "preparationNeeds": [
-        "identity"
-      ],
+      "preparationNeeds": [],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:df88e9f1cffc02d0",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Minnie The Moocher Blue Brothers",
+          "artist": "cab calloway",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "VERSION_OR_PERFORMANCE",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "cab calloway",
+      "vdjTitle": "Minnie The Moocher Blue Brothers",
+      "vdjAlbum": "The Blues Brothers - The Blues Brothers (Original Soundtrack Recording)",
+      "vdjYear": 1980
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Cab Calloway - St. James Infirmary Blues.mp4",
@@ -373,7 +619,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -381,7 +627,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:f104f6d512bfa946",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Jumpin Jive",
+          "artist": "Cab Calloway And The Nicholas Brothers",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Cab Calloway and the Nicholas Brothers",
+      "vdjTitle": "Jumpin Jive",
+      "vdjAlbum": "That Devilin' Tune - A Jazz History, Vol. 3 (1934-1945) ",
+      "vdjYear": 2006
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4",
@@ -402,7 +666,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -410,7 +674,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:13c22ab1ea8fadb3",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Blue Suede Shoes",
+          "artist": "carl perkins",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "carl perkins",
+      "vdjTitle": "Blue Suede Shoes",
+      "vdjAlbum": "Blue Suede Shoes",
+      "vdjYear": 1956
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Glad All Over.mp4",
@@ -431,7 +713,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -439,7 +721,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:08c3bbfbc4ac1b4a",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Glad All Over",
+          "artist": "carl perkins",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "carl perkins",
+      "vdjTitle": "Glad All Over",
+      "vdjAlbum": "Glad All Over",
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Chords - Sh-Boom.mp4",
@@ -460,7 +760,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -468,7 +768,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:fd555b6bfe2876cf",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Sh Boom",
+          "artist": "Chords",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Chords",
+      "vdjTitle": "Sh Boom",
+      "vdjAlbum": "The Chords - Sh-Boom / Little Maiden",
+      "vdjYear": 1954
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Chuck Berry - Johnny B. Goode (Back to the Future).mp4",
@@ -517,7 +835,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -525,7 +843,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:683f1e1e9b6621b4",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Memphis Tennessee",
+          "artist": "chuck berry",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "chuck berry",
+      "vdjTitle": "Memphis Tennessee",
+      "vdjAlbum": "Back In The U.S.A. / Memphis, Tennessee",
+      "vdjYear": 1959
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Chuck Berry - School Days.mp4",
@@ -546,7 +882,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -554,7 +890,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:a3b4b1e7e4aef53f",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "School Days",
+          "artist": "chuck berry",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "chuck berry",
+      "vdjTitle": "School Days",
+      "vdjAlbum": "Nadine",
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Chuck Berry - You Can't Catch Me.mp4",
@@ -599,23 +953,39 @@
       "album": "Various - Quentin Tarantino's \"Death Proof\" (Original Soundtrack)",
       "displayYear": 1957,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "MEDIA_RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
-      "preparationNeeds": [
-        "identity"
-      ],
+      "preparationNeeds": [],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:31a5e902b2b4615b",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Down In Mexico",
+          "artist": "coasters",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "VERSION_OR_PERFORMANCE",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "coasters",
+      "vdjTitle": "Down In Mexico",
+      "vdjAlbum": "Various - Quentin Tarantino's \"Death Proof\" (Original Soundtrack)",
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Conway Twitty - It's Only Make Believe.mp4",
@@ -664,7 +1034,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -676,7 +1046,18 @@
         "relatedMusic",
         "validation"
       ],
-      "changeStatus": "UNCHANGED"
+      "changeStatus": "UNCHANGED",
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:30a743b61042692d",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "",
+      "vdjTitle": "",
+      "vdjAlbum": "At The Hop / Sometimes",
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Dean Martin - That's Amore (1956).mp4",
@@ -761,7 +1142,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -769,7 +1150,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:f7b6509fe9cc4240",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Rebel Rouser",
+          "artist": "duane eddy",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "duane eddy",
+      "vdjTitle": "Rebel Rouser",
+      "vdjAlbum": "Rebel Rouser / Detour",
+      "vdjYear": 1958
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Eddie Cochran - Twenty Flight Rock.mp4",
@@ -790,7 +1189,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -798,7 +1197,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:d445b93d28b8bc84",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Twenty Flight Rock",
+          "artist": "eddie cochran",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "eddie cochran",
+      "vdjTitle": "Twenty Flight Rock",
+      "vdjAlbum": "Twenty Flight Rock",
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Eddy Arnold - Cattle Call.mp4",
@@ -819,7 +1236,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -827,7 +1244,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:2b131994c2f61153",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Cattle Call",
+          "artist": "eddy arnold",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "eddy arnold",
+      "vdjTitle": "Cattle Call",
+      "vdjAlbum": "The Cattle Call / The Kentuckian Song",
+      "vdjYear": 1956
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Ella Fitzgerald - Mack The Knife.mp4",
@@ -880,7 +1315,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -888,7 +1323,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:e9bc19ec3e52cf8a",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Jailhouse Rock",
+          "artist": "elvis presley",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "elvis presley",
+      "vdjTitle": "Jailhouse Rock",
+      "vdjAlbum": "Jailhouse Rock / Heartbreak Hotel",
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Elvis Presley - Peace In The Valley.mp4",
@@ -909,7 +1362,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -917,7 +1370,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:d85b47a3c1669f81",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Peace In The Valley",
+          "artist": "elvis presley",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "elvis presley",
+      "vdjTitle": "Peace In The Valley",
+      "vdjAlbum": null,
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Elvis Presley - That's All Right.mp4",
@@ -1002,7 +1473,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1014,7 +1485,25 @@
         "relatedMusic",
         "validation"
       ],
-      "changeStatus": "UNCHANGED"
+      "changeStatus": "UNCHANGED",
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:5a8a05f2fcf8c7e8",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Come Fly With Me",
+          "artist": "frank sinatra",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Frank Sinatra",
+      "vdjTitle": "Come Fly With Me BW",
+      "vdjAlbum": null,
+      "vdjYear": 1958
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Frank Sinatra - Come Fly With Me.mp4",
@@ -1035,7 +1524,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1047,7 +1536,25 @@
         "relatedMusic",
         "validation"
       ],
-      "changeStatus": "UNCHANGED"
+      "changeStatus": "UNCHANGED",
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:06bb4e5d1464baa7",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Come Fly With Me",
+          "artist": "frank sinatra",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Frank Sinatra",
+      "vdjTitle": "Come Fly With Me",
+      "vdjAlbum": "Concepts",
+      "vdjYear": 1958
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Frank Sinatra - Fly Me To The Moon.mp4",
@@ -1068,7 +1575,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1076,7 +1583,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:ab67742c697dbdb4",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Fly Me To The Moon",
+          "artist": "frank sinatra",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "frank sinatra",
+      "vdjTitle": "Fly Me To The Moon",
+      "vdjAlbum": "Black Selection",
+      "vdjYear": 1954
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Frankie Lymon - Little Bitty Pretty One.mp4",
@@ -1121,23 +1646,39 @@
       "album": "Dal Film Universal Inter. \"La Storia di Glenn Miller\"",
       "displayYear": 1942,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "MEDIA_RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
-      "preparationNeeds": [
-        "identity"
-      ],
+      "preparationNeeds": [],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:fec95647059210ea",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "At Last",
+          "artist": "Glenn Miller",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "VERSION_OR_PERFORMANCE",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "At Last",
+      "vdjAlbum": "Dal Film Universal Inter. \"La Storia di Glenn Miller\"",
+      "vdjYear": 1942
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - Chattanooga Choo Choo (1941).mp4",
@@ -1158,7 +1699,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1166,7 +1707,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:54eaeb091e524d3b",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Chattanooga Choo Choo 1941",
+          "artist": "Glenn Miller",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "Chattanooga Choo Choo 1941",
+      "vdjAlbum": "Glenn Miller",
+      "vdjYear": 1941
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - Chattanooga Choo Choo.mp4",
@@ -1187,7 +1746,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1195,7 +1754,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:f939c4d04eb42915",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Chattanooga Choo Choo",
+          "artist": "Glenn Miller",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "Chattanooga Choo Choo",
+      "vdjAlbum": "Serenade In Blue",
+      "vdjYear": 1941
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - I've Got a Gal in Kalamazoo.mp4",
@@ -1216,7 +1793,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1224,7 +1801,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:abfd59371c35adeb",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "I'Ve Got A Gal In Kalamazoo",
+          "artist": "Glenn Miller",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "I'Ve Got A Gal In Kalamazoo",
+      "vdjAlbum": "Shindig",
+      "vdjYear": 1941
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - In the Mood.mp4",
@@ -1245,7 +1840,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1253,7 +1848,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:063bd3b9632e38fb",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "In The Mood",
+          "artist": "Glenn Miller",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "In The Mood",
+      "vdjAlbum": "In The Mood / Moonlight Serenade",
+      "vdjYear": 1941
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Hank Williams - Cold Cold Heart.mp4",
@@ -1274,7 +1887,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1282,7 +1895,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:066d8e164e07075f",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Cold Cold Heart",
+          "artist": "Hank Williams",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Hank Williams",
+      "vdjTitle": "Cold Cold Heart",
+      "vdjAlbum": "Memorial Album",
+      "vdjYear": 1953
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Hank Williams - Hey Good Lookin'.mp4",
@@ -1303,7 +1934,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1311,7 +1942,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:9021cc08c3046bb3",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Hey Good Lookin'",
+          "artist": "Hank Williams",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Hank Williams",
+      "vdjTitle": "Hey Good Lookin'",
+      "vdjAlbum": "Hank Williams With His Drifting Cowboys - Wedding Bells / Hey Good Lookin'",
+      "vdjYear": 1952
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Harry Belafonte - Banna Boat Song (Beetlejuice).mp4",
@@ -1324,23 +1973,39 @@
       "album": null,
       "displayYear": 1988,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "MEDIA_RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
-      "preparationNeeds": [
-        "identity"
-      ],
+      "preparationNeeds": [],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:58ca9c3f364b68ce",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Banna Boat Song Beetlejuice",
+          "artist": "Harry Belafonte",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "VERSION_OR_PERFORMANCE",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Harry Belafonte",
+      "vdjTitle": "Banna Boat Song Beetlejuice",
+      "vdjAlbum": null,
+      "vdjYear": 1988
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Harry McClintock - Big Rock Candy Mountain.mp4",
@@ -1361,7 +2026,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1369,7 +2034,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:32a897cc01f94121",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Big Rock Candy Mountain",
+          "artist": "Harry Mcclintock",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Harry McClintock",
+      "vdjTitle": "Big Rock Candy Mountain",
+      "vdjAlbum": "O' Brother Where Art Thou",
+      "vdjYear": 1928
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Henry Mancini - Baby Elephant Walk.mp4",
@@ -1390,7 +2073,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1398,7 +2081,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:a8f2fdd979dede12",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Baby Elephant Walk",
+          "artist": "henry mancini",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "henry mancini",
+      "vdjTitle": "Baby Elephant Walk",
+      "vdjAlbum": "Hatari!",
+      "vdjYear": 1962
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Henry Mancini - Pink Panther.mp4",
@@ -1419,7 +2120,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1427,7 +2128,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:8b7310f2a5becf54",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Pink Panther",
+          "artist": "henry mancini",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "henry mancini",
+      "vdjTitle": "Pink Panther",
+      "vdjAlbum": "Son Of The Pink Panther (Original Music From The United Artists Motion Picture)",
+      "vdjYear": 1993
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Howlin Wolf - Smokestack Lightning.mp4",
@@ -1448,7 +2167,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1456,7 +2175,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:1f4f01efc9fb09cc",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Smokestack Lightning",
+          "artist": "Howlin Wolf",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Howlin Wolf",
+      "vdjTitle": "Smokestack Lightning",
+      "vdjAlbum": "Howlin' Wolf - Smokestack Lightning / Red Rooster",
+      "vdjYear": 1956
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Huey Lewis and The News - Little Bitty Pretty One.mp4",
@@ -1469,23 +2206,39 @@
       "album": "Huey Lewis & The News - Four Chords & Several Years Ago - The Concert",
       "displayYear": 1956,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "MEDIA_RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
-      "preparationNeeds": [
-        "identity"
-      ],
+      "preparationNeeds": [],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:fd89f323cc6b5f17",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Little Bitty Pretty One",
+          "artist": "Huey Lewis And The News",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "VERSION_OR_PERFORMANCE",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Huey Lewis and The News",
+      "vdjTitle": "Little Bitty Pretty One",
+      "vdjAlbum": "Huey Lewis & The News - Four Chords & Several Years Ago - The Concert",
+      "vdjYear": 1956
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/I Don't Believe You've Met My Baby - Louvin Brothers.mp4",
@@ -1506,7 +2259,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1514,7 +2267,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:85ca279d8d1b09bf",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "I Don'T Believe You'Ve Met My Baby",
+          "artist": "Louvin Brothers",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Louvin Brothers",
+      "vdjTitle": "I Don'T Believe You'Ve Met My Baby",
+      "vdjAlbum": "The Louvin Brothers - I Don't Believe You've Met My Baby / In The Middle Of Nowhere",
+      "vdjYear": 1955
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jeff Beck - Sleep Walk.mp4",
@@ -1535,7 +2306,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1543,7 +2314,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:7b29368ebcea7654",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Sleep Walk",
+          "artist": "jeff beck",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "jeff beck",
+      "vdjTitle": "Sleep Walk",
+      "vdjAlbum": "21 Grandes Éxitos",
+      "vdjYear": 1992
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jerry Lee Lewis - Whole Lotta Shakin' Goin' On.mp4",
@@ -1660,7 +2449,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1668,7 +2457,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:d5aa940189e7a603",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Five Feet Hgh And Rising",
+          "artist": "johnny cash",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "johnny cash",
+      "vdjTitle": "Five Feet Hgh And Rising",
+      "vdjAlbum": null,
+      "vdjYear": 1959
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Johnny Cash - I Walk the Line (Man in Black Live in Denmark).mp4",
@@ -1681,27 +2488,44 @@
       "album": "Man In Black: Live In Denmark 1971",
       "displayYear": 1956,
       "displayYearSource": "vdj_fallback",
-      "identityStatus": "IDENTITY_REQUIRED",
+      "identityStatus": "MEDIA_RESOLVED",
       "heroStatus": "PREPARATION_REQUIRED",
       "collectorStatus": "MISSING",
       "editorialStatus": "MISSING",
       "relatedMusicStatus": "PREPARATION_REQUIRED",
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
-      "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "overallStatus": "PREPARATION_REQUIRED",
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
       "preparationNeeds": [
-        "identity",
         "hero",
         "collector",
         "editorial",
         "relatedMusic",
         "validation"
       ],
-      "changeStatus": "UNCHANGED"
+      "changeStatus": "UNCHANGED",
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:127725ef6cd1d1db",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "I Walk The Line",
+          "artist": "johnny cash",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "VERSION_OR_PERFORMANCE",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Johnny Cash",
+      "vdjTitle": "I Walk the Line",
+      "vdjAlbum": "Man In Black: Live In Denmark 1971",
+      "vdjYear": 1956
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Johnny Horton - Battle Of New Orleans.mp4",
@@ -1722,7 +2546,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1730,7 +2554,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:1435f51385ace65b",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Battle Of New Orleans",
+          "artist": "johnny horton",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "johnny horton",
+      "vdjTitle": "Battle Of New Orleans",
+      "vdjAlbum": "North To Alaska / The Battle Of New Orleans",
+      "vdjYear": 1959
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Johnny Horton - North to Alaska.mp4",
@@ -1815,7 +2657,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1823,7 +2665,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:94a815ab1caa8126",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "The Sons Of Liberty",
+          "artist": "Johnny Tremain",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Johnny Tremain",
+      "vdjTitle": "The Sons Of Liberty",
+      "vdjAlbum": null,
+      "vdjYear": 1957
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Judy Garland - Have Yourself A Merry Little Christmas.mp4",
@@ -1844,7 +2704,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1852,7 +2712,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:c38dc4ef37805f44",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Have Yourself A Merry Little Christmas",
+          "artist": "Judy Garland",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Judy Garland",
+      "vdjTitle": "Have Yourself A Merry Little Christmas",
+      "vdjAlbum": "Meet Me In St. Louis",
+      "vdjYear": 1944
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Judy Garland And Gene Kelly - Ballin' The Jack.mp4",
@@ -1873,7 +2751,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1881,7 +2759,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:debd337e6c0d8510",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Ballin' The Jack",
+          "artist": "Judy Garland And Gene Kelly",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Judy Garland And Gene Kelly",
+      "vdjTitle": "Ballin' The Jack",
+      "vdjAlbum": "Judy Garland, Gene Kelly - For Me And My Gal",
+      "vdjYear": 1942
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Judy Garland and Johnny Mercer - Friendship.mp4",
@@ -1902,7 +2798,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1910,7 +2806,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:44a8898b0338b07e",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Friendship",
+          "artist": "Judy Garland And Johnny Mercer",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "chartRelationships": [],
+      "vdjArtist": "Judy Garland and Johnny Mercer",
+      "vdjTitle": "Friendship",
+      "vdjAlbum": "Judy Garland - Judy Garland The Complete Decca Masters (Plus)",
+      "vdjYear": 1940
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Judy Garland and Johnny Mercer. - Taking A Chance On Love.mp4",
@@ -1931,7 +2845,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1939,7 +2853,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:2ace58723f980fda",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Taking A Chance On Love",
+          "artist": "Judy Garland And Johnny Mercer.",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Judy Garland and Johnny Mercer.",
+      "vdjTitle": "Taking A Chance On Love",
+      "vdjAlbum": "Bing Crosby - Bing: A Musical Autobiography",
+      "vdjYear": 1943
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4",
@@ -1960,7 +2892,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -1968,7 +2900,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:a1d84a19fe278de1",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Hellzapoppin",
+          "artist": "Jule Styne",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Jule Styne",
+      "vdjTitle": "Hellzapoppin",
+      "vdjAlbum": "Dancing",
+      "vdjYear": 1950
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Lady A - Champagne Night.mp4",
@@ -2021,7 +2971,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -2029,7 +2979,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:f9b9d0ef795d240d",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Cool Yule",
+          "artist": "louis armstrong",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "louis armstrong",
+      "vdjTitle": "Cool Yule",
+      "vdjAlbum": "Louis Armstrong And The Commanders - 'Zat You, Santa Claus?",
+      "vdjYear": 1953
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Mickey Mouse Club - Alma Mater.mp4",
@@ -2050,7 +3018,7 @@
       "validationStatus": "NOT_VALIDATED",
       "chartJourneyStatus": "UNAVAILABLE",
       "overallStatus": "IDENTITY_REQUIRED",
-      "preparationVersion": 1,
+      "preparationVersion": 2,
       "lastPreparedAt": null,
       "lastValidatedAt": null,
       "blockingReason": null,
@@ -2058,7 +3026,25 @@
         "identity"
       ],
       "changeStatus": "UNCHANGED",
-      "identityProvenance": null
+      "identityProvenance": null,
+      "canonicalOptional": true,
+      "videoExperienceId": "VDJ:83c2f5d58bfce584",
+      "canonicalRvtrs": [],
+      "underlyingSongRelationships": [
+        {
+          "title": "Alma Mater",
+          "artist": "Mickey Mouse Club",
+          "rvtr": null,
+          "chartRelationship": null
+        }
+      ],
+      "mediaClassification": "UNCERTAIN",
+      "performanceContext": null,
+      "chartRelationships": [],
+      "vdjArtist": "Mickey Mouse Club",
+      "vdjTitle": "Alma Mater",
+      "vdjAlbum": "Song Hits With A Personal Mouseketeer Cast Photo Album",
+      "vdjYear": 1952
     },
     {
       "vdjPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Muddy Waters & The Rolling Stones - Baby Please Don't Go.mp4",
