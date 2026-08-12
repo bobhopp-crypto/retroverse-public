@@ -1,9 +1,11 @@
-# Terra Five-Article Checkpoint
+# Terra Editor Quality Report
 
-- Model: gpt-5.6-terra
-- Passes: 2/5
-- Internal leakage: 3
-- Unsupported claims: 0 automated flags
+- Model: **gpt-5.6-terra**
+- Subjects generated: 25/25
+- Five-subject checkpoint: 4/5 clear passes; continued automatically
+- First-pass passes: 25
+- Review required: 0
+- Unsupported claims flagged: 0
+- Internal leakage: 0
 - Puff-language failures: 0
-- Word range: 166–189; average 175
-- Decision: **STOP**
+- Word count: 156–183; average 167
