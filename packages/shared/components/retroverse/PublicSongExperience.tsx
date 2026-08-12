@@ -12,7 +12,7 @@ import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { preparePublicSongSections, filterPublicText } from "@/lib/retroverse/experience/public-song-display";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { SongArveyContext } from "./SongArveyContext";
-import { loadChartTrajectoryRecommendations, loadEditorialDiversityRecord, loadEditorialProductionRecord, SHE_IS_A_BEAUTY_ARTICLE } from "@/lib/retroverse/experience/editorial-song-prototype";
+import { loadC2ProductionProofRecord, loadChartTrajectoryRecommendations, loadEditorialDiversityRecord, loadEditorialProductionRecord, SHE_IS_A_BEAUTY_ARTICLE } from "@/lib/retroverse/experience/editorial-song-prototype";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
@@ -129,7 +129,7 @@ export async function PublicSongExperience({
   const albumHref = payload.links.albumHref ?? primaryAlbum?.href ?? null;
   const yearHref = payload.links.yearHref;
   const isVdjOnly = payload.resolutionTier === "vdj-only";
-  const editorialRecord = await loadEditorialDiversityRecord(payload.rvtr) ?? await loadEditorialProductionRecord(payload.rvtr);
+  const editorialRecord = await loadEditorialDiversityRecord(payload.rvtr) ?? await loadEditorialProductionRecord(payload.rvtr) ?? await loadC2ProductionProofRecord(payload.rvtr);
   const isEditorialPrototype = payload.rvtr === "RVTR111098";
   const trajectoryRecommendations = editorialRecord
     ? editorialRecord.related
@@ -303,14 +303,14 @@ export async function PublicSongExperience({
             </section>
           ) : null}
 
-          {(editorialRecord ? editorialRecord.related.length > 0 : track && track.relatedTracks.length > 0) ? (
+          {(editorialRecord ? (editorialRecord.related.length > 0 || Boolean(track?.relatedTracks.length)) : track && track.relatedTracks.length > 0) ? (
             <section className="rv-exp-chapter rv-exp-discover" aria-labelledby="rv-related-music-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-related-music-heading">RELATED MUSIC</h2>
               </header>
               <p className="rv-exp-story__context">{editorialRecord?.related[0]?.method === "contextual" ? "Selected from the owned video collection by musical and cultural context." : "Chart-trajectory matches — selected from existing Hot 100 journeys, not artist similarity."}</p>
               <ul className="rv-exp-discover__rail">
-                {(editorialRecord ? trajectoryRecommendations : Array.from(new Map((track?.relatedTracks ?? []).map((song) => [song.rvtr, song])).values()).map((song) => ({ ...song, reason: "Same artist", score: 0 })))
+                {(editorialRecord && editorialRecord.related.length > 0 ? trajectoryRecommendations : Array.from(new Map((track?.relatedTracks ?? []).map((song) => [song.rvtr, song])).values()).map((song) => ({ ...song, reason: "Same artist", score: 0 })))
                   .slice(0, 6)
                   .map((song) => (
                     <li key={song.rvtr}>

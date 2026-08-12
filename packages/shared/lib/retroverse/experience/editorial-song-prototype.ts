@@ -58,6 +58,43 @@ export async function loadEditorialProductionRecord(rvtr: string): Promise<Edito
   }
 }
 
+/** Bounded C2 acceptance overlay. It is read-only and falls through to the
+ * established production manifest when the same subject is not in the proof. */
+export async function loadC2ProductionProofRecord(rvtr: string): Promise<EditorialDiversityRecord | null> {
+  try {
+    const raw = await readFile(join(process.cwd(), "reports/c2-production-proof-25/c2-editorial-manifest.json"), "utf8");
+    const inventoryRaw = await readFile(join(process.cwd(), "data/ops/manifest/video-completion-manifest.json"), "utf8");
+    const records = JSON.parse(raw) as Array<Record<string, any>>;
+    const inventory = JSON.parse(inventoryRaw) as { records?: Array<Record<string, any>> };
+    const normalized = rvtr.trim().toUpperCase();
+    const record = records.find((candidate) => {
+      if (candidate.rvtr && String(candidate.rvtr).toUpperCase() === normalized) return true;
+      if (!/^VDJ:[0-9A-F]{16}$/i.test(normalized)) return false;
+      const path = String(candidate.vdjResearchBrief?.path ?? "");
+      return inventory.records?.some((entry) => String(entry.vdjPath) === path && String(entry.videoExperienceId ?? "").toUpperCase() === normalized);
+    });
+    if (!record) return null;
+    const article = String(record.article ?? "").trim();
+    if (!article) return null;
+    return {
+      rvtr: normalized,
+      artist: String(record.editorialSubject ?? record.subject ?? "").split(" — ")[0] ?? "",
+      title: String(record.editorialSubject ?? record.subject ?? "").split(" — ").slice(1).join(" — ") ?? "",
+      year: record.vdjResearchBrief?.year ?? null,
+      yearSource: "c2-open-research",
+      headline: String(record.headline ?? ""),
+      paragraphs: article.split(/\n\n+/).filter(Boolean),
+      articleWordCount: Number(record.wordCount ?? 0),
+      researchSources: Array.isArray(record.sources) ? record.sources : [],
+      related: [],
+      classification: String(record.subjectType ?? ""),
+      finalStatus: "C2_ACCEPTANCE_PROOF",
+    };
+  } catch {
+    return null;
+  }
+}
+
 export const SHE_IS_A_BEAUTY_ARTICLE: EditorialSongArticle = {
   headline: "A strange little world made for the first MTV generation",
   deck: "The Tubes turned a troubling image into a theatrical pop song — then let early music television make the character impossible to ignore.",
