@@ -56,6 +56,8 @@ const nextConfig = {
       "../../node_modules/xtend/**",
       "../../node_modules/sharp/**",
       "../../node_modules/@img/**",
+      "../../node_modules/detect-libc/**",
+      "../../node_modules/semver/**",
       "./data/album-chart-features.json",
     ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
@@ -71,7 +73,7 @@ const nextConfig = {
     ],
     "/api/events/**": ["./data/ops/intelligence/**"],
   },
-  serverExternalPackages: ["pg"],
+  serverExternalPackages: ["pg", "sharp"],
   experimental: {
     externalDir: true,
   },
