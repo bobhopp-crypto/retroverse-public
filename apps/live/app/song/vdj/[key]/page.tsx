@@ -15,5 +15,5 @@ export default async function VdjBaseSongPage({ params }: Props) {
   const { key } = await params;
   const payload = await loadPublicSongPayload(`VDJ:${key}`);
   if (!isPublicSongPayloadRenderable(payload)) notFound();
-  return <EditorialPageShell><PublicSongExperience payload={payload} /></EditorialPageShell>;
+  return <EditorialPageShell showSearch={false}><PublicSongExperience payload={payload} /></EditorialPageShell>;
 }

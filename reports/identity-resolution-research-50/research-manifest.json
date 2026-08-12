@@ -1,0 +1,2653 @@
+{
+  "version": 1,
+  "scope": "same-50",
+  "generatedAt": "2026-08-11T23:13:14.968Z",
+  "researchMethod": "MusicBrainz exact recording search plus existing V2/internal candidate comparison; conservative automatic assignment",
+  "totalTracks": 50,
+  "durationMs": 80595,
+  "averageResearchMs": 1612,
+  "measurableExternalCost": null,
+  "counts": {
+    "AUTO_RESOLVED_RESEARCH": 0,
+    "AUTO_RESOLVED_NO_CHART": 0,
+    "AUTO_RESOLVED_VERSION": 0,
+    "AUTO_RESOLVED_MULTI_SONG": 0,
+    "CANONICAL_CREATION_REQUIRED": 0,
+    "HUMAN_REVIEW_REQUIRED": 49,
+    "NO_MATCH": 1,
+    "CONFLICT": 0,
+    "BLOCKED": 0
+  },
+  "records": [
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Andrews Sisters - Boogie Woogie Bugle Boy.mp4",
+      "vdjArtist": "Andrews Sisters",
+      "vdjTitle": "Boogie Woogie Bugle Boy",
+      "vdjYear": 1944,
+      "vdjAlbum": "Boogie Woogie Bugle Boy",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Boogie Woogie Bugle Boy",
+          "artist": "Andrews Sisters",
+          "rvtr": "RVTR933068",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Boogie%20Woogie%20Bugle%20Boy%22%20AND%20artist%3A%22Andrews%20Sisters%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 2 exact artist/title recording candidate(s); local canonical candidate RVTR933068 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "5a3a7ac2-b38b-4172-8d55-2e35491c44d8",
+          "title": "Boogie Woogie Bugle Boy",
+          "score": 100,
+          "disambiguation": "mx. VP 1431",
+          "firstReleaseDate": "1945-10"
+        },
+        {
+          "id": "1fa5a3b9-56eb-48ca-b388-4750cb800357",
+          "title": "Boogie Woogie Bugle Boy",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1999"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Animation - Vintage Banned Cartoons.mp4",
+      "vdjArtist": "Animation",
+      "vdjTitle": "Vintage Banned Cartoons",
+      "vdjYear": 1950,
+      "vdjAlbum": null,
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Vintage Banned Cartoons",
+          "artist": "Animation",
+          "rvtr": "RVTR794354",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Vintage%20Banned%20Cartoons%22%20AND%20artist%3A%22Animation%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Big Band - Rhapsody in Blue.mp4",
+      "vdjArtist": "Big Band",
+      "vdjTitle": "Rhapsody In Blue",
+      "vdjYear": 1948,
+      "vdjAlbum": "The Bay Big Band - The Brussels World's Fair Salutes Glenn Miller Orchestra",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Rhapsody In Blue",
+          "artist": "Big Band",
+          "rvtr": "RVTR023620",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Rhapsody%20In%20Blue%22%20AND%20artist%3A%22Big%20Band%22&fmt=json&limit=5",
+          "evidence": "1 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Bill Haley - Lets Rip It Up.mp4",
+      "vdjArtist": "Bill Haley",
+      "vdjTitle": "Lets Rip It Up",
+      "vdjYear": 1957,
+      "vdjAlbum": "Bill Haley Y Sus Cometas - Rock-Collection",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Lets Rip It Up",
+          "artist": "Bill Haley",
+          "rvtr": "RVTR367218",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Lets%20Rip%20It%20Up%22%20AND%20artist%3A%22Bill%20Haley%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Bill Haley & His Comets - Rock Around The Clock.mp4",
+      "vdjArtist": "bill haley and his comets",
+      "vdjTitle": "Rock Around The Clock",
+      "vdjYear": 1955,
+      "vdjAlbum": "Bill Haley & The Comets - Framed / Rock Around The Clock",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Rock Around The Clock",
+          "artist": "bill haley and his comets",
+          "rvtr": "RVTR538733",
+          "chartRelationship": {
+            "found": true,
+            "debut": "1974-03-16",
+            "peak": 39,
+            "weeks": 14,
+            "chartJourney": true
+          }
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": {
+        "found": true,
+        "debut": "1974-03-16",
+        "peak": 39,
+        "weeks": 14,
+        "chartJourney": true
+      },
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Rock%20Around%20The%20Clock%22%20AND%20artist%3A%22bill%20haley%20and%20his%20comets%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 4 exact artist/title recording candidate(s); local canonical candidate RVTR538733 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "06f4fba5-bf78-44ef-be00-34a2e3237658",
+          "title": "Rock Around the Clock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2015"
+        },
+        {
+          "id": "712924bb-ecb4-4641-82a1-892faafc62a4",
+          "title": "Rock Around the Clock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1995"
+        },
+        {
+          "id": "317a0f93-de6b-49b5-9d19-cfd17bbc8963",
+          "title": "Rock Around the Clock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2019-11-29"
+        },
+        {
+          "id": "02488639-93f5-4739-8b0b-a601eb12de29",
+          "title": "Rock Around the Clock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2012-11-23"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Billie Davis - I Want You To Be My Baby.mp4",
+      "vdjArtist": "Billie Davis",
+      "vdjTitle": "I Want You To Be My Baby",
+      "vdjYear": 1953,
+      "vdjAlbum": "I Want You To Be My Baby",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "I Want You To Be My Baby",
+          "artist": "Billie Davis",
+          "rvtr": "RVTR059373",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22I%20Want%20You%20To%20Be%20My%20Baby%22%20AND%20artist%3A%22Billie%20Davis%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR059373 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "cc0884bc-e099-4fab-a443-30513ee57fbc",
+          "title": "I Want You to Be My Baby",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1995"
+        },
+        {
+          "id": "3cefed20-ed7e-4733-8eac-bf965b2e9594",
+          "title": "I Want You to Be My Baby",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1968-08-30"
+        },
+        {
+          "id": "820d1f1b-d43e-40b3-b82e-73708e9b9c68",
+          "title": "I Want You to Be My Baby",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1989"
+        },
+        {
+          "id": "ea3cd7fe-a3d4-4bf7-a43d-f88e9ecd1d14",
+          "title": "I Want You to Be My Baby",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2014"
+        },
+        {
+          "id": "0c1d1603-de68-4917-aeb7-408c1adfb611",
+          "title": "I Want You to Be My Baby",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1993"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Buddy Holly - Not Fade Away and Peggy Sue.mp4",
+      "vdjArtist": "buddy holly",
+      "vdjTitle": "Not Fade Away And Peggy Sue",
+      "vdjYear": 1956,
+      "vdjAlbum": "A Rock & Roll Collection",
+      "previousV2Classification": "MULTI_SONG_CANDIDATE",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Peggy Sue",
+          "rvtr": null,
+          "artist": "Buddy Holly",
+          "chartEvidence": {
+            "found": false,
+            "chartJourney": false
+          }
+        },
+        {
+          "title": "Not Fade Away",
+          "rvtr": null,
+          "artist": "Buddy Holly",
+          "chartEvidence": {
+            "found": false,
+            "chartJourney": false
+          }
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Not%20Fade%20Away%20And%20Peggy%20Sue%22%20AND%20artist%3A%22buddy%20holly%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Cab Calloway - Minnie the Moocher (Blue Brothers).mp4",
+      "vdjArtist": "cab calloway",
+      "vdjTitle": "Minnie The Moocher Blue Brothers",
+      "vdjYear": 1980,
+      "vdjAlbum": "The Blues Brothers - The Blues Brothers (Original Soundtrack Recording)",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Minnie The Moocher Blue Brothers",
+          "artist": "cab calloway",
+          "rvtr": "RVTR380336",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Minnie%20The%20Moocher%20Blue%20Brothers%22%20AND%20artist%3A%22cab%20calloway%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Cab Calloway and the Nicholas Brothers - Jumpin Jive.mp4",
+      "vdjArtist": "Cab Calloway and the Nicholas Brothers",
+      "vdjTitle": "Jumpin Jive",
+      "vdjYear": 2006,
+      "vdjAlbum": "That Devilin' Tune - A Jazz History, Vol. 3 (1934-1945) ",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Jumpin Jive",
+          "artist": "Cab Calloway And The Nicholas Brothers",
+          "rvtr": "RVTR475086",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Jumpin%20Jive%22%20AND%20artist%3A%22Cab%20Calloway%20and%20the%20Nicholas%20Brothers%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Blue Suede Shoes.mp4",
+      "vdjArtist": "carl perkins",
+      "vdjTitle": "Blue Suede Shoes",
+      "vdjYear": 1956,
+      "vdjAlbum": "Blue Suede Shoes",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Blue Suede Shoes",
+          "artist": "carl perkins",
+          "rvtr": "RVTR955267",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Blue%20Suede%20Shoes%22%20AND%20artist%3A%22carl%20perkins%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR955267 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "c9dbefd8-2887-49ff-957c-4781fb2f764e",
+          "title": "Blue Suede Shoes",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1995-01-01"
+        },
+        {
+          "id": "0d0779b8-a036-4977-a736-a9d1192bce73",
+          "title": "Blue Suede Shoes",
+          "score": 100,
+          "disambiguation": "part of “Grandmaster Party” dj-mix",
+          "firstReleaseDate": "2001"
+        },
+        {
+          "id": "e5b2c706-3488-44c5-b2cf-b1b327acbaaa",
+          "title": "Blue Suede Shoes",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "b9f35d36-62a1-436a-b41f-c30cc027a14c",
+          "title": "Blue Suede Shoes",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1978"
+        },
+        {
+          "id": "f0991352-96c5-4661-8563-72babe6ca47d",
+          "title": "Blue Suede Shoes",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1973"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Carl Perkins - Glad All Over.mp4",
+      "vdjArtist": "carl perkins",
+      "vdjTitle": "Glad All Over",
+      "vdjYear": 1957,
+      "vdjAlbum": "Glad All Over",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Glad All Over",
+          "artist": "carl perkins",
+          "rvtr": "RVTR531352",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Glad%20All%20Over%22%20AND%20artist%3A%22carl%20perkins%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR531352 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "35b3ac0f-b543-4b22-8888-4547a328eb0c",
+          "title": "Glad All Over",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2001"
+        },
+        {
+          "id": "ef7fbe34-84f3-4f94-99a6-978e936cb339",
+          "title": "Glad All Over",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1988"
+        },
+        {
+          "id": "30be7ce3-1a01-4855-a7ab-b2b544c7d147",
+          "title": "Glad All Over",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1995"
+        },
+        {
+          "id": "6de43f6b-579c-492b-b4e0-0d154b329017",
+          "title": "Glad All Over",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1974"
+        },
+        {
+          "id": "c0d84c7d-06aa-49af-b7ba-45da13018c6c",
+          "title": "Glad All Over",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1983"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Chords - Sh-Boom.mp4",
+      "vdjArtist": "Chords",
+      "vdjTitle": "Sh Boom",
+      "vdjYear": 1954,
+      "vdjAlbum": "The Chords - Sh-Boom / Little Maiden",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Sh Boom",
+          "artist": "Chords",
+          "rvtr": "RVTR454830",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Sh%20Boom%22%20AND%20artist%3A%22Chords%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Chuck Berry - Memphis Tennessee.mp4",
+      "vdjArtist": "chuck berry",
+      "vdjTitle": "Memphis Tennessee",
+      "vdjYear": 1959,
+      "vdjAlbum": "Back In The U.S.A. / Memphis, Tennessee",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Memphis Tennessee",
+          "artist": "chuck berry",
+          "rvtr": "RVTR530800",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Memphis%20Tennessee%22%20AND%20artist%3A%22chuck%20berry%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR530800 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "259dbdb3-6623-4509-8e14-692643a37c18",
+          "title": "Memphis, Tennessee",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1973"
+        },
+        {
+          "id": "fb5961a2-acf2-45c3-ad72-29078eb14319",
+          "title": "Memphis Tennessee",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "a1838321-4939-4824-ac97-6717f0c632e0",
+          "title": "Memphis Tennessee",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "deaa34b7-137b-438a-87e1-4c5ac600c34e",
+          "title": "Memphis Tennessee",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1990"
+        },
+        {
+          "id": "3dab19c7-bd6f-4c11-86bd-6a23ee29ff3d",
+          "title": "Memphis, Tennessee",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2023-05"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Chuck Berry - School Days.mp4",
+      "vdjArtist": "chuck berry",
+      "vdjTitle": "School Days",
+      "vdjYear": 1957,
+      "vdjAlbum": "Nadine",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "School Days",
+          "artist": "chuck berry",
+          "rvtr": "RVTR096895",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22School%20Days%22%20AND%20artist%3A%22chuck%20berry%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR096895 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "e82cfc77-857e-4cfe-bd49-6aaea8e76724",
+          "title": "School Days",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1974"
+        },
+        {
+          "id": "66d64164-bbed-4e66-bcf3-9b7602712a4c",
+          "title": "School Days",
+          "score": 100,
+          "disambiguation": "live, 1969-09-13: Varsity Stadium, Toronto, Ontario, Canada",
+          "firstReleaseDate": "1984"
+        },
+        {
+          "id": "15691aac-3b68-4595-99f8-5ba6564aa120",
+          "title": "School Days",
+          "score": 100,
+          "disambiguation": "part of “The Music Machine!” DJ‐mix",
+          "firstReleaseDate": "2007"
+        },
+        {
+          "id": "b142632c-9523-4fd5-8f3a-c23b7811ebb8",
+          "title": "School Days",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2008"
+        },
+        {
+          "id": "4386eaf9-b301-42b7-a7b9-eb6c7acebd3b",
+          "title": "School Days",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Coasters - Down In Mexico.mp4",
+      "vdjArtist": "coasters",
+      "vdjTitle": "Down In Mexico",
+      "vdjYear": 1957,
+      "vdjAlbum": "Various - Quentin Tarantino's \"Death Proof\" (Original Soundtrack)",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Down In Mexico",
+          "artist": "coasters",
+          "rvtr": "RVTR992152",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Down%20In%20Mexico%22%20AND%20artist%3A%22coasters%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Danny And The Juniors - At The Hop.mp4",
+      "vdjArtist": "",
+      "vdjTitle": "",
+      "vdjYear": 1957,
+      "vdjAlbum": "At The Hop / Sometimes",
+      "previousV2Classification": "NO_MATCH",
+      "researchClassification": "NO_MATCH",
+      "underlyingSongs": [],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": false,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Duane Eddy - Rebel Rouser.mp4",
+      "vdjArtist": "duane eddy",
+      "vdjTitle": "Rebel Rouser",
+      "vdjYear": 1958,
+      "vdjAlbum": "Rebel Rouser / Detour",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Rebel Rouser",
+          "artist": "duane eddy",
+          "rvtr": "RVTR893728",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Rebel%20Rouser%22%20AND%20artist%3A%22duane%20eddy%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR893728 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "81907ea9-7159-450b-bbfd-e977a8525876",
+          "title": "Rebel Rouser",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1998-12-14"
+        },
+        {
+          "id": "9c48ef58-135a-4c3a-88fd-c7f3d0f1c4f3",
+          "title": "Rebel Rouser",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1993"
+        },
+        {
+          "id": "8800c7cf-3466-4eeb-96d8-635f909232fd",
+          "title": "Rebel Rouser",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2008"
+        },
+        {
+          "id": "e3f23633-0166-41ce-ac2e-0c6760e06eec",
+          "title": "Rebel Rouser",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1986"
+        },
+        {
+          "id": "8f131736-5dbb-4758-bf30-8326af07d286",
+          "title": "Rebel Rouser",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1992"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Eddie Cochran - Twenty Flight Rock.mp4",
+      "vdjArtist": "eddie cochran",
+      "vdjTitle": "Twenty Flight Rock",
+      "vdjYear": 1957,
+      "vdjAlbum": "Twenty Flight Rock",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Twenty Flight Rock",
+          "artist": "eddie cochran",
+          "rvtr": "RVTR354870",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Twenty%20Flight%20Rock%22%20AND%20artist%3A%22eddie%20cochran%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR354870 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "9d22436d-e584-4546-ad5b-09ff3ecc0df3",
+          "title": "Twenty Flight Rock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2015"
+        },
+        {
+          "id": "5d3d79dc-ebaa-4158-8e30-d66485aac664",
+          "title": "Twenty Flight Rock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "b42665ea-1d72-498c-b935-9f3ee9fd1f8f",
+          "title": "Twenty Flight Rock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2008"
+        },
+        {
+          "id": "dfdff78e-b1ef-48a0-b916-813ade71cd97",
+          "title": "Twenty Flight Rock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1986"
+        },
+        {
+          "id": "6e12ba93-ed27-49c0-8cd8-7906a8c056ae",
+          "title": "Twenty-Flight Rock",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1988"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Eddy Arnold - Cattle Call.mp4",
+      "vdjArtist": "eddy arnold",
+      "vdjTitle": "Cattle Call",
+      "vdjYear": 1956,
+      "vdjAlbum": "The Cattle Call / The Kentuckian Song",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Cattle Call",
+          "artist": "eddy arnold",
+          "rvtr": "RVTR628171",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Cattle%20Call%22%20AND%20artist%3A%22eddy%20arnold%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR628171 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "cff43b33-9957-458f-a31f-864c63800edc",
+          "title": "Cattle Call",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2006"
+        },
+        {
+          "id": "301ce816-4e22-4667-929d-b7692c09afd0",
+          "title": "Cattle Call",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1963-08-06"
+        },
+        {
+          "id": "8702c203-e026-437a-96ef-c342d6c2e34c",
+          "title": "Cattle Call",
+          "score": 100,
+          "disambiguation": "live: Louisiana Hayride, KWKH Radio, Shreveport, LA, USA",
+          "firstReleaseDate": "2017-11-24"
+        },
+        {
+          "id": "55c2a634-2894-4a2b-ad51-4e25a7dcefb8",
+          "title": "Cattle Call",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2010"
+        },
+        {
+          "id": "68a4d0b8-5a50-4369-80b7-14c955263b0e",
+          "title": "Cattle Call",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2006"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Elvis Presley - Jailhouse Rock.mp4",
+      "vdjArtist": "elvis presley",
+      "vdjTitle": "Jailhouse Rock",
+      "vdjYear": 1957,
+      "vdjAlbum": "Jailhouse Rock / Heartbreak Hotel",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Jailhouse Rock",
+          "artist": "elvis presley",
+          "rvtr": "RVTR951694",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Jailhouse%20Rock%22%20AND%20artist%3A%22elvis%20presley%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 4 exact artist/title recording candidate(s); local canonical candidate RVTR951694 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "b8e2821e-a741-47c6-a11a-9165e315569d",
+          "title": "Jailhouse Rock",
+          "score": 95,
+          "disambiguation": "karaoke",
+          "firstReleaseDate": null
+        },
+        {
+          "id": "c9403556-c320-43a2-9463-3b1cad71adf2",
+          "title": "Jailhouse Rock",
+          "score": 95,
+          "disambiguation": "live, 1977-06-19: Omaha Civic Auditorium, Omaha, NE, USA",
+          "firstReleaseDate": "1977-10-03"
+        },
+        {
+          "id": "50c1ce82-52de-4ae1-b7e3-1657926dcbb2",
+          "title": "Jailhouse Rock",
+          "score": 95,
+          "disambiguation": null,
+          "firstReleaseDate": "1993"
+        },
+        {
+          "id": "4639de7a-d975-489a-882f-730cf14248a8",
+          "title": "Jailhouse Rock",
+          "score": 95,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Elvis Presley - Peace In The Valley.mp4",
+      "vdjArtist": "elvis presley",
+      "vdjTitle": "Peace In The Valley",
+      "vdjYear": 1957,
+      "vdjAlbum": null,
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Peace In The Valley",
+          "artist": "elvis presley",
+          "rvtr": "RVTR860741",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Peace%20In%20The%20Valley%22%20AND%20artist%3A%22elvis%20presley%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR860741 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "759559d2-10e8-467c-bae1-e49c72465870",
+          "title": "Peace in the Valley",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2000-07"
+        },
+        {
+          "id": "c9bae074-cb95-42f7-b830-cf4ae3c64d2d",
+          "title": "Peace in the Valley",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1998"
+        },
+        {
+          "id": "b766f8e6-f268-4e7c-9272-4d99710ce244",
+          "title": "Peace in the Valley",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1974-01-02"
+        },
+        {
+          "id": "a0996255-55b8-4c7e-ae4c-f399b4d3b6da",
+          "title": "Peace in the Valley",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1994"
+        },
+        {
+          "id": "ac694afc-9a6f-4135-883d-90e6855a5c2f",
+          "title": "Peace in the Valley",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1998"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Frank Sinatra - Come Fly With Me BW.mp4",
+      "vdjArtist": "Frank Sinatra",
+      "vdjTitle": "Come Fly With Me BW",
+      "vdjYear": 1958,
+      "vdjAlbum": null,
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Come Fly With Me",
+          "artist": "frank sinatra",
+          "rvtr": "RVTR639307",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Come%20Fly%20With%20Me%20BW%22%20AND%20artist%3A%22Frank%20Sinatra%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Frank Sinatra - Come Fly With Me.mp4",
+      "vdjArtist": "Frank Sinatra",
+      "vdjTitle": "Come Fly With Me",
+      "vdjYear": 1958,
+      "vdjAlbum": "Concepts",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Come Fly With Me",
+          "artist": "frank sinatra",
+          "rvtr": "RVTR639307",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Come%20Fly%20With%20Me%22%20AND%20artist%3A%22Frank%20Sinatra%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR639307 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "f615c6fc-2fe7-42b2-88b7-d4951133b632",
+          "title": "Come Fly With Me",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1997"
+        },
+        {
+          "id": "54e31b3d-9145-49d3-bfca-feb3e92b27ad",
+          "title": "Come Fly With Me",
+          "score": 100,
+          "disambiguation": "live: 1966-01, Las Vegas, USA",
+          "firstReleaseDate": "2002-02-26"
+        },
+        {
+          "id": "6e84320c-9a71-43f8-afa2-eb9f757ca375",
+          "title": "Come Fly With Me",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1996"
+        },
+        {
+          "id": "cb30b57c-7214-4ea2-8a55-c66245bc911a",
+          "title": "Come Fly With Me",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1997"
+        },
+        {
+          "id": "d7ab7c61-a17f-4b40-bdbb-13e4d95aa30d",
+          "title": "Come Fly With Me",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1984"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Frank Sinatra - Fly Me To The Moon.mp4",
+      "vdjArtist": "frank sinatra",
+      "vdjTitle": "Fly Me To The Moon",
+      "vdjYear": 1954,
+      "vdjAlbum": "Black Selection",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Fly Me To The Moon",
+          "artist": "frank sinatra",
+          "rvtr": "RVTR192681",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Fly%20Me%20To%20The%20Moon%22%20AND%20artist%3A%22frank%20sinatra%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR192681 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "a37f5743-1e90-488e-8e11-34cdd4ea38d1",
+          "title": "Fly Me to the Moon",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1991"
+        },
+        {
+          "id": "61dd15b1-ba9e-490c-a9d0-c4e7b953bf99",
+          "title": "Fly Me to the Moon",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2007-09-10"
+        },
+        {
+          "id": "b1112931-4b27-463c-975b-a2fabd444953",
+          "title": "Fly Me to the Moon",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "e038e646-dde6-4d3f-bb10-5f87a3348229",
+          "title": "Fly Me To The Moon",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2018-01-01"
+        },
+        {
+          "id": "e10deb5a-4ee2-46ee-b7d4-16cc85573b4a",
+          "title": "Fly Me to the Moon",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1977"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - At Last.mp4",
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "At Last",
+      "vdjYear": 1942,
+      "vdjAlbum": "Dal Film Universal Inter. \"La Storia di Glenn Miller\"",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "At Last",
+          "artist": "Glenn Miller",
+          "rvtr": "RVTR292864",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22At%20Last%22%20AND%20artist%3A%22Glenn%20Miller%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR292864 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "630e10b8-7a87-4b17-ab01-51b497291399",
+          "title": "At Last",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2005"
+        },
+        {
+          "id": "3bfa7272-128b-47ad-9340-816c6a514e4c",
+          "title": "At Last",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1978"
+        },
+        {
+          "id": "3ead140c-558e-43e3-bba6-faa64c271bee",
+          "title": "At Last",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "8933520c-3f2c-4591-b53c-562d660a26b7",
+          "title": "At Last",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1995"
+        },
+        {
+          "id": "7162664e-a841-4457-8f79-5bb005ee5316",
+          "title": "At Last",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1993"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - Chattanooga Choo Choo (1941).mp4",
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "Chattanooga Choo Choo 1941",
+      "vdjYear": 1941,
+      "vdjAlbum": "Glenn Miller",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Chattanooga Choo Choo 1941",
+          "artist": "Glenn Miller",
+          "rvtr": "RVTR290878",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Chattanooga%20Choo%20Choo%201941%22%20AND%20artist%3A%22Glenn%20Miller%22&fmt=json&limit=5",
+          "evidence": "1 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - Chattanooga Choo Choo.mp4",
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "Chattanooga Choo Choo",
+      "vdjYear": 1941,
+      "vdjAlbum": "Serenade In Blue",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Chattanooga Choo Choo",
+          "artist": "Glenn Miller",
+          "rvtr": "RVTR759715",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Chattanooga%20Choo%20Choo%22%20AND%20artist%3A%22Glenn%20Miller%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR759715 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "e6a3c8e1-9810-46c1-b74a-1052ffdf293c",
+          "title": "Chattanooga Choo Choo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1999"
+        },
+        {
+          "id": "4bae4509-9db9-424e-9118-6664918abb06",
+          "title": "Chattanooga Choo Choo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "f090db2b-24fd-408e-b99f-5e54ac155068",
+          "title": "Chattanooga Choo Choo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1997"
+        },
+        {
+          "id": "287f2638-6fc3-4eb3-91d5-d8c207e553c6",
+          "title": "Chattanooga Choo-Choo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1991-09-24"
+        },
+        {
+          "id": "ef5047aa-242f-4b57-aef4-d3e6e070ebac",
+          "title": "Chattanooga Choo Choo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2010"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - I've Got a Gal in Kalamazoo.mp4",
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "I'Ve Got A Gal In Kalamazoo",
+      "vdjYear": 1941,
+      "vdjAlbum": "Shindig",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "I'Ve Got A Gal In Kalamazoo",
+          "artist": "Glenn Miller",
+          "rvtr": "RVTR154336",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22I'Ve%20Got%20A%20Gal%20In%20Kalamazoo%22%20AND%20artist%3A%22Glenn%20Miller%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR154336 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "aad01766-a183-4ca1-a4f9-d39e1aaa96bc",
+          "title": "I've Got a Gal in Kalamazoo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1999"
+        },
+        {
+          "id": "9c01b139-5609-453b-96c4-11b8cda7d6c1",
+          "title": "I've Got a Gal in Kalamazoo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "cad589f7-86e9-4a38-8571-a93ca6933dc6",
+          "title": "I’ve Got a Gal in Kalamazoo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1997"
+        },
+        {
+          "id": "c73b14ba-71a0-420f-a209-aeec25b22b3d",
+          "title": "I've Got a Gal in Kalamazoo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "1baac241-a6c7-4684-8f64-4dfee87866af",
+          "title": "I've Got a Gal in Kalamazoo",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1995"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - In the Mood.mp4",
+      "vdjArtist": "Glenn Miller",
+      "vdjTitle": "In The Mood",
+      "vdjYear": 1941,
+      "vdjAlbum": "In The Mood / Moonlight Serenade",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "In The Mood",
+          "artist": "Glenn Miller",
+          "rvtr": "RVTR027135",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22In%20The%20Mood%22%20AND%20artist%3A%22Glenn%20Miller%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR027135 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "ae9d5188-2890-4fe4-90fa-af1b9b0658eb",
+          "title": "In The Mood",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1998"
+        },
+        {
+          "id": "490535df-9875-4026-a8d2-18ce5036ae24",
+          "title": "In the Mood",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1996"
+        },
+        {
+          "id": "39cbae34-d792-4d8f-b199-fae1fb5065d3",
+          "title": "In the Mood",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2002"
+        },
+        {
+          "id": "5602e190-60ac-421e-9a81-5b4dea62715a",
+          "title": "In the Mood",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "e4a79487-18be-467b-9e26-a6f347c692ec",
+          "title": "In the Mood",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1996"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Hank Williams - Cold Cold Heart.mp4",
+      "vdjArtist": "Hank Williams",
+      "vdjTitle": "Cold Cold Heart",
+      "vdjYear": 1953,
+      "vdjAlbum": "Memorial Album",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Cold Cold Heart",
+          "artist": "Hank Williams",
+          "rvtr": "RVTR292797",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Cold%20Cold%20Heart%22%20AND%20artist%3A%22Hank%20Williams%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR292797 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "2b8ac3a4-7337-4ca0-92f9-ae25df8246f9",
+          "title": "Cold Cold Heart",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1993"
+        },
+        {
+          "id": "cea18477-d2e8-4c64-9261-cd1857936413",
+          "title": "Cold, Cold Heart",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2009"
+        },
+        {
+          "id": "ee1f97eb-a503-431c-a59f-4d0fdf44658d",
+          "title": "Cold, Cold Heart",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2003"
+        },
+        {
+          "id": "7337361f-7f55-4800-82d1-16143962c80f",
+          "title": "Cold, Cold Heart",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2012-05-29"
+        },
+        {
+          "id": "03136fa7-d09f-4ecb-b9e0-21be611bc234",
+          "title": "Cold Cold Heart",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2009"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Hank Williams - Hey Good Lookin'.mp4",
+      "vdjArtist": "Hank Williams",
+      "vdjTitle": "Hey Good Lookin'",
+      "vdjYear": 1952,
+      "vdjAlbum": "Hank Williams With His Drifting Cowboys - Wedding Bells / Hey Good Lookin'",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Hey Good Lookin'",
+          "artist": "Hank Williams",
+          "rvtr": "RVTR680786",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Hey%20Good%20Lookin'%22%20AND%20artist%3A%22Hank%20Williams%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR680786 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "27456751-70e1-4442-a20a-95848fa27c5d",
+          "title": "Hey Good Lookin'",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2008"
+        },
+        {
+          "id": "85a1a0a2-5f8a-4f61-b0a6-ba6cce2a2dcb",
+          "title": "Hey Good Lookin’",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1981"
+        },
+        {
+          "id": "6f54bdbf-0356-4b38-b3b9-90230c193d29",
+          "title": "Hey Good Lookin’",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2023-07-14"
+        },
+        {
+          "id": "899b55f4-82c0-4020-b3f5-4aa2b10e7246",
+          "title": "Hey Good Lookin’",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2002"
+        },
+        {
+          "id": "cee201cc-292f-4016-9a69-cb225b196ffb",
+          "title": "Hey, Good Lookin’",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2006"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Harry Belafonte - Banna Boat Song (Beetlejuice).mp4",
+      "vdjArtist": "Harry Belafonte",
+      "vdjTitle": "Banna Boat Song Beetlejuice",
+      "vdjYear": 1988,
+      "vdjAlbum": null,
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Banna Boat Song Beetlejuice",
+          "artist": "Harry Belafonte",
+          "rvtr": "RVTR360656",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Banna%20Boat%20Song%20Beetlejuice%22%20AND%20artist%3A%22Harry%20Belafonte%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Harry McClintock - Big Rock Candy Mountain.mp4",
+      "vdjArtist": "Harry McClintock",
+      "vdjTitle": "Big Rock Candy Mountain",
+      "vdjYear": 1928,
+      "vdjAlbum": "O' Brother Where Art Thou",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Big Rock Candy Mountain",
+          "artist": "Harry Mcclintock",
+          "rvtr": "RVTR150220",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Big%20Rock%20Candy%20Mountain%22%20AND%20artist%3A%22Harry%20McClintock%22&fmt=json&limit=5",
+          "evidence": "1 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 1 exact artist/title recording candidate(s); local canonical candidate RVTR150220 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "cff3590b-107b-46ef-a34c-e3a1623c2811",
+          "title": "Big Rock Candy Mountain",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1928-11-16"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Henry Mancini - Baby Elephant Walk.mp4",
+      "vdjArtist": "henry mancini",
+      "vdjTitle": "Baby Elephant Walk",
+      "vdjYear": 1962,
+      "vdjAlbum": "Hatari!",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Baby Elephant Walk",
+          "artist": "henry mancini",
+          "rvtr": "RVTR212882",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Baby%20Elephant%20Walk%22%20AND%20artist%3A%22henry%20mancini%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR212882 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "497b72a9-bf82-45f1-b628-a5f9505fc5bf",
+          "title": "Baby Elephant Walk",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "15c7b528-a2b4-4a5f-9268-ee2075d51f1c",
+          "title": "Baby Elephant Walk",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1995"
+        },
+        {
+          "id": "b7287b2c-1da1-4f35-bf55-72969c5467f5",
+          "title": "Baby Elephant Walk",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2000"
+        },
+        {
+          "id": "46289ff8-5268-4ba6-83fa-3f3337ef9e75",
+          "title": "Baby Elephant Walk",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2016"
+        },
+        {
+          "id": "a4efce97-98d5-4d32-920c-3701d9c01984",
+          "title": "Baby Elephant Walk",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2008"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Henry Mancini - Pink Panther.mp4",
+      "vdjArtist": "henry mancini",
+      "vdjTitle": "Pink Panther",
+      "vdjYear": 1993,
+      "vdjAlbum": "Son Of The Pink Panther (Original Music From The United Artists Motion Picture)",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Pink Panther",
+          "artist": "henry mancini",
+          "rvtr": "RVTR026694",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Pink%20Panther%22%20AND%20artist%3A%22henry%20mancini%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 4 exact artist/title recording candidate(s); local canonical candidate RVTR026694 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "83b2c27d-bb52-4575-b2e4-1e8ff6dc2479",
+          "title": "Pink Panther",
+          "score": 99,
+          "disambiguation": null,
+          "firstReleaseDate": "1989"
+        },
+        {
+          "id": "7b851001-499f-4584-86d4-d2b22d344f8e",
+          "title": "Pink Panther",
+          "score": 99,
+          "disambiguation": null,
+          "firstReleaseDate": "1972"
+        },
+        {
+          "id": "74df6b4e-0a91-4507-a10a-85ec2225b888",
+          "title": "Pink Panther",
+          "score": 99,
+          "disambiguation": null,
+          "firstReleaseDate": "2007-03-23"
+        },
+        {
+          "id": "e58e9802-8152-48f6-bd28-66641aeef459",
+          "title": "Pink Panther",
+          "score": 99,
+          "disambiguation": null,
+          "firstReleaseDate": "2004"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Howlin Wolf - Smokestack Lightning.mp4",
+      "vdjArtist": "Howlin Wolf",
+      "vdjTitle": "Smokestack Lightning",
+      "vdjYear": 1956,
+      "vdjAlbum": "Howlin' Wolf - Smokestack Lightning / Red Rooster",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Smokestack Lightning",
+          "artist": "Howlin Wolf",
+          "rvtr": "RVTR396931",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Smokestack%20Lightning%22%20AND%20artist%3A%22Howlin%20Wolf%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR396931 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "f742ba29-fb3e-4aad-b4dc-1aeee60d120c",
+          "title": "Smokestack Lightning",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2002"
+        },
+        {
+          "id": "43fa900d-b018-4019-a66a-78dbf8abfbc9",
+          "title": "Smokestack Lightning",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1989"
+        },
+        {
+          "id": "5060286c-6401-49f2-879a-c07a49a7ea3b",
+          "title": "Smokestack Lightning",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "df7c6002-a775-4b7c-9920-066e93bc526c",
+          "title": "Smokestack Lightning",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2012"
+        },
+        {
+          "id": "afff76a9-1b40-4f79-8eb7-d3c50d38603b",
+          "title": "Smokestack Lightning",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2015-08-21"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Huey Lewis and The News - Little Bitty Pretty One.mp4",
+      "vdjArtist": "Huey Lewis and The News",
+      "vdjTitle": "Little Bitty Pretty One",
+      "vdjYear": 1956,
+      "vdjAlbum": "Huey Lewis & The News - Four Chords & Several Years Ago - The Concert",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Little Bitty Pretty One",
+          "artist": "Huey Lewis And The News",
+          "rvtr": "RVTR945585",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Little%20Bitty%20Pretty%20One%22%20AND%20artist%3A%22Huey%20Lewis%20and%20The%20News%22&fmt=json&limit=5",
+          "evidence": "2 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 1 exact artist/title recording candidate(s); local canonical candidate RVTR945585 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "a15e2399-e082-46bd-b80b-8219c68e39ea",
+          "title": "Little Bitty Pretty One",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2017-08-25"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/I Don't Believe You've Met My Baby - Louvin Brothers.mp4",
+      "vdjArtist": "Louvin Brothers",
+      "vdjTitle": "I Don'T Believe You'Ve Met My Baby",
+      "vdjYear": 1955,
+      "vdjAlbum": "The Louvin Brothers - I Don't Believe You've Met My Baby / In The Middle Of Nowhere",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "I Don'T Believe You'Ve Met My Baby",
+          "artist": "Louvin Brothers",
+          "rvtr": "RVTR443526",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22I%20Don'T%20Believe%20You'Ve%20Met%20My%20Baby%22%20AND%20artist%3A%22Louvin%20Brothers%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 1 exact artist/title recording candidate(s); local canonical candidate RVTR443526 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "29274425-fab4-4bf6-8068-db5c3df75c77",
+          "title": "I Don’t Believe You’ve Met My Baby",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1997"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jeff Beck - Sleep Walk.mp4",
+      "vdjArtist": "jeff beck",
+      "vdjTitle": "Sleep Walk",
+      "vdjYear": 1992,
+      "vdjAlbum": "21 Grandes Éxitos",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Sleep Walk",
+          "artist": "jeff beck",
+          "rvtr": "RVTR926953",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Sleep%20Walk%22%20AND%20artist%3A%22jeff%20beck%22&fmt=json&limit=5",
+          "evidence": "2 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 2 exact artist/title recording candidate(s); local canonical candidate RVTR926953 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "fdf50d94-6621-4db0-85c6-70281fb031dc",
+          "title": "Sleep Walk",
+          "score": 100,
+          "disambiguation": "live, 2010‐06‐09: Iridium Jazz Club, New York, NY, USA",
+          "firstReleaseDate": "2011-02-22"
+        },
+        {
+          "id": "60e09490-93b2-43ef-9acd-b34ec5dd4312",
+          "title": "Sleep Walk",
+          "score": 100,
+          "disambiguation": "live, 2010‐06‐09: Iridium Jazz Club, New York, NY, USA",
+          "firstReleaseDate": null
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Johnny Cash - Five Feet Hgh and Rising.mp4",
+      "vdjArtist": "johnny cash",
+      "vdjTitle": "Five Feet Hgh And Rising",
+      "vdjYear": 1959,
+      "vdjAlbum": null,
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Five Feet Hgh And Rising",
+          "artist": "johnny cash",
+          "rvtr": "RVTR863574",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Five%20Feet%20Hgh%20And%20Rising%22%20AND%20artist%3A%22johnny%20cash%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Johnny Cash - I Walk the Line (Man in Black Live in Denmark).mp4",
+      "vdjArtist": "Johnny Cash",
+      "vdjTitle": "I Walk the Line",
+      "vdjYear": 1956,
+      "vdjAlbum": "Man In Black: Live In Denmark 1971",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "I Walk The Line",
+          "artist": "johnny cash",
+          "rvtr": "RVTR164626",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22I%20Walk%20the%20Line%22%20AND%20artist%3A%22Johnny%20Cash%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR164626 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "c3892291-b117-4f10-bd40-25428392eead",
+          "title": "I Walk the Line",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1998"
+        },
+        {
+          "id": "75c5d99f-e112-439e-a1b6-3b790d27a0ab",
+          "title": "I Walk the Line",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1994"
+        },
+        {
+          "id": "603c192c-4d15-4dce-9d4e-e1299daf45e3",
+          "title": "I Walk the Line",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2000-04-24"
+        },
+        {
+          "id": "2ffc9608-6c4a-4d96-9337-5a5199467736",
+          "title": "I Walk the Line",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2005-07-26"
+        },
+        {
+          "id": "3d913aae-8da1-499e-8ba6-6160eea9051c",
+          "title": "I Walk the Line",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1995"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Johnny Horton - Battle Of New Orleans.mp4",
+      "vdjArtist": "johnny horton",
+      "vdjTitle": "Battle Of New Orleans",
+      "vdjYear": 1959,
+      "vdjAlbum": "North To Alaska / The Battle Of New Orleans",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Battle Of New Orleans",
+          "artist": "johnny horton",
+          "rvtr": "RVTR741337",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Battle%20Of%20New%20Orleans%22%20AND%20artist%3A%22johnny%20horton%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR741337 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "d2546b6d-2bcc-4494-8d58-af0274a72353",
+          "title": "Battle of New Orleans",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2004"
+        },
+        {
+          "id": "f7f4feb4-cfaa-4e1b-81f0-d71a2c7b0839",
+          "title": "Battle of New Orleans",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1980"
+        },
+        {
+          "id": "f01f68d8-8998-4261-96b3-884e26d8274a",
+          "title": "Battle Of New Orleans",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2023-01-06"
+        },
+        {
+          "id": "6a947aba-4154-4aa8-b406-a9aaaa55a2a1",
+          "title": "Battle of New Orleans",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2004"
+        },
+        {
+          "id": "83c646f6-33ca-4525-b004-10d2a2364e13",
+          "title": "Battle of New Orleans",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1981"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Johnny Tremain - The Sons of Liberty.mp4",
+      "vdjArtist": "Johnny Tremain",
+      "vdjTitle": "The Sons Of Liberty",
+      "vdjYear": 1957,
+      "vdjAlbum": null,
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "The Sons Of Liberty",
+          "artist": "Johnny Tremain",
+          "rvtr": "RVTR111739",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22The%20Sons%20Of%20Liberty%22%20AND%20artist%3A%22Johnny%20Tremain%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Judy Garland - Have Yourself A Merry Little Christmas.mp4",
+      "vdjArtist": "Judy Garland",
+      "vdjTitle": "Have Yourself A Merry Little Christmas",
+      "vdjYear": 1944,
+      "vdjAlbum": "Meet Me In St. Louis",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Have Yourself A Merry Little Christmas",
+          "artist": "Judy Garland",
+          "rvtr": "RVTR227670",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Have%20Yourself%20A%20Merry%20Little%20Christmas%22%20AND%20artist%3A%22Judy%20Garland%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR227670 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "03068f19-884a-402e-b872-6f9452451a58",
+          "title": "Have Yourself a Merry Little Christmas",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "72313ad3-6b7d-4094-b5fa-520bc53fc4e1",
+          "title": "Have Yourself a Merry Little Christmas",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2002"
+        },
+        {
+          "id": "dd982fb1-16f6-46b1-bc34-4f240eb3ec46",
+          "title": "Have Yourself a Merry Little Christmas",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2004"
+        },
+        {
+          "id": "a8b013d3-83bd-4ba9-b606-a83313d8587b",
+          "title": "Have Yourself a Merry Little Christmas",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1997"
+        },
+        {
+          "id": "c6d61db0-6165-4095-a903-0ef1c8e253aa",
+          "title": "Have Yourself a Merry Little Christmas",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Judy Garland And Gene Kelly - Ballin' The Jack.mp4",
+      "vdjArtist": "Judy Garland And Gene Kelly",
+      "vdjTitle": "Ballin' The Jack",
+      "vdjYear": 1942,
+      "vdjAlbum": "Judy Garland, Gene Kelly - For Me And My Gal",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Ballin' The Jack",
+          "artist": "Judy Garland And Gene Kelly",
+          "rvtr": "RVTR993640",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Ballin'%20The%20Jack%22%20AND%20artist%3A%22Judy%20Garland%20And%20Gene%20Kelly%22&fmt=json&limit=5",
+          "evidence": "2 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Judy Garland and Johnny Mercer - Friendship.mp4",
+      "vdjArtist": "Judy Garland and Johnny Mercer",
+      "vdjTitle": "Friendship",
+      "vdjYear": 1940,
+      "vdjAlbum": "Judy Garland - Judy Garland The Complete Decca Masters (Plus)",
+      "previousV2Classification": "VERSION_REVIEW",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Friendship",
+          "artist": "Judy Garland And Johnny Mercer",
+          "rvtr": "RVTR078488",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": "Owned video may be live, soundtrack, alternate, remixed, or otherwise not the historical studio recording.",
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Friendship%22%20AND%20artist%3A%22Judy%20Garland%20and%20Johnny%20Mercer%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Judy Garland and Johnny Mercer. - Taking A Chance On Love.mp4",
+      "vdjArtist": "Judy Garland and Johnny Mercer.",
+      "vdjTitle": "Taking A Chance On Love",
+      "vdjYear": 1943,
+      "vdjAlbum": "Bing Crosby - Bing: A Musical Autobiography",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Taking A Chance On Love",
+          "artist": "Judy Garland And Johnny Mercer.",
+          "rvtr": "RVTR248568",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Taking%20A%20Chance%20On%20Love%22%20AND%20artist%3A%22Judy%20Garland%20and%20Johnny%20Mercer.%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Jule Styne - Hellzapoppin.mp4",
+      "vdjArtist": "Jule Styne",
+      "vdjTitle": "Hellzapoppin",
+      "vdjYear": 1950,
+      "vdjAlbum": "Dancing",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Hellzapoppin",
+          "artist": "Jule Styne",
+          "rvtr": "RVTR884649",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Hellzapoppin%22%20AND%20artist%3A%22Jule%20Styne%22&fmt=json&limit=5",
+          "evidence": "0 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Louis Armstrong - Cool Yule.mp4",
+      "vdjArtist": "louis armstrong",
+      "vdjTitle": "Cool Yule",
+      "vdjYear": 1953,
+      "vdjAlbum": "Louis Armstrong And The Commanders - 'Zat You, Santa Claus?",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Cool Yule",
+          "artist": "louis armstrong",
+          "rvtr": "RVTR647533",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Cool%20Yule%22%20AND%20artist%3A%22louis%20armstrong%22&fmt=json&limit=5",
+          "evidence": "5 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "MusicBrainz returned 5 exact artist/title recording candidate(s); local canonical candidate RVTR647533 was retained for comparison. Version identity still requires human review where marked.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": [
+        {
+          "id": "e879719c-a014-42cd-8238-ba853cb21d34",
+          "title": "Cool Yule",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": null
+        },
+        {
+          "id": "8c6ab459-3a3c-420d-a251-a1bf8f8e4faf",
+          "title": "Cool Yule",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2004"
+        },
+        {
+          "id": "5f91aead-f3a8-47dd-a1fa-f712138dc977",
+          "title": "Cool Yule",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "1999-10-21"
+        },
+        {
+          "id": "11da1d74-71ea-4e05-a98d-5c6df1ea4716",
+          "title": "Cool Yule",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2011-11-07"
+        },
+        {
+          "id": "74613c0c-24aa-499b-8682-312dbb7e03fe",
+          "title": "Cool Yule",
+          "score": 100,
+          "disambiguation": null,
+          "firstReleaseDate": "2014-10-14"
+        }
+      ]
+    },
+    {
+      "videoPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Mickey Mouse Club - Alma Mater.mp4",
+      "vdjArtist": "Mickey Mouse Club",
+      "vdjTitle": "Alma Mater",
+      "vdjYear": 1952,
+      "vdjAlbum": "Song Hits With A Personal Mouseketeer Cast Photo Album",
+      "previousV2Classification": "NO_CHART_MATCH",
+      "researchClassification": "HUMAN_REVIEW_REQUIRED",
+      "underlyingSongs": [
+        {
+          "title": "Alma Mater",
+          "artist": "Mickey Mouse Club",
+          "rvtr": "RVTR804587",
+          "chartRelationship": null
+        }
+      ],
+      "versionContext": null,
+      "canonicalRvtr": null,
+      "chartRelationship": null,
+      "sources": [
+        {
+          "type": "MusicBrainz recording search",
+          "url": "https://musicbrainz.org/ws/2/recording/?query=recording%3A%22Alma%20Mater%22%20AND%20artist%3A%22Mickey%20Mouse%20Club%22&fmt=json&limit=5",
+          "evidence": "1 recording result(s); exact-title/artist comparison performed offline."
+        }
+      ],
+      "evidenceSummary": "No exact independent recording result was found; no automatic identity was assigned.",
+      "humanReviewRequired": true,
+      "canonicalCreationRequired": false,
+      "externalResearchUsed": true,
+      "researchDurationMs": null,
+      "musicBrainzExactMatches": []
+    }
+  ]
+}

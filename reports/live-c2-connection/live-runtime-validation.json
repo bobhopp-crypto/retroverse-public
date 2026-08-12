@@ -1,0 +1,16 @@
+{
+  "status": "PASS_WITH_LIMITATION",
+  "isolatedFixture": "RETROVERSE_DATA_ROOT=/private/tmp/retroverse-live-c2-fixture, SUNDAY_NIGHTS_STATE_PG=0, port 3179",
+  "preparedTerraFinal": {
+    "path": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Glenn Miller - Chattanooga Choo Choo (1941).mp4",
+    "identity": "VDJ:54eaeb091e524d3b",
+    "result": "PublicSongExperience rendered exact Terra article and hero"
+  },
+  "bobReview": "Cornershop fixture retained LiveSongView fallback; no approved Terra feature article exposed.",
+  "unprepared": "Unknown fixture retained LiveSongView fallback with artist/title and no fabricated Song route.",
+  "sharedRenderer": "Prepared TERRA_FINAL case rendered through PublicSongExperience; fallback cases remained LiveSongView.",
+  "consoleErrors": 0,
+  "requiredNetworkFailures": 0,
+  "liveState": "Real current VDJ state was not disturbed; local fixture boundary used.",
+  "limitations": ["Fixture was tested at the live resolver boundary, not by changing VirtualDJ." ]
+}

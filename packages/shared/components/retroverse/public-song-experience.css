@@ -40,6 +40,33 @@
 .canonical-song__year { margin: .65rem 0 0; color: #f4c86d; font: 800 clamp(1rem, 2vw, 1.25rem)/1 Arial, sans-serif; letter-spacing: .08em; }
 .canonical-song__lead { max-width: 46rem; margin: 1.2rem auto 0; padding: 0 .9rem; color: var(--ex-ink-soft, #d7d0c5); font: 1.08rem/1.5 Georgia, serif; }
 .canonical-song__lead p { margin: 0; }
+.rv2-song__editorial-article {
+  max-width: 46rem;
+  margin: 3.5rem auto 0;
+  padding: 0 .9rem 1rem;
+  color: #e8f0ff;
+}
+.rv2-song__editorial-kicker {
+  margin: 0 0 .65rem;
+  color: var(--ex-aqua-accent);
+  font: 800 .72rem/1 Arial, sans-serif;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.rv2-song__editorial-article h2 {
+  max-width: 14ch;
+  margin: 0 0 1.4rem;
+  color: #f7f2e9;
+  font: 700 clamp(2rem, 7vw, 3.6rem)/.98 Georgia, serif;
+  letter-spacing: -.045em;
+}
+.rv2-song__editorial-article > p:not(.rv2-song__editorial-kicker):not(.rv2-song__editorial-source) {
+  margin: 0 0 1.35rem;
+  color: rgba(232, 240, 255, .9);
+  font: clamp(1.08rem, 2.5vw, 1.25rem)/1.65 Georgia, serif;
+}
+.rv2-song__editorial-source { margin: 2rem 0 0; font: 700 .78rem/1.3 Arial, sans-serif; }
+.rv2-song__editorial-source a { color: var(--ex-aqua-accent); text-decoration-color: rgba(154, 231, 211, .4); text-underline-offset: .18em; }
 .canonical-song__meta { display: flex; flex-wrap: wrap; gap: .5rem; max-width: 46rem; margin: .85rem auto 0; padding: 0 .9rem; color: #d8d0c2; font: 700 .78rem/1.2 Arial, sans-serif; }
 .canonical-song__meta span, .canonical-song__meta a { padding: .45rem .65rem; border: 1px solid rgba(154, 231, 211, .35); border-radius: 999px; color: inherit; text-decoration: none; }
 .canonical-song__meta a:hover, .canonical-song__meta a:focus-visible { border-color: #9ae7d3; color: #fff; }
