@@ -5,7 +5,8 @@ import { runCollectorForSong } from "@/lib/ops/studio/collector/run-collector";
 import { loadCollectorPackage } from "@/lib/ops/studio/collector/store";
 import { emptyCollectorProgress, loadCollectorProgress, saveCollectorProgress } from "@/lib/ops/studio/collector/store";
 
-const root = join(process.cwd(), "reports/c2-production-batch-100");
+const batchSize = Number(process.env.C2_BATCH_SIZE ?? 100);
+const root = join(process.cwd(), process.env.C2_BATCH_ROOT ?? `reports/c2-production-batch-${batchSize}`);
 const selectionPath = join(root, "selection-manifest.json");
 const progressPath = join(root, "research-progress.json");
 
@@ -20,7 +21,7 @@ async function main() {
   for (const [index, row] of selection.records.entries()) {
     if (done.has(row.vdjPath)) continue;
     const started = Date.now();
-    console.log(`[${index + 1}/100] ${row.artist} — ${row.title}`);
+    console.log(`[${index + 1}/${batchSize}] ${row.artist} — ${row.title}`);
     progress.currentSong = { rvtr: row.rvtr ?? `VDJ-${index + 1}`, artist: row.artist, title: row.title }; progress.queue = selection.records.length - index - 1; await saveCollectorProgress(progress);
     try {
       const pkg = await runCollectorForSong({ rvtr: row.rvtr ?? `VDJ-${String(index + 1).padStart(3, "0")}`, artist: row.artist, title: row.title, graphLinked: row.canonicalStatus === "resolved", vdjFilePath: row.vdjPath, performanceHints: [], notes: ["C2 production batch 100"] });
