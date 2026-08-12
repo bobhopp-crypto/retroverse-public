@@ -12,7 +12,7 @@ import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { preparePublicSongSections, filterPublicText } from "@/lib/retroverse/experience/public-song-display";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { SongArveyContext } from "./SongArveyContext";
-import { loadC2ProductionBatch100Record, loadC2ProductionProofRecord, loadChartTrajectoryRecommendations, loadEditorialDiversityRecord, loadEditorialProductionRecord, SHE_IS_A_BEAUTY_ARTICLE } from "@/lib/retroverse/experience/editorial-song-prototype";
+import { loadAuthoritativeTerraFinalRecord, loadC2ProductionBatch100Record, loadC2ProductionProofRecord, loadChartTrajectoryRecommendations, loadEditorialDiversityRecord, loadEditorialProductionRecord, SHE_IS_A_BEAUTY_ARTICLE } from "@/lib/retroverse/experience/editorial-song-prototype";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
@@ -129,7 +129,7 @@ export async function PublicSongExperience({
   const albumHref = payload.links.albumHref ?? primaryAlbum?.href ?? null;
   const yearHref = payload.links.yearHref;
   const isVdjOnly = payload.resolutionTier === "vdj-only";
-  const editorialRecord = await loadEditorialDiversityRecord(payload.rvtr) ?? await loadEditorialProductionRecord(payload.rvtr) ?? await loadC2ProductionProofRecord(payload.rvtr) ?? await loadC2ProductionBatch100Record(payload.rvtr);
+  const editorialRecord = await loadAuthoritativeTerraFinalRecord(payload.rvtr, { artist: track?.artistName, title: track?.title }) ?? await loadEditorialDiversityRecord(payload.rvtr) ?? await loadEditorialProductionRecord(payload.rvtr) ?? await loadC2ProductionProofRecord(payload.rvtr) ?? await loadC2ProductionBatch100Record(payload.rvtr);
   const isEditorialPrototype = payload.rvtr === "RVTR111098";
   const trajectoryRecommendations = editorialRecord
     ? editorialRecord.related

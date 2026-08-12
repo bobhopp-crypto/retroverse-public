@@ -119,6 +119,43 @@ export async function loadC2ProductionBatch100Record(rvtr: string): Promise<Edit
   } catch { return null; }
 }
 
+/** Authoritative publication overlay. Only TERRA_FINAL records are eligible. */
+export async function loadAuthoritativeTerraFinalRecord(
+  rvtr: string,
+  subject?: { artist?: string | null; title?: string | null },
+): Promise<EditorialDiversityRecord | null> {
+  try {
+    const raw = await readFile(join(process.cwd(), "data/ops/manifest/c2-final-editor-backlog.json"), "utf8");
+    const records = JSON.parse(raw).records as Array<Record<string, any>>;
+    const normalized = rvtr.trim().toUpperCase();
+    const subjectText = `${subject?.artist ?? ""} — ${subject?.title ?? ""}`.trim().toLowerCase();
+    const record = records.find((candidate) =>
+      candidate.finalEditorialStatus === "TERRA_FINAL" &&
+      (String(candidate.durableIdentity ?? "").toUpperCase() === normalized ||
+        String(candidate.editorialSubject ?? "").trim().toLowerCase() === subjectText),
+    );
+    if (!record || !record.headline || !record.articleReference) return null;
+    const finalManifest = await readFile(join(process.cwd(), "reports/c2-terra-backlog-completion/terra-final-manifest.json"), "utf8").then(JSON.parse).catch(() => null);
+    const final = finalManifest?.results?.find((result: any) => result.durableIdentity === record.durableIdentity);
+    const article = String(final?.article ?? "").trim();
+    if (!article) return null;
+    return {
+      rvtr: normalized,
+      artist: String(record.editorialSubject ?? "").split(" — ")[0] ?? "",
+      title: String(record.editorialSubject ?? "").split(" — ").slice(1).join(" — ") ?? "",
+      year: null,
+      yearSource: "authoritative-editorial-manifest",
+      headline: String(final.headline ?? record.headline),
+      paragraphs: article.split(/\n\n+/).filter(Boolean),
+      articleWordCount: Number(final.wordCount ?? 0),
+      researchSources: [],
+      related: [],
+      classification: "authoritative-terra-final",
+      finalStatus: "TERRA_FINAL",
+    };
+  } catch { return null; }
+}
+
 export const SHE_IS_A_BEAUTY_ARTICLE: EditorialSongArticle = {
   headline: "A strange little world made for the first MTV generation",
   deck: "The Tubes turned a troubling image into a theatrical pop song — then let early music television make the character impossible to ignore.",
