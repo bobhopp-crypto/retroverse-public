@@ -10,6 +10,14 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     summary: "Review six connected Retroverse public experiences using one canonical song.",
     primaryAction: { label: "Open 6-Up Viewer", href: "/review/public-v3" },
   },
+  "home-page-factory": {
+    id: "home-page-factory",
+    title: "Home Page Factory",
+    group: "catalog",
+    defaultStatus: "nominal",
+    summary: "One-video production line for Retroverse homepage artwork.",
+    primaryAction: { label: "Open Home Page Factory", href: "/bobos/browser-plus" },
+  },
   "current-event": {
     id: "current-event",
     title: "Current Event",
@@ -17,7 +25,10 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     defaultStatus: "nominal",
     summary: "Active production event and shared context.",
     primaryAction: { label: "Event Hub", href: "/bobos/event" },
-    secondaryActions: [{ label: "Producer", href: "/bobos/producer" }],
+    secondaryActions: [
+      { label: "Producer", href: "/bobos/producer" },
+      { label: "Docs", href: "/bobos/docs/RV02-01" },
+    ],
   },
   "todays-tasks": {
     id: "todays-tasks",
@@ -51,6 +62,15 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     summary: "Recommended next step in the workflow.",
     primaryAction: null,
   },
+  credentials: {
+    id: "credentials",
+    title: "Credentials",
+    description: "AI Credential Studio",
+    group: "build",
+    defaultStatus: "nominal",
+    summary: "AI Credential Studio",
+    primaryAction: { label: "Open Credentials", href: "/bobos/credentials" },
+  },
   "pass-production": {
     id: "pass-production",
     title: "Pass Production",
@@ -58,6 +78,19 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     defaultStatus: "nominal",
     summary: "Pass artwork, preview, and print sheet production.",
     primaryAction: { label: "Open Passes", href: "/bobos/passes" },
+    secondaryActions: [{ label: "Docs", href: "/bobos/docs/RV02-03" }],
+  },
+  "event-producer": {
+    id: "event-producer",
+    title: "Event Producer",
+    group: "build",
+    defaultStatus: "nominal",
+    summary: "Event production plan — passes, giveaway, and homepage flow.",
+    primaryAction: { label: "Open Producer", href: "/bobos/producer" },
+    secondaryActions: [
+      { label: "Event Hub", href: "/bobos/event" },
+      { label: "Docs", href: "/bobos/docs/RV02-02" },
+    ],
   },
   "event-studio": {
     id: "event-studio",
@@ -108,6 +141,14 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     summary: "Active RVTR track identity and package.",
     primaryAction: { label: "Intelligence", href: "/ops/intelligence" },
   },
+  "experience-inspector": {
+    id: "experience-inspector",
+    title: "Song Workspace",
+    group: "catalog",
+    defaultStatus: "nominal",
+    summary: "The complete Retroverse workspace for one song — public preview, health, and next actions.",
+    primaryAction: { label: "Open Song Workspace", href: "/bobos/song-workspace" },
+  },
   "song-packages": {
     id: "song-packages",
     title: "Song Packages",
@@ -130,7 +171,15 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     group: "catalog",
     defaultStatus: "nominal",
     summary: "Local media assets and content library.",
-    primaryAction: { label: "Content Creator", href: "/ops/content-creator" },
+    primaryAction: { label: "Open Media Lab", href: "/bobos/media-lab" },
+  },
+  "media-coverage": {
+    id: "media-coverage",
+    title: "Media Coverage",
+    group: "catalog",
+    defaultStatus: "nominal",
+    summary: "Billboard-to-VirtualDJ audio and video coverage.",
+    primaryAction: { label: "Open Media Coverage", href: "/bobos/virtualdj-media-coverage" },
   },
   collectibles: {
     id: "collectibles",
@@ -244,19 +293,23 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     group: "build",
     defaultStatus: "nominal",
     summary: "Public homepage status and active event.",
-    primaryAction: { label: "Open Public Homepage", href: "/" },
+    primaryAction: { label: "Open Public Homepage", href: "http://localhost:3100/" },
     secondaryActions: [
       { label: "Homepage Preview", href: "/ops/event-studio/homepage" },
       { label: "Set Active Event", href: "/ops/event-control" },
     ],
   },
-  "pass-registration": {
-    id: "pass-registration",
-    title: "Pass Registration",
+  "pass-management": {
+    id: "pass-management",
+    title: "Pass Management",
     group: "build",
     defaultStatus: "nominal",
-    summary: "QR pass registrations from /pass scans.",
-    primaryAction: { label: "View Registrations", href: "/bobos/passes" },
+    summary: "Manage claimed/unclaimed passes from the public claim system.",
+    primaryAction: { label: "Open Pass Management", href: "/bobos/pass-management" },
+    secondaryActions: [
+      { label: "Design Builder", href: "/bobos/passes" },
+      { label: "Docs", href: "/bobos/docs/RV02-05" },
+    ],
   },
   "giveaway-panel": {
     id: "giveaway-panel",
@@ -284,13 +337,13 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
   },
   broadcast: {
     id: "broadcast",
-    title: "Broadcast Control",
+    title: "Broadcast Mixer",
     group: "devices",
     defaultStatus: "nominal",
-    summary: "On-air status for Retroverse Live — open Broadcast Mixer to operate.",
+    summary: "Select which of four inputs feeds retroverse.live.",
     primaryAction: { label: "Open Broadcast Mixer", href: "/bobos/broadcast" },
     secondaryActions: [
-      { label: "Open Local", href: "/" },
+      { label: "Open Local", href: "http://localhost:3100/" },
       { label: "Open Public", href: "https://retroverse.live/" },
     ],
   },
@@ -300,8 +353,16 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     group: "devices",
     defaultStatus: "nominal",
     summary: "Start, stop, and monitor Studio and Live dev servers.",
-    primaryAction: { label: "Open Studio", href: "http://localhost:3000" },
-    secondaryActions: [{ label: "Open Live", href: "http://localhost:3100" }],
+    primaryAction: { label: "Open Runtime", href: "/bobos/runtime" },
+    secondaryActions: [{ label: "Open Live", href: "http://localhost:3100/" }],
+  },
+  "song-requests": {
+    id: "song-requests",
+    title: "Song Requests",
+    group: "devices",
+    defaultStatus: "offline",
+    summary: "Review and manage live audience requests",
+    primaryAction: { label: "Open Song Requests", href: "http://localhost:3000/bobos/song-requests" },
   },
   "graph-bridge": {
     id: "graph-bridge",
@@ -326,7 +387,10 @@ export function getPanelDefinition(id: PanelTypeId): PanelDefinition {
 
 /** Bottom command bar — quick navigation outside the grid. */
 export const COCKPIT_COMMAND_BAR = [
+  { label: "Documentation", href: "/bobos/docs" },
   { label: "RV Directory", href: "/bobos/rv-directory" },
+  { label: "Broadcast Mixer", href: "/bobos/broadcast" },
+  { label: "Credentials", href: "/bobos/credentials" },
   { label: "Event Producer", href: "/bobos/producer" },
   { label: "Design Builder", href: "/bobos/passes" },
   { label: "Posters", href: "/bobos/event" },
@@ -335,5 +399,7 @@ export const COCKPIT_COMMAND_BAR = [
   { label: "AI Workbench", href: "/ops/intelligence" },
   { label: "Terminal", href: "/ops/atlas/scripts" },
   { label: "VirtualDJ", href: "/ops/browser-plus" },
+  { label: "Home Page Factory", href: "/bobos/browser-plus", panelType: "home-page-factory" },
+  { label: "Song Requests", href: "http://localhost:3000/bobos/song-requests", panelType: "song-requests" },
   { label: "Printer", href: "/bobos/passes" },
 ] as const;

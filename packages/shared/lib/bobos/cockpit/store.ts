@@ -87,6 +87,26 @@ function normalizeState(raw: unknown): CockpitState {
     cockpitCells[index] = { panelType: "broadcast" };
   }
 
+  // Soft-place RV03-05 Home Page Factory without resetting the operator layout.
+  const hasHomePageFactory = cockpitCells.some((cell) => cell.panelType === "home-page-factory");
+  if (!hasHomePageFactory) {
+    const byPanel = (panelType: PanelTypeId | null) =>
+      cockpitCells.findIndex((cell) => cell.panelType === panelType);
+    const candidates = [
+      byPanel("catalog-integrity"),
+      byPanel("production-queue"),
+      byPanel("storage"),
+      byPanel("clock"),
+      byPanel("terminal"),
+      byPanel("ai-queue"),
+      byPanel(null),
+    ];
+    const index = candidates.find((i) => i !== -1);
+    if (typeof index === "number") {
+      cockpitCells[index] = { panelType: "home-page-factory" };
+    }
+  }
+
   return {
     version: 1,
     layoutVersion: CURRENT_COCKPIT_LAYOUT_VERSION,

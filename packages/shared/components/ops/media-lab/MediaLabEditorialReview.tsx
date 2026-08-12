@@ -6,6 +6,7 @@ import type { MediaLabChapterMode } from "@/lib/ops/media-lab/chapter-mode";
 import type { TranscriptSegment } from "@/lib/ops/media-lab/build-chapters-from-segments";
 import type { EditorialChapterRow } from "@/lib/ops/media-lab/editorial/editorial-types";
 import type { MergeSuggestion } from "@/lib/ops/media-lab/editorial/merge-suggestions";
+import type { RefinedChapterSuggestion } from "@/lib/ops/media-lab/editorial/chapter-refinement";
 import type { ClipOcrInput } from "@/lib/ops/media-lab/editorial/transcript-suggestions";
 import {
   displayNameFromTitle,
@@ -48,12 +49,14 @@ import { MediaLabMobileReview } from "./MediaLabMobileReview";
 import { useEditorialChapterOcr } from "./useEditorialChapterOcr";
 import { useMediaLabMobileReview } from "./useMediaLabMobileReview";
 import { useEditorialTableThumbnails } from "./useEditorialTableThumbnails";
+import { WoodstockSegmentPanel } from "./WoodstockSegmentPanel";
 
 type EditorialBundleResponse = {
   ok?: boolean;
   error?: string;
   chapters?: EditorialChapterRow[];
   suggestions?: MergeSuggestion[];
+  refinedSuggestions?: RefinedChapterSuggestion[];
   videoUrl?: string | null;
   chapterMode?: MediaLabChapterMode;
   reviewMetrics?: {
@@ -138,6 +141,8 @@ function patchChapterRow(
 export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const [chapters, setChapters] = useState<EditorialChapterRow[]>([]);
   const [suggestions, setSuggestions] = useState<MergeSuggestion[]>([]);
+  const [refinedSuggestions, setRefinedSuggestions] = useState<RefinedChapterSuggestion[]>([]);
+  const [showRefinedSuggestions, setShowRefinedSuggestions] = useState(true);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<EditorialReviewFilter>("all");
@@ -203,6 +208,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       }
       setChapters(data.chapters ?? []);
       setSuggestions(data.suggestions ?? []);
+      setRefinedSuggestions(data.refinedSuggestions ?? []);
       setVideoUrl(data.videoUrl ?? null);
       setReviewMetrics(data.reviewMetrics ?? null);
       setSourceFilename(data.job?.sourceFilename ?? "");
@@ -294,6 +300,17 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     previewId != null ? chapters.findIndex((c) => c.id === previewId) : -1;
   const videoDurationSec =
     chapters.length > 0 ? chapters[chapters.length - 1].endSec : 0;
+
+  const previewSelection = useCallback((start: number, end: number) => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = Math.max(0, start);
+    setPlayheadSec(Math.max(0, start));
+    video.play().catch(() => undefined);
+    window.setTimeout(() => {
+      if (video.currentTime >= end) video.pause();
+    }, Math.max(250, (end - start) * 1000));
+  }, []);
 
   const thumbBoundsKey = useMemo(
     () =>
@@ -1622,6 +1639,64 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
               )}
             </div>
           </details>
+
+          <details className="ops-ml-fold-panel" open={showRefinedSuggestions}>
+            <summary
+              className="ops-ml-fold-panel__summary"
+              onClick={(event) => {
+                event.preventDefault();
+                setShowRefinedSuggestions((value) => !value);
+              }}
+            >
+              Refined suggestions{refinedSuggestions.length > 0 ? ` (${refinedSuggestions.length})` : ""}
+            </summary>
+            {showRefinedSuggestions ? (
+              <div className="ops-ml-fold-panel__body">
+                {refinedSuggestions.length === 0 ? (
+                  <p className="ops-dim">No chapters exceed the 10-minute refinement limit.</p>
+                ) : (
+                  <ul className="ops-ml-suggestions__list">
+                    {refinedSuggestions.map((suggestion) => (
+                      <li key={suggestion.id} className="ops-ml-suggestions__item">
+                        <div>
+                          <strong>
+                            {suggestion.parentChapterId} · {secToTimecode(suggestion.startSec)} → {secToTimecode(suggestion.endSec)}
+                          </strong>
+                          <div className="ops-dim">
+                            {formatDur(suggestion.durationSec)} · {suggestion.splitReason}
+                          </div>
+                          <div className="ops-dim">
+                            Parent {secToTimecode(suggestion.parentStartSec)} → {secToTimecode(suggestion.parentEndSec)} · {suggestion.reviewStatus}
+                          </div>
+                          {suggestion.transcriptExcerpt ? (
+                            <div className="ops-dim">{suggestion.transcriptExcerpt}</div>
+                          ) : null}
+                        </div>
+                        <div className="ops-ml-editorial__toolbar">
+                          <button
+                            type="button"
+                            className="ops-btn ops-btn--sm"
+                            onClick={() => seekToSec(suggestion.startSec, false)}
+                          >
+                            Preview
+                          </button>
+                          <button type="button" className="ops-btn ops-btn--sm" disabled>
+                            Edit Before Accepting
+                          </button>
+                          <button type="button" className="ops-btn ops-btn--sm" disabled>
+                            Accept as Editorial Segment
+                          </button>
+                          <button type="button" className="ops-btn ops-btn--sm" disabled>
+                            Reject Suggestion
+                          </button>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ) : null}
+          </details>
         </div>
       ) : null}
 
@@ -1702,6 +1777,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
                     playheadSec={playheadSec}
                     mode={transcriptMode}
                     onModeChange={setTranscriptMode}
+                    onSeek={(sec) => seekToSec(sec, false)}
                   />
                 ) : null}
                 <p className="ops-ml-deck-advanced__path">
@@ -1762,6 +1838,19 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
                 <p className="ops-dim">
                   {previewChapter.clock} · {formatDur(previewChapter.durationSec)}
                 </p>
+                <WoodstockSegmentPanel
+                  year={props.year}
+                  jobSlug={props.jobSlug}
+                  sourceFilename={sourceFilename}
+                  sourceDurationSeconds={showDurationSec}
+                  chapter={previewChapter}
+                  playheadSeconds={playheadSec}
+                  onSetIn={() => undefined}
+                  onSetOut={() => undefined}
+                  onSelectBounds={previewSelection}
+                  onNotice={props.onNotice}
+                  onError={props.onError}
+                />
                 {thumbsError ? <p className="ops-dim">{thumbsError}</p> : null}
                 {ocrError ? <p className="ops-dim">{ocrError}</p> : null}
                 {reviewMetrics ? (

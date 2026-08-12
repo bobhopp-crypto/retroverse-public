@@ -6,6 +6,7 @@ import { BobosPageHeader } from "@/components/bobos/BobosPageHeader";
 import { getProject } from "@/lib/bobos/project-zero/store";
 import { WORKSPACE_STATUS_LABELS } from "@/lib/bobos/project-zero/types";
 import { WORKSPACE_CATALOG } from "@/lib/bobos/project-zero/workspace-catalog";
+import { getSystemVerification } from "@/lib/bobos/system-verification";
 import { shouldAllowOpsRoutes } from "@/lib/runtime/site-mode";
 
 export const dynamic = "force-dynamic";
@@ -71,11 +72,20 @@ export default async function ProjectDashboardPage({ params }: Props) {
             const catalogEntry = WORKSPACE_CATALOG[workspace.id];
             const isExternal = Boolean(catalogEntry.existingHref);
             const href = catalogEntry.existingHref ?? `/bobos/project/${project.id}/workspace/${workspace.id}`;
+            const system =
+              catalogEntry.systemVerificationId != null
+                ? getSystemVerification(catalogEntry.systemVerificationId)
+                : null;
 
             return (
               <article key={workspace.id} className="pz-card">
                 <h3 className="pz-card__title">{workspace.title}</h3>
                 <span className={statusClass(workspace.status)}>{WORKSPACE_STATUS_LABELS[workspace.status]}</span>
+                {system?.status === "verified" ? (
+                  <p className="pz-card__system-verified" title={system.summary}>
+                    System: VERIFIED{system.verifiedAt ? ` (${system.verifiedAt})` : ""}
+                  </p>
+                ) : null}
                 {isExternal ? (
                   <a className="pz-card__open" href={href} target="_blank" rel="noopener noreferrer">
                     Open

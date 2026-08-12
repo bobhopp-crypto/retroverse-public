@@ -8,6 +8,8 @@ import type { BridgeLivePostBody } from "@/lib/sunday-nights/types";
 import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 import { retroverseDataRoot } from "@/lib/retroverse-data-root";
 
+import type { SelectorState } from "@/lib/bobos/experience-selector/types";
+
 import type { BroadcastSnapshot } from "./types";
 
 /**
@@ -69,6 +71,43 @@ export function readBridgePublicPushDiagnostics(): BridgePublicPushResult | null
 export function publicSiteBaseUrl(): string {
   const raw = process.env.RETROVERSE_LIVE_PUBLIC_URL?.trim();
   return (raw || "https://retroverse.live").replace(/\/$/, "");
+}
+
+/** Push the operator's selected experience id to the deployed site. */
+export async function pushSelectorStateToPublic(
+  state: SelectorState,
+): Promise<PublicPushResult> {
+  if (usePostgresSundayNightsState()) {
+    return { status: "synced", detail: "Direct Postgres write" };
+  }
+
+  const secret = process.env.LIVE_NOW_PLAYING_SECRET?.trim();
+  if (!secret) {
+    return { status: "unconfigured", detail: "LIVE_NOW_PLAYING_SECRET not set" };
+  }
+
+  const url = `${publicSiteBaseUrl()}/api/retroverse-live/experience-selector`;
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${secret}`,
+      },
+      body: JSON.stringify(state),
+      cache: "no-store",
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!res.ok) {
+      return { status: "rejected", detail: `HTTP ${res.status} from ${url}` };
+    }
+    return { status: "synced", detail: url };
+  } catch (error) {
+    return {
+      status: "unreachable",
+      detail: error instanceof Error ? error.message : String(error),
+    };
+  }
 }
 
 export async function pushBroadcastToPublic(

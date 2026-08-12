@@ -12,5 +12,5 @@ export default async function MediaLabPerformancesRedirectPage(props: {
   if (params.year) search.set("year", params.year);
   if (params.status) search.set("status", params.status);
   if (params.classification) search.set("classification", params.classification);
-  redirect(`/ops/media-lab?${search.toString()}`);
+  redirect(`/bobos/media-lab?${search.toString()}`);
 }

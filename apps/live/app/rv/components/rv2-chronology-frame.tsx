@@ -18,6 +18,7 @@ export function Rv2ChronologyFrame({ rvYear, children }: Props) {
       yearsHref={`/rv/${rvYear}`}
       chartsHref="/retroverse-2/charts"
       activeNav="charts"
+      showTopBroadcastBanner={false}
     >
       <div className="rv2-chronology">{children}</div>
     </Rv2PublicShell>

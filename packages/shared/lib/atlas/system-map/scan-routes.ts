@@ -62,7 +62,15 @@ function inferTitle(filePath: string, url: string): string {
 function categorizeRoute(url: string): RouteCategory {
   if (url.startsWith("/ops/studio")) return "Studio";
   if (url.startsWith("/ops/atlas")) return "Atlas";
-  if (url.startsWith("/ops/finance") || url.startsWith("/ops/pass-registrations")) return "Admin";
+  if (
+    url.startsWith("/ops/finance") ||
+    url.startsWith("/bobos/pass-management") ||
+    url.startsWith("/bobos/pass-management") ||
+    url.startsWith("/ops/pass-management") ||
+    url.startsWith("/ops/pass-registrations")
+  ) {
+    return "Admin";
+  }
   if (url.startsWith("/ops")) return "Ops";
   if (
     url.startsWith("/live") ||

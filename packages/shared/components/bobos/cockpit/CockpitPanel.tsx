@@ -2,15 +2,17 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-import { cellGridRef, cellLabel } from "@/lib/bobos/cockpit/defaults";
+import { getPanelDocumentation } from "@/lib/bobos/cockpit/panel-docs";
+import { isPanelVerified } from "@/lib/bobos/cockpit/panel-verification";
 import type { CockpitPanelData } from "@/lib/bobos/cockpit/load-panel-data";
 import type { PanelAction, PanelDefinition } from "@/lib/bobos/cockpit/types";
 import { getRvIdByPanelType } from "@/lib/bobos/rv-ids";
 import { RV_CATEGORY_BY_ID, getRvByPanelType } from "@/lib/bobos/rv-registry";
 import type { Project } from "@/lib/bobos/project-zero/types";
 
-import { RvIdLabel } from "@/components/bobos/rv-ids";
 import { cockpitStatus } from "./cockpit-status";
+import { PanelDocumentationDrawer } from "./PanelDocumentationDrawer";
+import { PanelVerifiedBadge } from "./PanelVerifiedBadge";
 
 type Props = {
   cellIndex: number;
@@ -53,14 +55,14 @@ function panelSummary(def: PanelDefinition, project: Project | null, data: Cockp
       if (!eventTitle) return statusLabel;
       return `${statusLabel} · ${eventTitle}`;
     }
-    case "pass-registration": {
-      const { totalPasses, registeredCount, recent } = data.passRegistration;
-      if (totalPasses === 0) return "No passes generated yet";
+    case "pass-management": {
+      const { totalPasses, registeredCount, recent } = data.passClaims;
+      if (totalPasses === 0) return "No passes in claim inventory yet";
       const recentLine =
         recent.length > 0
-          ? ` · Latest: #${recent[0]!.serial} (${recent[0]!.name})`
+          ? ` · Latest: ${recent[0]!.serial} (${recent[0]!.name})`
           : "";
-      return `${registeredCount} registered of ${totalPasses}${recentLine}`;
+      return `${registeredCount} claimed of ${totalPasses}${recentLine}`;
     }
     case "giveaway-panel": {
       const { prizeTitle, status, entryCount, winnerName } = data.giveaway;
@@ -80,15 +82,19 @@ function panelSummary(def: PanelDefinition, project: Project | null, data: Cockp
 
 function panelActions(def: PanelDefinition, data: CockpitPanelData): PanelAction[] {
   switch (def.id) {
-    case "pass-registration": {
-      const actions: PanelAction[] = [];
-      if (data.passRegistration.testPassHref) {
+    case "pass-management": {
+      // Cockpit faceplate click uses actions[0]. Always open the BobOS operator
+      // route first — never Live /pass/[serial] on Studio (that path hangs / 404s).
+      const actions: PanelAction[] = [
+        { label: "Open Pass Management", href: "/bobos/pass-management" },
+        { label: "Docs", href: "/bobos/docs/RV02-05" },
+      ];
+      if (data.passClaims.testPassHref) {
         actions.push({
-          label: "Open Registration Test",
-          href: data.passRegistration.testPassHref,
+          label: "Open Public Claim",
+          href: data.passClaims.testPassHref,
         });
       }
-      actions.push({ label: "View Registrations", href: "/bobos/passes" });
       return actions;
     }
     case "live-display":
@@ -124,9 +130,12 @@ export function CockpitPanel({
   const [clockTime, setClockTime] = useState<string | null>(null);
   const [liveSummary, setLiveSummary] = useState(() => panelSummary(definition, project, panelData));
   const [activationMessage, setActivationMessage] = useState<string | null>(null);
+  const [docsOpen, setDocsOpen] = useState(false);
   const actions = useMemo(() => panelActions(definition, panelData), [definition, panelData]);
   const primaryAction = actions[0];
   const summaryText = isClock ? (clockTime ?? "") : liveSummary;
+  const panelDocs = useMemo(() => getPanelDocumentation(definition.id), [definition.id]);
+  const verified = isPanelVerified(definition.id);
 
   useEffect(() => {
     if (isClock) {
@@ -173,27 +182,35 @@ export function CockpitPanel({
   }
 
   return (
-    <article
-      onClick={activateModule}
-      onDoubleClick={(event) => { event.stopPropagation(); editFaceplate(); }}
-      onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); activateModule(); } }}
-      role="button"
-      tabIndex={0}
-      aria-label={`${definition.title}: ${status.label}`}
-      className={`cockpit-cell cockpit-cell--filled cockpit-module cockpit-module--${status.tone} cockpit-module--${rvCategory}${placementMode ? " cockpit-cell--placement-target" : ""}`}
-      style={{ "--rv-category-accent": RV_CATEGORY_BY_ID[getRvByPanelType(definition.id)?.category ?? "RV01"].accent } as React.CSSProperties}
-    >
-      <header className="cockpit-panel__head">
-        <h2 className="cockpit-panel__title">
-          {faceplateTitle}
-        </h2>
-      </header>
-      <span className={statusClass} title={status.label} aria-label={`Status: ${status.label}`} role="status" />
+    <>
+      <article
+        onClick={activateModule}
+        onDoubleClick={(event) => { event.stopPropagation(); editFaceplate(); }}
+        onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); activateModule(); } }}
+        role="button"
+        tabIndex={0}
+        aria-label={`${definition.title}: ${status.label}${verified ? "; Verified" : ""}`}
+        className={`cockpit-cell cockpit-cell--filled cockpit-module cockpit-module--${status.tone} cockpit-module--${rvCategory}${placementMode ? " cockpit-cell--placement-target" : ""}`}
+        style={{ "--rv-category-accent": RV_CATEGORY_BY_ID[getRvByPanelType(definition.id)?.category ?? "RV01"].accent } as React.CSSProperties}
+      >
+        <header className="cockpit-panel__head">
+          <h2 className="cockpit-panel__title">
+            {faceplateTitle}
+          </h2>
+        </header>
+        <span className={statusClass} title={status.label} aria-label={`Status: ${status.label}`} role="status" />
+        {verified && panelDocs ? (
+          <PanelVerifiedBadge onOpen={() => setDocsOpen(true)} />
+        ) : null}
 
-      <p className="cockpit-panel__data">{isClock ? summaryText : status.label}</p>
-      {activationMessage ? <span className="cockpit-module__activation" role="status">{activationMessage}</span> : null}
-      <span className="cockpit-module__rv-id">{getRvIdByPanelType(definition.id) ?? "NO RV NUMBER"}</span>
-      <span className="cockpit-module__category">{rvCategoryLabel}</span>
-    </article>
+        <p className="cockpit-panel__data">{isClock ? summaryText : status.label}</p>
+        {activationMessage ? <span className="cockpit-module__activation" role="status">{activationMessage}</span> : null}
+        <span className="cockpit-module__rv-id">{getRvIdByPanelType(definition.id) ?? "NO RV NUMBER"}</span>
+        <span className="cockpit-module__category">{rvCategoryLabel}</span>
+      </article>
+      {docsOpen && panelDocs ? (
+        <PanelDocumentationDrawer docs={panelDocs} onClose={() => setDocsOpen(false)} />
+      ) : null}
+    </>
   );
 }

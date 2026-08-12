@@ -379,6 +379,7 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
         searchHits={searchHits}
         timelineScrollToken={timelineScrollToken}
         timelineScrollSec={timelineScrollSec}
+        selection={props.selection}
       />
 
       {queueOpen || harvestOpen ? (

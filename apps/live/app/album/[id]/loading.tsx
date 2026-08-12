@@ -5,7 +5,7 @@ import "./album-page-v1.css";
 
 export default function AlbumLoading() {
   return (
-    <Rv2PublicShell className="rv2-album rv2-album-editorial" activeNav="search">
+    <Rv2PublicShell className="rv2-album rv2-album-editorial" activeNav="search" showTopBroadcastBanner={false}>
       <article className="album-ed" aria-busy="true" aria-label="Loading album">
         <header className="album-ed__hero">
           <RetroverseBack

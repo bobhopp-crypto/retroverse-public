@@ -30,6 +30,26 @@ function statePath(): string {
   return join(mixerDir(), "state.json");
 }
 
+function playlistPath(name: string): string {
+  const safe = name.trim().replace(/[^a-zA-Z0-9_-]+/g, "-").replace(/^-+|-+$/g, "").toLowerCase() || "untitled";
+  return join(mixerDir(), "playlists", `${safe}.json`);
+}
+
+export async function saveNamedPlaylist(name: string, playlist: DeckPlaylistEntry[]): Promise<void> {
+  const path = playlistPath(name);
+  await mkdir(join(mixerDir(), "playlists"), { recursive: true });
+  await writeFile(path, `${JSON.stringify(playlist, null, 2)}\n`, "utf8");
+}
+
+export async function loadNamedPlaylist(name: string): Promise<DeckPlaylistEntry[]> {
+  try {
+    const raw = JSON.parse(await readFile(playlistPath(name), "utf8"));
+    return Array.isArray(raw) ? raw.map(normalizeEntry).filter((entry): entry is DeckPlaylistEntry => entry !== null) : [];
+  } catch {
+    return [];
+  }
+}
+
 function normalizeEntry(raw: unknown): DeckPlaylistEntry | null {
   if (!raw || typeof raw !== "object") return null;
   const obj = raw as Partial<DeckPlaylistEntry>;

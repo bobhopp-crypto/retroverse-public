@@ -43,7 +43,7 @@ export const WORKSHOP_ROOMS: WorkshopRoom[] = [
     tools: [
       { label: "Event Control", href: "/ops/event-control" },
       { label: "Content Creator", href: "/ops/content-creator" },
-      { label: "Registrations", href: "/ops/pass-registrations" },
+      { label: "Pass Management", href: "/bobos/pass-management" },
     ],
   },
   {
@@ -63,7 +63,7 @@ export const WORKSHOP_ROOMS: WorkshopRoom[] = [
     tools: [
       { label: "Healing", href: "/ops/healing" },
       { label: "Media Collections", href: "/ops/media-collections" },
-      { label: "Media Lab", href: "/ops/media-lab" },
+      { label: "Media Lab", href: "/bobos/media-lab" },
     ],
   },
 ];

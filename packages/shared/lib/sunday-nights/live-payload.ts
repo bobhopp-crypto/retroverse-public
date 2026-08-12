@@ -34,7 +34,7 @@ export type SundayNightsCurrentPayload = {
   } | null;
   publicState?: {
     version: 2;
-    source: "virtualdj" | "recommendation" | "channel-zero";
+    source: "virtualdj" | "recommendation" | "channel-zero" | "experience-selector";
     servedAt: string;
   };
   /** Channel Zero resolver output — operator-visible decision metadata. */

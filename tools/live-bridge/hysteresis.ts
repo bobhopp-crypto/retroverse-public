@@ -11,15 +11,18 @@ export class AudibleDeckHysteresis {
   private candidate: StableTrack | null = null;
   private stableCount = 0;
   private lastPublishedKey: string | null = null;
+  private lastPublishedAt = 0;
 
   constructor(
     private readonly stablePolls: number,
+    private readonly refreshMs = 60_000,
   ) {}
 
   reset(): void {
     this.candidate = null;
     this.stableCount = 0;
     this.lastPublishedKey = null;
+    this.lastPublishedAt = 0;
   }
 
   private trackKey(track: StableTrack): string {
@@ -55,13 +58,19 @@ export class AudibleDeckHysteresis {
       this.stableCount = 1;
     }
 
-    if (key === this.lastPublishedKey) return null;
+    if (
+      key === this.lastPublishedKey &&
+      Date.now() - this.lastPublishedAt < this.refreshMs
+    ) {
+      return null;
+    }
 
     // First publish after start needs debounce; track changes publish immediately.
     const requiredStable = this.lastPublishedKey === null ? this.stablePolls : 1;
     if (this.stableCount < requiredStable) return null;
 
     this.lastPublishedKey = key;
+    this.lastPublishedAt = Date.now();
     return next;
   }
 }

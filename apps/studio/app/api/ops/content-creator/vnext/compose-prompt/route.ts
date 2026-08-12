@@ -13,6 +13,7 @@ import {
 } from "@/lib/ops/content-creator/collector-card";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
+import { styleDirectiveForColorScheme } from "@/lib/bobos/project-zero/creative-brief";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -55,6 +56,8 @@ export async function POST(req: Request) {
 
   const fields = parseFields(body);
   const settings = parseCreativeDirectionSettings(body);
+  const styleDirective =
+    typeof body.colorScheme === "string" ? styleDirectiveForColorScheme(body.colorScheme) : undefined;
   const frontSummary =
     typeof body.frontSummary === "string"
       ? body.frontSummary
@@ -68,6 +71,7 @@ export async function POST(req: Request) {
     artifactType: artifact,
     compositionSeed,
     frontSummary: side === "back" ? frontSummary : undefined,
+    styleDirective,
   });
 
   return NextResponse.json({

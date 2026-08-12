@@ -43,7 +43,7 @@ export const EVENT_STUDIO_PLANNED_GENERATORS: Record<PlannedGeneratorSlug, Plann
     slug: "registration",
     title: "Generate Registration Page",
     lead: "QR registration and pass signup flows will connect to Audience registrations.",
-    relatedHref: "/ops/pass-registrations",
+    relatedHref: "/bobos/pass-management",
     relatedLabel: "Open pass registrations",
   },
   social: {

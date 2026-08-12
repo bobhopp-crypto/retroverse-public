@@ -17,7 +17,11 @@ export function BobosNav() {
 
   // BobOS Cockpit (home) + project dashboards hide this nav.
   // Legacy pages (Producer, Design Builder, etc.) keep it for wayfinding.
-  if (pathname === "/bobos" || pathname.startsWith("/bobos/project")) return null;
+  if (
+    pathname === "/bobos" ||
+    pathname.startsWith("/bobos/project") ||
+    pathname.startsWith("/bobos/broadcast")
+  ) return null;
 
   return (
     <nav className="bobos-nav" aria-label="BobOS">

@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import os
 import re
@@ -25,6 +26,17 @@ from pathlib import Path
 
 def log(msg: str) -> None:
     print(msg, file=sys.stderr, flush=True)
+
+
+def atomic_json(path: Path, value: object) -> None:
+    temporary = path.with_name(f".{path.name}.tmp-{os.getpid()}")
+    temporary.write_text(json.dumps(value, indent=2), encoding="utf-8")
+    temporary.replace(path)
+
+
+def source_fingerprint(path: Path) -> str:
+    stat = path.stat()
+    return hashlib.sha256(f"{path}\0{stat.st_size}\0{stat.st_mtime_ns / 1_000_000:.3f}".encode()).hexdigest()
 
 
 def sec_to_timecode(sec: float) -> str:
@@ -156,6 +168,7 @@ def main() -> int:
     p.add_argument("--job-slug", required=True)
     p.add_argument("--source-filename", required=True)
     p.add_argument("--model", default="base")
+    p.add_argument("--keep-audio", action="store_true")
     args = p.parse_args()
 
     video = Path(args.video).resolve()
@@ -171,10 +184,10 @@ def main() -> int:
         extract_audio(video, wav)
         segments, duration = transcribe(wav, args.model)
     finally:
-        if wav.exists():
+        if wav.exists() and not args.keep_audio:
             wav.unlink()
 
-    (out / "segments.json").write_text(json.dumps(segments, indent=2), encoding="utf-8")
+    atomic_json(out / "segments.json", segments)
     write_transcript(out / "transcript.txt", segments)
     write_srt(out / "captions.srt", segments)
     write_vtt(out / "captions.vtt", segments)
@@ -208,7 +221,9 @@ def main() -> int:
             "job.json",
         ],
     }
-    (out / "job.json").write_text(json.dumps(job, indent=2), encoding="utf-8")
+    job["sourceFingerprint"] = source_fingerprint(video)
+    job["transcriptionRuntime"] = "faster-whisper/cpu/int8"
+    atomic_json(out / "job.json", job)
 
     print(json.dumps(job))
     return 0

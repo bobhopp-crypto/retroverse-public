@@ -1,0 +1,1346 @@
+/* Pass Studio — appliance mode.
+   McDonald's POS / cash register / kiosk energy: one question per screen,
+   huge controls, zero configuration clutter. Desktop target 2560×1440. */
+
+.ps-workspace {
+  --ps-title: clamp(3.25rem, 4.5vw, 3.75rem);  /* 52–60px — matches BobOS page titles */
+  --ps-heading: 2.25rem;    /* 36px — matches BobOS section headings */
+  --ps-label: 1.35rem;      /* ~22px */
+  --ps-body: 1.2rem;        /* ~19px */
+  --ps-control-h: 4.5rem;   /* 72px — primary buttons */
+  --ps-touch-min: 4rem;     /* 64px — minimum touch target */
+
+  /* Appliance palette — scoped so Event Studio dark shell cannot bleed through */
+  --ps-bg: #0c1216;
+  --ps-surface: #162028;
+  --ps-surface-raised: #1e2a34;
+  --ps-ink: #f5fbff;
+  --ps-dim: rgba(245, 251, 255, 0.68);
+  --ps-muted: rgba(245, 251, 255, 0.45);
+  --ps-border: rgba(255, 255, 255, 0.14);
+  --ps-border-strong: rgba(255, 255, 255, 0.28);
+  --ps-accent: #2eb8b8;
+  --ps-accent-2: #ff7a45;
+  --ps-accent-dark: #0a1215;
+  --ps-danger: #ff6b6b;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem 3rem 5rem;
+  max-width: 2400px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: var(--ps-body);
+  line-height: 1.4;
+  color: var(--ps-ink);
+}
+
+.ps-back-link {
+  align-self: flex-start;
+  color: var(--ps-muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.ps-back-link:hover {
+  color: var(--ps-dim);
+}
+
+.ps-workspace__kicker {
+  margin: 0 0 -1.5rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ps-accent);
+}
+
+.ps-workspace__title {
+  margin: 0;
+  font-size: var(--ps-title);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--ps-ink);
+}
+
+.ps-workspace__panel--hidden {
+  display: none;
+}
+
+.ps-handoff {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgba(46, 184, 184, 0.55);
+  border-radius: 14px;
+  background: rgba(46, 184, 184, 0.12);
+}
+
+.ps-handoff__check {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.ps-handoff div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.ps-handoff strong {
+  font-size: 1.15rem;
+}
+
+.ps-handoff span:not(.ps-handoff__check) {
+  color: var(--ps-dim);
+  font-size: 0.98rem;
+}
+
+/* ── Step rail (replaces tabs) ── */
+
+.ps-rail {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.85rem;
+}
+
+.ps-rail__step {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 5rem;
+  padding: 0 1.5rem;
+  border: 3px solid var(--ps-border);
+  border-radius: 14px;
+  background: var(--ps-surface);
+  color: var(--ps-ink);
+  cursor: pointer;
+  text-align: left;
+}
+
+.ps-rail__step:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ps-rail__step.is-active {
+  background: #1a0f2e;
+  border-color: var(--ps-accent);
+  box-shadow: 0 0 0 2px rgba(46, 184, 184, 0.35);
+}
+
+.ps-rail__step.is-active .ps-rail__number,
+.ps-rail__step.is-active .ps-rail__label {
+  color: #fff;
+}
+
+.ps-rail__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ps-ink);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.ps-rail__step.is-active .ps-rail__number {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.ps-rail__label {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* ── Generic step scaffold ── */
+
+.ps-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.ps-step--center {
+  align-items: center;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.ps-step__eyebrow {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ps-muted);
+}
+
+.ps-step__title {
+  margin: 0;
+  font-size: var(--ps-heading);
+  font-weight: 800;
+}
+
+.ps-step__hint {
+  font-size: var(--ps-label);
+  color: var(--ps-dim);
+}
+
+.ps-step__error {
+  font-size: var(--ps-label);
+  color: var(--ps-danger);
+  font-weight: 700;
+}
+
+.ps-step--generate {
+  gap: 0.8rem;
+}
+
+.ps-step--generate .ps-step__eyebrow {
+  font-size: 0.9rem;
+}
+
+.ps-step--generate .ps-step__title {
+  font-size: 1.85rem;
+}
+
+.ps-step--generate .ps-step__hint {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* ── Buttons ── */
+
+.ps-btn {
+  min-height: var(--ps-touch-min);
+  padding: 0 1.75rem;
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 12px;
+  background: var(--ps-surface-raised);
+  color: var(--ps-ink);
+  font: inherit;
+  font-size: var(--ps-label);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps-btn--primary {
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+  border-color: var(--ps-accent);
+}
+
+.ps-btn--hero {
+  min-height: var(--ps-control-h);
+  padding: 0 3rem;
+  font-size: 1.6rem;
+  align-self: flex-start;
+}
+
+.ps-step--center .ps-btn--hero {
+  align-self: center;
+}
+
+.ps-btn--quiet {
+  min-height: var(--ps-touch-min);
+  border-width: 2px;
+  border-style: dashed;
+  border-color: var(--ps-border-strong);
+  background: transparent;
+  color: var(--ps-dim);
+  font-size: var(--ps-body);
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.ps-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Step 1: Event ── */
+
+.ps-event-card {
+  padding: 2rem 2.5rem;
+  border: 3px solid var(--ps-border);
+  border-radius: 16px;
+  background: var(--ps-surface);
+  min-width: min(640px, 90vw);
+}
+
+.ps-event-card__label {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ps-muted);
+}
+
+.ps-event-card__name {
+  margin: 0.5rem 0 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--ps-ink);
+}
+
+.ps-event-card__meta {
+  margin: 0.4rem 0 0;
+  font-size: var(--ps-label);
+  color: var(--ps-dim);
+}
+
+/* ── Step 2: Gallery — card grid ── */
+
+.ps-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.ps-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border: 4px solid var(--ps-border);
+  border-radius: 16px;
+  padding: 1rem;
+  background: var(--ps-surface);
+}
+
+.ps-card.is-selected {
+  border-color: var(--ps-accent);
+  box-shadow: 0 0 0 4px rgba(46, 184, 184, 0.25);
+}
+
+.ps-card:not(.is-selected) .ps-card__art {
+  opacity: 0.45;
+}
+
+.ps-card__art {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.5 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.ps-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.ps-card__art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ps-card__art-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ps-card__art-fallback--empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.ps-card__art-empty-label {
+  color: var(--ps-ink);
+  opacity: 0.75;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ps-card__art-generate-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border-radius: 10px;
+  border: 3px solid var(--ps-accent);
+  color: var(--ps-accent);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.ps-card__art-generate-link:hover {
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+}
+
+.ps-card__name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ps-ink);
+}
+
+.ps-card__use {
+  min-height: var(--ps-touch-min);
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 10px;
+  background: var(--ps-surface-raised);
+  color: var(--ps-ink);
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps-card__use.is-selected {
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+  border-color: var(--ps-accent);
+}
+
+.ps-card__preview {
+  min-height: var(--ps-touch-min);
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 10px;
+  background: var(--ps-surface-raised);
+  color: var(--ps-ink);
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps-card__preview:hover {
+  border-color: var(--ps-accent);
+}
+
+.ps-card__secondary {
+  min-height: 3.4rem;
+  border: 2px solid var(--ps-border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ps-dim);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ps-card__secondary:hover {
+  color: var(--ps-ink);
+  border-color: var(--ps-border-strong);
+}
+
+.ps-card__secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Step 2: large design preview (front/back look, no printed pass yet) ── */
+
+.ps-design-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.ps-design-preview__backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: rgba(6, 10, 12, 0.85);
+  cursor: pointer;
+}
+
+.ps-design-preview__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: min(92vw, 640px);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  border: 4px solid var(--ps-accent);
+  border-radius: 20px;
+  background: var(--ps-surface);
+}
+
+.ps-design-preview__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 2px solid var(--ps-border-strong);
+  border-radius: 999px;
+  background: var(--ps-surface-raised);
+  color: var(--ps-ink);
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps-design-preview__face {
+  width: 100%;
+  max-width: 420px;
+}
+
+.ps-design-preview__name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--ps-ink);
+}
+
+.ps-design-preview__toggle {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ── Admin panel (template create form — tucked away) ── */
+
+.ps-admin-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 3px solid var(--ps-border);
+  border-radius: 16px;
+  background: var(--ps-surface);
+}
+
+.ps-admin-panel h3 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--ps-ink);
+}
+
+.ps-admin-panel h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ps-dim);
+}
+
+.ps-admin-panel__name {
+  max-width: 640px;
+}
+
+.ps-admin-panel__columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+.ps-admin-panel__col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ps-admin-panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ps-dim);
+}
+
+.ps-admin-panel input,
+.ps-admin-panel select {
+  min-height: 3.4rem;
+  padding: 0 0.9rem;
+  border: 2px solid var(--ps-border-strong);
+  border-radius: 8px;
+  background: var(--ps-bg);
+  color: var(--ps-ink);
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.ps-admin-panel input[type="color"] {
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+.ps-admin-panel__row {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.ps-admin-panel__row label {
+  flex: 1;
+}
+
+.ps-admin-panel__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ── Step 3: How Many — keypad rows, high contrast ── */
+
+.ps-qty-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.ps-qty-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ps-qty-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) auto auto auto;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 16px;
+  background: var(--ps-surface-raised);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.ps-qty-row__name {
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--ps-ink);
+  padding: 0.5rem 0;
+}
+
+.ps-qty-row__name::placeholder {
+  color: var(--ps-muted);
+}
+
+.ps-qty-row__name:focus {
+  outline: none;
+  border-bottom: 3px solid var(--ps-accent);
+}
+
+.ps-qty-row__stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.ps-qty-row__stepper button {
+  width: var(--ps-touch-min);
+  height: var(--ps-touch-min);
+  border: 3px solid var(--ps-accent-2);
+  border-radius: 12px;
+  background: var(--ps-accent-2);
+  color: var(--ps-accent-dark);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ps-qty-row__stepper button:hover {
+  filter: brightness(1.08);
+}
+
+.ps-qty-row__stepper button:active {
+  transform: scale(0.97);
+}
+
+.ps-qty-row__value {
+  min-width: 5rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ps-ink);
+}
+
+.ps-qty-row__serials {
+  flex-shrink: 0;
+  min-width: 10rem;
+  text-align: right;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ps-dim);
+}
+
+.ps-qty-row__remove {
+  flex-shrink: 0;
+  width: var(--ps-touch-min);
+  height: var(--ps-touch-min);
+  border: 3px solid rgba(255, 107, 107, 0.55);
+  background: rgba(255, 107, 107, 0.12);
+  border-radius: 12px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ps-danger);
+  cursor: pointer;
+}
+
+.ps-qty-row__remove:hover {
+  background: rgba(255, 107, 107, 0.22);
+  border-color: var(--ps-danger);
+}
+
+.ps-qty-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  border: 3px solid var(--ps-accent);
+  border-radius: 16px;
+  background: var(--ps-surface);
+}
+
+.ps-qty-totals__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ps-qty-totals__label {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ps-muted);
+}
+
+.ps-qty-totals__value {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--ps-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ── Step 4: Preview — hero, nearly full screen ── */
+
+.ps-preview {
+  display: grid;
+  grid-template-columns: minmax(460px, 720px) minmax(340px, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.ps-preview__face-wrap {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ps-preview__face-wrap .ps-face__event {
+  font-size: 2.3rem;
+}
+
+.ps-preview__face-wrap .ps-face__pass-type {
+  font-size: 1.2rem;
+}
+
+.ps-preview__face-wrap .ps-face__venue,
+.ps-preview__face-wrap .ps-face__date {
+  font-size: 1.4rem;
+}
+
+.ps-preview__face-wrap .ps-face__serial {
+  font-size: 1.5rem;
+}
+
+.ps-preview__face-wrap .ps-face__logo {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.ps-preview__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ps-preview__serial {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.ps-preview__type {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ps-ink);
+}
+
+.ps-preview__status {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ps-accent);
+}
+
+.ps-preview__qr-url {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ps-dim);
+  word-break: break-all;
+}
+
+.ps-preview__toggle {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.ps-preview__nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ps-preview__counter {
+  margin: 1rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ps-dim);
+}
+
+.ps-preview__empty,
+.ps-print__empty {
+  font-size: var(--ps-label);
+  color: var(--ps-dim);
+}
+
+/* ── Pass Library (collapsed panel, Step 4) ── */
+
+.ps-library {
+  border-top: 3px solid var(--ps-border);
+  padding-top: 1.5rem;
+}
+
+.ps-library__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+  color: var(--ps-ink);
+}
+
+.ps-library__table th,
+.ps-library__table td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 2px solid var(--ps-border);
+  text-align: left;
+}
+
+.ps-library__table th {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ps-muted);
+}
+
+.ps-library__table tbody tr {
+  cursor: pointer;
+}
+
+.ps-library__table tbody tr:hover {
+  background: rgba(46, 184, 184, 0.08);
+}
+
+.ps-library__table tbody tr.is-active {
+  background: rgba(46, 184, 184, 0.18);
+}
+
+/* ── Pass face (shared by Preview and Print) ── */
+
+.ps-face {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2.25 / 3.5;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ps-face__artwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ps-face__overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1rem 0.75rem;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.ps-face__logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+.ps-face__pass-type {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ps-face__event {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.ps-face__venue,
+.ps-face__date {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.ps-face__serial {
+  margin-top: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+}
+
+.ps-face__qr {
+  position: absolute;
+  z-index: 2;
+  background: #fff;
+  padding: 2px;
+}
+
+.ps-face__qr svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/*
+ * Positions mirror SERIAL_BAND_TOP_PCT / SERIAL_BAND_HEIGHT_PCT / PASS_URL_TOP_PCT
+ * in lib/ops/event-studio/pass-studio/placeholder-artwork.ts — the baked artwork
+ * reserves this space (band fill, blank paper) so the overlay never collides with
+ * baked text. Colors are set inline per pass type via overlayColorsForPassType.
+ */
+.ps-face--artwork .ps-face__serial-band {
+  position: absolute;
+  z-index: 2;
+  right: 8.5%;
+  top: 89.3333%;
+  height: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(0.72rem, 2.8vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-shadow: none;
+}
+
+.ps-face--artwork .ps-face__pass-url {
+  position: absolute;
+  z-index: 2;
+  left: 4%;
+  right: 4%;
+  top: 85%;
+  margin: 0;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(0.58rem, 2.1vw, 0.82rem);
+  font-weight: 700;
+  line-height: 1.25;
+  word-break: break-all;
+  text-shadow: none;
+}
+
+/* ── Step 5: Print — real production print workflow ── */
+
+.ps-print__summary {
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 16px;
+  background: var(--ps-surface-raised);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.ps-print__summary-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.ps-print__summary-head h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.ps-print__summary-batch {
+  font-weight: 700;
+  color: var(--ps-dim);
+}
+
+.ps-print__status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--ps-border-strong);
+  color: var(--ps-ink);
+}
+
+.ps-print__status-badge--ready_to_print {
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+}
+
+.ps-print__status-badge--printed {
+  background: #2eb8b8;
+  color: #06282a;
+}
+
+.ps-print__status-badge--void {
+  background: #c44;
+  color: #fff;
+}
+
+.ps-print__summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.ps-print__summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ps-print__summary-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ps-dim);
+}
+
+.ps-print__summary-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.ps-print__layout-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.ps-print__layout-label {
+  font-weight: 700;
+  color: var(--ps-dim);
+}
+
+.ps-print__per-sheet-option {
+  min-width: var(--ps-touch-min);
+  min-height: var(--ps-touch-min);
+  padding: 0 0.75rem;
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 10px;
+  background: var(--ps-surface-raised);
+  color: var(--ps-ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps-print__per-sheet-option.is-active {
+  background: var(--ps-accent);
+  color: var(--ps-accent-dark);
+  border-color: var(--ps-accent);
+}
+
+.ps-print__sheets-section {
+  margin-bottom: 2rem;
+}
+
+.ps-print__sheets-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.ps-print__sheets-head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.ps-print__sheet-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ps-print__sheet-label-serials {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ps-dim);
+}
+
+.ps-print__pager {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--ps-dim);
+}
+
+.ps-print__pager button {
+  min-width: var(--ps-touch-min);
+  min-height: var(--ps-touch-min);
+  padding: 0 1rem;
+  border: 3px solid var(--ps-border-strong);
+  border-radius: 10px;
+  background: var(--ps-surface-raised);
+  color: var(--ps-ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ps-print__pager button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ps-print__sheet-preview {
+  width: calc(11in * 0.55);
+  overflow: hidden;
+  border: 3px solid var(--ps-border-strong);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  background: #fff;
+}
+
+.ps-print__sheet-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ps-print__sheets-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.ps-print__sheets-actions a.ps-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ps-print__mark-printed {
+  margin: 1rem 0 1.5rem;
+}
+
+.ps-print__actions {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.ps-print__print-only {
+  display: none;
+}
+
+.ps-print__print-page {
+  display: block;
+  width: 100%;
+}
+
+@media print {
+  @page {
+    size: 11in 17in;
+    margin: 0;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .ps-print-area,
+  .ps-print-area * {
+    visibility: visible;
+  }
+
+  .ps-print-area {
+    position: absolute;
+    inset: 0;
+  }
+
+  .ps-print__summary,
+  .ps-print__layout-picker,
+  .ps-print__sheets-section,
+  .ps-print__mark-printed,
+  .ps-print__actions,
+  .ps-step__eyebrow,
+  .ps-step__title {
+    display: none;
+  }
+
+  .ps-print__print-only {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    inset: 0;
+  }
+
+  .ps-print__print-page {
+    width: 11in;
+    height: 17in;
+    page-break-after: always;
+  }
+}
+
+/* ── Narrower desktop / tablet fallback ── */
+
+@media (max-width: 1500px) {
+  .ps-qty-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-qty-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .ps-qty-row__serials {
+    text-align: left;
+  }
+
+  .ps-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-admin-panel__columns {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 900px) {
+  .ps-rail {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Edit step (production layout + quantities) ── */
+
+.ps-edit__section-title {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.ps-edit__quantities {
+  margin-top: 2rem;
+}
+
+.ps-edit__serial-start {
+  margin-top: 1.5rem;
+}
+
+.ps-qty-row.is-active {
+  border-color: var(--ps-accent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 1px color-mix(in srgb, var(--ps-accent) 35%, transparent);
+}
+
+.ps-qty-row__name-btn {
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
+
+.ps-qty-row__name-btn:hover {
+  color: var(--ps-accent);
+}

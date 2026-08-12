@@ -325,6 +325,52 @@ html:has(.rv2-live) body::-webkit-scrollbar {
   outline-offset: -4px;
 }
 
+.rv2-broadcast-banner__controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  min-height: inherit;
+}
+
+.rv2-broadcast-banner__control {
+  min-width: 0;
+  min-height: 3.5rem;
+  padding: 0.45rem 0.2rem;
+  border: 0;
+  border-left: 1px solid var(--rv2-border-soft);
+  border-radius: 0;
+  background: transparent;
+  color: var(--rv2-ink);
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rv2-broadcast-banner__control:first-child {
+  border-left: 0;
+}
+
+.rv2-broadcast-banner__control--live[aria-pressed="true"] {
+  background: var(--rv2-fill-medium);
+  color: var(--ex-aqua-accent);
+}
+
+.rv2-broadcast-banner__control:focus-visible {
+  outline: 2px solid var(--ex-aqua-accent);
+  outline-offset: -4px;
+}
+
+@media (max-width: 390px) {
+  .rv2-broadcast-banner__control {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+}
+
 @media (min-width: 620px) {
   .rv2-live {
     padding-inline: 0.9rem;

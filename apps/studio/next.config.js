@@ -34,7 +34,6 @@ const LIVE_PREFIXES = [
   "/week",
   "/experience",
   "/giveaway",
-  "/pass",
   "/live",
   "/retroverse",
   "/retroverse-2",
@@ -76,7 +75,7 @@ const nextConfig = {
       "./data/ops/allstar/**",
     ],
   },
-  serverExternalPackages: ["pg"],
+  serverExternalPackages: ["pg", "playwright"],
   // Ops video uploads hit /api/ops/* (middleware matcher). Default 10MB truncates
   // multipart bodies and breaks req.formData() for Media Lab transcripts.
   experimental: {
@@ -85,6 +84,33 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Local dev: send /pass to the Live app origin. Rewriting HTML while leaving
+      // /_next/* on Studio loads the wrong webpack runtime and crashes the client
+      // with `originalFactory.call` (Studio has no /pass/[serial] chunks).
+      ...(isDev
+        ? [
+            {
+              source: "/pass",
+              destination: `${LIVE_DEV_ORIGIN}/pass`,
+              permanent: false,
+            },
+            {
+              source: "/pass/:path*",
+              destination: `${LIVE_DEV_ORIGIN}/pass/:path*`,
+              permanent: false,
+            },
+            {
+              source: "/api/pass",
+              destination: `${LIVE_DEV_ORIGIN}/api/pass`,
+              permanent: false,
+            },
+            {
+              source: "/api/pass/:path*",
+              destination: `${LIVE_DEV_ORIGIN}/api/pass/:path*`,
+              permanent: false,
+            },
+          ]
+        : []),
       { source: "/ops/finance/import-amazon", destination: "/ops/finance/import", permanent: false },
       { source: "/ops/finance/import/amazon", destination: "/ops/finance/import", permanent: false },
       { source: "/ops/finance/import/nebat", destination: "/ops/finance/import", permanent: false },
@@ -104,6 +130,16 @@ const nextConfig = {
         destination: "/bobos/passes",
         permanent: false,
       },
+      {
+        source: "/ops/event-studio/create/pass-generator",
+        destination: "/bobos/passes",
+        permanent: false,
+      },
+      {
+        source: "/ops/event-studio/producer",
+        destination: "/bobos/producer",
+        permanent: false,
+      },
       { source: "/ops/event-studio/branding", destination: "/ops/event-studio/identity", permanent: false },
       { source: "/ops/event-studio/digital", destination: "/ops/event-studio/publish", permanent: false },
       { source: "/ops/event-studio/audience", destination: "/ops/event-studio/giveaway/audience", permanent: false },
@@ -115,6 +151,31 @@ const nextConfig = {
       },
       {
         source: "/ops/content-creator/create/:path*",
+        destination: "/bobos/passes",
+        permanent: false,
+      },
+      {
+        source: "/ops/pass-management",
+        destination: "/bobos/pass-management",
+        permanent: false,
+      },
+      {
+        source: "/ops/pass-registrations",
+        destination: "/bobos/pass-management",
+        permanent: false,
+      },
+      {
+        source: "/bobos/pass-registration",
+        destination: "/bobos/pass-management",
+        permanent: false,
+      },
+      {
+        source: "/bobos/docs/RV02-04",
+        destination: "/bobos/docs/RV02-05",
+        permanent: false,
+      },
+      {
+        source: "/ops/passes",
         destination: "/bobos/passes",
         permanent: false,
       },

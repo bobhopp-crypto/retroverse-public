@@ -1,56 +1,131 @@
 import type { Metadata } from "next";
 
+import { PublicHomepageView } from "@/app/components/public-homepage-view";
+import { LiveSongView } from "@/app/components/live-song-view";
+import { loadFeaturedYearCovers } from "@/lib/home/load-featured-year-covers";
+import { loadHomepageDocument } from "@/lib/home/load-homepage-document";
 import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
-import { CanonicalPublicTrace } from "@/components/public/CanonicalPublicTrace";
-import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
-import { localPublicTraceEnabled, timePublicLoader } from "@/lib/public/local-trace";
+import { resolveHomepageAuthority } from "@/lib/homepage-authority";
+import { resolveHomepageRotationRvtr } from "@/lib/home/homepage-rvtr";
+import { buildHomepageHero } from "@/lib/event-control/homepage-hero";
+import { loadEventControlConfig } from "@/lib/event-control/store";
+import { artistPublicHrefFromName, trackPageHref } from "@/lib/search/entity-routes";
+import { rvYearHref } from "@/lib/rv/rv-chronology-paths";
+import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
+import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
+import { loadAuthoritativeTerraFinalRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
+import { resolveHomepageMagazineModel } from "./homepage-magazine-model";
 
-import { RetroverseLive2View } from "./retroverse-2/live/retroverse-live-2-view";
-
-import "./retroverse-2/live/retroverse-live-2.css";
-import "./live-home.css";
+import "@/app/retroverse-2/live/retroverse-live-2.css";
+import "@/app/live-home.css";
+import "@/app/public-homepage.css";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
-  title: "Retroverse Live",
-  description: "Press Play for the Past.",
+  title: "Now Playing",
+  description: "The song playing right now.",
 };
 
-/**
- * retroverse.live — public exploration homepage.
- * Live VDJ track when on air; recommended rotation when off air.
- */
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams?: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const traceEnabled = localPublicTraceEnabled(searchParams ? await searchParams : undefined);
-  const currentLoad = await timePublicLoader("home-current-song", loadPublicCurrentSongPayload);
-  const current = currentLoad.value;
-  const track = current.track;
+/** retroverse.live — preserves programmed experiences and uses a focused live-song surface for VDJ songs. */
+export default async function HomePage() {
+  void loadFeaturedYearCovers();
+
+  const [initial, eventConfig, rotationRvtr] = await Promise.all([
+    loadPublicCurrentSongPayload(),
+    loadEventControlConfig().catch(() => null),
+    resolveHomepageRotationRvtr(),
+  ]);
+
+  const authority = resolveHomepageAuthority({
+    currentSong: initial,
+    automaticHero: eventConfig ? buildHomepageHero(eventConfig) : null,
+    overrides: eventConfig
+      ? {
+          hero: eventConfig.homepage.heroOverride,
+          panelA: eventConfig.homepage.panelA,
+          panelB: eventConfig.homepage.panelB,
+          chyron: eventConfig.homepage.chyronOverride,
+        }
+      : undefined,
+  });
+
+  const featuredRvtr =
+    initial.publicSong?.rvtr ??
+    (initial.currentTrackId?.match(/^RVTR\d{6}$/i) ? initial.currentTrackId.toUpperCase() : null) ??
+    rotationRvtr;
+
+  const featuredDocument = featuredRvtr ? await loadHomepageDocument(featuredRvtr).catch(() => null) : null;
+  const featuredPayload = featuredRvtr ? await loadPublicSongPayload(featuredRvtr).catch(() => null) : null;
+
+  const featuredExperience = featuredDocument
+    ? {
+        title: featuredDocument.title,
+        subtitle: featuredDocument.artist,
+        href: trackPageHref(featuredDocument.rvtr),
+        coverUrl: featuredDocument.coverUrl ?? featuredDocument.heroUrl ?? null,
+      }
+    : featuredPayload
+      ? {
+          title: featuredPayload.title,
+          subtitle: featuredPayload.artist,
+          href: featuredPayload.links.songHref,
+          coverUrl: featuredPayload.coverUrl,
+        }
+      : null;
+
+  const magazine = featuredRvtr ? await resolveHomepageMagazineModel(featuredRvtr, initial.channel?.running || initial.live?.source === "channel" ? "Live now" : "Archive selection") : null;
+
+  const isNormalLiveSong =
+    !initial.manualOverride &&
+    Boolean(initial.live?.title?.trim() && initial.live?.artist?.trim()) &&
+    (initial.live?.source === "bridge" || initial.live?.source === "channel");
+
+  const preparedLiveExperience = isNormalLiveSong && initial.publicSong
+    ? (await loadAuthoritativeTerraFinalRecord(initial.publicSong.rvtr, {
+        artist: initial.publicSong.artist,
+        title: initial.publicSong.title,
+      }))
+      ? <PublicSongExperience payload={initial.publicSong} />
+      : null
+    : null;
+
+  if (isNormalLiveSong) {
+    return <LiveSongView payload={initial} heroUrl={featuredDocument?.heroUrl ?? null} heroRvtr={featuredRvtr} preparedExperience={preparedLiveExperience} />;
+  }
+
+  if (featuredPayload) {
+    const featuredHomepagePayload = {
+      ...initial,
+      currentTrackId: featuredPayload.rvtr,
+      live: null,
+      publicSong: featuredPayload,
+      track: featuredPayload.track,
+    };
+    return (
+      <LiveSongView
+        payload={featuredHomepagePayload}
+        heroUrl={featuredDocument?.heroUrl ?? featuredPayload.coverUrl ?? null}
+        heroRvtr={featuredPayload.rvtr}
+        mode="featured"
+      />
+    );
+  }
 
   return (
     <>
-    <RetroverseLive2View
-      initial={current}
-      shellClassName="rv2-live-home"
-      activeNav="live"
-      minimalHome
-    />
-    <CanonicalPublicTrace
-      enabled={traceEnabled}
-      rvtr={track?.rvtr ?? current.currentTrackId}
-      artistId={track?.artistId ?? null}
-      albumId={track?.primaryAlbum?.albumId ?? null}
-      primaryAlbum={track?.primaryAlbum?.title ?? null}
-      resolverPath={track?.resolverPath ?? ["Channel Zero", "no canonical RVTR resolved"]}
-      discoverySources={discoverySourcesForPage("home")}
-      loaderTimings={[...(track?.loaderTimings ?? []), currentLoad.timing]}
-    />
+      <PublicHomepageView
+        initial={initial}
+        hero={authority.hero}
+        panelA={authority.panelA}
+        panelB={authority.panelB}
+        chyron={authority.chyron}
+        idleChyron={eventConfig?.homepage.idleChyron ?? ""}
+        featuredExperience={featuredExperience}
+        magazine={magazine}
+      />
     </>
   );
 }

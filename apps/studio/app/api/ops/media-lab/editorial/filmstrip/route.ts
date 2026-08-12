@@ -61,6 +61,9 @@ export async function GET(req: Request) {
   const chapterId = url.searchParams.get("chapterId")?.trim();
   const startSec = Number(url.searchParams.get("startSec"));
   const endSec = Number(url.searchParams.get("endSec"));
+  const sourceFingerprint = url.searchParams.get("sourceFingerprint")?.trim() ?? "";
+  const profile = url.searchParams.get("profile")?.trim() ?? "chapter";
+  const count = Number(url.searchParams.get("count") ?? "0");
 
   if (
     !Number.isFinite(year) ||
@@ -70,7 +73,9 @@ export async function GET(req: Request) {
     !chapterId ||
     !Number.isFinite(startSec) ||
     !Number.isFinite(endSec) ||
-    endSec <= startSec
+    endSec <= startSec ||
+    !/^[a-z0-9_-]+$/i.test(profile) ||
+    (count !== 0 && (!Number.isInteger(count) || count < 2 || count > 48))
   ) {
     return NextResponse.json({ error: "Invalid filmstrip params" }, { status: 400 });
   }
@@ -85,6 +90,12 @@ export async function GET(req: Request) {
     if (!videoPath || !existsSync(videoPath)) {
       return NextResponse.json({ error: "Video not found" }, { status: 404 });
     }
+    if (!Number.isFinite(job.durationSeconds) || job.durationSeconds == null || startSec < 0 || endSec > job.durationSeconds + 0.01) {
+      return NextResponse.json({ error: "Filmstrip range is outside the job source" }, { status: 400 });
+    }
+    if (sourceFingerprint && sourceFingerprint !== job.sourceFingerprint) {
+      return NextResponse.json({ error: "Source fingerprint does not match this job" }, { status: 409 });
+    }
 
     const manifest = await ensureFilmstrip(
       outputDir,
@@ -92,6 +103,7 @@ export async function GET(req: Request) {
       chapterId,
       startSec,
       endSec,
+      { sourceFingerprint: job.sourceFingerprint, profile, count: count || undefined },
     );
 
     return manifestResponse(req, year, jobSlug, manifest);

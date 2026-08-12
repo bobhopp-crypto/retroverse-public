@@ -126,6 +126,8 @@
 /* Phase 19 — public entity page horizontal containment (mobile) */
 
 @media (max-width: 767px) {
+  html:has(.public-home),
+  html:has(.rv2-live),
   html:has(.home-directory),
   html:has(.rv-year-world),
   html:has(.track-exhibit),
@@ -136,6 +138,8 @@
     max-width: 100%;
   }
 
+  html:has(.public-home) body,
+  html:has(.rv2-live) body,
   html:has(.home-directory) body,
   html:has(.rv-year-world) body,
   html:has(.track-exhibit) body,
@@ -146,6 +150,8 @@
     max-width: 100%;
   }
 
+  .public-home,
+  .rv2-live,
   .home-directory,
   .rv-year-world,
   .track-exhibit,

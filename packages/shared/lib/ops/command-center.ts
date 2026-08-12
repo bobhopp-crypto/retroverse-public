@@ -78,6 +78,7 @@ export const COMMAND_CENTER_DEPARTMENTS: CommandCenterDepartment[] = [
     accent: "#2A5BFF",
     links: [
       { label: "Song Package Pipeline", href: "/ops/studio" },
+      { label: "Media Lab", href: "/bobos/media-lab" },
       { label: "Library", href: "/ops/library" },
       { label: "Research", href: "/ops/intelligence" },
       { label: "Event Hub", href: "/bobos/event" },
@@ -185,7 +186,7 @@ export const COMMAND_CENTER_LEGACY_LINKS: CommandCenterLink[] = [
   { label: "Healing", href: "/ops/healing" },
   { label: "Media Lab", href: "/ops/media-lab" },
   { label: "Media Sync", href: "/ops/media-sync" },
-  { label: "Pass Registrations", href: "/ops/pass-registrations" },
+  { label: "Pass Management", href: "/bobos/pass-management" },
   { label: "Experience Director Pilot", href: "/ops/experience-director-pilot" },
   { label: "Operations Hub", href: "/ops/hub" },
   { label: "Recovery Operations", href: "/ops/recovery" },

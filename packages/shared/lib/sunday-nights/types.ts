@@ -47,5 +47,3 @@ export type SundayEventMode = {
   enabled: boolean;
   updatedAt: string;
 };
-
-export type { CollectorPassRegistration as PassRegistration } from "@/lib/collector-pass/types";

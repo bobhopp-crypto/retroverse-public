@@ -9,7 +9,7 @@ import {
   savePassCreativeBrief,
   savePrintSheetGrid,
 } from "@/app/bobos/pass-workspace/actions";
-import "@/components/ops/event-studio/pass-studio/pass-studio.css";
+import "@/components/bobos/pass-studio/pass-studio.css";
 import type { PassCreativeBrief as PassCreativeBriefData } from "@/lib/bobos/project-zero/creative-brief";
 import type { PassWorkspaceTemplate } from "@/lib/bobos/project-zero/load-pass-workspace-data";
 import type { PassArtworkAdjustments } from "@/lib/bobos/project-zero/pass-artwork-adjustments";
@@ -18,7 +18,7 @@ import type { ProductionLayout } from "@/lib/bobos/project-zero/production-layou
 import type { PrintSheetGridId } from "@/lib/bobos/project-zero/print-sheet-grid";
 import { PASS_WORKSPACE_SLUGS, type PassWorkspaceSlug } from "@/lib/bobos/project-zero/pass-workspace-slugs";
 import type { PassWorkspaceVersion } from "@/lib/bobos/project-zero/pass-workspace-store";
-import type { GeneratedPass } from "@/lib/ops/event-studio/pass-studio/types";
+import type { GeneratedPass } from "@/lib/bobos/pass-studio/types";
 
 import { BobosPassPreview } from "./BobosPassPreview";
 import { BobosPrintSheets } from "./BobosPrintSheets";

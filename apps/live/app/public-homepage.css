@@ -1,0 +1,164 @@
+/* Public homepage — Explorer tokens come from rv2-public-shell via retroverse-live-2.css */
+
+.public-home {
+  min-height: 100dvh;
+}
+
+.public-home__board {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 0.75rem 0.85rem 1.25rem;
+}
+
+.public-home__header {
+  margin-bottom: 0.85rem;
+}
+
+.public-home__kicker {
+  margin: 0;
+  color: var(--ex-magenta);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.public-home__title {
+  margin: 0.15rem 0 0;
+  color: var(--ex-ink);
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 0.95;
+}
+
+.public-home__tagline {
+  margin: 0.35rem 0 0;
+  color: var(--ex-muted);
+  font-size: 0.95rem;
+}
+
+.public-home__search {
+  margin-bottom: 0.85rem;
+}
+
+.public-home__headline {
+  margin-bottom: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--ex-line-accent);
+  border-radius: 0.65rem;
+  background: rgba(168, 85, 255, 0.08);
+}
+
+.public-home__headline-kicker,
+.public-home__headline-sub {
+  margin: 0;
+  color: var(--ex-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.public-home__headline-text {
+  margin: 0.25rem 0 0;
+  color: var(--ex-ink);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.public-home__panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.public-home__chyron {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--ex-line-accent);
+  border-radius: 0.65rem;
+  background: var(--ex-panel);
+  color: var(--ex-ink);
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.public-home__panel,
+.public-home__panel--static {
+  display: grid;
+  gap: 0.25rem;
+  min-height: 11rem;
+  padding: 0.65rem;
+  border: 1px solid var(--ex-line-accent);
+  border-radius: 0.65rem;
+  background: var(--ex-panel);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.public-home__panel:hover,
+.public-home__panel:focus-visible {
+  border-color: var(--ex-aqua-accent);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.public-home__panel-art {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.45rem;
+  border: 1px solid var(--ex-line);
+}
+
+.public-home__panel-art--fallback {
+  display: grid;
+  place-items: center;
+  background: var(--ex-art-fallback);
+  color: var(--ex-purple);
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.public-home__panel-kicker {
+  margin: 0.15rem 0 0;
+  color: var(--ex-purple);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.public-home__panel-title {
+  margin: 0;
+  color: var(--ex-ink);
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.public-home__panel-sub {
+  margin: 0;
+  color: var(--ex-muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.public-home__panel-external {
+  margin-top: 0.15rem;
+  color: var(--ex-aqua-accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+@media (min-width: 760px) {
+  .public-home__panels {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .public-home__board {
+    padding-inline: 0.55rem;
+  }
+}

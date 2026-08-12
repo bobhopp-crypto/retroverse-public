@@ -147,6 +147,8 @@ export type BrowserPlusRow = {
   fileExists: boolean;
   isVideo: boolean;
   searchText: string;
+  /** Optional Home Page Factory eligibility enrichment (RV03-05). */
+  canonicalPreflight?: import("@/lib/ops/home-page-factory-eligibility").HomePageCanonicalPreflight;
 };
 
 export type BrowserPlusFolderNode = {

@@ -16,7 +16,9 @@ export type PanelTypeId =
   | "current-sprint"
   | "alerts"
   | "next-action"
+  | "credentials"
   | "pass-production"
+  | "event-producer"
   | "event-studio"
   | "poster-builder"
   | "print-queue"
@@ -26,6 +28,7 @@ export type PanelTypeId =
   | "song-packages"
   | "artist-package"
   | "media-library"
+  | "media-coverage"
   | "collectibles"
   | "years"
   | "virtualdj-status"
@@ -40,13 +43,16 @@ export type PanelTypeId =
   | "notes"
   | "printer-panel"
   | "public-homepage"
-  | "pass-registration"
+  | "pass-management"
   | "giveaway-panel"
   | "live-display"
   | "broadcast"
   | "retroverse-runtime"
+  | "song-requests"
   | "graph-bridge"
-  | "six-up-viewer";
+  | "six-up-viewer"
+  | "experience-inspector"
+  | "home-page-factory";
 
 export type PanelGroup = "attention" | "build" | "catalog" | "devices";
 

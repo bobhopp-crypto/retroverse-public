@@ -1,55 +1,55 @@
 /**
- * Canonical Song Experience — package resolution.
+ * Canonical Song Experience — resolution wrapper.
  *
- * The Song Experience route (`/retroverse-2/song/[rvtr]`) is the one public
- * destination every live entry point resolves to. This module decides what
- * to render there by attempting, in order, the richest source that already
- * has content for the RVTR — never generating anything new.
- *
- *   1. VirtualDJ library entry       (Label field carries the RVTR)
- *   2. Published/graph-backed track  (Postgres canonical_track_display)
- *   3. Any SongPackage on disk       (draft / review / cards_ready / published)
- *   4. Nothing found                 (caller renders a minimal, honest empty state)
- *
- * Server-only.
+ * Prefer graph data, then package, then VDJ. Delegates assembly to
+ * loadPublicSongPayload for a single normalized result.
  */
 import "server-only";
 
-import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
-import { loadUniversalPackage, type UniversalPackagePayload } from "@/lib/universal-renderer/load-package";
-import { loadVdjBasePackageByRvtr } from "@/lib/universal-renderer/load-vdj-base";
+import {
+  loadPublicSongPayload,
+  type PublicSongPayload,
+  type PublicSongVdjHint,
+} from "@/lib/retroverse/experience/load-public-song-payload";
+import type { TrackPageData } from "@/lib/track/load-track-page";
+import type { UniversalPackagePayload } from "@/lib/universal-renderer/load-package";
 
 const RVTR_RE = /^RVTR\d{6}$/i;
 
 export type CanonicalSongResolution =
-  | { tier: "graph"; track: TrackPageData }
-  | { tier: "package"; payload: UniversalPackagePayload }
-  | { tier: "vdj"; payload: UniversalPackagePayload }
-  | { tier: "empty"; rvtr: string };
+  | { tier: "graph"; track: TrackPageData; payload: PublicSongPayload }
+  | { tier: "package"; payload: PublicSongPayload; packagePayload: UniversalPackagePayload }
+  | { tier: "vdj"; payload: PublicSongPayload; packagePayload: UniversalPackagePayload }
+  | { tier: "partial"; payload: PublicSongPayload }
+  | { tier: "empty"; rvtr: string; payload: PublicSongPayload };
 
-/**
- * Resolve the richest available content for an RVTR (or legacy slug).
- * Reuses the same loaders already powering `/song/[rvtr]` and
- * `/song/vdj/[key]` — no new generation, no new card types.
- */
 export async function resolveCanonicalSongExperience(
   rvtrParam: string,
+  vdjHint?: PublicSongVdjHint | null,
 ): Promise<CanonicalSongResolution> {
   const raw = decodeURIComponent(rvtrParam).trim();
-
   const rvtr = raw.toUpperCase();
+  const payload = await loadPublicSongPayload(rvtrParam, vdjHint);
+
   if (!RVTR_RE.test(rvtr)) {
-    return { tier: "empty", rvtr: raw };
+    return { tier: "empty", rvtr: raw, payload };
   }
 
-  const vdjPayload = await loadVdjBasePackageByRvtr(rvtr);
-  if (vdjPayload) return { tier: "vdj", payload: vdjPayload };
+  if (payload.track) {
+    return { tier: "graph", track: payload.track, payload };
+  }
 
-  const track = await loadTrackPage(raw);
-  if (track) return { tier: "graph", track };
+  if (payload.universalPackage) {
+    return { tier: "package", payload, packagePayload: payload.universalPackage };
+  }
 
-  const packagePayload = await loadUniversalPackage(rvtr);
-  if (packagePayload) return { tier: "package", payload: packagePayload };
+  if (payload.vdjPackage) {
+    return { tier: "vdj", payload, packagePayload: payload.vdjPackage };
+  }
 
-  return { tier: "empty", rvtr };
+  if (payload.resolution === "partial" && payload.title && payload.artist) {
+    return { tier: "partial", payload };
+  }
+
+  return { tier: "empty", rvtr, payload };
 }

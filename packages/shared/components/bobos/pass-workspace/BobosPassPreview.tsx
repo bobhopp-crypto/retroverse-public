@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { BOBOS_PASS_ASPECT_RATIO } from "@/lib/bobos/project-zero/pass-production-spec";
-import type { GeneratedPass } from "@/lib/ops/event-studio/pass-studio/types";
+import type { GeneratedPass } from "@/lib/bobos/pass-studio/types";
 
 type Props = {
   passes: GeneratedPass[];

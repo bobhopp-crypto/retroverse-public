@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 
 import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { UniversalRenderer } from "@/components/universal-renderer/UniversalRenderer";
-import { resolveCanonicalSongExperience } from "@/lib/retroverse/experience/resolve-canonical-song";
-import { loadTrackPage } from "@/lib/track/load-track-page";
+import {
+  isPublicSongPayloadRenderable,
+  loadPublicSongPayload,
+} from "@/lib/retroverse/experience/load-public-song-payload";
 import { localPublicTraceEnabled } from "@/lib/public/local-trace";
 
 import "./retroverse-song-empty.css";
@@ -19,108 +20,63 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { rvtr } = await params;
-  let resolution;
   try {
-    resolution = await resolveCanonicalSongExperience(rvtr);
+    const payload = await loadPublicSongPayload(rvtr);
+    if (!isPublicSongPayloadRenderable(payload)) {
+      return { title: "Song — Retroverse" };
+    }
+    return {
+      title: `${payload.title || payload.artist} — Retroverse`,
+      description: payload.title && payload.artist
+        ? `${payload.title} by ${payload.artist} — chart journey, story, and discovery.`
+        : `${payload.title || payload.artist} — song discovery on Retroverse.`,
+    };
   } catch {
     return { title: "Song — Retroverse" };
   }
-
-  if (resolution.tier === "graph") {
-    const { track } = resolution;
-    return {
-      title: `${track.title} — Retroverse`,
-      description: `${track.title} by ${track.artistName} — chart journey, story, and discovery.`,
-    };
-  }
-
-  if (resolution.tier === "package" || resolution.tier === "vdj") {
-    const { payload } = resolution;
-    return {
-      title: `${payload.title} — ${payload.artist} — Retroverse`,
-      description: `${payload.title} by ${payload.artist}${payload.year ? ` (${payload.year})` : ""} — a curated mobile experience on Retroverse.`,
-    };
-  }
-
-  return { title: "Song — Retroverse" };
-}
-
-function trackYear(track: NonNullable<Awaited<ReturnType<typeof loadTrackPage>>>): number | null {
-  if (track.releaseYear) return track.releaseYear;
-  const fromChart = track.firstChartDate ? Number(track.firstChartDate.slice(0, 4)) : NaN;
-  if (Number.isFinite(fromChart) && fromChart > 0) return fromChart;
-  return track.albums[0]?.releaseYear ?? null;
 }
 
 /**
- * Canonical Song Experience — every live entry point (VDJ Auto Follow, Live
- * Channel, current-song links, Runtime) resolves here.
- *
- * Renders the richest content already generated for the RVTR:
- *   graph (Postgres + patron experience) → package (any status) → VDJ
- *   library entry → honest empty state. Never a blank 404.
+ * Canonical Song Experience — every live entry point resolves here.
+ * One payload, one renderer, graph preferred over fallback metadata.
  */
 export default async function Retroverse2SongPage({ params, searchParams }: Props) {
   const { rvtr } = await params;
   const traceEnabled = localPublicTraceEnabled(searchParams ? await searchParams : undefined);
-  let resolution;
+
+  let payload;
   try {
-    resolution = await resolveCanonicalSongExperience(rvtr);
+    payload = await loadPublicSongPayload(rvtr);
   } catch (error) {
     console.error("[retroverse-song] song data temporarily unavailable", {
       rvtr,
       error: error instanceof Error ? error.message : String(error),
     });
     return (
-      <main className="rv-song-empty">
-        <p className="rv-song-empty__eyebrow">Retroverse</p>
-        <h1 className="rv-song-empty__title">This song is temporarily unavailable</h1>
-        <p className="rv-song-empty__body">
-          Please try again in a moment or continue exploring Retroverse.
-        </p>
-        <a className="rv-song-empty__cta" href="/search">
-          Search Retroverse
-        </a>
-      </main>
-    );
-  }
-
-  if (resolution.tier === "graph") {
-    const { track } = resolution;
-    const year = trackYear(track);
-    return (
-      <Rv2PublicShell
-        className="rv2-song"
-        yearsHref={track.rvYearHref ?? (year ? `/rv/${year}` : "/search")}
-      >
-        <PublicSongExperience rvtr={track.rvtr} trackData={track} traceEnabled={traceEnabled} />
+      <Rv2PublicShell className="rv2-song" yearsHref="/search" showTopBroadcastBanner={false}>
+        <main className="rv-song-empty">
+          <p className="rv-song-empty__eyebrow">Retroverse</p>
+          <h1 className="rv-song-empty__title">This song is temporarily unavailable</h1>
+          <p className="rv-song-empty__body">
+            Please try again in a moment or continue exploring Retroverse.
+          </p>
+          <a className="rv-song-empty__cta" href="/search">
+            Search Retroverse
+          </a>
+        </main>
       </Rv2PublicShell>
     );
   }
 
-  if (resolution.tier === "package" || resolution.tier === "vdj") {
-    const { payload } = resolution;
-    const track = await loadTrackPage(payload.rvtr);
-    if (track) {
-      const year = trackYear(track);
-      return (
-        <Rv2PublicShell
-          className="rv2-song"
-          yearsHref={track.rvYearHref ?? (year ? `/rv/${year}` : "/search")}
-        >
-          <PublicSongExperience rvtr={track.rvtr} trackData={track} traceEnabled={traceEnabled} />
-        </Rv2PublicShell>
-      );
-    }
-    return (
-      <UniversalRenderer
-        artist={payload.artist}
-        title={payload.title}
-        cards={payload.cards}
-        theme={payload.theme}
-      />
-    );
+  if (!isPublicSongPayloadRenderable(payload)) {
+    notFound();
   }
 
-  notFound();
+  const yearHref = payload.links.yearHref ?? (payload.year ? `/rv/${payload.year}` : "/search");
+
+  return (
+    <Rv2PublicShell className="rv2-song" yearsHref={yearHref} showTopBroadcastBanner={false}>
+      <PublicSongExperience payload={payload} traceEnabled={traceEnabled} />
+    </Rv2PublicShell>
+  );
 }

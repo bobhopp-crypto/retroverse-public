@@ -1,0 +1,15 @@
+.contacts-page .ops-page__inner--wide { width: min(100%, 1920px); max-width: none; padding-inline: 24px; }
+.contacts-board { display:grid; gap:14px; }
+.contacts-toolbar { display:flex; gap:12px; align-items:center; }
+.contacts-add { min-height:42px; }
+.contacts-search { width:min(420px,100%); margin-left:auto; }
+.contacts-grid-wrap { overflow:auto; max-height:calc(100vh - 250px); min-height:420px; border:1px solid rgba(140,110,220,.35); border-radius:10px; background:#121826; }
+.contacts-grid { width:100%; min-width:1500px; border-collapse:separate; border-spacing:0; table-layout:fixed; }
+.contacts-grid th { position:sticky; top:0; z-index:2; padding:13px 10px; background:#0d1320; color:rgba(210,220,240,.72); border-right:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(140,110,220,.35); text-align:left; font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; }
+.contacts-grid th:nth-child(1){width:150px}.contacts-grid th:nth-child(2){width:160px}.contacts-grid th:nth-child(3){width:320px}.contacts-grid th:nth-child(4){width:180px}.contacts-grid th:nth-child(5){width:130px}.contacts-grid th:nth-child(6),.contacts-grid th:nth-child(7){width:190px}.contacts-grid th:nth-child(8){width:300px}.contacts-grid th:nth-child(9){width:140px}
+.contacts-grid td { height:54px; padding:0; border-right:1px solid rgba(255,255,255,.07); border-bottom:1px solid rgba(255,255,255,.07); background:rgba(255,255,255,.015); }
+.contacts-cell { display:block; width:100%; height:53px; padding:10px 11px; border:2px solid transparent; outline:none; background:transparent; color:rgba(245,248,255,.96); font:inherit; font-size:.96rem; }
+.contacts-cell:focus { border-color:#2fd0d0; background:#14243a; box-shadow:inset 0 0 0 2px #2fd0d0,0 0 0 3px rgba(47,208,208,.2); }
+.contacts-grid th:last-child,.contacts-grid td:last-child { width:140px; }
+.contacts-actions { padding:0 8px !important; }.contacts-delete { width:30px;height:30px;border:1px solid transparent;background:transparent;color:rgba(210,220,240,.72);font-size:1.3rem;cursor:pointer; }.contacts-delete:hover{color:#ff607b;border-color:#ff607b}
+@media (max-width:720px){.contacts-page .ops-page__inner--wide{padding-inline:12px}.contacts-toolbar{flex-wrap:wrap}.contacts-search{flex-basis:100%;margin-left:0}}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 import { RetroverseGlobalNav } from "@/components/shell/RetroverseGlobalNav";
 import { OPS_GATE_COOKIE, isOpsEnabled } from "@/lib/ops/ops-gate";
@@ -21,14 +21,17 @@ export default async function RootLayout({
   const opsEnabled = isOpsEnabled();
   const cookieStore = await cookies();
   const opsAuthenticated = cookieStore.get(OPS_GATE_COOKIE)?.value === "ok";
+  const bareFactoryPreview = (await headers()).get("x-factory-homepage-preview") === "1";
 
   return (
     <html lang="en">
       <body>
-        <RetroverseGlobalNav
-          opsEnabled={opsEnabled}
-          opsAuthenticated={opsAuthenticated}
-        />
+        {bareFactoryPreview ? null : (
+          <RetroverseGlobalNav
+            opsEnabled={opsEnabled}
+            opsAuthenticated={opsAuthenticated}
+          />
+        )}
         {children}
       </body>
     </html>

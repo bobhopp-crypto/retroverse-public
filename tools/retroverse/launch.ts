@@ -183,7 +183,9 @@ async function main() {
     process.exit(1);
   }
 
-  const studioResult = await startAndWait("studio", "BobOS");
+  const studioResult = process.env.RETROVERSE_NO_STUDIO === "1"
+    ? { ok: true as const }
+    : await startAndWait("studio", "BobOS");
   if (!studioResult.ok) {
     logStartupResult({
       startedAt,
@@ -222,7 +224,7 @@ async function main() {
     `VirtualDJ Bridge: ${bridgeResult.ok ? "running" : "not running — open VirtualDJ, then run npm run vdj-bridge"}\n`,
   );
 
-  openBrowser([studioUrl]);
+  if (process.env.RETROVERSE_NO_BROWSER !== "1") openBrowser([studioUrl]);
 
   logStartupResult({
     startedAt,

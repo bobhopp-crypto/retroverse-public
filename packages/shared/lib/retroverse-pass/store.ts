@@ -1,4 +1,4 @@
-import { getInspectPool, inspectQuery } from "@/lib/inspect/pg";
+import { getPassPool, passQuery } from "@/lib/retroverse-pass/pg";
 
 import type {
   PassActivityEventType,
@@ -77,7 +77,7 @@ type QueryRows = <T extends Record<string, unknown>>(
 /** Look up one exact opaque credential without provisioning or mutating data. */
 export async function scanPass(
   credential: string,
-  query: QueryRows = inspectQuery,
+  query: QueryRows = passQuery,
 ): Promise<PassScanResult | null> {
   try {
     const rows = await query<PassRow>(
@@ -191,7 +191,7 @@ export async function claimPass(input: {
   if (!credential) throw new PassRegistrationInputError("Invalid pass credential.");
   if (!firstName) throw new PassRegistrationInputError("First name is required.");
 
-  const client = await getInspectPool().connect();
+  const client = await getPassPool().connect();
   try {
     await client.query("BEGIN");
     const result = await claimPassWithClient(client, {
@@ -266,7 +266,7 @@ export async function updatePassVisitor(input: {
   if (!credential) throw new PassRegistrationInputError("Invalid pass credential.");
   if (!firstName) throw new PassRegistrationInputError("First name is required.");
 
-  const client = await getInspectPool().connect();
+  const client = await getPassPool().connect();
   try {
     await client.query("BEGIN");
     const result = await updateVisitorWithClient(client, { credential, firstName, lastName: input.lastName, email, phone, birthday: input.birthday, postalCode: input.postalCode, marketingOptIn: input.marketingOptIn });
@@ -289,7 +289,7 @@ export async function recordPassActivity(input: {
   metadata?: Record<string, unknown> | null;
 }): Promise<void> {
   try {
-    await inspectQuery(
+    await passQuery(
       `
       INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
       VALUES ($1, $2, $3, $4)

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-import { MediaLabEditorialReview } from "@/components/ops/media-lab/MediaLabEditorialReview";
+import { MediaLabChapterEditor } from "@/components/ops/media-lab/MediaLabChapterEditor";
 import type { MediaLabChapterMode } from "@/lib/ops/media-lab/chapter-mode";
 import type { MediaLabJobSummary } from "@/lib/ops/media-lab/job-summary";
 import {
@@ -512,26 +512,13 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
           ) : null}
 
           {preview.job.chapterCount > 0 || preview.chaptersPreview.length > 0 ? (
-            <MediaLabEditorialReview
+            <MediaLabChapterEditor
               year={year}
               jobSlug={preview.jobSlug}
-              outputDir={preview.outputDir}
-              chapterMode={preview.job.chapterMode ?? chapterMode}
-              workstationMode={workstationMode}
-              onOpenSetup={() => setShowSetup(true)}
+              sourceFilename={preview.job.sourceFilename}
+              durationSeconds={preview.job.durationSeconds ?? 0}
               onNotice={setNotice}
               onError={setError}
-              onExported={(patch) => {
-                setPreview((prev) =>
-                  prev
-                    ? {
-                        ...prev,
-                        chaptersPreview: patch.chaptersPreview ?? prev.chaptersPreview,
-                        job: patch.job ? { ...prev.job, ...patch.job } : prev.job,
-                      }
-                    : prev,
-                );
-              }}
             />
           ) : (
             <p className="ops-empty">

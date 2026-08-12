@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
 import { RetroverseGlobalNav } from "@/components/shell/RetroverseGlobalNav";
+import { ArveyAssistant } from "@/app/components/arvey-assistant";
+import { GlobalSongRequestBadge } from "@/components/pass/GlobalSongRequestBadge";
 import { VdjAutoFollower } from "@/components/retroverse-live/VdjAutoFollower";
 import { OPS_GATE_COOKIE, isOpsEnabled } from "@/lib/ops/ops-gate";
 
@@ -30,7 +32,9 @@ export default async function RootLayout({
           opsEnabled={opsEnabled}
           opsAuthenticated={opsAuthenticated}
         />
+        <GlobalSongRequestBadge />
         <VdjAutoFollower />
+        <ArveyAssistant currentSong={{ title: "Now playing", artist: "Retroverse Live", year: null }} />
         {children}
       </body>
     </html>

@@ -1,10 +1,10 @@
 {
   "version": 2,
   "rvtr": "RVTR016328",
-  "status": "draft",
+  "status": "cards_ready",
   "createdAt": "2026-06-17T19:04:53.058Z",
-  "updatedAt": "2026-06-17T19:04:53.343Z",
-  "processedAt": null,
+  "updatedAt": "2026-08-11T18:05:48.296Z",
+  "processedAt": "2026-08-11T18:05:48.296Z",
   "approvedAt": null,
   "publishedAt": null,
   "processLog": [
@@ -68,7 +68,36 @@
   ],
   "candidateFacts": [],
   "candidateStories": [],
-  "storyCards": [],
+  "storyCards": [
+    {
+      "id": "research-pilot-10-RVTR016328-1",
+      "storyId": "research-pilot-10-RVTR016328-1",
+      "rank": 1,
+      "headline": "The last track on the album",
+      "fact": "“Mamma Mia” was the last song ABBA recorded for the album, written by Benny Andersson, Björn Ulvaeus and Stig Anderson with shared lead vocals from Agnetha Fältskog and Anni-Frid Lyngstad.",
+      "supportingContext": null,
+      "sourceLabel": "en.wikipedia.org",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Mamma_Mia_%28ABBA_song%29",
+      "sourceExcerpt": "“Mamma Mia” was the last song ABBA recorded for the album, written by Benny Andersson, Björn Ulvaeus and Stig Anderson with shared lead vocals from Agnetha Fältskog and Anni-Frid Lyngstad.",
+      "confidence": 0.9,
+      "category": "recording",
+      "locked": true
+    },
+    {
+      "id": "research-pilot-10-RVTR016328-2",
+      "storyId": "research-pilot-10-RVTR016328-2",
+      "rank": 2,
+      "headline": "A breakthrough beyond Waterloo",
+      "fact": "The song became ABBA’s first UK No. 1 since “Waterloo” and helped deliver the group’s major breakthrough in Australia.",
+      "supportingContext": null,
+      "sourceLabel": "www.abbaofficial.com",
+      "sourceUrl": "https://www.abbaofficial.com/abba_the_story.html",
+      "sourceExcerpt": "The song became ABBA’s first UK No. 1 since “Waterloo” and helped deliver the group’s major breakthrough in Australia.",
+      "confidence": 0.9,
+      "category": "chart",
+      "locked": true
+    }
+  ],
   "intel": {
     "label": null,
     "catalogNumber": null,

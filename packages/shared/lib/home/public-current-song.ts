@@ -7,12 +7,21 @@ import type { Rvba } from "@/lib/broadcast/rvba";
 import type { ChannelExperienceSource } from "@/lib/channel-zero/types";
 import { resolveChannelExperience } from "@/lib/channel-zero/resolve-channel-experience";
 import {
+  buildSundayNightsCurrentPayload,
   resolveLiveDestination,
+  type LiveDestination,
   type SundayNightsCurrentPayload,
 } from "@/lib/sunday-nights/live-payload";
 import { currentLiveSelection } from "@/lib/sunday-nights/live-freshness";
+import { resolveLiveTrack, songKeyFromPath } from "@/lib/sunday-nights/resolve-live-track";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
+import type { SundayNightsLiveSelection, SundayNightsState } from "@/lib/sunday-nights/types";
+import { loadPublicSongPayload, type PublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
+import { loadAuthoritativeTerraFinalRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
+import { vdjBaseKey } from "@/lib/universal-renderer/load-vdj-base";
 import { loadTrackPage } from "@/lib/track/load-track-page";
+
+const RE_RVTR = /^RVTR\d{6}$/i;
 
 export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0",
@@ -25,29 +34,28 @@ export const PUBLIC_CURRENT_NO_STORE_HEADERS = {
 export type PublicHomepageManualOverride = {
   broadcast: CurrentBroadcast;
   itemIndex: number;
-  presentation: NonNullable<PlayheadPayload["presentation"]>;
+  presentation: PlayheadPayload["presentation"];
   publishedAt: string | null;
-  queue: PresentationQueue;
+  queue: PresentationQueue | null;
   rvba: Rvba;
   updatedAt: string;
 };
 
 export type PublicHomepagePayload = SundayNightsCurrentPayload & {
-  /** Weekend compatibility bridge: only an active manual take may override Channel Zero. */
+  /** Selected experience from the Experience Selector (when on air). */
   manualOverride?: PublicHomepageManualOverride | null;
+  /** Unified public song payload for the current track when RVTR is known. */
+  publicSong?: PublicSongPayload | null;
 };
 
+/** Show the selected experience on the homepage when the selector has one on air. */
 export function resolvePublicHomepageManualOverride(
   playhead: PlayheadPayload,
 ): PublicHomepageManualOverride | null {
   if (
-    playhead.manualTakeActive !== true ||
     !playhead.onAir ||
-    !playhead.presentation ||
-    !playhead.item ||
-    playhead.itemIndex < 0 ||
-    !playhead.queue ||
     !playhead.rvba ||
+    !playhead.broadcast ||
     playhead.broadcast.state === "off-air"
   ) {
     return null;
@@ -74,6 +82,26 @@ export function applyPublicHomepageManualOverride(
   };
 }
 
+/**
+ * A fresh VirtualDJ song replaces song-type selector output. Intentional
+ * non-song takes (announcements, giveaways, images, video, and so on) stay on air.
+ */
+export function shouldFreshVirtualDjTakePriority(
+  playhead: PlayheadPayload,
+  live: SundayNightsLiveSelection | null,
+): boolean {
+  if (
+    live?.source !== "bridge" ||
+    !live.title.trim() ||
+    !live.artist.trim()
+  ) {
+    return false;
+  }
+
+  const selectedExperience = resolvePublicHomepageManualOverride(playhead);
+  return !selectedExperience || selectedExperience.rvba.type === "now-playing";
+}
+
 function publicSourceFromChannelZero(
   source: ChannelExperienceSource,
 ): "virtualdj" | "channel-zero" {
@@ -81,20 +109,228 @@ function publicSourceFromChannelZero(
   return "channel-zero";
 }
 
+function liveSelectionFromPresentation(
+  playhead: PlayheadPayload,
+  bridgeLive: SundayNightsLiveSelection | null,
+): SundayNightsLiveSelection | null {
+  const rvba = playhead.rvba;
+  const title = rvba?.title?.trim() || bridgeLive?.title?.trim() || "";
+  const artist = rvba?.subtitle?.trim() || bridgeLive?.artist?.trim() || "";
+  if (!title || !artist) return bridgeLive;
+
+  return {
+    rvtr: bridgeLive?.rvtr ?? null,
+    artist,
+    title,
+    year: bridgeLive?.year ?? null,
+    coverUrl: bridgeLive?.coverUrl ?? null,
+    songKey: bridgeLive?.songKey ?? null,
+    source: bridgeLive?.source ?? "manual",
+    filepath: bridgeLive?.filepath ?? null,
+    deck: bridgeLive?.deck ?? null,
+    bridgeTimestamp: bridgeLive?.bridgeTimestamp ?? null,
+    resolution: bridgeLive?.resolution ?? null,
+  };
+}
+
+async function payloadFromCurrentExperience(
+  playhead: PlayheadPayload,
+  state: SundayNightsState,
+): Promise<PublicHomepagePayload> {
+  const manualOverride = resolvePublicHomepageManualOverride(playhead);
+  const linkId = playhead.rvba?.link?.id?.trim() ?? null;
+  const live = liveSelectionFromPresentation(playhead, state.live);
+  const title = live?.title?.trim() ?? "";
+  const artist = live?.artist?.trim() ?? "";
+
+  let currentTrackId = linkId;
+  let track = null as Awaited<ReturnType<typeof loadTrackPage>>;
+  let publicSong: PublicSongPayload | null = null;
+  let destination: LiveDestination = { kind: "EXPERIENCE", href: "/" };
+
+  if (linkId && RE_RVTR.test(linkId)) {
+    const rvtr = linkId.toUpperCase();
+    currentTrackId = rvtr;
+    [track, publicSong] = await Promise.all([
+      loadTrackPage(rvtr),
+      loadPublicSongPayload(rvtr).catch(() => null),
+    ]);
+    destination = await resolveLiveDestination(rvtr);
+  } else if (linkId?.toLowerCase().startsWith("vdj:") && title && artist) {
+    const filepath = linkId.slice(4);
+    const resolved = await resolveLiveTrack({ filepath, artist, title }).catch(() => null);
+    if (resolved?.rvtr) {
+      currentTrackId = resolved.rvtr;
+      [track, publicSong] = await Promise.all([
+        loadTrackPage(resolved.rvtr),
+        loadPublicSongPayload(resolved.rvtr).catch(() => null),
+      ]);
+      destination = await resolveLiveDestination(resolved.rvtr);
+      if (live) {
+        live.rvtr = resolved.rvtr;
+        live.year = resolved.year ?? publicSong?.year ?? live.year;
+        live.coverUrl = resolved.coverUrl ?? publicSong?.coverUrl ?? live.coverUrl;
+        live.resolution = resolved.resolution;
+      }
+    } else {
+      destination = await resolveLiveDestination(linkId);
+      if (live) {
+        live.filepath = filepath;
+        live.songKey = songKeyFromPath(filepath);
+        live.source = "bridge";
+        live.resolution = "vdj-library";
+      }
+    }
+  } else if (linkId) {
+    destination = await resolveLiveDestination(linkId);
+  }
+
+  if (live && publicSong) {
+    live.rvtr = publicSong.rvtr;
+    live.year = publicSong.year ?? live.year;
+    live.coverUrl = publicSong.coverUrl ?? live.coverUrl;
+  }
+
+  return {
+    currentTrackId,
+    live,
+    track: publicSong?.track ?? track,
+    destination,
+    channel: null,
+    updatedAt: playhead.updatedAt,
+    publicState: {
+      version: 2,
+      source: "experience-selector",
+      servedAt: new Date().toISOString(),
+    },
+    manualOverride,
+    publicSong,
+  };
+}
+
+async function payloadFromFreshVirtualDj(
+  state: SundayNightsState,
+): Promise<PublicHomepagePayload> {
+  // This is the pre-selector now-playing authority: it preserves the bridge's
+  // VDJ-only artist/title/path fallback while enriching matched RVTR tracks.
+  const payload = await buildSundayNightsCurrentPayload(state, null);
+  let live = payload.live ? { ...payload.live } : null;
+  let currentTrackId = payload.currentTrackId;
+  let track = payload.track;
+  let destination = payload.destination;
+  let rvtr = currentTrackId && RE_RVTR.test(currentTrackId)
+    ? currentTrackId.toUpperCase()
+    : null;
+  let publicSong = rvtr
+    ? await loadPublicSongPayload(rvtr).catch(() => null)
+    : null;
+  let preparedVdj = false;
+
+  if (live?.filepath) {
+    const filepath = live.filepath.replace(/\\/g, "/").trim();
+    const vdjPublicSong = await loadPublicSongPayload(`VDJ:${vdjBaseKey(filepath.toLowerCase())}`).catch(() => null);
+    const vdjEditorial = vdjPublicSong
+      ? await loadAuthoritativeTerraFinalRecord(vdjPublicSong.rvtr, {
+          artist: vdjPublicSong.artist || live.artist,
+          title: vdjPublicSong.title || live.title,
+        })
+      : null;
+    if (vdjPublicSong && vdjEditorial) {
+      publicSong = vdjPublicSong;
+      preparedVdj = true;
+      currentTrackId = vdjPublicSong.rvtr;
+      rvtr = null;
+      track = null;
+    }
+  }
+
+  if (!rvtr && live?.filepath && !preparedVdj) {
+    const resolved = await resolveLiveTrack({
+      filepath: live.filepath,
+      artist: live.artist,
+      title: live.title,
+    }).catch(() => null);
+
+    if (resolved?.rvtr) {
+      rvtr = resolved.rvtr;
+      currentTrackId = rvtr;
+      [track, publicSong, destination] = await Promise.all([
+        loadTrackPage(rvtr),
+        loadPublicSongPayload(rvtr).catch(() => null),
+        resolveLiveDestination(rvtr),
+      ]);
+      live = {
+        ...live,
+        rvtr,
+        year: resolved.year ?? publicSong?.year ?? live.year,
+        coverUrl: resolved.coverUrl ?? publicSong?.coverUrl ?? live.coverUrl,
+        resolution: resolved.resolution,
+      };
+    }
+  }
+
+  if (live && publicSong) {
+    live = {
+      ...live,
+      rvtr: publicSong.rvtr,
+      year: publicSong.year ?? live.year,
+      coverUrl: publicSong.coverUrl ?? live.coverUrl,
+    };
+  }
+
+  return {
+    ...payload,
+    currentTrackId,
+    live,
+    track: publicSong?.track ?? track,
+    destination,
+    manualOverride: null,
+    publicSong,
+    publicState: {
+      version: 2,
+      source: "virtualdj",
+      servedAt: new Date().toISOString(),
+    },
+  };
+}
+
 /**
  * Canonical public now-playing payload.
  *
- * Channel Zero resolves exactly one Experience (takeover → live signal →
- * scheduled program → default). Public V3 renders that Song Experience.
+ * A fresh bridge song replaces song-type selector output. Intentionally
+ * selected non-song experiences remain authoritative while they are on air.
  */
 export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayload> {
-  const [state, playhead] = await Promise.all([
-    loadSundayNightsState(),
-    buildPlayheadPayload(),
-  ]);
-  const channelZero = resolveChannelExperience({ state });
+  const playhead = await buildPlayheadPayload();
+  const manualOverride = resolvePublicHomepageManualOverride(playhead);
+  const state = await loadSundayNightsState();
   const freshLive = currentLiveSelection(state);
-  const track = await loadTrackPage(channelZero.experienceId);
+
+  // The VirtualDJ selector is a source choice, not the current-song record.
+  // For normal VDJ playback read the live bridge/playhead state directly so a
+  // stale selector snapshot cannot keep publishing an older song. Non-song
+  // presentations remain selector-authoritative below.
+  if (
+    (!manualOverride || manualOverride.rvba.type === "now-playing") &&
+    (freshLive?.source === "bridge" || manualOverride?.rvba.type === "now-playing")
+  ) {
+    return payloadFromFreshVirtualDj(state);
+  }
+
+  if (shouldFreshVirtualDjTakePriority(playhead, freshLive)) {
+    return payloadFromFreshVirtualDj(state);
+  }
+
+  if (manualOverride) {
+    return payloadFromCurrentExperience(playhead, state);
+  }
+
+  const channelZero = resolveChannelExperience({ state });
+  const rvtr = channelZero.experienceId;
+  const [track, publicSong] = await Promise.all([
+    loadTrackPage(rvtr),
+    loadPublicSongPayload(rvtr).catch(() => null),
+  ]);
   const destination = await resolveLiveDestination(channelZero.experienceId);
 
   const liveOverlay =
@@ -105,7 +341,7 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
   const channelZeroPayload: SundayNightsCurrentPayload = {
     currentTrackId: channelZero.experienceId,
     live: liveOverlay,
-    track,
+    track: publicSong?.track ?? track,
     destination,
     channel: null,
     channelZero,
@@ -117,5 +353,8 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
     },
   };
 
-  return applyPublicHomepageManualOverride(channelZeroPayload, playhead);
+  return {
+    ...applyPublicHomepageManualOverride(channelZeroPayload, playhead),
+    publicSong,
+  };
 }

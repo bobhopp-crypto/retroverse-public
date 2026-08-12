@@ -1,7 +1,7 @@
 /**
  * Retroverse Pass Experience v1.
  *
- * A serialized pass (RVSN#####) is a permanent Retroverse identity.
+ * A pass identifier is an opaque string defined by the QR / URL.
  * First scan → registration form (first name required, email/phone optional).
  * Later scans → recognized immediately, told the pass is already registered.
  *
@@ -56,36 +56,38 @@ export type PassScanResult =
   | { state: "unclaimed"; pass: RetroversePass }
   | { state: "claimed"; pass: RetroversePass; visitor: RetroverseVisitor };
 
-/** Public credentials are opaque. Trimming is the only normalization allowed. */
+const MAX_PASS_IDENTIFIER_LENGTH = 100;
+
+/**
+ * Public credentials are opaque. Trim only; reject empty / unsafe path values.
+ * No business-format rules (RVSN prefix, length, numeric shape, etc.).
+ */
 export function parsePassCredential(raw: unknown): string | null {
   if (typeof raw !== "string") return null;
   const credential = raw.trim();
-  if (!credential || credential.length > 100 || credential.includes("\0")) return null;
+  if (!credential || credential.length > MAX_PASS_IDENTIFIER_LENGTH) return null;
+  // Path traversal / URL delimiters / control chars only.
+  if (
+    credential.includes("/") ||
+    credential.includes("\\") ||
+    credential.includes("?") ||
+    credential.includes("#") ||
+    /[\x00-\x1f\x7f]/.test(credential)
+  ) {
+    return null;
+  }
   return credential;
 }
 
-/**
- * A well-formed credential can still fail to look like a real Retroverse
- * pass serial (e.g. a stray link, a typo, someone else's QR code). Issued
- * serials are `RVSN` followed by 3–8 digits. This gate runs after
- * `parsePassCredential` and before any database lookup or provisioning —
- * it never mutates data, it only decides whether to offer the registration
- * flow at all.
- */
-const PASS_SERIAL_FORMAT = /^RVSN\d{3,8}$/i;
-
+/** @deprecated Prefer parsePassCredential — kept for callers that used the old name. */
 export function isPlausiblePassSerial(credential: string): boolean {
-  return PASS_SERIAL_FORMAT.test(credential);
+  return parsePassCredential(credential) !== null;
 }
 
 /**
- * Canonical uppercase form of a plausible serial, or null if it doesn't
- * look like a real pass. Scanning, claiming, and editing all resolve
- * through this so `rvsn00427` and `RVSN00427` are always the same pass —
- * otherwise mismatched case could silently provision duplicate rows.
+ * Resolve a pass identifier for scan / claim / edit.
+ * Identity is exact after trim — the QR string is the identifier.
  */
 export function normalizePassSerial(raw: unknown): string | null {
-  const credential = parsePassCredential(raw);
-  if (!credential || !isPlausiblePassSerial(credential)) return null;
-  return credential.toUpperCase();
+  return parsePassCredential(raw);
 }

@@ -8,6 +8,7 @@ import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governa
 import { artworkErrorJson } from "@/lib/ops/creative-lab/artwork/provider-error";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
+import { styleDirectiveForColorScheme } from "@/lib/bobos/project-zero/creative-brief";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -50,6 +51,8 @@ export async function POST(req: Request) {
       profile,
       frontFields,
       creativeSettings: parseCreativeDirectionSettings(body),
+      styleDirective:
+        typeof body.colorScheme === "string" ? styleDirectiveForColorScheme(body.colorScheme) : undefined,
     });
     return NextResponse.json({
       ok: true,

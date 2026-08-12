@@ -1,0 +1,3 @@
+/* Closure-only copy guard: keep the existing home controls and layout while
+   removing global product chrome from the public visitor surface. */
+body:has(.public-home) .rv-global-nav { display: none; }

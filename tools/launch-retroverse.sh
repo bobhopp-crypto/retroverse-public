@@ -151,7 +151,8 @@ fi
 
 step "9 · Starting VDJ Bridge"
 : > "$BRIDGE_LOG"
-nohup npm run vdj-bridge >> "$BRIDGE_LOG" 2>&1 &
+LIVE_BRIDGE_API_URL="http://127.0.0.1:${LIVE_PORT}/api/sunday-nights/bridge" \
+  nohup npm run vdj-bridge >> "$BRIDGE_LOG" 2>&1 &
 BRIDGE_PID=$!
 disown
 sleep 2

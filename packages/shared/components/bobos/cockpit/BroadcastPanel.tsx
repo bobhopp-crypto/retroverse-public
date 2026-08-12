@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { getBroadcastStatus, type BroadcastStatus } from "@/app/bobos/broadcast/actions";
 
 /**
- * Broadcast Control — status widget only. Operator controls live in The Booth.
+ * Broadcast Mixer status widget. The full four-input switcher lives at RV01-03.
  */
 
 const POLL_MS = 2000;
@@ -59,8 +59,8 @@ export function BroadcastPanel({ initialStatus }: { initialStatus: BroadcastStat
       </ul>
 
       <div className="cockpit-panel__actions">
-        <a href="/bobos/booth" className="cockpit-panel__btn cockpit-panel__btn--primary">
-          Open The Booth
+        <a href="/bobos/broadcast" className="cockpit-panel__btn cockpit-panel__btn--primary">
+          Open Broadcast Mixer
         </a>
         <a
           href="http://localhost:3100/"

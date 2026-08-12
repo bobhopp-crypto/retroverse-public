@@ -1,10 +1,10 @@
 import "server-only";
 
-import { listPassLibrary } from "@/app/ops/event-studio/create/pass-generator/actions";
+import { listPassLibrary } from "@/app/bobos/passes/actions";
 import { loadGenerationManifest } from "@/lib/ops/content-creator/library";
-import { eventIdFromName } from "@/lib/ops/event-studio/pass-studio/default-templates";
-import { nextSerialStart } from "@/lib/ops/event-studio/pass-studio/store";
-import type { GeneratedPass, PassTemplate } from "@/lib/ops/event-studio/pass-studio/types";
+import { eventIdFromName } from "@/lib/bobos/pass-studio/default-templates";
+import { nextSerialStart } from "@/lib/bobos/pass-studio/store";
+import type { GeneratedPass, PassTemplate } from "@/lib/bobos/pass-studio/types";
 
 import { seedCreativeBriefFromContext, type PassCreativeBrief } from "./creative-brief";
 import type { PassArtworkAdjustments } from "./pass-artwork-adjustments";

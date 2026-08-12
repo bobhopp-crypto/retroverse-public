@@ -8,6 +8,7 @@ import {
   magneticTrackWidthPx,
   MERGE_HANDLE_WIDTH_PX,
   sourceSecToMagneticX,
+  magneticXToSourceSec,
   visibleSourceRange,
 } from "@/lib/ops/media-lab/magnetic-timeline-nav";
 import type { TranscriptSegment } from "@/lib/ops/media-lab/build-chapters-from-segments";
@@ -67,6 +68,7 @@ type ClipQueueFilmstripProps = {
   searchHits?: TimelineSearchHit[];
   timelineScrollToken?: number;
   timelineScrollSec?: number;
+  selection?: { inSeconds?: number; outSeconds?: number };
 };
 
 function clipDurationSec(chapter: EditorialChapterRow): number {
@@ -213,6 +215,7 @@ function MagneticTimeline(props: ClipQueueFilmstripProps) {
   const clipRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const prevScrollMaxRef = useRef(0);
   const [zoom, setZoom] = useState(readStoredZoom);
+  const [scrubbing, setScrubbing] = useState(false);
   const [scrollMetrics, setScrollMetrics] = useState({
     scrollLeft: 0,
     scrollWidth: 0,
@@ -336,6 +339,59 @@ function MagneticTimeline(props: ClipQueueFilmstripProps) {
     }
   }
 
+  function setZoomLevel(next: number) {
+    onZoomInput(next);
+  }
+
+  function fitSelection() {
+    const selection = props.selection;
+    if (selection?.inSeconds == null || selection.outSeconds == null) return;
+    const span = Math.max(1, selection.outSeconds - selection.inSeconds);
+    const viewport = stripRef.current?.clientWidth ?? 720;
+    setZoomLevel(Math.max(MAGNETIC_ZOOM_MIN, Math.min(MAGNETIC_ZOOM_MAX, viewport / span)));
+    handleMinimapNavigate(selection.inSeconds);
+  }
+
+  const sourceAtClientX = useCallback(
+    (clientX: number) => {
+      const track = stripRef.current;
+      const inner = track?.querySelector<HTMLElement>(".ops-ml-magnetic-timeline__track-inner");
+      if (!inner) return 0;
+      return magneticXToSourceSec(clientX - inner.getBoundingClientRect().left, props.chapters, pxPerSec);
+    },
+    [props.chapters, pxPerSec],
+  );
+
+  useEffect(() => {
+    if (!scrubbing) return;
+    const move = (event: PointerEvent) => props.onSeek?.(sourceAtClientX(event.clientX));
+    const up = () => setScrubbing(false);
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up, { once: true });
+    return () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+    };
+  }, [props.onSeek, scrubbing, sourceAtClientX]);
+
+  useEffect(() => {
+    function onKey(event: KeyboardEvent) {
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+      if ((event.metaKey || event.ctrlKey) && event.key === "+") {
+        event.preventDefault();
+        setZoomLevel(zoom + 2);
+      } else if ((event.metaKey || event.ctrlKey) && event.key === "-") {
+        event.preventDefault();
+        setZoomLevel(zoom - 2);
+      } else if (event.shiftKey && event.key.toLowerCase() === "z") {
+        event.preventDefault();
+        setZoomLevel(MAGNETIC_ZOOM_MIN);
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoom]);
+
   function handleTrackScroll() {
     updateScrollMetrics();
   }
@@ -366,6 +422,9 @@ function MagneticTimeline(props: ClipQueueFilmstripProps) {
     <section className="ops-ml-magnetic-timeline" aria-label="Magnetic chapter timeline">
       <div className="ops-ml-magnetic-timeline__toolbar">
         <span className="ops-ml-magnetic-timeline__zoom-label">Overview</span>
+        <button type="button" className="ops-btn ops-btn--sm" aria-label="Zoom Out" onClick={() => setZoomLevel(zoom - 2)}>
+          −
+        </button>
         <input
           type="range"
           className="ops-ml-magnetic-timeline__zoom"
@@ -381,6 +440,15 @@ function MagneticTimeline(props: ClipQueueFilmstripProps) {
         <span className="ops-ml-magnetic-timeline__zoom-readout" aria-hidden="true">
           {pxPerSec}px/s
         </span>
+        <button type="button" className="ops-btn ops-btn--sm" aria-label="Zoom In" onClick={() => setZoomLevel(zoom + 2)}>
+          +
+        </button>
+        <button type="button" className="ops-btn ops-btn--sm" onClick={() => setZoomLevel(MAGNETIC_ZOOM_MIN)}>
+          Fit Entire Source
+        </button>
+        <button type="button" className="ops-btn ops-btn--sm" onClick={fitSelection} disabled={props.selection?.inSeconds == null || props.selection?.outSeconds == null}>
+          Fit Selection
+        </button>
         <TimelineTranscriptSearch
           query={searchQuery}
           matchCount={searchHits.length}
@@ -406,6 +474,12 @@ function MagneticTimeline(props: ClipQueueFilmstripProps) {
           className="ops-ml-magnetic-timeline__track"
           role="list"
           onScroll={handleTrackScroll}
+          onPointerDown={(event) => {
+            if ((event.target as HTMLElement).closest("button")) return;
+            event.preventDefault();
+            setScrubbing(true);
+            props.onSeek?.(sourceAtClientX(event.clientX));
+          }}
         >
           <div
             className="ops-ml-magnetic-timeline__track-inner"

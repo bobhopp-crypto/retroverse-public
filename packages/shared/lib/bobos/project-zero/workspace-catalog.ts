@@ -1,3 +1,4 @@
+import { getSystemVerification } from "@/lib/bobos/system-verification";
 import type { WorkspaceCatalogId } from "./types";
 
 export type WorkspaceCatalogEntry = {
@@ -10,6 +11,11 @@ export type WorkspaceCatalogEntry = {
    * yet — the generic placeholder).
    */
   existingHref: string | null;
+  /**
+   * Optional BobOS system verification id (see system-verification.ts).
+   * When present, Project Zero can surface VERIFIED without changing workspace DONE status.
+   */
+  systemVerificationId?: string;
 };
 
 export const WORKSPACE_CATALOG: Record<WorkspaceCatalogId, WorkspaceCatalogEntry> = {
@@ -19,6 +25,7 @@ export const WORKSPACE_CATALOG: Record<WorkspaceCatalogId, WorkspaceCatalogEntry
     // BobOS owns this workspace now — it already knows the event, so it renders
     // its own context-aware Pass Workspace instead of linking to the old wizard.
     existingHref: null,
+    systemVerificationId: "RV02-PASS-SYSTEM",
   },
   poster: {
     id: "poster",

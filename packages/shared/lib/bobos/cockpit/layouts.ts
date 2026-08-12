@@ -17,9 +17,9 @@ export const DEFAULT_COCKPIT_LAYOUT: CockpitLayoutDefinition = {
   description: "Daily Retroverse operations",
   defaultLayout: true,
   orderedPanels: [
-    "current-event", "pass-production", "pass-registration", "documentary-progress",
-    "broadcast", "retroverse-runtime", "media-library", "catalog-integrity",
-    "virtualdj-status", "printer-panel", "git-status", "terminal",
+    "current-event", "pass-production", "event-producer", "pass-management",
+    "broadcast", "retroverse-runtime", "media-library", "home-page-factory",
+    "virtualdj-status", "printer-panel", "experience-inspector", "terminal",
     "system-health", "ai-queue", "clock", "storage",
   ],
 };

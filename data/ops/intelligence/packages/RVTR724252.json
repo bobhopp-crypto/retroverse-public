@@ -1,10 +1,10 @@
 {
   "version": 2,
   "rvtr": "RVTR724252",
-  "status": "draft",
+  "status": "cards_ready",
   "createdAt": "2026-06-17T19:05:37.788Z",
-  "updatedAt": "2026-06-17T19:05:38.067Z",
-  "processedAt": null,
+  "updatedAt": "2026-08-11T18:05:48.297Z",
+  "processedAt": "2026-08-11T18:05:48.297Z",
   "approvedAt": null,
   "publishedAt": null,
   "processLog": [
@@ -68,7 +68,36 @@
   ],
   "candidateFacts": [],
   "candidateStories": [],
-  "storyCards": [],
+  "storyCards": [
+    {
+      "id": "research-pilot-10-RVTR724252-1",
+      "storyId": "research-pilot-10-RVTR724252-1",
+      "rank": 1,
+      "headline": "A gospel quartet’s crossover surprise",
+      "fact": "The Statler Brothers came out of Johnny Cash’s touring band and first broke through with “Flowers on the Wall,” a wry song that crossed from country into the pop audience.",
+      "supportingContext": null,
+      "sourceLabel": "www.pbs.org",
+      "sourceUrl": "https://www.pbs.org/kenburns/country-music/don-reid-biography/",
+      "sourceExcerpt": "The Statler Brothers came out of Johnny Cash’s touring band and first broke through with “Flowers on the Wall,” a wry song that crossed from country into the pop audience.",
+      "confidence": 0.9,
+      "category": "artist",
+      "locked": true
+    },
+    {
+      "id": "research-pilot-10-RVTR724252-2",
+      "storyId": "research-pilot-10-RVTR724252-2",
+      "rank": 2,
+      "headline": "Recorded between Cash sessions",
+      "fact": "The group’s debut album was recorded between takes during a Johnny Cash album session, with members of the Tennessee Three providing the backing musicians.",
+      "supportingContext": null,
+      "sourceLabel": "en.wikipedia.org",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Flowers_on_the_Wall_%28album%29",
+      "sourceExcerpt": "The group’s debut album was recorded between takes during a Johnny Cash album session, with members of the Tennessee Three providing the backing musicians.",
+      "confidence": 0.9,
+      "category": "recording",
+      "locked": true
+    }
+  ],
   "intel": {
     "label": null,
     "catalogNumber": null,
