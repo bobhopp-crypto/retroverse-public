@@ -95,6 +95,30 @@ export async function loadC2ProductionProofRecord(rvtr: string): Promise<Editori
   }
 }
 
+export async function loadC2ProductionBatch100Record(rvtr: string): Promise<EditorialDiversityRecord | null> {
+  try {
+    const raw = await readFile(join(process.cwd(), "reports/c2-production-batch-100/editorial-manifest.json"), "utf8");
+    const selectionRaw = await readFile(join(process.cwd(), "reports/c2-production-batch-100/selection-manifest.json"), "utf8");
+    const records = JSON.parse(raw).results as Array<Record<string, any>>;
+    const selection = JSON.parse(selectionRaw).records as Array<Record<string, any>>;
+    const normalized = rvtr.trim().toUpperCase();
+    const selected = selection.find((r) => String(r.videoExperienceId ?? "").toUpperCase() === normalized || String(r.rvtr ?? "").toUpperCase() === normalized);
+    const record = records.find((r) => selected && String(r.vdjPath) === String(selected.vdjPath));
+    if (!record || !String(record.article ?? "").trim()) return null;
+    return {
+      rvtr: normalized,
+      artist: String(record.artist ?? ""),
+      title: String(record.title ?? ""),
+      year: selected?.displayYear ?? null,
+      yearSource: "c2-batch-research",
+      headline: String(record.headline ?? record.title ?? ""),
+      paragraphs: String(record.article).split(/\n\n+/).filter(Boolean),
+      articleWordCount: Number(record.wordCount ?? 0),
+      researchSources: [], related: [], classification: String(selected?.context ?? ""), finalStatus: record.qualityIssues?.length ? "C2_LOCAL_REVIEW_REQUIRED" : "C2_LOCAL_EDITOR_PASS",
+    };
+  } catch { return null; }
+}
+
 export const SHE_IS_A_BEAUTY_ARTICLE: EditorialSongArticle = {
   headline: "A strange little world made for the first MTV generation",
   deck: "The Tubes turned a troubling image into a theatrical pop song — then let early music television make the character impossible to ignore.",
