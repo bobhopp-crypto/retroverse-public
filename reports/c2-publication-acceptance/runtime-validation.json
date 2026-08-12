@@ -1,11 +1,18 @@
 {
   "status": "PARTIAL",
   "localRuntime": "Started on alternate port 3177 without changing application architecture.",
-  "representativeRoute": "HTTP 200 confirmed for /song/vdj/54eaeb091e524d3b.",
-  "browserVisualProof": "NOT COMPLETED: in-app browser connector was unavailable and Playwright was not installed.",
-  "consoleErrors": "Not measured",
-  "horizontalOverflow": "Not measured",
-  "canonicalRouteProof": "Not completed",
-  "vdjOnlyRouteProof": "HTTP response only; browser-level proof not completed",
-  "liveCurrentSongProof": "Not completed"
+  "representativeTerraFinalRoutes": 25,
+  "representativeRouteStatus": "25/25 HTTP 200 and rendered Terra article content.",
+  "canonicalRoutes": ["/retroverse-2/song/RVTR111098", "/retroverse-2/song/RVTR251916"],
+  "vdjOnlyRoutes": "25 representative VDJ routes; article and hero proof completed.",
+  "reviewExceptions": ["/song/vdj/796697c9cf6920ec", "/song/vdj/3a4bdf8a270c5cae", "/song/vdj/f0319620d960be92"],
+  "consoleErrors": "No console errors or warnings observed in tested routes.",
+  "networkFailures": "No failed requests observed in tested routes.",
+  "horizontalOverflow": "No horizontal overflow observed; tested document scroll width did not exceed viewport.",
+  "hero": "Loaded in canonical, VDJ-only, and review-fallback screenshots.",
+  "relatedMusic": "Canonical route displayed artist-labelled links; one representative link resolved HTTP 200.",
+  "askArvey": "Exactly one accessible Ask Arvey control per tested experience.",
+  "canonicalTerraCoverage": "The authoritative 588-record manifest contains VDJ durable identities; no canonical durable IDs were available for a direct Terra-overlay proof.",
+  "liveCurrentSongProof": "Not separately verified; no live DJ workflow was disturbed.",
+  "browserVisualProof": "Completed for representative routes; see screenshots and responsive-validation.md."
 }

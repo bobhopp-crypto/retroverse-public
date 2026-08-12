@@ -135,8 +135,14 @@ export async function loadAuthoritativeTerraFinalRecord(
         String(candidate.editorialSubject ?? "").trim().toLowerCase() === subjectText),
     );
     if (!record || !record.headline || !record.articleReference) return null;
-    const finalManifest = await readFile(join(process.cwd(), "reports/c2-terra-backlog-completion/terra-final-manifest.json"), "utf8").then(JSON.parse).catch(() => null);
-    const final = finalManifest?.results?.find((result: any) => result.durableIdentity === record.durableIdentity);
+    const sourcePath = typeof record.articleReference?.source === "string"
+      ? record.articleReference.source
+      : "reports/c2-terra-backlog-completion/terra-final-manifest.json";
+    const finalManifest = await readFile(join(process.cwd(), sourcePath), "utf8").then(JSON.parse).catch(() => null);
+    const final = finalManifest?.results?.find((result: any) =>
+      result.durableIdentity === record.durableIdentity ||
+      String(result.subject ?? result.durableSubject ?? "").trim().toLowerCase() === String(record.editorialSubject ?? "").trim().toLowerCase(),
+    );
     const article = String(final?.article ?? "").trim();
     if (!article) return null;
     return {
