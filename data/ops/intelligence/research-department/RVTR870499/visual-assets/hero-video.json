@@ -1,9 +1,25 @@
 {
   "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Jimi Hendrix Experience - Purple Haze.mp4",
   "selectedSeconds": 147.08,
+  "mobileCrop": {
+    "width": 390,
+    "height": 608,
+    "aspectRatio": 0.6414,
+    "position": "center"
+  },
+  "focalPosition": null,
   "candidateCount": 12,
+  "viableCandidateCount": 4,
+  "selectionMethod": "two-stage-mobile-crop-aware-v1",
   "selection": "quality score 159.8; mean 87, contrast 78.9, edge energy 167117",
-  "preparedAt": "2026-08-12T01:49:25.036Z",
+  "mobileCropScore": {
+    "width": 390,
+    "height": 608,
+    "score": 130.6448433282726,
+    "mean": 110.57937331309041,
+    "contrast": 81.81836296980966
+  },
+  "preparedAt": "2026-08-12T01:59:47.755Z",
   "sourceType": "prepared-video-frame",
   "proofSubject": "Jimi Hendrix Experience — Purple Haze"
 }

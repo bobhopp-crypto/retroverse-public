@@ -1,9 +1,25 @@
 {
   "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1950's/Frank Sinatra - Come Fly With Me.mp4",
   "selectedSeconds": 6.23,
+  "mobileCrop": {
+    "width": 390,
+    "height": 608,
+    "aspectRatio": 0.6414,
+    "position": "center"
+  },
+  "focalPosition": null,
   "candidateCount": 12,
+  "viableCandidateCount": 4,
+  "selectionMethod": "two-stage-mobile-crop-aware-v1",
   "selection": "quality score 159.1; mean 85, contrast 63.1, edge energy 387869",
-  "preparedAt": "2026-08-12T01:49:15.998Z",
+  "mobileCropScore": {
+    "width": 390,
+    "height": 608,
+    "score": 124.83655954790824,
+    "mean": 87.34623819163293,
+    "contrast": 65.24652708111397
+  },
+  "preparedAt": "2026-08-12T01:59:38.112Z",
   "sourceType": "prepared-video-frame",
   "proofSubject": "Frank Sinatra — Come Fly With Me"
 }
