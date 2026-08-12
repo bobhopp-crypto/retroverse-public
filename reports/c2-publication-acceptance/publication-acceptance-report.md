@@ -15,12 +15,13 @@
 - Console/network: no errors or failed requests observed.
 - Horizontal overflow: none observed in tested layouts.
 - Visual/responsive evidence: captured at 375px, 390px, 430px, and desktop.
-- Live/current-song proof: not separately verified.
+- Canonical Terra overlay proof: BLOCKED. The authoritative C2 manifest has zero canonical RVTR identities, so three canonical TERRA_FINAL subjects cannot be selected without a new crosswalk.
+- Live/current-song integration proof: BLOCKED. `loadPublicCurrentSongPayload()` is the existing resolver, but the homepage live path renders `LiveSongView`, not `PublicSongExperience`; no safe fixture exists for the requested shared-renderer proof.
 - Deployment: none.
 
 ## Recommendation
 
-**MODIFY BEFORE DEPLOYMENT.** Browser acceptance is substantially complete and one narrow manifest-source defect was fixed, but the authoritative manifest contains VDJ durable identities only, so direct canonical Terra-overlay proof and live/current-song integration remain unverified. Do not deploy until those final scope gaps are explicitly accepted or tested.
+**MODIFY BEFORE DEPLOYMENT.** The remaining two gates are blocked by source/architecture facts, not by an untested browser click: the C2 manifest has no canonical identities, and the current homepage live renderer is separate from `PublicSongExperience`. Do not deploy until an approved crosswalk/fixture or scoped architecture decision resolves those gaps.
 
 ## Defect and Fix
 
