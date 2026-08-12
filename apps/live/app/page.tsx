@@ -12,6 +12,8 @@ import { loadEventControlConfig } from "@/lib/event-control/store";
 import { artistPublicHrefFromName, trackPageHref } from "@/lib/search/entity-routes";
 import { rvYearHref } from "@/lib/rv/rv-chronology-paths";
 import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
+import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
+import { loadAuthoritativeTerraFinalRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import { resolveHomepageMagazineModel } from "./homepage-magazine-model";
 
 import "@/app/retroverse-2/live/retroverse-live-2.css";
@@ -81,10 +83,17 @@ export default async function HomePage() {
     Boolean(initial.live?.title?.trim() && initial.live?.artist?.trim()) &&
     (initial.live?.source === "bridge" || initial.live?.source === "channel");
 
+  const preparedLiveExperience = isNormalLiveSong && initial.publicSong
+    ? (await loadAuthoritativeTerraFinalRecord(initial.publicSong.rvtr, {
+        artist: initial.publicSong.artist,
+        title: initial.publicSong.title,
+      }))
+      ? <PublicSongExperience payload={initial.publicSong} />
+      : null
+    : null;
+
   if (isNormalLiveSong) {
-    return <>
-      <LiveSongView payload={initial} heroUrl={featuredDocument?.heroUrl ?? null} heroRvtr={featuredRvtr} />
-    </>;
+    return <LiveSongView payload={initial} heroUrl={featuredDocument?.heroUrl ?? null} heroRvtr={featuredRvtr} preparedExperience={preparedLiveExperience} />;
   }
 
   if (featuredPayload) {

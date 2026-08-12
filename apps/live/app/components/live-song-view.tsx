@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import type { PublicHomepagePayload } from "@/lib/home/public-current-song";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import "./live-song-view.css";
@@ -11,9 +12,10 @@ type Props = {
   heroUrl: string | null;
   heroRvtr: string | null;
   mode?: "live" | "featured";
+  preparedExperience?: ReactNode;
 };
 
-export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live" }: Props) {
+export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", preparedExperience }: Props) {
   const [current, setCurrent] = useState(payload);
   const [imageFailed, setImageFailed] = useState(false);
   const pollMs = current.channel?.running ? 3000 : 7000;
@@ -29,6 +31,10 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live" }: Prop
           const remainsLiveSong = !next.manualOverride && Boolean(next.live?.title?.trim() && next.live?.artist?.trim()) && (next.live?.source === "bridge" || next.live?.source === "channel");
           if (mode === "featured") {
             if (remainsLiveSong) window.location.reload();
+            return;
+          }
+          if (preparedExperience && next.currentTrackId !== current.currentTrackId) {
+            window.location.reload();
             return;
           }
           if (!remainsLiveSong) { window.location.reload(); return; }
@@ -57,6 +63,8 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live" }: Prop
     ["Album", links?.albumHref ?? track?.primaryAlbum?.href ?? null],
     ["Year", links?.yearHref ?? track?.rvYearHref ?? (year ? `/rv/${year}` : null)],
   ] as const;
+
+  if (preparedExperience) return <>{preparedExperience}</>;
 
   return (
     <Rv2PublicShell className="live-song" activeNav="live" minimalNavigation broadcastChrome={false}>
