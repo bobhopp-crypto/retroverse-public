@@ -46,8 +46,9 @@ export function researchDepartmentRoot(): string {
 
 export function collectorSongDir(rvtr: string): string {
   const identity = rvtr.trim().toUpperCase();
-  const directoryName = identity.startsWith("VDJ:")
-    ? `VDJ-${identity.slice(4).toLowerCase()}`
+  // Git research-department folders are VDJ-{HEX}. Accept both VDJ: and VDJ- callers.
+  const directoryName = /^VDJ[-:][0-9A-F]{16}$/.test(identity)
+    ? `VDJ-${identity.slice(4)}`
     : identity;
   return join(researchDepartmentRoot(), directoryName);
 }
