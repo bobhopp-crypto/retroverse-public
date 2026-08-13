@@ -92,6 +92,15 @@ export default async function HomePage() {
       : null
     : null;
 
+  const preparedFeaturedExperience = featuredPayload
+    ? (await loadAuthoritativeTerraFinalRecord(featuredPayload.rvtr, {
+        artist: featuredPayload.artist,
+        title: featuredPayload.title,
+      }))
+      ? <PublicSongExperience payload={featuredPayload} />
+      : null
+    : null;
+
   if (isNormalLiveSong) {
     return <LiveSongView payload={initial} heroUrl={featuredDocument?.heroUrl ?? null} heroRvtr={featuredRvtr} preparedExperience={preparedLiveExperience} />;
   }
@@ -109,6 +118,7 @@ export default async function HomePage() {
         payload={featuredHomepagePayload}
         heroUrl={featuredDocument?.heroUrl ?? featuredPayload.coverUrl ?? null}
         heroRvtr={featuredPayload.rvtr}
+        preparedExperience={preparedFeaturedExperience}
         mode="featured"
       />
     );
