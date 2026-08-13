@@ -22,6 +22,8 @@ const SUBSETS = [
   { source: "data/ops/vdj-rvtr-index.json", target: "ops/vdj-rvtr-index.json" },
   { source: "data/ops/manifest/c2-final-editor-backlog.json", target: "ops/manifest/c2-final-editor-backlog.json" },
   { source: "data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b", target: "ops/intelligence/research-department/VDJ-54eaeb091e524d3b" },
+  { source: "data/ops/intelligence/research-department/VDJ-f9aeffb259fa2a88/visual-assets/hero-video.jpg", target: "ops/intelligence/research-department/VDJ-f9aeffb259fa2a88/visual-assets/hero-video.jpg" },
+  { source: "data/ops/intelligence/research-department/VDJ-738c32f3a1e5e577/visual-assets/hero-video.jpg", target: "ops/intelligence/research-department/VDJ-738c32f3a1e5e577/visual-assets/hero-video.jpg" },
   { source: "reports/c2-terra-editor-proof-25/terra-editor-manifest.json", target: "reports/c2-terra-editor-proof-25/terra-editor-manifest.json" },
   { source: "data/sunday-nights", target: "sunday-nights" },
   { source: "data/rvbr", target: "rvbr" },

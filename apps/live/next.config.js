@@ -67,14 +67,20 @@ const nextConfig = {
       "./data/ops/manifest/c2-final-editor-backlog.json",
       "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
       "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
+      "./data/ops/intelligence/research-department/VDJ-f9aeffb259fa2a88/**",
+      "./data/ops/intelligence/research-department/VDJ-738c32f3a1e5e577/**",
     ],
     "/": [
       "./data/ops/manifest/c2-final-editor-backlog.json",
       "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
       "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
+      "./data/ops/intelligence/research-department/VDJ-f9aeffb259fa2a88/**",
+      "./data/ops/intelligence/research-department/VDJ-738c32f3a1e5e577/**",
     ],
     "/api/experience/visual-asset": [
       "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
+      "./data/ops/intelligence/research-department/VDJ-f9aeffb259fa2a88/**",
+      "./data/ops/intelligence/research-department/VDJ-738c32f3a1e5e577/**",
     ],
   },
   outputFileTracingExcludes: {
