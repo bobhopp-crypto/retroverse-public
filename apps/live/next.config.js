@@ -63,6 +63,19 @@ const nextConfig = {
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
     "/album/[id]": ["./data/album-chart-features.json"],
     "/retroverse-2/song/[rvtr]": ["./data/rvbr/**"],
+    "/song/vdj/[key]": [
+      "./data/ops/manifest/c2-final-editor-backlog.json",
+      "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
+      "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
+    ],
+    "/": [
+      "./data/ops/manifest/c2-final-editor-backlog.json",
+      "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
+      "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
+    ],
+    "/api/experience/visual-asset": [
+      "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
+    ],
   },
   outputFileTracingExcludes: {
     "*": [

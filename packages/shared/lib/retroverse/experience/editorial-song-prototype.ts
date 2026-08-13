@@ -125,8 +125,20 @@ export async function loadAuthoritativeTerraFinalRecord(
   subject?: { artist?: string | null; title?: string | null },
 ): Promise<EditorialDiversityRecord | null> {
   try {
-    const raw = await readFile(join(process.cwd(), "data/ops/manifest/c2-final-editor-backlog.json"), "utf8");
-    const records = JSON.parse(raw).records as Array<Record<string, any>>;
+    const runtimeDataPath = (relativePath: string) => [
+      join(process.cwd(), "data", relativePath),
+      join(process.cwd(), relativePath),
+      join(process.cwd(), "..", relativePath),
+    ];
+    const readRuntimeJson = async (relativePath: string) => {
+      for (const candidate of runtimeDataPath(relativePath)) {
+        try { return JSON.parse(await readFile(candidate, "utf8")); } catch { /* try next runtime root */ }
+      }
+      return null;
+    };
+    const data = await readRuntimeJson("ops/manifest/c2-final-editor-backlog.json");
+    if (!data) return null;
+    const records = data.records as Array<Record<string, any>>;
     const normalized = rvtr.trim().toUpperCase();
     const subjectText = `${subject?.artist ?? ""} — ${subject?.title ?? ""}`.trim().toLowerCase();
     const record = records.find((candidate) =>
@@ -138,7 +150,7 @@ export async function loadAuthoritativeTerraFinalRecord(
     const sourcePath = typeof record.articleReference?.source === "string"
       ? record.articleReference.source
       : "reports/c2-terra-backlog-completion/terra-final-manifest.json";
-    const finalManifest = await readFile(join(process.cwd(), sourcePath), "utf8").then(JSON.parse).catch(() => null);
+    const finalManifest = await readRuntimeJson(sourcePath);
     const final = finalManifest?.results?.find((result: any) =>
       result.durableIdentity === record.durableIdentity ||
       String(result.subject ?? result.durableSubject ?? "").trim().toLowerCase() === String(record.editorialSubject ?? "").trim().toLowerCase(),
