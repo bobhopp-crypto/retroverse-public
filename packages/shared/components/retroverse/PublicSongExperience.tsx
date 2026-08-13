@@ -24,6 +24,7 @@ type Props = {
   traceEnabled?: boolean;
   className?: string;
   embedded?: boolean;
+  fallbackMode?: boolean;
 };
 
 function trackYearFromPayload(payload: PublicSongPayload, track: TrackPageData | null): number | null {
@@ -104,6 +105,7 @@ export async function PublicSongExperience({
   traceEnabled = false,
   className,
   embedded = false,
+  fallbackMode = false,
 }: Props) {
   const payload =
     payloadProp ??
@@ -130,6 +132,7 @@ export async function PublicSongExperience({
   const yearHref = payload.links.yearHref;
   const isVdjOnly = payload.resolutionTier === "vdj-only";
   const editorialRecord = await loadAuthoritativeTerraFinalRecord(payload.rvtr, { artist: track?.artistName, title: track?.title }) ?? await loadEditorialDiversityRecord(payload.rvtr) ?? await loadEditorialProductionRecord(payload.rvtr) ?? await loadC2ProductionProofRecord(payload.rvtr) ?? await loadC2ProductionBatch100Record(payload.rvtr);
+  const isFallbackExperience = fallbackMode || (isVdjOnly && !editorialRecord);
   const isEditorialPrototype = payload.rvtr === "RVTR111098";
   const trajectoryRecommendations = editorialRecord
     ? editorialRecord.related
@@ -187,17 +190,17 @@ export async function PublicSongExperience({
                 {year ? <p className="canonical-song__year">{year}</p> : <p className="canonical-song__year">Year unavailable</p>}
               </div>
             </div>
-            {journeyWeeks > 0 && track?.chartRunLabel ? <p className="rv2-song__subtitle">{track.chartRunLabel}</p> : null}
-            {isVdjOnly ? (
+            {!isFallbackExperience && journeyWeeks > 0 && track?.chartRunLabel ? <p className="rv2-song__subtitle">{track.chartRunLabel}</p> : null}
+            {isVdjOnly && !isFallbackExperience ? (
               <p className="rv2-song__limited-notice">
                 Retroverse has limited internal information for this song. Use the links below to explore further.
               </p>
             ) : null}
-            <div className="canonical-song__lead"><p>{editorialRecord?.paragraphs[0] ?? (isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0] ?? `Explore the music, chart history, and context behind ${payload.title}.`)}</p></div>
-            <div className="canonical-song__meta">
+            {!isFallbackExperience ? <div className="canonical-song__lead"><p>{editorialRecord?.paragraphs[0] ?? (isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0] ?? `Explore the music, chart history, and context behind ${payload.title}.`)}</p></div> : null}
+            {!isFallbackExperience ? <div className="canonical-song__meta">
               {payload.album ? <span>{payload.album}</span> : null}
               {year ? <Link href={yearHref ?? `/rv/${year}`}>Explore {year}</Link> : null}
-            </div>
+            </div> : null}
             {!embedded && hasExploreLinks ? (
               <>
                 <div className="rv2-song__continue-label">Explore</div>
@@ -207,13 +210,14 @@ export async function PublicSongExperience({
                   {yearHref && year ? <Link href={yearHref} prefetch>Year</Link> : null}
                   {moment?.href ? <Link href={moment.href} prefetch>Charts</Link> : null}
                 </nav>
-                {journeyWeeks > 0 ? <p className="rv2-song__continue-cue">Chart Journey below ↓</p> : null}
+                {!isFallbackExperience && journeyWeeks > 0 ? <p className="rv2-song__continue-cue">Chart Journey below ↓</p> : null}
               </>
             ) : null}
           </header>
 
           {!embedded ? <SongArveyContext title={payload.title} artist={payload.artist} year={year} /> : null}
 
+          {!isFallbackExperience ? <>
           {journeyWeeks > 0 && track ? (
             <div id="song-journey" className="rv2-song__journey-stage" aria-label="Chart Journey">
               <ChartJourney
@@ -419,6 +423,7 @@ export async function PublicSongExperience({
               </ul>
             </section>
           ) : null}
+          </> : null}
         </LivingSongShell>
       </div>
 
