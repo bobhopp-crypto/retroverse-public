@@ -45,7 +45,11 @@ export function researchDepartmentRoot(): string {
 }
 
 export function collectorSongDir(rvtr: string): string {
-  return join(researchDepartmentRoot(), rvtr.trim().toUpperCase());
+  const identity = rvtr.trim().toUpperCase();
+  const directoryName = identity.startsWith("VDJ:")
+    ? `VDJ-${identity.slice(4).toLowerCase()}`
+    : identity;
+  return join(researchDepartmentRoot(), directoryName);
 }
 
 export function collectorOutputPath(rvtr: string): string {
