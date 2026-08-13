@@ -27,6 +27,7 @@ import {
 } from "@/lib/universal-renderer/load-vdj-base";
 import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 import { resolveVisualAssetPath } from "@/lib/ops/studio/collector/visual-extraction";
+import { loadAuthoritativeTerraFinalRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import type { ExternalDiscoveryQuery } from "@/lib/public/external-search";
 import {
   sanitizeDisplayAlbumTitle,
@@ -336,7 +337,13 @@ async function loadPublicSongPayloadImpl(
   }
 
   if (VDJ_RE.test(rvtr)) {
-    const vdjPayload = await loadVdjBasePackage(rvtr.slice(4).toLowerCase()).catch(() => null);
+    const [vdjPayload, terraRecord] = await Promise.all([
+      loadVdjBasePackage(rvtr.slice(4).toLowerCase()).catch(() => null),
+      loadAuthoritativeTerraFinalRecord(rvtr),
+    ]);
+    const preparedHint = terraRecord
+      ? { artist: terraRecord.artist, title: terraRecord.title, year: terraRecord.year, album: null, coverUrl: null }
+      : null;
     const vdjHeroIdentity = `VDJ-${rvtr.slice(4).toLowerCase()}`;
     const hasVdjHero = await resolveVisualAssetPath(vdjHeroIdentity, "hero-video.jpg");
     return buildPayload(rvtr, {
@@ -347,7 +354,7 @@ async function loadPublicSongPayloadImpl(
       vdjPayload,
       vdjResolverStep: vdjPayload ? "vdj:loadVdjBasePackageByRvtr" : null,
       localContent: null,
-      vdjHint: vdjHint ?? null,
+      vdjHint: vdjHint ?? preparedHint,
       heroUrl: hasVdjHero ? experienceVisualAssetUrl(vdjHeroIdentity, "hero-video.jpg") : null,
       heroSource: hasVdjHero ? "approved-song-hero" : "none",
     });

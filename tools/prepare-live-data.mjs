@@ -17,12 +17,15 @@ const target = path.join(root, "apps", "live", "data");
 // Live runtime data: attract tour pool + studio publish metadata,
 // Sunday Nights snapshots/assets, RVBR era canon + prompt profiles.
 const SUBSETS = [
-  "ops/studio",
-  "ops/retroverse-map.json",
-  "ops/vdj-rvtr-index.json",
-  "sunday-nights",
-  "rvbr",
-  "album-chart-features.json",
+  { source: "data/ops/studio", target: "ops/studio" },
+  { source: "data/ops/retroverse-map.json", target: "ops/retroverse-map.json" },
+  { source: "data/ops/vdj-rvtr-index.json", target: "ops/vdj-rvtr-index.json" },
+  { source: "data/ops/manifest/c2-final-editor-backlog.json", target: "ops/manifest/c2-final-editor-backlog.json" },
+  { source: "data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b", target: "ops/intelligence/research-department/VDJ-54eaeb091e524d3b" },
+  { source: "reports/c2-terra-editor-proof-25/terra-editor-manifest.json", target: "reports/c2-terra-editor-proof-25/terra-editor-manifest.json" },
+  { source: "data/sunday-nights", target: "sunday-nights" },
+  { source: "data/rvbr", target: "rvbr" },
+  { source: "data/album-chart-features.json", target: "album-chart-features.json" },
 ];
 
 const stat = fs.lstatSync(target, { throwIfNoEntry: false });
@@ -33,9 +36,9 @@ fs.rmSync(target, { recursive: true, force: true });
 
 let copied = 0;
 for (const subset of SUBSETS) {
-  const src = path.join(root, "data", subset);
+  const src = path.join(root, subset.source);
   if (!fs.existsSync(src)) continue;
-  const dest = path.join(target, subset);
+  const dest = path.join(target, subset.target);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.cpSync(src, dest, { recursive: true, dereference: true });
   copied += 1;
