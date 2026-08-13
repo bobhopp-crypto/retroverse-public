@@ -145,7 +145,17 @@ export async function PublicSongExperience({
 
   return (
     <>
-      <div className={`${rootClass} editorial-song`}>
+      <div className={`${rootClass} editorial-song${!embedded ? " editorial-song--full-hero" : ""}`}>
+        {!embedded ? (
+          <div className="canonical-song__stage-bg" aria-hidden="true">
+            {payload.heroUrl ? (
+              <img className="canonical-song__page-image" src={payload.heroUrl} alt="" />
+            ) : (
+              <div className="canonical-song__page-fallback" />
+            )}
+            <div className="canonical-song__page-veil" />
+          </div>
+        ) : null}
         <LivingSongShell
           rvtr={payload.rvtr}
           durationSec={Math.max(30, journeyWeeks * 2)}
@@ -157,10 +167,13 @@ export async function PublicSongExperience({
               <RetroverseBack fallbackHref="/search" fallbackLabel="Archive" />
             ) : null}
             <div className="canonical-song__hero">
-              {payload.heroUrl ? <img className="canonical-song__hero-image" src={payload.heroUrl} alt="" /> : <div className="canonical-song__hero-fallback" aria-hidden="true" />}
-              <div className="canonical-song__hero-veil" />
+              {embedded ? (
+                <>
+                  {payload.heroUrl ? <img className="canonical-song__hero-image" src={payload.heroUrl} alt="" /> : <div className="canonical-song__hero-fallback" aria-hidden="true" />}
+                  <div className="canonical-song__hero-veil" />
+                </>
+              ) : null}
               <div className="canonical-song__hero-copy">
-                <p className="canonical-song__eyebrow">{isVdjOnly ? "VirtualDJ selection" : "Song experience"}</p>
                 <h1>{payload.title || "Untitled song"}</h1>
                 <p className="rv2-song__artist">
               {embedded || !artistHref ? (
