@@ -40,6 +40,9 @@ const nextConfig = {
   // Scope traces to this app — monorepo root tracing pulled in 60k+
   // data/ops/intelligence/research-department files and blew past Vercel's
   // 250 MB function limit. Runtime data lives under apps/live/data (prebuild).
+  // Do not exclude ./data/ops/intelligence/**: that stripped prepared
+  // hero-video.jpg files from the visual-asset function. Prebuild copies only
+  // those JPEGs (~25MB), not the full research-department tree.
   outputFileTracingRoot: __dirname,
   outputFileTracingIncludes: {
     "*": [
@@ -66,26 +69,22 @@ const nextConfig = {
     "/song/vdj/[key]": [
       "./data/ops/manifest/c2-final-editor-backlog.json",
       "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
-      "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
-      "./data/ops/intelligence/research-department/VDJ-f9aeffb259fa2a88/**",
-      "./data/ops/intelligence/research-department/VDJ-738c32f3a1e5e577/**",
+      "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
+    ],
+    "/song/[rvtr]": [
+      "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
     ],
     "/": [
       "./data/ops/manifest/c2-final-editor-backlog.json",
       "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
-      "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
-      "./data/ops/intelligence/research-department/VDJ-f9aeffb259fa2a88/**",
-      "./data/ops/intelligence/research-department/VDJ-738c32f3a1e5e577/**",
+      "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
     ],
     "/api/experience/visual-asset": [
-      "./data/ops/intelligence/research-department/VDJ-54eaeb091e524d3b/**",
-      "./data/ops/intelligence/research-department/VDJ-f9aeffb259fa2a88/**",
-      "./data/ops/intelligence/research-department/VDJ-738c32f3a1e5e577/**",
+      "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
     ],
   },
   outputFileTracingExcludes: {
     "*": [
-      "./data/ops/intelligence/**",
       "./data/ops/studio/publisher-records.json",
       "./.next/cache/**",
       "./.vercel/**",
