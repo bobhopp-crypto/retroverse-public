@@ -24,6 +24,7 @@ type Props = {
   traceEnabled?: boolean;
   className?: string;
   embedded?: boolean;
+  fallbackMode?: boolean;
 };
 
 function trackYearFromPayload(payload: PublicSongPayload, track: TrackPageData | null): number | null {
@@ -104,6 +105,7 @@ export async function PublicSongExperience({
   traceEnabled = false,
   className,
   embedded = false,
+  fallbackMode = false,
 }: Props) {
   const payload =
     payloadProp ??
@@ -188,12 +190,12 @@ export async function PublicSongExperience({
               </div>
             </div>
             {journeyWeeks > 0 && track?.chartRunLabel ? <p className="rv2-song__subtitle">{track.chartRunLabel}</p> : null}
-            {isVdjOnly ? (
+            {isVdjOnly && !editorialRecord ? (
               <p className="rv2-song__limited-notice">
                 Retroverse has limited internal information for this song. Use the links below to explore further.
               </p>
             ) : null}
-            <div className="canonical-song__lead"><p>{editorialRecord?.paragraphs[0] ?? (isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0] ?? `Explore the music, chart history, and context behind ${payload.title}.`)}</p></div>
+            {(editorialRecord || hasStory) ? <div className="canonical-song__lead"><p>{editorialRecord?.paragraphs[0] ?? (isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0])}</p></div> : null}
             <div className="canonical-song__meta">
               {payload.album ? <span>{payload.album}</span> : null}
               {year ? <Link href={yearHref ?? `/rv/${year}`}>Explore {year}</Link> : null}

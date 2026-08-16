@@ -89,8 +89,8 @@
   .canonical-song__hero-copy { max-width: 62rem; margin-inline: auto; }
 }
 
-/* Full-page hero: the prepared image IS the page. Scoped so artist/album/year
-   editorial shells keep the cream magazine treatment. */
+/* The hero is the page for every public Song Experience. Prepared and fallback
+   states differ in content depth, never in audience-facing visual language. */
 html:has(.editorial-song--full-hero),
 html:has(.editorial-song--full-hero) body {
   background: #050b12;
@@ -98,18 +98,14 @@ html:has(.editorial-song--full-hero) body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-html:has(.editorial-song--full-hero) body {
-  overflow-x: clip;
-}
+html:has(.editorial-song--full-hero) body { overflow-x: clip; }
 html:has(.editorial-song--full-hero)::-webkit-scrollbar,
 html:has(.editorial-song--full-hero) body::-webkit-scrollbar {
   display: none;
   width: 0;
   height: 0;
 }
-html body:has(.editorial-song--full-hero) .rv-global-nav {
-  display: block;
-}
+html body:has(.editorial-song--full-hero) .rv-global-nav { display: block; }
 body:has(.editorial-song--full-hero) .arvey-trigger {
   z-index: 1300;
   top: calc(var(--rv-global-nav-height, 2.9rem) + 0.45rem);
@@ -129,9 +125,7 @@ body:has(.editorial-song--full-hero) .arvey-trigger {
   background: transparent;
   color: #f7f2e9;
 }
-.editorial-shell:has(.editorial-song--full-hero) .editorial-shell__masthead {
-  display: none;
-}
+.editorial-shell:has(.editorial-song--full-hero) .editorial-shell__masthead { display: none; }
 .editorial-shell:has(.editorial-song--full-hero) .editorial-shell__footer {
   position: relative;
   z-index: 2;
@@ -142,8 +136,10 @@ body:has(.editorial-song--full-hero) .arvey-trigger {
 }
 .editorial-song--full-hero {
   position: relative;
-  color: #f7f2e9;
+  min-height: 100svh;
   max-width: none;
+  background: #050b12;
+  color: #f7f2e9;
 }
 .editorial-song--full-hero .canonical-song__stage-bg {
   position: sticky;
@@ -170,8 +166,7 @@ body:has(.editorial-song--full-hero) .arvey-trigger {
 }
 .editorial-song--full-hero .canonical-song__page-veil {
   z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(5, 11, 18, .42) 0%, rgba(5, 11, 18, .28) 26%, rgba(5, 11, 18, .58) 54%, rgba(5, 11, 18, .9) 78%, rgba(5, 11, 18, .96) 100%);
+  background: linear-gradient(180deg, rgba(5, 11, 18, .42) 0%, rgba(5, 11, 18, .28) 26%, rgba(5, 11, 18, .58) 54%, rgba(5, 11, 18, .9) 78%, rgba(5, 11, 18, .96) 100%);
 }
 .editorial-song--full-hero > :not(.canonical-song__stage-bg) {
   position: relative;
@@ -205,9 +200,7 @@ body:has(.editorial-song--full-hero) .arvey-trigger {
 }
 .editorial-song--full-hero .canonical-song__hero-copy {
   position: relative;
-  left: auto;
-  right: auto;
-  bottom: auto;
+  inset: auto;
   z-index: 2;
   min-height: 0;
   max-width: 46rem;
@@ -222,18 +215,10 @@ body:has(.editorial-song--full-hero) .arvey-trigger {
   text-shadow: 0 2px 18px rgba(0, 0, 0, .45);
 }
 .editorial-song--full-hero .canonical-song__hero-copy .rv2-song__artist,
-.editorial-song--full-hero .canonical-song__hero-copy .rv2-song__hero-link {
-  color: #fff;
-}
-.editorial-song--full-hero .canonical-song__year {
-  color: #f4c86d;
-}
-.editorial-song--full-hero .rv2-song__header[data-year-source="vdj"] .canonical-song__year::after {
-  content: none;
-}
+.editorial-song--full-hero .canonical-song__hero-copy .rv2-song__hero-link { color: #fff; }
+.editorial-song--full-hero .canonical-song__year { color: #f4c86d; }
 .editorial-song--full-hero .canonical-song__lead,
 .editorial-song--full-hero .canonical-song__meta,
-.editorial-song--full-hero .rv2-song__limited-notice,
 .editorial-song--full-hero .rv2-song__subtitle,
 .editorial-song--full-hero .rv2-song__continue-label,
 .editorial-song--full-hero .rv2-song__explore-links,
@@ -242,39 +227,26 @@ body:has(.editorial-song--full-hero) .arvey-trigger {
   z-index: 2;
   color: #f7f2e9;
 }
-.editorial-song--full-hero .canonical-song__lead {
-  margin-top: 0.35rem;
-  color: rgba(247, 242, 233, .92);
-}
-.editorial-song--full-hero .canonical-song__lead p {
-  font: 1.12rem/1.55 Georgia, serif;
-}
+.editorial-song--full-hero .canonical-song__lead { margin-top: .35rem; color: rgba(247, 242, 233, .92); }
+.editorial-song--full-hero .canonical-song__lead p { font: 1.12rem/1.55 Georgia, serif; }
 .editorial-song--full-hero .rv2-song__editorial-article h2 {
   color: #f7f2e9;
   text-shadow: 0 1px 12px rgba(0, 0, 0, .35);
 }
-.editorial-song--full-hero .rv2-song__editorial-article > p:not(.rv2-song__editorial-kicker):not(.rv2-song__editorial-source) {
-  color: rgba(247, 242, 233, .92);
-}
+.editorial-song--full-hero .rv2-song__editorial-article > p:not(.rv2-song__editorial-kicker):not(.rv2-song__editorial-source) { color: rgba(247, 242, 233, .92); }
 .editorial-song--full-hero .rv2-song__section,
 .editorial-song--full-hero .rv2-song__explore,
-.editorial-song--full-hero .rv2-song__explore-card {
+.editorial-song--full-hero .rv2-song__explore-card,
+.editorial-song--full-hero .rv2-song__journey-stage .rv-exp-cj {
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
 }
-.editorial-song--full-hero .rv-exp-chapter {
-  color: #f7f2e9;
-}
+.editorial-song--full-hero .rv-exp-chapter { color: #f7f2e9; }
 @media (min-width: 760px) {
-  .editorial-song--full-hero .canonical-song__hero {
-    min-height: 100svh;
-  }
-  .editorial-song--full-hero .canonical-song__hero-copy {
-    max-width: 52rem;
-    padding-inline: 1.5rem;
-  }
+  .editorial-song--full-hero .canonical-song__hero { min-height: 100svh; }
+  .editorial-song--full-hero .canonical-song__hero-copy { max-width: 52rem; padding-inline: 1.5rem; }
 }
 
 .rv2-song .rv2-live__search-panel {
