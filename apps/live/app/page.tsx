@@ -1,141 +1,61 @@
 import type { Metadata } from "next";
 
-import { PublicHomepageView } from "@/app/components/public-homepage-view";
+import { EditorialPageShell } from "@/app/components/editorial/editorial-primitives";
 import { LiveSongView } from "@/app/components/live-song-view";
-import { loadFeaturedYearCovers } from "@/lib/home/load-featured-year-covers";
-import { loadHomepageDocument } from "@/lib/home/load-homepage-document";
-import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
-import { resolveHomepageAuthority } from "@/lib/homepage-authority";
-import { resolveHomepageRotationRvtr } from "@/lib/home/homepage-rvtr";
-import { buildHomepageHero } from "@/lib/event-control/homepage-hero";
-import { loadEventControlConfig } from "@/lib/event-control/store";
-import { artistPublicHrefFromName, trackPageHref } from "@/lib/search/entity-routes";
-import { rvYearHref } from "@/lib/rv/rv-chronology-paths";
-import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
-import { loadAuthoritativeTerraFinalRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
-import { resolveHomepageMagazineModel } from "./homepage-magazine-model";
-
-import "@/app/retroverse-2/live/retroverse-live-2.css";
-import "@/app/live-home.css";
-import "@/app/public-homepage.css";
+import { resolveHomepageSongOfHourRvtr } from "@/lib/home/homepage-rvtr";
+import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
+import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
-  title: "Now Playing",
-  description: "The song playing right now.",
+  title: "Retroverse",
+  description: "A song experience from across the decades.",
 };
 
-/** retroverse.live — preserves programmed experiences and uses a focused live-song surface for VDJ songs. */
+/** VirtualDJ has priority; otherwise every visitor shares the prepared Song of the Hour. */
 export default async function HomePage() {
-  void loadFeaturedYearCovers();
-
-  const [initial, eventConfig, rotationRvtr] = await Promise.all([
+  const [current, songOfHourRvtr] = await Promise.all([
     loadPublicCurrentSongPayload(),
-    loadEventControlConfig().catch(() => null),
-    resolveHomepageRotationRvtr(),
+    resolveHomepageSongOfHourRvtr(),
   ]);
 
-  const authority = resolveHomepageAuthority({
-    currentSong: initial,
-    automaticHero: eventConfig ? buildHomepageHero(eventConfig) : null,
-    overrides: eventConfig
-      ? {
-          hero: eventConfig.homepage.heroOverride,
-          panelA: eventConfig.homepage.panelA,
-          panelB: eventConfig.homepage.panelB,
-          chyron: eventConfig.homepage.chyronOverride,
-        }
-      : undefined,
-  });
+  const hasValidVirtualDjSong =
+    Boolean(current.publicSong) &&
+    Boolean(current.live?.title?.trim() && current.live?.artist?.trim()) &&
+    (current.live?.source === "bridge" || current.live?.source === "channel");
 
-  const featuredRvtr =
-    initial.publicSong?.rvtr ??
-    (initial.currentTrackId?.match(/^RVTR\d{6}$/i) ? initial.currentTrackId.toUpperCase() : null) ??
-    rotationRvtr;
-
-  const featuredDocument = featuredRvtr ? await loadHomepageDocument(featuredRvtr).catch(() => null) : null;
-  const featuredPayload = featuredRvtr ? await loadPublicSongPayload(featuredRvtr).catch(() => null) : null;
-
-  const featuredExperience = featuredDocument
-    ? {
-        title: featuredDocument.title,
-        subtitle: featuredDocument.artist,
-        href: trackPageHref(featuredDocument.rvtr),
-        coverUrl: featuredDocument.coverUrl ?? featuredDocument.heroUrl ?? null,
-      }
-    : featuredPayload
-      ? {
-          title: featuredPayload.title,
-          subtitle: featuredPayload.artist,
-          href: featuredPayload.links.songHref,
-          coverUrl: featuredPayload.coverUrl,
-        }
+  const songPayload = hasValidVirtualDjSong
+    ? current.publicSong
+    : songOfHourRvtr
+      ? await loadPublicSongPayload(songOfHourRvtr).catch(() => null)
       : null;
 
-  const magazine = featuredRvtr ? await resolveHomepageMagazineModel(featuredRvtr, initial.channel?.running || initial.live?.source === "channel" ? "Live now" : "Archive selection") : null;
+  if (!songPayload) return null;
 
-  const isNormalLiveSong =
-    !initial.manualOverride &&
-    Boolean(initial.live?.title?.trim() && initial.live?.artist?.trim()) &&
-    (initial.live?.source === "bridge" || initial.live?.source === "channel");
-
-  const preparedLiveExperience = isNormalLiveSong && initial.publicSong
-    ? (await loadAuthoritativeTerraFinalRecord(initial.publicSong.rvtr, {
-        artist: initial.publicSong.artist,
-        title: initial.publicSong.title,
-      }))
-      ? <PublicSongExperience payload={initial.publicSong} />
-      : null
-    : null;
-
-  const preparedFeaturedExperience = featuredPayload
-    ? (await loadAuthoritativeTerraFinalRecord(featuredPayload.rvtr, {
-        artist: featuredPayload.artist,
-        title: featuredPayload.title,
-      }))
-      ? <PublicSongExperience payload={featuredPayload} />
-      : null
-    : null;
-
-  if (isNormalLiveSong) {
-    return <LiveSongView payload={initial} heroUrl={featuredDocument?.heroUrl ?? null} heroRvtr={featuredRvtr} preparedExperience={preparedLiveExperience} />;
-  }
-
-  if (featuredPayload) {
-    const featuredHomepagePayload = {
-      ...initial,
-      currentTrackId: featuredPayload.rvtr,
-      live: null,
-      publicSong: featuredPayload,
-      track: featuredPayload.track,
-    };
-    return (
-      <LiveSongView
-        payload={featuredHomepagePayload}
-        heroUrl={featuredDocument?.heroUrl ?? featuredPayload.coverUrl ?? null}
-        heroRvtr={featuredPayload.rvtr}
-        preparedExperience={preparedFeaturedExperience}
-        mode="featured"
-      />
-    );
-  }
-
+  const homepagePayload = hasValidVirtualDjSong
+    ? current
+    : {
+        ...current,
+        currentTrackId: songPayload.rvtr,
+        live: null,
+        publicSong: songPayload,
+        track: songPayload.track,
+      };
   return (
-    <>
-      <PublicHomepageView
-        initial={initial}
-        hero={authority.hero}
-        panelA={authority.panelA}
-        panelB={authority.panelB}
-        chyron={authority.chyron}
-        idleChyron={eventConfig?.homepage.idleChyron ?? ""}
-        featuredExperience={featuredExperience}
-        magazine={magazine}
-      />
-    </>
+    <LiveSongView
+      payload={homepagePayload}
+      heroUrl={null}
+      heroRvtr={songPayload.rvtr}
+      preparedExperience={
+        <EditorialPageShell showSearch={false} fullBleed>
+          <PublicSongExperience payload={songPayload} />
+        </EditorialPageShell>
+      }
+      mode={hasValidVirtualDjSong ? "live" : "featured"}
+    />
   );
 }
