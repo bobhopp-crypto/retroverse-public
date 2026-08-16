@@ -82,6 +82,13 @@
 .editorial-shell:has(.canonical-song__hero) .editorial-shell__search { border-color: rgba(196, 214, 255, .24); }
 .editorial-shell:has(.canonical-song__hero) .editorial-shell__search { display: none; }
 .editorial-shell:has(.canonical-song__hero) .home-search-trigger { border-color: rgba(196, 214, 255, .6); background: #101f2e; color: #f7f2e9; }
+
+/* Keep the approved route environment explicit instead of depending only on
+   ancestor :has() matching in the production stylesheet. */
+.editorial-shell--full-bleed { background: #050b12; color: #f7f2e9; overflow: visible; }
+.editorial-shell--full-bleed > .editorial-shell__page { width: 100%; max-width: none; margin: 0; padding-bottom: 2.5rem; background: transparent; color: #f7f2e9; }
+.editorial-shell--full-bleed > .editorial-shell__page > .editorial-shell__masthead { display: none; }
+.editorial-shell--full-bleed > .editorial-shell__page > .editorial-shell__footer { position: relative; z-index: 2; margin-top: 2rem; border-color: rgba(247, 242, 233, .18); color: rgba(247, 242, 233, .72); background: transparent; }
 .editorial-song .canonical-song__hero-copy h1 { color: #f7f2e9; }
 .editorial-song .canonical-song__hero-copy .rv2-song__artist { color: #fff; }
 @media (min-width: 760px) {
