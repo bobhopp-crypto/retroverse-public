@@ -4,8 +4,8 @@ import { HomeSearchInput } from "@/app/components/home-search-input";
 import "./editorial-tokens.css";
 import "./editorial-primitives.css";
 
-export function EditorialPageShell({ children, accent, footerLabel = "Music archive", showSearch = true }: { children: ReactNode; accent?: string; footerLabel?: string; showSearch?: boolean }) {
-  return <main className="editorial-shell" style={accent ? { "--editorial-accent": accent } as React.CSSProperties : undefined}>
+export function EditorialPageShell({ children, accent, footerLabel = "Music archive", showSearch = true, fullBleed = false }: { children: ReactNode; accent?: string; footerLabel?: string; showSearch?: boolean; fullBleed?: boolean }) {
+  return <main className={`editorial-shell${fullBleed ? " editorial-shell--full-bleed" : ""}`} style={accent ? { "--editorial-accent": accent } as React.CSSProperties : undefined}>
     <div className="editorial-shell__page">
       <header className="editorial-shell__masthead"><Link href="/" aria-label="Return to Retroverse">Music / Archive</Link></header>
       {showSearch ? <div className="editorial-shell__search"><HomeSearchInput /></div> : null}
