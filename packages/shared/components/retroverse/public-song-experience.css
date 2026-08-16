@@ -85,7 +85,7 @@
 
 /* Keep the approved route environment explicit instead of depending only on
    ancestor :has() matching in the production stylesheet. */
-.editorial-shell--full-bleed { background: #050b12; color: #f7f2e9; overflow: visible; }
+.editorial-shell.editorial-shell--full-bleed { min-height: 100dvh; background: #050b12; color: #f7f2e9; overflow: visible; }
 .editorial-shell--full-bleed > .editorial-shell__page { width: 100%; max-width: none; margin: 0; padding-bottom: 2.5rem; background: transparent; color: #f7f2e9; }
 .editorial-shell--full-bleed > .editorial-shell__page > .editorial-shell__masthead { display: none; }
 .editorial-shell--full-bleed > .editorial-shell__page > .editorial-shell__footer { position: relative; z-index: 2; margin-top: 2rem; border-color: rgba(247, 242, 233, .18); color: rgba(247, 242, 233, .72); background: transparent; }
@@ -118,8 +118,6 @@ body:has(.editorial-song--full-hero) .arvey-trigger {
   top: calc(var(--rv-global-nav-height, 2.9rem) + 0.45rem);
 }
 .editorial-shell:has(.editorial-song--full-hero) {
-  min-height: auto;
-  background: transparent;
   overflow: visible;
   color: #f7f2e9;
 }
