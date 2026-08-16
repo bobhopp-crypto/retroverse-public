@@ -17,7 +17,6 @@ import { resolveLiveTrack, songKeyFromPath } from "@/lib/sunday-nights/resolve-l
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 import type { SundayNightsLiveSelection, SundayNightsState } from "@/lib/sunday-nights/types";
 import { loadPublicSongPayload, type PublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
-import { loadAuthoritativeTerraFinalRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import { vdjBaseKey } from "@/lib/universal-renderer/load-vdj-base";
 import { loadTrackPage } from "@/lib/track/load-track-page";
 
@@ -224,27 +223,21 @@ async function payloadFromFreshVirtualDj(
   let publicSong = rvtr
     ? await loadPublicSongPayload(rvtr).catch(() => null)
     : null;
-  let preparedVdj = false;
+  let resolvedVdj = false;
 
   if (live?.filepath) {
     const filepath = live.filepath.replace(/\\/g, "/").trim();
     const vdjPublicSong = await loadPublicSongPayload(`VDJ:${vdjBaseKey(filepath.toLowerCase())}`).catch(() => null);
-    const vdjEditorial = vdjPublicSong
-      ? await loadAuthoritativeTerraFinalRecord(vdjPublicSong.rvtr, {
-          artist: vdjPublicSong.artist || live.artist,
-          title: vdjPublicSong.title || live.title,
-        })
-      : null;
-    if (vdjPublicSong && vdjEditorial) {
+    if (vdjPublicSong) {
       publicSong = vdjPublicSong;
-      preparedVdj = true;
+      resolvedVdj = true;
       currentTrackId = vdjPublicSong.rvtr;
       rvtr = null;
       track = null;
     }
   }
 
-  if (!rvtr && live?.filepath && !preparedVdj) {
+  if (!rvtr && live?.filepath && !resolvedVdj) {
     const resolved = await resolveLiveTrack({
       filepath: live.filepath,
       artist: live.artist,

@@ -73,7 +73,6 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", prepar
           {showImage ? <img className="live-song__image" src={image!} alt="" onError={() => setImageFailed(true)} /> : <div className="live-song__fallback" aria-hidden="true" />}
           <div className="live-song__veil" />
           <div className="live-song__copy">
-            <p className="live-song__status">● Live / Now Playing</p>
             <h1>{title}</h1>
             <p className="live-song__artist">{artist}</p>
             <p className="live-song__year">{year ? `Released ${year}` : "Year unavailable"}</p>
