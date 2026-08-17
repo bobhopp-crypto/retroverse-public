@@ -5,6 +5,8 @@ import { LiveSongView } from "@/app/components/live-song-view";
 import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
 import { resolveHomepageSongOfHourRvtr } from "@/lib/home/homepage-rvtr";
 import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
+import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
+import { loadLiveStoryPilotRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import { isPublicSongPayloadRenderable, loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 
 export const dynamic = "force-dynamic";
@@ -37,6 +39,12 @@ export default async function HomePage() {
   if (!songPayload) return null;
 
   const canUsePreparedExperience = isPublicSongPayloadRenderable(songPayload);
+  const pilotRecord = hasValidVirtualDjSong
+    ? await loadLiveStoryPilotRecord(songPayload.rvtr)
+    : null;
+  const pilotHero = pilotRecord
+    ? await resolveHeroForRvtr(songPayload.rvtr).catch(() => ({ url: null, tier: null }))
+    : null;
 
   const homepagePayload = hasValidVirtualDjSong
     ? current
@@ -50,13 +58,14 @@ export default async function HomePage() {
   return (
     <LiveSongView
       payload={homepagePayload}
-      heroUrl={null}
+      heroUrl={pilotHero?.url ?? null}
       heroRvtr={songPayload.rvtr}
-      preparedExperience={canUsePreparedExperience ? (
+      preparedExperience={canUsePreparedExperience && !pilotRecord ? (
         <EditorialPageShell showSearch={false} fullBleed>
           <PublicSongExperience payload={songPayload} />
         </EditorialPageShell>
       ) : undefined}
+      pilotStory={pilotRecord ? { headline: pilotRecord.headline, paragraphs: pilotRecord.paragraphs } : null}
       mode={hasValidVirtualDjSong ? "live" : "featured"}
     />
   );

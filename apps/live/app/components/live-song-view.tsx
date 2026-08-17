@@ -13,9 +13,10 @@ type Props = {
   heroRvtr: string | null;
   mode?: "live" | "featured";
   preparedExperience?: ReactNode;
+  pilotStory?: { headline: string; paragraphs: string[] } | null;
 };
 
-export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", preparedExperience }: Props) {
+export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", preparedExperience, pilotStory }: Props) {
   const [current, setCurrent] = useState(payload);
   const [imageFailed, setImageFailed] = useState(false);
   const pollMs = current.channel?.running ? 3000 : 7000;
@@ -56,9 +57,9 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", prepar
   const rvtr = song?.rvtr ?? track?.rvtr ?? live?.rvtr ?? null;
   const image = rvtr && heroRvtr === rvtr ? heroUrl : song?.coverUrl ?? track?.coverUrl ?? live?.coverUrl ?? null;
   const showImage = Boolean(image) && !imageFailed;
-  const fallbackDescription = artist.toLowerCase() === "britney spears" && title.trim() === "3"
+  const fallbackDescription = pilotStory?.paragraphs.join("\n\n") || (artist.toLowerCase() === "britney spears" && title.trim() === "3"
     ? "A sleek, propulsive late-2000s pop single, ‘3’ puts Britney Spears in a bright, confident mode, driven by a crisp beat and an immediate hook. Even without a prepared story package, the song’s directness comes through: this is streamlined dance-pop built to move quickly and stay in your head."
-    : `${artist}’s “${title}” is the song on air right now. Listen closely for the performance’s defining mood, rhythm, and voice as the track unfolds.`;
+    : `${artist}’s “${title}” is the song on air right now. Listen closely for the performance’s defining mood, rhythm, and voice as the track unfolds.`);
   const links = song?.links;
   const actions = [
     ["Song", links?.songHref ?? (rvtr ? `/song/${rvtr}` : null)],

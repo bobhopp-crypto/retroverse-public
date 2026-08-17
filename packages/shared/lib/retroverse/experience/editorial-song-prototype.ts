@@ -48,6 +48,40 @@ export async function loadEditorialDiversityRecord(rvtr: string): Promise<Editor
   }
 }
 
+/** The bounded frame-aware Live fallback pilot. */
+export async function loadLiveStoryPilotRecord(rvtr: string): Promise<EditorialDiversityRecord | null> {
+  try {
+    let raw = "";
+    for (const candidate of [
+      join(process.cwd(), "reports/song-preparation-pilot-25/preparation-manifest.json"),
+      join(process.cwd(), "data/reports/song-preparation-pilot-25/preparation-manifest.json"),
+      join(process.cwd(), "..", "reports/song-preparation-pilot-25/preparation-manifest.json"),
+    ]) {
+      try { raw = await readFile(candidate, "utf8"); break; } catch { /* try the next runtime root */ }
+    }
+    if (!raw) return null;
+    const records = JSON.parse(raw).records as Array<Record<string, unknown>>;
+    const normalized = rvtr.trim().toUpperCase();
+    if (!records.some((record) => String(record.rvtr ?? "").toUpperCase() === normalized && record.preparationStatus === "READY")) return null;
+    const record = await loadEditorialDiversityRecord(normalized);
+    if (!record) return null;
+    const words = record.paragraphs.join(" ").split(/\s+/).filter(Boolean);
+    if (words.length <= 180) return record;
+    let remaining = 180;
+    const paragraphs: string[] = [];
+    for (const paragraph of record.paragraphs) {
+      if (remaining <= 0) break;
+      const paragraphWords = paragraph.split(/\s+/).filter(Boolean);
+      const selected = paragraphWords.slice(0, remaining);
+      if (selected.length) paragraphs.push(selected.join(" "));
+      remaining -= selected.length;
+    }
+    return { ...record, paragraphs, articleWordCount: paragraphs.join(" ").split(/\s+/).filter(Boolean).length };
+  } catch {
+    return null;
+  }
+}
+
 export async function loadEditorialProductionRecord(rvtr: string): Promise<EditorialDiversityRecord | null> {
   try {
     const raw = await readFile(join(process.cwd(), "data/ops/intelligence/editorial-production-100.json"), "utf8");

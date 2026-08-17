@@ -10,7 +10,7 @@
 .live-song h1 { max-width: 11ch; margin: 0 0 .65rem; font: 800 clamp(3.2rem, 8vw, 8rem)/.9 Georgia, serif; letter-spacing: -.045em; }
 .live-song__artist { margin: 0; font: 700 clamp(1.7rem, 3.5vw, 3rem)/1.1 Arial, sans-serif; }
 .live-song__year { margin: .8rem 0 0; color: #c9dce8; font: 600 1.1rem/1.2 Arial, sans-serif; }
-.live-song__description { max-width: 38rem; margin: 1.8rem 0 0; color: #e1edf2; font: 500 clamp(1rem, 1.5vw, 1.2rem)/1.5 Georgia, serif; }
+.live-song__description { max-width: 38rem; margin: 1.8rem 0 0; color: #e1edf2; font: 500 clamp(1rem, 1.5vw, 1.2rem)/1.5 Georgia, serif; white-space: pre-line; }
 .live-song__links { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.2rem; }
 .live-song__links a, .live-song__link-disabled { display: inline-flex; min-height: 3.8rem; align-items: center; justify-content: center; padding: .9rem 1.35rem; border: 2px solid rgba(214,246,255,.7); border-radius: .25rem; color: #f6fbff; font: 900 .95rem/1 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
 .live-song__links a:hover, .live-song__links a:focus-visible { background: #fff4df; color: #20150f; outline: none; }
