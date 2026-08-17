@@ -29,6 +29,7 @@ export type PanelTypeId =
   | "artist-package"
   | "media-library"
   | "media-coverage"
+  | "video-downloader"
   | "collectibles"
   | "years"
   | "virtualdj-status"
