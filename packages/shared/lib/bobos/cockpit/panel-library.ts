@@ -18,6 +18,14 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     summary: "One-video production line for Retroverse homepage artwork.",
     primaryAction: { label: "Open Home Page Factory", href: "/bobos/browser-plus" },
   },
+  "video-downloader": {
+    id: "video-downloader",
+    title: "Video Downloader",
+    group: "catalog",
+    defaultStatus: "nominal",
+    summary: "Paste a YouTube URL and save a 720p MP4 to the Mac Downloads folder.",
+    primaryAction: { label: "Open Video Downloader", href: "/bobos/video-downloader" },
+  },
   "current-event": {
     id: "current-event",
     title: "Current Event",
@@ -388,18 +396,4 @@ export function getPanelDefinition(id: PanelTypeId): PanelDefinition {
 /** Bottom command bar — quick navigation outside the grid. */
 export const COCKPIT_COMMAND_BAR = [
   { label: "Documentation", href: "/bobos/docs" },
-  { label: "RV Directory", href: "/bobos/rv-directory" },
-  { label: "Broadcast Mixer", href: "/bobos/broadcast" },
-  { label: "Credentials", href: "/bobos/credentials" },
-  { label: "Event Producer", href: "/bobos/producer" },
-  { label: "Design Builder", href: "/bobos/passes" },
-  { label: "Posters", href: "/bobos/event" },
-  { label: "Website", href: "/ops/event-studio/homepage" },
-  { label: "Documentary", href: "/ops" },
-  { label: "AI Workbench", href: "/ops/intelligence" },
-  { label: "Terminal", href: "/ops/atlas/scripts" },
-  { label: "VirtualDJ", href: "/ops/browser-plus" },
-  { label: "Home Page Factory", href: "/bobos/browser-plus", panelType: "home-page-factory" },
-  { label: "Song Requests", href: "http://localhost:3000/bobos/song-requests", panelType: "song-requests" },
-  { label: "Printer", href: "/bobos/passes" },
-] as const;
+];
