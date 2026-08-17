@@ -2,15 +2,17 @@
 .live-song__page { min-height: calc(100dvh - 1rem); display: grid; padding: 0; }
 .live-song__hero { position: relative; isolation: isolate; overflow: hidden; width: 100%; min-height: calc(100dvh - 1rem); background: #0c1c2a; box-shadow: 0 2rem 6rem rgba(0,0,0,.42); }
 .live-song__image, .live-song__fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.live-song__fallback { background: radial-gradient(circle at 72% 18%, rgba(31,133,173,.45), transparent 28%), linear-gradient(135deg, #112c3e 0%, #0b1827 52%, #071019 100%); }
+.live-song__fallback { display: flex; align-items: flex-start; justify-content: flex-end; padding: clamp(1.5rem, 7vw, 7rem); background: radial-gradient(circle at 72% 18%, rgba(31,133,173,.45), transparent 28%), linear-gradient(135deg, #112c3e 0%, #0b1827 52%, #071019 100%); }
+.live-song__fallback span { position: relative; z-index: 1; color: rgba(218,244,249,.7); font: 900 .75rem/1 Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
 .live-song__veil { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(4,10,17,.93) 0%, rgba(4,10,17,.62) 44%, rgba(4,10,17,.08) 86%), linear-gradient(0deg, rgba(4,10,17,.78), transparent 58%); }
 .live-song__copy { position: relative; z-index: 2; display: flex; min-height: calc(100dvh - 1rem); max-width: 58rem; flex-direction: column; justify-content: flex-end; padding: clamp(1.5rem, 7vw, 7rem); color: #f6fbff; }
 .live-song__status { margin: 0 0 1.4rem; color: #62e6c4; font: 900 1rem/1 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .live-song h1 { max-width: 11ch; margin: 0 0 .65rem; font: 800 clamp(3.2rem, 8vw, 8rem)/.9 Georgia, serif; letter-spacing: -.045em; }
 .live-song__artist { margin: 0; font: 700 clamp(1.7rem, 3.5vw, 3rem)/1.1 Arial, sans-serif; }
 .live-song__year { margin: .8rem 0 0; color: #c9dce8; font: 600 1.1rem/1.2 Arial, sans-serif; }
+.live-song__description { max-width: 38rem; margin: 1.8rem 0 0; color: #e1edf2; font: 500 clamp(1rem, 1.5vw, 1.2rem)/1.5 Georgia, serif; }
 .live-song__links { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.2rem; }
 .live-song__links a, .live-song__link-disabled { display: inline-flex; min-height: 3.8rem; align-items: center; justify-content: center; padding: .9rem 1.35rem; border: 2px solid rgba(214,246,255,.7); border-radius: .25rem; color: #f6fbff; font: 900 .95rem/1 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
 .live-song__links a:hover, .live-song__links a:focus-visible { background: #fff4df; color: #20150f; outline: none; }
 .live-song__link-disabled { opacity: .38; }
-@media (max-width: 640px) { .live-song__hero, .live-song__copy { min-height: calc(100dvh - 1rem); } .live-song__veil { background: linear-gradient(0deg, rgba(4,10,17,.96) 0%, rgba(4,10,17,.46) 63%, rgba(4,10,17,.12) 100%); } .live-song__copy { padding: 1.35rem; } .live-song h1 { font-size: clamp(3rem, 14vw, 5.5rem); } .live-song__links { gap: .55rem; margin-top: 1.8rem; } .live-song__links a, .live-song__link-disabled { flex: 1 1 calc(50% - .55rem); min-height: 3.7rem; } }
+@media (max-width: 640px) { .live-song__hero, .live-song__copy { min-height: calc(100dvh - 1rem); } .live-song__fallback { padding: 1.35rem; } .live-song__veil { background: linear-gradient(0deg, rgba(4,10,17,.98) 0%, rgba(4,10,17,.58) 68%, rgba(4,10,17,.12) 100%); } .live-song__copy { padding: 1.35rem; } .live-song h1 { font-size: clamp(3rem, 14vw, 5.5rem); } .live-song__links { gap: .55rem; margin-top: 1.8rem; } .live-song__links a, .live-song__link-disabled { flex: 1 1 calc(50% - .55rem); min-height: 3.7rem; } .live-song__description { margin-top: 1.35rem; font-size: 1rem; line-height: 1.42; } }

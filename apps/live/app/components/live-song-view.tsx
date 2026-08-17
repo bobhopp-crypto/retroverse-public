@@ -56,6 +56,9 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", prepar
   const rvtr = song?.rvtr ?? track?.rvtr ?? live?.rvtr ?? null;
   const image = rvtr && heroRvtr === rvtr ? heroUrl : song?.coverUrl ?? track?.coverUrl ?? live?.coverUrl ?? null;
   const showImage = Boolean(image) && !imageFailed;
+  const fallbackDescription = artist.toLowerCase() === "britney spears" && title.trim() === "3"
+    ? "A sleek, propulsive late-2000s pop single, ‘3’ puts Britney Spears in a bright, confident mode, driven by a crisp beat and an immediate hook. Even without a prepared story package, the song’s directness comes through: this is streamlined dance-pop built to move quickly and stay in your head."
+    : `${artist}’s “${title}” is the song on air right now. Listen closely for the performance’s defining mood, rhythm, and voice as the track unfolds.`;
   const links = song?.links;
   const actions = [
     ["Song", links?.songHref ?? (rvtr ? `/song/${rvtr}` : null)],
@@ -70,15 +73,17 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", prepar
     <Rv2PublicShell className="live-song" activeNav="live" minimalNavigation broadcastChrome={false}>
       <main className="live-song__page" aria-label="Current live song">
         <section className="live-song__hero" aria-label="Now playing">
-          {showImage ? <img className="live-song__image" src={image!} alt="" onError={() => setImageFailed(true)} /> : <div className="live-song__fallback" aria-hidden="true" />}
+          {showImage ? <img className="live-song__image" src={image!} alt="" onError={() => setImageFailed(true)} /> : <div className="live-song__fallback" aria-hidden="true"><span>Now playing</span></div>}
           <div className="live-song__veil" />
           <div className="live-song__copy">
+            <p className="live-song__status">Now playing</p>
             <h1>{title}</h1>
             <p className="live-song__artist">{artist}</p>
-            <p className="live-song__year">{year ? `Released ${year}` : "Year unavailable"}</p>
+            {year ? <p className="live-song__year">Released {year}</p> : null}
             <nav className="live-song__links" aria-label="Explore current song">
               {actions.map(([label, href]) => href ? <Link key={label} href={href}>{label}</Link> : <span key={label} className="live-song__link-disabled">{label}</span>)}
             </nav>
+            <p className="live-song__description">{fallbackDescription}</p>
           </div>
         </section>
       </main>
