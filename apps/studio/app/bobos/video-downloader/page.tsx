@@ -6,7 +6,7 @@ import { VideoDownloader } from "./VideoDownloader";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "RV06-04 Video Downloader — BobOS",
+  title: "RV06-05 Video Downloader — BobOS",
   robots: { index: false, follow: false },
 };
 
