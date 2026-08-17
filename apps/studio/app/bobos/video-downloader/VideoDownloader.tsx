@@ -33,7 +33,7 @@ export function VideoDownloader() {
   return (
     <main style={{ minHeight: "100vh", background: "#111", color: "#f5f5f5", padding: "48px 24px" }}>
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
-        <div style={{ fontSize: 14, opacity: 0.65, letterSpacing: "0.12em", marginBottom: 8 }}>RV06-04</div>
+        <div style={{ fontSize: 14, opacity: 0.65, letterSpacing: "0.12em", marginBottom: 8 }}>RV06-05</div>
         <h1 style={{ fontSize: 42, margin: "0 0 8px" }}>Video Downloader</h1>
         <p style={{ margin: "0 0 32px", color: "#bbb", fontSize: 18 }}>
           Paste a YouTube URL. Downloads are saved to your Mac Downloads folder at 720p or lower using your Chrome session.
