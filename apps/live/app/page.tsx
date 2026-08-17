@@ -5,7 +5,7 @@ import { LiveSongView } from "@/app/components/live-song-view";
 import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
 import { resolveHomepageSongOfHourRvtr } from "@/lib/home/homepage-rvtr";
 import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
-import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
+import { isPublicSongPayloadRenderable, loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -36,6 +36,8 @@ export default async function HomePage() {
 
   if (!songPayload) return null;
 
+  const canUsePreparedExperience = isPublicSongPayloadRenderable(songPayload);
+
   const homepagePayload = hasValidVirtualDjSong
     ? current
     : {
@@ -50,11 +52,11 @@ export default async function HomePage() {
       payload={homepagePayload}
       heroUrl={null}
       heroRvtr={songPayload.rvtr}
-      preparedExperience={
+      preparedExperience={canUsePreparedExperience ? (
         <EditorialPageShell showSearch={false} fullBleed>
           <PublicSongExperience payload={songPayload} />
         </EditorialPageShell>
-      }
+      ) : undefined}
       mode={hasValidVirtualDjSong ? "live" : "featured"}
     />
   );
