@@ -15,8 +15,7 @@ export const revalidate = 0;
 export const fetchCache = "force-no-store";
 
 function isFreshBridgePayload(current: { live?: { source?: string | null; bridgeTimestamp?: string | null } | null; updatedAt?: string | null }): boolean {
-  const hasBridgeHeartbeat = current.live?.source === "bridge" || Boolean(current.live?.bridgeTimestamp?.trim());
-  if (!hasBridgeHeartbeat) return true;
+  if (current.live?.source !== "bridge") return false;
   const timestamp = current.live?.bridgeTimestamp || current.updatedAt;
   const parsed = timestamp ? Date.parse(timestamp) : NaN;
   return Number.isFinite(parsed) && Date.now() - parsed <= LIVE_BRIDGE_FRESHNESS_MS;
@@ -37,7 +36,7 @@ export default async function HomePage() {
   const hasValidVirtualDjSong =
     Boolean(current.publicSong) &&
     Boolean(current.live?.title?.trim() && current.live?.artist?.trim()) &&
-    (current.live?.source === "bridge" || current.live?.source === "channel") &&
+    current.live?.source === "bridge" &&
     isFreshBridgePayload(current);
 
   const songPayload = hasValidVirtualDjSong
