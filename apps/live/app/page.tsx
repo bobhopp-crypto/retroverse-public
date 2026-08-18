@@ -60,6 +60,11 @@ export default async function HomePage() {
   const featuredStory = !hasValidVirtualDjSong && songPayload.storyCards?.length
     ? { headline: songPayload.storyCards[0].headline, paragraphs: songPayload.storyCards.map((card) => card.body) }
     : null;
+  const preparedExperience = canUsePreparedExperience && !pilotRecord ? (
+    <EditorialPageShell showSearch={false} fullBleed>
+      <PublicSongExperience payload={songPayload} />
+    </EditorialPageShell>
+  ) : undefined;
 
   const homepagePayload = hasValidVirtualDjSong
     ? current
@@ -75,11 +80,7 @@ export default async function HomePage() {
       payload={homepagePayload}
       heroUrl={pilotHero?.url ?? featuredHero ?? null}
       heroRvtr={pilotRecord?.rvtr ?? songPayload.rvtr}
-      preparedExperience={hasValidVirtualDjSong && canUsePreparedExperience && !pilotRecord ? (
-        <EditorialPageShell showSearch={false} fullBleed>
-          <PublicSongExperience payload={songPayload} />
-        </EditorialPageShell>
-      ) : undefined}
+      preparedExperience={preparedExperience}
       pilotStory={pilotRecord ? { headline: pilotRecord.headline, paragraphs: pilotRecord.paragraphs } : featuredStory}
       pilotIdentity={pilotRecord ? { rvtr: pilotRecord.rvtr, artist: pilotRecord.artist, title: pilotRecord.title, year: pilotRecord.year } : null}
       mode={hasValidVirtualDjSong ? "live" : "featured"}
