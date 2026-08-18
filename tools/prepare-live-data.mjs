@@ -66,4 +66,13 @@ for (const subset of SUBSETS) {
 }
 
 const copiedHeroes = copyPreparedHeroes();
+const pilotOverride = path.join(target, "ops", "intelligence", "live-story-pilot-overrides.json");
+if (!fs.existsSync(pilotOverride)) {
+  throw new Error(`[prepare-live-data] required live-story pilot data was not copied: ${pilotOverride}`);
+}
+const pilotRecords = JSON.parse(fs.readFileSync(pilotOverride, "utf8")).records;
+if (!pilotRecords.some((record) => String(record.rvtr).toUpperCase() === "RVTR185152")) {
+  throw new Error("[prepare-live-data] required RVTR185152 pilot override is missing");
+}
 console.log(`[prepare-live-data] copied ${copied} data subsets and ${copiedHeroes} hero-video.jpg files into apps/live/data`);
+console.log("[prepare-live-data] verified RVTR185152 pilot override in prepared runtime data");
