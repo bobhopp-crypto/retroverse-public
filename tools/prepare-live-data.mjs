@@ -24,6 +24,7 @@ const SUBSETS = [
   { source: "data/ops/retroverse-map.json", target: "ops/retroverse-map.json" },
   { source: "data/ops/vdj-rvtr-index.json", target: "ops/vdj-rvtr-index.json" },
   { source: "data/ops/intelligence/editorial-diversity-25.json", target: "ops/intelligence/editorial-diversity-25.json" },
+  { source: "data/ops/intelligence/live-story-pilot-overrides.json", target: "ops/intelligence/live-story-pilot-overrides.json" },
   { source: "reports/song-preparation-pilot-25/preparation-manifest.json", target: "reports/song-preparation-pilot-25/preparation-manifest.json" },
   { source: "data/ops/manifest/c2-final-editor-backlog.json", target: "ops/manifest/c2-final-editor-backlog.json" },
   { source: "reports/c2-terra-editor-proof-25/terra-editor-manifest.json", target: "reports/c2-terra-editor-proof-25/terra-editor-manifest.json" },

@@ -14,9 +14,10 @@ type Props = {
   mode?: "live" | "featured";
   preparedExperience?: ReactNode;
   pilotStory?: { headline: string; paragraphs: string[] } | null;
+  pilotIdentity?: { rvtr: string; artist: string; title: string; year: number | null } | null;
 };
 
-export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", preparedExperience, pilotStory }: Props) {
+export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", preparedExperience, pilotStory, pilotIdentity }: Props) {
   const [current, setCurrent] = useState(payload);
   const [imageFailed, setImageFailed] = useState(false);
   const pollMs = current.channel?.running ? 3000 : 7000;
@@ -51,10 +52,10 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", prepar
   const song = current.publicSong;
   const track = current.track;
   const live = current.live;
-  const title = song?.title || track?.title || live?.title || "Now playing";
-  const artist = song?.artist || track?.artistName || live?.artist || "VirtualDJ";
-  const year = song?.year ?? track?.releaseYear ?? live?.year ?? null;
-  const rvtr = song?.rvtr ?? track?.rvtr ?? live?.rvtr ?? null;
+  const title = pilotIdentity?.title || song?.title || track?.title || live?.title || "Now playing";
+  const artist = pilotIdentity?.artist || song?.artist || track?.artistName || live?.artist || "VirtualDJ";
+  const year = pilotIdentity?.year ?? song?.year ?? track?.releaseYear ?? live?.year ?? null;
+  const rvtr = pilotIdentity?.rvtr ?? song?.rvtr ?? track?.rvtr ?? live?.rvtr ?? null;
   const image = rvtr && heroRvtr === rvtr ? heroUrl : song?.coverUrl ?? track?.coverUrl ?? live?.coverUrl ?? null;
   const showImage = Boolean(image) && !imageFailed;
   const fallbackDescription = pilotStory?.paragraphs.join("\n\n") || (artist.toLowerCase() === "britney spears" && title.trim() === "3"

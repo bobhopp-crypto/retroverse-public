@@ -49,7 +49,7 @@ export async function loadEditorialDiversityRecord(rvtr: string): Promise<Editor
 }
 
 /** The bounded frame-aware Live fallback pilot. */
-export async function loadLiveStoryPilotRecord(rvtr: string): Promise<EditorialDiversityRecord | null> {
+export async function loadLiveStoryPilotRecord(rvtr: string, liveIdentity?: { artist?: string | null; title?: string | null }): Promise<EditorialDiversityRecord | null> {
   try {
     let raw = "";
     for (const candidate of [
@@ -62,6 +62,12 @@ export async function loadLiveStoryPilotRecord(rvtr: string): Promise<EditorialD
     if (!raw) return null;
     const records = JSON.parse(raw).records as Array<Record<string, unknown>>;
     const normalized = rvtr.trim().toUpperCase();
+    const liveArtist = String(liveIdentity?.artist ?? "").toLowerCase();
+    const liveTitle = String(liveIdentity?.title ?? "").toLowerCase().replace(/dragging/g, "draggin");
+    const aliasMatch = liveTitle.includes("stop draggin my heart around") && /stevie nicks|tom petty/.test(liveArtist);
+    const overrideRaw = await readFile(join(process.cwd(), "data/ops/intelligence/live-story-pilot-overrides.json"), "utf8").catch(() => null);
+    const override = overrideRaw ? (JSON.parse(overrideRaw).records as Array<Record<string, any>>).find((record) => String(record.rvtr).toUpperCase() === "RVTR185152") : null;
+    if (aliasMatch && override) return { rvtr: override.rvtr, artist: override.artist, title: override.title, year: override.year, yearSource: "canonical/trusted", headline: override.storyHeadline, paragraphs: override.storyParagraphs, articleWordCount: override.storyParagraphs.join(" ").split(/\s+/).length, researchSources: override.storySources, related: [], classification: "live-story-pilot-override", finalStatus: "PILOT_READY" };
     if (!records.some((record) => String(record.rvtr ?? "").toUpperCase() === normalized && record.preparationStatus === "READY")) return null;
     const record = await loadEditorialDiversityRecord(normalized);
     if (!record) return null;
