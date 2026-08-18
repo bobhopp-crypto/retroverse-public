@@ -8,10 +8,18 @@ import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
 import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 import { loadLiveStoryPilotRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import { isPublicSongPayloadRenderable, loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
+import { LIVE_BRIDGE_FRESHNESS_MS } from "@/lib/sunday-nights/live-freshness";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 export const fetchCache = "force-no-store";
+
+function isFreshBridgePayload(current: { live?: { source?: string | null; bridgeTimestamp?: string | null } | null; updatedAt?: string | null }): boolean {
+  if (current.live?.source !== "bridge") return true;
+  const timestamp = current.live.bridgeTimestamp || current.updatedAt;
+  const parsed = timestamp ? Date.parse(timestamp) : NaN;
+  return Number.isFinite(parsed) && Date.now() - parsed <= LIVE_BRIDGE_FRESHNESS_MS;
+}
 
 export const metadata: Metadata = {
   title: "Retroverse",
@@ -28,7 +36,8 @@ export default async function HomePage() {
   const hasValidVirtualDjSong =
     Boolean(current.publicSong) &&
     Boolean(current.live?.title?.trim() && current.live?.artist?.trim()) &&
-    (current.live?.source === "bridge" || current.live?.source === "channel");
+    (current.live?.source === "bridge" || current.live?.source === "channel") &&
+    isFreshBridgePayload(current);
 
   const songPayload = hasValidVirtualDjSong
     ? current.publicSong
