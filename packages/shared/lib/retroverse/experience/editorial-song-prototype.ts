@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { inspectQuery } from "@/lib/inspect/pg";
 import { trackPageHref } from "@/lib/search/entity-routes";
@@ -38,6 +39,21 @@ export type EditorialDiversityRecord = {
 
 const PROTOTYPE_RVTR = "RVTR111098";
 
+const MODULE_ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../../..");
+
+async function readLiveRuntimeData(relativePath: string): Promise<string | null> {
+  const candidates = [
+    join(process.cwd(), "data", relativePath),
+    join(process.cwd(), "apps", "live", "data", relativePath),
+    join(MODULE_ROOT, "apps", "live", "data", relativePath),
+    join(MODULE_ROOT, "data", relativePath),
+  ];
+  for (const candidate of candidates) {
+    try { return await readFile(candidate, "utf8"); } catch { /* try the next runtime root */ }
+  }
+  return null;
+}
+
 export async function loadEditorialDiversityRecord(rvtr: string): Promise<EditorialDiversityRecord | null> {
   try {
     const raw = await readFile(join(process.cwd(), "data/ops/intelligence/editorial-diversity-25.json"), "utf8");
@@ -65,7 +81,7 @@ export async function loadLiveStoryPilotRecord(rvtr: string, liveIdentity?: { ar
     const liveArtist = String(liveIdentity?.artist ?? "").toLowerCase();
     const liveTitle = String(liveIdentity?.title ?? "").toLowerCase().replace(/dragging/g, "draggin");
     const aliasMatch = liveTitle.includes("stop draggin my heart around") && /stevie nicks|tom petty/.test(liveArtist);
-    const overrideRaw = await readFile(join(process.cwd(), "data/ops/intelligence/live-story-pilot-overrides.json"), "utf8").catch(() => null);
+    const overrideRaw = await readLiveRuntimeData("ops/intelligence/live-story-pilot-overrides.json");
     const override = overrideRaw ? (JSON.parse(overrideRaw).records as Array<Record<string, any>>).find((record) => String(record.rvtr).toUpperCase() === normalized || (aliasMatch && String(record.rvtr).toUpperCase() === "RVTR185152")) : null;
     if (override) return { rvtr: override.rvtr, artist: override.artist, title: override.title, year: override.year, yearSource: "canonical/trusted", headline: override.storyHeadline, paragraphs: override.storyParagraphs, articleWordCount: override.storyParagraphs.join(" ").split(/\s+/).length, researchSources: override.storySources, related: [], classification: "live-story-pilot-override", finalStatus: "PILOT_READY" };
     if (!records.some((record) => String(record.rvtr ?? "").toUpperCase() === normalized && record.preparationStatus === "READY")) return null;
