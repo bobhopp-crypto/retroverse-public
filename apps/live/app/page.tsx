@@ -34,7 +34,7 @@ export default async function HomePage() {
   ]);
 
   const hasValidVirtualDjSong =
-    Boolean(current.publicSong) &&
+    Boolean(current.publicSong && isPublicSongPayloadRenderable(current.publicSong)) &&
     Boolean(current.live?.title?.trim() && current.live?.artist?.trim()) &&
     current.live?.source === "bridge" &&
     isFreshBridgePayload(current);
