@@ -17,7 +17,7 @@ export const fetchCache = "force-no-store";
 function isFreshBridgePayload(current: { live?: { source?: string | null; bridgeTimestamp?: string | null } | null; updatedAt?: string | null }): boolean {
   const hasBridgeHeartbeat = current.live?.source === "bridge" || Boolean(current.live?.bridgeTimestamp?.trim());
   if (!hasBridgeHeartbeat) return true;
-  const timestamp = current.live.bridgeTimestamp || current.updatedAt;
+  const timestamp = current.live?.bridgeTimestamp || current.updatedAt;
   const parsed = timestamp ? Date.parse(timestamp) : NaN;
   return Number.isFinite(parsed) && Date.now() - parsed <= LIVE_BRIDGE_FRESHNESS_MS;
 }
