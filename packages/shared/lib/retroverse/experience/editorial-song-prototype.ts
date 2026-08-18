@@ -43,9 +43,11 @@ const MODULE_ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../../.
 
 async function readLiveRuntimeData(relativePath: string): Promise<string | null> {
   const candidates = [
+    join(process.cwd(), relativePath),
     join(process.cwd(), "data", relativePath),
     join(process.cwd(), "apps", "live", "data", relativePath),
     join(MODULE_ROOT, "apps", "live", "data", relativePath),
+    join(MODULE_ROOT, relativePath),
     join(MODULE_ROOT, "data", relativePath),
   ];
   for (const candidate of candidates) {
@@ -67,14 +69,7 @@ export async function loadEditorialDiversityRecord(rvtr: string): Promise<Editor
 /** The bounded frame-aware Live fallback pilot. */
 export async function loadLiveStoryPilotRecord(rvtr: string, liveIdentity?: { artist?: string | null; title?: string | null }): Promise<EditorialDiversityRecord | null> {
   try {
-    let raw = "";
-    for (const candidate of [
-      join(process.cwd(), "reports/song-preparation-pilot-25/preparation-manifest.json"),
-      join(process.cwd(), "data/reports/song-preparation-pilot-25/preparation-manifest.json"),
-      join(process.cwd(), "..", "reports/song-preparation-pilot-25/preparation-manifest.json"),
-    ]) {
-      try { raw = await readFile(candidate, "utf8"); break; } catch { /* try the next runtime root */ }
-    }
+    const raw = await readLiveRuntimeData("reports/song-preparation-pilot-25/preparation-manifest.json") ?? "";
     if (!raw) return null;
     const records = JSON.parse(raw).records as Array<Record<string, unknown>>;
     const normalized = rvtr.trim().toUpperCase();
