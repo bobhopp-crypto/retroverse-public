@@ -45,6 +45,12 @@ export default async function HomePage() {
   const pilotHero = pilotRecord
     ? await resolveHeroForRvtr(pilotRecord.rvtr).catch(() => ({ url: null, tier: null }))
     : null;
+  const featuredHero = !hasValidVirtualDjSong
+    ? songPayload.heroUrl || (await resolveHeroForRvtr(songPayload.rvtr).catch(() => ({ url: null, tier: null }))).url
+    : null;
+  const featuredStory = !hasValidVirtualDjSong && songPayload.storyCards?.length
+    ? { headline: songPayload.storyCards[0].headline, paragraphs: songPayload.storyCards.map((card) => card.body) }
+    : null;
 
   const homepagePayload = hasValidVirtualDjSong
     ? current
@@ -58,14 +64,14 @@ export default async function HomePage() {
   return (
     <LiveSongView
       payload={homepagePayload}
-      heroUrl={pilotHero?.url ?? null}
+      heroUrl={pilotHero?.url ?? featuredHero ?? null}
       heroRvtr={pilotRecord?.rvtr ?? songPayload.rvtr}
-      preparedExperience={canUsePreparedExperience && !pilotRecord ? (
+      preparedExperience={hasValidVirtualDjSong && canUsePreparedExperience && !pilotRecord ? (
         <EditorialPageShell showSearch={false} fullBleed>
           <PublicSongExperience payload={songPayload} />
         </EditorialPageShell>
       ) : undefined}
-      pilotStory={pilotRecord ? { headline: pilotRecord.headline, paragraphs: pilotRecord.paragraphs } : null}
+      pilotStory={pilotRecord ? { headline: pilotRecord.headline, paragraphs: pilotRecord.paragraphs } : featuredStory}
       pilotIdentity={pilotRecord ? { rvtr: pilotRecord.rvtr, artist: pilotRecord.artist, title: pilotRecord.title, year: pilotRecord.year } : null}
       mode={hasValidVirtualDjSong ? "live" : "featured"}
     />
