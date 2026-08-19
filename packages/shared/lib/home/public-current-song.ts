@@ -17,7 +17,9 @@ import { resolveLiveTrack, songKeyFromPath } from "@/lib/sunday-nights/resolve-l
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 import type { SundayNightsLiveSelection, SundayNightsState } from "@/lib/sunday-nights/types";
 import { loadPublicSongPayload, type PublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
-import { vdjBaseKey } from "@/lib/universal-renderer/load-vdj-base";
+import { loadVdjBasePackage, vdjBaseKey } from "@/lib/universal-renderer/load-vdj-base";
+import { loadVdjSnapshotsForPaths, normVdjPath } from "@/lib/ops/intelligence/vdj-database";
+import { mergeExactVdjPresentation } from "@/lib/home/public-song-experience-resolution";
 import { loadTrackPage } from "@/lib/track/load-track-page";
 
 const RE_RVTR = /^RVTR\d{6}$/i;
@@ -223,21 +225,35 @@ async function payloadFromFreshVirtualDj(
   let publicSong = rvtr
     ? await loadPublicSongPayload(rvtr).catch(() => null)
     : null;
-  let resolvedVdj = false;
+  let exactVdjPublicSong: PublicSongPayload | null = null;
+
+  // database.xml and the prepared VDJ package are presentation enrichment.
+  // They do not turn an unresolved file into a canonical identity.
+  if (live && live.year == null && live.filepath) {
+    const snapshot = (await loadVdjSnapshotsForPaths([live.filepath])).get(normVdjPath(live.filepath));
+    if (snapshot?.year != null) live = { ...live, year: snapshot.year };
+  }
+
+  if (live && live.year == null && currentTrackId?.toLowerCase().startsWith("vdj:")) {
+    const vdjPackage = await loadVdjBasePackage(currentTrackId.slice(4).toLowerCase()).catch(() => null);
+    if (vdjPackage?.year != null) live = { ...live, year: vdjPackage.year };
+  }
 
   if (live?.filepath) {
     const filepath = live.filepath.replace(/\\/g, "/").trim();
-    const vdjPublicSong = await loadPublicSongPayload(`VDJ:${vdjBaseKey(filepath.toLowerCase())}`).catch(() => null);
-    if (vdjPublicSong) {
-      publicSong = vdjPublicSong;
-      resolvedVdj = true;
-      currentTrackId = vdjPublicSong.rvtr;
-      rvtr = null;
-      track = null;
-    }
+    exactVdjPublicSong = await loadPublicSongPayload(
+      `VDJ:${vdjBaseKey(filepath.toLowerCase())}`,
+      {
+        artist: live.artist,
+        title: live.title,
+        album: null,
+        year: live.year,
+        coverUrl: live.coverUrl,
+      },
+    ).catch(() => null);
   }
 
-  if (!rvtr && live?.filepath && !resolvedVdj) {
+  if (!rvtr && live?.filepath) {
     const resolved = await resolveLiveTrack({
       filepath: live.filepath,
       artist: live.artist,
@@ -260,6 +276,12 @@ async function payloadFromFreshVirtualDj(
         resolution: resolved.resolution,
       };
     }
+  }
+
+  publicSong = mergeExactVdjPresentation(publicSong, exactVdjPublicSong);
+  if (publicSong && !rvtr) {
+    currentTrackId = publicSong.rvtr;
+    track = publicSong.track;
   }
 
   if (live && publicSong) {

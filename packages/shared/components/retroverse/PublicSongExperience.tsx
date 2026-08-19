@@ -12,7 +12,8 @@ import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { preparePublicSongSections, filterPublicText } from "@/lib/retroverse/experience/public-song-display";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { SongArveyContext } from "./SongArveyContext";
-import { loadAuthoritativeTerraFinalRecord, loadC2ProductionBatch100Record, loadC2ProductionProofRecord, loadChartTrajectoryRecommendations, loadEditorialDiversityRecord, loadEditorialProductionRecord, SHE_IS_A_BEAUTY_ARTICLE } from "@/lib/retroverse/experience/editorial-song-prototype";
+import { loadBestEditorialSongRecord, loadChartTrajectoryRecommendations, SHE_IS_A_BEAUTY_ARTICLE, type EditorialDiversityRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
+import { describePublicSongExperience, hasStablePublicSongRoute } from "@/lib/home/public-song-experience-resolution";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
@@ -25,6 +26,8 @@ type Props = {
   className?: string;
   embedded?: boolean;
   fallbackMode?: boolean;
+  showSongLink?: boolean;
+  editorialRecordOverride?: EditorialDiversityRecord | null;
 };
 
 function trackYearFromPayload(payload: PublicSongPayload, track: TrackPageData | null): number | null {
@@ -106,6 +109,8 @@ export async function PublicSongExperience({
   className,
   embedded = false,
   fallbackMode = false,
+  showSongLink = false,
+  editorialRecordOverride = null,
 }: Props) {
   const payload =
     payloadProp ??
@@ -129,17 +134,22 @@ export async function PublicSongExperience({
   const hasStory = sections.storyParagraphs.length > 0 || sections.storyCards.length > 0;
   const artistHref = payload.links.artistHref;
   const albumHref = payload.links.albumHref ?? primaryAlbum?.href ?? null;
-  const yearHref = payload.links.yearHref;
+  const yearHref = year ? payload.links.yearHref ?? `/rv/${year}` : null;
   const isVdjOnly = payload.resolutionTier === "vdj-only";
-  const editorialRecord = await loadAuthoritativeTerraFinalRecord(payload.rvtr, { artist: track?.artistName, title: track?.title }) ?? await loadEditorialDiversityRecord(payload.rvtr) ?? await loadEditorialProductionRecord(payload.rvtr) ?? await loadC2ProductionProofRecord(payload.rvtr) ?? await loadC2ProductionBatch100Record(payload.rvtr);
+  const editorialRecord = editorialRecordOverride ?? await loadBestEditorialSongRecord(
+    [payload.rvtr, ...(payload.alternateIdentities ?? [])],
+    { artist: payload.artist || track?.artistName, title: payload.title || track?.title },
+  );
   const isEditorialPrototype = payload.rvtr === "RVTR111098";
   const trajectoryRecommendations = editorialRecord
     ? editorialRecord.related
     : isEditorialPrototype && track
     ? await loadChartTrajectoryRecommendations(track)
     : [];
+  const showStableSongLink = showSongLink && hasStablePublicSongRoute(payload);
   const hasExploreLinks =
-    journeyWeeks > 0 || hasStory || Boolean(moment?.href) || Boolean(albumHref) || Boolean(artistHref) || Boolean(yearHref && year);
+    showStableSongLink || journeyWeeks > 0 || hasStory || Boolean(moment?.href) || Boolean(albumHref) || Boolean(artistHref) || Boolean(yearHref);
+  const trace = describePublicSongExperience(payload, { hasEditorial: Boolean(editorialRecord) });
 
   const rootClass = ["rv2-song", embedded ? "rv2-song--embedded" : null, className]
     .filter(Boolean)
@@ -147,7 +157,15 @@ export async function PublicSongExperience({
 
   return (
     <>
-      <div className={`${rootClass} editorial-song${!embedded ? " editorial-song--full-hero" : ""}`}>
+      <div
+        className={`${rootClass} editorial-song${!embedded ? " editorial-song--full-hero" : ""}`}
+        data-renderer={trace.renderer}
+        data-track-identity={trace.identity}
+        data-resolution-path={trace.dataSources.join("|") || "none"}
+        data-hero-source={trace.heroSource}
+        data-story-source={trace.storySource}
+        data-chart-available={trace.chartAvailable ? "true" : "false"}
+      >
         {!embedded ? (
           <div className="canonical-song__stage-bg" aria-hidden="true">
             {payload.heroUrl ? (
@@ -198,15 +216,16 @@ export async function PublicSongExperience({
             {(editorialRecord || hasStory) ? <div className="canonical-song__lead"><p>{editorialRecord?.paragraphs[0] ?? (isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0])}</p></div> : null}
             <div className="canonical-song__meta">
               {payload.album ? <span>{payload.album}</span> : null}
-              {year ? <Link href={yearHref ?? `/rv/${year}`}>Explore {year}</Link> : null}
+              {year && yearHref ? <Link href={yearHref}>Explore {year}</Link> : null}
             </div>
             {!embedded && hasExploreLinks ? (
               <>
                 <div className="rv2-song__continue-label">Explore</div>
                 <nav className="rv2-song__explore-links" aria-label="Explore this song">
+                  {showStableSongLink ? <Link href={payload.links.songHref} prefetch>Song</Link> : null}
                   {artistHref ? <Link href={artistHref} prefetch>Artist</Link> : null}
                   {albumHref ? <Link href={albumHref} prefetch>Album</Link> : null}
-                  {yearHref && year ? <Link href={yearHref} prefetch>Year</Link> : null}
+                  {yearHref ? <Link href={yearHref} prefetch>Year</Link> : null}
                   {moment?.href ? <Link href={moment.href} prefetch>Charts</Link> : null}
                 </nav>
                 {journeyWeeks > 0 ? <p className="rv2-song__continue-cue">Chart Journey below ↓</p> : null}

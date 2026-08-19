@@ -9,6 +9,7 @@ import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 import { loadLiveStoryPilotRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import { isPublicSongPayloadRenderable, loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 import { LIVE_BRIDGE_FRESHNESS_MS } from "@/lib/sunday-nights/live-freshness";
+import { mergeExactVdjPresentation } from "@/lib/home/public-song-experience-resolution";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -51,18 +52,28 @@ export default async function HomePage() {
   const pilotRecord = hasValidVirtualDjSong
     ? await loadLiveStoryPilotRecord(songPayload.rvtr, { artist: current.live?.artist, title: current.live?.title })
     : null;
-  const pilotHero = pilotRecord
-    ? await resolveHeroForRvtr(pilotRecord.rvtr).catch(() => ({ url: null, tier: null }))
-    : null;
+  const [pilotHero, pilotPayload] = pilotRecord
+    ? await Promise.all([
+        resolveHeroForRvtr(pilotRecord.rvtr).catch(() => ({ url: null, tier: null })),
+        loadPublicSongPayload(pilotRecord.rvtr).catch(() => null),
+      ])
+    : [null, null];
   const featuredHero = !hasValidVirtualDjSong
     ? songPayload.heroUrl || (await resolveHeroForRvtr(songPayload.rvtr).catch(() => ({ url: null, tier: null }))).url
     : null;
-  const featuredStory = !hasValidVirtualDjSong && songPayload.storyCards?.length
-    ? { headline: songPayload.storyCards[0].headline, paragraphs: songPayload.storyCards.map((card) => card.body) }
-    : null;
-  const preparedExperience = canUsePreparedExperience && !pilotRecord ? (
+  const resolvedExperiencePayload = mergeExactVdjPresentation(pilotPayload, songPayload) ?? songPayload;
+  const experiencePayload = pilotHero?.url
+    ? { ...resolvedExperiencePayload, heroUrl: pilotHero.url, heroSource: "approved-song-hero" as const }
+    : featuredHero && !resolvedExperiencePayload.heroUrl
+      ? { ...resolvedExperiencePayload, heroUrl: featuredHero, heroSource: "fallback" as const }
+      : resolvedExperiencePayload;
+  const songExperience = canUsePreparedExperience ? (
     <EditorialPageShell showSearch={false} fullBleed>
-      <PublicSongExperience payload={songPayload} />
+      <PublicSongExperience
+        payload={experiencePayload}
+        editorialRecordOverride={pilotRecord}
+        showSongLink
+      />
     </EditorialPageShell>
   ) : undefined;
 
@@ -78,11 +89,9 @@ export default async function HomePage() {
   return (
     <LiveSongView
       payload={homepagePayload}
-      heroUrl={pilotHero?.url ?? featuredHero ?? null}
-      heroRvtr={pilotRecord?.rvtr ?? songPayload.rvtr}
-      preparedExperience={preparedExperience}
-      pilotStory={pilotRecord ? { headline: pilotRecord.headline, paragraphs: pilotRecord.paragraphs } : featuredStory}
-      pilotIdentity={pilotRecord ? { rvtr: pilotRecord.rvtr, artist: pilotRecord.artist, title: pilotRecord.title, year: pilotRecord.year } : null}
+      heroUrl={experiencePayload.heroUrl}
+      heroRvtr={experiencePayload.rvtr}
+      songExperience={songExperience}
       mode={hasValidVirtualDjSong ? "live" : "featured"}
     />
   );

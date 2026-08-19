@@ -28,6 +28,7 @@ import {
 import { resolveHeroForRvtr } from "@/lib/visual-profile/resolve-hero-for-rvtr";
 import { resolveVisualAssetPath } from "@/lib/ops/studio/collector/visual-extraction";
 import { loadAuthoritativeTerraFinalRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
+import { canRenderPublicSongExperience } from "@/lib/home/public-song-experience-resolution";
 import type { ExternalDiscoveryQuery } from "@/lib/public/external-search";
 import {
   sanitizeDisplayAlbumTitle,
@@ -79,6 +80,7 @@ export type PublicSongStoryCard = {
 
 export type PublicSongPayload = {
   rvtr: string;
+  alternateIdentities?: string[];
   title: string;
   artist: string;
   album: string | null;
@@ -279,6 +281,7 @@ function buildPayload(
 
   return {
     rvtr,
+    alternateIdentities: [],
     title,
     artist,
     album,
@@ -386,6 +389,5 @@ async function loadPublicSongPayloadImpl(
 export const loadPublicSongPayload = cache(loadPublicSongPayloadImpl);
 
 export function isPublicSongPayloadRenderable(payload: PublicSongPayload): boolean {
-  if (payload.resolutionTier === "unresolved") return false;
-  return Boolean(payload.title.trim() || payload.artist.trim());
+  return canRenderPublicSongExperience(payload);
 }
