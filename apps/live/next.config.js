@@ -76,7 +76,10 @@ const nextConfig = {
     ],
     "/": [
       "./data/ops/manifest/c2-final-editor-backlog.json",
+      "./data/ops/intelligence/editorial-diversity-25.json",
+      "./data/ops/intelligence/live-story-pilot-overrides.json",
       "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
+      "./data/reports/song-preparation-pilot-25/preparation-manifest.json",
       "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
     ],
     "/api/experience/visual-asset": [
