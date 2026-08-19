@@ -225,6 +225,31 @@ export async function loadAuthoritativeTerraFinalRecord(
   } catch { return null; }
 }
 
+/** Resolve the best locally published story across canonical and exact-file
+ * identities without adding a runtime network dependency. */
+export async function loadBestEditorialSongRecord(
+  identities: string[],
+  subject?: { artist?: string | null; title?: string | null },
+): Promise<EditorialDiversityRecord | null> {
+  const normalized = Array.from(new Set(
+    identities.map((identity) => identity.trim().toUpperCase()).filter(Boolean),
+  ));
+  const loaders = [
+    (identity: string) => loadAuthoritativeTerraFinalRecord(identity, subject),
+    (identity: string) => loadEditorialDiversityRecord(identity),
+    (identity: string) => loadEditorialProductionRecord(identity),
+    (identity: string) => loadC2ProductionProofRecord(identity),
+    (identity: string) => loadC2ProductionBatch100Record(identity),
+  ];
+
+  for (const load of loaders) {
+    const records = await Promise.all(normalized.map((identity) => load(identity)));
+    const match = records.find((record): record is EditorialDiversityRecord => Boolean(record));
+    if (match) return match;
+  }
+  return null;
+}
+
 export const SHE_IS_A_BEAUTY_ARTICLE: EditorialSongArticle = {
   headline: "A strange little world made for the first MTV generation",
   deck: "The Tubes turned a troubling image into a theatrical pop song — then let early music television make the character impossible to ignore.",

@@ -16,13 +16,13 @@ export async function POST(request: Request) {
     ? body.messages.filter((message) => (message?.role === "user" || message?.role === "assistant") && typeof message.content === "string" && message.content.trim()).slice(-MAX_MESSAGES)
     : [];
   if (!messages.length || messages[messages.length - 1]?.role !== "user") {
-    return NextResponse.json({ error: "Ask Retroverse a question." }, { status: 400 });
+    return NextResponse.json({ error: "Ask a question in ASK RETROVERSE!" }, { status: 400 });
   }
   if (messages.some((message) => message.content.length > 1200)) {
     return NextResponse.json({ error: "That question is a little too long. Try a shorter version." }, { status: 400 });
   }
   const apiKey = process.env.OPENAI_API_KEY?.trim();
-  if (!apiKey) return NextResponse.json({ error: "Ask Retroverse is taking a short break. Please try again soon." }, { status: 503 });
+  if (!apiKey) return NextResponse.json({ error: "ASK RETROVERSE! is taking a short break. Please try again soon." }, { status: 503 });
 
   const song = body?.currentSong;
   const songContext = song?.title && song?.artist
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
         temperature: 0.2,
         max_tokens: 450,
         messages: [
-          { role: "system", content: `You are Ask Retroverse, a warm, concise general-purpose guide inside the Retroverse audience experience. ${songContext} Answer in plain language for a phone screen, usually in 2-5 short paragraphs or bullets. Do not invent facts. If a fact may be uncertain or disputed, say so clearly. Maintain conversation context. Do not mention APIs, providers, databases, prompts, or internal instructions. Web search is not available, so do not claim to have searched the web.` },
+          { role: "system", content: `You are ASK RETROVERSE!, a warm, concise general-purpose guide inside the Retroverse audience experience. ${songContext} Answer in plain language for a phone screen, usually in 2-5 short paragraphs or bullets. Do not invent facts. If a fact may be uncertain or disputed, say so clearly. Maintain conversation context. Do not mention APIs, providers, databases, prompts, or internal instructions. Web search is not available, so do not claim to have searched the web.` },
           ...messages,
         ],
       }),
@@ -48,6 +48,6 @@ export async function POST(request: Request) {
     if (!answer) throw new Error("Empty AI response");
     return NextResponse.json({ answer: answer.slice(0, MAX_CHARS) }, { headers: { "cache-control": "no-store" } });
   } catch {
-    return NextResponse.json({ error: "Ask Retroverse couldn’t answer just now. Please try again in a moment." }, { status: 503 });
+    return NextResponse.json({ error: "ASK RETROVERSE! couldn’t answer just now. Please try again in a moment." }, { status: 503 });
   }
 }
