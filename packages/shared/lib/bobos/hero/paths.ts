@@ -1,3 +1,4 @@
+import { existsSync } from "fs";
 import { join } from "path";
 
 import { songPackageDir } from "@/lib/ops/intelligence/paths";
@@ -5,6 +6,27 @@ import { retroverseDataRoot } from "@/lib/retroverse-data-root";
 
 export function bobosDataRoot(): string {
   return join(retroverseDataRoot(), "bobos");
+}
+
+export function bobosVisualAssetsRoot(): string {
+  return join(bobosDataRoot(), "visual-assets");
+}
+
+export function bobosVisualAssetsDir(rvtr: string): string {
+  return join(bobosVisualAssetsRoot(), rvtr.trim().toUpperCase());
+}
+
+export function bundledBobosVisualAssetsDir(rvtr: string): string {
+  const id = rvtr.trim().toUpperCase();
+  let dir = process.cwd();
+  for (let i = 0; i < 6; i += 1) {
+    const candidate = join(dir, "data", "bobos", "visual-assets", id);
+    if (existsSync(candidate)) return candidate;
+    const parent = join(dir, "..");
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return join(process.cwd(), "data", "bobos", "visual-assets", id);
 }
 
 export function heroRequestsDir(): string {

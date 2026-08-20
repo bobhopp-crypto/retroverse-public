@@ -62,6 +62,8 @@ const nextConfig = {
       "../../node_modules/detect-libc/**",
       "../../node_modules/semver/**",
       "./data/album-chart-features.json",
+      "./data/bobos/song-packages/**",
+      "./data/bobos/visual-assets/**/hero-video.jpg",
     ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
     "/album/[id]": ["./data/album-chart-features.json"],
@@ -69,9 +71,11 @@ const nextConfig = {
     "/song/vdj/[key]": [
       "./data/ops/manifest/c2-final-editor-backlog.json",
       "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
+      "./data/bobos/visual-assets/**/hero-video.jpg",
       "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
     ],
     "/song/[rvtr]": [
+      "./data/bobos/visual-assets/**/hero-video.jpg",
       "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
     ],
     "/": [
@@ -80,9 +84,11 @@ const nextConfig = {
       "./data/ops/intelligence/live-story-pilot-overrides.json",
       "./data/reports/c2-terra-editor-proof-25/terra-editor-manifest.json",
       "./data/reports/song-preparation-pilot-25/preparation-manifest.json",
+      "./data/bobos/visual-assets/**/hero-video.jpg",
       "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
     ],
     "/api/experience/visual-asset": [
+      "./data/bobos/visual-assets/**/hero-video.jpg",
       "./data/ops/intelligence/research-department/**/visual-assets/hero-video.jpg",
     ],
   },

@@ -19,8 +19,9 @@ export function intelligenceRoot(): string {
   return join(retroverseDataRoot(), "ops", "intelligence");
 }
 
+/** Canonical BobOS public song-package store (not ops/). */
 export function songPackagesDir(): string {
-  return join(intelligenceRoot(), "packages");
+  return join(retroverseDataRoot(), "bobos", "song-packages");
 }
 
 export function bundledIntelligenceRoot(): string {
@@ -28,7 +29,7 @@ export function bundledIntelligenceRoot(): string {
 }
 
 export function bundledSongPackagesDir(): string {
-  return join(bundledIntelligenceRoot(), "packages");
+  return resolveRepoDataPath("bobos", "song-packages");
 }
 
 export function bundledSongPackagePath(rvtr: string): string {
@@ -36,7 +37,7 @@ export function bundledSongPackagePath(rvtr: string): string {
 }
 
 export function bundledSongPackageIndexPath(): string {
-  return join(bundledIntelligenceRoot(), "package-index.json");
+  return join(bundledSongPackagesDir(), "index.json");
 }
 
 export function bundledVdjRvtrIndexPath(): string {
@@ -68,7 +69,7 @@ export function bundledPublicExhibitPath(rvtr: string): string {
 }
 
 export function songPackageIndexPath(): string {
-  return join(intelligenceRoot(), "package-index.json");
+  return join(songPackagesDir(), "index.json");
 }
 
 export function batchStatusPath(): string {

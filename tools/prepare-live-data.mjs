@@ -20,6 +20,8 @@ const target = path.join(root, "apps", "live", "data");
 // Live runtime data: attract tour pool + studio publish metadata,
 // Sunday Nights snapshots/assets, RVBR era canon + prompt profiles.
 const SUBSETS = [
+  { source: "data/bobos/song-packages", target: "bobos/song-packages" },
+  { source: "data/bobos/visual-assets", target: "bobos/visual-assets" },
   { source: "data/ops/studio", target: "ops/studio" },
   { source: "data/ops/retroverse-map.json", target: "ops/retroverse-map.json" },
   { source: "data/ops/vdj-rvtr-index.json", target: "ops/vdj-rvtr-index.json" },
