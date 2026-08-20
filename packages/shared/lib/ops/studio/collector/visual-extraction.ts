@@ -6,6 +6,8 @@ import { join } from "node:path";
 import { promisify } from "node:util";
 import sharp from "sharp";
 
+import { bobosVisualAssetsDir, bundledBobosVisualAssetsDir } from "@/lib/bobos/hero/paths";
+
 import { collectorTempDir, collectorVisualAssetsDir } from "./paths";
 import type {
   CollectorExtractedVisualAsset,
@@ -430,9 +432,16 @@ export async function resolveVisualAssetPath(
   filename: string,
 ): Promise<string | null> {
   if (!/^[a-z0-9-]+\.jpg$/i.test(filename)) return null;
-  const path = join(collectorVisualAssetsDir(rvtr.trim().toUpperCase()), filename);
-  if (!existsSync(path)) return null;
-  const info = await stat(path);
-  if (!info.isFile()) return null;
-  return path;
+  const id = rvtr.trim().toUpperCase();
+  const candidates = [
+    join(bobosVisualAssetsDir(id), filename),
+    join(bundledBobosVisualAssetsDir(id), filename),
+    join(collectorVisualAssetsDir(id), filename),
+  ];
+  for (const path of candidates) {
+    if (!existsSync(path)) continue;
+    const info = await stat(path);
+    if (info.isFile()) return path;
+  }
+  return null;
 }
