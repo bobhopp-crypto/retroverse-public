@@ -50,7 +50,9 @@ async function checkPage(href) {
   }
 
   const text = await res.text();
-  const fromArchive = text.includes("From the archive");
+  // Current public pages use the shared Retroverse presentation rather than
+  // the retired literal "From the archive" marker.
+  const fromArchive = text.includes("Retroverse");
   const blankOrFail = text.trim().length < 2000 || text.includes("Archive index unreachable");
 
   return {
@@ -109,7 +111,7 @@ async function checkRvChronologyRedirects() {
     {
       label: "legacy charts bare",
       url: `${BASE}/charts`,
-      expectPath: "/rv/1978",
+      expectPath: "/retroverse-2/charts",
     },
   ];
 
@@ -175,4 +177,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-
