@@ -78,7 +78,7 @@ export async function loadLiveStoryPilotRecord(rvtr: string, liveIdentity?: { ar
     const aliasMatch = liveTitle.includes("stop draggin my heart around") && /stevie nicks|tom petty/.test(liveArtist);
     const overrideRaw = await readLiveRuntimeData("ops/intelligence/live-story-pilot-overrides.json");
     const override = overrideRaw ? (JSON.parse(overrideRaw).records as Array<Record<string, any>>).find((record) => String(record.rvtr).toUpperCase() === normalized || (aliasMatch && String(record.rvtr).toUpperCase() === "RVTR185152")) : null;
-    if (override) return { rvtr: override.rvtr, artist: override.artist, title: override.title, year: override.year, yearSource: "canonical/trusted", headline: override.storyHeadline, paragraphs: override.storyParagraphs, articleWordCount: override.storyParagraphs.join(" ").split(/\s+/).length, researchSources: override.storySources, related: [], classification: "live-story-pilot-override", finalStatus: "PILOT_READY" };
+    if (override) return { rvtr: override.rvtr, artist: override.artist, title: override.title, year: override.year, yearSource: "canonical/trusted", headline: override.storyHeadline, paragraphs: override.storyParagraphs, articleWordCount: override.storyParagraphs.join(" ").split(/\s+/).length, researchSources: Array.isArray(override.storySources) ? override.storySources : [], related: [], classification: "live-story-pilot-override", finalStatus: "PILOT_READY" };
     if (!records.some((record) => String(record.rvtr ?? "").toUpperCase() === normalized && record.preparationStatus === "READY")) return null;
     const record = await loadEditorialDiversityRecord(normalized);
     if (!record) return null;
