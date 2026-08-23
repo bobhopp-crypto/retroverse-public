@@ -22,6 +22,7 @@ const target = path.join(root, "apps", "live", "data");
 const SUBSETS = [
   { source: "data/bobos/song-packages", target: "bobos/song-packages" },
   { source: "data/bobos/visual-assets", target: "bobos/visual-assets" },
+  { source: "data/bobos/presentation-assets/woodstock", target: "bobos/presentation-assets/woodstock" },
   { source: "data/ops/studio", target: "ops/studio" },
   { source: "data/ops/retroverse-map.json", target: "ops/retroverse-map.json" },
   { source: "data/ops/vdj-rvtr-index.json", target: "ops/vdj-rvtr-index.json" },
@@ -57,6 +58,27 @@ function copyPreparedHeroes() {
   return copiedHeroes;
 }
 
+function verifyWoodstockSnapshot() {
+  const snapshot = path.join(target, "bobos/presentation-assets/woodstock");
+  const indexPath = path.join(snapshot, "index.json");
+  if (!fs.existsSync(indexPath)) throw new Error("[prepare-live-data] Woodstock presentation snapshot is missing");
+  const assets = JSON.parse(fs.readFileSync(indexPath, "utf8")).assets;
+  if (!Array.isArray(assets) || assets.length !== 12) throw new Error(`[prepare-live-data] expected 12 Woodstock records, found ${assets?.length ?? 0}`);
+  let slides = 0;
+  for (const asset of assets) {
+    const identity = String(asset.vdjIdentity ?? "");
+    if (!/^VDJ:[0-9A-F]{16}$/i.test(identity)) throw new Error(`[prepare-live-data] invalid Woodstock VDJ identity: ${identity}`);
+    const heroDir = `VDJ-${identity.slice(4).toLowerCase()}`;
+    const heroPath = path.join(snapshot, heroDir, String(asset.hero?.file ?? ""));
+    if (!fs.existsSync(heroPath)) throw new Error(`[prepare-live-data] missing Woodstock hero: ${heroPath}`);
+    slides += Array.isArray(asset.slides) ? asset.slides.length : 0;
+    const serialized = JSON.stringify(asset);
+    if (serialized.includes("/Users/") || serialized.includes("file://")) throw new Error(`[prepare-live-data] local path exposed in Woodstock record: ${identity}`);
+  }
+  if (slides !== 24) throw new Error(`[prepare-live-data] expected 24 Woodstock slides, found ${slides}`);
+  console.log(`[prepare-live-data] verified Woodstock snapshot: ${assets.length} records, ${slides} slides`);
+}
+
 let copied = 0;
 for (const subset of SUBSETS) {
   const src = path.join(root, subset.source);
@@ -68,6 +90,7 @@ for (const subset of SUBSETS) {
 }
 
 const copiedHeroes = copyPreparedHeroes();
+verifyWoodstockSnapshot();
 const pilotOverride = path.join(target, "ops", "intelligence", "live-story-pilot-overrides.json");
 if (!fs.existsSync(pilotOverride)) {
   throw new Error(`[prepare-live-data] required live-story pilot data was not copied: ${pilotOverride}`);
