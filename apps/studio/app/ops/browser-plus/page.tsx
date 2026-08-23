@@ -22,7 +22,7 @@ export default async function BrowserPlusPage() {
       <div className="browser-plus-page__top-link">
         <Link href="/ops">← Ops</Link>
         <span aria-hidden="true"> · </span>
-        <Link href="/bobos/song-requests">Song Requests</Link>
+        <Link href="/bobos/jukebox">Video Jukebox</Link>
       </div>
       <VirtualDjBrowserPlus />
     </main>

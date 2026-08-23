@@ -1,4 +1,4 @@
--- Retroverse accepted-request bridge for Hammerspoon.
+-- Retroverse local Jukebox request bridge for Hammerspoon.
 -- Polls only while explicitly enabled and writes one standard M3U atomically.
 
 local M = {}
@@ -7,9 +7,9 @@ local home = os.getenv("HOME") or "/Users/bobhopp"
 local configPath = home .. "/.hammerspoon/retroverse_requests.json"
 local defaults = {
   enabled = false,
-  endpoint = "https://retroverse.live/api/song-requests/accepted",
+  endpoint = "http://127.0.0.1:3000/api/jukebox/accepted",
   token = "",
-  outputPath = home .. "/RETROVERSE_DATA/virtualdj-requests/Retroverse Requests.m3u",
+  outputPath = home .. "/RETROVERSE_DATA/virtualdj-requests/JUKEBOX REQUESTS.m3u",
   notifications = true,
 }
 
@@ -104,7 +104,7 @@ local function notifyNewRequests(requests, config)
   if config.notifications and #newRequests > 0 then
     local latest = newRequests[#newRequests]
     hs.notify.new({
-      title = "Retroverse Request Accepted",
+      title = "Jukebox Request",
       informativeText = cleanM3uText(latest.artist) .. " — " .. cleanM3uText(latest.title),
     }):send()
   end
@@ -193,7 +193,7 @@ end
 function M.status()
   statusState.pollingTimerCount = timer and 1 or 0
   local message = statusState.enabled and "Retroverse requests: ON" or "Retroverse requests: OFF"
-  message = message .. "\nAccepted: " .. tostring(statusState.requestCount)
+  message = message .. "\nRequests: " .. tostring(statusState.requestCount)
   if statusState.lastSuccessAt then message = message .. "\nLast success: " .. statusState.lastSuccessAt end
   if statusState.lastError then message = message .. "\nError: " .. statusState.lastError end
   hs.alert.show(message, 4)

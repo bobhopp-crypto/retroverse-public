@@ -30,7 +30,12 @@ function runtimeStatus(data: CockpitPanelData): CockpitStatus {
 
 export function cockpitStatus(definition: PanelDefinition, data: CockpitPanelData): CockpitStatus {
   if (definition.id === "retroverse-runtime") return runtimeStatus(data);
-  if (definition.id === "song-requests") return data.songRequests.available ? { tone: "green", label: "Available" } : { tone: "gray", label: "Unavailable" };
+  if (definition.id === "video-jukebox") {
+    if (data.jukebox.publicRelay.status === "error") return { tone: "red", label: "RELAY ERROR" };
+    if (data.jukebox.requestsEnabled) return { tone: "green", label: "REQUESTS ON" };
+    if (data.jukebox.activeSession) return { tone: "amber", label: "REQUESTS OFF" };
+    return { tone: "gray", label: "NO SESSION" };
+  }
   if (definition.id === "live-display") return data.liveDisplay.channelRunning ? { tone: "green", label: "Running" } : { tone: "amber", label: "Waiting" };
   if (definition.id === "catalog-integrity") {
     if (data.catalogIntegrity.status === "Critical") return { tone: "red", label: "Action required" };

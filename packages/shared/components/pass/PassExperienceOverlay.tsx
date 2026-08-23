@@ -4,9 +4,6 @@ import { useCallback, useEffect, useState } from "react";
 
 import type { PassScanResult, RetroverseVisitor } from "@/lib/retroverse-pass/types";
 
-import { GuestSongRequestPanel } from "./GuestSongRequestPanel";
-import { rememberRegisteredPass } from "./GlobalSongRequestBadge";
-
 import "./pass-experience-overlay.css";
 
 /**
@@ -43,10 +40,6 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
 
   const serial = scan.pass.serial;
 
-  useEffect(() => {
-    if (scan.state === "claimed") rememberRegisteredPass(serial);
-  }, [scan.state, serial]);
-
   const dismiss = useCallback(() => {
     setView("closed");
     // Reload the canonical live page so its server payload cannot retain the
@@ -62,13 +55,6 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [view, dismiss]);
-
-  useEffect(() => {
-    if (view !== "confirmed") return;
-    requestAnimationFrame(() => {
-      document.querySelector(".pass-request")?.scrollIntoView({ block: "start", behavior: "smooth" });
-    });
-  }, [view]);
 
   function openEdit() {
     setError(null);
@@ -96,7 +82,6 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
       if (!res.ok || !data.ok || !data.visitor) {
         throw new Error(data.error ?? "Registration failed. Please try again.");
       }
-      rememberRegisteredPass(serial);
       setVisitor(data.visitor);
       setView("confirmed");
     } catch (err) {
@@ -224,7 +209,6 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
               You&apos;re in{visitor ? `, ${visitor.firstName}` : ""}.
             </h1>
             <p className="pass-xp__success-copy">Your Retroverse Pass is officially registered.</p>
-            <GuestSongRequestPanel serial={serial} />
             <button type="button" className="pass-xp__skip" onClick={dismiss}>
               Continue to the show
             </button>
@@ -250,8 +234,6 @@ export function PassExperienceOverlay({ scan, currentEventTitle }: Props) {
                 <span className="pass-xp__event-title">{currentEventTitle}</span>
               </div>
             ) : null}
-
-            <GuestSongRequestPanel serial={serial} />
 
             <div className="pass-xp__actions">
               <button type="button" className="pass-xp__primary" onClick={dismiss}>

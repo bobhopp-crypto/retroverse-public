@@ -19,7 +19,7 @@ export const DEFAULT_COCKPIT_LAYOUT: CockpitLayoutDefinition = {
   orderedPanels: [
     "current-event", "pass-production", "event-producer", "pass-management",
     "broadcast", "retroverse-runtime", "media-library", "home-page-factory",
-    "virtualdj-status", "printer-panel", "experience-inspector", "terminal",
+    "virtualdj-status", "printer-panel", "experience-inspector", "video-jukebox",
     "system-health", "ai-queue", "clock", "storage",
   ],
 };

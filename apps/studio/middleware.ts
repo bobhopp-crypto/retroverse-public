@@ -25,16 +25,26 @@ export function middleware(request: NextRequest) {
     return NextResponse.next({ request: { headers: requestHeaders } });
   }
 
-  if (pathname === "/ops/song-requests") {
+  if (
+    pathname === "/ops/song-requests" ||
+    pathname === "/bobos/song-requests" ||
+    pathname.startsWith("/bobos/song-requests/")
+  ) {
     const url = request.nextUrl.clone();
-    url.pathname = "/bobos/song-requests";
+    url.pathname = "/bobos/jukebox";
     return NextResponse.redirect(url);
   }
 
-  if (pathname === "/bobos/song-requests" || pathname.startsWith("/bobos/song-requests/")) {
+  if (
+    pathname === "/bobos/jukebox" ||
+    pathname.startsWith("/bobos/jukebox/") ||
+    pathname === "/api/ops/jukebox" ||
+    pathname.startsWith("/api/ops/jukebox/")
+  ) {
     if (!shouldAllowOpsRoutes(host)) return blockLocalOnlyRoute(request);
     if (!isOpsEnabled(host)) return new NextResponse("Not found", { status: 404 });
     if (opsGateCookieValue(request)) return NextResponse.next();
+    if (pathname.startsWith("/api/")) return new NextResponse("Unauthorized", { status: 401 });
     const url = request.nextUrl.clone();
     url.pathname = "/internal/ops-pin";
     url.searchParams.set("next", `${pathname}${request.nextUrl.search}`);

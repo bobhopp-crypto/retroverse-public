@@ -364,13 +364,13 @@ export const PANEL_LIBRARY: Record<PanelTypeId, PanelDefinition> = {
     primaryAction: { label: "Open Runtime", href: "/bobos/runtime" },
     secondaryActions: [{ label: "Open Live", href: "http://localhost:3100/" }],
   },
-  "song-requests": {
-    id: "song-requests",
-    title: "Song Requests",
+  "video-jukebox": {
+    id: "video-jukebox",
+    title: "Video Jukebox",
     group: "devices",
     defaultStatus: "offline",
-    summary: "Review and manage live audience requests",
-    primaryAction: { label: "Open Song Requests", href: "http://localhost:3000/bobos/song-requests" },
+    summary: "Start the gig, control requests, and monitor the shared local/public Jukebox path.",
+    primaryAction: { label: "Open Video Jukebox", href: "/bobos/jukebox" },
   },
   "graph-bridge": {
     id: "graph-bridge",
@@ -394,6 +394,6 @@ export function getPanelDefinition(id: PanelTypeId): PanelDefinition {
 }
 
 /** Bottom command bar — quick navigation outside the grid. */
-export const COCKPIT_COMMAND_BAR = [
+export const COCKPIT_COMMAND_BAR: Array<{ label: string; href: string; panelType?: PanelTypeId }> = [
   { label: "Documentation", href: "/bobos/docs" },
 ];
