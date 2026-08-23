@@ -79,6 +79,19 @@ function verifyWoodstockSnapshot() {
   console.log(`[prepare-live-data] verified Woodstock snapshot: ${assets.length} records, ${slides} slides`);
 }
 
+function copyWoodstockHeroesToBobosVisualAssets() {
+  const sourceRoot = path.join(target, "bobos/presentation-assets/woodstock");
+  const visualRoot = path.join(target, "bobos/visual-assets");
+  const assets = JSON.parse(fs.readFileSync(path.join(sourceRoot, "index.json"), "utf8")).assets;
+  for (const asset of assets) {
+    const heroDir = `VDJ-${String(asset.vdjIdentity).slice(4).toLowerCase()}`;
+    const source = path.join(sourceRoot, heroDir, String(asset.hero.file));
+    const destination = path.join(visualRoot, heroDir, String(asset.hero.file));
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.copyFileSync(source, destination);
+  }
+}
+
 let copied = 0;
 for (const subset of SUBSETS) {
   const src = path.join(root, subset.source);
@@ -91,6 +104,7 @@ for (const subset of SUBSETS) {
 
 const copiedHeroes = copyPreparedHeroes();
 verifyWoodstockSnapshot();
+copyWoodstockHeroesToBobosVisualAssets();
 const pilotOverride = path.join(target, "ops", "intelligence", "live-story-pilot-overrides.json");
 if (!fs.existsSync(pilotOverride)) {
   throw new Error(`[prepare-live-data] required live-story pilot data was not copied: ${pilotOverride}`);
