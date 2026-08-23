@@ -223,7 +223,7 @@ export function BobosCockpit({ initialState, projects, panelData, renderAppPanel
         <div className="cockpit-command-bar__buttons">
           {COCKPIT_COMMAND_BAR.map((cmd) => (
             <Link key={cmd.label} href={cmd.href} className={`cockpit-cmd-btn cockpit-cmd-btn--${commandCategory(cmd.href)}`}>
-              {"panelType" in cmd ? <span className={`cockpit-lamp cockpit-lamp--${cockpitStatus(getCockpitPanelRegistryEntry(cmd.panelType), panelData).tone}`} aria-label={`Status: ${cockpitStatus(getCockpitPanelRegistryEntry(cmd.panelType), panelData).label}`} role="status" /> : null}
+              {cmd.panelType ? <span className={`cockpit-lamp cockpit-lamp--${cockpitStatus(getCockpitPanelRegistryEntry(cmd.panelType), panelData).tone}`} aria-label={`Status: ${cockpitStatus(getCockpitPanelRegistryEntry(cmd.panelType), panelData).label}`} role="status" /> : null}
               <RvIdLabel rvId={getRvIdByHref(cmd.href)} label={cmd.label} />
             </Link>
           ))}

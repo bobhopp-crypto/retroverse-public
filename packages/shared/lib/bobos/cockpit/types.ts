@@ -49,7 +49,7 @@ export type PanelTypeId =
   | "live-display"
   | "broadcast"
   | "retroverse-runtime"
-  | "song-requests"
+  | "video-jukebox"
   | "graph-bridge"
   | "six-up-viewer"
   | "experience-inspector"

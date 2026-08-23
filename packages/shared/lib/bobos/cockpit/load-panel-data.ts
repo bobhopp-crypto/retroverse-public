@@ -10,6 +10,8 @@ import { searchPassManagement } from "@/lib/retroverse-pass/pass-management";
 import { loadSundayEventMode } from "@/lib/sunday-nights/event-mode";
 import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
+import { loadJukeboxOperatorStatus } from "@/lib/song-requests/jukebox-local-store";
+import type { JukeboxOperatorStatus } from "@/lib/song-requests/jukebox-types";
 
 export type CockpitPublicHomepageData = {
   statusLabel: string;
@@ -79,11 +81,6 @@ export type CockpitRuntimeHealthData = {
   responseMs: number | null;
 };
 
-export type CockpitSongRequestsHealthData = {
-  available: boolean;
-  label: "Available" | "Unavailable";
-};
-
 export type CockpitPanelData = {
   publicHomepage: CockpitPublicHomepageData;
   passClaims: CockpitPassClaimsData;
@@ -91,7 +88,7 @@ export type CockpitPanelData = {
   liveDisplay: CockpitLiveDisplayData;
   catalogIntegrity: CockpitCatalogIntegrityData;
   runtime: CockpitRuntimeHealthData;
-  songRequests: CockpitSongRequestsHealthData;
+  jukebox: JukeboxOperatorStatus;
 };
 
 const EMPTY_PUBLIC_HOMEPAGE: CockpitPublicHomepageData = {
@@ -146,9 +143,39 @@ const EMPTY_RUNTIME_HEALTH: CockpitRuntimeHealthData = {
   responseMs: null,
 };
 
-const EMPTY_SONG_REQUESTS_HEALTH: CockpitSongRequestsHealthData = {
-  available: false,
-  label: "Unavailable",
+const EMPTY_JUKEBOX: JukeboxOperatorStatus = {
+  ready: false,
+  guestUiOnline: false,
+  requestApiOnline: false,
+  eventTitle: null,
+  isOpen: false,
+  requestsEnabled: false,
+  requestsPerGuest: null,
+  catalogCount: 0,
+  activeSession: null,
+  activeGuestCount: 0,
+  requestCount: 0,
+  pendingCount: 0,
+  acceptedCount: 0,
+  playedCount: 0,
+  skippedCount: 0,
+  ipadUrl: "http://Bobs-MacBook-Pro.local:3000/jukebox",
+  bridge: {
+    running: false,
+    enabled: false,
+    localEndpoint: false,
+    endpoint: null,
+    outputPath: null,
+    outputUpdatedAt: null,
+  },
+  publicRelay: {
+    status: "closed",
+    lastAttemptAt: null,
+    lastSuccessAt: null,
+    lastPollAt: null,
+    lastError: null,
+    pendingCount: 0,
+  },
 };
 
 const LIVE_MODE_LABELS: Record<string, string> = {
@@ -438,7 +465,7 @@ async function loadRuntimeAppHealth(): Promise<CockpitRuntimeHealthData> {
 }
 
 export async function loadCockpitPanelData(): Promise<CockpitPanelData> {
-  const [publicHomepage, passClaims, giveaway, liveDisplay, catalogIntegrity, runtime] =
+  const [publicHomepage, passClaims, giveaway, liveDisplay, catalogIntegrity, runtime, jukebox] =
     await Promise.all([
       loadPublicHomepageData(),
       loadPassClaimsData(),
@@ -446,10 +473,8 @@ export async function loadCockpitPanelData(): Promise<CockpitPanelData> {
       loadLiveDisplayData(),
       loadCatalogIntegrityData(),
       loadRuntimeAppHealth(),
+      loadJukeboxOperatorStatus().catch(() => EMPTY_JUKEBOX),
     ]);
-  const songRequests = runtime.httpStatus !== null
-    ? { available: true, label: "Available" as const }
-    : EMPTY_SONG_REQUESTS_HEALTH;
 
   return {
     publicHomepage,
@@ -458,6 +483,6 @@ export async function loadCockpitPanelData(): Promise<CockpitPanelData> {
     liveDisplay,
     catalogIntegrity,
     runtime,
-    songRequests,
+    jukebox,
   };
 }
