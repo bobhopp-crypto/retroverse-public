@@ -439,6 +439,8 @@ export async function resolveVisualAssetPath(
     join(bundledBobosVisualAssetsDir(id), filename),
     join(collectorVisualAssetsDir(id), filename),
     join(retroverseDataRoot(), "bobos", "presentation-assets", "woodstock", id, filename),
+    join(process.cwd(), "data", "bobos", "presentation-assets", "woodstock", `VDJ-${id.slice(4).toLowerCase()}`, filename),
+    join(retroverseDataRoot(), "bobos", "presentation-assets", "woodstock", `VDJ-${id.slice(4).toLowerCase()}`, filename),
   ];
   for (const path of candidates) {
     if (!existsSync(path)) continue;
