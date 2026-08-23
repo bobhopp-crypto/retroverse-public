@@ -10,6 +10,7 @@ import { loadLiveStoryPilotRecord } from "@/lib/retroverse/experience/editorial-
 import { isPublicSongPayloadRenderable, loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
 import { LIVE_BRIDGE_FRESHNESS_MS } from "@/lib/sunday-nights/live-freshness";
 import { mergeExactVdjPresentation } from "@/lib/home/public-song-experience-resolution";
+import { WoodstockPresentationAsset } from "@/app/components/WoodstockPresentationAsset";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -47,6 +48,10 @@ export default async function HomePage() {
       : null;
 
   if (!songPayload) return null;
+
+  if (current.woodstockAsset) {
+    return <LiveSongView payload={current} heroUrl={null} heroRvtr={null} songExperience={<WoodstockPresentationAsset asset={current.woodstockAsset} />} />;
+  }
 
   const canUsePreparedExperience = isPublicSongPayloadRenderable(songPayload);
   const pilotRecord = hasValidVirtualDjSong

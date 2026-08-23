@@ -5,6 +5,7 @@ import { copyFile, mkdir, readdir, rm, stat } from "node:fs/promises";
 import { join } from "node:path";
 import { promisify } from "node:util";
 import sharp from "sharp";
+import { retroverseDataRoot } from "@/lib/retroverse-data-root";
 
 import { bobosVisualAssetsDir, bundledBobosVisualAssetsDir } from "@/lib/bobos/hero/paths";
 
@@ -437,6 +438,7 @@ export async function resolveVisualAssetPath(
     join(bobosVisualAssetsDir(id), filename),
     join(bundledBobosVisualAssetsDir(id), filename),
     join(collectorVisualAssetsDir(id), filename),
+    join(retroverseDataRoot(), "bobos", "presentation-assets", "woodstock", id, filename),
   ];
   for (const path of candidates) {
     if (!existsSync(path)) continue;
