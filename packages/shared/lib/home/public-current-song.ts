@@ -21,6 +21,7 @@ import { loadVdjBasePackage, vdjBaseKey } from "@/lib/universal-renderer/load-vd
 import { loadVdjSnapshotsForPaths, normVdjPath } from "@/lib/ops/intelligence/vdj-database";
 import { mergeExactVdjPresentation } from "@/lib/home/public-song-experience-resolution";
 import { loadTrackPage } from "@/lib/track/load-track-page";
+import { loadWoodstockPresentationAsset, type WoodstockPresentationAsset } from "@/lib/retroverse/woodstock-presentation-runtime";
 
 const RE_RVTR = /^RVTR\d{6}$/i;
 
@@ -47,6 +48,7 @@ export type PublicHomepagePayload = SundayNightsCurrentPayload & {
   manualOverride?: PublicHomepageManualOverride | null;
   /** Unified public song payload for the current track when RVTR is known. */
   publicSong?: PublicSongPayload | null;
+  woodstockAsset?: WoodstockPresentationAsset | null;
 };
 
 /** Show the selected experience on the homepage when the selector has one on air. */
@@ -329,11 +331,15 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
     (!manualOverride || manualOverride.rvba.type === "now-playing") &&
     (freshLive?.source === "bridge" || manualOverride?.rvba.type === "now-playing")
   ) {
-    return payloadFromFreshVirtualDj(state);
+    const payload = await payloadFromFreshVirtualDj(state);
+    const asset = payload.live?.filepath ? await loadWoodstockPresentationAsset(`VDJ:${vdjBaseKey(payload.live.filepath.replace(/\\/g, "/").trim().toLowerCase())}`) : null;
+    return { ...payload, woodstockAsset: asset };
   }
 
   if (shouldFreshVirtualDjTakePriority(playhead, freshLive)) {
-    return payloadFromFreshVirtualDj(state);
+    const payload = await payloadFromFreshVirtualDj(state);
+    const asset = payload.live?.filepath ? await loadWoodstockPresentationAsset(`VDJ:${vdjBaseKey(payload.live.filepath.replace(/\\/g, "/").trim().toLowerCase())}`) : null;
+    return { ...payload, woodstockAsset: asset };
   }
 
   if (manualOverride) {
