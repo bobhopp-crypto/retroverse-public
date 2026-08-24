@@ -329,7 +329,7 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
   // presentations remain selector-authoritative below.
   if (
     (!manualOverride || manualOverride.rvba.type === "now-playing") &&
-    (freshLive?.source === "bridge" || manualOverride?.rvba.type === "now-playing")
+    freshLive?.source === "bridge"
   ) {
     const payload = await payloadFromFreshVirtualDj(state);
     const asset = payload.live?.filepath ? await loadWoodstockPresentationAsset(`VDJ:${vdjBaseKey(payload.live.filepath.replace(/\\/g, "/").trim().toLowerCase())}`) : null;
