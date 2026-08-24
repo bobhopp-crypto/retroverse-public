@@ -1,13 +1,17 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { HomeSearchInput } from "@/app/components/home-search-input";
+import { ReturnToLiveLink } from "@/components/live-experience/ReturnToLiveLink";
 import "./editorial-tokens.css";
 import "./editorial-primitives.css";
 
 export function EditorialPageShell({ children, accent, footerLabel = "Music archive", showSearch = true, fullBleed = false }: { children: ReactNode; accent?: string; footerLabel?: string; showSearch?: boolean; fullBleed?: boolean }) {
   return <main className={`editorial-shell${fullBleed ? " editorial-shell--full-bleed" : ""}`} style={accent ? { "--editorial-accent": accent } as React.CSSProperties : undefined}>
     <div className="editorial-shell__page">
-      <header className="editorial-shell__masthead"><Link href="/" aria-label="Return to Retroverse">Music / Archive</Link></header>
+      <header className="editorial-shell__masthead">
+        <Link href="/" aria-label="Return to Retroverse">Music / Archive</Link>
+        <ReturnToLiveLink className="editorial-shell__return-live" />
+      </header>
       {showSearch ? <div className="editorial-shell__search"><HomeSearchInput /></div> : null}
       {children}
       <footer className="editorial-shell__footer">{footerLabel}</footer>
