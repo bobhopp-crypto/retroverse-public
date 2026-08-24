@@ -84,11 +84,13 @@ function copyWoodstockHeroesToBobosVisualAssets() {
   const visualRoot = path.join(target, "bobos/visual-assets");
   const assets = JSON.parse(fs.readFileSync(path.join(sourceRoot, "index.json"), "utf8")).assets;
   for (const asset of assets) {
-    const heroDir = `VDJ-${String(asset.vdjIdentity).slice(4).toLowerCase()}`;
-    const source = path.join(sourceRoot, heroDir, String(asset.hero.file));
+    const heroDir = String(asset.vdjIdentity).replace(":", "-").toUpperCase();
+    const sourceDir = `VDJ-${String(asset.vdjIdentity).slice(4).toLowerCase()}`;
+    const source = path.join(sourceRoot, sourceDir, String(asset.hero.file));
     const destination = path.join(visualRoot, heroDir, String(asset.hero.file));
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     fs.copyFileSync(source, destination);
+    if (!fs.existsSync(destination)) throw new Error(`[prepare-live-data] failed to materialize Woodstock runtime hero: ${destination}`);
   }
 }
 
