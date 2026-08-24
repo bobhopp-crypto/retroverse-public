@@ -4,7 +4,7 @@ import test from "node:test";
 import type { PlayheadPayload } from "@/lib/bobos/presentation/types";
 import type { SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 
-import { applyPublicHomepageManualOverride } from "./public-current-song";
+import { applyPublicHomepageManualOverride, shouldFreshVirtualDjTakePriority } from "./public-current-song";
 
 function channelZeroPayload(
   source: "scheduled" | "live-signal" = "scheduled",
@@ -138,6 +138,19 @@ test("manual take wins while VirtualDJ is fresh", () => {
 
   assert.equal(result.publicState?.source, "virtualdj");
   assert.equal(result.manualOverride?.rvba.id, "live-aid-slide-1");
+  assert.equal(shouldFreshVirtualDjTakePriority(playhead, {
+    rvtr: "RVTR737992",
+    artist: "Test Artist",
+    title: "Test Song",
+    year: 1984,
+    coverUrl: null,
+    songKey: null,
+    source: "bridge",
+    filepath: null,
+    deck: null,
+    bridgeTimestamp: "2026-07-17T12:00:00.000Z",
+    resolution: "canonical",
+  }), false);
 });
 
 test("manual take wins over Channel Zero scheduled rotation", () => {

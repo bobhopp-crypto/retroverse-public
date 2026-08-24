@@ -93,6 +93,7 @@ export function shouldFreshVirtualDjTakePriority(
   playhead: PlayheadPayload,
   live: SundayNightsLiveSelection | null,
 ): boolean {
+  if (playhead.manualTakeActive) return false;
   if (
     live?.source !== "bridge" ||
     !live.title.trim() ||
@@ -328,7 +329,7 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
   // stale selector snapshot cannot keep publishing an older song. Non-song
   // presentations remain selector-authoritative below.
   if (
-    (!manualOverride || manualOverride.rvba.type === "now-playing") &&
+    (!manualOverride || (manualOverride.rvba.type === "now-playing" && !playhead.manualTakeActive)) &&
     freshLive?.source === "bridge"
   ) {
     const payload = await payloadFromFreshVirtualDj(state);
