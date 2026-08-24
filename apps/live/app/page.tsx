@@ -40,14 +40,21 @@ export default async function HomePage() {
     Boolean(current.live?.title?.trim() && current.live?.artist?.trim()) &&
     current.live?.source === "bridge" &&
     isFreshBridgePayload(current);
+  const hasActiveBroadcastSong =
+    Boolean(current.live?.title?.trim() && current.live?.artist?.trim()) &&
+    current.manualOverride?.rvba.type === "now-playing";
 
-  const songPayload = hasValidVirtualDjSong
+  const songPayload = hasValidVirtualDjSong || hasActiveBroadcastSong
     ? current.publicSong
     : songOfHourRvtr
       ? await loadPublicSongPayload(songOfHourRvtr).catch(() => null)
       : null;
 
-  if (!songPayload) return null;
+  if (!songPayload) {
+    return hasActiveBroadcastSong
+      ? <LiveSongView payload={current} heroUrl={null} heroRvtr={current.currentTrackId} mode="live" />
+      : null;
+  }
 
   if (current.woodstockAsset) {
     return <LiveSongView payload={current} heroUrl={null} heroRvtr={null} songExperience={<WoodstockPresentationAsset asset={current.woodstockAsset} />} />;
@@ -63,7 +70,7 @@ export default async function HomePage() {
         loadPublicSongPayload(pilotRecord.rvtr).catch(() => null),
       ])
     : [null, null];
-  const featuredHero = !hasValidVirtualDjSong
+  const featuredHero = !hasValidVirtualDjSong && !hasActiveBroadcastSong
     ? songPayload.heroUrl || (await resolveHeroForRvtr(songPayload.rvtr).catch(() => ({ url: null, tier: null }))).url
     : null;
   const resolvedExperiencePayload = mergeExactVdjPresentation(pilotPayload, songPayload) ?? songPayload;
@@ -82,7 +89,7 @@ export default async function HomePage() {
     </EditorialPageShell>
   ) : undefined;
 
-  const homepagePayload = hasValidVirtualDjSong
+  const homepagePayload = hasValidVirtualDjSong || hasActiveBroadcastSong
     ? current
     : {
         ...current,
@@ -97,7 +104,7 @@ export default async function HomePage() {
       heroUrl={experiencePayload.heroUrl}
       heroRvtr={experiencePayload.rvtr}
       songExperience={songExperience}
-      mode={hasValidVirtualDjSong ? "live" : "featured"}
+      mode={hasValidVirtualDjSong || hasActiveBroadcastSong ? "live" : "featured"}
     />
   );
 }
