@@ -39,6 +39,7 @@ export function ArveyAssistant({ currentSong }: Props) {
   }
 
   return <>
+    <a className="song-request-trigger" href="http://Bobs-MacBook-Pro.local:3000/jukebox">REQUEST A SONG</a>
     <button className="arvey-trigger" type="button" onClick={() => setOpen(true)} aria-haspopup="dialog">ASK RETROVERSE!</button>
     {open ? <div className="arvey-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
       <section className="arvey-panel" role="dialog" aria-modal="true" aria-labelledby="arvey-title">
