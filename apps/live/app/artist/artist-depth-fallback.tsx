@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 
@@ -20,6 +21,16 @@ export function ArtistDepthFallback({ name, songHref }: Props) {
         <header className="artist-v1__hero" aria-label={`${label} artist page`}>
           <RetroverseBack fallbackHref="/search" fallbackLabel="Search" className="explorer__back" />
           <div className="artist-v1__hero-main">
+            <div className="artist-v1__portrait-wrap">
+              <ArtistCover
+                src={null}
+                alt=""
+                className="artist-v1__portrait"
+                fallbackClassName="artist-v1__portrait artist-v1__portrait--fallback"
+                fallbackVariant="vinyl"
+                placeholderContext={{ artist: label, album: label }}
+              />
+            </div>
             <div className="artist-v1__identity">
               <p className="artist-v1__eyebrow">Artist</p>
               <h1 className="artist-v1__name">{label}</h1>

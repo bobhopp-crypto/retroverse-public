@@ -3,6 +3,9 @@ import { notFound, redirect } from "next/navigation";
 
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadArtistCoverageSummary } from "@/lib/artist/load-artist-coverage-summary";
+import { loadDossierShelf } from "@/lib/artist/media-dossiers";
+import { starterArtistBySlug } from "@/lib/artist/starter-artists";
+import { starterPageModel } from "@/lib/artist/starter-artist-page";
 import { resolveCanonicalArtist, resolveLegacyArtistId } from "@/lib/public/canonical-public-resolver";
 import { CanonicalPublicTrace } from "@/components/public/CanonicalPublicTrace";
 import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
@@ -19,6 +22,13 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const starter = starterArtistBySlug(slug);
+  if (starter) {
+    return {
+      title: `${starter.name} — Retroverse`,
+      description: `${starter.name} — songs and archive notes in Retroverse.`,
+    };
+  }
   const canonical = await resolveCanonicalArtist(slug);
   const data = canonical ? await loadArtistPage(canonical.routeToken) : null;
   return {
@@ -37,7 +47,13 @@ export default async function ArtistPage({ params, searchParams }: Props) {
     const legacy = await resolveLegacyArtistId(slug);
     if (legacy) redirect(legacy.href);
   }
-  if (!canonical) notFound();
+  if (!canonical) {
+    const starter = starterArtistBySlug(slug);
+    if (!starter) notFound();
+    const shelf = await loadDossierShelf(starter.name);
+    const model = starterPageModel(starter, shelf);
+    return <ArtistPageView data={model.data} coverage={model.coverage} />;
+  }
   const [pageLoad, coverageLoad] = await Promise.all([
     timePublicLoader("artist-page", () => loadArtistPage(canonical.routeToken)),
     timePublicLoader("artist-coverage", () => loadArtistCoverageSummary(canonical.routeToken)),

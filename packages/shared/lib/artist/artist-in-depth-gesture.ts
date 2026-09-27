@@ -1,3 +1,5 @@
+import { primaryLabelArtist, starterArtistHref } from "@/lib/artist/label-artist";
+
 const CANONICAL_ARTIST_HREF = /^\/artist\/(?:RVAR\d{6}|\d+)$/i;
 const RVTR_RE = /^RVTR\d{6}$/i;
 const PLACEHOLDER_ARTIST = /^(virtualdj|unknown artist|this artist|current song unavailable)$/i;
@@ -33,9 +35,13 @@ export function artistInDepthHref(input: ArtistInDepthHrefInput): string {
   const path = raw.split(/[?#]/)[0] ?? "";
   if (CANONICAL_ARTIST_HREF.test(path)) return path;
 
+  const primary = primaryLabelArtist(input.artistName ?? "");
+  const starter = starterArtistHref(primary);
+  if (starter) return starter;
+
   const rvtr = input.rvtr?.trim().toUpperCase() ?? "";
   if (RVTR_RE.test(rvtr)) return `/artist/from-song/${rvtr}`;
-  return unlinkedArtistHref(input.artistName);
+  return unlinkedArtistHref(primary || input.artistName);
 }
 
 /**

@@ -80,6 +80,7 @@ export function ArtistPageView({ data, coverage }: Props) {
   const related = data.relatedArtists;
   const identityLine = buildIdentityLine(data);
   const activeRange = data.activeRange !== "—" ? data.activeRange : null;
+  const canonicalRoute = /^(?:RVAR\d{6}|\d+)$/i.test(data.slug);
 
   const heroFallbackCover =
     data.heroImageUrl ??
@@ -137,9 +138,11 @@ export function ArtistPageView({ data, coverage }: Props) {
                     Albums <span aria-hidden>↓</span>
                   </a>
                 ) : null}
-                <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__hero-link">
-                  Chart journeys <span aria-hidden>→</span>
-                </Link>
+                {canonicalRoute ? (
+                  <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__hero-link">
+                    Chart journeys <span aria-hidden>→</span>
+                  </Link>
+                ) : null}
               </div>
             </div>
           </div>
@@ -166,9 +169,11 @@ export function ArtistPageView({ data, coverage }: Props) {
                   {discoveryShelf("artistTopSongs").displayLabel}
                 </h2>
               </div>
-              <Link href={`/artist/${data.slug}/songs`} prefetch className="artist-v1__section-link">
-                All songs <span aria-hidden>→</span>
-              </Link>
+              {canonicalRoute ? (
+                <Link href={`/artist/${data.slug}/songs`} prefetch className="artist-v1__section-link">
+                  All songs <span aria-hidden>→</span>
+                </Link>
+              ) : null}
             </div>
             <ArtistExplorerSongRows songs={songs} />
           </section>
@@ -183,7 +188,7 @@ export function ArtistPageView({ data, coverage }: Props) {
                   In Your Retroverse
                 </h2>
               </div>
-              {data.libraryTracks > 0 ? (
+              {canonicalRoute && data.libraryTracks > 0 ? (
                 <Link href={`/artist/${data.slug}/library`} prefetch className="artist-v1__section-link">
                   Collected <span aria-hidden>→</span>
                 </Link>
@@ -197,9 +202,13 @@ export function ArtistPageView({ data, coverage }: Props) {
               <ul className="artist-v1__library-list">
                 {inYourRetroverse.slice(0, 4).map((song) => (
                   <li key={song.rvtr}>
-                    <Link href={song.trackHref} prefetch>
-                      {song.title}
-                    </Link>
+                    {song.trackHref ? (
+                      <Link href={song.trackHref} prefetch>
+                        {song.title}
+                      </Link>
+                    ) : (
+                      <span>{song.title}</span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -216,9 +225,11 @@ export function ArtistPageView({ data, coverage }: Props) {
                   {discoveryShelf("artistAlbums").displayLabel}
                 </h2>
               </div>
-              <Link href={`/artist/${data.slug}/library`} prefetch className="artist-v1__section-link">
-                Collected <span aria-hidden>→</span>
-              </Link>
+              {canonicalRoute ? (
+                <Link href={`/artist/${data.slug}/library`} prefetch className="artist-v1__section-link">
+                  Collected <span aria-hidden>→</span>
+                </Link>
+              ) : null}
             </div>
             <ul className="artist-v1__album-shelf">
               {albums.map((album) => {
@@ -265,9 +276,11 @@ export function ArtistPageView({ data, coverage }: Props) {
                   {discoveryShelf("artistYears").displayLabel}
                 </h2>
               </div>
-              <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__section-link">
-                Chart journeys <span aria-hidden>→</span>
-              </Link>
+              {canonicalRoute ? (
+                <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__section-link">
+                  Chart journeys <span aria-hidden>→</span>
+                </Link>
+              ) : null}
             </div>
             <ul className="artist-v1__year-pills">
               {years.map((bar) => (
