@@ -7,7 +7,9 @@ import {
   getTemplateDefinition,
   type ComposedBroadcastAsset,
 } from "@/lib/broadcast/composer";
+import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
 import type { PresentationTransition } from "@/lib/bobos/presentation/types";
+import { ArtistInDepthSwipe } from "@/components/navigation/artist-in-depth-swipe";
 
 import "./broadcast-asset-composer.css";
 
@@ -81,8 +83,13 @@ export function BroadcastAssetComposerView({ asset, transition = "fade" }: Props
         : "bac--enter-fade";
 
   const coverKey = asset.input.coverUrl ?? `fallback:${asset.input.artist}:${asset.input.title}`;
+  const artistDepthHref = artistInDepthHref({
+    rvtr: asset.input.rvtr,
+    artistName: asset.input.artist,
+  });
 
   return (
+    <ArtistInDepthSwipe href={artistDepthHref} fill>
     <div
       className={`bac ${template.layoutClass} ${transitionClass}`}
       data-template={asset.templateId}
@@ -108,9 +115,11 @@ export function BroadcastAssetComposerView({ asset, transition = "fade" }: Props
       </div>
 
       <p className="bac__brand">Retroverse Live</p>
+      {artistDepthHref ? <p className="bac__artist-cue">Swipe down · Artist</p> : null}
       <p className="bac__rvtr" aria-hidden="true">
         {asset.input.rvtr}
       </p>
     </div>
+    </ArtistInDepthSwipe>
   );
 }

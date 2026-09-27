@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import type { PublicHomepagePayload } from "@/lib/home/public-current-song";
+import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
+import { ArtistInDepthSwipe } from "@/components/navigation/artist-in-depth-swipe";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import "./live-song-view.css";
 
@@ -74,6 +76,11 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", songEx
     ? "A sleek, propulsive late-2000s pop single, ‘3’ puts Britney Spears in a bright, confident mode, driven by a crisp beat and an immediate hook. Even without a prepared story package, the song’s directness comes through: this is streamlined dance-pop built to move quickly and stay in your head."
     : `${artist}’s “${title}” is the song on air right now. Listen closely for the performance’s defining mood, rhythm, and voice as the track unfolds.`;
   const links = song?.links;
+  const artistDepthHref = artistInDepthHref({
+    artistHref: links?.artistHref ?? track?.artistHref ?? null,
+    rvtr,
+    artistName: artist,
+  });
   const actions = [
     ["Song", links?.songHref ?? (rvtr ? `/song/${rvtr}` : null)],
     ["Artist", links?.artistHref ?? track?.artistHref ?? null],
@@ -91,6 +98,7 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", songEx
         data-renderer="live-song-fallback"
         data-track-identity={effectiveTrackIdentity(current) ?? "unknown"}
       >
+        <ArtistInDepthSwipe href={artistDepthHref} requireScrollTop>
         <section className="live-song__hero" aria-label="Now playing">
           {showImage ? <img className="live-song__image" src={image!} alt="" onError={() => setImageFailed(true)} /> : <div className="live-song__fallback" aria-hidden="true"><span>Now playing</span></div>}
           <div className="live-song__veil" />
@@ -99,12 +107,14 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", songEx
             <h1>{title}</h1>
             <p className="live-song__artist">{artist}</p>
             {year ? <p className="live-song__year">Released {year}</p> : null}
+            {artistDepthHref ? <p className="artist-depth-cue">Swipe down for the artist</p> : null}
             <nav className="live-song__links" aria-label="Explore current song">
               {actions.map(([label, href]) => href ? <Link key={label} href={href}>{label}</Link> : <span key={label} className="live-song__link-disabled">{label}</span>)}
             </nav>
             <p className="live-song__description">{fallbackDescription}</p>
           </div>
         </section>
+        </ArtistInDepthSwipe>
       </main>
     </Rv2PublicShell>
   );

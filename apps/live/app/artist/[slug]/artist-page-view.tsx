@@ -72,6 +72,9 @@ function buildSongRows(data: ArtistPageData, coverage: ArtistCoverageSummary): A
 
 export function ArtistPageView({ data, coverage }: Props) {
   const songs = buildSongRows(data, coverage);
+  const inYourRetroverse = songs.filter((song) => song.coverageStatus === "owned");
+  const libraryCount = inYourRetroverse.length > 0 ? inYourRetroverse.length : data.libraryTracks;
+  const libraryNoun = inYourRetroverse.length > 0 ? "song" : "recording";
   const albums = data.essentialAlbums.slice(0, ALBUMS_LIMIT);
   const years = data.dominantYears.filter((y) => y.year >= 1960 && y.year <= 2030);
   const related = data.relatedArtists;
@@ -168,6 +171,39 @@ export function ArtistPageView({ data, coverage }: Props) {
               </Link>
             </div>
             <ArtistExplorerSongRows songs={songs} />
+          </section>
+        ) : null}
+
+        {libraryCount > 0 ? (
+          <section className="artist-v1__section artist-v1__section--library" aria-labelledby="artist-library">
+            <div className="artist-v1__section-heading">
+              <div>
+                <p className="artist-v1__section-kicker">Your collection</p>
+                <h2 id="artist-library" className="artist-v1__section-title">
+                  In Your Retroverse
+                </h2>
+              </div>
+              {data.libraryTracks > 0 ? (
+                <Link href={`/artist/${data.slug}/library`} prefetch className="artist-v1__section-link">
+                  Collected <span aria-hidden>→</span>
+                </Link>
+              ) : null}
+            </div>
+            <p className="artist-v1__section-lead">
+              {libraryCount} {libraryNoun}
+              {libraryCount === 1 ? "" : "s"} from this run {libraryCount === 1 ? "is" : "are"} already in your Retroverse.
+            </p>
+            {inYourRetroverse.length > 0 ? (
+              <ul className="artist-v1__library-list">
+                {inYourRetroverse.slice(0, 4).map((song) => (
+                  <li key={song.rvtr}>
+                    <Link href={song.trackHref} prefetch>
+                      {song.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </section>
         ) : null}
 
