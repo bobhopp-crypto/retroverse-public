@@ -39,12 +39,14 @@ async function resolveArtistRouteIdentityImpl(routeToken: string): Promise<Resol
 /** Compatibility export: the input is a canonical RVAR route token, never a name slug or database ID. */
 export const resolveArtistFromSlug = cache(resolveArtistRouteIdentityImpl);
 
+const CREDIT_LINE = /\s(?:feat\.?|ft\.?|featuring)\s/i;
+
 async function resolveUnambiguousArtistName(name: string): Promise<ResolvedArtistIdentity | null> {
   const key = normalizeArtistMatchKey(name);
   if (!key) return null;
   const rows = await inspectQuery<{ id: string | number; rvar: string; canonical_name: string }>(
     `
-    SELECT id, canonical_name
+    SELECT id, rvar, canonical_name
     FROM artists
     WHERE lower(regexp_replace(trim(canonical_name), '^the\\s+', '', 'i')) = $1
     ORDER BY id
@@ -52,18 +54,32 @@ async function resolveUnambiguousArtistName(name: string): Promise<ResolvedArtis
     `,
     [key],
   );
-  // Ambiguous normalized labels are discovery results, never identity decisions.
+  // Two rows (Rihanna person forks, Jackson 5 vs a second Jackson row) are not a choice.
   if (rows.length !== 1) return null;
-  const artistId = Number(rows[0]!.id);
-  if (!Number.isSafeInteger(artistId) || artistId <= 0) return null;
-  const canonicalName = rows[0]!.canonical_name.trim();
+  const rvar = rows[0]!.rvar?.trim().toUpperCase() ?? "";
+  const confirmed = await resolveCanonicalArtist(rvar);
+  if (!confirmed) return null;
   return {
-    artistId,
-    rvar: rows[0]!.rvar.trim().toUpperCase(),
-    canonicalName,
-    displayName: displayArtistName(canonicalName),
-    slug: rows[0]!.rvar.trim().toUpperCase(),
+    artistId: confirmed.artistId,
+    rvar: confirmed.rvar,
+    canonicalName: confirmed.canonicalName,
+    displayName: displayArtistName(confirmed.canonicalName),
+    slug: confirmed.routeToken,
   };
+}
+
+/**
+ * Exact display name → live RVAR, confirmed by resolveCanonicalArtist.
+ * Feat/ft credit lines are not looked up. Zero or multiple rows return null.
+ */
+export async function resolveLiveArtistName(name: string): Promise<ResolvedArtistIdentity | null> {
+  const clean = name.trim().replace(/\s+/g, " ");
+  if (!clean || CREDIT_LINE.test(clean)) return null;
+  try {
+    return await resolveUnambiguousArtistName(clean);
+  } catch {
+    return null;
+  }
 }
 
 /** Search-only exact candidate resolution. It never chooses a fuzzy or first result. */

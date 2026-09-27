@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { groupDossiersForArtist } from "./dossier-group";
-import { artistInDepthHref } from "./artist-in-depth-gesture";
 import { normalizeLabelArtist, primaryLabelArtist, starterArtistHref } from "./label-artist";
 
 test("starter swipe uses the primary artist, not a featured credit", () => {
@@ -17,17 +16,6 @@ test("spelling forks and unlabeled variants stay separate", () => {
   assert.equal(starterArtistHref("Michael Jackson"), "/artist/michael-jackson");
   assert.equal(starterArtistHref("This Is It"), null);
   assert.equal(starterArtistHref("Michael Jackson This Is It"), null);
-});
-
-test("swipe prefers a starter page over the unlinked fallback", () => {
-  assert.equal(
-    artistInDepthHref({ artistName: "Madonna", rvtr: "RVTR528167" }),
-    "/artist/madonna",
-  );
-  assert.equal(
-    artistInDepthHref({ artistHref: "/artist/RVAR000123", artistName: "Madonna" }),
-    "/artist/RVAR000123",
-  );
 });
 
 test("dossier grouping keeps conflicts apart and hides non-video files", () => {

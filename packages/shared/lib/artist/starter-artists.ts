@@ -1,7 +1,6 @@
 /**
- * First-ship artists with strong Media Dossier depth.
- * Slugs are public routes (`/artist/madonna`). They are not canonical RVARs.
- * Alternates are reachable, but the locked set is `STARTER_ARTISTS`.
+ * Locked starter names. A slug such as `madonna` is only a redirect hint.
+ * The public route is the RVAR from resolveCanonicalArtist.
  */
 
 export type StarterArtist = {

@@ -28,6 +28,33 @@ test("missing identity still lands on a minimal archive page", () => {
   );
 });
 
+test("starter names and credit lines do not mint a slug route", () => {
+  assert.equal(
+    artistInDepthHref({ artistName: "Madonna", rvtr: "RVTR528167" }),
+    "/artist/from-song/RVTR528167",
+  );
+  assert.equal(
+    artistInDepthHref({ artistName: "Madonna feat. Justin Timberlake", rvtr: "RVTR528167" }),
+    "/artist/from-song/RVTR528167",
+  );
+  assert.equal(
+    artistInDepthHref({ artistName: "Madonna feat. Justin Timberlake" }),
+    "/artist/from-song/unlinked?name=Madonna%20feat.%20Justin%20Timberlake",
+  );
+  assert.equal(
+    artistInDepthHref({ artistName: "Michael Jackson" }),
+    "/artist/from-song/unlinked?name=Michael%20Jackson",
+  );
+  assert.equal(
+    artistInDepthHref({ artistName: "Jackson 5" }),
+    "/artist/from-song/unlinked?name=Jackson%205",
+  );
+  assert.equal(
+    artistInDepthHref({ artistHref: "/artist/RVAR000123", artistName: "Madonna feat. Justin Timberlake" }),
+    "/artist/RVAR000123",
+  );
+});
+
 test("downward swipe is distinct from a tap and a horizontal swipe", () => {
   assert.equal(isDownwardArtistSwipe({ dx: 2, dy: 6, elapsedMs: 80 }), false);
   assert.equal(isDownwardArtistSwipe({ dx: 140, dy: 20, elapsedMs: 180 }), false);

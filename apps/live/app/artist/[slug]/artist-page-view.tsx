@@ -20,6 +20,8 @@ const ALBUMS_LIMIT = 6;
 type Props = {
   data: ArtistPageData;
   coverage: ArtistCoverageSummary;
+  /** Companion stills beside VIDEO, keyed by RVTR. Album covers stay the fallback. */
+  stillByRvtr?: ReadonlyMap<string, string>;
 };
 
 function buildIdentityLine(data: ArtistPageData): string | null {
@@ -40,7 +42,11 @@ function buildIdentityLine(data: ArtistPageData): string | null {
   return parts.join(" · ");
 }
 
-function buildSongRows(data: ArtistPageData, coverage: ArtistCoverageSummary): ArtistExplorerSongRow[] {
+function buildSongRows(
+  data: ArtistPageData,
+  coverage: ArtistCoverageSummary,
+  stillByRvtr?: ReadonlyMap<string, string>,
+): ArtistExplorerSongRow[] {
   const coverByRvtr = new Map(
     data.signatureTracks
       .filter((t) => t.coverUrl)
@@ -64,14 +70,17 @@ function buildSongRows(data: ArtistPageData, coverage: ArtistCoverageSummary): A
     artistName: data.displayName,
     year: song.firstChartYear,
     peakHot100: song.peakHot100,
-    coverUrl: coverByRvtr.get(song.rvtr.toUpperCase()) ?? null,
+    coverUrl:
+      stillByRvtr?.get(song.rvtr.toUpperCase()) ??
+      coverByRvtr.get(song.rvtr.toUpperCase()) ??
+      null,
     trackHref: song.trackHref,
     coverageStatus: song.coverageStatus,
   }));
 }
 
-export function ArtistPageView({ data, coverage }: Props) {
-  const songs = buildSongRows(data, coverage);
+export function ArtistPageView({ data, coverage, stillByRvtr }: Props) {
+  const songs = buildSongRows(data, coverage, stillByRvtr);
   const inYourRetroverse = songs.filter((song) => song.coverageStatus === "owned");
   const libraryCount = inYourRetroverse.length > 0 ? inYourRetroverse.length : data.libraryTracks;
   const libraryNoun = inYourRetroverse.length > 0 ? "song" : "recording";
@@ -203,11 +212,33 @@ export function ArtistPageView({ data, coverage }: Props) {
                 {inYourRetroverse.slice(0, 4).map((song) => (
                   <li key={song.rvtr}>
                     {song.trackHref ? (
-                      <Link href={song.trackHref} prefetch>
-                        {song.title}
+                      <Link href={song.trackHref} prefetch className="artist-v1__library-link">
+                        {song.coverUrl ? (
+                          <ArtistCover
+                            src={song.coverUrl}
+                            alt=""
+                            className="artist-v1__library-thumb"
+                            fallbackClassName="artist-v1__library-thumb artist-v1__library-thumb--fallback"
+                            fallbackVariant="vinyl"
+                            placeholderContext={{ artist: data.displayName, album: song.title }}
+                          />
+                        ) : null}
+                        <span>{song.title}</span>
                       </Link>
                     ) : (
-                      <span>{song.title}</span>
+                      <span className="artist-v1__library-link">
+                        {song.coverUrl ? (
+                          <ArtistCover
+                            src={song.coverUrl}
+                            alt=""
+                            className="artist-v1__library-thumb"
+                            fallbackClassName="artist-v1__library-thumb artist-v1__library-thumb--fallback"
+                            fallbackVariant="vinyl"
+                            placeholderContext={{ artist: data.displayName, album: song.title }}
+                          />
+                        ) : null}
+                        <span>{song.title}</span>
+                      </span>
                     )}
                   </li>
                 ))}

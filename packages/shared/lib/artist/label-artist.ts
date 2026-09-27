@@ -74,7 +74,7 @@ export function featuredLabelArtists(label: string, explicit: string[] = []): st
   return names;
 }
 
-/** Public route for a locked starter artist. Featured-only credits do not qualify. */
+/** Slug hint for a locked starter name. Not a canonical route and not a swipe target. */
 export function starterArtistHref(label: string | null | undefined): string | null {
   const primary = primaryLabelArtist(label ?? "");
   const artist = starterByLabel(primary);

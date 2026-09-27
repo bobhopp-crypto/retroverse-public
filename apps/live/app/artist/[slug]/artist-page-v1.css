@@ -403,9 +403,10 @@
   list-style: none;
 }
 
-.artist-v1__library-list a {
+.artist-v1__library-link {
   display: flex;
   align-items: center;
+  gap: 12px;
   min-height: var(--ex-touch);
   padding: 0 2px;
   color: var(--ex-ink);
@@ -415,7 +416,17 @@
   text-decoration: none;
 }
 
-.artist-v1__library-list a:hover {
+.artist-v1__library-thumb {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--ex-art-fallback);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.artist-v1__library-link:hover {
   color: var(--ex-aqua-accent);
 }
 
