@@ -4,8 +4,7 @@ import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
 import { opsStateDir } from "@/lib/ops/ops-state-path";
-import { pgSundayNightsGet, pgSundayNightsSet } from "@/lib/sunday-nights/pg-state";
-import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
+import { REDIS_BROADCAST_KEY, redisJsonGet, redisJsonSet } from "@/lib/sunday-nights/redis-live-state";
 
 import type { BoothPublisherState, BroadcastSnapshot, PresentationItem } from "./types";
 
@@ -29,13 +28,10 @@ function normalizeBoothPublisher(raw: unknown): BoothPublisherState | null {
  *
  * Local studio: JSON next to the presentation store
  *   (RETROVERSE_DATA/ops/bobos/presentation/broadcast.json).
- * Deployed site (Vercel): Postgres key in sunday_nights_state, written by
- *   the authenticated ingest route when the Broadcast Panel pushes.
+ * Deployed site (Vercel): small Redis snapshot written by the authenticated ingest route.
  *
  * Both sites answer "what is the current Playhead?" from this snapshot.
  */
-
-const PG_KEY = "retroverse-live-broadcast";
 
 function snapshotPath(): string {
   return join(opsStateDir(), "bobos", "presentation", "broadcast.json");
@@ -69,8 +65,8 @@ export function normalizeBroadcastSnapshot(raw: unknown): BroadcastSnapshot | nu
 }
 
 export async function loadBroadcastSnapshot(): Promise<BroadcastSnapshot | null> {
-  if (usePostgresSundayNightsState()) {
-    const raw = await pgSundayNightsGet<Record<string, unknown>>(PG_KEY);
+  if (process.env.VERCEL === "1") {
+    const raw = await redisJsonGet(REDIS_BROADCAST_KEY);
     return normalizeBroadcastSnapshot(raw);
   }
   try {
@@ -82,8 +78,8 @@ export async function loadBroadcastSnapshot(): Promise<BroadcastSnapshot | null>
 }
 
 export async function saveBroadcastSnapshot(snapshot: BroadcastSnapshot): Promise<void> {
-  if (usePostgresSundayNightsState()) {
-    await pgSundayNightsSet(PG_KEY, snapshot as unknown as Record<string, unknown>);
+  if (process.env.VERCEL === "1") {
+    await redisJsonSet(REDIS_BROADCAST_KEY, snapshot as unknown as Record<string, unknown>);
     return;
   }
   const dir = join(opsStateDir(), "bobos", "presentation");

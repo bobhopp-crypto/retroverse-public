@@ -2,6 +2,9 @@ import "server-only";
 
 /** Small ephemeral state only; never use this store for the music graph. */
 export const REDIS_LIVE_STATE_KEY = "rv:live:sunday-nights:v2";
+export const REDIS_SELECTOR_KEY = "rv:live:experience-selector:v1";
+export const REDIS_CONTROL_KEY = "rv:live:live-control:v1";
+export const REDIS_BROADCAST_KEY = "rv:live:broadcast-snapshot:v1";
 
 function config(): { url: string; token: string } | null {
   const url = process.env.KV_REST_API_URL?.trim();

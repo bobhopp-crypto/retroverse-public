@@ -3,8 +3,7 @@ import { join } from "path";
 
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 import { parseProducerEraId } from "@/lib/ops/year-workspace/producer/era";
-import { pgSundayNightsGet, pgSundayNightsSet } from "@/lib/sunday-nights/pg-state";
-import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
+import { REDIS_CONTROL_KEY, redisJsonGet, redisJsonSet } from "@/lib/sunday-nights/redis-live-state";
 
 import {
   DEFAULT_LIVE_CONTROL_CONFIG,
@@ -16,8 +15,6 @@ import {
   type LiveDurationSeconds,
   type LiveOrder,
 } from "./types";
-
-const PG_KEY = "live-control";
 
 function statePath(): string {
   return join(opsStateDir(), "live-control", "state.json");
@@ -139,8 +136,8 @@ async function saveToJson(state: LiveControlState): Promise<void> {
 }
 
 export async function loadLiveControlState(): Promise<LiveControlState> {
-  if (usePostgresSundayNightsState()) {
-    const raw = await pgSundayNightsGet<Record<string, unknown>>(PG_KEY);
+  if (process.env.VERCEL === "1") {
+    const raw = await redisJsonGet(REDIS_CONTROL_KEY);
     return raw ? normalizeState(raw) : emptyLiveControlState();
   }
   return loadFromJson();
@@ -151,8 +148,8 @@ export async function saveLiveControlState(state: LiveControlState): Promise<Liv
     ...state,
     updatedAt: new Date().toISOString(),
   };
-  if (usePostgresSundayNightsState()) {
-    await pgSundayNightsSet(PG_KEY, next as unknown as Record<string, unknown>);
+  if (process.env.VERCEL === "1") {
+    await redisJsonSet(REDIS_CONTROL_KEY, next as unknown as Record<string, unknown>);
   } else {
     await saveToJson(next);
   }
