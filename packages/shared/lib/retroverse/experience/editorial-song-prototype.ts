@@ -2,8 +2,6 @@ import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { TrackPageData } from "@/lib/track/load-track-page";
-import { inspectQuery } from "@/lib/inspect/pg";
-import { trackPageHref } from "@/lib/search/entity-routes";
 
 export type EditorialSongArticle = {
   headline: string;
@@ -264,59 +262,12 @@ export const SHE_IS_A_BEAUTY_ARTICLE: EditorialSongArticle = {
   sourceUrl: "https://americansongwriter.com/the-meaning-behind-shes-a-beauty-by-the-tubes-and-the-real-life-peep-show-that-inspired-it/",
 };
 
-type CandidateRow = {
-  rvtr: string;
-  title: string;
-  first_chart_date: string | null;
-  peak_hot100_position: number | null;
-  positions: number[] | null;
-};
-
-function fingerprint(weeks: TrackPageData["trajectoryWeeks"]): number[] {
-  return [
-    weeks[0]?.rank ?? 200,
-    weeks.findIndex((week) => week.rank <= 40),
-    weeks.findIndex((week) => week.rank <= 10),
-    Math.min(...weeks.map((week) => week.rank)),
-    weeks.length,
-    weeks.length > 1 ? (weeks[weeks.length - 1]!.rank - weeks[0]!.rank) / (weeks.length - 1) : 0,
-  ];
-}
-
-function distance(a: number[], b: number[]): number {
-  const weights = [1.4, 1.2, 1.2, 1.5, 0.8, 0.35];
-  return a.reduce((sum, value, index) => sum + Math.abs(value - b[index]!) * weights[index]!, 0);
-}
-
-function reason(target: number[], candidate: number[]): string {
-  if (Math.abs(target[1]! - candidate[1]!) <= 1 && Math.abs(target[2]! - candidate[2]!) <= 1) return "A nearly identical climb into the Top 40 and Top 10.";
-  if (Math.abs(target[4]! - candidate[4]!) <= 2) return `A very close ${candidate[4]}-week chart arc.`;
-  if (candidate[1]! > 2 && candidate[2]! > 2) return "Another late-breaking climb that took time to reach the upper chart.";
-  return "A comparable climb, peak, and decline pattern.";
-}
-
+/** The prototype's chart matches are exported with the read-only graph data. */
 export async function loadChartTrajectoryRecommendations(track: TrackPageData): Promise<ChartTrajectoryRecommendation[]> {
   if (track.rvtr !== PROTOTYPE_RVTR || track.trajectoryWeeks.length === 0) return [];
-  const target = fingerprint(track.trajectoryWeeks);
-  const rows = await inspectQuery<CandidateRow>(
-    `SELECT upper(trim(ctd.track_id)) AS rvtr, ctd.canonical_title AS title,
-            ctd.first_chart_date::text AS first_chart_date,
-            ctd.peak_hot100_position,
-            array_agg(ca.chart_position ORDER BY ca.chart_date ASC)::int[] AS positions
-       FROM canonical_track_display ctd
-       JOIN chart_appearances ca ON ca.track_id = ctd.graph_track_id
-      WHERE ctd.has_hot100 = true
-        AND ca.chart_name ILIKE '%Hot 100%'
-        AND upper(trim(ctd.track_id)) <> $1
-      GROUP BY ctd.track_id, ctd.canonical_title, ctd.first_chart_date, ctd.peak_hot100_position`,
-    [PROTOTYPE_RVTR],
-  );
-  return rows
-    .map((row) => {
-      const weeks = (row.positions ?? []).map((rank, index) => ({ rank, issueDate: String(index) })) as TrackPageData["trajectoryWeeks"];
-      const candidate = fingerprint(weeks);
-      return { rvtr: row.rvtr, title: row.title, releaseYear: row.first_chart_date ? Number(row.first_chart_date.slice(0, 4)) : null, href: trackPageHref(row.rvtr), reason: reason(target, candidate), score: distance(target, candidate) };
-    })
-    .sort((a, b) => a.score - b.score)
-    .slice(0, 3);
+  const raw = await readLiveRuntimeData("static-graph/trajectory-prototype.json");
+  if (!raw) throw new Error("Static chart recommendations are missing");
+  const parsed: unknown = JSON.parse(raw);
+  if (!Array.isArray(parsed)) throw new Error("Static chart recommendations are invalid");
+  return parsed as ChartTrajectoryRecommendation[];
 }

@@ -27,6 +27,7 @@ export type BridgeLivePostBody = {
   startedAt?: string;
   durationSeconds?: number;
   filepath?: string;
+  rvtr?: string;
   artist?: string;
   title?: string;
   deck?: number;

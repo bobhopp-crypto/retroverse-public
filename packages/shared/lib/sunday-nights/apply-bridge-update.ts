@@ -73,9 +73,10 @@ export async function applyBridgeLiveUpdate(
 
   await logLiveNowPlaying("track_detected", { filepath, artist, title, deck, timestamp, playing });
 
-  const linked = await resolveRvtrFromVdjFilePath(filepath);
-  const rvtr = linked?.rvtr ?? null;
-  const resolution = linked ? "vdj-library" : "unresolved";
+  const bridgeRvtr = /^RVTR\d{6}$/i.test(body.rvtr?.trim() ?? "") ? body.rvtr!.trim().toUpperCase() : null;
+  const linked = bridgeRvtr || isPublicRuntime() ? null : await resolveRvtrFromVdjFilePath(filepath);
+  const rvtr = bridgeRvtr ?? linked?.rvtr ?? null;
+  const resolution = rvtr ? "vdj-library" : "unresolved";
 
   if (linked) {
     await logLiveNowPlaying("rvtr_resolved", {

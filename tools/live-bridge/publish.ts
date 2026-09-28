@@ -4,6 +4,7 @@ export type PublishPayload = {
   startedAt?: string;
   durationSeconds?: number;
   filepath?: string;
+  rvtr?: string;
   artist?: string;
   title?: string;
   deck?: number;

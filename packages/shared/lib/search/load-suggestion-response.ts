@@ -19,9 +19,9 @@ export type SuggestionResponse = {
   error?: string;
   /** `entities` | `year` | `none` */
   source?: string;
-  /** PG index path — for production verification via curl. */
+  /** Catalog index path — for production verification via curl. */
   index?: {
-    entitySource: "matview" | "inline";
+    entitySource: "static";
     pgTrgm: boolean;
   };
 };

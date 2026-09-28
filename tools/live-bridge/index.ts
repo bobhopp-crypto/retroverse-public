@@ -16,6 +16,7 @@ import { AudibleDeckHysteresis } from "./hysteresis";
 import { bridgeLog } from "./logger";
 import { VdjOscSensor } from "./osc-sensor";
 import { publishLiveTrack } from "./publish";
+import { rvtrForVdjPath } from "./rvtr-from-vdj";
 import { pickActiveDeck } from "./vdj";
 import { findProjectRoot, loadEnvFiles } from "../live/shared";
 
@@ -196,8 +197,10 @@ async function main() {
         timestamp,
       });
 
+      const rvtr = await rvtrForVdjPath(stable.filepath).catch(() => null);
       const result = await publishLiveTrack(config.apiUrl, config.apiSecret, {
         playing: true,
+        rvtr: rvtr ?? undefined,
         ...stable,
         timestamp,
         startedAt: observedStartedAt,

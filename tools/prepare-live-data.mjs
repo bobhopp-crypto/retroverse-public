@@ -34,6 +34,9 @@ const SUBSETS = [
   { source: "data/sunday-nights", target: "sunday-nights" },
   { source: "data/rvbr", target: "rvbr" },
   { source: "data/album-chart-features.json", target: "album-chart-features.json" },
+  { source: "data/static-graph/tracks", target: "static-graph/tracks" },
+  { source: "data/static-graph/trajectory-prototype.json", target: "static-graph/trajectory-prototype.json" },
+  { source: "data/static-graph/search-entities.json.gz", target: "static-graph/search-entities.json.gz" },
 ];
 
 const stat = fs.lstatSync(target, { throwIfNoEntry: false });
@@ -117,3 +120,19 @@ if (!pilotRecords.some((record) => String(record.rvtr).toUpperCase() === "RVTR18
 }
 console.log(`[prepare-live-data] copied ${copied} data subsets and ${copiedHeroes} hero-video.jpg files into apps/live/data`);
 console.log("[prepare-live-data] verified RVTR185152 pilot override in prepared runtime data");
+
+const staticTrackRoot = path.join(target, "static-graph", "tracks");
+const staticTrackManifest = path.join(staticTrackRoot, "manifest.json");
+if (!fs.existsSync(staticTrackManifest)) {
+  throw new Error("[prepare-live-data] verified static track export is missing");
+}
+const staticTracks = JSON.parse(fs.readFileSync(staticTrackManifest, "utf8"));
+if (staticTracks.version !== 1 || staticTracks.totalTracks < 40_000 || Object.keys(staticTracks.shards ?? {}).length !== 100) {
+  throw new Error("[prepare-live-data] static track manifest is incomplete");
+}
+for (const prefix of Object.keys(staticTracks.shards)) {
+  if (!fs.existsSync(path.join(staticTrackRoot, `${prefix}.json.gz`))) {
+    throw new Error(`[prepare-live-data] missing static track shard ${prefix}`);
+  }
+}
+console.log(`[prepare-live-data] verified ${staticTracks.totalTracks} static tracks across 100 shards`);
