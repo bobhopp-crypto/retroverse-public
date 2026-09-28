@@ -1,18 +1,6 @@
-import { mkdir, readFile, writeFile } from "fs/promises";
-import { join } from "path";
-
-import { opsStateDir } from "@/lib/ops/ops-state-path";
-
-import { pgSundayNightsGet, pgSundayNightsSet } from "./pg-state";
+import { loadLiveStateRecord, saveLiveStateRecord } from "./live-state-io";
 import { normalizeLiveTrackId } from "./resolve-live-track";
-import { usePostgresSundayNightsState } from "./storage-mode";
 import type { SundayNightsLiveSelection, SundayNightsState } from "./types";
-
-const PG_KEY = "live";
-
-function statePath(): string {
-  return join(opsStateDir(), "sunday-nights", "state.json");
-}
 
 function emptyState(): SundayNightsState {
   return {
@@ -72,6 +60,8 @@ function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
     filepath,
     deck,
     bridgeTimestamp,
+    startedAt: typeof obj.startedAt === "string" && Number.isFinite(Date.parse(obj.startedAt)) ? obj.startedAt : bridgeTimestamp,
+    durationSeconds: typeof obj.durationSeconds === "number" && Number.isFinite(obj.durationSeconds) && obj.durationSeconds > 0 ? obj.durationSeconds : null,
     resolution,
   };
 }
@@ -107,35 +97,13 @@ function normalizeState(raw: unknown): SundayNightsState {
   };
 }
 
-async function loadStateFromJson(): Promise<SundayNightsState> {
-  try {
-    const raw = await readFile(statePath(), "utf8");
-    return normalizeState(JSON.parse(raw));
-  } catch {
-    return emptyState();
-  }
-}
-
-async function saveStateToJson(state: SundayNightsState): Promise<void> {
-  const dir = join(opsStateDir(), "sunday-nights");
-  await mkdir(dir, { recursive: true });
-  await writeFile(statePath(), `${JSON.stringify(state, null, 2)}\n`, "utf8");
-}
-
 export async function loadSundayNightsState(): Promise<SundayNightsState> {
-  if (usePostgresSundayNightsState()) {
-    const raw = await pgSundayNightsGet<Record<string, unknown>>(PG_KEY);
-    return raw ? normalizeState(raw) : emptyState();
-  }
-  return loadStateFromJson();
+  const raw = await loadLiveStateRecord();
+  return raw ? normalizeState(raw) : emptyState();
 }
 
 export async function saveSundayNightsState(state: SundayNightsState): Promise<void> {
-  if (usePostgresSundayNightsState()) {
-    await pgSundayNightsSet(PG_KEY, state as unknown as Record<string, unknown>);
-    return;
-  }
-  await saveStateToJson(state);
+  await saveLiveStateRecord(state);
 }
 
 export async function setCurrentTrackId(trackId: string | null): Promise<SundayNightsState> {

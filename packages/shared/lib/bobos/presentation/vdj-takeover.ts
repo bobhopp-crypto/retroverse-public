@@ -77,7 +77,7 @@ export function applyVdjPresentationItem(
 
   const item = buildVdjPresentationItem(sn.live);
   let elapsedSeconds = 0;
-  const startedAt = sn.live.bridgeTimestamp?.trim();
+  const startedAt = sn.live.startedAt?.trim() || sn.live.bridgeTimestamp?.trim();
   if (startedAt) {
     elapsedSeconds = Math.max(0, Math.floor((now.getTime() - Date.parse(startedAt)) / 1000));
   }

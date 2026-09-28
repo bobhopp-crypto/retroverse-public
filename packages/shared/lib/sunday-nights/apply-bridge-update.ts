@@ -8,11 +8,14 @@ import { resolveRvtrFromVdjFilePath } from "@/lib/ops/intelligence/experience-in
 
 import { songKeyFromPath } from "./resolve-live-track";
 import { loadSundayNightsState, saveSundayNightsState, setLiveTrack } from "./state";
-import { usePostgresSundayNightsState } from "./storage-mode";
 import type { BridgeLivePostBody, SundayNightsState } from "./types";
 
+function isPublicRuntime(): boolean {
+  return process.env.VERCEL === "1";
+}
+
 async function forwardBridgeUpdateToPublic(body: BridgeLivePostBody): Promise<void> {
-  if (usePostgresSundayNightsState()) return;
+  if (isPublicRuntime()) return;
 
   const result = await pushBridgeLiveUpdateToPublic(body);
   if (result.status === "synced") {
@@ -40,7 +43,7 @@ export async function applyBridgeLiveUpdate(
 
   if (!playing) {
     await logLiveNowPlaying("playback_stopped", { timestamp });
-    if (usePostgresSundayNightsState()) {
+    if (isPublicRuntime()) {
       const current = await loadSundayNightsState();
       const state = {
         ...current,
@@ -100,6 +103,8 @@ export async function applyBridgeLiveUpdate(
       filepath,
       deck,
       bridgeTimestamp: timestamp,
+      startedAt: body.startedAt || timestamp,
+      durationSeconds: Number.isFinite(body.durationSeconds) ? body.durationSeconds : null,
       resolution,
     },
     { bridgePlaying: true },
@@ -107,7 +112,7 @@ export async function applyBridgeLiveUpdate(
 
   // Broadcast Mixer takeover state is local operator infrastructure. The
   // deployed public bridge only needs the canonical Postgres song state.
-  if (!usePostgresSundayNightsState()) {
+  if (!isPublicRuntime()) {
     await handleVdjPlaybackStarted();
   }
 

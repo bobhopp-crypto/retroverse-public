@@ -1,6 +1,6 @@
 import type { SundayNightsLiveSelection, SundayNightsState } from "./types";
 
-export const LIVE_BRIDGE_FRESHNESS_MS = 90_000;
+export const LIVE_BRIDGE_FRESHNESS_MS = 25 * 60_000;
 
 function timestampMs(value: string | null | undefined): number | null {
   if (!value?.trim()) return null;

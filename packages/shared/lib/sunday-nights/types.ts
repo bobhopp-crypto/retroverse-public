@@ -15,6 +15,8 @@ export type SundayNightsLiveSelection = {
   filepath?: string | null;
   deck?: number | null;
   bridgeTimestamp?: string | null;
+  startedAt?: string | null;
+  durationSeconds?: number | null;
   resolution?: LiveResolution | null;
 };
 
@@ -22,6 +24,8 @@ export type BridgeLivePostBody = {
   /** False when VirtualDJ playback stops. */
   playing: boolean;
   timestamp: string;
+  startedAt?: string;
+  durationSeconds?: number;
   filepath?: string;
   artist?: string;
   title?: string;

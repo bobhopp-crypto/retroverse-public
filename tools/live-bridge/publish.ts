@@ -1,6 +1,8 @@
 export type PublishPayload = {
   playing: boolean;
   timestamp: string;
+  startedAt?: string;
+  durationSeconds?: number;
   filepath?: string;
   artist?: string;
   title?: string;

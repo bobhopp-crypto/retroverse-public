@@ -77,6 +77,12 @@ async function main() {
 
   let lastPickedDeck: number | null = null;
   let lastPublishedPlaying: boolean | null = null;
+  let lastPublishedTrack = "";
+  let lastPublishedAt = 0;
+  let observedTrack = "";
+  let observedStartedAt = "";
+  let tickRunning = false;
+  const LIVE_RESYNC_MS = 10 * 60_000;
 
   console.log(
     `Live bridge running — OSC ${config.oscHost}:${config.oscPort} → listen :${config.oscPortBack} every ${config.pollMs}ms`,
@@ -90,6 +96,8 @@ async function main() {
   process.on("SIGTERM", shutdown);
 
   const tick = async () => {
+    if (tickRunning) return;
+    tickRunning = true;
     const timestamp = new Date().toISOString();
     const tickBase = {
       timestamp,
@@ -128,8 +136,7 @@ async function main() {
       const anyAudible = decks.some((d) => d.audible);
       const playing = Boolean(activeDeck && (activeDeck.audible || !anyAudible));
 
-      if (lastPublishedPlaying === true && !playing) {
-        lastPublishedPlaying = false;
+      if (lastPublishedPlaying !== false && !playing) {
         hysteresis.reset();
         tickBase.skipReason = "playback_stopped";
         await bridgeLog(config.dataRoot, "bridge_tick", tickBase);
@@ -139,6 +146,9 @@ async function main() {
           timestamp,
         });
         if (result.ok) {
+          lastPublishedPlaying = false;
+          lastPublishedTrack = "";
+          lastPublishedAt = Date.now();
           await logPostOk(config.dataRoot, config.apiUrl, timestamp, result.status, false);
         } else {
           await bridgeLog(config.dataRoot, "api_error", {
@@ -151,7 +161,6 @@ async function main() {
       }
 
       if (!playing) {
-        lastPublishedPlaying = false;
         tickBase.skipReason = activeDeck
           ? anyAudible
             ? "deck_not_audible"
@@ -168,7 +177,16 @@ async function main() {
         return;
       }
 
-      lastPublishedPlaying = true;
+      const trackKey = `${stable.filepath}\u0000${stable.artist}\u0000${stable.title}\u0000${stable.deck}`;
+      if (observedTrack !== trackKey) {
+        observedTrack = trackKey;
+        observedStartedAt = timestamp;
+      }
+      if (lastPublishedPlaying === true && lastPublishedTrack === trackKey && Date.now() - lastPublishedAt < LIVE_RESYNC_MS) {
+        tickBase.skipReason = "unchanged";
+        await bridgeLog(config.dataRoot, "bridge_tick", tickBase);
+        return;
+      }
       await bridgeLog(config.dataRoot, "track_detected", {
         ...stable,
         crossfader,
@@ -180,6 +198,7 @@ async function main() {
         playing: true,
         ...stable,
         timestamp,
+        startedAt: observedStartedAt,
       });
 
       if (!result.ok) {
@@ -194,6 +213,9 @@ async function main() {
         return;
       }
 
+      lastPublishedPlaying = true;
+      lastPublishedTrack = trackKey;
+      lastPublishedAt = Date.now();
       await logPostOk(config.dataRoot, config.apiUrl, timestamp, result.status, true);
 
       tickBase.published = true;
@@ -221,6 +243,8 @@ async function main() {
       await bridgeLog(config.dataRoot, "vdj_error", {
         message: err instanceof Error ? err.message : String(err),
       });
+    } finally {
+      tickRunning = false;
     }
   };
 

@@ -155,7 +155,7 @@ async function virtualdjExperience(now: Date): Promise<Experience> {
     `${live.artist.trim()}|${live.title.trim()}`;
   item.id = `${VDJ_LIVE_ITEM_ID}:${trackStamp}`;
   let elapsedSeconds = 0;
-  const startedAt = freshLive?.bridgeTimestamp?.trim();
+  const startedAt = freshLive?.startedAt?.trim() || freshLive?.bridgeTimestamp?.trim();
   if (startedAt && (vdj.playing || sn.bridgePlaying === true)) {
     elapsedSeconds = Math.max(0, Math.floor((now.getTime() - Date.parse(startedAt)) / 1000));
   }

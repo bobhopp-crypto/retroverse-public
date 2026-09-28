@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { verifyLiveNowPlayingSecret } from "@/lib/live-now-playing/auth";
 import { logLiveNowPlaying } from "@/lib/live-now-playing/logger";
 import { applyBridgeLiveUpdate } from "@/lib/sunday-nights/apply-bridge-update";
-import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import type { BridgeLivePostBody } from "@/lib/sunday-nights/types";
 
 export const dynamic = "force-dynamic";
@@ -25,8 +24,7 @@ export async function POST(req: Request) {
 
   try {
     const state = await applyBridgeLiveUpdate(payload);
-    const response = await buildSundayNightsCurrentPayload(state);
-    return NextResponse.json({ ok: true, ...response });
+    return NextResponse.json({ ok: true, updatedAt: state.updatedAt, currentTrackId: state.currentTrackId });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Update failed";
     await logLiveNowPlaying("api_error", { message, filepath: payload.filepath }).catch(() => {});
