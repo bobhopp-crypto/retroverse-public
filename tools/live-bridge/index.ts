@@ -42,7 +42,7 @@ async function main() {
   }
 
   const config = loadConfig();
-  const hysteresis = new AudibleDeckHysteresis(config.stablePolls);
+  const hysteresis = new AudibleDeckHysteresis(config.stablePolls, 0);
   const sensor = new VdjOscSensor({
     host: config.oscHost,
     vdjPort: config.oscPort,
@@ -148,6 +148,7 @@ async function main() {
         if (result.ok) {
           lastPublishedPlaying = false;
           lastPublishedTrack = "";
+          observedTrack = "";
           lastPublishedAt = Date.now();
           await logPostOk(config.dataRoot, config.apiUrl, timestamp, result.status, false);
         } else {
@@ -178,8 +179,9 @@ async function main() {
       }
 
       const trackKey = `${stable.filepath}\u0000${stable.artist}\u0000${stable.title}\u0000${stable.deck}`;
-      if (observedTrack !== trackKey) {
-        observedTrack = trackKey;
+      const songKey = `${stable.filepath}\u0000${stable.artist}\u0000${stable.title}`;
+      if (observedTrack !== songKey) {
+        observedTrack = songKey;
         observedStartedAt = timestamp;
       }
       if (lastPublishedPlaying === true && lastPublishedTrack === trackKey && Date.now() - lastPublishedAt < LIVE_RESYNC_MS) {

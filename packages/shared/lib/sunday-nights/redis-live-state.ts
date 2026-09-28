@@ -7,8 +7,8 @@ export const REDIS_CONTROL_KEY = "rv:live:live-control:v1";
 export const REDIS_BROADCAST_KEY = "rv:live:broadcast-snapshot:v1";
 
 function config(): { url: string; token: string } | null {
-  const url = process.env.KV_REST_API_URL?.trim();
-  const token = process.env.KV_REST_API_TOKEN?.trim();
+  const url = process.env.LIVE_KV_REST_API_URL?.trim() || process.env.KV_REST_API_URL?.trim();
+  const token = process.env.LIVE_KV_REST_API_TOKEN?.trim() || process.env.KV_REST_API_TOKEN?.trim();
   return url && token ? { url, token } : null;
 }
 
@@ -18,7 +18,7 @@ export function redisLiveStateConfigured(): boolean {
 
 async function command(args: (string | number)[]): Promise<unknown> {
   const credentials = config();
-  if (!credentials) throw new Error("Live state store is not configured (KV_REST_API_URL / KV_REST_API_TOKEN).");
+  if (!credentials) throw new Error("Live state store is not configured (LIVE_KV_REST_API_URL / LIVE_KV_REST_API_TOKEN).");
   const response = await fetch(credentials.url, {
     method: "POST",
     headers: {
