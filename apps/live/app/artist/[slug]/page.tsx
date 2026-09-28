@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 
+import { loadCompanionStillUrls } from "@/lib/artist/companion-still";
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadArtistCoverageSummary } from "@/lib/artist/load-artist-coverage-summary";
-import { resolveCanonicalArtist, resolveLegacyArtistId } from "@/lib/public/canonical-public-resolver";
+import { resolveLiveArtistName } from "@/lib/artist/resolve-artist";
+import { starterArtistBySlug } from "@/lib/artist/starter-artists";
+import { canonicalArtistHref, resolveCanonicalArtist, resolveLegacyArtistId } from "@/lib/public/canonical-public-resolver";
 import { CanonicalPublicTrace } from "@/components/public/CanonicalPublicTrace";
 import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
 import { localPublicTraceEnabled, timePublicLoader } from "@/lib/public/local-trace";
 
+import { ArtistDepthFallback } from "../artist-depth-fallback";
 import { ArtistPageView } from "./artist-page-view";
 
 type Props = {
@@ -20,6 +24,13 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const canonical = await resolveCanonicalArtist(slug);
+  const starter = starterArtistBySlug(slug);
+  if (!canonical && starter) {
+    return {
+      title: `${starter.name} — Retroverse`,
+      description: `${starter.name} — songs and archive notes in Retroverse.`,
+    };
+  }
   const data = canonical ? await loadArtistPage(canonical.routeToken) : null;
   return {
     title: data ? `${data.displayName} — Retroverse` : "Artist — Retroverse",
@@ -37,15 +48,29 @@ export default async function ArtistPage({ params, searchParams }: Props) {
     const legacy = await resolveLegacyArtistId(slug);
     if (legacy) redirect(legacy.href);
   }
-  if (!canonical) notFound();
+  if (!canonical) {
+    const starter = starterArtistBySlug(slug);
+    if (!starter) notFound();
+    const live = await resolveLiveArtistName(starter.name);
+    if (live) redirect(canonicalArtistHref(live.rvar));
+    return <ArtistDepthFallback name={starter.name} />;
+  }
   const [pageLoad, coverageLoad] = await Promise.all([
     timePublicLoader("artist-page", () => loadArtistPage(canonical.routeToken)),
     timePublicLoader("artist-coverage", () => loadArtistCoverageSummary(canonical.routeToken)),
   ]);
+  const stillByRvtr = await loadCompanionStillUrls([
+    ...coverageLoad.value.songs.map((song) => song.rvtr),
+    ...pageLoad.value.signatureTracks.map((track) => track.rvtr),
+  ]);
 
   return (
     <>
-      <ArtistPageView data={pageLoad.value} coverage={coverageLoad.value} />
+      <ArtistPageView
+        data={pageLoad.value}
+        coverage={coverageLoad.value}
+        stillByRvtr={stillByRvtr}
+      />
       <CanonicalPublicTrace
         enabled={traceEnabled}
         artistId={canonical.artistId}

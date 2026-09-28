@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ArtistInDepthSwipe } from "@/components/navigation/artist-in-depth-swipe";
 import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { LivingSongShell } from "@/components/retroverse/experience/LivingSongShell";
@@ -14,6 +15,7 @@ import type { TrackPageData } from "@/lib/track/load-track-page";
 import { SongArveyContext } from "./SongArveyContext";
 import { loadBestEditorialSongRecord, loadChartTrajectoryRecommendations, SHE_IS_A_BEAUTY_ARTICLE, type EditorialDiversityRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import { describePublicSongExperience, hasStablePublicSongRoute } from "@/lib/home/public-song-experience-resolution";
+import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
@@ -133,6 +135,11 @@ export async function PublicSongExperience({
   });
   const hasStory = sections.storyParagraphs.length > 0 || sections.storyCards.length > 0;
   const artistHref = payload.links.artistHref;
+  const artistDepthHref = artistInDepthHref({
+    artistHref,
+    rvtr: payload.rvtr,
+    artistName: payload.artist,
+  });
   const albumHref = payload.links.albumHref ?? primaryAlbum?.href ?? null;
   const yearHref = year ? payload.links.yearHref ?? `/rv/${year}` : null;
   const isVdjOnly = payload.resolutionTier === "vdj-only";
@@ -182,6 +189,7 @@ export async function PublicSongExperience({
           storyScore={Math.max(journeyWeeks, payload.storyCards.length)}
           openingKind={journeyWeeks > 0 ? "chart_journey" : "story"}
         >
+          <ArtistInDepthSwipe href={artistDepthHref} requireScrollTop>
           <header className="rv2-song__header" aria-label="Song overview" data-year-source={payload.yearSource} data-resolution={payload.resolution}>
             {!embedded ? (
               <RetroverseBack fallbackHref="/search" fallbackLabel="Archive" />
@@ -205,6 +213,7 @@ export async function PublicSongExperience({
               )}
                 </p>
                 {year ? <p className="canonical-song__year">{year}</p> : <p className="canonical-song__year">Year unavailable</p>}
+                {artistDepthHref ? <p className="artist-depth-cue">Swipe down for the artist</p> : null}
               </div>
             </div>
             {journeyWeeks > 0 && track?.chartRunLabel ? <p className="rv2-song__subtitle">{track.chartRunLabel}</p> : null}
@@ -232,6 +241,7 @@ export async function PublicSongExperience({
               </>
             ) : null}
           </header>
+          </ArtistInDepthSwipe>
 
           {!embedded ? <SongArveyContext title={payload.title} artist={payload.artist} year={year} /> : null}
 

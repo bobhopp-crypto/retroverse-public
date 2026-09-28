@@ -20,6 +20,8 @@ const ALBUMS_LIMIT = 6;
 type Props = {
   data: ArtistPageData;
   coverage: ArtistCoverageSummary;
+  /** Companion stills beside VIDEO, keyed by RVTR. Album covers stay the fallback. */
+  stillByRvtr?: ReadonlyMap<string, string>;
 };
 
 function buildIdentityLine(data: ArtistPageData): string | null {
@@ -40,7 +42,11 @@ function buildIdentityLine(data: ArtistPageData): string | null {
   return parts.join(" · ");
 }
 
-function buildSongRows(data: ArtistPageData, coverage: ArtistCoverageSummary): ArtistExplorerSongRow[] {
+function buildSongRows(
+  data: ArtistPageData,
+  coverage: ArtistCoverageSummary,
+  stillByRvtr?: ReadonlyMap<string, string>,
+): ArtistExplorerSongRow[] {
   const coverByRvtr = new Map(
     data.signatureTracks
       .filter((t) => t.coverUrl)
@@ -64,19 +70,26 @@ function buildSongRows(data: ArtistPageData, coverage: ArtistCoverageSummary): A
     artistName: data.displayName,
     year: song.firstChartYear,
     peakHot100: song.peakHot100,
-    coverUrl: coverByRvtr.get(song.rvtr.toUpperCase()) ?? null,
+    coverUrl:
+      stillByRvtr?.get(song.rvtr.toUpperCase()) ??
+      coverByRvtr.get(song.rvtr.toUpperCase()) ??
+      null,
     trackHref: song.trackHref,
     coverageStatus: song.coverageStatus,
   }));
 }
 
-export function ArtistPageView({ data, coverage }: Props) {
-  const songs = buildSongRows(data, coverage);
+export function ArtistPageView({ data, coverage, stillByRvtr }: Props) {
+  const songs = buildSongRows(data, coverage, stillByRvtr);
+  const inYourRetroverse = songs.filter((song) => song.coverageStatus === "owned");
+  const libraryCount = inYourRetroverse.length > 0 ? inYourRetroverse.length : data.libraryTracks;
+  const libraryNoun = inYourRetroverse.length > 0 ? "song" : "recording";
   const albums = data.essentialAlbums.slice(0, ALBUMS_LIMIT);
   const years = data.dominantYears.filter((y) => y.year >= 1960 && y.year <= 2030);
   const related = data.relatedArtists;
   const identityLine = buildIdentityLine(data);
   const activeRange = data.activeRange !== "—" ? data.activeRange : null;
+  const canonicalRoute = /^(?:RVAR\d{6}|\d+)$/i.test(data.slug);
 
   const heroFallbackCover =
     data.heroImageUrl ??
@@ -134,9 +147,11 @@ export function ArtistPageView({ data, coverage }: Props) {
                     Albums <span aria-hidden>↓</span>
                   </a>
                 ) : null}
-                <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__hero-link">
-                  Chart journeys <span aria-hidden>→</span>
-                </Link>
+                {canonicalRoute ? (
+                  <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__hero-link">
+                    Chart journeys <span aria-hidden>→</span>
+                  </Link>
+                ) : null}
               </div>
             </div>
           </div>
@@ -163,11 +178,72 @@ export function ArtistPageView({ data, coverage }: Props) {
                   {discoveryShelf("artistTopSongs").displayLabel}
                 </h2>
               </div>
-              <Link href={`/artist/${data.slug}/songs`} prefetch className="artist-v1__section-link">
-                All songs <span aria-hidden>→</span>
-              </Link>
+              {canonicalRoute ? (
+                <Link href={`/artist/${data.slug}/songs`} prefetch className="artist-v1__section-link">
+                  All songs <span aria-hidden>→</span>
+                </Link>
+              ) : null}
             </div>
             <ArtistExplorerSongRows songs={songs} />
+          </section>
+        ) : null}
+
+        {libraryCount > 0 ? (
+          <section className="artist-v1__section artist-v1__section--library" aria-labelledby="artist-library">
+            <div className="artist-v1__section-heading">
+              <div>
+                <p className="artist-v1__section-kicker">Your collection</p>
+                <h2 id="artist-library" className="artist-v1__section-title">
+                  In Your Retroverse
+                </h2>
+              </div>
+              {canonicalRoute && data.libraryTracks > 0 ? (
+                <Link href={`/artist/${data.slug}/library`} prefetch className="artist-v1__section-link">
+                  Collected <span aria-hidden>→</span>
+                </Link>
+              ) : null}
+            </div>
+            <p className="artist-v1__section-lead">
+              {libraryCount} {libraryNoun}
+              {libraryCount === 1 ? "" : "s"} from this run {libraryCount === 1 ? "is" : "are"} already in your Retroverse.
+            </p>
+            {inYourRetroverse.length > 0 ? (
+              <ul className="artist-v1__library-list">
+                {inYourRetroverse.slice(0, 4).map((song) => (
+                  <li key={song.rvtr}>
+                    {song.trackHref ? (
+                      <Link href={song.trackHref} prefetch className="artist-v1__library-link">
+                        {song.coverUrl ? (
+                          <ArtistCover
+                            src={song.coverUrl}
+                            alt=""
+                            className="artist-v1__library-thumb"
+                            fallbackClassName="artist-v1__library-thumb artist-v1__library-thumb--fallback"
+                            fallbackVariant="vinyl"
+                            placeholderContext={{ artist: data.displayName, album: song.title }}
+                          />
+                        ) : null}
+                        <span>{song.title}</span>
+                      </Link>
+                    ) : (
+                      <span className="artist-v1__library-link">
+                        {song.coverUrl ? (
+                          <ArtistCover
+                            src={song.coverUrl}
+                            alt=""
+                            className="artist-v1__library-thumb"
+                            fallbackClassName="artist-v1__library-thumb artist-v1__library-thumb--fallback"
+                            fallbackVariant="vinyl"
+                            placeholderContext={{ artist: data.displayName, album: song.title }}
+                          />
+                        ) : null}
+                        <span>{song.title}</span>
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </section>
         ) : null}
 
@@ -180,9 +256,11 @@ export function ArtistPageView({ data, coverage }: Props) {
                   {discoveryShelf("artistAlbums").displayLabel}
                 </h2>
               </div>
-              <Link href={`/artist/${data.slug}/library`} prefetch className="artist-v1__section-link">
-                Collected <span aria-hidden>→</span>
-              </Link>
+              {canonicalRoute ? (
+                <Link href={`/artist/${data.slug}/library`} prefetch className="artist-v1__section-link">
+                  Collected <span aria-hidden>→</span>
+                </Link>
+              ) : null}
             </div>
             <ul className="artist-v1__album-shelf">
               {albums.map((album) => {
@@ -229,9 +307,11 @@ export function ArtistPageView({ data, coverage }: Props) {
                   {discoveryShelf("artistYears").displayLabel}
                 </h2>
               </div>
-              <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__section-link">
-                Chart journeys <span aria-hidden>→</span>
-              </Link>
+              {canonicalRoute ? (
+                <Link href={`/artist/${data.slug}/charts`} prefetch className="artist-v1__section-link">
+                  Chart journeys <span aria-hidden>→</span>
+                </Link>
+              ) : null}
             </div>
             <ul className="artist-v1__year-pills">
               {years.map((bar) => (

@@ -4,6 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 import type { MobileSongExperience as MobileSongExperienceData } from "@/lib/song-mobile/types";
+import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
+import { ArtistInDepthSwipe } from "@/components/navigation/artist-in-depth-swipe";
 
 import { ArtCover } from "./ArtCover";
 import "./song-mobile.css";
@@ -16,8 +18,8 @@ type Props = {
 
 /**
  * Mobile Experience Renderer v1 — one swipeable, full-screen card per beat.
- * Portrait iPhone only. Native horizontal scroll-snap: no swipe library,
- * no JS gesture tracking — fast and reliable on real devices.
+ * Portrait iPhone only. Horizontal cards stay native scroll-snap.
+ * Swipe down on the hero opens Artist In Depth. Tap behavior is unchanged.
  */
 export function MobileSongExperience({ data }: Props) {
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -49,6 +51,12 @@ export function MobileSongExperience({ data }: Props) {
     el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
   }, []);
 
+  const artistDepthHref = artistInDepthHref({
+    artistHref: data.artistHref,
+    rvtr: data.rvtr,
+    artistName: data.artist,
+  });
+
   return (
     <div className="song-mx">
       <header className="song-mx__topbar">
@@ -72,6 +80,7 @@ export function MobileSongExperience({ data }: Props) {
 
       <div className="song-mx__viewport" ref={viewportRef}>
         {/* 1. Hero */}
+        <ArtistInDepthSwipe href={artistDepthHref} className="song-mx__hero-swipe">
         <section className="song-mx__slide song-mx__slide--hero">
           <img
             className="song-mx__hero-image"
@@ -88,9 +97,11 @@ export function MobileSongExperience({ data }: Props) {
             <p className="song-mx__hero-artist">{data.artist}</p>
             <h1 className="song-mx__hero-title">{data.title}</h1>
             <p className="song-mx__hero-year">{data.year}</p>
+            {artistDepthHref ? <p className="artist-depth-cue">Swipe down for the artist</p> : null}
           </div>
           <p className="song-mx__swipe-hint">{"Swipe to explore \u2192"}</p>
         </section>
+        </ArtistInDepthSwipe>
 
         {/* 2. Song Story */}
         <section className="song-mx__slide song-mx__slide--card">
