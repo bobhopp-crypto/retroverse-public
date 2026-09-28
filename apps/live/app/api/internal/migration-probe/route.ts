@@ -42,8 +42,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ postgresAvailable: true, results });
   }
   if (operation !== "redis") return new Response(null, { status: 404 });
-  const url = process.env.KV_REST_API_URL;
-  const token = process.env.KV_REST_API_TOKEN;
+  const url = process.env.LIVE_KV_REST_API_URL || process.env.KV_REST_API_URL;
+  const token = process.env.LIVE_KV_REST_API_TOKEN || process.env.KV_REST_API_TOKEN;
   if (!url || !token) return NextResponse.json({ configured: false }, { status: 503 });
   const key = `rv:migration-probe:${randomUUID()}`;
   const value = randomUUID();
