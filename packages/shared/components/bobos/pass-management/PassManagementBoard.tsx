@@ -39,14 +39,14 @@ function visitorName(row: PassManagementRow): string {
 export function PassManagementBoard(props: {
   initialPasses: PassManagementRow[];
   initialSummary: PassManagementSummary;
-  pgOk: boolean;
+  storeOk: boolean;
 }) {
   const [passes, setPasses] = useState(props.initialPasses);
   const [summary, setSummary] = useState(props.initialSummary);
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(props.pgOk ? null : "Postgres offline");
+  const [error, setError] = useState<string | null>(props.storeOk ? null : "Pass store unavailable");
   const [selectedSerial, setSelectedSerial] = useState<string | null>(null);
   const [msg, setMsg] = useState<{ tone: "ok" | "err"; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
@@ -88,7 +88,7 @@ export function PassManagementBoard(props: {
 
   const load = useCallback(
     async (query: string) => {
-      if (!props.pgOk) return;
+      if (!props.storeOk) return;
       setLoading(true);
       setError(null);
       try {
@@ -109,7 +109,7 @@ export function PassManagementBoard(props: {
         setLoading(false);
       }
     },
-    [props.pgOk],
+    [props.storeOk],
   );
 
   const loadActivity = useCallback(async (serial: string) => {
@@ -125,14 +125,14 @@ export function PassManagementBoard(props: {
   }, []);
 
   useEffect(() => {
-    if (!props.pgOk) return;
+    if (!props.storeOk) return;
     void load(debouncedSearch);
-  }, [debouncedSearch, load, props.pgOk]);
+  }, [debouncedSearch, load, props.storeOk]);
 
   useEffect(() => {
-    if (!selectedSerial || !props.pgOk) return;
+    if (!selectedSerial || !props.storeOk) return;
     void loadActivity(selectedSerial);
-  }, [selectedSerial, loadActivity, props.pgOk]);
+  }, [selectedSerial, loadActivity, props.storeOk]);
 
   async function saveMember() {
     if (!selected) return;
@@ -306,10 +306,10 @@ export function PassManagementBoard(props: {
 
       <div className="pm-toolbar">
         <div>
-          <OpsPill tone={props.pgOk ? "info" : "bad"}>
-            {props.pgOk
+          <OpsPill tone={props.storeOk ? "info" : "bad"}>
+            {props.storeOk
               ? `Showing ${passes.length}${loading ? " · Loading…" : ""}`
-              : "Postgres offline"}
+              : "Pass store unavailable"}
           </OpsPill>
         </div>
         <input
@@ -319,7 +319,7 @@ export function PassManagementBoard(props: {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           aria-label="Search passes"
-          disabled={!props.pgOk}
+          disabled={!props.storeOk}
         />
       </div>
 

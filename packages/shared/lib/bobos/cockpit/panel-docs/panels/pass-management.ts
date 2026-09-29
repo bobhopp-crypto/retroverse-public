@@ -2,13 +2,13 @@ import type { PanelDocumentation } from "../types";
 
 /**
  * RV02-05 — Pass Management
- * Operator admin for the public claim tables (same as “You’re in, Bob.”).
+ * Operator admin for the public pass and member records.
  */
 export const PASS_MANAGEMENT_DOCS: PanelDocumentation = {
   panelType: "pass-management",
   rvId: "RV02-05",
   title: "Pass Management",
-  subtitle: "Operator panel for retroverse_passes / retroverse_visitors claim records.",
+  subtitle: "Operator panel for public pass and member records.",
   verification: {
     status: "verified",
     verifiedAt: "2026-07-20",
@@ -23,23 +23,23 @@ export const PASS_MANAGEMENT_DOCS: PanelDocumentation = {
   userWorkflow: [
     "Guest registers via Live /pass/[serial] (RV05-05).",
     "Operator opens /bobos/pass-management.",
-    "Summary shows Total / Claimed / Unclaimed / Claimed Today from retroverse_passes.",
+    "Summary shows Total / Claimed / Unclaimed / Claimed Today from the shared pass store.",
     "Operator searches by serial, first name, last name, or email.",
     "Selecting a row opens the detail panel: edit visitor, rename serial, reset claim, delete pass, open public page, view recent activity.",
   ],
 
   operatorNotes: [
-    "Source of truth: Neon production retroverse_passes + retroverse_visitors (+ activity) via getPassPool().",
-    "Requires RETROVERSE_PASS_PG_* (or non-local RETROVERSE_PG_*). Localhost defaults are rejected.",
+    "Source of truth: the existing Redis store shared by public Live and local Studio.",
+    "Requires LIVE_KV_REST_API_URL and LIVE_KV_REST_API_TOKEN.",
     "Reset claim clears visitor_id / claimed_at and returns the pass to unclaimed so /pass/[serial] shows registration again.",
     "Delete pass requires typing the serial exactly; activity history rows are retained.",
     "library.json is Pass Production only — never used here.",
-    "collector_pass_registrations is RETIRED on Neon — table retained; app code does not write it.",
+    "Collector registration records were preserved in the shared pass store.",
     "RV02-04 Pass Registration is Retired — /bobos/pass-registration redirects here.",
   ],
 
   technicalArchitecture: [
-    "Connection: lib/retroverse-pass/pg.ts → getPassPool() / passQuery() / passPing().",
+    "Connection: lib/sunday-nights/redis-live-state.ts and lib/retroverse-pass/redis-status.ts.",
     "Helpers: lib/retroverse-pass/pass-management.ts (search, update visitor, rename serial, reset, delete, activity).",
     "Reuses claim edit path: updatePassVisitor() from lib/retroverse-pass/store.ts for member edits.",
     "BobOS API: GET/PATCH/DELETE /api/bobos/pass-management.",
@@ -90,12 +90,12 @@ export const PASS_MANAGEMENT_DOCS: PanelDocumentation = {
   ],
 
   dataModel: [
-    "Claim model: retroverse_passes, retroverse_visitors, retroverse_pass_activity",
+    "Claim model: rv:pass:passes:v1, rv:pass:visitors:v1, rv:pass:activity:v1",
     "Summary: totalPasses, claimed, unclaimed, claimedToday",
   ],
 
   runtimeDependencies: [
-    "Postgres via lib/inspect/pg",
+    "Existing Redis store for pass and member state",
     "Ops gate isOpsEnabled()",
     "Live app for public /pass/[serial] verification (RV05-05)",
   ],
@@ -103,6 +103,7 @@ export const PASS_MANAGEMENT_DOCS: PanelDocumentation = {
   verificationDetails: [
     "Status: Verified (2026-07-20) by Bob as part of RV02 Pass System closure.",
     "Operator search, member edit, serial rename, reset claim, and confirmed delete paths documented and exercised against Neon claim tables.",
+    "Redis claim, duplicate, scan, edit, activity, registration, and operator actions were verified during the Neon removal cutover.",
     "Public companion is RV05-05 /pass/[serial].",
   ],
 

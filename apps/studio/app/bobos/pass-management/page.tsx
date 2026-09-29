@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { PassManagementBoard } from "@/components/bobos/pass-management/PassManagementBoard";
 import { searchPassManagement } from "@/lib/retroverse-pass/pass-management";
-import { getPassPgIdentity, passPing } from "@/lib/retroverse-pass/pg";
+import { passStoreStatus } from "@/lib/retroverse-pass/redis-status";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 import "../../ops/ops.css";
@@ -22,20 +22,15 @@ export default async function BobosPassManagementPage() {
     notFound();
   }
 
-  const ping = await passPing();
+  const ping = await passStoreStatus();
   let passes: Awaited<ReturnType<typeof searchPassManagement>>["passes"] = [];
   let summary = { totalPasses: 0, claimed: 0, unclaimed: 0, claimedToday: 0 };
   let loadError: string | undefined;
-  let dbLabel: string | undefined;
 
   if (!ping.ok) {
-    loadError =
-      ping.error ??
-      "Pass database offline. Configure RETROVERSE_PASS_PG_* (Neon production).";
+    loadError = ping.error ?? "Pass store unavailable.";
   } else {
     try {
-      const identity = ping.identity ?? getPassPgIdentity();
-      dbLabel = `${identity.host} / ${identity.database}`;
       const result = await searchPassManagement();
       passes = result.passes;
       summary = result.summary;
@@ -70,14 +65,7 @@ export default async function BobosPassManagementPage() {
 
         <p className="ops-banner pm-banner">
           Manages the public pass claim system (<code>/pass/[serial]</code>) —{" "}
-          <code>retroverse_passes</code> + <code>retroverse_visitors</code>. Same records as “You’re
-          in, Bob.”
-          {dbLabel ? (
-            <>
-              {" "}
-              Connected: <code>{dbLabel}</code>
-            </>
-          ) : null}
+          the pass and member records. Same records as “You’re in, Bob.”
         </p>
 
         {loadError ? <p className="ops-banner ops-banner--warn">{loadError}</p> : null}
@@ -85,7 +73,7 @@ export default async function BobosPassManagementPage() {
         <PassManagementBoard
           initialPasses={passes}
           initialSummary={summary}
-          pgOk={ping.ok && !loadError}
+          storeOk={ping.ok && !loadError}
         />
       </div>
     </main>

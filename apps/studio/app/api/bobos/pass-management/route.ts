@@ -9,7 +9,7 @@ import {
   updatePassVisitorFields,
 } from "@/lib/retroverse-pass/pass-management";
 import { PassRegistrationInputError } from "@/lib/retroverse-pass/store";
-import { passPing } from "@/lib/retroverse-pass/pg";
+import { passStoreStatus } from "@/lib/retroverse-pass/redis-status";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 export const dynamic = "force-dynamic";
@@ -24,15 +24,13 @@ export async function GET(req: Request) {
   const serial = url.searchParams.get("serial")?.trim() ?? "";
   const activity = url.searchParams.get("activity") === "1";
 
-  const ping = await passPing();
+  const ping = await passStoreStatus();
   if (!ping.ok) {
     return NextResponse.json(
       {
         ok: false,
-        pgOk: false,
-        pgError:
-          ping.error ??
-          "Pass database offline. Configure RETROVERSE_PASS_PG_* (Neon production).",
+        storeOk: false,
+        storeError: ping.error ?? "Pass store unavailable.",
         passes: [],
         summary: { totalPasses: 0, claimed: 0, unclaimed: 0, claimedToday: 0 },
       },
@@ -45,8 +43,7 @@ export async function GET(req: Request) {
       const events = await listPassActivity(serial);
       return NextResponse.json({
         ok: true,
-        pgOk: true,
-        identity: ping.identity,
+        storeOk: true,
         serial,
         events,
       });
@@ -55,15 +52,14 @@ export async function GET(req: Request) {
     const { passes, summary } = await searchPassManagement(search);
     return NextResponse.json({
       ok: true,
-      pgOk: true,
-      identity: ping.identity,
+      storeOk: true,
       search,
       summary,
       passes,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Load failed";
-    return NextResponse.json({ error: message, pgOk: false }, { status: 500 });
+    return NextResponse.json({ error: message, storeOk: false }, { status: 500 });
   }
 }
 
