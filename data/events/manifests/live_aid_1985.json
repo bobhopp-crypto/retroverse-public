@@ -1,0 +1,27 @@
+{
+  "ingest_version": "1",
+  "event_slug": "live-aid-1985",
+  "event_name": "Live Aid",
+  "event_year": 1985,
+  "source_file": "markdown/LIVE_AID_1985_RAW_YOUTUBE_DESCRIPTIONS.md",
+  "raw_backup": "raw/LIVE_AID_1985_RAW_YOUTUBE_DESCRIPTIONS.md",
+  "checksum_sha256": "f50b4f5841f1f83864bc37a93c9a2bd1577a6c9cc2cd5ea5c834bbf5be7a85a2",
+  "parsed_at": "2026-05-24T03:57:06.432502+00:00",
+  "parser_script": "scripts/parse_live_aid.py",
+  "outputs": {
+    "csv": [
+      "csv/event_video_index.csv",
+      "csv/event_chapters.csv",
+      "csv/event_performers.csv"
+    ],
+    "parsed_json": "parsed/live_aid_1985.json",
+    "sql_schema": "sql/historical_events_schema.sql",
+    "sql_seed": "sql/live_aid_1985_seed.sql"
+  },
+  "counts": {
+    "parts": 10,
+    "chapters": 138,
+    "performers": 71,
+    "videos": 10
+  }
+}

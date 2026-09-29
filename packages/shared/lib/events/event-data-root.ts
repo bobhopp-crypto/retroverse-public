@@ -19,6 +19,8 @@ export function retroverseDataRoot(): string {
 }
 
 export function eventIngestRoot(): string {
+  const bundled = join(process.cwd(), "data", "events");
+  if (existsSync(bundled)) return bundled;
   return join(retroverseDataRoot(), "metadata", "event_ingest");
 }
 
