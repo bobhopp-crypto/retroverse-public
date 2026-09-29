@@ -10,6 +10,9 @@ function pgSsl(): PoolConfig["ssl"] {
 }
 
 export function getInspectPool(): Pool {
+  if (!process.env.RETROVERSE_PG_HOST?.trim()) {
+    throw new Error("Archived Postgres tooling has no configured source");
+  }
   if (!pool) {
     pool = new Pool({
       host: process.env.RETROVERSE_PG_HOST ?? "localhost",
