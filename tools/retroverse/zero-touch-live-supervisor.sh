@@ -4,7 +4,7 @@
 # ensures the existing Live + bridge processes are available when VDJ is open.
 set -u
 
-ROOT="/Users/bobhopp/RETROVERSE_PUBLIC"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 DATA_ROOT="${RETROVERSE_DATA_ROOT:-${ROOT}/../RETROVERSE_DATA}"
 LIVE_DIR="${DATA_ROOT}/live"
 PID_FILE="${LIVE_DIR}/zero-touch-supervisor.pid"

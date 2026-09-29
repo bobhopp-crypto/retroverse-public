@@ -1,7 +1,7 @@
 #!/bin/bash
 set -u
 
-readonly REPO_ROOT="/Users/bobhopp/RETROVERSE_PUBLIC"
+readonly REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 readonly NODE_BIN="/opt/homebrew/bin/node"
 readonly PORT="3000"
 readonly LOG_DIR="${REPO_ROOT}/logs"
@@ -19,9 +19,7 @@ cd "${REPO_ROOT}" || {
 }
 
 # LaunchAgents do not inherit the interactive shell environment. Load the
-# repository's existing local environment so managed Studio uses the same
-# RETROVERSE_PG_* configuration as the rest of the project. The file remains
-# the only credential source; values are never copied into this script/plist.
+# isolated repository's local environment for bridge and Studio settings.
 if [[ -f "${REPO_ROOT}/.env.local" ]]; then
   set -a
   # shellcheck disable=SC1091
