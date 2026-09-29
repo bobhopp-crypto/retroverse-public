@@ -16,7 +16,7 @@ import {
   EVENT_HOMEPAGE_HERO_IMAGE,
 } from "./event-homepage-copy";
 import type { EventHomepageData } from "./event-homepage-types";
-import { loadBridgeNowPlaying } from "./load-homepage-data";
+import { loadBridgeNowPlaying } from "./load-bridge-now-playing";
 
 function resolveFeaturedYears(): EventHomepageData["featuredYears"] {
   const years = [...EVENT_HOMEPAGE_FEATURED_YEARS];

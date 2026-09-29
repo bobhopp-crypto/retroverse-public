@@ -6,10 +6,7 @@ import { ARTIST_SLUGS } from "@/lib/artist/slug";
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadBrowserPlusModel } from "@/lib/ops/browser-plus/load-browser-plus";
 import type { BrowserPlusRow } from "@/lib/ops/browser-plus/types";
-import { tickLiveControl } from "@/lib/live-control/engine";
-import { loadLiveControlState } from "@/lib/live-control/state";
-import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
-import { loadSundayNightsState } from "@/lib/sunday-nights/state";
+import { loadBridgeNowPlaying } from "./load-bridge-now-playing";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { trackPageHref } from "@/lib/search/entity-routes";
 import { loadTrackPage } from "@/lib/track/load-track-page";
@@ -18,7 +15,6 @@ import type {
   HomeDiscoverSong,
   HomeFeaturedArtist,
   HomeMediaCard,
-  HomeNowPlaying,
   HomepageData,
 } from "./homepage-types";
 
@@ -90,33 +86,7 @@ function buildPopularSongs(rows: BrowserPlusRow[]): HomeMediaCard[] {
     .slice(0, ROW_LIMIT);
 }
 
-export async function loadBridgeNowPlaying(): Promise<HomeNowPlaying | null> {
-  await tickLiveControl();
-  const [state, control] = await Promise.all([
-    loadSundayNightsState(),
-    loadLiveControlState(),
-  ]);
-
-  const bridgeActive =
-    state.live?.source === "bridge" &&
-    Boolean(state.currentTrackId?.trim()) &&
-    Boolean(state.live.title?.trim());
-
-  if (!bridgeActive) return null;
-
-  const payload = await buildSundayNightsCurrentPayload(state, control);
-  const track = payload.track;
-  const live = payload.live;
-
-  return {
-    title: track?.title ?? live?.title ?? "Unknown title",
-    artist: track?.artistName ?? live?.artist ?? "Unknown artist",
-    year: track?.releaseYear ?? live?.year ?? null,
-    coverUrl: track?.coverUrl ?? live?.coverUrl ?? null,
-    rvtr: payload.currentTrackId,
-    liveHref: "/",
-  };
-}
+export { loadBridgeNowPlaying } from "./load-bridge-now-playing";
 
 async function loadDiscoverSong(): Promise<HomeDiscoverSong | null> {
   const dayIndex = Math.floor(Date.now() / 86_400_000);

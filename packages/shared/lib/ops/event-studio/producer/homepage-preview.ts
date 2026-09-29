@@ -10,7 +10,7 @@ import {
   EVENT_HOMEPAGE_HERO_IMAGE,
 } from "@/lib/home/event-homepage-copy";
 import type { EventHomepageData } from "@/lib/home/event-homepage-types";
-import { loadBridgeNowPlaying } from "@/lib/home/load-homepage-data";
+import { loadBridgeNowPlaying } from "@/lib/home/load-bridge-now-playing";
 import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
 
 export type EventStudioHomepagePreview = EventHomepageData & {
