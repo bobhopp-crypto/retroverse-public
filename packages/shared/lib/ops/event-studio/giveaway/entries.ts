@@ -3,8 +3,8 @@ import { dirname } from "path";
 
 import { randomUUID } from "crypto";
 
-import { pgSundayNightsGet, pgSundayNightsSet } from "@/lib/sunday-nights/pg-state";
-import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
+import { remoteStateGet, remoteStateSet } from "@/lib/sunday-nights/remote-state";
+import { useRemoteSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 
 import { entriesFilePath } from "./store";
 import type { GiveawayEntry, GiveawayManualEntryPayload, GiveawayRegistrationField } from "./types";
@@ -81,8 +81,8 @@ async function saveEntriesToJson(eventKey: string, entries: GiveawayEntry[]): Pr
 
 async function persistEntries(eventKey: string, entries: GiveawayEntry[]): Promise<GiveawayEntry[]> {
   const normalized = markDuplicates(entries);
-  if (usePostgresSundayNightsState()) {
-    await pgSundayNightsSet(pgEntriesKey(eventKey), {
+  if (useRemoteSundayNightsState()) {
+    await remoteStateSet(pgEntriesKey(eventKey), {
       entries: normalized,
     } as Record<string, unknown>);
     return normalized;
@@ -92,8 +92,8 @@ async function persistEntries(eventKey: string, entries: GiveawayEntry[]): Promi
 }
 
 export async function loadGiveawayEntries(eventKey: string): Promise<GiveawayEntry[]> {
-  if (usePostgresSundayNightsState()) {
-    const raw = await pgSundayNightsGet<{ entries?: unknown }>(pgEntriesKey(eventKey));
+  if (useRemoteSundayNightsState()) {
+    const raw = await remoteStateGet<{ entries?: unknown }>(pgEntriesKey(eventKey));
     return markDuplicates(normalizeEntries(raw?.entries));
   }
   return loadEntriesFromJson(eventKey);

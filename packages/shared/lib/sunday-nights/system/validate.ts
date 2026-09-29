@@ -1,15 +1,15 @@
 import { access } from "fs/promises";
 import { join } from "path";
 
-import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
+import { redisCommand, redisLiveStateConfigured } from "../redis-live-state";
 
 import { loadSundayAssetLibrary } from "../load-assets";
 import { loadSundayEventSongs } from "../load-playlist";
 import { loadSundayEventMode } from "../event-mode";
 import { loadSundayNightsState } from "../state";
 import { SUNDAY_EVENT_YEARS } from "../playlist-types";
-import { usePostgresSundayNightsState } from "../storage-mode";
+import { useRemoteSundayNightsState } from "../storage-mode";
 
 export type SundayValidationResult = {
   pass: boolean;
@@ -43,28 +43,15 @@ export async function validateSundayNights(): Promise<SundayValidationResult> {
     record("assets library", false, "assets.json missing");
   }
 
-  const pg = await inspectPing();
-  record("Postgres reachable", pg.ok, pg.error);
-
-  if (usePostgresSundayNightsState() && pg.ok) {
+  if (useRemoteSundayNightsState()) {
     try {
-      const rows = await inspectQuery<{ reg: string | null }>(
-        `SELECT to_regclass('public.sunday_nights_state') AS reg`,
-      );
-      record(
-        "state table",
-        Boolean(rows[0]?.reg),
-        rows[0]?.reg ? undefined : "sunday_nights_state missing",
-      );
+      const pong = redisLiveStateConfigured() ? await redisCommand(["PING"]) : null;
+      record("remote state store", pong === "PONG", pong === "PONG" ? undefined : "Redis unavailable");
     } catch (err) {
-      record(
-        "state table",
-        false,
-        err instanceof Error ? err.message : "query failed",
-      );
+      record("remote state store", false, err instanceof Error ? err.message : "request failed");
     }
-  } else if (!usePostgresSundayNightsState()) {
-    record("state table", true, "local JSON mode");
+  } else {
+    record("local state", true, "JSON mode");
   }
 
   try {

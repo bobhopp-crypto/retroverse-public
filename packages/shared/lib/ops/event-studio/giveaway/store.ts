@@ -2,8 +2,8 @@ import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
 import { opsStateDir } from "@/lib/ops/ops-state-path";
-import { pgSundayNightsGet, pgSundayNightsSet } from "@/lib/sunday-nights/pg-state";
-import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
+import { remoteStateGet, remoteStateSet } from "@/lib/sunday-nights/remote-state";
+import { useRemoteSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 
 import { createDefaultGiveaway } from "./defaults";
 import type { Giveaway, GiveawayDrawRecord, GiveawayStudioState } from "./types";
@@ -143,8 +143,8 @@ async function saveToJson(state: GiveawayStudioState): Promise<void> {
 
 async function persist(state: GiveawayStudioState): Promise<GiveawayStudioState> {
   const next = { ...state, updatedAt: new Date().toISOString() };
-  if (usePostgresSundayNightsState()) {
-    await pgSundayNightsSet(pgKey(state.eventKey), next as unknown as Record<string, unknown>);
+  if (useRemoteSundayNightsState()) {
+    await remoteStateSet(pgKey(state.eventKey), next as unknown as Record<string, unknown>);
     return next;
   }
   await saveToJson(next);
@@ -152,8 +152,8 @@ async function persist(state: GiveawayStudioState): Promise<GiveawayStudioState>
 }
 
 export async function loadGiveawayStudioState(eventKey: string): Promise<GiveawayStudioState> {
-  if (usePostgresSundayNightsState()) {
-    const raw = await pgSundayNightsGet<Record<string, unknown>>(pgKey(eventKey));
+  if (useRemoteSundayNightsState()) {
+    const raw = await remoteStateGet<Record<string, unknown>>(pgKey(eventKey));
     return normalizeState(raw, eventKey);
   }
   return loadFromJson(eventKey);

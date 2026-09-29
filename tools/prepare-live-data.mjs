@@ -42,6 +42,7 @@ const SUBSETS = [
   { source: "data/static-graph/album-signals.json.gz", target: "static-graph/album-signals.json.gz" },
   { source: "data/static-graph/artist-albums.json.gz", target: "static-graph/artist-albums.json.gz" },
   { source: "data/static-graph/playback-map.json.gz", target: "static-graph/playback-map.json.gz" },
+  { source: "data/static-graph/broadcast-media.json.gz", target: "static-graph/broadcast-media.json.gz" },
   { source: "data/static-graph/years", target: "static-graph/years" },
   { source: "data/events", target: "events" },
 ];

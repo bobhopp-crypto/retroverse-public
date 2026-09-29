@@ -5,7 +5,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import type { BridgeLivePostBody } from "@/lib/sunday-nights/types";
-import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
+import { useRemoteSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 import { retroverseDataRoot } from "@/lib/retroverse-data-root";
 
 import type { SelectorState } from "@/lib/bobos/experience-selector/types";
@@ -77,8 +77,8 @@ export function publicSiteBaseUrl(): string {
 export async function pushSelectorStateToPublic(
   state: SelectorState,
 ): Promise<PublicPushResult> {
-  if (usePostgresSundayNightsState()) {
-    return { status: "synced", detail: "Direct Postgres write" };
+  if (useRemoteSundayNightsState()) {
+    return { status: "synced", detail: "Direct Redis write" };
   }
 
   const secret = process.env.LIVE_NOW_PLAYING_SECRET?.trim();
@@ -113,9 +113,9 @@ export async function pushSelectorStateToPublic(
 export async function pushBroadcastToPublic(
   snapshot: BroadcastSnapshot,
 ): Promise<PublicPushResult> {
-  // On the deployed site itself the ingest route already wrote to Postgres.
-  if (usePostgresSundayNightsState()) {
-    return { status: "synced", detail: "Direct Postgres write" };
+  // On the deployed site itself the ingest route already wrote to Redis.
+  if (useRemoteSundayNightsState()) {
+    return { status: "synced", detail: "Direct Redis write" };
   }
 
   const secret = process.env.LIVE_NOW_PLAYING_SECRET?.trim();
@@ -172,10 +172,10 @@ export async function pushBridgeLiveUpdateToPublic(
     return full;
   };
 
-  if (usePostgresSundayNightsState()) {
+  if (useRemoteSundayNightsState()) {
     return record({
       status: "synced",
-      detail: "Direct Postgres write",
+      detail: "Direct Redis write",
       destination: null,
       httpStatus: null,
     });

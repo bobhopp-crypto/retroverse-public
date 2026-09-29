@@ -3,8 +3,8 @@ import { join } from "path";
 
 import { opsStateDir } from "@/lib/ops/ops-state-path";
 
-import { pgSundayNightsGet, pgSundayNightsSet } from "./pg-state";
-import { usePostgresSundayNightsState } from "./storage-mode";
+import { remoteStateGet, remoteStateSet } from "./remote-state";
+import { useRemoteSundayNightsState } from "./storage-mode";
 
 export type { SundayEventMode } from "./types";
 
@@ -49,8 +49,8 @@ async function saveModeToJson(mode: import("./types").SundayEventMode): Promise<
 }
 
 export async function loadSundayEventMode(): Promise<import("./types").SundayEventMode> {
-  if (usePostgresSundayNightsState()) {
-    const raw = await pgSundayNightsGet<Record<string, unknown>>(PG_KEY);
+  if (useRemoteSundayNightsState()) {
+    const raw = await remoteStateGet<Record<string, unknown>>(PG_KEY);
     return raw ? normalizeMode(raw) : emptyMode();
   }
   return loadModeFromJson();
@@ -69,8 +69,8 @@ export async function setSundayEventMode(
     updatedAt: new Date().toISOString(),
   };
 
-  if (usePostgresSundayNightsState()) {
-    await pgSundayNightsSet(PG_KEY, next as unknown as Record<string, unknown>);
+  if (useRemoteSundayNightsState()) {
+    await remoteStateSet(PG_KEY, next as unknown as Record<string, unknown>);
     return next;
   }
 

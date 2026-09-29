@@ -1,9 +1,10 @@
 import "server-only";
 
 import { readFile } from "node:fs/promises";
+import { gunzipSync } from "node:zlib";
 
-import { pgSundayNightsGet, pgSundayNightsSet } from "@/lib/sunday-nights/pg-state";
-import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
+import { remoteStateGet, remoteStateSet } from "@/lib/sunday-nights/remote-state";
+import { useRemoteSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 
 import { broadcastMediaContentType } from "./serve-media";
 import { parseBroadcastMediaUrl, rewriteBroadcastMediaUrl, toPatronMediaUrl } from "./media-url";
@@ -17,6 +18,17 @@ type RemoteBroadcastMediaRecord = {
   dataBase64: string;
   updatedAt: string;
 };
+
+let archivedMediaPromise: Promise<Record<string, RemoteBroadcastMediaRecord>> | null = null;
+
+function archivedBroadcastMedia(): Promise<Record<string, RemoteBroadcastMediaRecord>> {
+  if (!archivedMediaPromise) {
+    archivedMediaPromise = readFile(join(process.cwd(), "data/static-graph/broadcast-media.json.gz"))
+      .then((bytes) => JSON.parse(gunzipSync(bytes).toString("utf8")) as Record<string, RemoteBroadcastMediaRecord>)
+      .catch((error) => { archivedMediaPromise = null; throw error; });
+  }
+  return archivedMediaPromise;
+}
 
 export function remoteBroadcastMediaKey(
   collectionId: string,
@@ -39,13 +51,14 @@ export async function saveRemoteBroadcastMedia(input: {
     dataBase64: input.dataBase64,
     updatedAt: new Date().toISOString(),
   };
-  await pgSundayNightsSet(key, record as unknown as Record<string, unknown>);
+  await remoteStateSet(key, record as unknown as Record<string, unknown>);
 }
 
 export async function loadRemoteBroadcastMedia(
   key: string,
 ): Promise<RemoteBroadcastMediaRecord | null> {
-  const raw = await pgSundayNightsGet<RemoteBroadcastMediaRecord>(key);
+  const raw = await remoteStateGet<RemoteBroadcastMediaRecord>(key).catch(() => null)
+    ?? (await archivedBroadcastMedia())[key] ?? null;
   if (!raw?.dataBase64 || !raw.contentType) return null;
   return raw;
 }
@@ -75,7 +88,7 @@ export async function syncBroadcastMediaToPublic(
   publicBaseUrl: string,
   secret: string,
 ): Promise<void> {
-  if (usePostgresSundayNightsState()) return;
+  if (useRemoteSundayNightsState()) return;
 
   const urls = collectMediaUrls(snapshot);
   for (const url of urls) {

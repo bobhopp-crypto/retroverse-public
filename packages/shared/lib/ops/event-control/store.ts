@@ -2,8 +2,8 @@ import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
 import { opsStateDir } from "@/lib/ops/ops-state-path";
-import { pgSundayNightsGet, pgSundayNightsSet } from "@/lib/sunday-nights/pg-state";
-import { usePostgresSundayNightsState } from "@/lib/sunday-nights/storage-mode";
+import { remoteStateGet, remoteStateSet } from "@/lib/sunday-nights/remote-state";
+import { useRemoteSundayNightsState } from "@/lib/sunday-nights/storage-mode";
 
 import { DEFAULT_EVENT_CONTROL_CONFIG, DEFAULT_FEATURED_YEARS, DEFAULT_RVBR } from "./defaults";
 import { normalizeIssueColor } from "./rvbr-palette";
@@ -131,8 +131,8 @@ async function saveToJson(config: EventControlConfig): Promise<void> {
 }
 
 async function persist(config: EventControlConfig): Promise<EventControlConfig> {
-  if (usePostgresSundayNightsState()) {
-    await pgSundayNightsSet(PG_KEY, config as unknown as Record<string, unknown>);
+  if (useRemoteSundayNightsState()) {
+    await remoteStateSet(PG_KEY, config as unknown as Record<string, unknown>);
     return config;
   }
   await saveToJson(config);
@@ -140,8 +140,8 @@ async function persist(config: EventControlConfig): Promise<EventControlConfig> 
 }
 
 export async function loadEventControlConfig(): Promise<EventControlConfig> {
-  if (usePostgresSundayNightsState()) {
-    const raw = await pgSundayNightsGet<Record<string, unknown>>(PG_KEY);
+  if (useRemoteSundayNightsState()) {
+    const raw = await remoteStateGet<Record<string, unknown>>(PG_KEY);
     return raw ? normalizeConfig(raw) : { ...DEFAULT_EVENT_CONTROL_CONFIG };
   }
   return loadFromJson();
