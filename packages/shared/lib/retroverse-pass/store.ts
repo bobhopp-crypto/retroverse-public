@@ -1,307 +1,143 @@
-import { getPassPool, passQuery } from "@/lib/retroverse-pass/pg";
+import "server-only";
 
+import { redisCommand } from "@/lib/sunday-nights/redis-live-state";
+import { PASS_KEYS, hashGet, parseRedisJson } from "./redis-data";
 import type {
-  PassActivityEventType,
-  PassScanResult,
-  RetroversePass,
-  RetroverseVisitor,
+  PassActivityEventType, PassScanResult, RetroversePass, RetroverseVisitor,
 } from "./types";
 import { parsePassCredential } from "./types";
 
-const PASSES = "retroverse_passes";
-const VISITORS = "retroverse_visitors";
-const ACTIVITY = "retroverse_pass_activity";
-
-type PassRow = {
-  serial: string;
-  claimed: boolean;
-  visitor_id: number | string | null;
-  claimed_at: Date | string | null;
-};
-
-type VisitorRow = {
-  id: number | string;
-  first_name: string;
-  email: string | null;
-  phone: string | null;
-  last_name?: string | null;
-  birthday?: Date | string | null;
-  postal_code?: string | null;
-  marketing_opt_in?: boolean;
-  created_at: Date | string;
-};
-
-function iso(value: Date | string): string {
-  return value instanceof Date ? value.toISOString() : new Date(value).toISOString();
-}
-
-function mapPass(row: PassRow): RetroversePass {
-  return {
-    serial: row.serial,
-    claimed: row.claimed,
-    visitorId: row.visitor_id == null ? null : Number(row.visitor_id),
-    claimedAt: row.claimed_at == null ? null : iso(row.claimed_at),
-    status: row.claimed ? "registered" : "never_registered",
-  };
-}
-
-function mapVisitor(row: VisitorRow): RetroverseVisitor {
-  return {
-    id: Number(row.id),
-    firstName: row.first_name,
-    email: row.email,
-    phone: row.phone,
-    lastName: row.last_name ?? null,
-    birthday: row.birthday == null ? null : String(row.birthday),
-    postalCode: row.postal_code ?? null,
-    marketingOptIn: row.marketing_opt_in ?? false,
-    createdAt: iso(row.created_at),
-  };
-}
-
-function missingTableError(err: unknown): never {
-  const msg = err instanceof Error ? err.message : String(err);
-  if (msg.includes("retroverse_pass") || msg.includes("retroverse_visitors")) {
-    throw new Error(
-      "Pass tables missing — run docs/migrations/retroverse-pass-experience.sql on Postgres",
-    );
-  }
-  throw err instanceof Error ? err : new Error(msg);
-}
-
-type QueryRows = <T extends Record<string, unknown>>(
-  text: string,
-  params?: unknown[],
-) => Promise<T[]>;
-
-/** Look up one exact opaque credential without provisioning or mutating data. */
-export async function scanPass(
-  credential: string,
-  query: QueryRows = passQuery,
-): Promise<PassScanResult | null> {
-  try {
-    const rows = await query<PassRow>(
-      `
-      SELECT serial, claimed, visitor_id, claimed_at
-      FROM ${PASSES}
-      WHERE serial = $1
-      `,
-      [credential],
-    );
-    if (rows.length === 0) return null;
-    const pass = mapPass(rows[0]!);
-    if (!pass.claimed || pass.visitorId == null) return { state: "unclaimed", pass };
-    const visitors = await query<VisitorRow>(
-      `SELECT id, first_name, email, phone, created_at FROM ${VISITORS} WHERE id = $1`,
-      [pass.visitorId],
-    );
-    const visitor = visitors[0];
-    return visitor
-      ? { state: "claimed", pass, visitor: mapVisitor(visitor) }
-      : { state: "unclaimed", pass: { ...pass, claimed: false, visitorId: null } };
-  } catch (err) {
-    missingTableError(err);
-  }
-}
-
 export class PassRegistrationInputError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = "PassRegistrationInputError";
-  }
+  constructor(message: string) { super(message); this.name = "PassRegistrationInputError"; }
 }
 
-type TransactionClient = {
-  query<T extends Record<string, unknown>>(
-    text: string,
-    params?: unknown[],
-  ): Promise<{ rows: T[] }>;
+type VisitorInput = {
+  serial: string; firstName: string; lastName?: string | null; email?: string | null;
+  phone?: string | null; birthday?: string | null; postalCode?: string | null; marketingOptIn?: boolean;
 };
 
-type VisitorInput = { firstName: string; lastName?: string | null; email: string | null; phone: string | null; birthday?: string | null; postalCode?: string | null; marketingOptIn?: boolean };
-
-/** Create or claim one credential while holding its Postgres row lock. */
-export async function claimPassWithClient(
-  client: TransactionClient,
-  input: { credential: string } & VisitorInput,
-): Promise<PassScanResult & { state: "claimed" }> {
-  await client.query(`INSERT INTO ${PASSES} (serial) VALUES ($1) ON CONFLICT (serial) DO NOTHING`, [input.credential]);
-  const passRows = await client.query<PassRow>(
-    `SELECT serial, claimed, visitor_id, claimed_at FROM ${PASSES} WHERE serial = $1 FOR UPDATE`,
-    [input.credential],
-  );
-  const existingRow = passRows.rows[0];
-  if (!existingRow) throw new Error("Credential provisioning failed.");
-  const existing = mapPass(existingRow);
-
-  if (existing.claimed && existing.visitorId != null) {
-    const visitorRows = await client.query<VisitorRow>(
-      `SELECT id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in, created_at FROM ${VISITORS} WHERE id = $1`,
-      [existing.visitorId],
-    );
-    const visitor = visitorRows.rows[0];
-    if (!visitor) throw new Error("Registered visitor is unavailable.");
-    return { state: "claimed", pass: existing, visitor: mapVisitor(visitor) };
-  }
-
-  const matchedRows = await client.query<VisitorRow>(
-    `SELECT id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in, created_at FROM ${VISITORS}
-     WHERE ($1::text IS NOT NULL AND lower(email)=lower($1)) OR ($2::text IS NOT NULL AND phone=$2) ORDER BY created_at ASC LIMIT 1`,
-    [input.email, input.phone],
-  );
-  const visitorRows = matchedRows.rows.length ? { rows: matchedRows.rows } : await client.query<VisitorRow>(
-    `INSERT INTO ${VISITORS} (first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in) VALUES ($1, $2, $3, $4, $5, $6, $7)
-     RETURNING id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in, created_at`,
-    [input.firstName, input.lastName ?? null, input.email, input.phone, input.birthday || null, input.postalCode ?? null, input.marketingOptIn ?? false],
-  );
-  const visitor = mapVisitor(visitorRows.rows[0]!);
-  const claimedRows = await client.query<PassRow>(
-    `UPDATE ${PASSES} SET claimed = true, visitor_id = $2, claimed_at = now()
-     WHERE serial = $1
-     RETURNING serial, claimed, visitor_id, claimed_at`,
-    [input.credential, visitor.id],
-  );
-  const claimed = claimedRows.rows[0];
-  if (!claimed) throw new Error("Credential claim failed.");
-  await client.query(
-    `INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
-     VALUES ($1, $2, 'PASS_CLAIMED', NULL)`,
-    [visitor.id, input.credential],
-  );
-  return { state: "claimed", pass: mapPass(claimed), visitor };
-}
-
-/**
- * Claim an unclaimed pass: create the visitor, mark the pass claimed,
- * and log PASS_CLAIMED. If the pass is already claimed, return the
- * existing association (double-submit / re-scan is not an error).
- */
-export async function claimPass(input: {
-  serial: string;
-  firstName: string;
-  email?: string | null;
-  phone?: string | null;
-  lastName?: string | null; birthday?: string | null; postalCode?: string | null; marketingOptIn?: boolean;
-}): Promise<PassScanResult & { state: "claimed" }> {
-  const credential = parsePassCredential(input.serial);
+function normalize(input: VisitorInput) {
+  const serial = parsePassCredential(input.serial);
   const firstName = input.firstName.trim();
-  const email = input.email?.trim() || null;
-  const phone = input.phone?.trim() || null;
-
-  if (!credential) throw new PassRegistrationInputError("Invalid pass credential.");
+  if (!serial) throw new PassRegistrationInputError("Invalid pass credential.");
   if (!firstName) throw new PassRegistrationInputError("First name is required.");
-
-  const client = await getPassPool().connect();
-  try {
-    await client.query("BEGIN");
-    const result = await claimPassWithClient(client, {
-      credential,
-      firstName,
-      lastName: input.lastName,
-      email,
-      phone,
-      birthday: input.birthday,
-      postalCode: input.postalCode,
-      marketingOptIn: input.marketingOptIn,
-    });
-    await client.query("COMMIT");
-    return result;
-  } catch (err) {
-    await client.query("ROLLBACK").catch(() => undefined);
-    missingTableError(err);
-  } finally {
-    client.release();
-  }
+  return {
+    serial, firstName, lastName: input.lastName?.trim() || null,
+    email: input.email?.trim() || null, phone: input.phone?.trim() || null,
+    birthday: input.birthday?.trim() || null, postalCode: input.postalCode?.trim() || null,
+    marketingOptIn: input.marketingOptIn === true,
+  };
 }
 
-/**
- * Edit the visitor already registered to a claimed pass, while holding its
- * Postgres row lock. The pass must already be claimed — this is not a
- * general visitor-update endpoint, only a correction path for the person
- * holding that exact pass. Logs PASS_EDITED.
- */
-export async function updateVisitorWithClient(
-  client: TransactionClient,
-  input: { credential: string } & VisitorInput,
-): Promise<PassScanResult & { state: "claimed" }> {
-  const passRows = await client.query<PassRow>(
-    `SELECT serial, claimed, visitor_id, claimed_at FROM ${PASSES} WHERE serial = $1 FOR UPDATE`,
-    [input.credential],
-  );
-  const existingRow = passRows.rows[0];
-  if (!existingRow) throw new PassRegistrationInputError("This pass is not registered yet.");
-  const existing = mapPass(existingRow);
-  if (!existing.claimed || existing.visitorId == null) {
-    throw new PassRegistrationInputError("This pass is not registered yet.");
-  }
-
-  const visitorRows = await client.query<VisitorRow>(
-    `UPDATE ${VISITORS} SET first_name = $2, last_name = $3, email = $4, phone = $5, birthday = $6, postal_code = $7, marketing_opt_in = $8 WHERE id = $1
-     RETURNING id, first_name, last_name, email, phone, birthday, postal_code, marketing_opt_in, created_at`,
-    [existing.visitorId, input.firstName, input.lastName ?? null, input.email, input.phone, input.birthday || null, input.postalCode ?? null, input.marketingOptIn ?? false],
-  );
-  const visitor = visitorRows.rows[0];
-  if (!visitor) throw new Error("Registered visitor is unavailable.");
-
-  await client.query(
-    `INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
-     VALUES ($1, $2, 'PASS_EDITED', NULL)`,
-    [existing.visitorId, input.credential],
-  );
-  return { state: "claimed", pass: existing, visitor: mapVisitor(visitor) };
+export async function scanPass(credential: string): Promise<PassScanResult | null> {
+  const pass = await hashGet<RetroversePass>(PASS_KEYS.passes, credential);
+  if (!pass) return null;
+  if (!pass.claimed || pass.visitorId == null) return { state: "unclaimed", pass };
+  const visitor = await hashGet<RetroverseVisitor>(PASS_KEYS.visitors, String(pass.visitorId));
+  return visitor ? { state: "claimed", pass, visitor }
+    : { state: "unclaimed", pass: { ...pass, claimed: false, visitorId: null } };
 }
 
-export async function updatePassVisitor(input: {
-  serial: string;
-  firstName: string;
-  email?: string | null;
-  phone?: string | null;
-  lastName?: string | null; birthday?: string | null; postalCode?: string | null; marketingOptIn?: boolean;
-}): Promise<PassScanResult & { state: "claimed" }> {
-  const credential = parsePassCredential(input.serial);
-  const firstName = input.firstName.trim();
-  const email = input.email?.trim() || null;
-  const phone = input.phone?.trim() || null;
+const CLAIM_SCRIPT = `
+local priorRaw = redis.call('HGET', KEYS[1], ARGV[1])
+local pass = priorRaw and cjson.decode(priorRaw) or {serial=ARGV[1], claimed=false,
+  visitorId=cjson.null, claimedAt=cjson.null, status='never_registered'}
+if pass.claimed and pass.visitorId ~= cjson.null then
+  local visitorRaw = redis.call('HGET', KEYS[2], tostring(pass.visitorId))
+  if not visitorRaw then return cjson.encode({error='Registered visitor is unavailable.'}) end
+  return cjson.encode({state='claimed', pass=pass, visitor=cjson.decode(visitorRaw)})
+end
+local input = cjson.decode(ARGV[2])
+local matched = nil
+if input.email ~= cjson.null or input.phone ~= cjson.null then
+  local visitors = redis.call('HVALS', KEYS[2])
+  for _, raw in ipairs(visitors) do
+    local visitor = cjson.decode(raw)
+    local sameEmail = input.email ~= cjson.null and visitor.email ~= cjson.null and
+      string.lower(visitor.email) == string.lower(input.email)
+    local samePhone = input.phone ~= cjson.null and visitor.phone ~= cjson.null and visitor.phone == input.phone
+    if sameEmail or samePhone then
+      if not matched or visitor.createdAt < matched.createdAt then matched = visitor end
+    end
+  end
+end
+local visitor = matched
+if not visitor then
+  local id = redis.call('INCR', KEYS[3])
+  visitor = {id=id, firstName=input.firstName, lastName=input.lastName, email=input.email,
+    phone=input.phone, birthday=input.birthday, postalCode=input.postalCode,
+    marketingOptIn=input.marketingOptIn, notes=cjson.null, createdAt=ARGV[3]}
+  redis.call('HSET', KEYS[2], tostring(id), cjson.encode(visitor))
+end
+pass.claimed = true
+pass.visitorId = visitor.id
+pass.claimedAt = ARGV[3]
+pass.status = 'registered'
+redis.call('HSET', KEYS[1], ARGV[1], cjson.encode(pass))
+local eventId = redis.call('INCR', KEYS[5])
+redis.call('RPUSH', KEYS[4], cjson.encode({id=eventId, visitorId=visitor.id,
+  passSerial=ARGV[1], eventType='PASS_CLAIMED', metadata=cjson.null, createdAt=ARGV[3]}))
+return cjson.encode({state='claimed', pass=pass, visitor=visitor})
+`;
 
-  if (!credential) throw new PassRegistrationInputError("Invalid pass credential.");
-  if (!firstName) throw new PassRegistrationInputError("First name is required.");
+const UPDATE_SCRIPT = `
+local rawPass = redis.call('HGET', KEYS[1], ARGV[1])
+if not rawPass then return cjson.encode({error='This pass is not registered yet.', input=true}) end
+local pass = cjson.decode(rawPass)
+if not pass.claimed or pass.visitorId == cjson.null then
+  return cjson.encode({error='This pass is not registered yet.', input=true})
+end
+local rawVisitor = redis.call('HGET', KEYS[2], tostring(pass.visitorId))
+if not rawVisitor then return cjson.encode({error='Registered visitor is unavailable.'}) end
+local visitor = cjson.decode(rawVisitor)
+local input = cjson.decode(ARGV[2])
+visitor.firstName = input.firstName
+visitor.lastName = input.lastName
+visitor.email = input.email
+visitor.phone = input.phone
+visitor.birthday = input.birthday
+visitor.postalCode = input.postalCode
+visitor.marketingOptIn = input.marketingOptIn
+redis.call('HSET', KEYS[2], tostring(visitor.id), cjson.encode(visitor))
+local eventId = redis.call('INCR', KEYS[4])
+redis.call('RPUSH', KEYS[3], cjson.encode({id=eventId, visitorId=visitor.id,
+  passSerial=ARGV[1], eventType='PASS_EDITED', metadata=cjson.null, createdAt=ARGV[3]}))
+return cjson.encode({state='claimed', pass=pass, visitor=visitor})
+`;
 
-  const client = await getPassPool().connect();
-  try {
-    await client.query("BEGIN");
-    const result = await updateVisitorWithClient(client, { credential, firstName, lastName: input.lastName, email, phone, birthday: input.birthday, postalCode: input.postalCode, marketingOptIn: input.marketingOptIn });
-    await client.query("COMMIT");
-    return result;
-  } catch (err) {
-    await client.query("ROLLBACK").catch(() => undefined);
-    if (err instanceof PassRegistrationInputError) throw err;
-    missingTableError(err);
-  } finally {
-    client.release();
+function result(raw: unknown): PassScanResult & { state: "claimed" } {
+  const decoded = parseRedisJson<PassScanResult & { state: "claimed"; error?: string; input?: boolean }>(raw);
+  if (!decoded) throw new Error("Pass store did not acknowledge the change.");
+  if (decoded.error) {
+    if (decoded.input) throw new PassRegistrationInputError(decoded.error);
+    throw new Error(decoded.error);
   }
+  if (decoded.state !== "claimed") throw new Error("Pass store returned an invalid result.");
+  return decoded;
 }
 
-/** Append one actual action to the activity log. Never infer behavior. */
+export async function claimPass(input: VisitorInput): Promise<PassScanResult & { state: "claimed" }> {
+  const normalized = normalize(input);
+  return result(await redisCommand(["EVAL", CLAIM_SCRIPT, 5,
+    PASS_KEYS.passes, PASS_KEYS.visitors, PASS_KEYS.nextVisitorId, PASS_KEYS.activity, PASS_KEYS.nextActivityId,
+    normalized.serial, JSON.stringify(normalized), new Date().toISOString()]));
+}
+
+export async function updatePassVisitor(input: VisitorInput): Promise<PassScanResult & { state: "claimed" }> {
+  const normalized = normalize(input);
+  return result(await redisCommand(["EVAL", UPDATE_SCRIPT, 4,
+    PASS_KEYS.passes, PASS_KEYS.visitors, PASS_KEYS.activity, PASS_KEYS.nextActivityId,
+    normalized.serial, JSON.stringify(normalized), new Date().toISOString()]));
+}
+
+/** Append only an action that actually occurred. */
 export async function recordPassActivity(input: {
-  visitorId?: number | null;
-  passSerial?: string | null;
-  eventType: PassActivityEventType;
+  visitorId?: number | null; passSerial?: string | null; eventType: PassActivityEventType;
   metadata?: Record<string, unknown> | null;
 }): Promise<void> {
-  try {
-    await passQuery(
-      `
-      INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
-      VALUES ($1, $2, $3, $4)
-      `,
-      [
-        input.visitorId ?? null,
-        input.passSerial ?? null,
-        input.eventType,
-        input.metadata ? JSON.stringify(input.metadata) : null,
-      ],
-    );
-  } catch (err) {
-    missingTableError(err);
-  }
+  const id = Number(await redisCommand(["INCR", PASS_KEYS.nextActivityId]));
+  await redisCommand(["RPUSH", PASS_KEYS.activity, JSON.stringify({
+    id, visitorId: input.visitorId ?? null, passSerial: input.passSerial ?? null,
+    eventType: input.eventType, metadata: input.metadata ?? null, createdAt: new Date().toISOString(),
+  })]);
 }

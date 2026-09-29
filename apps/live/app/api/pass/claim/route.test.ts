@@ -11,7 +11,7 @@ function request(serial: unknown, method = "POST") {
   });
 }
 
-test("registration normalizes a trimmed, mixed-case serial to canonical uppercase", async () => {
+test("registration trims an opaque, case-sensitive credential", async () => {
   let received = "";
   const response = await handlePassClaim(request("  rvsn000100  "), async (input) => {
     received = input.serial;
@@ -21,7 +21,7 @@ test("registration normalizes a trimmed, mixed-case serial to canonical uppercas
       visitor: { id: 7, firstName: "Pat", email: "pat@example.com", phone: null, createdAt: new Date(0).toISOString() },
     };
   });
-  assert.equal(received, "RVSN000100");
+  assert.equal(received, "rvsn000100");
   assert.equal(response.status, 200);
 });
 
@@ -30,16 +30,16 @@ test("empty registration credential returns 400", async () => {
   assert.equal(response.status, 400);
 });
 
-test("unrecognized-format registration credential returns 400 without calling claim", async () => {
-  const response = await handlePassClaim(request("EVENT-2026-0001"), async () =>
+test("unsafe registration credential returns 400 without calling claim", async () => {
+  const response = await handlePassClaim(request("EVENT/2026/0001"), async () =>
     assert.fail("claim should not run"),
   );
   assert.equal(response.status, 400);
 });
 
-test("database failure returns a private 503", async () => {
+test("store failure returns a private 503", async () => {
   const response = await handlePassClaim(request("RVSN000100"), async () => {
-    throw new Error("password authentication failed for internal-db");
+    throw new Error("private storage failure");
   });
   assert.equal(response.status, 503);
   assert.deepEqual(await response.json(), { error: "Pass registration is temporarily unavailable." });
@@ -55,7 +55,7 @@ test("edit normalizes serial and returns the updated visitor", async () => {
       visitor: { id: 1, firstName: input.firstName, email: input.email ?? null, phone: null, createdAt: new Date(0).toISOString() },
     };
   });
-  assert.equal(received, "RVSN000001");
+  assert.equal(received, "rvsn000001");
   assert.equal(response.status, 200);
 });
 
@@ -67,9 +67,9 @@ test("editing an unregistered pass returns the clean input error, not a 503", as
   assert.deepEqual(await response.json(), { error: "This pass is not registered yet." });
 });
 
-test("edit database failure returns a private 503", async () => {
+test("edit store failure returns a private 503", async () => {
   const response = await handlePassUpdate(request("RVSN000001", "PATCH"), async () => {
-    throw new Error("password authentication failed for internal-db");
+    throw new Error("private storage failure");
   });
   assert.equal(response.status, 503);
   assert.deepEqual(await response.json(), { error: "Pass update is temporarily unavailable." });

@@ -1,362 +1,142 @@
 import "server-only";
 
-import { getPassPool, passQuery } from "@/lib/retroverse-pass/pg";
-
-import { parsePassCredential } from "./types";
+import { redisCommand } from "@/lib/sunday-nights/redis-live-state";
+import { PASS_KEYS, hashValues, parseRedisJson } from "./redis-data";
 import { updatePassVisitor } from "./store";
-
-const PASSES = "retroverse_passes";
-const VISITORS = "retroverse_visitors";
-const ACTIVITY = "retroverse_pass_activity";
+import { parsePassCredential, type PassActivity, type RetroversePass, type RetroverseVisitor } from "./types";
 
 export type PassManagementRow = {
-  serial: string;
-  claimed: boolean;
-  claimedAt: string | null;
-  visitorId: number | null;
-  firstName: string | null;
-  lastName: string | null;
-  email: string | null;
-  phone: string | null;
+  serial: string; claimed: boolean; claimedAt: string | null; visitorId: number | null;
+  firstName: string | null; lastName: string | null; email: string | null; phone: string | null;
 };
+export type PassManagementSummary = { totalPasses: number; claimed: number; unclaimed: number; claimedToday: number };
+export type PassActivityRow = { id: number; eventType: string; createdAt: string; visitorId: number | null };
 
-export type PassManagementSummary = {
-  totalPasses: number;
-  claimed: number;
-  unclaimed: number;
-  claimedToday: number;
-};
-
-export type PassActivityRow = {
-  id: number;
-  eventType: string;
-  createdAt: string;
-  visitorId: number | null;
-};
-
-type JoinRow = {
-  serial: string;
-  claimed: boolean;
-  claimed_at: Date | string | null;
-  visitor_id: number | string | null;
-  first_name: string | null;
-  last_name: string | null;
-  email: string | null;
-  phone: string | null;
-};
-
-function iso(value: Date | string | null | undefined): string | null {
-  if (value == null) return null;
-  return value instanceof Date ? value.toISOString() : new Date(value).toISOString();
+function rowFor(pass: RetroversePass, visitor: RetroverseVisitor | undefined): PassManagementRow {
+  return { serial: pass.serial, claimed: pass.claimed, claimedAt: pass.claimedAt,
+    visitorId: pass.visitorId, firstName: visitor?.firstName ?? null, lastName: visitor?.lastName ?? null,
+    email: visitor?.email ?? null, phone: visitor?.phone ?? null };
 }
-
-function mapRow(row: JoinRow): PassManagementRow {
-  return {
-    serial: row.serial,
-    claimed: Boolean(row.claimed),
-    claimedAt: iso(row.claimed_at),
-    visitorId: row.visitor_id == null ? null : Number(row.visitor_id),
-    firstName: row.first_name,
-    lastName: row.last_name,
-    email: row.email,
-    phone: row.phone,
-  };
+function isClaimedToday(value: string | null, now = new Date()): boolean {
+  if (!value) return false;
+  const when = new Date(value);
+  return !Number.isNaN(when.getTime()) && when.getFullYear() === now.getFullYear() &&
+    when.getMonth() === now.getMonth() && when.getDate() === now.getDate();
 }
-
-function isClaimedToday(isoDate: string | null, now = new Date()): boolean {
-  if (!isoDate) return false;
-  const when = new Date(isoDate);
-  if (Number.isNaN(when.getTime())) return false;
-  return (
-    when.getFullYear() === now.getFullYear() &&
-    when.getMonth() === now.getMonth() &&
-    when.getDate() === now.getDate()
-  );
-}
-
-function missingTableError(err: unknown): never {
-  const msg = err instanceof Error ? err.message : String(err);
-  if (msg.includes("retroverse_pass") || msg.includes("retroverse_visitors")) {
-    throw new Error(
-      "Pass tables missing — run docs/migrations/retroverse-pass-experience.sql on Postgres",
-    );
-  }
-  if (msg.includes("duplicate key") || msg.includes("unique constraint")) {
-    throw new Error("Pass serial already exists.");
-  }
-  throw err instanceof Error ? err : new Error(msg);
-}
-
 export function summarizePassManagement(rows: PassManagementRow[]): PassManagementSummary {
-  let claimed = 0;
-  let claimedToday = 0;
-  for (const row of rows) {
-    if (row.claimed) {
-      claimed += 1;
-      if (isClaimedToday(row.claimedAt)) claimedToday += 1;
-    }
-  }
-  return {
-    totalPasses: rows.length,
-    claimed,
-    unclaimed: Math.max(0, rows.length - claimed),
-    claimedToday,
-  };
+  const claimed = rows.filter((row) => row.claimed).length;
+  return { totalPasses: rows.length, claimed, unclaimed: rows.length - claimed,
+    claimedToday: rows.filter((row) => row.claimed && isClaimedToday(row.claimedAt)).length };
 }
 
-/** List passes with optional visitor fields for RV02-05. */
 export async function searchPassManagement(search = ""): Promise<{
-  passes: PassManagementRow[];
-  summary: PassManagementSummary;
+  passes: PassManagementRow[]; summary: PassManagementSummary;
 }> {
-  try {
-    const q = search.trim();
-    const pattern = q ? `%${q.replace(/[%_\\]/g, "\\$&")}%` : "";
-    const rows = await passQuery<JoinRow>(
-      `
-      SELECT
-        p.serial,
-        p.claimed,
-        p.claimed_at,
-        p.visitor_id,
-        v.first_name,
-        v.last_name,
-        v.email,
-        v.phone
-      FROM ${PASSES} p
-      LEFT JOIN ${VISITORS} v ON v.id = p.visitor_id
-      WHERE (
-        $1 = ''
-        OR p.serial ILIKE $2 ESCAPE '\\'
-        OR COALESCE(v.first_name, '') ILIKE $2 ESCAPE '\\'
-        OR COALESCE(v.last_name, '') ILIKE $2 ESCAPE '\\'
-        OR COALESCE(v.email, '') ILIKE $2 ESCAPE '\\'
-      )
-      ORDER BY
-        p.claimed DESC,
-        p.claimed_at DESC NULLS LAST,
-        p.serial ASC
-      LIMIT 2000
-      `,
-      [q, pattern || "%"],
-    );
-
-    const passes = rows.map(mapRow);
-    // Summary always reflects the full inventory, not the filtered subset.
-    const all = q
-      ? (
-          await passQuery<JoinRow>(
-            `
-            SELECT
-              p.serial, p.claimed, p.claimed_at, p.visitor_id,
-              v.first_name, v.last_name, v.email, v.phone
-            FROM ${PASSES} p
-            LEFT JOIN ${VISITORS} v ON v.id = p.visitor_id
-            `,
-          )
-        ).map(mapRow)
-      : passes;
-
-    return { passes, summary: summarizePassManagement(all) };
-  } catch (err) {
-    missingTableError(err);
-  }
+  const [passes, visitors] = await Promise.all([
+    hashValues<RetroversePass>(PASS_KEYS.passes), hashValues<RetroverseVisitor>(PASS_KEYS.visitors),
+  ]);
+  const byId = new Map(visitors.map((visitor) => [visitor.id, visitor]));
+  const all = passes.map((pass) => rowFor(pass, pass.visitorId == null ? undefined : byId.get(pass.visitorId)))
+    .sort((a, b) => Number(b.claimed) - Number(a.claimed) ||
+      (b.claimedAt ?? "").localeCompare(a.claimedAt ?? "") || a.serial.localeCompare(b.serial));
+  const q = search.trim().toLowerCase();
+  const filtered = !q ? all : all.filter((row) =>
+    [row.serial, row.firstName, row.lastName, row.email].some((value) => value?.toLowerCase().includes(q)));
+  return { passes: filtered.slice(0, 2000), summary: summarizePassManagement(all) };
 }
 
-export async function updatePassVisitorFields(
-  serial: string,
-  input: {
-    firstName: string;
-    lastName?: string | null;
-    email?: string | null;
-    phone?: string | null;
-  },
-): Promise<PassManagementRow> {
+export async function updatePassVisitorFields(serial: string, input: {
+  firstName: string; lastName?: string | null; email?: string | null; phone?: string | null;
+}): Promise<PassManagementRow> {
   const credential = parsePassCredential(serial);
   if (!credential) throw new Error("Invalid pass serial.");
-
-  await updatePassVisitor({
-    serial: credential,
-    firstName: input.firstName,
-    lastName: input.lastName,
-    email: input.email,
-    phone: input.phone,
-  });
-
+  await updatePassVisitor({ serial: credential, ...input });
   const { passes } = await searchPassManagement(credential);
-  const row = passes.find((p) => p.serial === credential);
+  const row = passes.find((pass) => pass.serial === credential);
   if (!row) throw new Error("Pass not found after update.");
   return row;
 }
 
-/** Rename a pass serial in place (preserves claim + visitor link). */
-export async function updatePassSerial(
-  currentSerial: string,
-  nextSerialInput: string,
-): Promise<PassManagementRow> {
+const EDIT_SCRIPT = `
+local old = redis.call('HGET', KEYS[1], ARGV[2])
+if not old then return cjson.encode({error='Pass not found.'}) end
+local pass = cjson.decode(old)
+local original = old
+if ARGV[1] == 'rename' then
+  if redis.call('HEXISTS', KEYS[1], ARGV[3]) == 1 then
+    return cjson.encode({error='Pass serial already exists.'})
+  end
+  pass.serial = ARGV[3]
+  redis.call('HSET', KEYS[1], ARGV[3], cjson.encode(pass))
+  redis.call('HDEL', KEYS[1], ARGV[2])
+  local size = redis.call('LLEN', KEYS[2])
+  for i=0,size-1 do
+    local item = cjson.decode(redis.call('LINDEX', KEYS[2], i))
+    if item.passSerial == ARGV[2] then
+      item.passSerial = ARGV[3]
+      redis.call('LSET', KEYS[2], i, cjson.encode(item))
+    end
+  end
+elseif ARGV[1] == 'reset' then
+  pass.claimed = false
+  pass.visitorId = cjson.null
+  pass.claimedAt = cjson.null
+  pass.status = 'never_registered'
+  redis.call('HSET', KEYS[1], ARGV[2], cjson.encode(pass))
+elseif ARGV[1] == 'delete' then
+  redis.call('HDEL', KEYS[1], ARGV[2])
+else
+  return cjson.encode({error='Invalid pass edit.'})
+end
+local id = redis.call('INCR', KEYS[3])
+local serial = ARGV[1] == 'rename' and ARGV[3] or ARGV[2]
+local metadata = {action=ARGV[1]}
+if ARGV[1] == 'rename' then metadata.from = ARGV[2]; metadata.to = ARGV[3] end
+redis.call('RPUSH', KEYS[2], cjson.encode({id=id, visitorId=cjson.decode(original).visitorId,
+  passSerial=serial, eventType='PASS_EDITED', metadata=metadata, createdAt=ARGV[4]}))
+return cjson.encode({pass=ARGV[1] == 'delete' and cjson.decode(original) or pass})
+`;
+
+async function edit(action: "rename" | "reset" | "delete", serial: string, next = ""): Promise<PassManagementRow> {
+  const raw = await redisCommand(["EVAL", EDIT_SCRIPT, 3,
+    PASS_KEYS.passes, PASS_KEYS.activity, PASS_KEYS.nextActivityId,
+    action, serial, next, new Date().toISOString()]);
+  const result = parseRedisJson<{ pass?: RetroversePass; error?: string }>(raw);
+  if (result?.error) throw new Error(result.error);
+  if (!result?.pass) throw new Error("Pass edit was not acknowledged.");
+  const visitors = await hashValues<RetroverseVisitor>(PASS_KEYS.visitors);
+  return rowFor(result.pass, visitors.find((visitor) => visitor.id === result.pass?.visitorId));
+}
+
+export async function updatePassSerial(currentSerial: string, nextSerialInput: string): Promise<PassManagementRow> {
   const current = parsePassCredential(currentSerial);
   const next = parsePassCredential(nextSerialInput);
   if (!current || !next) throw new Error("Invalid pass serial.");
   if (current === next) {
-    const { passes } = await searchPassManagement(current);
-    const row = passes.find((p) => p.serial === current);
+    const row = (await searchPassManagement(current)).passes.find((pass) => pass.serial === current);
     if (!row) throw new Error("Pass not found.");
     return row;
   }
-
-  const client = await getPassPool().connect();
-  try {
-    await client.query("BEGIN");
-    const locked = await client.query(
-      `SELECT serial FROM ${PASSES} WHERE serial = $1 FOR UPDATE`,
-      [current],
-    );
-    if (!locked.rowCount) throw new Error("Pass not found.");
-
-    const conflict = await client.query(`SELECT serial FROM ${PASSES} WHERE serial = $1`, [next]);
-    if (conflict.rowCount) throw new Error("Pass serial already exists.");
-
-    await client.query(`UPDATE ${PASSES} SET serial = $2 WHERE serial = $1`, [current, next]);
-    await client.query(
-      `UPDATE ${ACTIVITY} SET pass_serial = $2 WHERE pass_serial = $1`,
-      [current, next],
-    );
-    await client.query(
-      `INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
-       VALUES (
-         (SELECT visitor_id FROM ${PASSES} WHERE serial = $1),
-         $1,
-         'PASS_EDITED',
-         $2::jsonb
-       )`,
-      [next, JSON.stringify({ action: "rename_serial", from: current, to: next })],
-    );
-    await client.query("COMMIT");
-  } catch (err) {
-    await client.query("ROLLBACK").catch(() => undefined);
-    missingTableError(err);
-  } finally {
-    client.release();
-  }
-
-  const { passes } = await searchPassManagement(next);
-  const row = passes.find((p) => p.serial === next);
-  if (!row) throw new Error("Pass not found after rename.");
-  return row;
+  return edit("rename", current, next);
 }
-
-/** Clear claim — pass stays in inventory as unclaimed for /pass/[serial] re-registration. */
 export async function resetPassClaim(serial: string): Promise<PassManagementRow> {
   const credential = parsePassCredential(serial);
   if (!credential) throw new Error("Invalid pass serial.");
-
-  const client = await getPassPool().connect();
-  try {
-    await client.query("BEGIN");
-    const locked = await client.query<{
-      serial: string;
-      claimed: boolean;
-      visitor_id: number | string | null;
-    }>(`SELECT serial, claimed, visitor_id FROM ${PASSES} WHERE serial = $1 FOR UPDATE`, [
-      credential,
-    ]);
-    const row = locked.rows[0];
-    if (!row) throw new Error("Pass not found.");
-
-    await client.query(
-      `UPDATE ${PASSES}
-       SET claimed = false, visitor_id = NULL, claimed_at = NULL
-       WHERE serial = $1`,
-      [credential],
-    );
-    await client.query(
-      `INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
-       VALUES ($1, $2, 'PASS_EDITED', $3::jsonb)`,
-      [
-        row.visitor_id == null ? null : Number(row.visitor_id),
-        credential,
-        JSON.stringify({ action: "reset_claim" }),
-      ],
-    );
-    await client.query("COMMIT");
-  } catch (err) {
-    await client.query("ROLLBACK").catch(() => undefined);
-    missingTableError(err);
-  } finally {
-    client.release();
-  }
-
-  const { passes } = await searchPassManagement(credential);
-  const next = passes.find((p) => p.serial === credential);
-  if (!next) throw new Error("Pass not found after reset.");
-  return next;
+  return edit("reset", credential);
 }
-
-/** Permanently delete a pass row. Activity history is retained. */
 export async function deletePass(serial: string): Promise<PassManagementRow> {
   const credential = parsePassCredential(serial);
   if (!credential) throw new Error("Invalid pass serial.");
-
-  try {
-    const before = await passQuery<JoinRow>(
-      `
-      SELECT
-        p.serial, p.claimed, p.claimed_at, p.visitor_id,
-        v.first_name, v.last_name, v.email, v.phone
-      FROM ${PASSES} p
-      LEFT JOIN ${VISITORS} v ON v.id = p.visitor_id
-      WHERE p.serial = $1
-      `,
-      [credential],
-    );
-    const existing = before[0];
-    if (!existing) throw new Error("Pass not found.");
-
-    await passQuery(`DELETE FROM ${PASSES} WHERE serial = $1`, [credential]);
-    await passQuery(
-      `INSERT INTO ${ACTIVITY} (visitor_id, pass_serial, event_type, metadata)
-       VALUES ($1, $2, 'PASS_EDITED', $3::jsonb)`,
-      [
-        existing.visitor_id == null ? null : Number(existing.visitor_id),
-        credential,
-        JSON.stringify({ action: "delete_pass" }),
-      ],
-    );
-    return mapRow(existing);
-  } catch (err) {
-    missingTableError(err);
-  }
+  return edit("delete", credential);
 }
-
-export async function listPassActivity(
-  serial: string,
-  limit = 20,
-): Promise<PassActivityRow[]> {
+export async function listPassActivity(serial: string, limit = 20): Promise<PassActivityRow[]> {
   const credential = parsePassCredential(serial);
   if (!credential) return [];
-  try {
-    const rows = await passQuery<{
-      id: number | string;
-      event_type: string;
-      created_at: Date | string;
-      visitor_id: number | string | null;
-    }>(
-      `
-      SELECT id, event_type, created_at, visitor_id
-      FROM ${ACTIVITY}
-      WHERE pass_serial = $1
-      ORDER BY created_at DESC
-      LIMIT $2
-      `,
-      [credential, Math.min(Math.max(limit, 1), 100)],
-    );
-    return rows.map((row) => ({
-      id: Number(row.id),
-      eventType: row.event_type,
-      createdAt: iso(row.created_at) ?? "",
-      visitorId: row.visitor_id == null ? null : Number(row.visitor_id),
-    }));
-  } catch (err) {
-    missingTableError(err);
-  }
+  const raw = await redisCommand(["LRANGE", PASS_KEYS.activity, 0, -1]);
+  if (!Array.isArray(raw)) return [];
+  return raw.map((item) => parseRedisJson<PassActivity>(item))
+    .filter((item): item is PassActivity => !!item && item.passSerial === credential)
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+    .slice(0, Math.min(Math.max(limit, 1), 100))
+    .map(({ id, eventType, createdAt, visitorId }) => ({ id, eventType, createdAt, visitorId }));
 }

@@ -1,11 +1,94 @@
-import { getPassPool, passQuery } from "@/lib/retroverse-pass/pg";
+import "server-only";
 
-export type Member = { id: number; firstName: string; lastName: string | null; email: string | null; phone: string | null; birthday: string | null; postalCode: string | null; marketingOptIn: boolean; notes: string | null; createdAt: string; passSerial: string | null; registeredAt: string | null };
+import { redisCommand } from "@/lib/sunday-nights/redis-live-state";
+import { PASS_KEYS, hashGet, hashSet, hashValues, parseRedisJson } from "./redis-data";
+import type { RetroversePass, RetroverseVisitor } from "./types";
+
+export type Member = {
+  id: number; firstName: string; lastName: string | null; email: string | null; phone: string | null;
+  birthday: string | null; postalCode: string | null; marketingOptIn: boolean; notes: string | null;
+  createdAt: string; passSerial: string | null; registeredAt: string | null;
+};
 export type PassRecord = { serial: string; claimed: boolean; visitorId: number | null; claimedAt: string | null; status: string };
-const memberSql = `SELECT v.id, v.first_name, v.last_name, v.email, v.phone, v.birthday, v.postal_code, v.marketing_opt_in, v.notes, v.created_at, p.serial AS pass_serial, p.claimed_at FROM retroverse_visitors v LEFT JOIN retroverse_passes p ON p.visitor_id=v.id`;
-const mapMember = (r: any): Member => ({ id: Number(r.id), firstName: r.first_name, lastName: r.last_name, email: r.email, phone: r.phone, birthday: r.birthday ? String(r.birthday).slice(0,10) : null, postalCode: r.postal_code, marketingOptIn: r.marketing_opt_in, notes: r.notes ?? null, createdAt: new Date(r.created_at).toISOString(), passSerial: r.pass_serial, registeredAt: r.claimed_at ? new Date(r.claimed_at).toISOString() : null });
-export async function listMembers(search = "") { const q = `%${search.trim().toLowerCase()}%`; const rows = await passQuery<any>(`${memberSql} WHERE ($1='' OR lower(coalesce(v.first_name,'')||' '||coalesce(v.last_name,'')||' '||coalesce(v.email,'')||' '||coalesce(v.phone,'')) LIKE $2) ORDER BY v.created_at DESC`, [search.trim(), q]); return rows.map(mapMember); }
-export async function saveMember(input: Partial<Member> & { firstName: string }) { const pool = getPassPool(); const result = await pool.query<any>(`INSERT INTO retroverse_visitors (first_name,last_name,email,phone,birthday,postal_code,marketing_opt_in,notes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id`, [input.firstName.trim(), input.lastName||null,input.email||null,input.phone||null,input.birthday||null,input.postalCode||null,input.marketingOptIn??false,input.notes||null]); return Number(result.rows[0].id); }
-export async function updateMember(id: number, input: Partial<Member> & { firstName: string }) { await passQuery(`UPDATE retroverse_visitors SET first_name=$2,last_name=$3,email=$4,phone=$5,birthday=$6,postal_code=$7,marketing_opt_in=$8,notes=$9 WHERE id=$1`, [id,input.firstName.trim(),input.lastName||null,input.email||null,input.phone||null,input.birthday||null,input.postalCode||null,input.marketingOptIn??false,input.notes||null]); }
-export async function listPasses(search = "") { const q = `%${search.trim().toLowerCase()}%`; return passQuery<PassRecord>(`SELECT serial,claimed,visitor_id,claimed_at,CASE WHEN claimed THEN 'registered' ELSE 'never_registered' END status FROM retroverse_passes WHERE lower(serial) LIKE $1 ORDER BY serial`, [q]); }
-export async function assignPass(serial: string, memberId: number | null) { const pool = getPassPool(); const client = await pool.connect(); try { await client.query("BEGIN"); const pass = await client.query(`SELECT serial FROM retroverse_passes WHERE serial=$1 FOR UPDATE`, [serial]); if (!pass.rowCount) throw new Error("Pass does not exist."); if (memberId == null) await client.query(`UPDATE retroverse_passes SET claimed=false,visitor_id=NULL,claimed_at=NULL WHERE serial=$1`,[serial]); else { const member = await client.query(`SELECT id FROM retroverse_visitors WHERE id=$1`,[memberId]); if (!member.rowCount) throw new Error("Member does not exist."); await client.query(`UPDATE retroverse_passes SET claimed=true,visitor_id=$2,claimed_at=COALESCE(claimed_at,now()) WHERE serial=$1`,[serial,memberId]); } await client.query("COMMIT"); } catch(e) { await client.query("ROLLBACK"); throw e; } finally { client.release(); } }
+
+export async function listMembers(search = ""): Promise<Member[]> {
+  const [visitors, passes] = await Promise.all([
+    hashValues<RetroverseVisitor>(PASS_KEYS.visitors), hashValues<RetroversePass>(PASS_KEYS.passes),
+  ]);
+  const passByVisitor = new Map(passes.filter((pass) => pass.visitorId != null).map((pass) => [pass.visitorId!, pass]));
+  const q = search.trim().toLowerCase();
+  return visitors.map((visitor) => {
+    const pass = passByVisitor.get(visitor.id);
+    return {
+      id: visitor.id, firstName: visitor.firstName, lastName: visitor.lastName ?? null,
+      email: visitor.email, phone: visitor.phone, birthday: visitor.birthday ?? null,
+      postalCode: visitor.postalCode ?? null, marketingOptIn: visitor.marketingOptIn ?? false,
+      notes: visitor.notes ?? null, createdAt: visitor.createdAt,
+      passSerial: pass?.serial ?? null, registeredAt: pass?.claimedAt ?? null,
+    };
+  }).filter((member) => !q || [member.firstName, member.lastName, member.email, member.phone]
+    .some((value) => value?.toLowerCase().includes(q)))
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
+export async function saveMember(input: Partial<Member> & { firstName: string }): Promise<number> {
+  const id = Number(await redisCommand(["INCR", PASS_KEYS.nextVisitorId]));
+  const visitor: RetroverseVisitor = {
+    id, firstName: input.firstName.trim(), lastName: input.lastName || null,
+    email: input.email || null, phone: input.phone || null, birthday: input.birthday || null,
+    postalCode: input.postalCode || null, marketingOptIn: input.marketingOptIn ?? false,
+    notes: input.notes || null, createdAt: new Date().toISOString(),
+  };
+  await hashSet(PASS_KEYS.visitors, String(id), visitor);
+  return id;
+}
+
+export async function updateMember(id: number, input: Partial<Member> & { firstName: string }): Promise<void> {
+  const existing = await hashGet<RetroverseVisitor>(PASS_KEYS.visitors, String(id));
+  if (!existing) return;
+  await hashSet(PASS_KEYS.visitors, String(id), {
+    ...existing, firstName: input.firstName.trim(), lastName: input.lastName || null,
+    email: input.email || null, phone: input.phone || null, birthday: input.birthday || null,
+    postalCode: input.postalCode || null, marketingOptIn: input.marketingOptIn ?? false,
+    notes: input.notes || null,
+  });
+}
+
+export async function listPasses(search = ""): Promise<PassRecord[]> {
+  const q = search.trim().toLowerCase();
+  return (await hashValues<RetroversePass>(PASS_KEYS.passes))
+    .filter((pass) => !q || pass.serial.toLowerCase().includes(q))
+    .sort((a, b) => a.serial.localeCompare(b.serial))
+    .map((pass) => ({ serial: pass.serial, claimed: pass.claimed, visitorId: pass.visitorId,
+      claimedAt: pass.claimedAt, status: pass.claimed ? "registered" : "never_registered" }));
+}
+
+const ASSIGN_SCRIPT = `
+local raw = redis.call('HGET', KEYS[1], ARGV[1])
+if not raw then return cjson.encode({error='Pass does not exist.'}) end
+local pass = cjson.decode(raw)
+if ARGV[2] == '' then
+  pass.claimed = false
+  pass.visitorId = cjson.null
+  pass.claimedAt = cjson.null
+  pass.status = 'never_registered'
+else
+  if redis.call('HEXISTS', KEYS[2], ARGV[2]) == 0 then
+    return cjson.encode({error='Member does not exist.'})
+  end
+  pass.claimed = true
+  pass.visitorId = tonumber(ARGV[2])
+  if pass.claimedAt == cjson.null then pass.claimedAt = ARGV[3] end
+  pass.status = 'registered'
+end
+redis.call('HSET', KEYS[1], ARGV[1], cjson.encode(pass))
+return 'OK'
+`;
+
+export async function assignPass(serial: string, memberId: number | null): Promise<void> {
+  const raw = await redisCommand(["EVAL", ASSIGN_SCRIPT, 2, PASS_KEYS.passes, PASS_KEYS.visitors,
+    serial, memberId == null ? "" : String(memberId), new Date().toISOString()]);
+  if (raw === "OK") return;
+  const result = parseRedisJson<{ error?: string }>(raw);
+  throw new Error(result?.error || "Pass assignment failed.");
+}
