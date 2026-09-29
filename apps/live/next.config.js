@@ -73,6 +73,7 @@ const nextConfig = {
       "./data/static-graph/canonical-track-ids.json.gz",
       "./data/static-graph/broadcast-media.json.gz",
       "./data/static-graph/years/**",
+      "./data/static-graph/artist-details/**",
       "./data/events/**",
     ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],

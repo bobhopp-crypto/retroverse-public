@@ -2,7 +2,7 @@
 import { mkdir, writeFile, rename, access } from "node:fs/promises";
 import { join } from "node:path";
 import { inspectQuery, getInspectPool } from "@/lib/inspect/pg";
-import { loadRvYearChartHistoryCore } from "@/lib/artist/load-chart-history";
+import { loadRvYearChartHistoryCore } from "./legacy-load-chart-history";
 import { buildRvYearDestination, enrichRvYearDestination } from "@/lib/rv-year/enrich-rv-year-destination";
 
 async function main() {

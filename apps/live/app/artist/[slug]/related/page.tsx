@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
-import { loadRelatedArtistsFromGraph } from "@/lib/artist/load-related-artists";
+import { loadStaticRelatedArtists } from "@/lib/artist/static-artist-chart-history";
 import { resolveCanonicalArtist } from "@/lib/public/canonical-public-resolver";
 
 import { ArtistCover } from "../artist-cover";
@@ -16,16 +16,7 @@ export default async function ArtistRelatedPage({ params }: Props) {
   if (!canonical) notFound();
   const data = await loadArtistPage(canonical.routeToken);
 
-  let related = data.relatedArtists;
-  if (related.length < 8 && data.artistId > 0) {
-    const graph = await loadRelatedArtistsFromGraph(data.artistId, data.slug, 12);
-    const seen = new Set(related.map((r) => r.slug));
-    for (const row of graph) {
-      if (seen.has(row.slug)) continue;
-      seen.add(row.slug);
-      related.push(row);
-    }
-  }
+  const related = await loadStaticRelatedArtists(canonical.rvar);
 
   if (related.length === 0) {
     return (
