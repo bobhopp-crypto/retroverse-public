@@ -322,7 +322,7 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
               </p>
               <p className="home-search-overlay-error__detail">{searchError}</p>
               <p className="home-search-overlay-error__hint">
-                Check RETROVERSE_PG_* connection on the server.
+                Please try again shortly.
               </p>
             </div>
           ) : null}
