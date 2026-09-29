@@ -5,6 +5,8 @@ import os
 import subprocess
 import tempfile
 import urllib.request
+import sys
+import time
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[2]
@@ -60,18 +62,26 @@ with tempfile.TemporaryDirectory(prefix='retroverse-pass-transfer-') as d:
     keys = {'passes': base+'passes:v1', 'visitors': base+'visitors:v1', 'activity': base+'activity:v1',
             'registrations': base+'collector-registrations:v1', 'nextVisitor': base+'next-visitor-id:v1',
             'nextActivity': base+'next-activity-id:v1', 'nextRegistration': base+'next-registration-id:v1'}
-    if any(int(redis(['HLEN', keys[name]]) or 0) for name in ('passes', 'visitors', 'registrations')) or int(redis(['LLEN', keys['activity']]) or 0):
+    refresh = '--refresh-before-cutover' in sys.argv
+    if not refresh and (any(int(redis(['HLEN', keys[name]]) or 0) for name in ('passes', 'visitors', 'registrations')) or int(redis(['LLEN', keys['activity']]) or 0)):
         raise RuntimeError('Pass destination already contains records; refusing to overwrite')
+
+    # Build a complete verified replacement before switching live keys.
+    if refresh:
+        suffix = ':cutover-' + str(int(time.time()))
+        target_keys = {name: key + suffix for name, key in keys.items()}
+    else:
+        target_keys = keys
 
     def encoded(value): return json.dumps(value, separators=(',', ':'), ensure_ascii=False)
     def iso(value): return value.replace(' ', 'T').replace('+00:00', 'Z') if value else None
-    pass_args = ['HSET', keys['passes']]
+    pass_args = ['HSET', target_keys['passes']]
     for row in passes:
         pass_args += [row['serial'], encoded({'serial': row['serial'], 'claimed': row['claimed'],
             'visitorId': row['visitor_id'], 'claimedAt': iso(row['claimed_at']),
             'status': 'registered' if row['claimed'] else 'never_registered'})]
     redis(pass_args)
-    visitor_args = ['HSET', keys['visitors']]
+    visitor_args = ['HSET', target_keys['visitors']]
     for row in visitors:
         visitor_args += [str(row['id']), encoded({'id': row['id'], 'firstName': row['first_name'],
             'lastName': row['last_name'], 'email': row['email'], 'phone': row['phone'],
@@ -79,22 +89,30 @@ with tempfile.TemporaryDirectory(prefix='retroverse-pass-transfer-') as d:
             'marketingOptIn': row['marketing_opt_in'], 'notes': row['notes'], 'createdAt': iso(row['created_at'])})]
     redis(visitor_args)
     for start in range(0, len(activity), 100):
-        args = ['RPUSH', keys['activity']]
+        args = ['RPUSH', target_keys['activity']]
         for row in activity[start:start+100]:
             args.append(encoded({'id': row['id'], 'visitorId': row['visitor_id'], 'passSerial': row['pass_serial'],
                 'eventType': row['event_type'], 'metadata': row['metadata'], 'createdAt': iso(row['created_at'])}))
         redis(args)
-    registration_args = ['HSET', keys['registrations']]
+    registration_args = ['HSET', target_keys['registrations']]
     for row in registrations:
         registration_args += [row['pass_number'], encoded({'id': row['id'], 'passNumber': row['pass_number'],
             'firstName': row['first_name'], 'lastName': row['last_name'], 'email': row['email'],
             'createdAt': iso(row['created_at'])})]
     redis(registration_args)
-    redis(['SET', keys['nextVisitor'], max(row['id'] for row in visitors)])
-    redis(['SET', keys['nextActivity'], max(row['id'] for row in activity)])
-    redis(['SET', keys['nextRegistration'], max(row['id'] for row in registrations)])
-    counts = (int(redis(['HLEN', keys['passes']])), int(redis(['HLEN', keys['visitors']])),
-              int(redis(['LLEN', keys['activity']])), int(redis(['HLEN', keys['registrations']])))
+    redis(['SET', target_keys['nextVisitor'], max(row['id'] for row in visitors)])
+    redis(['SET', target_keys['nextActivity'], max(row['id'] for row in activity)])
+    redis(['SET', target_keys['nextRegistration'], max(row['id'] for row in registrations)])
+    counts = (int(redis(['HLEN', target_keys['passes']])), int(redis(['HLEN', target_keys['visitors']])),
+              int(redis(['LLEN', target_keys['activity']])), int(redis(['HLEN', target_keys['registrations']])))
     if counts != (len(passes), len(visitors), len(activity), len(registrations)):
         raise RuntimeError('Pass destination count mismatch')
+    if refresh:
+        for name, key in keys.items():
+            if redis(['RENAME', target_keys[name], key]) != 'OK':
+                raise RuntimeError('Unable to activate verified pass snapshot')
+        live_counts = (int(redis(['HLEN', keys['passes']])), int(redis(['HLEN', keys['visitors']])),
+                       int(redis(['LLEN', keys['activity']])), int(redis(['HLEN', keys['registrations']])))
+        if live_counts != counts:
+            raise RuntimeError('Active pass state count mismatch')
     print(f'pass data transferred and verified: {counts[0]} passes, {counts[1]} visitors, {counts[2]} actions, {counts[3]} registrations')
