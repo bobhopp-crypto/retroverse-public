@@ -16,7 +16,7 @@ export function redisLiveStateConfigured(): boolean {
   return config() !== null;
 }
 
-async function command(args: (string | number)[]): Promise<unknown> {
+export async function redisCommand(args: (string | number)[]): Promise<unknown> {
   const credentials = config();
   if (!credentials) throw new Error("Live state store is not configured (LIVE_KV_REST_API_URL / LIVE_KV_REST_API_TOKEN).");
   const response = await fetch(credentials.url, {
@@ -36,7 +36,7 @@ async function command(args: (string | number)[]): Promise<unknown> {
 }
 
 export async function redisJsonGet(key: string): Promise<Record<string, unknown> | null> {
-  const result = await command(["GET", key]);
+  const result = await redisCommand(["GET", key]);
   if (typeof result !== "string") return null;
   try {
     const value: unknown = JSON.parse(result);
@@ -48,6 +48,6 @@ export async function redisJsonGet(key: string): Promise<Record<string, unknown>
 }
 
 export async function redisJsonSet(key: string, value: Record<string, unknown>): Promise<void> {
-  const result = await command(["SET", key, JSON.stringify(value)]);
+  const result = await redisCommand(["SET", key, JSON.stringify(value)]);
   if (result !== "OK") throw new Error("Live state store write was not acknowledged.");
 }
