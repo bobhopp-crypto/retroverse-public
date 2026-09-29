@@ -1,125 +1,74 @@
+import "server-only";
+
+import { readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { join } from "node:path";
+import { gunzipSync } from "node:zlib";
 import { cache } from "react";
 
-import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
-import { isOpsPlayableVideoPath, opsVideoMediaAndClause } from "@/lib/ops/ops-video-media";
+import { loadTrackPage } from "@/lib/track/load-track-page";
+import { scanVdjDatabase } from "@/lib/ops/intelligence/vdj-database";
+import { isOpsPlayableVideoPath } from "@/lib/ops/ops-video-media";
+import { buildLocalStreamUrl, mediaKeyToStreamUrl, youtubeEmbedUrl } from "./media-delivery";
+import type { PlaybackResolveResult, PlaybackTarget } from "./types";
 
-import {
-  buildLocalStreamUrl,
-  mediaKeyToStreamUrl,
-  youtubeEmbedUrl,
-} from "./media-delivery";
-import type { PlaybackProvider, PlaybackResolveResult, PlaybackTarget } from "./types";
+type PlaybackLink = { mediaId: number | null; mediaKey: string | null; youtubeId: string | null };
+let linksPromise: Promise<Record<string, PlaybackLink>> | null = null;
 
-const RE_RVTR = /^RVTR\d{6}$/i;
+function playbackLinks(): Promise<Record<string, PlaybackLink>> {
+  if (!linksPromise) {
+    linksPromise = readFile(join(process.cwd(), "data/static-graph/playback-map.json.gz"))
+      .then((bytes) => JSON.parse(gunzipSync(bytes).toString("utf8")) as Record<string, PlaybackLink>)
+      .catch((error) => { linksPromise = null; throw error; });
+  }
+  return linksPromise;
+}
 
-function performanceLabel(provider: PlaybackProvider): "Play" | "Watch Performance" {
-  return provider === "youtube" || provider === "vimeo" || provider === "archive"
-    ? "Watch Performance"
-    : "Play";
+/** Local stream route uses the saved media identity to validate its URL. */
+export async function playbackMediaId(rvtr: string): Promise<number | null> {
+  if (!/^RVTR\d{6}$/.test(rvtr)) return null;
+  return (await playbackLinks())[rvtr]?.mediaId ?? null;
+}
+
+export async function findLocalPlaybackPath(rvtr: string, mediaId: number): Promise<string | null> {
+  if (process.env.VERCEL || await playbackMediaId(rvtr) !== mediaId) return null;
+  const library = await scanVdjDatabase();
+  return library.entries.find((entry) =>
+    entry.isVideo && entry.label.trim().toUpperCase() === rvtr &&
+    isOpsPlayableVideoPath(entry.filePath) && existsSync(entry.filePath)
+  )?.filePath ?? null;
 }
 
 async function resolveTrackPlaybackImpl(
   rvtrParam: string,
   fallback?: { title?: string; artist?: string },
 ): Promise<PlaybackResolveResult | null> {
-  const ping = await inspectPing();
-  if (!ping.ok) return null;
-
   const rvtr = rvtrParam.trim().toUpperCase();
-  if (!RE_RVTR.test(rvtr)) return null;
+  if (!/^RVTR\d{6}$/.test(rvtr)) return null;
+  const [track, links] = await Promise.all([loadTrackPage(rvtr), playbackLinks()]);
+  const link = links[rvtr];
+  const title = track?.title || fallback?.title?.trim() || rvtr;
+  const artist = track?.artistName || fallback?.artist?.trim() || "";
 
-  const [trackRows, youtubeRows, mediaRows] = await Promise.all([
-    inspectQuery<{
-      canonical_title: string;
-      canonical_artist_name: string;
-    }>(
-      `
-      SELECT canonical_title, canonical_artist_name
-      FROM canonical_track_display
-      WHERE upper(trim(track_id)) = upper(trim($1))
-         OR upper(trim(coalesce(retroverse_track_id, ''))) = upper(trim($1))
-      LIMIT 1
-      `,
-      [rvtr],
-    ),
-    inspectQuery<{ youtube_id: string; title: string | null }>(
-      `
-      SELECT DISTINCT ON (yv.youtube_id)
-             yv.youtube_id, yv.title
-      FROM youtube_video_tracks yvt
-      JOIN youtube_videos yv ON yv.youtube_id = yvt.youtube_video_id
-      WHERE upper(trim(yvt.rvtr)) = upper(trim($1))
-        AND yvt.review_flag IN ('approved', 'pending')
-        AND yvt.confidence IN ('exact', 'high')
-      ORDER BY
-        yv.youtube_id,
-        CASE yvt.confidence WHEN 'exact' THEN 0 WHEN 'high' THEN 1 ELSE 2 END,
-        yvt.id ASC
-      LIMIT 1
-      `,
-      [rvtr],
-    ).catch(() => [] as { youtube_id: string; title: string | null }[]),
-    inspectQuery<{
-      media_asset_id: number;
-      r2_media_key: string | null;
-      source_path: string | null;
-    }>(
-      `
-      SELECT ma.id AS media_asset_id, ma.r2_media_key, ma.source_path
-      FROM media_track_links mtl
-      JOIN media_assets ma ON ma.id = mtl.media_asset_id
-      JOIN canonical_track_display ctd ON ctd.track_id::text = mtl.track_id::text
-      WHERE upper(trim(coalesce(ctd.retroverse_track_id, ctd.track_id))) = upper(trim($1))
-      ${opsVideoMediaAndClause("ma")}
-      ORDER BY mtl.confidence_score DESC NULLS LAST, ma.id ASC
-      LIMIT 1
-      `,
-      [rvtr],
-    ),
-  ]);
-
-  const track = trackRows[0];
-  const title = track?.canonical_title?.trim() || fallback?.title?.trim() || rvtr;
-  const artist = track?.canonical_artist_name?.trim() || fallback?.artist?.trim() || "";
-  const hasVdjMedia = mediaRows.length > 0;
-
-  let target: PlaybackTarget | null = null;
-
-  const media = mediaRows[0];
-  if (media) {
-    const localPath = media.source_path?.trim();
-    if (localPath && isOpsPlayableVideoPath(localPath) && existsSync(localPath)) {
-      target = {
-        provider: "vdj_local",
-        streamUrl: buildLocalStreamUrl(rvtr, media.media_asset_id),
-        mediaAssetId: media.media_asset_id,
-      };
-    } else {
-      const hosted = mediaKeyToStreamUrl(media.r2_media_key);
-      if (hosted) {
-        target = {
-          provider: "mp4",
-          streamUrl: hosted,
-          mediaAssetId: media.media_asset_id,
-        };
-      }
-    }
+  const localPath = link?.mediaId ? await findLocalPlaybackPath(rvtr, link.mediaId) : null;
+  const streamUrl = mediaKeyToStreamUrl(link?.mediaKey);
+  let target: PlaybackTarget | null = localPath
+    ? { provider: "vdj_local", streamUrl: buildLocalStreamUrl(rvtr, link!.mediaId!), mediaAssetId: link!.mediaId }
+    : streamUrl
+      ? { provider: "mp4", streamUrl, mediaAssetId: link?.mediaId ?? null }
+    : null;
+  if (!target && link?.youtubeId) {
+    target = { provider: "youtube", embedUrl: youtubeEmbedUrl(link.youtubeId), youtubeId: link.youtubeId };
   }
-
-  const yt = youtubeRows[0];
-  if (!target && yt?.youtube_id) {
-    target = {
-      provider: "youtube",
-      embedUrl: youtubeEmbedUrl(yt.youtube_id),
-      youtubeId: yt.youtube_id,
-    };
-  }
-
-  const canPlay = Boolean(target);
-  const playLabel = target ? performanceLabel(target.provider) : "Play";
-
-  return { rvtr, title, artist, target, hasVdjMedia, canPlay, playLabel };
+  return {
+    rvtr,
+    title,
+    artist,
+    target,
+    hasVdjMedia: link?.mediaId != null,
+    canPlay: Boolean(target),
+    playLabel: target?.provider === "youtube" ? "Watch Performance" : "Play",
+  };
 }
 
 export const resolveTrackPlayback = cache(resolveTrackPlaybackImpl);

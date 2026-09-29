@@ -3,8 +3,7 @@ import { Readable } from "node:stream";
 
 import { NextResponse } from "next/server";
 
-import { inspectQuery } from "@/lib/inspect/pg";
-import { isOpsPlayableVideoPath, opsVideoMediaAndClause } from "@/lib/ops/ops-video-media";
+import { findLocalPlaybackPath } from "@/lib/playback/resolve-track-playback";
 
 export const dynamic = "force-dynamic";
 
@@ -32,22 +31,8 @@ export async function GET(request: Request) {
     return new NextResponse("Invalid params", { status: 400 });
   }
 
-  const rows = await inspectQuery<{ source_path: string | null }>(
-    `
-    SELECT ma.source_path
-    FROM media_assets ma
-    JOIN media_track_links mtl ON mtl.media_asset_id = ma.id
-    JOIN canonical_track_display ctd ON ctd.track_id::text = mtl.track_id::text
-    WHERE ma.id = $1
-      AND upper(trim(coalesce(ctd.retroverse_track_id, ctd.track_id))) = upper(trim($2))
-    ${opsVideoMediaAndClause("ma")}
-    LIMIT 1
-    `,
-    [mediaId, rvtr],
-  );
-
-  const filePath = rows[0]?.source_path?.trim();
-  if (!filePath || !isOpsPlayableVideoPath(filePath) || !existsSync(filePath)) {
+  const filePath = await findLocalPlaybackPath(rvtr, mediaId);
+  if (!filePath || !existsSync(filePath)) {
     return new NextResponse("Not found", { status: 404 });
   }
 

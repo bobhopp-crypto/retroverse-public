@@ -69,6 +69,7 @@ const nextConfig = {
       "./data/static-graph/album-identities.json.gz",
       "./data/static-graph/album-signals.json.gz",
       "./data/static-graph/artist-albums.json.gz",
+      "./data/static-graph/playback-map.json.gz",
       "./data/static-graph/years/**",
       "./data/events/**",
     ],
