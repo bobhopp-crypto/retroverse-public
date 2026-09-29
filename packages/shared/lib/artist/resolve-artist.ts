@@ -1,7 +1,9 @@
 import { cache } from "react";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+import { gunzipSync } from "node:zlib";
 
 import { displayArtistName } from "@/lib/artist/slug";
-import { inspectQuery } from "@/lib/inspect/pg";
 import {
   canonicalArtistHref,
   resolveCanonicalArtist,
@@ -41,19 +43,29 @@ export const resolveArtistFromSlug = cache(resolveArtistRouteIdentityImpl);
 
 const CREDIT_LINE = /\s(?:feat\.?|ft\.?|featuring)\s/i;
 
+type ArtistNameRow = { id: number; rvar: string; canonical_name: string };
+let namesPromise: Promise<Map<string, ArtistNameRow[]>> | null = null;
+
+function artistNames(): Promise<Map<string, ArtistNameRow[]>> {
+  if (!namesPromise) {
+    namesPromise = readFile(join(process.cwd(), "data/static-graph/artist-identities.json.gz"))
+      .then((bytes) => {
+        const rows = JSON.parse(gunzipSync(bytes).toString("utf8")) as ArtistNameRow[];
+        const index = new Map<string, ArtistNameRow[]>();
+        for (const row of rows) {
+          const key = normalizeArtistMatchKey(row.canonical_name);
+          index.set(key, [...(index.get(key) ?? []), row]);
+        }
+        return index;
+      }).catch((error) => { namesPromise = null; throw error; });
+  }
+  return namesPromise;
+}
+
 async function resolveUnambiguousArtistName(name: string): Promise<ResolvedArtistIdentity | null> {
   const key = normalizeArtistMatchKey(name);
   if (!key) return null;
-  const rows = await inspectQuery<{ id: string | number; rvar: string; canonical_name: string }>(
-    `
-    SELECT id, rvar, canonical_name
-    FROM artists
-    WHERE lower(regexp_replace(trim(canonical_name), '^the\\s+', '', 'i')) = $1
-    ORDER BY id
-    LIMIT 2
-    `,
-    [key],
-  );
+  const rows = (await artistNames()).get(key) ?? [];
   // Two rows (Rihanna person forks, Jackson 5 vs a second Jackson row) are not a choice.
   if (rows.length !== 1) return null;
   const rvar = rows[0]!.rvar?.trim().toUpperCase() ?? "";
