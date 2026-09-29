@@ -1,4 +1,3 @@
-import { inspectPing } from "@/lib/inspect/pg";
 import { artistPagePath, resolveArtistForSearchQuery } from "@/lib/artist/resolve-artist";
 import {
   loadArtistChartHistory,
@@ -43,12 +42,6 @@ export async function loadSearchChartHistory(
   const yearContext = detectYearContext(q);
   const rvYear = normalizeRVYear(yearContext.rvYear);
   if (rvYear == null) return null;
-
-  const ping = await inspectPing();
-  if (!ping.ok) {
-    console.warn("[search:rv-history]", "postgres unavailable", ping.error);
-    return null;
-  }
 
   const artistQuery = stripYearTokensFromQuery(q);
   const hints = artistHintsFromPanels(panels);
