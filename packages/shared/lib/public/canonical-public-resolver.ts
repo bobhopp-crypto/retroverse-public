@@ -7,6 +7,7 @@ import { WINNING_ARTWORK_LINK_ORDER } from "@/lib/artwork/winning-artwork-link-s
 import { displayArtistName } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
+import { loadStaticArtistIdentity, loadStaticLegacyArtistIdentity, loadStaticAlbumIdentity } from "@/lib/public/static-canonical-identities";
 import {
   resolvePrimaryAlbum,
   type PrimaryAlbumCandidate,
@@ -400,113 +401,16 @@ async function resolveCanonicalTrackImpl(rvtrParam: string): Promise<CanonicalTr
 export const resolveCanonicalTrack = cache(resolveCanonicalTrackImpl);
 
 async function resolveCanonicalArtistImpl(identityParam: string): Promise<CanonicalArtistIdentity | null> {
-  const rvar = decodeURIComponent(identityParam).trim().toUpperCase();
-  if (!/^RVAR\d{6}$/.test(rvar)) return null;
-
-  const startedAt = performance.now();
-  const rows = await inspectQuery<{ id: string | number; rvar: string; canonical_name: string }>(
-    `SELECT id, rvar, canonical_name FROM artists WHERE upper(trim(rvar)) = $1 LIMIT 1`,
-    [rvar],
-  );
-  const row = rows[0];
-  if (!row) return null;
-  const canonicalName = row.canonical_name.trim();
-  return {
-    artistId: Number(row.id),
-    rvar: row.rvar.trim().toUpperCase(),
-    canonicalName,
-    displayName: displayArtistName(canonicalName),
-    routeToken: row.rvar.trim().toUpperCase(),
-    href: canonicalArtistHref(row.rvar),
-    resolverPath: [`RVAR:${row.rvar}`, `artist_id:${row.id}`, "artists.id", "render"],
-    loaderTimings: [{ name: "canonical-artist", durationMs: durationMs(startedAt) }],
-  };
+  return loadStaticArtistIdentity(identityParam);
 }
 
 export const resolveCanonicalArtist = cache(resolveCanonicalArtistImpl);
 
 /** Legacy compatibility only: numeric IDs may redirect, but never resolve canonically. */
-export const resolveLegacyArtistId = cache(async (identityParam: string): Promise<CanonicalArtistIdentity | null> => {
-  const raw = decodeURIComponent(identityParam).trim();
-  if (!/^\d+$/.test(raw)) return null;
-  const artistId = Number(raw);
-  if (!Number.isSafeInteger(artistId) || artistId <= 0) return null;
-  const rows = await inspectQuery<{ id: string | number; rvar: string; canonical_name: string }>(
-    `SELECT id, rvar, canonical_name FROM artists WHERE id = $1 LIMIT 1`, [artistId],
-  );
-  const row = rows[0];
-  if (!row) return null;
-  return {
-    artistId: Number(row.id), rvar: row.rvar.trim().toUpperCase(),
-    canonicalName: row.canonical_name.trim(), displayName: displayArtistName(row.canonical_name.trim()),
-    routeToken: row.rvar.trim().toUpperCase(), href: canonicalArtistHref(row.rvar),
-    resolverPath: [`legacy_artist_id:${row.id}`, `RVAR:${row.rvar}`, "redirect"],
-    loaderTimings: [],
-  };
-});
+export const resolveLegacyArtistId = cache(loadStaticLegacyArtistIdentity);
 
 async function resolveCanonicalAlbumImpl(rvalParam: string): Promise<CanonicalAlbumIdentity | null> {
-  const rval = decodeURIComponent(rvalParam).trim().toUpperCase();
-  if (!RE_RVAL.test(rval)) return null;
-  const startedAt = performance.now();
-  const rows = await inspectQuery<{
-    album_id: string | number;
-    artist_id: string | number;
-    artist_rvar: string;
-    title: string;
-    release_year: number | null;
-    artist_name: string;
-    cover_path: string | null;
-    artwork_path: string | null;
-    r2_cover_key: string | null;
-  }>(
-    `
-    SELECT
-      al.id AS album_id,
-      al.artist_id,
-      al.title,
-      al.release_year,
-      ar.canonical_name AS artist_name,
-      ar.rvar AS artist_rvar,
-      al.canonical_cover_path AS cover_path,
-      (
-        SELECT aal.canonical_cover_path FROM album_artwork_links aal
-        WHERE aal.album_id = al.id
-        ${WINNING_ARTWORK_LINK_ORDER}
-      ) AS artwork_path,
-      (
-        SELECT aal.r2_cover_key FROM album_artwork_links aal
-        WHERE aal.album_id = al.id
-        ${WINNING_ARTWORK_LINK_ORDER}
-      ) AS r2_cover_key
-    FROM album_external_keys aek
-    JOIN albums al ON al.id = aek.album_id
-    JOIN artists ar ON ar.id = al.artist_id
-    WHERE upper(trim(aek.external_key)) = $1
-    ORDER BY aek.confidence_score DESC NULLS LAST, aek.created_at ASC
-    LIMIT 1
-    `,
-    [rval],
-  );
-  const row = rows[0];
-  const albumId = asNumber(row?.album_id);
-  const artistId = asNumber(row?.artist_id);
-  if (!row || albumId == null || artistId == null) return null;
-  const artistCanonicalName = row.artist_name.trim();
-
-  return {
-    albumId,
-    artistId,
-    rval,
-    title: row.title.trim(),
-    releaseYear: row.release_year,
-    artistCanonicalName,
-    artistDisplayName: displayArtistName(artistCanonicalName),
-    artistHref: canonicalArtistHref(row.artist_rvar.trim().toUpperCase()),
-    coverUrl: resolveAlbumCoverUrlFromRow(row),
-    resolverPath: [`RVAL:${rval}`, `album_id:${albumId}`, `artist_id:${artistId}`, "render"],
-    loaderTimings: [{ name: "canonical-album", durationMs: durationMs(startedAt) }],
-  };
+  return loadStaticAlbumIdentity(rvalParam);
 }
 
 export const resolveCanonicalAlbum = cache(resolveCanonicalAlbumImpl);

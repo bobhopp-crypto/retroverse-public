@@ -37,6 +37,9 @@ const SUBSETS = [
   { source: "data/static-graph/tracks", target: "static-graph/tracks" },
   { source: "data/static-graph/trajectory-prototype.json", target: "static-graph/trajectory-prototype.json" },
   { source: "data/static-graph/search-entities.json.gz", target: "static-graph/search-entities.json.gz" },
+  { source: "data/static-graph/artist-identities.json.gz", target: "static-graph/artist-identities.json.gz" },
+  { source: "data/static-graph/album-identities.json.gz", target: "static-graph/album-identities.json.gz" },
+  { source: "data/static-graph/album-signals.json.gz", target: "static-graph/album-signals.json.gz" },
 ];
 
 const stat = fs.lstatSync(target, { throwIfNoEntry: false });
