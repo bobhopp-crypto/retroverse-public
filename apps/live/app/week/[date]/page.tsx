@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
 
-import { loadChartWeekContext } from "@/lib/charts/load-chart-week-context";
+import { loadStaticChartWeekContext as loadChartWeekContext } from "@/lib/charts/static-chart-week-context";
 import { parseChartWeekDateParam } from "@/lib/charts/chart-week-portal-href";
 import { formatChartDateLabel } from "@/lib/artist/chart-history-display";
 import { OPS_GATE_COOKIE, isOpsEnabled } from "@/lib/ops/ops-gate";

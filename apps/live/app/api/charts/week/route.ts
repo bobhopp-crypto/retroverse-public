@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { loadChartWeekContext } from "@/lib/charts/load-chart-week-context";
+import { loadStaticChartWeekContext as loadChartWeekContext } from "@/lib/charts/static-chart-week-context";
 import { parseChartWeekDateParam } from "@/lib/charts/chart-week-portal-href";
 
 export const dynamic = "force-dynamic";
