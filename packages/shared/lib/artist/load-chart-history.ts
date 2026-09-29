@@ -349,26 +349,15 @@ async function loadRvYearChartHistoryCore(
   return { ...history, weeklyEntries: history.entries };
 }
 
-const cachedRvYearChartHistory = (resolvedYear: number) =>
-  unstable_cache(
-    () => loadRvYearChartHistoryCore(resolvedYear, new Map(), null),
-    [`rv-year-chart-history-v5-${resolvedYear}`],
-    { revalidate: 3600, tags: [`rv-year-${resolvedYear}`] },
-  );
-
 export async function loadRvYearChartHistory(
   rvYear: number,
-  coverByTrackId: Map<string, string> = new Map(),
-  fallbackCover: string | null = null,
+  _coverByTrackId: Map<string, string> = new Map(),
+  _fallbackCover: string | null = null,
 ): Promise<ArtistChartHistory | null> {
   const resolvedYear = normalizeRVYear(rvYear);
   if (resolvedYear == null) return null;
-
-  if (coverByTrackId.size === 0 && fallbackCover == null) {
-    return cachedRvYearChartHistory(resolvedYear)();
-  }
-
-  return loadRvYearChartHistoryCore(resolvedYear, coverByTrackId, fallbackCover);
+  const { loadStaticYearPage } = await import("@/lib/rv-year/static-year-page");
+  return (await loadStaticYearPage(resolvedYear))?.history ?? null;
 }
 
 /** Tooling — bypass unstable_cache when auditing chart rows. */

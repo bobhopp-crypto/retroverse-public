@@ -2,10 +2,7 @@ import { notFound } from "next/navigation";
 
 import { isUsableChartHistory } from "@/lib/artist/chart-history";
 import { loadRvYearChartHistory } from "@/lib/artist/load-chart-history";
-import {
-  buildRvYearDestination,
-  enrichRvYearDestination,
-} from "@/lib/rv-year/enrich-rv-year-destination";
+import { loadStaticYearPage } from "@/lib/rv-year/static-year-page";
 import { rvYearEditorial } from "@/lib/rv-year/rv-year-editorial";
 import { resolveCanonicalYear } from "@/lib/public/canonical-public-resolver";
 import { CanonicalPublicTrace } from "@/components/public/CanonicalPublicTrace";
@@ -47,8 +44,8 @@ export default async function RvYearPage({ params, searchParams }: Props) {
   const historyLoad = await timePublicLoader("year-chart-history", () => loadRvYearChartHistory(rvYear));
   if (!historyLoad.value || !isUsableChartHistory(historyLoad.value)) notFound();
 
-  const destinationLoad = await timePublicLoader("year-destination", () =>
-    enrichRvYearDestination(buildRvYearDestination(historyLoad.value!, rvYear)),
+  const destinationLoad = await timePublicLoader("year-destination", async () =>
+    (await loadStaticYearPage(rvYear))!.destination,
   );
 
   return (

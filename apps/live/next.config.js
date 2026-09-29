@@ -68,6 +68,8 @@ const nextConfig = {
       "./data/static-graph/artist-identities.json.gz",
       "./data/static-graph/album-identities.json.gz",
       "./data/static-graph/album-signals.json.gz",
+      "./data/static-graph/artist-albums.json.gz",
+      "./data/static-graph/years/**",
     ],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
     "/album/[id]": ["./data/album-chart-features.json"],

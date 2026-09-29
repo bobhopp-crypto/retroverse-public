@@ -40,6 +40,8 @@ const SUBSETS = [
   { source: "data/static-graph/artist-identities.json.gz", target: "static-graph/artist-identities.json.gz" },
   { source: "data/static-graph/album-identities.json.gz", target: "static-graph/album-identities.json.gz" },
   { source: "data/static-graph/album-signals.json.gz", target: "static-graph/album-signals.json.gz" },
+  { source: "data/static-graph/artist-albums.json.gz", target: "static-graph/artist-albums.json.gz" },
+  { source: "data/static-graph/years", target: "static-graph/years" },
 ];
 
 const stat = fs.lstatSync(target, { throwIfNoEntry: false });

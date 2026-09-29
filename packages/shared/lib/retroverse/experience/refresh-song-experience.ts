@@ -1,10 +1,5 @@
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
-import { isUsableChartHistory } from "@/lib/artist/chart-history";
-import { loadRvYearChartHistory } from "@/lib/artist/load-chart-history";
-import {
-  buildRvYearDestination,
-  enrichRvYearDestination,
-} from "@/lib/rv-year/enrich-rv-year-destination";
+import { loadStaticYearPage } from "@/lib/rv-year/static-year-page";
 import type { RvYearDestination } from "@/lib/rv-year/rv-year-destination";
 import type { SongPackage } from "@/lib/ops/intelligence/song-package-types";
 import type { SongControlData } from "@/lib/retroverse-2/song-control";
@@ -31,9 +26,7 @@ function trackYear(track: TrackPageData): number | null {
 async function yearDestination(track: TrackPageData): Promise<RvYearDestination | null> {
   const year = trackYear(track);
   if (!year) return null;
-  const history = await loadRvYearChartHistory(year);
-  if (!history || !isUsableChartHistory(history)) return null;
-  return enrichRvYearDestination(buildRvYearDestination(history, year));
+  return (await loadStaticYearPage(year))?.destination ?? null;
 }
 
 /** Rebuild and persist the dynamic exhibit plan after package changes. */
