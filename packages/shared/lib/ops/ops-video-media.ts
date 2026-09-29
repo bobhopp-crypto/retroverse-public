@@ -33,20 +33,3 @@ export function isOpsPlayableVideoPath(path: string | null | undefined): boolean
   if (/\/VIDEO VAULT\//i.test(p)) return false;
   return /\.(mp4|mkv|mov|avi|m4v)$/i.test(p);
 }
-
-export async function assertOpsVideoMediaId(
-  mediaId: number,
-): Promise<boolean> {
-  const { inspectQuery } = await import("@/lib/inspect/pg");
-  const rows = await inspectQuery<{ ok: number }>(
-    `
-    SELECT 1::int AS ok
-    FROM media_assets ma
-    WHERE ma.id = $1
-    ${opsVideoMediaAndClause("ma")}
-    LIMIT 1
-    `,
-    [mediaId],
-  );
-  return rows.length > 0;
-}

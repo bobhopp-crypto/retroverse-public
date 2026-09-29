@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import type { MatchStatus } from "@/lib/ops/reconciliation-model";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
-import { assertOpsVideoMediaId } from "@/lib/ops/ops-video-media";
+import { assertOpsVideoMediaId } from "@/lib/ops/assert-video-media-id";
 import {
   appendOpsActivity,
   loadOpsState,
