@@ -129,7 +129,7 @@ const EMPTY_CATALOG_INTEGRITY: CockpitCatalogIntegrityData = {
   duplicateTracks: 0,
   aliasConflicts: 0,
   missingCovers: 0,
-  status: "Healthy",
+  status: "Attention",
 };
 
 export const RUNTIME_DESTINATION = "/bobos/runtime";
