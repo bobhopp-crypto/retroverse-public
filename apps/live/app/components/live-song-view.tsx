@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import type { PublicHomepagePayload } from "@/lib/home/public-current-song";
 import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
-import { ArtistInDepthSwipe } from "@/components/navigation/artist-in-depth-swipe";
+import { HomepageStageNavigation } from "@/app/components/homepage-stage-navigation";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import "./live-song-view.css";
 
@@ -88,34 +88,47 @@ export function LiveSongView({ payload, heroUrl, heroRvtr, mode = "live", songEx
     ["Year", links?.yearHref ?? track?.rvYearHref ?? (year ? `/rv/${year}` : null)],
   ] as const;
 
-  if (songExperience) return <>{songExperience}</>;
+  const relatedSongs = (track?.relatedTracks ?? []).map((related) => ({ ...related }));
+  const stageNavigation = (children: ReactNode) => (
+    <HomepageStageNavigation
+      rvtr={rvtr}
+      relatedSongs={relatedSongs}
+      artistHref={artistDepthHref}
+      source="homepage"
+      live={mode === "live"}
+    >
+      {children}
+    </HomepageStageNavigation>
+  );
+
+  if (songExperience) return stageNavigation(<>{songExperience}</>);
 
   return (
     <Rv2PublicShell className="live-song" activeNav="live" minimalNavigation broadcastChrome={false}>
-      <main
-        className="live-song__page"
-        aria-label="Current live song"
-        data-renderer="live-song-fallback"
-        data-track-identity={effectiveTrackIdentity(current) ?? "unknown"}
-      >
-        <ArtistInDepthSwipe href={artistDepthHref} requireScrollTop>
-        <section className="live-song__hero" aria-label="Now playing">
-          {showImage ? <img className="live-song__image" src={image!} alt="" onError={() => setImageFailed(true)} /> : <div className="live-song__fallback" aria-hidden="true"><span>Now playing</span></div>}
-          <div className="live-song__veil" />
-          <div className="live-song__copy">
-            <p className="live-song__status">Now playing</p>
-            <h1>{title}</h1>
-            <p className="live-song__artist">{artist}</p>
-            {year ? <p className="live-song__year">Released {year}</p> : null}
-            {artistDepthHref ? <p className="artist-depth-cue">Swipe down for the artist</p> : null}
-            <nav className="live-song__links" aria-label="Explore current song">
-              {actions.map(([label, href]) => href ? <Link key={label} href={href}>{label}</Link> : <span key={label} className="live-song__link-disabled">{label}</span>)}
-            </nav>
-            <p className="live-song__description">{fallbackDescription}</p>
-          </div>
-        </section>
-        </ArtistInDepthSwipe>
-      </main>
+      {stageNavigation(
+        <main
+          className="live-song__page"
+          aria-label="Current live song"
+          data-renderer="live-song-fallback"
+          data-track-identity={effectiveTrackIdentity(current) ?? "unknown"}
+        >
+          <section className="live-song__hero" aria-label="Now playing">
+            {showImage ? <img className="live-song__image" src={image!} alt="" onError={() => setImageFailed(true)} /> : <div className="live-song__fallback" aria-hidden="true"><span>Now playing</span></div>}
+            <div className="live-song__veil" />
+            <div className="live-song__copy">
+              <p className="live-song__status">Now playing</p>
+              <h1>{title}</h1>
+              <p className="live-song__artist">{artist}</p>
+              {year ? <p className="live-song__year">Released {year}</p> : null}
+              {artistDepthHref ? <p className="artist-depth-cue">Swipe down for the artist</p> : null}
+              <nav className="live-song__links" aria-label="Explore current song">
+                {actions.map(([label, href]) => href ? <Link key={label} href={href}>{label}</Link> : <span key={label} className="live-song__link-disabled">{label}</span>)}
+              </nav>
+              <p className="live-song__description">{fallbackDescription}</p>
+            </div>
+          </section>
+        </main>
+      )}
     </Rv2PublicShell>
   );
 }

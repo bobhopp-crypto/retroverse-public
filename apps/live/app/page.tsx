@@ -29,7 +29,9 @@ export const metadata: Metadata = {
 };
 
 /** VirtualDJ has priority; otherwise every visitor shares the prepared Song of the Hour. */
-export default async function HomePage() {
+export default async function HomePage({ searchParams }: { searchParams: Promise<{ stageRvtr?: string }> }) {
+  const requestedRvtr = (await searchParams).stageRvtr?.trim().toUpperCase() ?? "";
+  const browseRvtr = /^RVTR\d{6}$/.test(requestedRvtr) ? requestedRvtr : null;
   const [current, songOfHourRvtr] = await Promise.all([
     loadPublicCurrentSongPayload(),
     resolveHomepageSongOfHourRvtr(),
@@ -41,10 +43,11 @@ export default async function HomePage() {
     current.live?.source === "bridge" &&
     isFreshBridgePayload(current);
 
+  const fallbackRvtr = browseRvtr ?? songOfHourRvtr;
   const songPayload = hasValidVirtualDjSong
     ? current.publicSong
-    : songOfHourRvtr
-      ? await loadPublicSongPayload(songOfHourRvtr).catch(() => null)
+    : fallbackRvtr
+      ? await loadPublicSongPayload(fallbackRvtr).catch(() => null)
       : null;
 
   if (!songPayload) return null;

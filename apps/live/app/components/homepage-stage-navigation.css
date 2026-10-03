@@ -1,0 +1,14 @@
+.rv-stage-navigation { position: relative; min-height: 100dvh; }
+.rv-stage-navigation .rv2-song__header,
+.rv-stage-navigation .live-song__hero { touch-action: none; }
+.rv-onboarding { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; padding: 20px; color: #f5f0e5; font-family: Arial, Helvetica, sans-serif; }
+.rv-onboarding-scrim { position: absolute; inset: 0; background: #03050bd9; backdrop-filter: blur(5px); }
+.rv-onboarding-panel { position: relative; width: min(100%, 430px); max-height: min(90dvh, 720px); overflow: auto; padding: 25px 24px 20px; border: 1px solid #ffffff28; border-radius: 18px; background: #101722; box-shadow: 0 24px 80px #000a; }
+.rv-onboarding-title { margin: 0 0 17px; color: #f3c977; font-size: 13px; letter-spacing: .16em; }
+.rv-onboarding-steps { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.rv-onboarding-steps li { display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 12px; padding: 13px 0; border-top: 1px solid #ffffff17; }
+.rv-onboarding-icon { color: #e9bd78; font: 400 22px/1 Georgia, serif; text-align: center; }
+.rv-onboarding-action { margin: 0; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+.rv-onboarding-label { margin: 5px 0 0; color: #b9c5d1; font-size: 14px; }
+.rv-onboarding-got-it { width: 100%; min-height: 46px; margin-top: 17px; border: 0; border-radius: 8px; background: #f3c977; color: #101722; font-size: 12px; font-weight: 900; letter-spacing: .12em; }
+.rv-onboarding-opt-out { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 15px 0 0; color: #b9c5d1; font-size: 12px; }

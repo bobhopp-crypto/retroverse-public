@@ -95,6 +95,21 @@ export function PublicSongRequestExperience() {
   }, [refreshStatus]);
 
   useEffect(() => {
+    const openFromCatalog = (event: Event) => {
+      const query = (event as CustomEvent<{ query?: string }>).detail?.query?.trim() ?? "";
+      setQuery(query.slice(0, 80));
+      setScreen("search");
+      setSelected(null);
+      setReceipt(null);
+      setPendingRequestId(null);
+      setError(null);
+      setOpen(true);
+    };
+    window.addEventListener("retroverse:open-live-request", openFromCatalog);
+    return () => window.removeEventListener("retroverse:open-live-request", openFromCatalog);
+  }, []);
+
+  useEffect(() => {
     if (!status.isOpen || !status.sessionToken) return;
     setIdentity(loadGuestIdentity(status.sessionToken));
     setNickname(window.localStorage.getItem(NICKNAME_KEY) ?? "");

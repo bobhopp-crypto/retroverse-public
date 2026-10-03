@@ -8,6 +8,7 @@ import {
   loadPublicSongPayload,
 } from "@/lib/retroverse/experience/load-public-song-payload";
 import { localPublicTraceEnabled } from "@/lib/public/local-trace";
+import { HomepageStageNavigation } from "@/app/components/homepage-stage-navigation";
 
 import "./retroverse-song-empty.css";
 
@@ -76,7 +77,14 @@ export default async function Retroverse2SongPage({ params, searchParams }: Prop
 
   return (
     <Rv2PublicShell className="rv2-song" yearsHref={yearHref} showTopBroadcastBanner={false}>
-      <PublicSongExperience payload={payload} traceEnabled={traceEnabled} />
+      <HomepageStageNavigation
+        rvtr={payload.rvtr}
+        relatedSongs={(payload.track?.relatedTracks ?? []).map((related) => ({ ...related }))}
+        artistHref={payload.links.artistHref ?? payload.track?.artistHref ?? null}
+        source="song"
+      >
+        <PublicSongExperience payload={payload} traceEnabled={traceEnabled} />
+      </HomepageStageNavigation>
     </Rv2PublicShell>
   );
 }
