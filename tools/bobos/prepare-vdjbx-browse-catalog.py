@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Export only still-present VDJBX browse entries, without storing local paths."""
+"""Build the public browse snapshot from the current VirtualDJ playlists.
+
+Only hashed media identities and display metadata are written. Local media paths
+are read to join playlist entries to VirtualDJ tags, but never leave this script.
+"""
 
 from __future__ import annotations
 
@@ -7,105 +11,141 @@ import hashlib
 import json
 import os
 import re
-import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "data/ops/vdjbx-source-catalog.json"
-DATABASE = Path(os.environ.get("VIRTUALDJ_DATABASE", "/Users/bobhopp/Library/Application Support/VirtualDJ/database.xml"))
+VIRTUALDJ_HOME = Path(os.environ.get("VIRTUALDJ_HOME", "/Users/bobhopp/Library/Application Support/VirtualDJ"))
+PLAYLISTS = VIRTUALDJ_HOME / "MyLists"
+PLAYLIST_ORDER = PLAYLISTS / "order"
+DATABASE = Path(os.environ.get("VIRTUALDJ_DATABASE", str(VIRTUALDJ_HOME / "database.xml")))
 OUTPUT = ROOT / "apps/live/lib/vdjbx-browse-catalog.json"
-VIDEO_ROOT = "/USERS/BOBHOPP/DJ MEDIA/VIDEO/"
 RVTR = re.compile(r"^RVTR\d{6}$", re.IGNORECASE)
+
+
+def path_key(path: str) -> str:
+    normalized = path.replace("\\", "/").strip()
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:24]
+
+
+def playlist_files_in_display_order() -> list[tuple[str, Path]]:
+    if not PLAYLIST_ORDER.is_file():
+        raise SystemExit(f"VirtualDJ playlist order unavailable: {PLAYLIST_ORDER}")
+    rows: list[tuple[str, Path]] = []
+    for line in PLAYLIST_ORDER.read_text(encoding="utf-8").splitlines():
+        name = line.strip()
+        if not name.casefold().startswith("vdjbx - "):
+            continue
+        playlist = PLAYLISTS / f"{name}.vdjfolder"
+        if not playlist.is_file():
+            raise SystemExit(f"Ordered VirtualDJ playlist is missing: {name}")
+        rows.append((name.removeprefix("VDJBX - "), playlist))
+    if not rows:
+        raise SystemExit("No ordered VDJBX playlists found in VirtualDJ's List order")
+    return rows
+
+
+def load_playlist_rows(ordered: list[tuple[str, Path]]) -> tuple[list[dict[str, object]], dict[str, dict[str, str]]]:
+    collections: list[dict[str, object]] = []
+    metadata: dict[str, dict[str, str]] = {}
+    for name, playlist in ordered:
+        members: list[str] = []
+        for _, song in ET.iterparse(playlist, events=("end",)):
+            if song.tag.lower() != "song":
+                song.clear()
+                continue
+            path = song.get("path", "").strip()
+            if not path:
+                raise SystemExit(f"Playlist entry without a path in {name}")
+            key = path_key(path)
+            members.append(key)
+            metadata.setdefault(key, {
+                "playlistArtist": song.get("artist", "").strip(),
+                "playlistTitle": song.get("title", "").strip(),
+            })
+            song.clear()
+        collections.append({"displayName": name, "members": members})
+    return collections, metadata
 
 
 def main() -> None:
     if not DATABASE.is_file():
-        raise SystemExit(f"VirtualDJ database unavailable: {DATABASE}")
-    source = json.loads(SOURCE.read_text(encoding="utf-8"))
-    by_key = {str(video["videoKey"]).lower(): video for video in source.get("videos", [])}
-    memberships: dict[str, list[str]] = {key: [] for key in by_key}
-    for collection in source.get("collections", []):
-        name = str(collection.get("displayName", "")).strip()
-        for key in collection.get("members", []):
-            normalized = str(key).lower()
-            if normalized in memberships and name not in memberships[normalized]:
-                memberships[normalized].append(name)
+        raise SystemExit("Current VirtualDJ database is unavailable")
+    ordered = playlist_files_in_display_order()
+    collections, playlist_metadata = load_playlist_rows(ordered)
+    expected = set(playlist_metadata)
+    graph_ids: set[str] = set()
+    import gzip
 
-    static_track_ids: set[str] = set()
-    for shard in (ROOT / "data/static-graph/tracks").glob("*.json.gz"):
-        import gzip
+    ids_path = ROOT / "data/static-graph/canonical-track-ids.json.gz"
+    graph_ids.update(json.loads(gzip.decompress(ids_path.read_bytes())).keys())
 
-        static_track_ids.update(json.loads(gzip.decompress(shard.read_bytes())).keys())
-
-    verified: dict[str, dict[str, object]] = {}
+    found: dict[str, dict[str, object]] = {}
     for _, song in ET.iterparse(DATABASE, events=("end",)):
         if song.tag != "Song":
             continue
-        source_path = song.get("FilePath", "").replace("\\", "/")
-        if not source_path.upper().startswith(VIDEO_ROOT):
+        path = song.get("FilePath", "").strip()
+        key = path_key(path) if path else ""
+        if key not in expected:
             song.clear()
             continue
-        key = hashlib.sha256(source_path.encode("utf-8")).hexdigest()[:24]
-        if key not in by_key or not Path(source_path).is_file():
-            song.clear()
-            continue
-
         tags = song.find("Tags")
-        artist = (tags.get("Author", "").strip() if tags is not None else "") or str(by_key[key].get("artist", "")).strip()
-        title = (tags.get("Title", "").strip() if tags is not None else "") or str(by_key[key].get("title", "")).strip()
-        raw_year = tags.get("Year", "") if tags is not None else ""
+        fallback = playlist_metadata[key]
+        artist = (tags.get("Author", "").strip() if tags is not None else "") or fallback["playlistArtist"]
+        title = (tags.get("Title", "").strip() if tags is not None else "") or fallback["playlistTitle"]
+        raw_year = tags.get("Year", "").strip() if tags is not None else ""
         try:
-            year_value = int(raw_year)
+            parsed_year = int(raw_year)
         except (TypeError, ValueError):
-            year_value = 0
-        year = year_value if 1900 <= year_value <= datetime.now(timezone.utc).year else None
-
+            parsed_year = 0
+        year = parsed_year if 1900 <= parsed_year <= datetime.now(timezone.utc).year else None
         label = (tags.get("Label", "").strip().upper() if tags is not None else "")
-        song_rvtr = label if RVTR.fullmatch(label) and label in static_track_ids else None
+        song_rvtr = label if RVTR.fullmatch(label) and label in graph_ids else None
         hero_rvtr = song_rvtr if song_rvtr and (
             ROOT / "data/ops/intelligence/research-department" / song_rvtr / "visual-assets/hero-video.jpg"
         ).is_file() else None
-
-        verified[key] = {
+        resolved_item = {
             "videoKey": key,
             "artist": artist,
             "title": title,
             "year": year,
-            "collections": memberships[key],
+            "collections": [],
             "songRvtr": song_rvtr,
             "heroRvtr": hero_rvtr,
         }
+        previous = found.get(key)
+        if previous is None or (not previous["songRvtr"] and song_rvtr):
+            found[key] = resolved_item
         song.clear()
 
-    items = [verified[key] for key in by_key if key in verified]
-    included_keys = {str(item["videoKey"]) for item in items}
-    collections = [
-        {
-            "displayName": str(collection.get("displayName", "")).strip(),
-            "members": [str(key).lower() for key in collection.get("members", []) if str(key).lower() in included_keys],
-        }
-        for collection in source.get("collections", [])
-    ]
-    collections = [collection for collection in collections if collection["displayName"] and collection["members"]]
+    missing = expected - set(found)
+    if missing:
+        raise SystemExit(f"{len(missing)} current playlist identities did not match VirtualDJ database paths")
 
+    for collection in collections:
+        for key in collection["members"]:
+            item = found[key]
+            names = item["collections"]
+            if collection["displayName"] not in names:
+                names.append(collection["displayName"])
+
+    item_order = list(dict.fromkeys(key for collection in collections for key in collection["members"]))
     output = {
-        "version": 1,
-        "sourceCatalogGeneratedAt": source.get("generatedAt"),
-        "mediaVerifiedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "verification": "videoKey matched a path in the current VirtualDJ database and that local video file existed",
-        "items": items,
+        "version": 2,
+        "source": "current VirtualDJ ordered VDJBX playlists joined to database tags",
+        "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "verification": "all playlist entries matched the current VirtualDJ database by hashed media-path identity; local paths are not exported",
+        "items": [found[key] for key in item_order],
         "collections": collections,
     }
     OUTPUT.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
-        "sourceItems": len(by_key),
-        "verifiedCurrentMedia": len(items),
-        "omittedUnavailable": len(by_key) - len(items),
-        "collections": len(collections),
-        "canonicalSongRoutes": sum(bool(item["songRvtr"]) for item in items),
-        "verifiedHeroImages": sum(bool(item["heroRvtr"]) for item in items),
+        "collectionCount": len(collections),
+        "membershipCount": sum(len(collection["members"]) for collection in collections),
+        "uniqueMediaIdentities": len(found),
+        "canonicalSongRoutes": sum(bool(item["songRvtr"]) for item in found.values()),
+        "preparedHeroImages": sum(bool(item["heroRvtr"]) for item in found.values()),
         "output": str(OUTPUT.relative_to(ROOT)),
     }, indent=2))
 

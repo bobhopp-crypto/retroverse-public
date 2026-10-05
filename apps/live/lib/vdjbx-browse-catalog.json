@@ -1,8 +1,8 @@
 {
-  "version": 1,
-  "sourceCatalogGeneratedAt": "2026-09-06T22:49:55.942Z",
-  "mediaVerifiedAt": "2026-10-03T00:38:57+00:00",
-  "verification": "videoKey matched a path in the current VirtualDJ database and that local video file existed",
+  "version": 2,
+  "source": "current VirtualDJ ordered VDJBX playlists joined to database tags",
+  "generatedAt": "2026-10-03T03:08:44+00:00",
+  "verification": "all playlist entries matched the current VirtualDJ database by hashed media-path identity; local paths are not exported",
   "items": [
     {
       "videoKey": "f9cbf1efee3375050ef01040",
@@ -12,7 +12,7 @@
       "collections": [
         "New Picks"
       ],
-      "songRvtr": null,
+      "songRvtr": "RVTR010955",
       "heroRvtr": null
     },
     {
@@ -45,13 +45,13 @@
       "collections": [
         "New Picks"
       ],
-      "songRvtr": null,
+      "songRvtr": "RVTR331419",
       "heroRvtr": null
     },
     {
       "videoKey": "429ffd63af50411d33ad8796",
-      "artist": "Alice In Chains",
-      "title": "Man in the Box",
+      "artist": "",
+      "title": "",
       "year": 1990,
       "collections": [
         "New Picks"
@@ -144,7 +144,7 @@
       "collections": [
         "New Picks"
       ],
-      "songRvtr": null,
+      "songRvtr": "RVTR736640",
       "heroRvtr": null
     },
     {
@@ -237,8 +237,8 @@
     },
     {
       "videoKey": "f628bef25a576ab2b81509b8",
-      "artist": "George Michael",
-      "title": "Don’t Let The Sun Go Down On Me (London)",
+      "artist": "",
+      "title": "",
       "year": null,
       "collections": [
         "New Picks"
@@ -259,8 +259,8 @@
     },
     {
       "videoKey": "5821ebf23bea3de12e27fa31",
-      "artist": "Pearl Jam",
-      "title": "Daughter",
+      "artist": "",
+      "title": "",
       "year": 1993,
       "collections": [
         "New Picks"
@@ -534,8 +534,8 @@
     },
     {
       "videoKey": "89a49f9888d6d92d3d66c8da",
-      "artist": "War",
-      "title": "Why Can t We Be Friends_",
+      "artist": "",
+      "title": "",
       "year": 1975,
       "collections": [
         "New Picks"
@@ -577,6 +577,17 @@
       "heroRvtr": null
     },
     {
+      "videoKey": "68e373a1c7ab36235f06ca6d",
+      "artist": "Joan Baez",
+      "title": "The Night They Drove Old Dixie Down",
+      "year": 1973,
+      "collections": [
+        "New Picks"
+      ],
+      "songRvtr": "RVTR172402",
+      "heroRvtr": null
+    },
+    {
       "videoKey": "791b10218e7866ee2eff4cda",
       "artist": "America",
       "title": "Ventura Highway",
@@ -611,8 +622,8 @@
     },
     {
       "videoKey": "5feb3421e259e61165e141e0",
-      "artist": "Mac Davis",
-      "title": "I Believe In Music",
+      "artist": "",
+      "title": "",
       "year": 1970,
       "collections": [
         "New Picks"
@@ -1367,6 +1378,18 @@
       "heroRvtr": "RVTR848446"
     },
     {
+      "videoKey": "e109200e50c450f3641f4a6e",
+      "artist": "Romantics",
+      "title": "What I Like About You",
+      "year": 1979,
+      "collections": [
+        "Top Plays",
+        "The 80's"
+      ],
+      "songRvtr": "RVTR413146",
+      "heroRvtr": "RVTR413146"
+    },
+    {
       "videoKey": "f658ec7ebf357feb657ff888",
       "artist": "Sonia Dada",
       "title": "Lover",
@@ -1385,7 +1408,7 @@
       "collections": [
         "Top Plays"
       ],
-      "songRvtr": null,
+      "songRvtr": "RVTR028968",
       "heroRvtr": null
     },
     {
@@ -1631,7 +1654,7 @@
       "collections": [
         "Top Plays"
       ],
-      "songRvtr": null,
+      "songRvtr": "RVTR824863",
       "heroRvtr": null
     },
     {
@@ -1667,6 +1690,17 @@
       ],
       "songRvtr": "RVTR853147",
       "heroRvtr": "RVTR853147"
+    },
+    {
+      "videoKey": "36be652812ba9dd4d4ef3291",
+      "artist": "Eric Clapton",
+      "title": "Wonderful Tonight",
+      "year": 1978,
+      "collections": [
+        "The 90's"
+      ],
+      "songRvtr": "RVTR881664",
+      "heroRvtr": null
     },
     {
       "videoKey": "e58ce480a7f6905bb1e2777c",
@@ -2186,15 +2220,60 @@
       "heroRvtr": null
     },
     {
-      "videoKey": "62954bdfac9b1e30513e1c12",
-      "artist": "Queen",
-      "title": "Bohemian Rhapsody (Wayne's World)",
-      "year": 1975,
+      "videoKey": "27af24ff9f368ab7099c9bcd",
+      "artist": "Sister Sledge",
+      "title": "We Are Family",
+      "year": 1978,
+      "collections": [
+        "The 80's"
+      ],
+      "songRvtr": "RVTR968009",
+      "heroRvtr": null
+    },
+    {
+      "videoKey": "a6b948f76aae748690214acb",
+      "artist": "Wild Cherry",
+      "title": "Play That Funky Music",
+      "year": 1976,
+      "collections": [
+        "The 80's"
+      ],
+      "songRvtr": "RVTR692169",
+      "heroRvtr": null
+    },
+    {
+      "videoKey": "9b6525ac14377f4060a09ad2",
+      "artist": "Bob Seger",
+      "title": "Old Time Rock And Roll",
+      "year": 1978,
       "collections": [
         "The 80's"
       ],
       "songRvtr": null,
       "heroRvtr": null
+    },
+    {
+      "videoKey": "0a407bb15503cdbf3c12412b",
+      "artist": "Commodores",
+      "title": "Brick House (Midnight Special)",
+      "year": 1977,
+      "collections": [
+        "The 80's"
+      ],
+      "songRvtr": "RVTR734759",
+      "heroRvtr": null
+    },
+    {
+      "videoKey": "02c295817e35d853a4b463be",
+      "artist": "Queen",
+      "title": "Bohemian Rhapsody (Wayne's World)",
+      "year": 1975,
+      "collections": [
+        "The 80's",
+        "The 70's"
+      ],
+      "songRvtr": "RVTR976054",
+      "heroRvtr": "RVTR976054"
     },
     {
       "videoKey": "3668c9373255dd9646b9eb8a",
@@ -2945,14 +3024,25 @@
       "heroRvtr": "RVTR853792"
     },
     {
-      "videoKey": "17098ca5d1d35452a7e1ffaa",
+      "videoKey": "f04225628640fb0c2059e9d5",
       "artist": "Stevie Wonder",
       "title": "Superstition",
-      "year": 1972,
+      "year": 1974,
       "collections": [
         "The 80's"
       ],
-      "songRvtr": null,
+      "songRvtr": "RVTR678114",
+      "heroRvtr": "RVTR678114"
+    },
+    {
+      "videoKey": "f64e4394986fff15f9ab1875",
+      "artist": "Peaches & Herb",
+      "title": "Shake Your Groove Thing",
+      "year": 1978,
+      "collections": [
+        "The 80's"
+      ],
+      "songRvtr": "RVTR677676",
       "heroRvtr": null
     },
     {
@@ -2967,6 +3057,17 @@
       "heroRvtr": null
     },
     {
+      "videoKey": "9faa65978f059738ebfd1e7d",
+      "artist": "Jackson 5",
+      "title": "I Want You Back",
+      "year": 1969,
+      "collections": [
+        "The 80's"
+      ],
+      "songRvtr": "RVTR690337",
+      "heroRvtr": null
+    },
+    {
       "videoKey": "17a561e17186a5aa34e09eed",
       "artist": "Earth, Wind & Fire",
       "title": "Boogie Wonderland",
@@ -2975,6 +3076,17 @@
         "The 80's"
       ],
       "songRvtr": "RVTR703516",
+      "heroRvtr": null
+    },
+    {
+      "videoKey": "80cdfed28d98b91cdf49b4d3",
+      "artist": "Jacksons",
+      "title": "Blame It On The Boogie",
+      "year": 1978,
+      "collections": [
+        "The 80's"
+      ],
+      "songRvtr": "RVTR766016",
       "heroRvtr": null
     },
     {
@@ -3099,17 +3211,6 @@
       ],
       "songRvtr": "RVTR827394",
       "heroRvtr": null
-    },
-    {
-      "videoKey": "02c295817e35d853a4b463be",
-      "artist": "Queen",
-      "title": "Bohemian Rhapsody (Wayne's World)",
-      "year": 1975,
-      "collections": [
-        "The 70's"
-      ],
-      "songRvtr": "RVTR976054",
-      "heroRvtr": "RVTR976054"
     },
     {
       "videoKey": "b6cf1519aaef5cbb037e8fa4",
@@ -3449,7 +3550,7 @@
       "collections": [
         "The 70's"
       ],
-      "songRvtr": null,
+      "songRvtr": "RVTR369590",
       "heroRvtr": null
     },
     {
@@ -3989,7 +4090,7 @@
       "collections": [
         "The 60's"
       ],
-      "songRvtr": null,
+      "songRvtr": "RVTR288743",
       "heroRvtr": null
     },
     {
@@ -4122,6 +4223,17 @@
         "The 60's"
       ],
       "songRvtr": null,
+      "heroRvtr": null
+    },
+    {
+      "videoKey": "96bc1bac993d15d5ad93b0d0",
+      "artist": "Elvis Presley",
+      "title": "Suspicious Minds",
+      "year": 1974,
+      "collections": [
+        "The 60's"
+      ],
+      "songRvtr": "RVTR864175",
       "heroRvtr": null
     },
     {
@@ -4265,6 +4377,17 @@
         "The 60's"
       ],
       "songRvtr": "RVTR250867",
+      "heroRvtr": null
+    },
+    {
+      "videoKey": "e2bfd041a7cdc7c70fae4d49",
+      "artist": "The Beatles",
+      "title": "All You Need Is Love",
+      "year": 1967,
+      "collections": [
+        "The 60's"
+      ],
+      "songRvtr": "RVTR276702",
       "heroRvtr": null
     },
     {
@@ -4874,6 +4997,7 @@
         "d3a0557e1b7cbd1f80ba3cb8",
         "a77c9bfa6911b6dfb9dfcf2c",
         "e754afffe0afda74aa8ae52b",
+        "68e373a1c7ab36235f06ca6d",
         "791b10218e7866ee2eff4cda",
         "b4f813644e9aafa83e80559c",
         "4c42aa2144c6291eb9cdbfbb",
@@ -4950,6 +5074,7 @@
         "529fd2d826330172882503cb",
         "c9e3a5a34684778a314b24ea",
         "2534385afa2497b1aad25789",
+        "e109200e50c450f3641f4a6e",
         "f658ec7ebf357feb657ff888",
         "847881c7e3ec16bee3feb673",
         "015f6481e33692771990007d",
@@ -4982,6 +5107,7 @@
     {
       "displayName": "The 90's",
       "members": [
+        "36be652812ba9dd4d4ef3291",
         "e58ce480a7f6905bb1e2777c",
         "d8a3fc0c23b94908b2cccfdb",
         "57711352e7a1076a7183944d",
@@ -5038,7 +5164,11 @@
         "a48ce17561b4d6ac9d6e5962",
         "6437b0239550a98426dee8b0",
         "c425c8df6922e44c5723b08c",
-        "62954bdfac9b1e30513e1c12",
+        "27af24ff9f368ab7099c9bcd",
+        "a6b948f76aae748690214acb",
+        "9b6525ac14377f4060a09ad2",
+        "0a407bb15503cdbf3c12412b",
+        "02c295817e35d853a4b463be",
         "3668c9373255dd9646b9eb8a",
         "c5fd441ff3bed48d8d6359a7",
         "8f013d4331b0554b84e545de",
@@ -5049,6 +5179,7 @@
         "b9c1b27adc96da99b8b84b5c",
         "1383ce5eb715a36899d05a44",
         "46353303eed262d278d9eb8f",
+        "e109200e50c450f3641f4a6e",
         "d92934b56c6ff7532e79a121",
         "585696db5bbcbb6191df20e6",
         "86c3682b421dc965da7f4182",
@@ -5111,9 +5242,12 @@
         "ec0627c6d48822a0c29db011",
         "83ccb5cdb06bb10d6ab1c428",
         "9aeb280f2abffc0210120352",
-        "17098ca5d1d35452a7e1ffaa",
+        "f04225628640fb0c2059e9d5",
+        "f64e4394986fff15f9ab1875",
         "0eec591f498c99f8c285bf3e",
-        "17a561e17186a5aa34e09eed"
+        "9faa65978f059738ebfd1e7d",
+        "17a561e17186a5aa34e09eed",
+        "80cdfed28d98b91cdf49b4d3"
       ]
     },
     {
@@ -5235,6 +5369,7 @@
         "88d12617eefea146b3b89577",
         "d10e4a01b7984c77b53775db",
         "436ac4fc040c702cb733b8ff",
+        "96bc1bac993d15d5ad93b0d0",
         "1d2155f790d6deca259bf0e8",
         "25d9dde8d508eb50c98eee4f",
         "c87678401cb391bb3b84cd46",
@@ -5249,6 +5384,7 @@
         "9381a533251fe9198ef6260c",
         "9bf41a3b6c2f6a9cf623d098",
         "5f1e7b956bb28389668fd474",
+        "e2bfd041a7cdc7c70fae4d49",
         "da3165a9cf380efda308fd63",
         "1c284701414364cb11a42f4d",
         "1ac7e2ad00fba5dd352f1d84",

@@ -1,20 +1,15 @@
 import type { Metadata } from "next";
 
-import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-
-import { VdjbxBrowseView } from "../components/vdjbx-browse-view";
+import { VdjbxGuestJukebox } from "../components/vdjbx-guest-jukebox";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Video Jukebox — Retroverse",
-  description: "Browse the verified video collections from Retroverse Live.",
+  title: "Guest Jukebox — Retroverse Live",
+  description: "Browse the songs available on the Retroverse Live stage.",
 };
 
 export default function JukeboxPage() {
-  return (
-    <Rv2PublicShell className="rv2-jukebox" broadcastChrome={false}>
-      <VdjbxBrowseView />
-    </Rv2PublicShell>
-  );
+  return <VdjbxGuestJukebox />;
 }

@@ -177,6 +177,9 @@ export function PublicSongRequestExperience() {
       );
       setReceipt(payload.receipt);
       setScreen("confirmation");
+      window.dispatchEvent(new CustomEvent("retroverse:live-request-submitted", {
+        detail: { title: selected.title, artist: selected.artist },
+      }));
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "The request could not be sent.");
     } finally {

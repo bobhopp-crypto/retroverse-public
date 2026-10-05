@@ -122,6 +122,7 @@ function AdminGearMenu({
 
 export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
   const pathname = usePathname() ?? "/";
+  const hideChrome = pathname === "/" || pathname === "/jukebox";
   const onGalleryRoute = pathname.startsWith("/retroverse/experiences");
   const activeZone = detectAppZone(pathname);
   const activeEntryIdRef = useRef<string | null>(null);
@@ -167,6 +168,8 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
     if (!onGalleryRoute) return;
     console.log("[gallery-instrument] Effect: RetroverseGlobalNav", { pathname });
   });
+
+  if (hideChrome) return null;
 
   return (
     <header className="rv-global-nav" aria-label="Retroverse application">
