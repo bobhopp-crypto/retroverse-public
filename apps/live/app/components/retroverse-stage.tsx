@@ -233,7 +233,7 @@ export function RetroverseStage({ initial }: { initial?: StageNow | null }) {
           onPointerUp={onPointerUp}
           onPointerCancel={clearPointer}
         >
-          <LivingPoster videoKey={currentVideo?.videoKey || null} heroRvtr={currentVideo?.heroRvtr || currentVideo?.songRvtr || null} title={currentVideo?.title || null} artist={currentVideo?.artist || null} />
+          <LivingPoster videoKey={currentVideo?.videoKey || null} heroRvtr={currentVideo?.heroRvtr || currentVideo?.songRvtr || null} />
           {showOnboarding ? <StageOnboarding onDismiss={dismissOnboarding} /> : null}
           <div className="rv-overlay">
             <p className="rv-now-label">{isLiveCurrent ? "LIVE" : "NOW PLAYING"}</p>

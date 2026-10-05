@@ -21,6 +21,7 @@
 .guest-card-collage { position:absolute; inset:0; display:grid; grid-template-columns:repeat(2, 1fr); gap:3px; overflow:hidden; background:#202734; }
 .guest-card-collage > span { min-width:0; min-height:0; position:relative; overflow:hidden; }
 .guest-card-collage .thumb-media { width:100%; height:100%; position:relative; }
+.thumb-media--fallback { display:grid; place-items:center; width:100%; height:100%; background:radial-gradient(circle at 50% 36%,#3a2b18 0,#202734 68%); color:#e9b868; font-size:24px; }
 .guest-card-collage img, .guest-song-image img { width:100%; height:100%; object-fit:cover; display:block; }
 .guest-collection-copy { position:absolute; inset:auto 0 0; display:flex; flex-direction:column; gap:3px; padding:34px 10px 10px; background:linear-gradient(transparent, #090b0fe8 42%); }
 .guest-collection-card strong { font-size:18px; line-height:1.15; }
