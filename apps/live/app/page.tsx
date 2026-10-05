@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-import { RetroverseStage, stageNowFromPublicPayload } from "./components/retroverse-stage";
+import { RetroverseStage } from "./components/retroverse-stage";
 import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
+import { stageNowFromPublicPayload } from "@/lib/stage-now";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
