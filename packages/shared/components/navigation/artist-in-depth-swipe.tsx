@@ -3,11 +3,11 @@
 import { useRouter } from "next/navigation";
 import { useRef, type PointerEvent, type ReactNode, type TouchEvent } from "react";
 
-import { isDownwardArtistSwipe } from "@/lib/artist/artist-in-depth-gesture";
+import { artistSwipeScrollTop, isDownwardArtistSwipe } from "@/lib/artist/artist-in-depth-gesture";
 
 import "./artist-in-depth-swipe.css";
 
-type Origin = { x: number; y: number; t: number };
+type Origin = { x: number; y: number; t: number; scrollTop: number };
 
 type Props = {
   href: string | null;
@@ -32,7 +32,7 @@ export function ArtistInDepthSwipe({
 
   function arm(x: number, y: number) {
     if (!href) return;
-    origin.current = { x, y, t: performance.now() };
+    origin.current = { x, y, t: performance.now(), scrollTop: window.scrollY };
   }
 
   function release(x: number, y: number) {
@@ -43,7 +43,10 @@ export function ArtistInDepthSwipe({
       dx: x - start.x,
       dy: y - start.y,
       elapsedMs: performance.now() - start.t,
-      scrollTop: requireScrollTop ? window.scrollY : 0,
+      scrollTop: artistSwipeScrollTop({
+        requireScrollTop,
+        scrollTopAtStart: start.scrollTop,
+      }),
       requireScrollTop,
     });
     if (!matched) return;

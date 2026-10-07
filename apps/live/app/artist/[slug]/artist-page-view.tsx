@@ -5,6 +5,7 @@ import { ArtistExplorerSongRows, type ArtistExplorerSongRow } from "@/app/artist
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
+import { inYourRetroverseSongs } from "@/lib/artist/library-shelf";
 import type { ArtistCoverageSummary } from "@/lib/artist/load-artist-coverage-summary";
 import type { ArtistPageData } from "@/lib/artist/types";
 import { albumSuggestionHref } from "@/lib/search/entity-routes";
@@ -42,29 +43,23 @@ function buildIdentityLine(data: ArtistPageData): string | null {
   return parts.join(" · ");
 }
 
-function buildSongRows(
-  data: ArtistPageData,
-  coverage: ArtistCoverageSummary,
-  stillByRvtr?: ReadonlyMap<string, string>,
-): ArtistExplorerSongRow[] {
-  const coverByRvtr = new Map(
+type CoverageSong = ArtistCoverageSummary["songs"][number];
+
+function coverByRvtr(data: ArtistPageData): Map<string, string> {
+  return new Map(
     data.signatureTracks
       .filter((t) => t.coverUrl)
       .map((t) => [t.rvtr.toUpperCase(), t.coverUrl!]),
   );
+}
 
-  const sorted = sortChartedSongsByPerformance(
-    coverage.songs.map((song) => ({
-      ...song,
-      title: song.title,
-      peakHot100: song.peakHot100,
-      chartWeeks: song.chartWeeks,
-      firstChartYear: song.firstChartYear,
-      firstChartDate: song.firstChartDate,
-    })),
-  ).slice(0, TOP_SONGS_LIMIT);
-
-  return sorted.map((song) => ({
+function toSongRow(
+  song: CoverageSong,
+  data: ArtistPageData,
+  covers: Map<string, string>,
+  stillByRvtr?: ReadonlyMap<string, string>,
+): ArtistExplorerSongRow {
+  return {
     rvtr: song.rvtr,
     title: song.title,
     artistName: data.displayName,
@@ -72,16 +67,35 @@ function buildSongRows(
     peakHot100: song.peakHot100,
     coverUrl:
       stillByRvtr?.get(song.rvtr.toUpperCase()) ??
-      coverByRvtr.get(song.rvtr.toUpperCase()) ??
+      covers.get(song.rvtr.toUpperCase()) ??
       null,
     trackHref: song.trackHref,
     coverageStatus: song.coverageStatus,
-  }));
+  };
+}
+
+function buildSongRows(
+  data: ArtistPageData,
+  coverage: ArtistCoverageSummary,
+  stillByRvtr?: ReadonlyMap<string, string>,
+): ArtistExplorerSongRow[] {
+  const covers = coverByRvtr(data);
+  const sorted = sortChartedSongsByPerformance(coverage.songs).slice(0, TOP_SONGS_LIMIT);
+  return sorted.map((song) => toSongRow(song, data, covers, stillByRvtr));
+}
+
+function buildLibraryRows(
+  data: ArtistPageData,
+  coverage: ArtistCoverageSummary,
+  stillByRvtr?: ReadonlyMap<string, string>,
+): ArtistExplorerSongRow[] {
+  const covers = coverByRvtr(data);
+  return inYourRetroverseSongs(coverage.songs).map((song) => toSongRow(song, data, covers, stillByRvtr));
 }
 
 export function ArtistPageView({ data, coverage, stillByRvtr }: Props) {
   const songs = buildSongRows(data, coverage, stillByRvtr);
-  const inYourRetroverse = songs.filter((song) => song.coverageStatus === "owned");
+  const inYourRetroverse = buildLibraryRows(data, coverage, stillByRvtr);
   const libraryCount = inYourRetroverse.length > 0 ? inYourRetroverse.length : data.libraryTracks;
   const libraryNoun = inYourRetroverse.length > 0 ? "song" : "recording";
   const albums = data.essentialAlbums.slice(0, ALBUMS_LIMIT);
@@ -209,7 +223,7 @@ export function ArtistPageView({ data, coverage, stillByRvtr }: Props) {
             </p>
             {inYourRetroverse.length > 0 ? (
               <ul className="artist-v1__library-list">
-                {inYourRetroverse.slice(0, 4).map((song) => (
+                {inYourRetroverse.map((song) => (
                   <li key={song.rvtr}>
                     {song.trackHref ? (
                       <Link href={song.trackHref} prefetch className="artist-v1__library-link">

@@ -65,3 +65,32 @@ test("dossier grouping keeps conflicts apart and hides non-video files", () => {
   assert.equal(shelf.songs[3]?.inCollection, false);
   assert.equal(shelf.collectionCount, 3);
 });
+
+test("library songs past the featured slice stay on the shelf", () => {
+  const rows = Array.from({ length: 12 }, (_, index) => ({
+    id: `MD-CHART-${index}`,
+    identity: { labelArtist: "Madonna", labelTitle: `Chart Only ${index + 1}` },
+    paths: [`/tmp/audio/chart-${index}.mp3`],
+  }));
+  rows.push(
+    {
+      id: "MD-LIB",
+      identity: { labelArtist: "Madonna", labelTitle: "Holiday" },
+      paths: ["/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Madonna - Holiday.mp4"],
+      rvtr: "RVTR222222",
+    },
+    {
+      id: "MD-EXTRA",
+      identity: { labelArtist: "Madonna", labelTitle: "Not In Library" },
+      paths: ["/tmp/audio/extra.mp3"],
+    },
+  );
+
+  const shelf = groupDossiersForArtist(rows, "Madonna");
+
+  assert.equal(shelf.songs.some((song) => song.title === "Holiday"), true);
+  assert.equal(shelf.songs.some((song) => song.title === "Not In Library"), false);
+  assert.equal(shelf.songs.length, 13);
+  assert.equal(shelf.collectionCount, 1);
+  assert.equal(shelf.songs.at(-1)?.trackHref, "/retroverse-2/song/RVTR222222");
+});

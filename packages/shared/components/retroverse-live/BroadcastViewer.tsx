@@ -16,6 +16,8 @@ type Props = {
   initial: PlayheadPayload | PlayheadPayloadCore;
   /** When false, render only the initial payload (Audience Preview). */
   poll?: boolean;
+  /** Public player only. Studio monitors leave this off. */
+  artistSwipe?: boolean;
 };
 
 /**
@@ -24,7 +26,7 @@ type Props = {
  * the Broadcast Mixer Audience Preview so every audience surface shows the
  * identical composed broadcast asset.
  */
-export function BroadcastViewer({ initial, poll = true }: Props) {
+export function BroadcastViewer({ initial, poll = true, artistSwipe = false }: Props) {
   const [payload, setPayload] = useState(() => normalizePlayheadPayload(initial));
 
   useEffect(() => {
@@ -55,6 +57,7 @@ export function BroadcastViewer({ initial, poll = true }: Props) {
       key={playheadStageKey(payload)}
       rvba={payload.rvba}
       broadcast={payload.broadcast}
+      artistSwipe={artistSwipe}
     />
   );
 }

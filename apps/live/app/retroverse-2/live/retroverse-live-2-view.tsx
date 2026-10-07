@@ -274,6 +274,7 @@ export function RetroverseLive2View({
             rvba={manualOverride.rvba}
             broadcast={manualOverride.broadcast}
             offAirTitle="Retroverse Live"
+            artistSwipe
           />
         </section>
       ) : (

@@ -19,6 +19,7 @@ export type DossierArtistShelf = {
 };
 
 const VIDEO_LIBRARY = /dj media\/video/i;
+const FEATURED_SONG_LIMIT = 12;
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" && !Array.isArray(value)
@@ -85,6 +86,16 @@ export function isVideoLibraryPath(path: string): boolean {
   return VIDEO_LIBRARY.test(path.replace(/\\/g, "/"));
 }
 
+/** Featured rows stay capped. Library songs past that cap stay on the shelf. */
+export function dossierShelfSongs(songs: DossierSongCard[]): DossierSongCard[] {
+  const featured = songs.slice(0, FEATURED_SONG_LIMIT);
+  const featuredKeys = new Set(featured.map((song) => song.key));
+  const libraryOutsideFeatured = songs.filter(
+    (song) => song.inCollection && !featuredKeys.has(song.key),
+  );
+  return [...featured, ...libraryOutsideFeatured];
+}
+
 export function groupDossiersForArtist(rows: unknown[], artistName: string): DossierArtistShelf {
   const wanted = normalizeLabelArtist(primaryLabelArtist(artistName));
   const songs: DossierSongCard[] = [];
@@ -140,7 +151,7 @@ export function groupDossiersForArtist(rows: unknown[], artistName: string): Dos
 
   return {
     displayName: artistName,
-    songs: songs.slice(0, 12),
+    songs: dossierShelfSongs(songs),
     collectionCount: songs.filter((song) => song.inCollection).length,
     related: [...related.values()].slice(0, 4),
   };
