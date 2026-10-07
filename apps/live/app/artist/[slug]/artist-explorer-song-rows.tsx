@@ -73,12 +73,10 @@ function ExplorerLibraryButton({ row }: { row: ArtistExplorerSongRow }) {
   );
 }
 
-function ArtistExplorerSongRowItem({ row }: { row: ArtistExplorerSongRow }) {
-  const rankLabel = row.peakHot100 != null ? String(row.peakHot100) : "—";
-
+function ArtistExplorerSongRowItem({ row, rank }: { row: ArtistExplorerSongRow; rank: number }) {
   const mainBlock = (
     <>
-      <span className="explorer-row__rank">{rankLabel}</span>
+      <span className="explorer-row__rank">{rank}</span>
       <div className="explorer-row__main">
         <ArtistCover
           src={row.coverUrl}
@@ -137,8 +135,8 @@ export function ArtistExplorerSongRows({ songs }: Props) {
 
   return (
     <ol className="explorer-rows artist-explorer-rows">
-      {songs.map((row) => (
-        <ArtistExplorerSongRowItem key={row.rvtr} row={row} />
+      {songs.map((row, index) => (
+        <ArtistExplorerSongRowItem key={row.rvtr} row={row} rank={index + 1} />
       ))}
     </ol>
   );

@@ -8,7 +8,7 @@ export function RetroverseLivePlayer({ initial }: { initial: PlayheadPayload }) 
   // this is a venue display, not a browsing page.
   return (
     <main style={{ position: "fixed", inset: 0, zIndex: 1300 }}>
-      <BroadcastViewer initial={initial} />
+      <BroadcastViewer initial={initial} artistSwipe />
     </main>
   );
 }

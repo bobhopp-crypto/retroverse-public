@@ -42,9 +42,23 @@ export function artistInDepthHref(input: ArtistInDepthHrefInput): string {
 }
 
 /**
+ * Page offset for the swipe check.
+ * `scrollTopAtStart` is sampled when the finger goes down, not when it lifts.
+ */
+export function artistSwipeScrollTop(input: {
+  requireScrollTop: boolean;
+  scrollTopAtStart: number;
+}): number {
+  if (!input.requireScrollTop) return 0;
+  if (!Number.isFinite(input.scrollTopAtStart)) return Number.POSITIVE_INFINITY;
+  return input.scrollTopAtStart;
+}
+
+/**
  * Finger moving down, clearly more vertical than horizontal.
  * A tap (tiny movement) is never a swipe.
- * On a scrolling song page, only a pull-down at the top counts.
+ * On a scrolling song page, only a pull-down that starts at the top counts.
+ * `scrollTop` is that start offset. Reaching the top mid-drag does not count.
  */
 export function isDownwardArtistSwipe(input: DownwardSwipeInput): boolean {
   if (!Number.isFinite(input.dx) || !Number.isFinite(input.dy) || !Number.isFinite(input.elapsedMs)) {

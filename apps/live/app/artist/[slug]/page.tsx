@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 
 import { loadCompanionStillUrls } from "@/lib/artist/companion-still";
+import { companionStillTargets } from "@/lib/artist/companion-still-targets";
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadArtistCoverageSummary } from "@/lib/artist/load-artist-coverage-summary";
 import { resolveLiveArtistName } from "@/lib/artist/resolve-artist";
@@ -59,10 +60,12 @@ export default async function ArtistPage({ params, searchParams }: Props) {
     timePublicLoader("artist-page", () => loadArtistPage(canonical.routeToken)),
     timePublicLoader("artist-coverage", () => loadArtistCoverageSummary(canonical.routeToken)),
   ]);
-  const stillByRvtr = await loadCompanionStillUrls([
-    ...coverageLoad.value.songs.map((song) => song.rvtr),
-    ...pageLoad.value.signatureTracks.map((track) => track.rvtr),
-  ]);
+  const stillByRvtr = await loadCompanionStillUrls(
+    companionStillTargets({
+      songs: coverageLoad.value.songs,
+      signatureRvtrs: pageLoad.value.signatureTracks.map((track) => track.rvtr),
+    }),
+  );
 
   return (
     <>

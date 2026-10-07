@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
+import { artistDepthFallbackBody } from "@/lib/artist/artist-depth-fallback-copy";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 
@@ -40,9 +41,7 @@ export function ArtistDepthFallback({ name, songHref }: Props) {
         </header>
         <section className="artist-v1__empty" aria-live="polite">
           <p className="artist-v1__empty-title">Still connecting</p>
-          <p className="artist-v1__empty-body">
-            {label} is on this song, and the canonical artist page is not linked yet.
-          </p>
+          <p className="artist-v1__empty-body">{artistDepthFallbackBody(label, songHref)}</p>
           <p className="artist-v1__empty-actions">
             {songHref ? (
               <Link href={songHref} prefetch className="artist-v1__empty-link">

@@ -18,7 +18,7 @@ export async function PassExperienceShell({ scan }: { scan: PassScanResult }) {
   const initial = await buildPlayheadPayload();
   return (
     <main className="home-broadcast">
-      <BroadcastViewer initial={initial} />
+      <BroadcastViewer initial={initial} artistSwipe />
       <PassExperienceOverlay scan={scan} currentEventTitle={initial.presentation?.title ?? null} />
     </main>
   );

@@ -36,6 +36,8 @@ type Props = {
   broadcast?: CurrentBroadcast | null;
   /** Shown when there is no published presentation on air. */
   offAirTitle?: string;
+  /** Public player only. Studio and audience-preview monitors leave this off. */
+  artistSwipe?: boolean;
 };
 
 function formatCountdown(totalSeconds: number): string {
@@ -86,7 +88,12 @@ function songTrackKey(rvba: Rvba, packageRvtr: string | null, assetId: string | 
   return `${linkId || assetId || rvba.id}|${rvba.title.trim()}|${rvba.subtitle.trim()}`;
 }
 
-export function PresentationStage({ rvba, broadcast = null, offAirTitle = "Retroverse Live" }: Props) {
+export function PresentationStage({
+  rvba,
+  broadcast = null,
+  offAirTitle = "Retroverse Live",
+  artistSwipe = false,
+}: Props) {
   const asset = resolveBroadcastAsset(rvba, broadcast);
   const [pkg, setPkg] = useState<UniversalPackagePayload | null>(null);
 
@@ -146,6 +153,7 @@ export function PresentationStage({ rvba, broadcast = null, offAirTitle = "Retro
           key={compositionKey}
           asset={composedAsset}
           transition={rvba?.transition}
+          artistSwipe={artistSwipe}
         />
       </div>
     );

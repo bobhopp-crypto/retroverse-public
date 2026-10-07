@@ -16,6 +16,8 @@ import "./broadcast-asset-composer.css";
 type Props = {
   asset: ComposedBroadcastAsset;
   transition?: PresentationTransition;
+  /** Public broadcast surfaces only. Studio previews leave this off. */
+  artistSwipe?: boolean;
 };
 
 function artistInitials(artist: string): string {
@@ -68,7 +70,7 @@ function CoverArt({
  * Standard Broadcast Asset — Theme Pack 1 phone presentation.
  * Fixed regions per template; typography is identical across all twelve.
  */
-export function BroadcastAssetComposerView({ asset, transition = "fade" }: Props) {
+export function BroadcastAssetComposerView({ asset, transition = "fade", artistSwipe = false }: Props) {
   const template = getTemplateDefinition(asset.templateId);
   const albumLine = useMemo(
     () => formatAlbumYearLine(asset.input.album, asset.input.year),
@@ -88,8 +90,7 @@ export function BroadcastAssetComposerView({ asset, transition = "fade" }: Props
     artistName: asset.input.artist,
   });
 
-  return (
-    <ArtistInDepthSwipe href={artistDepthHref} fill>
+  const stage = (
     <div
       className={`bac ${template.layoutClass} ${transitionClass}`}
       data-template={asset.templateId}
@@ -115,11 +116,18 @@ export function BroadcastAssetComposerView({ asset, transition = "fade" }: Props
       </div>
 
       <p className="bac__brand">Retroverse Live</p>
-      {artistDepthHref ? <p className="bac__artist-cue">Swipe down · Artist</p> : null}
+      {artistSwipe && artistDepthHref ? <p className="bac__artist-cue">Swipe down · Artist</p> : null}
       <p className="bac__rvtr" aria-hidden="true">
         {asset.input.rvtr}
       </p>
     </div>
+  );
+
+  if (!artistSwipe) return stage;
+
+  return (
+    <ArtistInDepthSwipe href={artistDepthHref} fill>
+      {stage}
     </ArtistInDepthSwipe>
   );
 }

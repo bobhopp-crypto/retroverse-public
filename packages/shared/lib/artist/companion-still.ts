@@ -1,5 +1,6 @@
 import "server-only";
 
+import { COMPANION_STILL_LOOKUP_LIMIT } from "@/lib/artist/companion-still-targets";
 import { resolveVisualAssetPath } from "@/lib/ops/studio/collector/visual-extraction";
 
 const RVTR_RE = /^RVTR\d{6}$/i;
@@ -18,7 +19,7 @@ export async function loadCompanionStillUrls(rvtrs: string[]): Promise<Map<strin
         .map((rvtr) => rvtr.trim().toUpperCase())
         .filter((rvtr) => RVTR_RE.test(rvtr)),
     ),
-  ].slice(0, 16);
+  ].slice(0, COMPANION_STILL_LOOKUP_LIMIT);
 
   const found = await Promise.all(
     unique.map(async (rvtr) => {

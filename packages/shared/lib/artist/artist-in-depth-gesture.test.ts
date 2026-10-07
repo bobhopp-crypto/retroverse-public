@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { artistInDepthHref, isDownwardArtistSwipe } from "./artist-in-depth-gesture";
+import { artistInDepthHref, artistSwipeScrollTop, isDownwardArtistSwipe } from "./artist-in-depth-gesture";
 
 test("artist href prefers a canonical artist route", () => {
   assert.equal(
@@ -69,6 +69,26 @@ test("pull-down on a scrolled song page does not leave the song", () => {
   );
   assert.equal(
     isDownwardArtistSwipe({ dx: 0, dy: 140, elapsedMs: 200, scrollTop: 0, requireScrollTop: true }),
+    true,
+  );
+});
+
+test("scroll position is the offset when the swipe starts", () => {
+  const scrollTop = artistSwipeScrollTop({ requireScrollTop: true, scrollTopAtStart: 180 });
+  assert.equal(scrollTop, 180);
+  assert.equal(
+    isDownwardArtistSwipe({ dx: 0, dy: 140, elapsedMs: 200, scrollTop, requireScrollTop: true }),
+    false,
+  );
+  assert.equal(artistSwipeScrollTop({ requireScrollTop: false, scrollTopAtStart: 400 }), 0);
+  assert.equal(
+    isDownwardArtistSwipe({
+      dx: 0,
+      dy: 140,
+      elapsedMs: 200,
+      scrollTop: artistSwipeScrollTop({ requireScrollTop: true, scrollTopAtStart: 12 }),
+      requireScrollTop: true,
+    }),
     true,
   );
 });
