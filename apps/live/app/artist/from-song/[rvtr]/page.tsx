@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
-import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-song-payload";
+import { resolveFromSongArtist } from "@/lib/artist/from-song-artist";
+import { loadTrackPage } from "@/lib/track/load-track-page";
 
 import { ArtistDepthFallback } from "../../artist-depth-fallback";
 
@@ -20,8 +20,9 @@ export async function generateMetadata(_props: Props): Promise<Metadata> {
 }
 
 /**
- * Swipe-down landing. Redirects only when the song already has a canonical
- * artist route. Otherwise a minimal archive page — never a 404.
+ * Swipe-down landing. The static track page is the song→artist link
+ * (`artistHref` / `artistSlug`). A display name never mints an RVAR.
+ * Unknown songs stay on the archive page — never a 404.
  */
 function hintedName(value: string | string[] | undefined): string {
   const raw = Array.isArray(value) ? value[0] : value;
@@ -33,23 +34,17 @@ export default async function ArtistFromSongPage({ params, searchParams }: Props
   const query = searchParams ? await searchParams : {};
   const normalized = decodeURIComponent(rvtr).trim().toUpperCase();
   const hinted = hintedName(query.name);
-  let name = hinted || "This artist";
-  let songHref: string | null = null;
-  let canonicalHref: string | null = null;
-
+  let track = null;
   if (RVTR_RE.test(normalized)) {
     try {
-      const payload = await loadPublicSongPayload(normalized);
-      if (payload?.artist?.trim()) name = payload.artist.trim();
-      songHref = payload?.links.songHref ?? null;
-      const resolved = artistInDepthHref({ artistHref: payload?.links.artistHref ?? null });
-      if (resolved && !resolved.startsWith("/artist/from-song/")) canonicalHref = resolved;
+      track = await loadTrackPage(normalized);
     } catch {
-      if (!hinted) name = "This artist";
+      track = null;
     }
   }
 
-  if (canonicalHref) redirect(canonicalHref);
+  const resolved = resolveFromSongArtist({ rvtr: normalized, track, hintedName: hinted });
+  if (resolved.canonicalHref) redirect(resolved.canonicalHref);
 
-  return <ArtistDepthFallback name={name} songHref={songHref} />;
+  return <ArtistDepthFallback name={resolved.name} songHref={resolved.songHref} />;
 }

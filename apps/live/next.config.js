@@ -82,6 +82,10 @@ const nextConfig = {
     "/week/[date]": ["./data/static-graph/weeks/**"],
     "/api/charts/week": ["./data/static-graph/weeks/**"],
     "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
+    "/artist/from-song/[rvtr]": [
+      "./data/static-graph/tracks/**",
+      "./data/static-graph/artist-identities.json.gz",
+    ],
     "/retroverse-2/song/[rvtr]": [
       "./data/rvbr/**",
       "./data/bobos/song-packages/**",
