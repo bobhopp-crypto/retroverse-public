@@ -10,6 +10,7 @@ import { canonicalArtistHref, resolveCanonicalArtist, resolveLegacyArtistId } fr
 import { CanonicalPublicTrace } from "@/components/public/CanonicalPublicTrace";
 import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
 import { localPublicTraceEnabled, timePublicLoader } from "@/lib/public/local-trace";
+import { loadArtistProfile } from "@/lib/artist-profile-store";
 
 import { ArtistDepthFallback } from "../artist-depth-fallback";
 import { ArtistPageView } from "./artist-page-view";
@@ -55,9 +56,10 @@ export default async function ArtistPage({ params, searchParams }: Props) {
     if (live) redirect(canonicalArtistHref(live.rvar));
     return <ArtistDepthFallback name={starter.name} />;
   }
-  const [pageLoad, coverageLoad] = await Promise.all([
+  const [pageLoad, coverageLoad, profile] = await Promise.all([
     timePublicLoader("artist-page", () => loadArtistPage(canonical.routeToken)),
     timePublicLoader("artist-coverage", () => loadArtistCoverageSummary(canonical.routeToken)),
+    loadArtistProfile(canonical.rvar).catch(() => null),
   ]);
   const stillByRvtr = await loadCompanionStillUrls([
     ...coverageLoad.value.songs.map((song) => song.rvtr),
@@ -70,6 +72,7 @@ export default async function ArtistPage({ params, searchParams }: Props) {
         data={pageLoad.value}
         coverage={coverageLoad.value}
         stillByRvtr={stillByRvtr}
+        profile={profile}
       />
       <CanonicalPublicTrace
         enabled={traceEnabled}
