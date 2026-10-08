@@ -16,6 +16,8 @@ export type MagazineProfile = {
   artistQuotes: { text: string; on: string }[];
   credits: { title: string; role: string; year: number | null; peak: number | null }[];
   portraitUrl: string | null;
+  /** Curator notes that are not already a chapter quote. Omitted when there is no profile. */
+  notes?: { heading: string; items: { key: string; title: string | null; text: string; href: string | null }[] }[];
 };
 
 export type MagazineSongInput = {
@@ -162,6 +164,14 @@ export type MagazinePage = {
   credits: {
     labelTone: FlatTone;
     rows: { key: string; title: string; role: string; peak: string | null; tone: FlatTone }[];
+  } | null;
+  essay: { text: string; dropCap: boolean; tone: FlatTone | null }[];
+  dossier: {
+    groups: {
+      title: string;
+      titleTone: FlatTone;
+      items: { key: string; title: string | null; text: string; href: string | null; tone: FlatTone }[];
+    }[];
   } | null;
   closingRule: FlatTone;
   footerTone: FlatTone;
@@ -371,6 +381,7 @@ export function composeArtistMagazine(input: {
   }
 
   const paraByDecade = new Map<string, string[]>();
+  const placedStory = new Set<string>();
   for (const paragraph of story) {
     const counts = new Map<string, number>();
     for (const song of dated) {
@@ -380,6 +391,7 @@ export function composeArtistMagazine(input: {
       }
     }
     if (counts.size === 0) continue;
+    placedStory.add(paragraph);
     let bestDecade = "";
     let bestCount = -1;
     for (const [decade, count] of counts) {
@@ -559,6 +571,8 @@ export function composeArtistMagazine(input: {
     back: null,
     list: null,
     credits: null,
+    essay: [],
+    dossier: null,
     closingRule: { a: "#ff2937", ink: "#07070d" },
     footerTone: { a: "#ff2937", ink: "#07070d" },
   };
@@ -594,7 +608,7 @@ export function composeArtistMagazine(input: {
           coverUrl: album.coverUrl,
           year: album.year,
           cover: hasCover ? paint.take("img:cv", 1) : paint.take("div:ph", 2),
-          note: "Album · on your shelf",
+          note: fromCollection ? "Album · on your shelf" : "Album",
           noteTone: paint.take("div:bs", 1),
         };
       }),
@@ -634,6 +648,37 @@ export function composeArtistMagazine(input: {
         role: credit.year != null ? `${credit.role} · ${credit.year}` : credit.role,
         peak: credit.peak != null ? `No. ${credit.peak}` : null,
         tone: paint.take("div:cr", 1),
+      })),
+    };
+  }
+
+  const unusedStory = story.filter((paragraph) => !placedStory.has(paragraph));
+  if (unusedStory.length > 0) {
+    page.essay = unusedStory.map((text, index) => ({
+      text,
+      dropCap: index === 0 && text.length > 0 && !"‘“\"".includes(text[0]!),
+      tone: index === 0 ? paint.take("p:essay", 1) : null,
+    }));
+  }
+
+  const noteGroups = (profile?.notes ?? [])
+    .map((group) => ({
+      heading: group.heading.trim(),
+      items: group.items.filter((item) => item.title?.trim() || item.text.trim()),
+    }))
+    .filter((group) => group.heading && group.items.length > 0);
+  if (noteGroups.length > 0) {
+    page.dossier = {
+      groups: noteGroups.map((group) => ({
+        title: group.heading,
+        titleTone: paint.take("h2:wk", 1),
+        items: group.items.map((item) => ({
+          key: item.key,
+          title: item.title?.trim() || null,
+          text: item.text.trim(),
+          href: item.href,
+          tone: paint.take("div:wk", 1),
+        })),
       })),
     };
   }

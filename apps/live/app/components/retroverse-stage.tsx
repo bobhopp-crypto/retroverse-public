@@ -175,12 +175,12 @@ export function RetroverseStage({ initial }: { initial?: StageNow | null }) {
   const goArtist = useCallback(() => {
     if (!currentVideo?.artist?.trim()) return;
     const href = artistInDepthHref({
-      artistHref: null,
+      artistHref: isLiveCurrent ? apiNow?.artistHref ?? null : null,
       rvtr: currentVideo.songRvtr || null,
       artistName: currentVideo.artist,
     });
     if (href) router.push(href);
-  }, [currentVideo, router]);
+  }, [apiNow?.artistHref, currentVideo, isLiveCurrent, router]);
 
   const openSongGuide = useCallback(() => {
     if (!currentVideo) return;

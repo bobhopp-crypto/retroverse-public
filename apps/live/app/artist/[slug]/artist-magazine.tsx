@@ -177,11 +177,26 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
         </section>
       ))}
 
+      {page.essay.length ? (
+        <section className="rv-mag-essay" aria-label="The story">
+          <div className="rv-mag-label">The story</div>
+          {page.essay.map((paragraph) => (
+            <p
+              key={paragraph.text}
+              className={paragraph.dropCap ? "rv-mag-body is-drop" : "rv-mag-body"}
+              style={paragraph.tone ? toneStyle(paragraph.tone) : undefined}
+            >
+              {paragraph.text}
+            </p>
+          ))}
+        </section>
+      ) : null}
+
       {page.back ? (
         <section className="rv-mag-back" style={toneStyle(page.back.stripe)}>
           <div className="rv-mag-back__head" style={toneStyle(page.back.rule)}>
             <b className="rv-mag-back__title" style={toneStyle(page.back.title)}>
-              Also in your Retroverse
+              {page.fromCollection ? "Also in your Retroverse" : "Also on record"}
             </b>
             <span className="rv-mag-tag rv-mag-back__badge" style={toneStyle(page.back.badge)}>
               Back pages
@@ -214,33 +229,48 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
                 </div>
               </div>
             ))}
-            {page.back.albums.map((album) => (
-              <div key={album.key} className="rv-mag-back__item rv-mag-back__item--album">
-                <span style={toneStyle(album.cover)}>
-                  {album.coverUrl ? (
-                    <MagazinePhoto
-                      sources={[album.coverUrl]}
-                      alt=""
-                      fallback={<TitleTile variant="cover" title={album.title} year={album.year} tone={album.cover} />}
-                    />
-                  ) : (
-                    <TitleTile variant="cover" title={album.title} year={album.year} tone={album.cover} />
-                  )}
-                </span>
-                <div className="rv-mag-back__name">{album.title}</div>
-                <div className="rv-mag-back__note" style={toneStyle(album.noteTone)}>
-                  {album.note}
+            {page.back.albums.map((album) => {
+              const body = (
+                <>
+                  <span style={toneStyle(album.cover)}>
+                    {album.coverUrl ? (
+                      <MagazinePhoto
+                        sources={[album.coverUrl]}
+                        alt=""
+                        fallback={<TitleTile variant="cover" title={album.title} year={album.year} tone={album.cover} />}
+                      />
+                    ) : (
+                      <TitleTile variant="cover" title={album.title} year={album.year} tone={album.cover} />
+                    )}
+                  </span>
+                  <div className="rv-mag-back__name">{album.title}</div>
+                  <div className="rv-mag-back__note" style={toneStyle(album.noteTone)}>
+                    {album.note}
+                  </div>
+                </>
+              );
+              return album.href ? (
+                <Link key={album.key} href={album.href} prefetch className="rv-mag-back__item rv-mag-back__item--album">
+                  {body}
+                </Link>
+              ) : (
+                <div key={album.key} className="rv-mag-back__item rv-mag-back__item--album">
+                  {body}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       ) : null}
 
       {page.list ? (
         <>
-          <div className="rv-mag-label">In Your Retroverse</div>
-          <section className="rv-mag-list" style={toneStyle(page.list.frame)} aria-label="In Your Retroverse">
+          <div className="rv-mag-label">{page.fromCollection ? "In Your Retroverse" : "Charted recordings"}</div>
+          <section
+            className="rv-mag-list"
+            style={toneStyle(page.list.frame)}
+            aria-label={page.fromCollection ? "In Your Retroverse" : "Charted recordings"}
+          >
             <h3>
               <em style={toneStyle(page.list.countTone)}>{page.list.count}</em>
               {page.list.rest}
@@ -281,6 +311,34 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
             </ol>
           </section>
         </>
+      ) : null}
+
+      {page.dossier ? (
+        <section className="rv-mag-dossier" aria-label="Worth knowing">
+          {page.dossier.groups.map((group) => (
+            <div key={group.title}>
+              <h2 className="rv-mag-display" style={toneStyle(group.titleTone)}>
+                {group.title}
+              </h2>
+              {group.items.map((item) => (
+                <article key={item.key} className="rv-mag-dossier__item" style={toneStyle(item.tone)}>
+                  {item.title ? (
+                    item.href ? (
+                      <h3>
+                        <Link href={item.href} prefetch>
+                          {item.title}
+                        </Link>
+                      </h3>
+                    ) : (
+                      <h3>{item.title}</h3>
+                    )
+                  ) : null}
+                  {item.text ? <p>{item.text}</p> : null}
+                </article>
+              ))}
+            </div>
+          ))}
+        </section>
       ) : null}
 
       {page.credits ? (

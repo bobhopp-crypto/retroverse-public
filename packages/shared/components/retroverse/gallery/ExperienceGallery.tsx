@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 
 import type { GalleryPageData } from "@/lib/retroverse/gallery/gallery-types";
 import { useGalleryClientInstrument } from "@/lib/retroverse/gallery/use-gallery-client-instrument";
@@ -47,8 +47,6 @@ export function ExperienceGallery({ data }: Props) {
       experience: searchParams.get("experience"),
     });
   }
-  const [rvtrJump, setRvtrJump] = useState(data.currentRvtr);
-
   const selectedId =
     searchParams.get("experience") ??
     data.signatureExperiences.find((e) => e.status === "ready")?.id ??
@@ -60,12 +58,6 @@ export function ExperienceGallery({ data }: Props) {
     null;
 
   const selectedReadiness = data.song.experiences.find((e) => e.id === selectedId) ?? null;
-
-  const availableCount = data.song.experiences.filter((e) => e.launchHref).length;
-  const completionPct = Math.round(
-    data.song.experiences.reduce((sum, e) => sum + e.completionPct, 0) /
-      Math.max(1, data.song.experiences.length),
-  );
 
   const galleryHref = useCallback(
     (rvtr: string, experience?: string) => {
@@ -82,14 +74,6 @@ export function ExperienceGallery({ data }: Props) {
       router.push(galleryHref(data.currentRvtr, id), { scroll: false });
     },
     [router, galleryHref, data.currentRvtr],
-  );
-
-  const navigateSong = useCallback(
-    (rvtr: string | null) => {
-      if (!rvtr) return;
-      router.push(galleryHref(rvtr, selectedId));
-    },
-    [router, galleryHref, selectedId],
   );
 
   const liveFollowing = useMemo(
@@ -142,10 +126,6 @@ export function ExperienceGallery({ data }: Props) {
               <dt>Album</dt>
               <dd>{data.song.album ?? "—"}</dd>
             </div>
-            <div>
-              <dt>RVTR</dt>
-              <dd>{data.song.rvtr}</dd>
-            </div>
             {data.song.peakHot100 ? (
               <div>
                 <dt>Peak Hot 100</dt>
@@ -155,9 +135,6 @@ export function ExperienceGallery({ data }: Props) {
           </dl>
           <div className="rv-gallery__completion">
             <p className="rv-gallery__meta-label">Available Experiences</p>
-            <p className="rv-gallery__completion-stat">
-              {availableCount} ready · {completionPct}% library depth
-            </p>
           </div>
         </div>
       </section>
@@ -198,23 +175,6 @@ export function ExperienceGallery({ data }: Props) {
       <section className="rv-gallery__quick-jump" aria-label="Quick jump">
         <p className="rv-gallery__section-label">Quick Jump</p>
         <div className="rv-gallery__jump-row">
-          <form
-            className="rv-gallery__jump-rvtr"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const rvtr = rvtrJump.trim().toUpperCase();
-              if (/^RVTR\d{6}$/.test(rvtr)) navigateSong(rvtr);
-            }}
-          >
-            <label htmlFor="rv-gallery-rvtr">RVTR</label>
-            <input
-              id="rv-gallery-rvtr"
-              value={rvtrJump}
-              onChange={(e) => setRvtrJump(e.target.value.toUpperCase())}
-              placeholder="RVTR001341"
-            />
-            <button type="submit">Go</button>
-          </form>
           <Link href={`/search?q=${encodeURIComponent(data.song.artist)}`} className="rv-gallery__jump-link">
             Artist
           </Link>
