@@ -1,8 +1,15 @@
 import type { Rvba } from "@/lib/broadcast/rvba";
+import { publicStageId, sanitizePublicCopy, hasPrivatePath } from "@/lib/retroverse/experience/public-copy";
 import type { UniversalPackagePayload } from "@/lib/universal-renderer/load-package";
 import type { RendererCard } from "@/lib/universal-renderer/card-types";
 
 import type { BroadcastAssetInput } from "./types";
+
+function publicLabel(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed || !hasPrivatePath(trimmed)) return trimmed;
+  return sanitizePublicCopy(trimmed);
+}
 
 function coverFromCards(cards: RendererCard[]): string | null {
   for (const card of cards) {
@@ -25,9 +32,9 @@ export function extractBroadcastInputFromPackage(
   pkg: UniversalPackagePayload,
 ): BroadcastAssetInput {
   return {
-    rvtr: pkg.rvtr,
-    title: pkg.title.trim(),
-    artist: pkg.artist.trim(),
+    rvtr: publicStageId(pkg.rvtr),
+    title: publicLabel(pkg.title),
+    artist: publicLabel(pkg.artist),
     album: albumFromCards(pkg.cards),
     year: pkg.year,
     coverUrl: coverFromCards(pkg.cards),
@@ -36,10 +43,10 @@ export function extractBroadcastInputFromPackage(
 
 /** Fallback input from playhead RVBA when package metadata is still loading. */
 export function extractBroadcastInputFromRvba(rvba: Rvba, songKey: string): BroadcastAssetInput {
-  const title = rvba.title.trim() || rvba.link?.label?.trim() || "Now Playing";
-  const artist = rvba.subtitle.trim();
+  const title = publicLabel(rvba.title.trim() || rvba.link?.label?.trim() || "Now Playing");
+  const artist = publicLabel(rvba.subtitle);
   return {
-    rvtr: songKey.trim().toUpperCase(),
+    rvtr: publicStageId(songKey),
     title,
     artist,
     album: null,

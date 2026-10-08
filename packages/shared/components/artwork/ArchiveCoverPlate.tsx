@@ -9,6 +9,8 @@ type Props = {
   className?: string;
   /** Smaller type for search thumbs and shelf tiles */
   density?: "default" | "compact" | "dense";
+  /** Ops cover tools only. Public plates never print catalog ids. */
+  showCatalogId?: boolean;
 };
 
 function displayArtist(artist: string): string {
@@ -24,6 +26,7 @@ export function ArchiveCoverPlate({
   context,
   className = "",
   density = "default",
+  showCatalogId = false,
 }: Props) {
   const variant = computeAlbumPlaceholderVariant(context);
   const style = albumPlaceholderStyle(context);
@@ -47,7 +50,7 @@ export function ArchiveCoverPlate({
         <p className="archive-cover-plate__artist">{artist}</p>
         <p className="archive-cover-plate__album">{album}</p>
         {year ? <p className="archive-cover-plate__year">{year}</p> : null}
-        {rval ? <p className="archive-cover-plate__rval">{rval}</p> : null}
+        {showCatalogId && rval ? <p className="archive-cover-plate__rval">{rval}</p> : null}
         <p className="archive-cover-plate__stamp">NO COVER</p>
       </div>
     </div>

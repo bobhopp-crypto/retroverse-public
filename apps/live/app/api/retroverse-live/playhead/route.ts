@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
 import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
+import { redactPublicTree } from "@/lib/retroverse/experience/public-copy";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,7 @@ export const dynamic = "force-dynamic";
  * background job is needed and every poll returns the correct item.
  */
 export async function GET() {
-  const payload = normalizePlayheadPayload(await buildPlayheadPayload());
+  const payload = redactPublicTree(normalizePlayheadPayload(await buildPlayheadPayload()));
   return NextResponse.json(payload, {
     headers: { "cache-control": "no-store" },
   });
