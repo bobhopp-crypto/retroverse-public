@@ -16,6 +16,7 @@ import { AudibleDeckHysteresis } from "./hysteresis";
 import { bridgeLog } from "./logger";
 import { VdjOscSensor } from "./osc-sensor";
 import { publishLiveTrack } from "./publish";
+import { startArtistProfileSync } from "./artist-profile-sync";
 import { rvtrForVdjPath } from "./rvtr-from-vdj";
 import { pickActiveDeck } from "./vdj";
 import { findProjectRoot, loadEnvFiles } from "../live/shared";
@@ -75,6 +76,9 @@ async function main() {
     });
     process.exit(1);
   }
+
+  // Compact public Artist Curator views. Does not block VirtualDJ publishing.
+  startArtistProfileSync(config.apiSecret);
 
   let lastPickedDeck: number | null = null;
   let lastPublishedPlaying: boolean | null = null;

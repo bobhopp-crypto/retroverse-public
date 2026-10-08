@@ -7,12 +7,14 @@ import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLin
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import type { ArtistCoverageSummary } from "@/lib/artist/load-artist-coverage-summary";
 import type { ArtistPageData } from "@/lib/artist/types";
-import { albumSuggestionHref } from "@/lib/search/entity-routes";
+import type { ArtistProfileView } from "@/lib/artist-profile-contract";
+import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
 import { sortChartedSongsByPerformance } from "@/lib/songs/sort-charted-songs";
 import { rvYearHref } from "@/lib/rv/rv-chronology-paths";
 import { discoveryShelf } from "@/lib/public/discovery-contract";
 
 import "./artist-page-v1.css";
+import "./artist-profile.css";
 
 const TOP_SONGS_LIMIT = 12;
 const ALBUMS_LIMIT = 6;
@@ -22,6 +24,7 @@ type Props = {
   coverage: ArtistCoverageSummary;
   /** Companion stills beside VIDEO, keyed by RVTR. Album covers stay the fallback. */
   stillByRvtr?: ReadonlyMap<string, string>;
+  profile?: ArtistProfileView | null;
 };
 
 function buildIdentityLine(data: ArtistPageData): string | null {
@@ -79,7 +82,7 @@ function buildSongRows(
   }));
 }
 
-export function ArtistPageView({ data, coverage, stillByRvtr }: Props) {
+export function ArtistPageView({ data, coverage, stillByRvtr, profile }: Props) {
   const songs = buildSongRows(data, coverage, stillByRvtr);
   const inYourRetroverse = songs.filter((song) => song.coverageStatus === "owned");
   const libraryCount = inYourRetroverse.length > 0 ? inYourRetroverse.length : data.libraryTracks;
@@ -98,6 +101,7 @@ export function ArtistPageView({ data, coverage, stillByRvtr }: Props) {
     null;
 
   const isSparse =
+    !profile &&
     songs.length === 0 &&
     albums.length === 0 &&
     years.length === 0 &&
@@ -116,7 +120,7 @@ export function ArtistPageView({ data, coverage, stillByRvtr }: Props) {
           <div className="artist-v1__hero-main">
             <div className="artist-v1__portrait-wrap">
               <ArtistCover
-                src={data.heroImageUrl}
+                src={profile?.portraitUrl ?? data.heroImageUrl}
                 alt=""
                 className="artist-v1__portrait"
                 fallbackClassName="artist-v1__portrait artist-v1__portrait--fallback"
@@ -156,6 +160,89 @@ export function ArtistPageView({ data, coverage, stillByRvtr }: Props) {
             </div>
           </div>
         </header>
+
+        {profile?.summary || profile?.story.length ? (
+          <section className="artist-profile__story" aria-labelledby="artist-profile-story">
+            <p className="artist-v1__section-kicker">The artist in depth</p>
+            <h2 id="artist-profile-story">The story</h2>
+            {profile.summary ? <p className="artist-profile__lead">{profile.summary}</p> : null}
+            {profile.story.slice(0, 3).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+          </section>
+        ) : null}
+
+        {profile?.videos.length ? (
+          <section className="artist-v1__section artist-profile__section" aria-labelledby="artist-profile-videos">
+            <p className="artist-v1__section-kicker">From Bob&apos;s collection</p>
+            <h2 id="artist-profile-videos" className="artist-v1__section-title">On screen</h2>
+            <div className="artist-profile__video-grid">
+              {profile.videos.slice(0, 8).map((video) => (
+                <article key={video.videoKey} className="artist-profile__video">
+                  <ArtistCover
+                    src={`https://videojukebox.retroverse.live/api/thumb/${video.videoKey}`}
+                    alt=""
+                    className="artist-profile__video-image"
+                    fallbackClassName="artist-profile__video-image"
+                    fallbackVariant="vinyl"
+                    placeholderContext={{ artist: data.displayName, album: video.title }}
+                  />
+                  <div>
+                    {video.kind ? <p className="artist-profile__tag">{video.kind}</p> : null}
+                    <h3>{video.title}</h3>
+                    {video.note ? <p>{video.note}</p> : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {profile?.songs.some((song) => song.note) || profile?.albums.some((album) => album.note) ? (
+          <section className="artist-v1__section artist-profile__section" aria-labelledby="artist-profile-recordings">
+            <p className="artist-v1__section-kicker">Selected listening</p>
+            <h2 id="artist-profile-recordings" className="artist-v1__section-title">Records worth knowing</h2>
+            <div className="artist-profile__notes">
+              {profile.songs.filter((song) => song.note).slice(0, 4).map((song) => (
+                <article key={song.rvtr}>
+                  <h3><Link href={trackPageHref(song.rvtr)}>{song.title} ↗</Link></h3>
+                  <p>{song.note}</p>
+                </article>
+              ))}
+              {profile.albums.filter((album) => album.note).slice(0, 4).map((album) => {
+                const href = albumSuggestionHref(album.title, `/album/${album.rval}`);
+                return (
+                  <article key={album.rval}>
+                    <h3>{href ? <Link href={href}>{album.title} ↗</Link> : album.title}</h3>
+                    <p>{album.note}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        ) : null}
+
+        {profile?.chronology.length ? (
+          <section className="artist-v1__section artist-profile__section" aria-labelledby="artist-profile-chronology">
+            <p className="artist-v1__section-kicker">Across the years</p>
+            <h2 id="artist-profile-chronology" className="artist-v1__section-title">The journey</h2>
+            <ol className="artist-profile__timeline">
+              {profile.chronology.slice(0, 8).map((event, index) => (
+                <li key={`${event.year}-${index}`}><strong>{event.year}</strong><span>{event.text}</span></li>
+              ))}
+            </ol>
+          </section>
+        ) : null}
+
+        {profile && (profile.chartNotes.length || profile.connections.length || profile.discoveries.length) ? (
+          <section className="artist-v1__section artist-profile__section" aria-labelledby="artist-profile-more">
+            <p className="artist-v1__section-kicker">Look closer</p>
+            <h2 id="artist-profile-more" className="artist-v1__section-title">Worth knowing</h2>
+            <div className="artist-profile__notes">
+              {profile.discoveries.slice(0, 3).map((note, index) => <p key={`discovery-${index}`}>{note}</p>)}
+              {profile.chartNotes.slice(0, 3).map((note, index) => <p key={`chart-${index}`}>{note}</p>)}
+              {profile.connections.slice(0, 3).map((note, index) => <p key={`connection-${index}`}>{note}</p>)}
+            </div>
+          </section>
+        ) : null}
 
         {isSparse ? (
           <section className="artist-v1__empty" aria-live="polite">
