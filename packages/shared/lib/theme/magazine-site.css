@@ -148,15 +148,29 @@ body:has(.rv-mag) .arvey-trigger {
   gap: 8px;
 }
 
+.retroverse-stage .rv-hero-actions button,
+.retroverse-stage .rv-hero-actions button span {
+  color: var(--t) !important;
+  white-space: nowrap;
+}
+
 .retroverse-stage .rv-hero-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   min-height: 46px;
+  padding: 14px 8px;
   border: 0;
-  background: var(--a);
-  color: var(--t);
+  border-left: 0;
+  background: var(--a) !important;
   box-shadow: 4px 4px 0 #07070d;
   font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .retroverse-stage .rv-recommendations {
@@ -242,11 +256,26 @@ body:has(.rv-mag) .arvey-trigger {
   filter: grayscale(0.12) contrast(1.04) brightness(0.98);
 }
 
+.rv-mag-song .editorial-song--full-hero .canonical-song__stage-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--h, transparent);
+  mix-blend-mode: multiply;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
 .rv-mag-song .editorial-song--full-hero .canonical-song__page-veil,
 .rv-mag-song .canonical-song__hero-veil {
-  background:
-    linear-gradient(180deg, rgba(7, 7, 13, 0.5) 0%, rgba(7, 7, 13, 0.08) 30%, rgba(7, 7, 13, 0.94) 100%),
-    color-mix(in srgb, var(--h) 14%, transparent) !important;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 13, 0.5) 0%,
+    rgba(7, 7, 13, 0.08) 30%,
+    rgba(7, 7, 13, 0.94) 100%
+  ) !important;
 }
 
 .rv-mag-song .canonical-song__page-fallback,
@@ -344,7 +373,7 @@ body:has(.rv-mag) .arvey-trigger {
   margin-bottom: 10px;
   padding: 6px 8px;
   background: var(--a, #00ddff);
-  color: var(--t, #07070d);
+  color: var(--t, #07070d) !important;
   font-family: var(--rv-font-sans), Inter, sans-serif;
   font-size: 10px;
   font-weight: 800;
@@ -408,29 +437,62 @@ body:has(.rv-mag) .arvey-trigger {
 }
 
 .rv-mag-jukebox .guest-collection-card {
+  position: relative;
   display: flex;
-  min-height: 112px;
+  aspect-ratio: auto;
+  min-height: 118px;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-start;
-  padding: 12px;
+  overflow: visible;
+  padding: 14px 12px;
   border: 0;
   border-radius: 0;
-  background: var(--a);
-  color: var(--t);
-  box-shadow: 6px 6px 0 #07070d;
+  background: var(--a) !important;
+  color: var(--t) !important;
+  box-shadow: 6px 6px 0 var(--b, #07070d);
   text-align: left;
 }
 
+.rv-mag-jukebox .guest-collection-copy {
+  position: static;
+  inset: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  background: none;
+}
+
+.rv-mag-jukebox .guest-collection-count,
 .rv-mag-jukebox .guest-collection-card strong,
 .rv-mag-jukebox .guest-collection-card small {
-  color: var(--t);
+  color: var(--t) !important;
+  background: transparent;
+}
+
+.rv-mag-jukebox .guest-collection-count,
+.rv-mag-jukebox .guest-collection-card strong {
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.rv-mag-jukebox .guest-collection-count {
+  font-size: 40px;
+  line-height: 1;
 }
 
 .rv-mag-jukebox .guest-collection-card strong {
-  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
-  font-size: 22px;
-  line-height: 0.95;
+  font-size: 25px;
+}
+
+.rv-mag-jukebox .guest-collection-card small {
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .rv-mag-jukebox .guest-card-collage {
@@ -460,8 +522,8 @@ body:has(.rv-mag) .arvey-trigger {
 
 .rv-mag-jukebox .guest-card-status {
   padding: 6px 8px;
-  background: var(--a);
-  color: var(--t);
+  background: var(--a) !important;
+  color: var(--t) !important;
   font-family: var(--rv-font-sans), Inter, sans-serif;
   font-size: 10px;
   font-weight: 800;
@@ -478,7 +540,7 @@ body:has(.rv-mag) .arvey-trigger {
 .rv-mag-week .explorer-row--number-one .explorer-row__rank {
   padding: 2px 6px;
   background: var(--one, var(--h));
-  color: var(--one-ink, #07070d);
+  color: var(--one-ink, #07070d) !important;
 }
 
 .rv-mag-page-mast {
@@ -497,4 +559,113 @@ body:has(.rv-mag) .arvey-trigger {
 .rv-mag-page-mast a {
   color: var(--a);
   text-decoration: none;
+}
+
+/* Song chrome: magazine header, flat tiles, light photo wash. */
+
+html body:has(.rv-mag-song) .rv-global-nav {
+  display: block;
+  border: 0;
+  border-bottom: 3px solid #ffee00;
+  background: #07070d;
+  backdrop-filter: none;
+  box-shadow: none;
+  color: #f1eef9;
+}
+
+html body:has(.rv-mag-song) .rv-global-nav__inner {
+  padding-right: 9.5rem;
+}
+
+html body:has(.rv-mag-song) .rv-global-nav__home {
+  color: #ffee00;
+  background: transparent;
+}
+
+html body:has(.rv-mag-song) .rv-global-nav__return-live {
+  border: 0;
+  border-radius: 0;
+  background: #ff2937;
+  color: #07070d !important;
+  box-shadow: 3px 3px 0 #9c63ff;
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+html body:has(.rv-mag-song) .arvey-trigger {
+  display: inline-flex !important;
+  position: fixed;
+  top: calc(8px + env(safe-area-inset-top, 0px));
+  right: 12px;
+  z-index: 1300;
+  min-height: 0;
+  padding: 6px 8px;
+  border: 2px solid #00ddff;
+  border-radius: 999px;
+  background: #07070d;
+  color: #00ddff;
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  box-shadow: none;
+}
+
+.rv2-live.rv-mag-song {
+  padding: 0 !important;
+  background: #07070d !important;
+}
+
+.rv-mag-song .rv2-live__grid-glow {
+  display: none !important;
+}
+
+.rv-mag-song .rv2-public-shell__body {
+  max-width: none;
+  margin: 0;
+}
+
+.rv-mag-song .rv2-broadcast-banner--bottom {
+  border: 0;
+  border-top: 3px solid #3d7eff;
+  background: #0b0b10 !important;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.rv-mag-song .rv2-broadcast-banner__action {
+  color: #3d7eff !important;
+  background: transparent;
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.rv-mag-song .rv-exp-cj,
+.rv-mag-song .rv-exp-cj--rv2,
+.rv-mag-song .rv2-song__section,
+.rv-mag-song .rv2-song__explore,
+.rv-mag-song .rv2-song__explore-card {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #111117 !important;
+}
+
+.rv-mag-song .rv2-song__explore-links a {
+  border: 0;
+  border-radius: 0;
+  background: var(--a, #ffbb00);
+  color: var(--t, #07070d) !important;
+  box-shadow: 3px 3px 0 #07070d;
+}
+
+.retroverse-stage .rv-now-label,
+.retroverse-stage .rv-meta-tag,
+.retroverse-stage .rv-swipe-tags li,
+.rv-mag-index__no.is-one {
+  color: var(--t, #07070d) !important;
 }

@@ -273,8 +273,8 @@ export function RetroverseStage({ initial }: { initial?: StageNow | null }) {
               ))}
             </ul>
             <div className="rv-hero-actions">
-              <button type="button" className="rv-story-open" style={toneStyle(chat)} onClick={openSongGuide}><span>CHAT ABOUT THIS</span></button>
-              <button type="button" className="rv-jukebox-open" style={toneStyle(jukebox)} onClick={goJukebox}><span>JUKEBOX</span></button>
+              <button type="button" className="rv-story-open" style={toneStyle(chat)} onClick={openSongGuide}><span>Chat about this</span></button>
+              <button type="button" className="rv-jukebox-open" style={toneStyle(jukebox)} onClick={goJukebox}><span>Jukebox</span></button>
             </div>
             {message ? <p className="rv-hint" role="status">{message}</p> : null}
           </div>

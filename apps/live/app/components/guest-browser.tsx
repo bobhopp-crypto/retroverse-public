@@ -63,7 +63,7 @@ export function GuestBrowser({ catalog, query, results, searching, message, queu
   const paint = createPaletteAssigner(heroColor("Video Jukebox"));
   const wordmark = paint.take("b:wm", 1);
   const requestTone = paint.take("span:req", 1);
-  const tileTones = categories.map((shelf) => paint.take(`button:${shelf.displayName}`, 1));
+  const tileTones = categories.map((shelf) => paint.take(`button:${shelf.displayName}`, 2));
 
   return (
     <main className={`guest-browser rv-mag rv-mag-jukebox rv-mag-site ${magazineFontClass}`}>
@@ -117,7 +117,8 @@ export function GuestBrowser({ catalog, query, results, searching, message, queu
           <div className="guest-card-grid">
             {categories.map((shelf, index) => (
               <button className="guest-collection-card" type="button" key={shelf.displayName} style={toneStyle(tileTones[index]!)} onClick={() => choose(shelf.displayName)}>
-                <span className="guest-collection-copy"><strong>{shelf.displayName}</strong><small>{shelf.itemCount} videos</small></span>
+                <span className="guest-collection-count">{shelf.itemCount}</span>
+                <span className="guest-collection-copy"><strong>{shelf.displayName}</strong><small>videos</small></span>
               </button>
             ))}
           </div>

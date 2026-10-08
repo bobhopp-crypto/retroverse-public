@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { toneStyle } from "@/components/magazine/tone";
 import { ArtistInDepthSwipe } from "@/components/navigation/artist-in-depth-swipe";
 import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
@@ -16,6 +17,7 @@ import { SongArveyContext } from "./SongArveyContext";
 import { loadBestEditorialSongRecord, loadChartTrajectoryRecommendations, SHE_IS_A_BEAUTY_ARTICLE, type EditorialDiversityRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import { describePublicSongExperience, hasStablePublicSongRoute } from "@/lib/home/public-song-experience-resolution";
 import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
+import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
@@ -159,6 +161,14 @@ export async function PublicSongExperience({
   const hasExploreLinks =
     showStableSongLink || journeyWeeks > 0 || hasStory || Boolean(moment?.href) || Boolean(albumHref) || Boolean(artistHref) || Boolean(yearHref);
   const trace = describePublicSongExperience(payload, { hasEditorial: Boolean(editorialRecord) });
+  const explorePaint = createPaletteAssigner(heroColor(payload.title || payload.artist || "Song"));
+  const exploreTone = {
+    song: explorePaint.take("a:song", 1),
+    artist: explorePaint.take("a:artist", 1),
+    album: explorePaint.take("a:album", 1),
+    year: explorePaint.take("a:year", 1),
+    charts: explorePaint.take("a:charts", 1),
+  };
 
   const rootClass = ["rv2-song", embedded ? "rv2-song--embedded" : null, className]
     .filter(Boolean)
@@ -233,11 +243,11 @@ export async function PublicSongExperience({
               <>
                 <div className="rv2-song__continue-label">Explore</div>
                 <nav className="rv2-song__explore-links" aria-label="Explore this song">
-                  {showStableSongLink ? <Link href={payload.links.songHref} prefetch>Song</Link> : null}
-                  {artistHref ? <Link href={artistHref} prefetch>Artist</Link> : null}
-                  {albumHref ? <Link href={albumHref} prefetch>Album</Link> : null}
-                  {yearHref ? <Link href={yearHref} prefetch>Year</Link> : null}
-                  {moment?.href ? <Link href={moment.href} prefetch>Charts</Link> : null}
+                  {showStableSongLink ? <Link href={payload.links.songHref} prefetch style={toneStyle(exploreTone.song)}>Song</Link> : null}
+                  {artistHref ? <Link href={artistHref} prefetch style={toneStyle(exploreTone.artist)}>Artist</Link> : null}
+                  {albumHref ? <Link href={albumHref} prefetch style={toneStyle(exploreTone.album)}>Album</Link> : null}
+                  {yearHref ? <Link href={yearHref} prefetch style={toneStyle(exploreTone.year)}>Year</Link> : null}
+                  {moment?.href ? <Link href={moment.href} prefetch style={toneStyle(exploreTone.charts)}>Charts</Link> : null}
                 </nav>
                 {journeyWeeks > 0 ? <p className="rv2-song__continue-cue">Chart Journey below ↓</p> : null}
               </>
