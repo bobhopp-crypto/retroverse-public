@@ -1,4 +1,4 @@
-import { videoForIdentity } from "@/lib/vdjbx-catalog";
+import { videoForIdentity } from "./vdjbx-catalog";
 
 export type StageRelatedTrack = {
   rvtr?: string | null;
@@ -18,6 +18,8 @@ export type StageNow = {
   videoKey: string;
   songRvtr: string | null;
   heroRvtr: string | null;
+  /** Canonical artist route already on the live/public song. Never a name slug. */
+  artistHref: string | null;
   bridgeTimestamp: string | null;
   relatedTracks: StageRelatedTrack[];
 };
@@ -50,6 +52,15 @@ export type PublicCurrentPayload = {
 };
 
 const LIVE_FRESHNESS_MS = 25 * 60_000;
+const CANONICAL_ARTIST_HREF = /^\/artist\/(?:RVAR\d{6}|\d+)$/i;
+
+function canonicalArtistHref(value: string | null | undefined): string | null {
+  const path = value?.trim().split(/[?#]/)[0] ?? "";
+  if (!CANONICAL_ARTIST_HREF.test(path)) return null;
+  const token = path.split("/").pop() ?? "";
+  const normalized = /^\d+$/.test(token) ? token : token.toUpperCase();
+  return `/artist/${normalized}`;
+}
 
 function isFreshBridgePayload(payload: PublicCurrentPayload): boolean {
   const live = payload.live;
@@ -74,6 +85,7 @@ export function stageNowFromPublicPayload(payload: PublicCurrentPayload | null |
     videoKey: catalogMatch?.videoKey || live.songKey || songRvtr || `live:${artist}:${title}`,
     songRvtr,
     heroRvtr: catalogMatch?.heroRvtr || songRvtr,
+    artistHref: canonicalArtistHref(payload.publicSong?.links?.artistHref ?? payload.track?.artistHref),
     bridgeTimestamp: live.bridgeTimestamp || payload.updatedAt || null,
     relatedTracks: payload.track?.relatedTracks || payload.publicSong?.relatedTracks || [],
   };

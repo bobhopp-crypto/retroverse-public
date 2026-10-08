@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { fromSongFallbackCopy } from "@/lib/artist/from-song-artist";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
@@ -14,6 +15,7 @@ type Props = {
 /** Calm landing when a song has no canonical artist route yet. */
 export function ArtistDepthFallback({ name, songHref }: Props) {
   const label = name.trim() || "This artist";
+  const copy = fromSongFallbackCopy(label);
 
   return (
     <Rv2PublicShell className="rv2-artist rv2-explorer" activeNav="search" showTopBroadcastBanner={false}>
@@ -39,10 +41,8 @@ export function ArtistDepthFallback({ name, songHref }: Props) {
           </div>
         </header>
         <section className="artist-v1__empty" aria-live="polite">
-          <p className="artist-v1__empty-title">Still connecting</p>
-          <p className="artist-v1__empty-body">
-            {label} is on this song, and the canonical artist page is not linked yet.
-          </p>
+          <p className="artist-v1__empty-title">{copy.title}</p>
+          <p className="artist-v1__empty-body">{copy.body}</p>
           <p className="artist-v1__empty-actions">
             {songHref ? (
               <Link href={songHref} prefetch className="artist-v1__empty-link">
