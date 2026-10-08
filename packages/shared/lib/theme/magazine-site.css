@@ -761,8 +761,14 @@ html body:has(.rv-mag-song) .arvey-trigger {
 }
 
 .retroverse-stage .rv-now-label,
-.retroverse-stage .rv-meta-tag,
-.retroverse-stage .rv-swipe-tags li,
 .rv-mag-index__no.is-one {
   color: var(--t, #07070d) !important;
+}
+
+.retroverse-stage .rv-swipe-tags li {
+  color: #fff !important;
+}
+
+.retroverse-stage .rv-meta-tag {
+  color: var(--a) !important;
 }
