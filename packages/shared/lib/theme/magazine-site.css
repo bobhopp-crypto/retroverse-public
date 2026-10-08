@@ -531,10 +531,94 @@ body:has(.rv-mag) .arvey-trigger {
 }
 
 .rv-mag-week .explorer-row__rank,
-.rv-mag-album .explorer-row__rank,
-.rv-mag-month .chart-month__week {
+.rv-mag-album .explorer-row__rank {
   color: var(--rank, var(--rv-soft));
   font-weight: 800;
+}
+
+.rv-mag-month .chart-month__heading {
+  color: var(--h, #f1eef9) !important;
+}
+
+.rv-year-world.rv-mag-year .rv-year-nav,
+.rv-year-world.rv-mag-year .rv-year-nav--secondary {
+  background: transparent !important;
+  border-color: #24222c;
+  box-shadow: none;
+}
+
+.rv-year-world.rv-mag-year .rv-year-nav__label,
+.rv-year-world.rv-mag-year .rv-year-nav__link,
+.rv-year-world.rv-mag-year .rv-year-nav__link--year,
+.rv-year-world.rv-mag-year .rv-year-nav__link--explore {
+  color: #f1eef9 !important;
+  background: transparent !important;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.rv-mag-month .chart-month__week,
+.rv-mag-month .chart-month__week:hover {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #24222c;
+  border-radius: 0;
+  background: transparent !important;
+  color: #f1eef9 !important;
+}
+
+.rv-mag-month .rv-mag-index__title {
+  color: #f1eef9 !important;
+}
+
+.rv-mag-month .rv-mag-index__no {
+  color: var(--a, #00ddff) !important;
+  background: transparent;
+}
+
+html:has(.rv-mag),
+html:has(.rv-mag) body {
+  background: #07070d !important;
+}
+
+.rv-mag-week {
+  --chart-ink: #f1eef9;
+  --chart-muted: #d9d5ea;
+  --chart-paper: #07070d;
+  --chart-surface: transparent;
+}
+
+.rv-mag-week .explorer__masthead,
+.rv-mag-week .explorer-row,
+.rv-mag-week .explorer-row:hover,
+.rv-mag-week .explorer-row--owned,
+.rv-mag-week .explorer-row--owned:hover {
+  background: transparent !important;
+  color: #f1eef9;
+  border-color: #24222c;
+  box-shadow: none;
+}
+
+.rv-mag-week .explorer__chart-name,
+.rv-mag-week .explorer__date,
+.rv-mag-week .explorer-row__title,
+.rv-mag-week .explorer-row__artist,
+.rv-mag-week .explorer__week-nav a,
+.rv-mag-week .explorer__week-nav span {
+  color: #f1eef9 !important;
+}
+
+.rv-mag-week .explorer__chart-name {
+  color: var(--h, #f1eef9) !important;
+}
+
+.rv-mag-week .explorer-btn--play,
+.rv-mag-week .explorer-btn--play span {
+  background: #1a1a21 !important;
+  color: #f1eef9 !important;
+  border-color: #2a2933 !important;
 }
 
 .rv-mag-week .explorer-row--number-one .explorer-row__rank {
