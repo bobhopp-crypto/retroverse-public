@@ -4,7 +4,7 @@ import Link from "next/link";
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import { toneStyle } from "@/components/magazine/tone";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
-import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
@@ -366,9 +366,8 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
   const journeyMilestones = buildJourneyMilestones(data);
   const songMilestones = buildSongMilestones(data.breakoutSongs);
 
-  const hue = heroColor(data.title);
-  const paint = createPaletteAssigner(hue);
-  const wordmark = paint.take("b:wm", 1);
+  const hue = heroColor(data.artistName || data.title);
+  const wordmark = sectionTone(hue, 0);
 
   return (
     <Rv2PublicShell className={`rv2-album rv2-album-editorial rv-mag rv-mag-album rv-mag-site ${magazineFontClass}`} activeNav="search" showTopBroadcastBanner={false}>

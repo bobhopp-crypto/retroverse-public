@@ -30,8 +30,13 @@ body:has(.rv-mag) .arvey-trigger {
   z-index: 1;
   background: var(--h, transparent);
   mix-blend-mode: multiply;
-  opacity: 0.16;
+  opacity: 0.12;
   pointer-events: none;
+}
+
+.retroverse-stage.is-neutral-wash .rv-hero::before,
+.is-neutral-wash .canonical-song__stage-bg::after {
+  display: none;
 }
 
 .retroverse-stage .rv-hero::after {
@@ -87,7 +92,6 @@ body:has(.rv-mag) .arvey-trigger {
   padding: 6px 8px;
   background: var(--a);
   color: var(--t);
-  box-shadow: 4px 4px 0 var(--b, #07070d);
   font-family: var(--rv-font-sans), Inter, sans-serif;
   font-size: 10px;
   font-weight: 800;
@@ -111,8 +115,9 @@ body:has(.rv-mag) .arvey-trigger {
 .retroverse-stage .rv-meta-tag {
   display: inline-block;
   padding: 5px 8px;
-  background: var(--a);
-  color: var(--t);
+  border: 2px solid var(--a);
+  background: rgba(7, 7, 13, 0.72);
+  color: var(--a);
   font-family: var(--rv-font-sans), Inter, sans-serif;
   font-size: 11px;
   font-weight: 800;
@@ -131,9 +136,10 @@ body:has(.rv-mag) .arvey-trigger {
 }
 
 .retroverse-stage .rv-swipe-tags li {
-  padding: 5px 7px;
-  background: var(--a);
-  color: var(--t);
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(7, 7, 13, 0.82);
+  color: #fff;
   font-family: var(--rv-font-sans), Inter, sans-serif;
   font-size: 9px;
   font-weight: 800;
@@ -161,16 +167,21 @@ body:has(.rv-mag) .arvey-trigger {
   width: 100%;
   min-height: 46px;
   padding: 14px 8px;
-  border: 0;
-  border-left: 0;
+  border: 2px solid var(--a);
   background: var(--a) !important;
-  box-shadow: 4px 4px 0 #07070d;
+  box-shadow: none;
   font-family: var(--rv-font-sans), Inter, sans-serif;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.06em;
   line-height: 1;
   text-transform: uppercase;
+}
+
+.retroverse-stage .rv-hero-actions button.is-outline,
+.retroverse-stage .rv-hero-actions button.is-outline span {
+  background: transparent !important;
+  color: var(--a) !important;
 }
 
 .retroverse-stage .rv-recommendations {
@@ -263,7 +274,7 @@ body:has(.rv-mag) .arvey-trigger {
   z-index: 1;
   background: var(--h, transparent);
   mix-blend-mode: multiply;
-  opacity: 0.16;
+  opacity: 0.12;
   pointer-events: none;
 }
 
@@ -323,7 +334,7 @@ body:has(.rv-mag) .arvey-trigger {
 }
 
 .rv-mag .rv-exp-cj__row--number-one .rv-exp-cj__bar {
-  background-color: var(--h) !important;
+  background-color: var(--a, var(--h)) !important;
 }
 
 .rv-mag .rv-exp-cj__rank,
@@ -335,7 +346,7 @@ body:has(.rv-mag) .arvey-trigger {
 }
 
 .rv-mag .rv-exp-cj__row--number-one .rv-exp-cj__rank {
-  color: var(--h);
+  color: var(--a, var(--h));
 }
 
 .rv-mag-album .album-ed__breakout-bar {
@@ -522,8 +533,10 @@ body:has(.rv-mag) .arvey-trigger {
 
 .rv-mag-jukebox .guest-card-status {
   padding: 6px 8px;
-  background: var(--a) !important;
-  color: var(--t) !important;
+  border: 2px solid var(--a);
+  border-radius: 999px;
+  background: transparent !important;
+  color: var(--a) !important;
   font-family: var(--rv-font-sans), Inter, sans-serif;
   font-size: 10px;
   font-weight: 800;
@@ -740,11 +753,11 @@ html body:has(.rv-mag-song) .arvey-trigger {
 }
 
 .rv-mag-song .rv2-song__explore-links a {
-  border: 0;
-  border-radius: 0;
-  background: var(--a, #ffbb00);
-  color: var(--t, #07070d) !important;
-  box-shadow: 3px 3px 0 #07070d;
+  border: 2px solid var(--a, #ffbb00);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--a, #ffbb00) !important;
+  box-shadow: none;
 }
 
 .retroverse-stage .rv-now-label,

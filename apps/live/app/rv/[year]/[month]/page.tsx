@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import { toneStyle } from "@/components/magazine/tone";
-import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 
 import "@/lib/theme/magazine-tokens.css";
 import "@/lib/theme/magazine-site.css";
@@ -68,9 +68,8 @@ export default async function RvMonthPage({ params }: Props) {
   if (weekDates.length === 0) notFound();
 
   const hue = heroColor(`${monthHeading(rvYear, month)} ${rvYear}`);
-  const paint = createPaletteAssigner(hue);
-  const wordmark = paint.take("b:wm", 1);
-  const rank = paint.take("span:wk", 1);
+  const wordmark = sectionTone(hue, 0);
+  const rank = wordmark;
 
   return (
     <main className={`chart-month-page rv-mag rv-mag-month rv-mag-site ${magazineFontClass}`} style={{ ["--h" as string]: hue, ["--rank" as string]: rank.a }}>

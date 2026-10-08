@@ -6,7 +6,7 @@ import { toneStyle } from "@/components/magazine/tone";
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 
 import "./charts-rv2.css";
 import "@/lib/theme/magazine-tokens.css";
@@ -16,10 +16,9 @@ const FEATURED_YEARS = [1967, 1971, 1978, 1984, 1992, 2000, 2014];
 
 export function ChartsHubClient() {
   const hue = heroColor("Charts");
-  const paint = createPaletteAssigner(hue);
-  const wordmark = paint.take("b:wm", 1);
-  const kickers = [paint.take("p:singles", 1), paint.take("p:albums", 1), paint.take("p:years", 1)];
-  const yearTone = paint.take("a:year", 1);
+  const wordmark = sectionTone(hue, 0);
+  const kickers = [sectionTone(hue, 1), sectionTone(hue, 2), sectionTone(hue, 3)];
+  const yearTone = kickers[2]!;
 
   return (
     <Rv2PublicShell className={`rv2-charts-hub rv-mag rv-mag-charts rv-mag-site ${magazineFontClass}`} activeNav="charts" yearsHref="/rv/1978" showTopBroadcastBanner={false}>

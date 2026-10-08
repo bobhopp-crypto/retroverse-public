@@ -85,15 +85,11 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
           className="rv-mag-chapter"
           style={{ ...toneStyle(chapter.stripe), ["--bg" as string]: chapter.surface }}
         >
-          <span className="rv-mag-tag" style={toneStyle(chapter.labelTone)}>
-            {chapter.label}
-          </span>
-          <h2 className={`rv-mag-display${chapter.compactTitle ? " is-compact" : ""}`} style={toneStyle(chapter.titleTone)}>
-            {chapter.title}
-          </h2>
-          <p className="rv-mag-range" style={toneStyle(chapter.rangeTone)}>
-            {chapter.range}
-          </p>
+          <div className="rv-mag-opener">
+            <span className="rv-mag-tag">{chapter.label}</span>
+            <h2 className={`rv-mag-display${chapter.compactTitle ? " is-compact" : ""}`}>{chapter.title}</h2>
+            <p className="rv-mag-range">{chapter.range}</p>
+          </div>
           {chapter.paragraphs.map((paragraph) => (
             <p
               key={paragraph.text}
@@ -178,8 +174,10 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
       ))}
 
       {page.essay.length ? (
-        <section className="rv-mag-essay" aria-label="The story">
-          <div className="rv-mag-label">The story</div>
+        <section className="rv-mag-essay" aria-label="The story" style={toneStyle(page.essay[0]!.tone ?? page.footerTone)}>
+          <div className="rv-mag-opener">
+            <h2 className="rv-mag-display is-compact">The story</h2>
+          </div>
           {page.essay.map((paragraph) => (
             <p
               key={paragraph.text}
@@ -194,13 +192,11 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
 
       {page.back ? (
         <section className="rv-mag-back" style={toneStyle(page.back.stripe)}>
-          <div className="rv-mag-back__head" style={toneStyle(page.back.rule)}>
-            <b className="rv-mag-back__title" style={toneStyle(page.back.title)}>
+          <div className="rv-mag-opener">
+            <span className="rv-mag-tag">Back pages</span>
+            <h2 className="rv-mag-display is-compact">
               {page.fromCollection ? "Also in your Retroverse" : "Also on record"}
-            </b>
-            <span className="rv-mag-tag rv-mag-back__badge" style={toneStyle(page.back.badge)}>
-              Back pages
-            </span>
+            </h2>
           </div>
           <p className="rv-mag-back__intro">{page.back.intro}</p>
           <div className="rv-mag-back__grid">
@@ -264,11 +260,10 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
       ) : null}
 
       {page.list ? (
-        <>
+        <div className="rv-mag-dept" style={toneStyle(page.list.frame)}>
           <div className="rv-mag-label">{page.fromCollection ? "In Your Retroverse" : "Charted recordings"}</div>
           <section
             className="rv-mag-list"
-            style={toneStyle(page.list.frame)}
             aria-label={page.fromCollection ? "In Your Retroverse" : "Charted recordings"}
           >
             <h3>
@@ -310,11 +305,11 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
               ))}
             </ol>
           </section>
-        </>
+        </div>
       ) : null}
 
       {page.dossier ? (
-        <section className="rv-mag-dossier" aria-label="Worth knowing">
+        <section className="rv-mag-dossier" aria-label="Worth knowing" style={toneStyle(page.dossier.groups[0]!.titleTone)}>
           {page.dossier.groups.map((group) => (
             <div key={group.title}>
               <h2 className="rv-mag-display" style={toneStyle(group.titleTone)}>
@@ -342,10 +337,10 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
       ) : null}
 
       {page.credits ? (
-        <>
+        <div className="rv-mag-dept" style={toneStyle(page.credits.labelTone)}>
           <div className="rv-mag-label">
             Also Credited
-            <span style={toneStyle(page.credits.labelTone)}>collaborations</span>
+            <span>collaborations</span>
           </div>
           <div className="rv-mag-credits">
             {page.credits.rows.map((credit) => (
@@ -358,7 +353,7 @@ export function ArtistMagazine({ page }: { page: MagazinePage }) {
               </div>
             ))}
           </div>
-        </>
+        </div>
       ) : null}
 
       <MagazineRule tone={page.closingRule} />

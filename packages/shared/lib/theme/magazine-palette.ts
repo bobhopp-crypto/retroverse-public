@@ -203,6 +203,28 @@ export function heroColor(name: string): string {
 
 const HUE_INDEX = new Map<string, number>(MAGAZINE_HEX.map((hex, index) => [hex, index]));
 
+/** Neighbors on a page sit about 135° apart on the 16-hue wheel. */
+export const SECTION_HUE_STEP = 6;
+
+/** Yellow through green. A multiply wash of these hues turns a photo olive. */
+const NEUTRAL_PHOTO_WASH = new Set(["#ffee00", "#b2ff00", "#3de600", "#00cc44"]);
+
+/** One flat color for section `index`. Index 0 is the cover hue. */
+export function sectionColor(hero: string, index: number): string {
+  const start = HUE_INDEX.get(hero) ?? 0;
+  const slot = (start + SECTION_HUE_STEP * index) % MAGAZINE_HEX.length;
+  return MAGAZINE_HEX[slot] ?? hero;
+}
+
+export function sectionTone(hero: string, index: number): FlatTone {
+  const a = sectionColor(hero, index);
+  return { a, ink: inkOn(a) };
+}
+
+export function prefersNeutralPhotoWash(hex: string): boolean {
+  return NEUTRAL_PHOTO_WASH.has(hex.toLowerCase());
+}
+
 function hueDistance(a: string, b: string): number {
   const d = Math.abs((HUE_INDEX.get(a) ?? 0) - (HUE_INDEX.get(b) ?? 0)) % 16;
   return Math.min(d, 16 - d);

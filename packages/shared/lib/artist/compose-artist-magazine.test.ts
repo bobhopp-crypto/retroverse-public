@@ -27,10 +27,12 @@ test("opening colors follow the shared palette and a single era is a short featu
     profile: null,
   });
   assert.equal(page.heroColor, "#d036ff");
-  assert.equal(page.wordmark.a, "#00cc44");
-  assert.equal(page.kicker.a, "#ffbb00");
-  assert.equal(page.kicker.b, "#3d7eff");
-  assert.equal(page.dekTone.a, "#ff00a1");
+  assert.equal(page.wordmark.a, "#d036ff");
+  assert.equal(page.kicker.a, "#d036ff");
+  assert.equal(page.kicker.b, undefined);
+  assert.equal(page.chapters[0]?.stripe.a, "#ffee00");
+  assert.equal(page.list?.frame.a, "#0099ff");
+  assert.equal(page.footerTone.a, "#d036ff");
   assert.equal(page.rail, null);
   assert.equal(page.chapters.length, 1);
   assert.equal(page.chapters[0]?.label, "The Feature");
@@ -53,6 +55,10 @@ test("two eras keep the rail and chapter labels, and drop the rail below two", (
     profile: null,
   });
   assert.equal(page.rail?.tabs.map((tab) => tab.label).join(" "), "’80s ’90s");
+  assert.deepEqual(
+    page.rail?.tabs.map((tab) => tab.tone.a),
+    ["#ffee00", "#0099ff"],
+  );
   assert.deepEqual(
     page.chapters.map((chapter) => chapter.label),
     ["Chapter One", "Chapter Two"],

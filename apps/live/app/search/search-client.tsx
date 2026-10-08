@@ -7,7 +7,7 @@ import { toneStyle } from "@/components/magazine/tone";
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import type { FlatTone } from "@/lib/theme/magazine-palette";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 
 import "@/lib/theme/magazine-tokens.css";
 import "@/lib/theme/magazine-site.css";
@@ -156,9 +156,10 @@ export default function SearchClient({ traceEnabled = false }: SearchClientProps
     0;
   const showNoResults = trimmedQuery.length >= 2 && !loading && !hasResults;
 
-  const paint = createPaletteAssigner(heroColor(trimmedQuery || "Search"));
-  const wordmark = paint.take("b:wm", 1);
-  const groupTone = (title: string) => paint.take(`h2:${title}`, 1);
+  const searchHue = heroColor(trimmedQuery || "Search");
+  const wordmark = sectionTone(searchHue, 0);
+  const groupIndex: Record<string, number> = { best: 1, artists: 2, songs: 3, albums: 4, other: 5 };
+  const groupTone = (title: string) => sectionTone(searchHue, groupIndex[title] ?? 1);
 
   return (
     <Rv2PublicShell className={`rv2-search rv-mag rv-mag-search rv-mag-site ${magazineFontClass}`} broadcastChrome={false} showTopBroadcastBanner={false}>

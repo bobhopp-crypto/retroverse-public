@@ -1,7 +1,7 @@
 import {
   MAGAZINE_CHAPTER_SURFACES,
-  createPaletteAssigner,
   heroColor,
+  sectionTone,
   type FlatTone,
 } from "@/lib/theme/magazine-palette";
 
@@ -177,7 +177,6 @@ export type MagazinePage = {
   footerTone: FlatTone;
 };
 
-type Painter = ReturnType<typeof createPaletteAssigner>;
 type DatedSong = MagazineSongInput & { year: number };
 type DraftQuote = { text: string; on: string };
 type DraftYear = {
@@ -304,8 +303,7 @@ function buildStandfirst(input: {
   return `${sentence}.`;
 }
 
-function paintChapterAlbum(paint: Painter, album: MagazineAlbumInput): MagazineAlbumView {
-  const hasCover = Boolean(album.coverUrl);
+function paintChapterAlbum(tone: FlatTone, album: MagazineAlbumInput): MagazineAlbumView {
   return {
     key: album.id,
     title: album.title,
@@ -313,14 +311,14 @@ function paintChapterAlbum(paint: Painter, album: MagazineAlbumInput): MagazineA
     href: album.href,
     coverUrl: album.coverUrl,
     kicker: album.year != null ? `The album · ${album.year}` : "From the album",
-    row: paint.take("div:alb", 1),
-    cover: hasCover ? paint.take("img:cv", 1) : paint.take("div:ph", 2),
-    kickerTone: paint.take("div:k", 1),
-    titleTone: paint.take("div:at", 1),
+    row: tone,
+    cover: tone,
+    kickerTone: tone,
+    titleTone: tone,
   };
 }
 
-function paintSong(paint: Painter, song: DatedSong, quote: DraftQuote | null): MagazineSongView {
+function paintSong(tone: FlatTone, song: DatedSong, quote: DraftQuote | null): MagazineSongView {
   const images = song.images.filter(Boolean);
   return {
     key: song.id,
@@ -332,17 +330,17 @@ function paintSong(paint: Painter, song: DatedSong, quote: DraftQuote | null): M
     peakLabel: song.peak != null ? `No. ${song.peak}` : null,
     markerLeft: song.peak != null ? markerLeft(song.peak) : null,
     variant: song.variant,
-    listen: paint.take("div:listen", 1),
-    letterTone: images.length === 0 ? paint.take("div:th", 2) : null,
-    marker: song.peak != null ? paint.take("span:mk", 1) : null,
-    variantTone: song.variant ? paint.take("span:v", 1) : null,
-    play: paint.take("div:go", 1),
-    quote: quote ? { text: nest(quote.text), cite: `On ${quote.on}`, tone: paint.take("div:pq", 3) } : null,
+    listen: tone,
+    letterTone: images.length === 0 ? tone : null,
+    marker: song.peak != null ? tone : null,
+    variantTone: song.variant ? tone : null,
+    play: tone,
+    quote: quote ? { text: nest(quote.text), cite: `On ${quote.on}`, tone } : null,
   };
 }
 
-function paintQuote(paint: Painter, quote: DraftQuote): MagazineQuote {
-  return { text: nest(quote.text), cite: `On ${quote.on}`, tone: paint.take("div:pq", 3) };
+function paintQuote(tone: FlatTone, quote: DraftQuote): MagazineQuote {
+  return { text: nest(quote.text), cite: `On ${quote.on}`, tone };
 }
 
 export function composeArtistMagazine(input: {
@@ -513,7 +511,22 @@ export function composeArtistMagazine(input: {
         ? `${count} Hot 100 ${songNoun(count)}`
         : "Archive page";
   const hero = heroColor(name);
-  const paint = createPaletteAssigner(hero);
+  const cover = sectionTone(hero, 0);
+  const unusedStory = story.filter((paragraph) => !placedStory.has(paragraph));
+  const noteGroups = (profile?.notes ?? [])
+    .map((group) => ({
+      heading: group.heading.trim(),
+      items: group.items.filter((item) => item.title?.trim() || item.text.trim()),
+    }))
+    .filter((group) => group.heading && group.items.length > 0);
+  const creditRows = (profile?.credits ?? []).filter((credit) => credit.title.trim());
+  let section = 1;
+  const chapterTones = drafts.map(() => sectionTone(hero, section++));
+  const essayTone = unusedStory.length > 0 ? sectionTone(hero, section++) : cover;
+  const backTone = undated.length > 0 || backAlbums.length > 0 ? sectionTone(hero, section++) : cover;
+  const listTone = songs.length > 0 ? sectionTone(hero, section++) : cover;
+  const dossierTone = noteGroups.length > 0 ? sectionTone(hero, section++) : cover;
+  const creditsTone = creditRows.length > 0 ? sectionTone(hero, section++) : cover;
 
   const page: MagazinePage = {
     name,
@@ -527,62 +540,83 @@ export function composeArtistMagazine(input: {
         ? "Artist In Depth"
         : `Artist In Depth · ${count} ${songNoun(count)} · ${multi ? `${drafts.length} chapters` : "a short feature"}`,
     fromCollection,
-    wordmark: paint.take("b:wm", 1),
-    kicker: paint.take("div:kick", 2),
-    dekTone: paint.take("div:dek", 1),
-    bylineTone: paint.take("div:by", 1),
-    openingRule: paint.take("div:bar", 1),
+    wordmark: cover,
+    kicker: cover,
+    dekTone: cover,
+    bylineTone: cover,
+    openingRule: cover,
     rail: multi
       ? {
-          tone: paint.take("nav:rail", 1),
+          tone: chapterTones[0] ?? cover,
           tabs: drafts.map((chapter, index) => ({
             id: chapter.id,
             label: eraLabel(chapter.decade),
             detail: chapter.songCount === 0 ? "Albums" : `${chapter.songCount} ${songNoun(chapter.songCount)}`,
-            tone: paint.take(index === 0 ? "a:on" : "a:", 1),
+            tone: chapterTones[index] ?? cover,
           })),
         }
       : null,
-    chapters: drafts.map((chapter, index) => ({
-      id: chapter.id,
-      surface: MAGAZINE_CHAPTER_SURFACES[index % MAGAZINE_CHAPTER_SURFACES.length]!,
-      stripe: paint.take("section:ch", 1),
-      label: chapter.label,
-      labelTone: paint.take("div:no", 2),
-      title: chapter.title,
-      titleTone: paint.take(chapter.compactTitle ? "h2:f" : "h2:", 1),
-      compactTitle: chapter.compactTitle,
-      range: chapter.range,
-      rangeTone: paint.take("div:rng", 2),
-      paragraphs: chapter.paragraphs.map((paragraph) => ({
-        text: paragraph.text,
-        dropCap: paragraph.dropCap,
-        tone: paragraph.dropCap ? paint.take("p:dc", 1) : null,
-      })),
-      years: chapter.years.map((year) => ({
-        year: year.year,
-        tone: paint.take("div:yr", 1),
-        captions: year.captions.map((text) => ({ text, tone: paint.take("div:cap", 1) })),
-        albums: year.albums.map((album) => paintChapterAlbum(paint, album)),
-        songs: year.songs.map((entry) => paintSong(paint, entry.song, entry.quote)),
-        quote: year.artistQuote ? paintQuote(paint, year.artistQuote) : null,
-      })),
-    })),
+    chapters: drafts.map((chapter, index) => {
+      const tone = chapterTones[index] ?? cover;
+      return {
+        id: chapter.id,
+        surface: MAGAZINE_CHAPTER_SURFACES[index % MAGAZINE_CHAPTER_SURFACES.length]!,
+        stripe: tone,
+        label: chapter.label,
+        labelTone: tone,
+        title: chapter.title,
+        titleTone: tone,
+        compactTitle: chapter.compactTitle,
+        range: chapter.range,
+        rangeTone: tone,
+        paragraphs: chapter.paragraphs.map((paragraph) => ({
+          text: paragraph.text,
+          dropCap: paragraph.dropCap,
+          tone,
+        })),
+        years: chapter.years.map((year) => ({
+          year: year.year,
+          tone,
+          captions: year.captions.map((text) => ({ text, tone })),
+          albums: year.albums.map((album) => paintChapterAlbum(tone, album)),
+          songs: year.songs.map((entry) => paintSong(tone, entry.song, entry.quote)),
+          quote: year.artistQuote ? paintQuote(tone, year.artistQuote) : null,
+        })),
+      };
+    }),
     back: null,
     list: null,
     credits: null,
-    essay: [],
-    dossier: null,
-    closingRule: { a: "#ff2937", ink: "#07070d" },
-    footerTone: { a: "#ff2937", ink: "#07070d" },
+    essay: unusedStory.map((text, index) => ({
+      text,
+      dropCap: index === 0 && text.length > 0 && !"‘“\"".includes(text[0]!),
+      tone: essayTone,
+    })),
+    dossier: noteGroups.length
+      ? {
+          groups: noteGroups.map((group) => ({
+            title: group.heading,
+            titleTone: dossierTone,
+            items: group.items.map((item) => ({
+              key: item.key,
+              title: item.title?.trim() || null,
+              text: item.text.trim(),
+              href: item.href,
+              tone: dossierTone,
+            })),
+          })),
+        }
+      : null,
+    closingRule: cover,
+    footerTone: cover,
   };
 
   if (undated.length > 0 || backAlbums.length > 0) {
     page.back = {
-      stripe: paint.take("section:back", 1),
-      rule: paint.take("div:hd", 1),
-      title: paint.take("b:hb", 1),
-      badge: paint.take("span:hs", 1),
+      stripe: backTone,
+      rule: backTone,
+      title: backTone,
+      badge: backTone,
       intro: fromCollection
         ? "Recordings and albums in your collection that don’t carry a date yet."
         : "Recordings and albums that don’t have a date on file yet.",
@@ -593,32 +627,29 @@ export function composeArtistMagazine(input: {
           title: song.title,
           images,
           letter: song.title[0] ?? "•",
-          letterTone: images.length === 0 ? paint.take("div:nt", 2) : null,
-          imageTone: images.length > 0 ? paint.take("img:bpi", 1) : null,
+          letterTone: images.length === 0 ? backTone : null,
+          imageTone: images.length > 0 ? backTone : null,
           note: `${song.variant ? `${song.variant} · ` : ""}Year not on file`,
-          noteTone: paint.take("div:bs", 1),
+          noteTone: backTone,
         };
       }),
-      albums: backAlbums.map((album) => {
-        const hasCover = Boolean(album.coverUrl);
-        return {
-          key: album.id,
-          title: album.title,
-          href: album.href,
-          coverUrl: album.coverUrl,
-          year: album.year,
-          cover: hasCover ? paint.take("img:cv", 1) : paint.take("div:ph", 2),
-          note: fromCollection ? "Album · on your shelf" : "Album",
-          noteTone: paint.take("div:bs", 1),
-        };
-      }),
+      albums: backAlbums.map((album) => ({
+        key: album.id,
+        title: album.title,
+        href: album.href,
+        coverUrl: album.coverUrl,
+        year: album.year,
+        cover: backTone,
+        note: fromCollection ? "Album · on your shelf" : "Album",
+        noteTone: backTone,
+      })),
     };
   }
 
   if (songs.length > 0) {
     page.list = {
-      frame: paint.take("div:iyr", 1),
-      countTone: paint.take("em:ie", 1),
+      frame: listTone,
+      countTone: listTone,
       count: String(count),
       rest: fromCollection ? ` ${songNoun(count)} you own` : ` ${songNoun(count)}`,
       sub: fromCollection
@@ -631,59 +662,25 @@ export function composeArtistMagazine(input: {
         year: song.year != null ? String(song.year) : "—",
         peak: song.peak != null ? `No. ${song.peak}` : "",
         variant: song.variant,
-        tone: paint.take("li:", 1),
-        variantTone: song.variant ? paint.take("span:v", 1) : null,
-        peakTone: song.peak != null ? paint.take("span:p", 1) : null,
+        tone: listTone,
+        variantTone: song.variant ? listTone : null,
+        peakTone: song.peak != null ? listTone : null,
       })),
     };
   }
 
-  const creditRows = (profile?.credits ?? []).filter((credit) => credit.title.trim());
   if (creditRows.length > 0) {
     page.credits = {
-      labelTone: paint.take("span:ls", 1),
+      labelTone: creditsTone,
       rows: creditRows.map((credit, index) => ({
         key: `${credit.title}-${index}`,
         title: credit.title,
         role: credit.year != null ? `${credit.role} · ${credit.year}` : credit.role,
         peak: credit.peak != null ? `No. ${credit.peak}` : null,
-        tone: paint.take("div:cr", 1),
+        tone: creditsTone,
       })),
     };
   }
 
-  const unusedStory = story.filter((paragraph) => !placedStory.has(paragraph));
-  if (unusedStory.length > 0) {
-    page.essay = unusedStory.map((text, index) => ({
-      text,
-      dropCap: index === 0 && text.length > 0 && !"‘“\"".includes(text[0]!),
-      tone: index === 0 ? paint.take("p:essay", 1) : null,
-    }));
-  }
-
-  const noteGroups = (profile?.notes ?? [])
-    .map((group) => ({
-      heading: group.heading.trim(),
-      items: group.items.filter((item) => item.title?.trim() || item.text.trim()),
-    }))
-    .filter((group) => group.heading && group.items.length > 0);
-  if (noteGroups.length > 0) {
-    page.dossier = {
-      groups: noteGroups.map((group) => ({
-        title: group.heading,
-        titleTone: paint.take("h2:wk", 1),
-        items: group.items.map((item) => ({
-          key: item.key,
-          title: item.title?.trim() || null,
-          text: item.text.trim(),
-          href: item.href,
-          tone: paint.take("div:wk", 1),
-        })),
-      })),
-    };
-  }
-
-  page.closingRule = paint.take("div:bar", 1);
-  page.footerTone = paint.take("span:fs", 1);
   return page;
 }

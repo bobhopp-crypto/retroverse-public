@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import { PublicSongExperience } from "@/components/retroverse/PublicSongExperience";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
-import { heroColor } from "@/lib/theme/magazine-palette";
+import { heroColor, prefersNeutralPhotoWash } from "@/lib/theme/magazine-palette";
 
 import "@/lib/theme/magazine-tokens.css";
 import "@/lib/theme/magazine-site.css";
@@ -82,7 +82,10 @@ export default async function Retroverse2SongPage({ params, searchParams }: Prop
 
   return (
     <Rv2PublicShell className={`rv2-song rv-mag rv-mag-song rv-mag-site ${magazineFontClass}`} yearsHref={yearHref} showTopBroadcastBanner={false}>
-      <div style={{ ["--h" as string]: heroColor(payload.title || payload.artist || "Song") }}>
+      <div
+        className={prefersNeutralPhotoWash(heroColor(payload.artist || payload.title || "Song")) ? "is-neutral-wash" : undefined}
+        style={{ ["--h" as string]: heroColor(payload.artist || payload.title || "Song") }}
+      >
         <HomepageStageNavigation
           rvtr={payload.rvtr}
           relatedSongs={(payload.track?.relatedTracks ?? []).map((related) => ({ ...related }))}

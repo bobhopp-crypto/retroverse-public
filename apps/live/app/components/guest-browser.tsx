@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import { toneStyle } from "@/components/magazine/tone";
 import { vdjbxStillUrl, type VdjbxVideo } from "@/lib/vdjbx-catalog";
-import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 
 import "./guest-browser.css";
 import "@/lib/theme/magazine-tokens.css";
@@ -60,13 +60,13 @@ export function GuestBrowser({ catalog, query, results, searching, message, queu
   const choose = (name: string) => { setCollection(name); setLimit(24); onQuery(""); };
   const home = !searchView && !selected;
   const closeMobileSearch = () => { setMobileSearchOpen(false); setCollection(null); onQuery(""); };
-  const paint = createPaletteAssigner(heroColor("Video Jukebox"));
-  const wordmark = paint.take("b:wm", 1);
-  const requestTone = paint.take("span:req", 1);
-  const tileTones = categories.map((shelf) => paint.take(`button:${shelf.displayName}`, 2));
+  const jukeboxHue = heroColor("Video Jukebox");
+  const wordmark = sectionTone(jukeboxHue, 0);
+  const tileTones = categories.map((_, index) => sectionTone(jukeboxHue, index + 1));
+  const openTone = selected ? tileTones[categories.findIndex((shelf) => shelf.displayName === selected.displayName)] ?? wordmark : wordmark;
 
   return (
-    <main className={`guest-browser rv-mag rv-mag-jukebox rv-mag-site ${magazineFontClass}`}>
+    <main className={`guest-browser rv-mag rv-mag-jukebox rv-mag-site ${magazineFontClass}`} style={toneStyle(wordmark)}>
       <div className="rv-mag-page-mast">
         <a href="/" style={toneStyle(wordmark)}>Retroverse</a>
         <span>Jukebox</span>
@@ -125,7 +125,7 @@ export function GuestBrowser({ catalog, query, results, searching, message, queu
         </section>
       ) : null}
       {!home ? (
-        <section className="guest-songs" aria-label={searchView ? "Search results" : selected?.displayName || "Video collection"} aria-busy={searching}>
+        <section className="guest-songs" style={toneStyle(searchView ? wordmark : openTone)} aria-label={searchView ? "Search results" : selected?.displayName || "Video collection"} aria-busy={searching}>
           <div className="guest-list-heading">
             <h2>{searchView ? "Search results" : selected?.displayName || "Video collection"}</h2>
             <span role="status">{searching ? "Searching…" : `${songs.length} songs`}</span>
@@ -137,7 +137,7 @@ export function GuestBrowser({ catalog, query, results, searching, message, queu
               return (
                 <button className="guest-song-card" type="button" key={song.videoKey} onClick={() => onOpenDetail(song)} aria-label={`${song.title} by ${song.artist}. ${requested ? "Requested" : "Request"}`}>
                   <span className="guest-song-copy"><strong>{song.title}</strong><span>{song.artist || "Unknown artist"}</span></span>
-                  <span className="guest-card-status" style={toneStyle(requestTone)}>{requested ? "REQUESTED" : "REQUEST"}</span>
+                  <span className="guest-card-status">{requested ? "REQUESTED" : "REQUEST"}</span>
                 </button>
               );
             })}

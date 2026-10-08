@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import { toneStyle } from "@/components/magazine/tone";
 import { formatChartDateLabel } from "@/lib/artist/chart-history-display";
-import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 
 import "@/lib/theme/magazine-tokens.css";
 import "@/lib/theme/magazine-site.css";
@@ -156,10 +156,9 @@ export function ChartWeekPortalClient({ initial: context, operatorMode }: Props)
   }, [context.focusPosition, context.rows.length, hasFocusedRow]);
 
   const hue = heroColor(context.chartLabel || context.chartDate);
-  const paint = createPaletteAssigner(hue);
-  const wordmark = paint.take("b:wm", 1);
-  const rank = paint.take("span:rank", 1);
-  const one = paint.take("span:one", 2);
+  const wordmark = sectionTone(hue, 0);
+  const rank = wordmark;
+  const one = wordmark;
 
   return (
     <main

@@ -7,7 +7,7 @@ import { MagazineStat } from "@/components/magazine/MagazineStat";
 import { toneStyle } from "@/components/magazine/tone";
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
-import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import {
   isUsableChartHistory,
@@ -124,10 +124,11 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
   };
 
   const hue = heroColor(String(rvYear));
-  const paint = createPaletteAssigner(hue);
-  const wordmark = paint.take("b:wm", 1);
-  const factTones = yearFacts.map(() => paint.take("div:stat", 1));
-  const monthTones = monthCards.map(() => paint.take("h3:mo", 1));
+  const wordmark = sectionTone(hue, 0);
+  const factTone = sectionTone(hue, 0);
+  const monthTone = sectionTone(hue, 1);
+  const factTones = yearFacts.map(() => factTone);
+  const monthTones = monthCards.map(() => monthTone);
 
   return (
     <div className={`rv-year-world rv-mag rv-mag-year rv-mag-site ${magazineFontClass}${shellMode === "rv2" ? " rv-year-world--rv2" : ""}`} style={{ ["--h" as string]: hue }}>
