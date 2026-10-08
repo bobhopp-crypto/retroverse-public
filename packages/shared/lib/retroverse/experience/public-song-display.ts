@@ -1,7 +1,7 @@
 import type { TimelineEvent } from "@/lib/ops/intelligence/song-package-types";
 
 import type { PublicSongStoryCard } from "./load-public-song-payload";
-import { sanitizePublicCopy, sanitizePublicCopyOrNull } from "./public-copy";
+import { hasPrivatePath, sanitizePublicCopy, sanitizePublicCopyOrNull } from "./public-copy";
 
 /** Trim and collapse whitespace only — no typo correction. */
 export function trimDisplayField(value: string | null | undefined): string {
@@ -80,7 +80,8 @@ export function preparePublicSongSections(input: {
     const bodyKey = factKey(body);
     if (!bodyKey || seenExact.has(bodyKey)) continue;
     seenExact.add(bodyKey);
-    storyCards.push({ headline, body, sourceUrl: card.sourceUrl ?? null });
+    const sourceUrl = card.sourceUrl && !hasPrivatePath(card.sourceUrl) ? card.sourceUrl : null;
+    storyCards.push({ headline, body, sourceUrl });
   }
 
   const trivia: string[] = [];

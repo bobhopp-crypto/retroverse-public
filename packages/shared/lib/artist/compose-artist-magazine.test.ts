@@ -126,6 +126,43 @@ test("owned songs win, story text is the only drop cap, and quotes stay with the
   assert.equal(page.credits?.rows[0]?.peak, "No. 3");
 });
 
+test("a chart-only undated album keeps its link and does not claim a shelf", () => {
+  const page = composeArtistMagazine({
+    name: "The Georgia Satellites",
+    heroImageUrl: null,
+    songs: [song({ title: "Keep Your Hands To Yourself", year: 1986, peak: 2, owned: false })],
+    albums: [{ id: "loose", title: "Loose", year: null, href: "/album/RVAL000001", coverUrl: null }],
+    profile: null,
+  });
+  assert.equal(page.fromCollection, false);
+  assert.equal(page.back?.albums[0]?.href, "/album/RVAL000001");
+  assert.equal(page.back?.albums[0]?.note, "Album");
+});
+
+test("story that names no song still opens the magazine", () => {
+  const page = composeArtistMagazine({
+    name: "Madonna",
+    heroImageUrl: null,
+    songs: [song({ title: "Lucky Star", year: 1984, peak: 4 })],
+    albums: [],
+    profile: {
+      summary: null,
+      descriptor: null,
+      story: ["A career told without naming a chart title."],
+      chronology: [],
+      artistQuotes: [],
+      credits: [],
+      portraitUrl: null,
+      notes: [{ heading: "Worth knowing", items: [{ key: "n", title: null, text: "She kept changing the show.", href: null }] }],
+    },
+  });
+  assert.equal(page.chapters[0]?.paragraphs.length, 0);
+  assert.equal(page.essay[0]?.dropCap, true);
+  assert.match(page.essay[0]?.text ?? "", /career/);
+  assert.equal(page.dossier?.groups[0]?.title, "Worth knowing");
+  assert.equal(page.dossier?.groups[0]?.items[0]?.text, "She kept changing the show.");
+});
+
 test("an undated recording goes to the back pages and an empty artist stays quiet", () => {
   const dated = composeArtistMagazine({
     name: "Madonna",

@@ -12,6 +12,7 @@ import { loadPublicSongPayload } from "@/lib/retroverse/experience/load-public-s
 import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
 import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { preparePublicSongSections, filterPublicText } from "@/lib/retroverse/experience/public-song-display";
+import { hasPrivatePath, redactPublicProse } from "@/lib/retroverse/experience/public-copy";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import { SongArveyContext } from "./SongArveyContext";
 import { loadBestEditorialSongRecord, loadChartTrajectoryRecommendations, SHE_IS_A_BEAUTY_ARTICLE, type EditorialDiversityRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
@@ -147,10 +148,14 @@ export async function PublicSongExperience({
   const albumHref = payload.links.albumHref ?? primaryAlbum?.href ?? null;
   const yearHref = year ? payload.links.yearHref ?? `/rv/${year}` : null;
   const isVdjOnly = payload.resolutionTier === "vdj-only";
-  const editorialRecord = editorialRecordOverride ?? await loadBestEditorialSongRecord(
+  const editorialRecordRaw = editorialRecordOverride ?? await loadBestEditorialSongRecord(
     [payload.rvtr, ...(payload.alternateIdentities ?? [])],
     { artist: payload.artist || track?.artistName, title: payload.title || track?.title },
   );
+  const editorialParagraphs = (editorialRecordRaw?.paragraphs ?? [])
+    .map((paragraph) => redactPublicProse(paragraph))
+    .filter((paragraph) => paragraph.length >= 12);
+  const editorialRecord = editorialParagraphs.length > 0 ? editorialRecordRaw : null;
   const isEditorialPrototype = payload.rvtr === "RVTR111098";
   const trajectoryRecommendations = editorialRecord
     ? editorialRecord.related
@@ -234,7 +239,7 @@ export async function PublicSongExperience({
                 Retroverse has limited internal information for this song. Use the links below to explore further.
               </p>
             ) : null}
-            {(editorialRecord || hasStory) ? <div className="canonical-song__lead"><p>{editorialRecord?.paragraphs[0] ?? (isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0])}</p></div> : null}
+            {(editorialRecord || hasStory) ? <div className="canonical-song__lead"><p>{editorialParagraphs[0] ?? (isEditorialPrototype ? SHE_IS_A_BEAUTY_ARTICLE.deck : sections.storyCards[0]?.body ?? sections.storyParagraphs[0])}</p></div> : null}
             <div className="canonical-song__meta">
               {payload.album ? <span>{payload.album}</span> : null}
               {year && yearHref ? <Link href={yearHref}>Explore {year}</Link> : null}
@@ -296,7 +301,7 @@ export async function PublicSongExperience({
             <article className="rv2-song__editorial-article" aria-labelledby="rv-editorial-headline">
               <p className="rv2-song__editorial-kicker">The feature</p>
               <h2 id="rv-editorial-headline">{editorialRecord.headline}</h2>
-              {editorialRecord.paragraphs.slice(1).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {editorialParagraphs.slice(1).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               <p className="rv2-song__editorial-source">
                 {editorialRecord.researchSources[0] ? <a href={editorialRecord.researchSources[0]} target="_blank" rel="noopener noreferrer">Research note ↗</a> : null}
               </p>
@@ -417,12 +422,17 @@ export async function PublicSongExperience({
                 <h2 id="rv-credits-heading">CREDITS</h2>
               </header>
               <dl className="rv-song-credits">
-                {localContent.credits.items.map((item) => (
-                  <div key={`${item.label}-${item.value}`}>
-                    <dt>{item.label}</dt>
-                    <dd>{item.value}</dd>
-                  </div>
-                ))}
+                {localContent.credits.items.map((item) => {
+                  const value = redactPublicProse(item.value ?? "");
+                  const label = item.label ?? "";
+                  if (!value || hasPrivatePath(value) || hasPrivatePath(label)) return null;
+                  return (
+                    <div key={`${item.label}-${item.value}`}>
+                      <dt>{redactPublicProse(label) || label.trim()}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  );
+                })}
               </dl>
             </section>
           ) : null}
@@ -433,11 +443,15 @@ export async function PublicSongExperience({
                 <h2 id="rv-media-heading">WATCH OR LISTEN</h2>
               </header>
               <div className="rv-song-media">
-                {localContent.media.items.map((item) => (
-                  <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer">
-                    {item.label ?? "Open media"} ↗
-                  </a>
-                ))}
+                {localContent.media.items.map((item) => {
+                  const url = item.url?.trim() ?? "";
+                  if (!url || hasPrivatePath(url)) return null;
+                  return (
+                    <a key={url} href={url} target="_blank" rel="noopener noreferrer">
+                      {redactPublicProse(item.label ?? "") || "Open media"} ↗
+                    </a>
+                  );
+                })}
               </div>
             </section>
           ) : null}
@@ -448,17 +462,22 @@ export async function PublicSongExperience({
                 <h2 id="rv-sources-heading">SOURCES</h2>
               </header>
               <ul>
-                {localContent.sources.map((source) => (
-                  <li key={source.id}>
-                    {source.url ? (
-                      <a href={source.url} target="_blank" rel="noopener noreferrer">
-                        {source.name} ↗
-                      </a>
-                    ) : (
-                      <span>{source.name}</span>
-                    )}
-                  </li>
-                ))}
+                {localContent.sources.map((source) => {
+                  const url = source.url && !hasPrivatePath(source.url) ? source.url : null;
+                  const name = redactPublicProse(source.name);
+                  if (!name || hasPrivatePath(name)) return null;
+                  return (
+                    <li key={source.id}>
+                      {url ? (
+                        <a href={url} target="_blank" rel="noopener noreferrer">
+                          {name} ↗
+                        </a>
+                      ) : (
+                        <span>{name}</span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           ) : null}

@@ -1,6 +1,8 @@
 import { PassExperienceOverlay } from "@/components/pass/PassExperienceOverlay";
 import { BroadcastViewer } from "@/components/retroverse-live/BroadcastViewer";
 import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
+import { normalizePlayheadPayload } from "@/lib/broadcast/normalize-playhead";
+import { redactPublicTree } from "@/lib/retroverse/experience/public-copy";
 
 import { recordPassActivity } from "./store";
 import type { PassScanResult } from "./types";
@@ -15,7 +17,7 @@ export async function PassExperienceShell({ scan }: { scan: PassScanResult }) {
   } catch {
     // Activity logging must never block a valid pass.
   }
-  const initial = await buildPlayheadPayload();
+  const initial = redactPublicTree(normalizePlayheadPayload(await buildPlayheadPayload()));
   return (
     <main className="home-broadcast">
       <BroadcastViewer initial={initial} />

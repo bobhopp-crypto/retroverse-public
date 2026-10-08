@@ -16,7 +16,27 @@ export function redisLiveStateConfigured(): boolean {
   return config() !== null;
 }
 
+/** In-memory stand-in for the REST KV. Production leaves this unset. */
+let testKv: Map<string, unknown> | null = null;
+
+export function setRedisKvForTests(kv: Map<string, unknown> | null): void {
+  testKv = kv;
+}
+
 export async function redisCommand(args: (string | number)[]): Promise<unknown> {
+  if (testKv) {
+    const command = String(args[0] ?? "").toUpperCase();
+    const key = String(args[1] ?? "");
+    if (command === "GET") {
+      const value = testKv.get(key);
+      return value === undefined ? null : value;
+    }
+    if (command === "SET") {
+      testKv.set(key, args[2]);
+      return "OK";
+    }
+    throw new Error(`Live state test store does not implement ${command}.`);
+  }
   const credentials = config();
   if (!credentials) throw new Error("Live state store is not configured (LIVE_KV_REST_API_URL / LIVE_KV_REST_API_TOKEN).");
   const response = await fetch(credentials.url, {

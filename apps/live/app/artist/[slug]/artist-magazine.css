@@ -224,7 +224,8 @@ main.rv2-magazine .rv2-public-shell__body {
   margin: 18px 0;
 }
 
-.rv-mag-chapter p.is-drop::first-letter {
+.rv-mag-chapter p.is-drop::first-letter,
+.rv-mag-essay p.is-drop::first-letter {
   float: left;
   margin: 6px 10px 0 0;
   color: var(--a);
@@ -233,6 +234,71 @@ main.rv2-magazine .rv2-public-shell__body {
   font-size: 66px;
   line-height: 0.8;
   text-shadow: 0 0 14px color-mix(in srgb, var(--a) 45%, transparent);
+}
+
+.rv-mag-essay {
+  padding: 0 22px 8px;
+  background: var(--rv-ink);
+  color: var(--rv-body);
+}
+
+.rv-mag-essay .rv-mag-label {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.rv-mag-essay p {
+  margin: 0 0 18px;
+}
+
+a.rv-mag-back__item {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rv-mag-dossier {
+  padding: 8px 16px 24px;
+  background: var(--rv-ink);
+}
+
+.rv-mag-dossier h2 {
+  margin: 22px 0 12px;
+  color: var(--a);
+  font-size: 32px;
+}
+
+.rv-mag-dossier__item {
+  margin: 0 0 12px;
+  padding: 14px 12px;
+  background: var(--a);
+  color: var(--t);
+  box-shadow: 4px 4px 0 #07070d;
+}
+
+.rv-mag-dossier__item h3,
+.rv-mag-dossier__item p,
+.rv-mag-dossier__item a {
+  margin: 0;
+  color: var(--t);
+}
+
+.rv-mag-dossier__item h3 {
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+.rv-mag-dossier__item p {
+  margin-top: 6px;
+  font-family: var(--rv-font-serif), "Source Serif 4", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.rv-mag-dossier__item a {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 .rv-mag-year {

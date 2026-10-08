@@ -41,6 +41,10 @@ export function MagazineHero({
   const [canBack, setCanBack] = useState(false);
 
   useEffect(() => {
+    setPhoto(Boolean(heroImageUrl));
+  }, [heroImageUrl]);
+
+  useEffect(() => {
     const sync = () => setCanBack(hasInternalBackEntry());
     sync();
     window.addEventListener(RETROVERSE_HISTORY_EVENT, sync);

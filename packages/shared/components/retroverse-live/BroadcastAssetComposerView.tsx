@@ -116,9 +116,6 @@ export function BroadcastAssetComposerView({ asset, transition = "fade" }: Props
 
       <p className="bac__brand">Retroverse Live</p>
       {artistDepthHref ? <p className="bac__artist-cue">Swipe down · Artist</p> : null}
-      <p className="bac__rvtr" aria-hidden="true">
-        {asset.input.rvtr}
-      </p>
     </div>
     </ArtistInDepthSwipe>
   );

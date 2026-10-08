@@ -22,6 +22,7 @@ import { loadVdjSnapshotsForPaths, normVdjPath } from "@/lib/ops/intelligence/vd
 import { mergeExactVdjPresentation } from "@/lib/home/public-song-experience-resolution";
 import { loadTrackPage } from "@/lib/track/load-track-page";
 import { loadWoodstockPresentationAsset, type WoodstockPresentationAsset } from "@/lib/retroverse/woodstock-presentation-runtime";
+import { redactPublicTree } from "@/lib/retroverse/experience/public-copy";
 
 const RE_RVTR = /^RVTR\d{6}$/i;
 
@@ -333,17 +334,17 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
   ) {
     const payload = await payloadFromFreshVirtualDj(state);
     const asset = payload.live?.filepath ? await loadWoodstockPresentationAsset(`VDJ:${vdjBaseKey(payload.live.filepath.replace(/\\/g, "/").trim().toLowerCase())}`) : null;
-    return { ...payload, woodstockAsset: asset };
+    return redactPublicTree({ ...payload, woodstockAsset: asset });
   }
 
   if (shouldFreshVirtualDjTakePriority(playhead, freshLive)) {
     const payload = await payloadFromFreshVirtualDj(state);
     const asset = payload.live?.filepath ? await loadWoodstockPresentationAsset(`VDJ:${vdjBaseKey(payload.live.filepath.replace(/\\/g, "/").trim().toLowerCase())}`) : null;
-    return { ...payload, woodstockAsset: asset };
+    return redactPublicTree({ ...payload, woodstockAsset: asset });
   }
 
   if (manualOverride) {
-    return payloadFromCurrentExperience(playhead, state);
+    return redactPublicTree(await payloadFromCurrentExperience(playhead, state));
   }
 
   const channelZero = resolveChannelExperience({ state });
@@ -374,8 +375,8 @@ export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayl
     },
   };
 
-  return {
+  return redactPublicTree({
     ...applyPublicHomepageManualOverride(channelZeroPayload, playhead),
     publicSong,
-  };
+  });
 }
