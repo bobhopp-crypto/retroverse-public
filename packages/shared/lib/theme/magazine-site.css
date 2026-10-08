@@ -1,0 +1,500 @@
+/*
+  Magazine skin for the public routes that sit on the shared tokens.
+  Photo heroes stay mostly neutral: a light single-hue wash plus a black scrim.
+  Chart bars stay neutral. Only a No. 1 week takes one flat color.
+*/
+
+body:has(.rv-mag) .rv-global-nav,
+body:has(.rv-mag) .arvey-trigger {
+  display: none;
+}
+
+.rv-mag-site {
+  --rv-ink: #07070d;
+  background: #07070d;
+  color: #f1eef9;
+}
+
+/* Home stage ----------------------------------------------------------- */
+
+.retroverse-stage.rv-mag {
+  max-width: none;
+  background: #07070d;
+  font-family: var(--rv-font-serif), "Source Serif 4", Georgia, serif;
+}
+
+.retroverse-stage .rv-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--h, transparent);
+  mix-blend-mode: multiply;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.retroverse-stage .rv-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 13, 0.5) 0,
+    rgba(7, 7, 13, 0.05) 28%,
+    rgba(7, 7, 13, 0.2) 52%,
+    rgba(7, 7, 13, 0.94) 100%
+  );
+}
+
+.retroverse-stage .rv-poster img {
+  filter: grayscale(0.12) contrast(1.04) brightness(0.98);
+}
+
+.retroverse-stage .rv-overlay {
+  background: none;
+}
+
+.retroverse-stage .rv-mast {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) 18px 0;
+  pointer-events: none;
+  color: #fff;
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.retroverse-stage .rv-mast a {
+  pointer-events: auto;
+  color: var(--a);
+  text-decoration: none;
+}
+
+.retroverse-stage .rv-now-label {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 6px 8px;
+  background: var(--a);
+  color: var(--t);
+  box-shadow: 4px 4px 0 var(--b, #07070d);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.retroverse-stage .rv-overlay h1 {
+  color: var(--h);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  text-shadow: 0 0 22px color-mix(in srgb, var(--h) 45%, transparent);
+}
+
+.retroverse-stage .rv-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.retroverse-stage .rv-meta-tag {
+  display: inline-block;
+  padding: 5px 8px;
+  background: var(--a);
+  color: var(--t);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.retroverse-stage .rv-swipe-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+
+.retroverse-stage .rv-swipe-tags li {
+  padding: 5px 7px;
+  background: var(--a);
+  color: var(--t);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.retroverse-stage .rv-hero-actions {
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+  gap: 8px;
+}
+
+.retroverse-stage .rv-hero-actions button {
+  min-height: 46px;
+  border: 0;
+  background: var(--a);
+  color: var(--t);
+  box-shadow: 4px 4px 0 #07070d;
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.retroverse-stage .rv-recommendations {
+  background: #07070d;
+}
+
+.retroverse-stage .rv-recommendation {
+  border: 0;
+  border-bottom: 1px solid #24222c;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Song, album, search, chronicle --------------------------------------- */
+
+.rv-mag-song,
+.rv-mag-album,
+.rv-mag-search,
+.rv-mag-year,
+.rv-mag-month,
+.rv-mag-week,
+.rv-mag-charts,
+.rv-mag-jukebox {
+  min-height: 100dvh;
+  background: #07070d;
+  color: #f1eef9;
+}
+
+.rv-mag-song .editorial-song,
+.rv-mag-song .editorial-song--full-hero,
+.rv-mag-album .album-ed,
+.rv-mag-album.rv2-album,
+.rv-mag-search,
+.rv-year-world.rv-mag-year,
+.rv-year-world.rv-mag-year .rv-year-hero,
+.rv-year-world.rv-mag-year .rv-year-facts,
+.rv-year-world.rv-mag-year .rv-year-section,
+.rv-year-world.rv-mag-year .rv-month-card,
+.rv-year-world.rv-mag-year .rv-year-chronicle,
+.rv-mag-charts,
+.rv-mag-jukebox,
+.rv-mag-week,
+.rv-mag-month,
+.rv-mag-month .chart-month {
+  background: #07070d !important;
+  color: #f1eef9 !important;
+}
+
+.rv-year-world.rv-mag-year .rv-year-hero__lead,
+.rv-year-world.rv-mag-year .rv-year-chronicle__hint,
+.rv-year-world.rv-mag-year .rv-month-card__week-pill {
+  color: #d9d5ea !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.rv-year-world.rv-mag-year .rv-year-hero__year {
+  color: var(--h) !important;
+}
+
+.rv-mag-album,
+.rv-mag-album .album-ed,
+.rv-mag-album .album-ed__hero,
+.rv-mag-album .album-ed__section,
+.rv-mag-song .editorial-song,
+.rv-mag-song .rv-exp-chapter,
+.rv-mag-song .rv2-song__editorial-article,
+.rv-mag-song .canonical-song__lead {
+  background: #07070d !important;
+  color: #f1eef9 !important;
+}
+
+.rv-mag-album .album-ed__title,
+.rv-mag-song h1 {
+  color: var(--h) !important;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+}
+
+.rv-mag-song .canonical-song__page-image,
+.rv-mag-song .canonical-song__hero-image,
+.rv-mag-album .album-ed__cover-wrap img {
+  filter: grayscale(0.12) contrast(1.04) brightness(0.98);
+}
+
+.rv-mag-song .editorial-song--full-hero .canonical-song__page-veil,
+.rv-mag-song .canonical-song__hero-veil {
+  background:
+    linear-gradient(180deg, rgba(7, 7, 13, 0.5) 0%, rgba(7, 7, 13, 0.08) 30%, rgba(7, 7, 13, 0.94) 100%),
+    color-mix(in srgb, var(--h) 14%, transparent) !important;
+}
+
+.rv-mag-song .canonical-song__page-fallback,
+.rv-mag-song .canonical-song__hero-fallback {
+  background: #0b0b10 !important;
+}
+
+.rv-mag-song h1,
+.rv-mag-album .album-ed__title,
+.rv-mag-year .rv-year-hero__year,
+.rv-mag-search h1,
+.rv-mag-charts h1,
+.rv-mag-week h1,
+.rv-mag-month h1,
+.rv-mag-jukebox h2 {
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+}
+
+.rv-mag-song .rv2-song__header h1,
+.rv-mag-song .canonical-song__hero h1,
+.rv-mag-album .album-ed__title,
+.rv-mag-year .rv-year-hero__year {
+  color: var(--h);
+  text-shadow: 0 0 18px color-mix(in srgb, var(--h) 40%, transparent);
+}
+
+.rv-mag .rv-exp-cj,
+.rv-mag .rv-exp-cj--rv2 {
+  border: 0;
+  border-radius: 0;
+  background: #111117 !important;
+  box-shadow: none;
+  color: #f1eef9;
+}
+
+.rv-mag .rv-exp-cj__bar-wrap,
+.rv-mag .rv-exp-cj--rv2 .rv-exp-cj__bar-wrap {
+  border-color: #2a2933;
+  background: #1a1a21;
+}
+
+.rv-mag .rv-exp-cj__bar {
+  background-color: #3a3944 !important;
+  box-shadow: none !important;
+}
+
+.rv-mag .rv-exp-cj__row--number-one .rv-exp-cj__bar {
+  background-color: var(--h) !important;
+}
+
+.rv-mag .rv-exp-cj__rank,
+.rv-mag .rv-exp-cj__date,
+.rv-mag .rv-exp-cj h2,
+.rv-mag .rv-exp-cj__eyebrow {
+  color: #f1eef9;
+  background: transparent;
+}
+
+.rv-mag .rv-exp-cj__row--number-one .rv-exp-cj__rank {
+  color: var(--h);
+}
+
+.rv-mag-album .album-ed__breakout-bar {
+  background: #3a3944 !important;
+}
+
+.rv-mag-album .album-ed__breakout-bar.is-one {
+  background: var(--h) !important;
+}
+
+.rv-mag .explorer-row,
+.rv-mag .explorer-row--owned,
+.rv-mag .explorer-row--number-one,
+.rv-mag .archive-search__result,
+.rv-mag .guest-song-card {
+  border: 0;
+  border-bottom: 1px solid #24222c;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+.rv-mag .explorer-btn--library-check,
+.rv-mag .explorer-btn--library-acquire,
+.rv-mag .explorer-btn--owned,
+.rv-mag .explorer-btn--add {
+  display: none;
+}
+
+.rv-mag-search .archive-search__label,
+.rv-mag-search .archive-search__group h2,
+.rv-mag-year .rv-year-section__kicker,
+.rv-mag-charts .rv2-charts-hub__card-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 8px;
+  background: var(--a, #00ddff);
+  color: var(--t, #07070d);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.rv-mag-search .archive-search {
+  padding: 18px 16px 40px;
+}
+
+.rv-mag-search input[type="search"] {
+  width: 100%;
+  border: 0;
+  border-bottom: 3px solid var(--h, #fff);
+  background: transparent;
+  color: #fff;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-size: 28px;
+}
+
+.rv-mag-year .rv-year-hero,
+.rv-mag-month,
+.rv-mag-week .explorer,
+.rv-mag-charts .rv2-charts-hub__hero,
+.rv-mag-charts .rv2-charts-hub__cards,
+.rv-mag-album .album-ed {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.rv-mag-year .rv-month-card__month {
+  color: var(--a);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+}
+
+.rv-mag-year .rv-month-card,
+.rv-mag-charts .rv2-charts-hub__card {
+  border: 0;
+  border-bottom: 1px solid #24222c;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.rv-mag-year .rv-year-world__grain,
+.rv-mag-album .rv2-live__grid-glow {
+  display: none;
+}
+
+.rv-mag-jukebox.guest-browser {
+  padding: 16px 16px 48px;
+  background: #07070d;
+  color: #f1eef9;
+}
+
+.rv-mag-jukebox .guest-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.rv-mag-jukebox .guest-collection-card {
+  display: flex;
+  min-height: 112px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 12px;
+  border: 0;
+  border-radius: 0;
+  background: var(--a);
+  color: var(--t);
+  box-shadow: 6px 6px 0 #07070d;
+  text-align: left;
+}
+
+.rv-mag-jukebox .guest-collection-card strong,
+.rv-mag-jukebox .guest-collection-card small {
+  color: var(--t);
+}
+
+.rv-mag-jukebox .guest-collection-card strong {
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  line-height: 0.95;
+}
+
+.rv-mag-jukebox .guest-card-collage {
+  display: none;
+}
+
+.rv-mag-jukebox .guest-song-grid {
+  display: grid;
+  gap: 0;
+}
+
+.rv-mag-jukebox .guest-song-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+}
+
+.rv-mag-jukebox .guest-song-image {
+  display: none;
+}
+
+.rv-mag-jukebox .guest-card-status {
+  padding: 6px 8px;
+  background: var(--a);
+  color: var(--t);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.rv-mag-week .explorer-row__rank,
+.rv-mag-album .explorer-row__rank,
+.rv-mag-month .chart-month__week {
+  color: var(--rank, var(--rv-soft));
+  font-weight: 800;
+}
+
+.rv-mag-week .explorer-row--number-one .explorer-row__rank {
+  padding: 2px 6px;
+  background: var(--one, var(--h));
+  color: var(--one-ink, #07070d);
+}
+
+.rv-mag-page-mast {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) 16px 8px;
+  color: #fff;
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.rv-mag-page-mast a {
+  color: var(--a);
+  text-decoration: none;
+}

@@ -19,6 +19,8 @@ import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
 
 type Props = {
   payload?: PublicSongPayload;

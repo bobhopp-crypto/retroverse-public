@@ -1,5 +1,6 @@
 export { EraRail, type EraRailTab } from "./EraRail";
 export { MagazineCard } from "./MagazineCard";
+export { MagazineStat } from "./MagazineStat";
 export { MagazinePhoto } from "./MagazinePhoto";
 export { MagazineRule } from "./MagazineRule";
 export { MagazineTag } from "./MagazineTag";

@@ -3,7 +3,11 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
+import { MagazineStat } from "@/components/magazine/MagazineStat";
+import { toneStyle } from "@/components/magazine/tone";
+import { magazineFontClass } from "@/components/theme/magazine-fonts";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
+import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
 import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import {
   isUsableChartHistory,
@@ -27,6 +31,8 @@ import { RvYearNavBand } from "../components/rv-year-nav-band";
 import "@/app/artist/[slug]/artist-charts-history.css";
 import "@/app/public-mobile-width.css";
 import "./rv-year.css";
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
 
 type RvYearViewProps = {
   rvYear: number;
@@ -117,8 +123,18 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
     setExpandedMonth((current) => (current === month ? 0 : month));
   };
 
+  const hue = heroColor(String(rvYear));
+  const paint = createPaletteAssigner(hue);
+  const wordmark = paint.take("b:wm", 1);
+  const factTones = yearFacts.map(() => paint.take("div:stat", 1));
+  const monthTones = monthCards.map(() => paint.take("h3:mo", 1));
+
   return (
-    <div className={`rv-year-world${shellMode === "rv2" ? " rv-year-world--rv2" : ""}`}>
+    <div className={`rv-year-world rv-mag rv-mag-year rv-mag-site ${magazineFontClass}${shellMode === "rv2" ? " rv-year-world--rv2" : ""}`} style={{ ["--h" as string]: hue }}>
+      <div className="rv-mag-page-mast">
+        <a href="/search" style={toneStyle(wordmark)}>Retroverse</a>
+        <span>Year</span>
+      </div>
       <RvChronologyScrollRestore />
       <div className="rv-year-world__grain" aria-hidden />
 
@@ -179,9 +195,9 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
 
       {yearFacts.length ? <section className="rv-year-facts" aria-labelledby="rv-year-facts-title">
         <h2 id="rv-year-facts-title" className="sr-only">Year facts</h2>
-        <div className="rv-year-facts__grid">
-          {yearFacts.map(([label, value]) => (
-            <div className="rv-year-fact" key={String(label)}><strong>{value}</strong><span>{label}</span></div>
+        <div className="rv-year-facts__grid rv-mag-stats">
+          {yearFacts.map(([label, value], index) => (
+            <MagazineStat key={String(label)} value={value as number} label={String(label)} tone={factTones[index]!} />
           ))}
         </div>
       </section> : null}
@@ -226,7 +242,7 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
           </p>
         </header>
         <div className={`rv-month-stack${isMobileTimeline ? " rv-month-stack--accordion" : ""}`}>
-          {monthCards.map((card) => {
+          {monthCards.map((card, monthIndex) => {
             const monthAnchor = `month-${monthLabel(card.month).toLowerCase()}`;
             const isOpen = !isMobileTimeline || expandedMonth === card.month;
             const monthName = monthFullName(card.month);
@@ -267,7 +283,7 @@ export function RvYearView({ rvYear, history, destination, shellMode = "legacy" 
                   aria-expanded={isMobileTimeline ? isOpen : undefined}
                 >
                   <div className="rv-month-card__head-row">
-                    <h3 className="rv-month-card__month">{monthName.toUpperCase()}</h3>
+                    <h3 className="rv-month-card__month" style={toneStyle(monthTones[monthIndex]!)}>{monthName.toUpperCase()}</h3>
                     {isMobileTimeline ? (
                       <span className="rv-month-card__chevron" aria-hidden>
                         {isOpen ? "▲" : "▼"}

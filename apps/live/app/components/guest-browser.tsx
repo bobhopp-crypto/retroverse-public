@@ -2,9 +2,14 @@
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
+import { magazineFontClass } from "@/components/theme/magazine-fonts";
+import { toneStyle } from "@/components/magazine/tone";
 import { vdjbxStillUrl, type VdjbxVideo } from "@/lib/vdjbx-catalog";
+import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
 
 import "./guest-browser.css";
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
 
 export type GuestSong = VdjbxVideo & { inLibrary?: boolean };
 export type GuestShelf = { displayName: string; videos: GuestSong[]; itemCount: number };
@@ -55,9 +60,17 @@ export function GuestBrowser({ catalog, query, results, searching, message, queu
   const choose = (name: string) => { setCollection(name); setLimit(24); onQuery(""); };
   const home = !searchView && !selected;
   const closeMobileSearch = () => { setMobileSearchOpen(false); setCollection(null); onQuery(""); };
+  const paint = createPaletteAssigner(heroColor("Video Jukebox"));
+  const wordmark = paint.take("b:wm", 1);
+  const requestTone = paint.take("span:req", 1);
+  const tileTones = categories.map((shelf) => paint.take(`button:${shelf.displayName}`, 1));
 
   return (
-    <main className="guest-browser">
+    <main className={`guest-browser rv-mag rv-mag-jukebox rv-mag-site ${magazineFontClass}`}>
+      <div className="rv-mag-page-mast">
+        <a href="/" style={toneStyle(wordmark)}>Retroverse</a>
+        <span>Jukebox</span>
+      </div>
       <header className="guest-header">
         <div className="guest-brand-line">
           <div className="guest-credits guest-header-credits">{credits}</div>
@@ -102,9 +115,8 @@ export function GuestBrowser({ catalog, query, results, searching, message, queu
         <section className="guest-home" aria-label="Browse collections">
           <div className="guest-list-heading"><h2>Browse the collection</h2><span>{categories.length} collections</span></div>
           <div className="guest-card-grid">
-            {categories.map((shelf) => (
-              <button className="guest-collection-card" type="button" key={shelf.displayName} onClick={() => choose(shelf.displayName)}>
-                <span className="guest-card-collage">{shelf.videos.slice(0, 4).map((song) => <span key={song.videoKey}><GuestStill videoKey={song.videoKey} title={song.title} /></span>)}</span>
+            {categories.map((shelf, index) => (
+              <button className="guest-collection-card" type="button" key={shelf.displayName} style={toneStyle(tileTones[index]!)} onClick={() => choose(shelf.displayName)}>
                 <span className="guest-collection-copy"><strong>{shelf.displayName}</strong><small>{shelf.itemCount} videos</small></span>
               </button>
             ))}
@@ -123,11 +135,8 @@ export function GuestBrowser({ catalog, query, results, searching, message, queu
               const requested = Boolean(song.videoKey && queueByKey.has(song.videoKey));
               return (
                 <button className="guest-song-card" type="button" key={song.videoKey} onClick={() => onOpenDetail(song)} aria-label={`${song.title} by ${song.artist}. ${requested ? "Requested" : "Request"}`}>
-                  <span className="guest-song-image">
-                    <GuestStill videoKey={song.videoKey} title={song.title} />
-                    <span className="guest-card-status">{requested ? "REQUESTED" : "REQUEST"}</span>
-                  </span>
                   <span className="guest-song-copy"><strong>{song.title}</strong><span>{song.artist || "Unknown artist"}</span></span>
+                  <span className="guest-card-status" style={toneStyle(requestTone)}>{requested ? "REQUESTED" : "REQUEST"}</span>
                 </button>
               );
             })}

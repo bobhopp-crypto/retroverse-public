@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { magazineFontClass } from "@/components/theme/magazine-fonts";
+import { toneStyle } from "@/components/magazine/tone";
+import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
+
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
+
 import { isUsableChartHistory } from "@/lib/artist/chart-history";
 import { loadRvYearChartHistory } from "@/lib/artist/load-chart-history";
 import { monthLabel, weeklyEntriesFromHistory } from "@/lib/artist/chart-history-display";
@@ -60,22 +67,32 @@ export default async function RvMonthPage({ params }: Props) {
 
   if (weekDates.length === 0) notFound();
 
+  const hue = heroColor(`${monthHeading(rvYear, month)} ${rvYear}`);
+  const paint = createPaletteAssigner(hue);
+  const wordmark = paint.take("b:wm", 1);
+  const rank = paint.take("span:wk", 1);
+
   return (
-    <main className="chart-month-page">
+    <main className={`chart-month-page rv-mag rv-mag-month rv-mag-site ${magazineFontClass}`} style={{ ["--h" as string]: hue, ["--rank" as string]: rank.a }}>
+      <div className="rv-mag-page-mast">
+        <a href={`/rv/${rvYear}`} style={toneStyle(wordmark)}>Retroverse</a>
+        <span>Month</span>
+      </div>
       <section className="chart-month" aria-labelledby="chart-month-heading">
-        <h1 id="chart-month-heading" className="chart-month__heading">
-          {monthHeading(rvYear, month)}
+        <h1 id="chart-month-heading" className="chart-month__heading rv-mag-display">
+          {monthHeading(rvYear, month)} {rvYear}
         </h1>
         <nav className="chart-month__weeks" aria-label={`${monthHeading(rvYear, month)} ${rvYear} chart weeks`}>
-          {weekDates.map((chartDate) => (
+          {weekDates.map((chartDate, index) => (
             <Link
               key={chartDate}
               href={chartWeekPortalHref(chartDate)}
-              className="chart-month__week"
+              className="chart-month__week rv-mag-index"
               aria-label={`Open chart week ending ${weekPillLabel(chartDate)}, ${rvYear}`}
               prefetch
             >
-              {weekPillLabel(chartDate)}
+              <span className="rv-mag-index__no" style={{ ["--a" as string]: rank.a }}>{String(index + 1).padStart(2, "0")}</span>
+              <span className="rv-mag-index__title">{weekPillLabel(chartDate)}</span>
             </Link>
           ))}
         </nav>

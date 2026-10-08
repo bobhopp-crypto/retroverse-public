@@ -3,9 +3,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
 import { useRouter } from "next/navigation";
 
+import { magazineFontClass } from "@/components/theme/magazine-fonts";
+import { toneStyle } from "@/components/magazine/tone";
 import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
 import { classifyHomepageSwipe } from "@/lib/homepage-stage-gesture";
 import { stageNowFromPublicPayload, type PublicCurrentPayload, type StageNow, type StageRelatedTrack } from "@/lib/stage-now";
+import { createPaletteAssigner, heroColor } from "@/lib/theme/magazine-palette";
 import {
   IDLE_ROTATION_MS,
   uniquePlaylistVideos,
@@ -18,6 +21,8 @@ import { StageOnboarding } from "./vdjbx-stage-onboarding";
 import { LivingPoster } from "./living-poster";
 
 import "./retroverse-stage.css";
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
 
 type SurfaceMode = "hero" | "recommendations";
 
@@ -222,8 +227,24 @@ export function RetroverseStage({ initial }: { initial?: StageNow | null }) {
     if (!wasMove && currentVideo) openSongGuide();
   };
 
+  const headline = currentVideo?.title || "Now playing";
+  const hue = heroColor(headline);
+  const paint = createPaletteAssigner(hue);
+  const wordmark = paint.take("b:wm", 1);
+  const nowTag = paint.take("div:now", 2);
+  const artistTag = paint.take("div:who", 1);
+  const yearTag = paint.take("div:yr", 1);
+  const chat = paint.take("button:chat", 1);
+  const jukebox = paint.take("button:juke", 1);
+  const swipes = [
+    ["← Previous", "span:left"],
+    ["→ Related", "span:right"],
+    ["↑ Jukebox", "span:up"],
+    ["↓ Artist", "span:down"],
+  ].map(([label, kind]) => ({ label, tone: paint.take(kind!, 1) }));
+
   return (
-    <div className={`retroverse-stage is-${surface}`}>
+    <div className={`retroverse-stage rv-mag rv-mag-site ${magazineFontClass} is-${surface}`} style={{ ["--h" as string]: hue }}>
       {surface === "hero" ? (
         <section
           className="rv-hero"
@@ -235,14 +256,25 @@ export function RetroverseStage({ initial }: { initial?: StageNow | null }) {
         >
           <LivingPoster videoKey={currentVideo?.videoKey || null} heroRvtr={currentVideo?.heroRvtr || currentVideo?.songRvtr || null} />
           {showOnboarding ? <StageOnboarding onDismiss={dismissOnboarding} /> : null}
+          <div className="rv-mast">
+            <a href="/search" style={toneStyle(wordmark)}>Retroverse</a>
+            <span>Now Playing</span>
+          </div>
           <div className="rv-overlay">
-            <p className="rv-now-label">{isLiveCurrent ? "LIVE" : "NOW PLAYING"}</p>
-            <h1>{currentVideo?.title || "Now playing"}</h1>
-            <p className="rv-artist">{currentVideo?.artist || ""}</p>
-            {currentVideo?.year != null ? <p className="rv-year">{currentVideo.year}</p> : null}
+            <p className="rv-now-label" style={toneStyle(nowTag)}>{isLiveCurrent ? "LIVE" : "NOW PLAYING"}</p>
+            <h1>{headline}</h1>
+            <div className="rv-meta-row">
+              {currentVideo?.artist ? <span className="rv-meta-tag" style={toneStyle(artistTag)}>{currentVideo.artist}</span> : null}
+              {currentVideo?.year != null ? <span className="rv-meta-tag" style={toneStyle(yearTag)}>{currentVideo.year}</span> : null}
+            </div>
+            <ul className="rv-swipe-tags" aria-label="Gestures">
+              {swipes.map((swipe) => (
+                <li key={swipe.label} style={toneStyle(swipe.tone)}>{swipe.label}</li>
+              ))}
+            </ul>
             <div className="rv-hero-actions">
-              <button type="button" className="rv-story-open" onClick={openSongGuide}><span>CHAT ABOUT THIS</span><span aria-hidden="true">↓</span></button>
-              <button type="button" className="rv-jukebox-open" onClick={goJukebox}><span>JUKEBOX</span><span aria-hidden="true">↑</span></button>
+              <button type="button" className="rv-story-open" style={toneStyle(chat)} onClick={openSongGuide}><span>CHAT ABOUT THIS</span></button>
+              <button type="button" className="rv-jukebox-open" style={toneStyle(jukebox)} onClick={goJukebox}><span>JUKEBOX</span></button>
             </div>
             {message ? <p className="rv-hint" role="status">{message}</p> : null}
           </div>
