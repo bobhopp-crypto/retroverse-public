@@ -1,15 +1,12 @@
-import { RetroverseBack } from "@/components/navigation/RetroverseBack";
-import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
+import { magazineFontClass } from "@/components/theme/magazine-fonts";
 
-import "./artist-page-v1.css";
+import "@/lib/theme/magazine-tokens.css";
+import "./artist-magazine.css";
 
 export default function ArtistLoading() {
   return (
-    <Rv2PublicShell className="rv2-artist rv2-explorer" activeNav="search" showTopBroadcastBanner={false}>
-      <div className="explorer artist-v1 artist-v1--loading" aria-busy="true">
-        <RetroverseBack fallbackHref="/search" fallbackLabel="Search" />
-        <p>Opening artist from the archive…</p>
-      </div>
-    </Rv2PublicShell>
+    <main className={`rv2-live rv2-magazine ${magazineFontClass}`}>
+      <div className="rv-mag rv-mag-loading">Opening the archive…</div>
+    </main>
   );
 }

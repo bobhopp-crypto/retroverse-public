@@ -1,0 +1,343 @@
+/*
+  Shared magazine surfaces, type, and flat-color primitives.
+  Accents arrive as --a / --b / --c / --t on each element.
+  The only gradients live on the artist cover (black scrim, one-hue glow).
+*/
+
+.rv-mag {
+  --rv-ink: #07070d;
+  --rv-text: #f1eef9;
+  --rv-body: #e6e3f2;
+  --rv-mute: #b4afc9;
+  --rv-soft: #d9d5ea;
+  --rv-meta: #cfcae3;
+  --rv-card: #1a1a21;
+  --rv-hero-well: #0b0b10;
+  --rv-stand: #0d0d12;
+  --rv-back: #0f0f14;
+  --rv-list: #111117;
+  background: var(--rv-ink);
+  color: var(--rv-text);
+  font-family: var(--rv-font-serif), "Source Serif 4", Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rv-mag-display {
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+
+.rv-mag-serif {
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+}
+
+.rv-mag-sans {
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+}
+
+.rv-mag-kicker {
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+  font-weight: 800;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.rv-mag-body {
+  color: var(--rv-body);
+  font-size: 17px;
+  line-height: 1.64;
+}
+
+.rv-mag-tag {
+  display: inline-block;
+  padding: 6px 8px;
+  background: var(--a);
+  color: var(--t);
+  box-shadow: 4px 4px 0 var(--b, var(--rv-ink));
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.rv-mag-rule {
+  height: 5px;
+  background: var(--a);
+}
+
+.rv-mag-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0;
+  padding: 9px;
+  border: 2px solid var(--a);
+  border-radius: 14px;
+  background: var(--rv-card);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--a) 18%, transparent);
+  color: inherit;
+  text-decoration: none;
+}
+
+.rv-mag-card__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.rv-mag-card__title {
+  color: #fff;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.rv-mag-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 4px;
+  color: var(--rv-meta);
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.rv-mag-card__still,
+.rv-mag-tile--letter {
+  width: 78px;
+  height: 56px;
+  flex: none;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #222;
+}
+
+.rv-mag-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--a);
+}
+
+.rv-mag-marker__track {
+  position: relative;
+  width: 40px;
+  height: 3px;
+  margin-right: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.rv-mag-marker__dot {
+  position: absolute;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  border-radius: 50%;
+  background: var(--a);
+  box-shadow: 0 0 8px var(--a);
+}
+
+.rv-mag-marker b {
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+.rv-mag-variant {
+  color: var(--a);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.rv-mag-play {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--a);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--a) 55%, transparent);
+}
+
+.rv-mag-play::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 11px;
+  border-left: 11px solid var(--t);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+.rv-mag-quote {
+  margin: 26px 18px 34px 0;
+  padding: 20px 18px 18px;
+  background: var(--a);
+  box-shadow: 8px 8px 0 var(--b, var(--rv-ink)), 16px 16px 0 var(--c, var(--rv-ink));
+}
+
+.rv-mag-quote q {
+  display: block;
+  quotes: "“" "”";
+  color: var(--t);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 23px;
+  line-height: 1.24;
+}
+
+.rv-mag-quote cite {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 7px;
+  background: var(--rv-ink);
+  color: var(--a);
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.rv-mag-tile {
+  display: flex;
+  flex: none;
+  background: var(--a);
+  color: var(--t);
+  box-shadow: 4px 4px 0 var(--b, var(--rv-ink));
+}
+
+.rv-mag-tile--letter {
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 53px;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 24px;
+  box-shadow: 3px 3px 0 var(--b, var(--rv-ink));
+}
+
+.rv-mag-tile--cover {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 64px;
+  height: 64px;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.rv-mag-tile--poster {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  box-shadow: 5px 5px 0 var(--b, var(--rv-ink));
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 44px;
+}
+
+.rv-mag-tile__title {
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 10px;
+  line-height: 1.1;
+}
+
+.rv-mag-tile__year {
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+  font-weight: 800;
+  font-size: 9px;
+}
+
+.rv-mag-rail {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  padding: 6px 10px;
+  border-bottom: 3px solid var(--a);
+  background: rgba(7, 7, 13, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.rv-mag-rail__label {
+  align-self: center;
+  padding: 0 6px 0 4px;
+  color: #fff;
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+  font-weight: 800;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.rv-mag-rail a {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 0 7px;
+  border: 2px solid var(--a);
+  border-radius: 10px;
+  color: var(--a);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--a) 40%, transparent);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.rv-mag-rail a small {
+  display: block;
+  margin-top: 4px;
+  color: var(--a);
+  font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.rv-mag-rail a.is-on {
+  background: var(--a);
+  color: var(--t);
+  box-shadow: 0 0 16px var(--a);
+}
+
+.rv-mag-rail a.is-on small {
+  color: var(--t);
+  opacity: 1;
+}
+
+.rv-mag a:focus-visible,
+.rv-mag button:focus-visible {
+  outline: 2px solid var(--a, var(--rv-text));
+  outline-offset: 2px;
+}
