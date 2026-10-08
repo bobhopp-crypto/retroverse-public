@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { loadNowPlayingPackage } from "@/lib/broadcast/resolve-now-playing-package";
+import { redactPublicTree } from "@/lib/retroverse/experience/public-copy";
 
 export const dynamic = "force-dynamic";
 
@@ -20,5 +21,5 @@ export async function GET(request: Request) {
   }
 
   const pkg = await loadNowPlayingPackage(rvtrParam.toUpperCase());
-  return NextResponse.json({ package: pkg }, { headers: { "cache-control": "no-store" } });
+  return NextResponse.json({ package: redactPublicTree(pkg) }, { headers: { "cache-control": "no-store" } });
 }

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = canonical ? await loadArtistCoverageSummary(canonical.routeToken) : null;
   return {
     title: data ? `${data.displayName} — Charted Songs — Retroverse` : "Artist — Retroverse",
-    description: data ? `${data.displayName} — Hot 100 charted songs with collection coverage in Retroverse.` : undefined,
+    description: data ? `${data.displayName} — Hot 100 charted songs in Retroverse.` : undefined,
   };
 }
 
@@ -26,5 +26,19 @@ export default async function ArtistSongsPage({ params }: Props) {
   if (!canonical) notFound();
   const data = await loadArtistCoverageSummary(canonical.routeToken);
 
-  return <ArtistSongsCoverageClient data={data} />;
+  return (
+    <ArtistSongsCoverageClient
+      displayName={data.displayName}
+      slug={data.slug}
+      songs={data.songs.map((song) => ({
+        rvtr: song.rvtr,
+        title: song.title,
+        trackHref: song.trackHref,
+        peakHot100: song.peakHot100,
+        chartWeeks: song.chartWeeks,
+        firstChartYear: song.firstChartYear,
+        firstChartDate: song.firstChartDate,
+      }))}
+    />
+  );
 }

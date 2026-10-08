@@ -211,6 +211,7 @@ export function OpsCoverAcquireWorkbench({
               releaseYear: row.releaseYear,
             }}
             density="compact"
+            showCatalogId
             className="ops-cover-train__fallback-plate"
           />
         </div>
