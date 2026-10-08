@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { useEffect } from "react";
 
+import { magazineFontClass } from "@/components/theme/magazine-fonts";
+import { toneStyle } from "@/components/magazine/tone";
 import { formatChartDateLabel } from "@/lib/artist/chart-history-display";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
+
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
 import type { ChartWeekPortalContext, ChartWeekPortalRow } from "@/lib/charts/chart-week-portal-types";
 import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import { buildYouTubeSearchUrl } from "@/lib/ops/youtube-search";
@@ -149,14 +155,29 @@ export function ChartWeekPortalClient({ initial: context, operatorMode }: Props)
     });
   }, [context.focusPosition, context.rows.length, hasFocusedRow]);
 
+  const hue = heroColor(context.chartLabel || context.chartDate);
+  const wordmark = sectionTone(hue, 0);
+  const rank = wordmark;
+  const one = wordmark;
+
   return (
     <main
       className={
         operatorMode
-          ? "chart-week-page chart-week-page--operator"
-          : "chart-week-page"
+          ? `chart-week-page chart-week-page--operator rv-mag rv-mag-week rv-mag-site ${magazineFontClass}`
+          : `chart-week-page rv-mag rv-mag-week rv-mag-site ${magazineFontClass}`
       }
+      style={{
+        ["--h" as string]: hue,
+        ["--rank" as string]: rank.a,
+        ["--one" as string]: one.a,
+        ["--one-ink" as string]: one.ink,
+      }}
     >
+      <div className="rv-mag-page-mast">
+        <a href="/retroverse-2/charts" style={toneStyle(wordmark)}>Retroverse</a>
+        <span>Week</span>
+      </div>
       <div className="explorer">
         <header className="explorer__masthead">
           <h1 className="explorer__chart-name">{context.chartLabel}</h1>

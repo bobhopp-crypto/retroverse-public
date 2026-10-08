@@ -3,7 +3,14 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
+import { toneStyle } from "@/components/magazine/tone";
+import { magazineFontClass } from "@/components/theme/magazine-fonts";
+import type { FlatTone } from "@/lib/theme/magazine-palette";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
+
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
 import { isAbortError } from "@/lib/search/fetch-search";
 import {
   EMPTY_CURATED_SEARCH_GROUPS,
@@ -27,10 +34,12 @@ function ResultGroup({
   title,
   children,
   emphasis = false,
+  tone,
 }: {
   title: string;
   children: ReactNode;
   emphasis?: boolean;
+  tone: FlatTone;
 }) {
   const id = `archive-search-${title.toLowerCase().replace(/\s+/g, "-")}`;
   return (
@@ -38,7 +47,7 @@ function ResultGroup({
       className={emphasis ? "archive-search__group archive-search__group--best" : "archive-search__group"}
       aria-labelledby={id}
     >
-      <h2 id={id}>{title}</h2>
+      <h2 id={id} style={toneStyle(tone)}>{title}</h2>
       <div className="archive-search__list">{children}</div>
     </section>
   );
@@ -147,9 +156,18 @@ export default function SearchClient({ traceEnabled = false }: SearchClientProps
     0;
   const showNoResults = trimmedQuery.length >= 2 && !loading && !hasResults;
 
+  const searchHue = heroColor(trimmedQuery || "Search");
+  const wordmark = sectionTone(searchHue, 0);
+  const groupIndex: Record<string, number> = { best: 1, artists: 2, songs: 3, albums: 4, other: 5 };
+  const groupTone = (title: string) => sectionTone(searchHue, groupIndex[title] ?? 1);
+
   return (
-    <Rv2PublicShell className="rv2-search" broadcastChrome>
-      <section className="archive-search" aria-label="Search Retroverse">
+    <Rv2PublicShell className={`rv2-search rv-mag rv-mag-search rv-mag-site ${magazineFontClass}`} broadcastChrome={false} showTopBroadcastBanner={false}>
+      <div className="rv-mag-page-mast">
+        <a href="/" style={toneStyle(wordmark)}>Retroverse</a>
+        <span>Search</span>
+      </div>
+      <section className="archive-search" aria-label="Search Retroverse" style={{ ["--h" as string]: heroColor(trimmedQuery || "Search") }}>
         <label className="archive-search__label" htmlFor="archive-search-input">
           Search Retroverse
         </label>
@@ -187,27 +205,27 @@ export default function SearchClient({ traceEnabled = false }: SearchClientProps
         {hasResults ? (
           <div className={loading ? "archive-search__results archive-search__results--loading" : "archive-search__results"}>
             {groups.bestMatch.length ? (
-              <ResultGroup title="Best Match" emphasis>
+              <ResultGroup title="Best Match" emphasis tone={groupTone("best")}>
                 {groups.bestMatch.map((item) => <ResultItem key={item.id} item={item} />)}
               </ResultGroup>
             ) : null}
             {groups.artists.length ? (
-              <ResultGroup title="Artists">
+              <ResultGroup title="Artists" tone={groupTone("artists")}>
                 {groups.artists.map((item) => <ResultItem key={item.id} item={item} />)}
               </ResultGroup>
             ) : null}
             {groups.popularSongs.length ? (
-              <ResultGroup title="Popular Songs">
+              <ResultGroup title="Popular Songs" tone={groupTone("songs")}>
                 {groups.popularSongs.map((item) => <ResultItem key={item.id} item={item} />)}
               </ResultGroup>
             ) : null}
             {groups.albums.length ? (
-              <ResultGroup title="Albums">
+              <ResultGroup title="Albums" tone={groupTone("albums")}>
                 {groups.albums.map((item) => <ResultItem key={item.id} item={item} />)}
               </ResultGroup>
             ) : null}
             {groups.otherMatches.length ? (
-              <ResultGroup title="Other Matches">
+              <ResultGroup title="Other Matches" tone={groupTone("other")}>
                 {groups.otherMatches.map((item) => <ResultItem key={item.id} item={item} />)}
               </ResultGroup>
             ) : null}

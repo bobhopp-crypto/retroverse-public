@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { toneStyle } from "@/components/magazine/tone";
 import { ArtistInDepthSwipe } from "@/components/navigation/artist-in-depth-swipe";
 import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
@@ -17,9 +18,12 @@ import { SongArveyContext } from "./SongArveyContext";
 import { loadBestEditorialSongRecord, loadChartTrajectoryRecommendations, SHE_IS_A_BEAUTY_ARTICLE, type EditorialDiversityRecord } from "@/lib/retroverse/experience/editorial-song-prototype";
 import { describePublicSongExperience, hasStablePublicSongRoute } from "@/lib/home/public-song-experience-resolution";
 import { artistInDepthHref } from "@/lib/artist/artist-in-depth-gesture";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 
 import "./public-song-experience.css";
 import "@/components/retroverse/experience/song-experience.css";
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
 
 type Props = {
   payload?: PublicSongPayload;
@@ -162,6 +166,9 @@ export async function PublicSongExperience({
   const hasExploreLinks =
     showStableSongLink || journeyWeeks > 0 || hasStory || Boolean(moment?.href) || Boolean(albumHref) || Boolean(artistHref) || Boolean(yearHref);
   const trace = describePublicSongExperience(payload, { hasEditorial: Boolean(editorialRecord) });
+  const songHue = heroColor(payload.artist || payload.title || "Song");
+  const journeyTone = sectionTone(songHue, 1);
+  const exploreTone = sectionTone(songHue, 2);
 
   const rootClass = ["rv2-song", embedded ? "rv2-song--embedded" : null, className]
     .filter(Boolean)
@@ -236,11 +243,11 @@ export async function PublicSongExperience({
               <>
                 <div className="rv2-song__continue-label">Explore</div>
                 <nav className="rv2-song__explore-links" aria-label="Explore this song">
-                  {showStableSongLink ? <Link href={payload.links.songHref} prefetch>Song</Link> : null}
-                  {artistHref ? <Link href={artistHref} prefetch>Artist</Link> : null}
-                  {albumHref ? <Link href={albumHref} prefetch>Album</Link> : null}
-                  {yearHref ? <Link href={yearHref} prefetch>Year</Link> : null}
-                  {moment?.href ? <Link href={moment.href} prefetch>Charts</Link> : null}
+                  {showStableSongLink ? <Link href={payload.links.songHref} prefetch style={toneStyle(exploreTone)}>Song</Link> : null}
+                  {artistHref ? <Link href={artistHref} prefetch style={toneStyle(exploreTone)}>Artist</Link> : null}
+                  {albumHref ? <Link href={albumHref} prefetch style={toneStyle(exploreTone)}>Album</Link> : null}
+                  {yearHref ? <Link href={yearHref} prefetch style={toneStyle(exploreTone)}>Year</Link> : null}
+                  {moment?.href ? <Link href={moment.href} prefetch style={toneStyle(exploreTone)}>Charts</Link> : null}
                 </nav>
                 {journeyWeeks > 0 ? <p className="rv2-song__continue-cue">Chart Journey below ↓</p> : null}
               </>
@@ -251,7 +258,7 @@ export async function PublicSongExperience({
           {!embedded ? <SongArveyContext title={payload.title} artist={payload.artist} year={year} /> : null}
 
           {journeyWeeks > 0 && track ? (
-            <div id="song-journey" className="rv2-song__journey-stage" aria-label="Chart Journey">
+            <div id="song-journey" className="rv2-song__journey-stage" style={toneStyle(journeyTone)} aria-label="Chart Journey">
               <ChartJourney
                 weeks={track.trajectoryWeeks}
                 peak={track.peakHot100}
@@ -267,7 +274,7 @@ export async function PublicSongExperience({
           ) : null}
 
           {moment && !editorialRecord ? (
-            <section id="song-story" className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-defining-moment-heading">
+            <section id="song-story" className="rv-exp-chapter rv-exp-story" style={toneStyle(journeyTone)} aria-labelledby="rv-defining-moment-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-defining-moment-heading">DEFINING MOMENT</h2>
               </header>
@@ -295,7 +302,7 @@ export async function PublicSongExperience({
               </p>
             </article>
           ) : hasStory ? (
-            <section id="song-story" className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-song-story-heading">
+            <section id="song-story" className="rv-exp-chapter rv-exp-story" style={toneStyle(journeyTone)} aria-labelledby="rv-song-story-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-song-story-heading">The Story</h2>
               </header>
@@ -321,7 +328,7 @@ export async function PublicSongExperience({
           ) : null}
 
           {!editorialRecord && sections.trivia.length > 0 ? (
-            <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-trivia-heading">
+            <section className="rv-exp-chapter rv-exp-story" style={toneStyle(journeyTone)} aria-labelledby="rv-trivia-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-trivia-heading">TRIVIA</h2>
               </header>
@@ -334,7 +341,7 @@ export async function PublicSongExperience({
           ) : null}
 
           {!editorialRecord && sections.timeline.length > 0 ? (
-            <section className="rv-exp-chapter rv-exp-story" aria-labelledby="rv-timeline-heading">
+            <section className="rv-exp-chapter rv-exp-story" style={toneStyle(journeyTone)} aria-labelledby="rv-timeline-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-timeline-heading">TIMELINE</h2>
               </header>
@@ -353,7 +360,7 @@ export async function PublicSongExperience({
           ) : null}
 
           {(editorialRecord ? (editorialRecord.related.length > 0 || Boolean(track?.relatedTracks.length)) : track && track.relatedTracks.length > 0) ? (
-            <section className="rv-exp-chapter rv-exp-discover" aria-labelledby="rv-related-music-heading">
+            <section className="rv-exp-chapter rv-exp-discover" style={toneStyle(exploreTone)} aria-labelledby="rv-related-music-heading">
               <header className="rv-exp-chapter__head">
                 <h2 id="rv-related-music-heading">RELATED MUSIC</h2>
               </header>

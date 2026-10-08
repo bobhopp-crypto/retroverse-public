@@ -57,7 +57,6 @@
   padding: 6px 8px;
   background: var(--a);
   color: var(--t);
-  box-shadow: 4px 4px 0 var(--b, var(--rv-ink));
   font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
   font-weight: 800;
   font-size: 10px;
@@ -71,16 +70,98 @@
   background: var(--a);
 }
 
+.rv-mag-stat {
+  min-width: 0;
+  padding: 8px 0 10px;
+  border-top: 4px solid var(--a);
+}
+
+.rv-mag-stat strong {
+  display: block;
+  color: var(--a);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.rv-mag-stat span {
+  display: block;
+  margin-top: 6px;
+  color: var(--rv-mute);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rv-mag-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
+}
+
+.rv-mag-index {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid #24222c;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rv-mag-index__no {
+  flex: none;
+  min-width: 2.6em;
+  color: var(--a, var(--rv-soft));
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+}
+
+.rv-mag-index__no.is-one {
+  min-width: auto;
+  padding: 3px 6px;
+  background: var(--a);
+  color: var(--t, #07070d);
+}
+
+.rv-mag-index__copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.rv-mag-index__title {
+  display: block;
+  color: #fff;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.rv-mag-index__meta {
+  display: block;
+  margin-top: 2px;
+  color: var(--rv-mute);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-size: 12px;
+}
+
 .rv-mag-card {
   display: flex;
   gap: 12px;
   align-items: center;
   margin: 10px 0;
   padding: 9px;
-  border: 2px solid var(--a);
-  border-radius: 14px;
-  background: var(--rv-card);
-  box-shadow: 0 0 14px color-mix(in srgb, var(--a) 18%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 4px solid var(--a);
+  border-radius: 12px;
+  background: #16161c;
   color: inherit;
   text-decoration: none;
 }
@@ -145,7 +226,6 @@
   margin-left: -4.5px;
   border-radius: 50%;
   background: var(--a);
-  box-shadow: 0 0 8px var(--a);
 }
 
 .rv-mag-marker b {
@@ -168,7 +248,6 @@
   flex: none;
   border-radius: 50%;
   background: var(--a);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--a) 55%, transparent);
 }
 
 .rv-mag-play::after {
@@ -182,28 +261,27 @@
 }
 
 .rv-mag-quote {
-  margin: 26px 18px 34px 0;
-  padding: 20px 18px 18px;
-  background: var(--a);
-  box-shadow: 8px 8px 0 var(--b, var(--rv-ink)), 16px 16px 0 var(--c, var(--rv-ink));
+  margin: 30px 0 32px;
+  padding: 18px 0 16px;
+  border-top: 4px solid var(--a);
+  border-bottom: 1px solid color-mix(in srgb, var(--a) 34%, transparent);
+  background: transparent;
 }
 
 .rv-mag-quote q {
   display: block;
   quotes: "“" "”";
-  color: var(--t);
+  color: var(--a);
   font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
   font-weight: 800;
-  font-size: 23px;
+  font-size: 24px;
   line-height: 1.24;
 }
 
 .rv-mag-quote cite {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 5px 7px;
-  background: var(--rv-ink);
-  color: var(--a);
+  display: block;
+  margin-top: 14px;
+  color: #b4afc9;
   font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
   font-style: normal;
   font-weight: 800;
@@ -216,9 +294,9 @@
 .rv-mag-tile {
   display: flex;
   flex: none;
-  background: var(--a);
-  color: var(--t);
-  box-shadow: 4px 4px 0 var(--b, var(--rv-ink));
+  background: #23232b;
+  color: var(--a);
+  border: 2px solid var(--a);
 }
 
 .rv-mag-tile--letter {
@@ -229,7 +307,6 @@
   font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
   font-weight: 900;
   font-size: 24px;
-  box-shadow: 3px 3px 0 var(--b, var(--rv-ink));
 }
 
 .rv-mag-tile--cover {
@@ -247,7 +324,6 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 6px;
-  box-shadow: 5px 5px 0 var(--b, var(--rv-ink));
   font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 900;
@@ -283,7 +359,7 @@
 .rv-mag-rail__label {
   align-self: center;
   padding: 0 6px 0 4px;
-  color: #fff;
+  color: #b4afc9;
   font-family: var(--rv-font-sans), Inter, "Segoe UI", sans-serif;
   font-weight: 800;
   font-size: 9px;
@@ -301,7 +377,6 @@
   border: 2px solid var(--a);
   border-radius: 10px;
   color: var(--a);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--a) 40%, transparent);
   font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 900;
@@ -328,7 +403,11 @@
 .rv-mag-rail a.is-on {
   background: var(--a);
   color: var(--t);
-  box-shadow: 0 0 16px var(--a);
+}
+
+.rv-mag-rail.is-past {
+  --a: #3a3a44;
+  border-bottom-color: #3a3a44;
 }
 
 .rv-mag-rail a.is-on small {

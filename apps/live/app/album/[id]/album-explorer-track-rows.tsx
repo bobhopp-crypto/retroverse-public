@@ -99,12 +99,7 @@ function AlbumExplorerTrackRow({
           className="explorer-row__art"
           fallbackClassName="explorer-row__art explorer-row__art--fallback"
           fallbackVariant="plate"
-          placeholderContext={{
-            artist: artistName,
-            album: albumTitle,
-            releaseYear,
-            rval,
-          }}
+          placeholderContext={undefined}
         />
         <div className="explorer-row__text">
           <p className="explorer-row__title">{track.title}</p>

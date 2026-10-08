@@ -7,7 +7,17 @@ import {
   createPaletteAssigner,
   heroColor,
   inkOn,
+  sectionColor,
+  sectionTone,
 } from "./magazine-palette";
+
+test("sections step six hues from the cover color", () => {
+  assert.equal(sectionColor("#d036ff", 0), "#d036ff");
+  assert.equal(sectionColor("#d036ff", 1), "#ffee00");
+  assert.equal(sectionColor("#d036ff", 2), "#0099ff");
+  assert.equal(sectionTone("#ff2937", 1).a, "#3de600");
+  assert.equal(sectionTone("#ff2937", 0).ink, "#07070d");
+});
 
 test("artist name picks one of the sixteen hues", () => {
   assert.equal(heroColor("Madonna"), "#d036ff");

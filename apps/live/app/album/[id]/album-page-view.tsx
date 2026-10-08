@@ -1,7 +1,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
+import { magazineFontClass } from "@/components/theme/magazine-fonts";
+import { toneStyle } from "@/components/magazine/tone";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
+import { heroColor, sectionTone } from "@/lib/theme/magazine-palette";
 import { RetroverseBack } from "@/components/navigation/RetroverseBack";
 import { ExternalDiscoveryLinks } from "@/components/public/ExternalDiscoveryLinks";
 import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
@@ -17,6 +20,8 @@ import { AlbumExplorerTrackRows } from "./album-explorer-track-rows";
 import { AlbumHeroCover } from "./album-hero-cover";
 
 import "./album-page-v1.css";
+import "@/lib/theme/magazine-tokens.css";
+import "@/lib/theme/magazine-site.css";
 
 type AlbumPageViewProps = {
   data: AlbumPageData;
@@ -341,7 +346,7 @@ function BreakoutFingerprint({ song }: { song: AlbumBreakoutSong }) {
       {song.trajectoryWeeks.map((week) => (
         <span key={week.issueDate} className="album-ed__breakout-week" aria-hidden>
           <span
-            className="album-ed__breakout-bar"
+            className={week.rank === 1 ? "album-ed__breakout-bar is-one" : "album-ed__breakout-bar"}
             style={{ width: `${Math.max(4, 101 - week.rank)}%` }}
           />
         </span>
@@ -361,9 +366,16 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
   const journeyMilestones = buildJourneyMilestones(data);
   const songMilestones = buildSongMilestones(data.breakoutSongs);
 
+  const hue = heroColor(data.artistName || data.title);
+  const wordmark = sectionTone(hue, 0);
+
   return (
-    <Rv2PublicShell className="rv2-album rv2-album-editorial" activeNav="search" showTopBroadcastBanner={false}>
-      <article className="album-ed" aria-label={`${data.title} album experience`}>
+    <Rv2PublicShell className={`rv2-album rv2-album-editorial rv-mag rv-mag-album rv-mag-site ${magazineFontClass}`} activeNav="search" showTopBroadcastBanner={false}>
+      <div className="rv-mag-page-mast">
+        <a href={data.artistHref} style={toneStyle(wordmark)}>Retroverse</a>
+        <span>Album</span>
+      </div>
+      <article className="album-ed" aria-label={`${data.title} album experience`} style={{ ["--h" as string]: hue }}>
         <header className="album-ed__hero">
           <RetroverseBack
             fallbackHref="/search"
