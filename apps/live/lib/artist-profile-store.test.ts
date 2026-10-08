@@ -1,13 +1,16 @@
 import assert from "node:assert/strict";
 import { after, test } from "node:test";
-import { setRedisKvForTests } from "../../../lib/sunday-nights/redis-live-state";
+import { setRedisKvForTests, setRedisLatencyForTests } from "../../../lib/sunday-nights/redis-live-state";
 import { POST } from "../app/api/artist-profiles/sync/route";
 import { projectArtistProfile } from "./artist-profile-contract";
-import { loadArtistProfile, resolvePublishedArtistCredit } from "./artist-profile-store";
+import { loadArtistProfile, loadArtistProfileBounded, resolvePublishedArtistCredit } from "./artist-profile-store";
 
 const kv = new Map<string, unknown>();
 setRedisKvForTests(kv);
-after(() => setRedisKvForTests(null));
+after(() => {
+  setRedisLatencyForTests(null);
+  setRedisKvForTests(null);
+});
 process.env.LIVE_NOW_PLAYING_SECRET = "artist-profile-test-secret";
 
 const profile = projectArtistProfile({
@@ -43,6 +46,55 @@ test("publishing and later improvement replace the same RVAR", async () => {
 
 test("unauthorized and private data are rejected", async () => {
   assert.equal((await submit({ profiles: [profile] }, false)).status, 401);
+  assert.equal((await submit({ profiles: [], remove: [profile!.rvar] }, false)).status, 401);
   assert.equal((await submit({ profiles: [{ ...profile!, summary: "/Users/bobhopp/private" }] })).status, 400);
   assert.equal((await submit({ profiles: [{ ...profile!, evidenceRefs: ["private"] }] })).status, 400);
+  assert.equal((await submit({ profiles: [], remove: ["Prince"] })).status, 400);
+});
+
+const entry = { rvar: profile!.rvar, name: profile!.name, aliases: profile!.aliases };
+
+test("a removed or drafted profile is no longer served", async () => {
+  assert.equal((await submit({ profiles: [profile], directory: [entry] })).status, 200);
+  assert.equal((await loadArtistProfile(profile!.rvar))?.rvar, profile!.rvar);
+
+  const removed = await submit({ profiles: [], remove: [profile!.rvar] });
+  assert.equal(removed.status, 200);
+  assert.deepEqual((await removed.json()).removed, [profile!.rvar]);
+  assert.equal(await loadArtistProfile(profile!.rvar), null);
+  assert.equal(await loadArtistProfileBounded(profile!.rvar), null);
+  assert.equal(await resolvePublishedArtistCredit("Prince & The Revolution"), null);
+  assert.equal(kv.has("rv:public:artist-profile:v1:RVAR000123"), false);
+});
+
+test("replacing the directory drops profiles that are no longer complete", async () => {
+  const other = projectArtistProfile({
+    schemaVersion: 1, status: "complete", rvar: "RVAR000124", name: "Sheila E.",
+    aliases: [], updatedAt: "2026-09-27T00:00:00Z", summary: "Still complete.",
+  });
+  assert.ok(other);
+  const sheila = { rvar: other.rvar, name: other.name, aliases: other.aliases };
+  assert.equal((await submit({ profiles: [profile, other], directory: [entry, sheila] })).status, 200);
+
+  const replaced = await submit({ profiles: [], directory: [sheila] });
+  assert.equal(replaced.status, 200);
+  assert.equal(await loadArtistProfile(profile!.rvar), null);
+  assert.equal((await loadArtistProfile(other.rvar))?.name, "Sheila E.");
+  assert.equal(await resolvePublishedArtistCredit("Prince & The Revolution"), null);
+  assert.equal(await loadArtistProfileBounded(profile!.rvar), null);
+  assert.equal((await loadArtistProfileBounded(other.rvar))?.rvar, other.rvar);
+});
+
+test("a slow profile lookup stays inside the page budget", async () => {
+  assert.equal((await submit({ profiles: [profile], directory: [entry] })).status, 200);
+  setRedisLatencyForTests(5_000);
+  try {
+    const started = Date.now();
+    assert.equal(await loadArtistProfileBounded(profile!.rvar, 70), null);
+    const elapsed = Date.now() - started;
+    assert.ok(elapsed < 400, `profile lookup waited ${elapsed}ms`);
+  } finally {
+    setRedisLatencyForTests(null);
+  }
+  assert.equal((await loadArtistProfileBounded(profile!.rvar))?.summary, "The first public version.");
 });

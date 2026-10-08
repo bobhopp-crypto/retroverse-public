@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { projectArtistProfile, resolveArtistCredit, validateArtistProfileView } from "./artist-profile-contract";
+import { projectArtistProfile, removedPublishedRvars, resolveArtistCredit, validateArtistProfileView } from "./artist-profile-contract";
 
 const base = {
   schemaVersion: 1,
@@ -65,6 +65,12 @@ test("incomplete, mismatched, private, or invalid material stays unpublished", (
   assert.equal(projectArtistProfile({ ...base, rvar: "Prince" }), null);
   assert.equal(projectArtistProfile({ ...base, name: "/Users/bobhopp/private" }), null);
   assert.equal(projectArtistProfile({ ...base, updatedAt: "not a date" }), null);
+});
+
+test("a draft or deleted profile leaves the published set", () => {
+  assert.deepEqual(removedPublishedRvars(["RVAR000123", "RVAR000124"], ["RVAR000124"]), ["RVAR000123"]);
+  assert.deepEqual(removedPublishedRvars(["RVAR000123"], ["RVAR000123"]), []);
+  assert.deepEqual(removedPublishedRvars(["RVAR000123", "RVAR000123"], []), ["RVAR000123"]);
 });
 
 test("verified aliases resolve, while ambiguous collaborations fall back", () => {

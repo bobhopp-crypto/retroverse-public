@@ -101,6 +101,20 @@ export function artistCreditKey(value: string): string {
   return value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
 
+/** RVARs that were public and are no longer in the completed set. */
+export function removedPublishedRvars(published: readonly string[], complete: readonly string[]): string[] {
+  const keep = new Set(complete.map((rvar) => rvar.trim().toUpperCase()));
+  const removed: string[] = [];
+  const seen = new Set<string>();
+  for (const rvar of published) {
+    const id = rvar.trim().toUpperCase();
+    if (keep.has(id) || seen.has(id)) continue;
+    seen.add(id);
+    removed.push(id);
+  }
+  return removed;
+}
+
 export function resolveArtistCredit(credit: string, directory: ArtistDirectoryEntry[]): string | null {
   const key = artistCreditKey(credit);
   if (!key) return null;
