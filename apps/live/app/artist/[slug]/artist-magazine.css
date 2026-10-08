@@ -1,0 +1,587 @@
+/* Artist In Depth layout. Colors and primitives come from the shared magazine theme. */
+
+body:has(.rv-mag) .rv-global-nav,
+body:has(.rv-mag) .arvey-trigger {
+  display: none;
+}
+
+main.rv2-live.rv2-magazine {
+  min-height: 100dvh;
+  padding: 0;
+  background: #07070d;
+  color: #f1eef9;
+}
+
+main.rv2-magazine .rv2-live__grid-glow {
+  display: none;
+}
+
+main.rv2-magazine .rv2-public-shell__body {
+  max-width: none;
+  margin: 0;
+}
+
+.rv-mag {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100dvh;
+  margin: 0 auto;
+}
+
+.rv-mag-hero {
+  position: relative;
+  height: 556px;
+  overflow: hidden;
+  background: var(--rv-hero-well);
+}
+
+.rv-mag-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.2) brightness(0.9);
+}
+
+.rv-mag-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--h);
+  mix-blend-mode: multiply;
+  opacity: 0.78;
+}
+
+.rv-mag-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 13, 0.55) 0,
+    rgba(7, 7, 13, 0) 22%,
+    rgba(7, 7, 13, 0) 42%,
+    rgba(7, 7, 13, 0.94) 100%
+  );
+}
+
+.rv-mag-hero--type {
+  background:
+    radial-gradient(75% 55% at 55% 32%, color-mix(in srgb, var(--h) 55%, transparent) 0, transparent 70%),
+    var(--rv-hero-well);
+}
+
+.rv-mag-hero--type::before {
+  display: none;
+}
+
+.rv-mag-hero__initials {
+  position: absolute;
+  z-index: 1;
+  top: 40px;
+  left: -10px;
+  color: transparent;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 300px;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  opacity: 0.55;
+  -webkit-text-stroke: 3px color-mix(in srgb, var(--h) 70%, #fff);
+}
+
+.rv-mag-hero__mast {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) 18px 14px;
+  color: #fff;
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.rv-mag-wordmark {
+  color: var(--a);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.rv-mag-hero__title {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 24px;
+  left: 18px;
+  color: #fff;
+}
+
+.rv-mag-hero__title .rv-mag-tag {
+  margin-bottom: 12px;
+}
+
+.rv-mag-hero h1 {
+  margin: 0;
+  padding-bottom: 4px;
+  color: var(--h);
+  font-size: 74px;
+  text-shadow: 0 0 22px color-mix(in srgb, var(--h) 55%, transparent);
+}
+
+.rv-mag-hero__dek {
+  margin: 10px 0 0;
+  color: var(--a);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.rv-mag-stand,
+.rv-mag-byline {
+  background: var(--rv-stand);
+}
+
+.rv-mag-stand {
+  margin: 0;
+  padding: 24px 22px 8px;
+  color: #fff;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.42;
+}
+
+.rv-mag-byline {
+  margin: 0;
+  padding: 6px 22px 18px;
+  color: var(--a);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.rv-mag-chapter {
+  position: relative;
+  padding: 34px 22px 18px;
+  background: var(--bg);
+  scroll-margin-top: 76px;
+}
+
+.rv-mag-chapter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 5px;
+  background: var(--a);
+}
+
+.rv-mag-rule + .rv-mag-chapter::before,
+.rv-mag-rail + .rv-mag-chapter::before {
+  display: none;
+}
+
+.rv-mag-chapter h2 {
+  margin: 14px 0 6px;
+  padding-bottom: 4px;
+  color: var(--a);
+  font-size: 50px;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--a) 50%, transparent);
+}
+
+.rv-mag-chapter h2.is-compact {
+  font-size: 38px;
+}
+
+.rv-mag-range {
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--b);
+  color: var(--a);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.rv-mag-chapter p {
+  margin: 18px 0;
+}
+
+.rv-mag-chapter p.is-drop::first-letter {
+  float: left;
+  margin: 6px 10px 0 0;
+  color: var(--a);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 66px;
+  line-height: 0.8;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--a) 45%, transparent);
+}
+
+.rv-mag-year {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 26px 0 8px;
+  color: var(--a);
+}
+
+.rv-mag-year b {
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--a) 60%, transparent);
+}
+
+.rv-mag-year i {
+  flex: 1;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.rv-mag-caption {
+  margin: 2px 0 10px;
+  padding-left: 10px;
+  border-left: 3px solid var(--a);
+  color: var(--rv-soft);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.rv-mag-album {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0;
+  padding: 0 0 12px;
+  border-bottom: 2px dotted var(--a);
+  color: inherit;
+  text-decoration: none;
+}
+
+.rv-mag-album img,
+.rv-mag-album .rv-mag-tile--cover {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.rv-mag-album img {
+  flex: none;
+  box-shadow: 4px 4px 0 var(--a);
+}
+
+.rv-mag-album__kicker {
+  color: var(--a);
+}
+
+.rv-mag-album__title {
+  margin-top: 5px;
+  color: var(--a);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.rv-mag-back {
+  position: relative;
+  padding: 30px 22px 24px;
+  background: var(--rv-back);
+}
+
+.rv-mag-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 6px;
+  background: var(--a);
+}
+
+.rv-mag-back__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--a);
+}
+
+.rv-mag-back__title {
+  color: var(--a);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--a) 50%, transparent);
+}
+
+.rv-mag-back__badge {
+  padding: 5px 6px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+}
+
+.rv-mag-back__intro {
+  margin: 12px 0 4px;
+  color: var(--rv-soft);
+  font-style: italic;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.rv-mag-back__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+}
+
+.rv-mag-back__item {
+  padding: 12px 0;
+  border-bottom: 2px dotted rgba(255, 255, 255, 0.25);
+}
+
+.rv-mag-back__item img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 5px 5px 0 var(--a);
+}
+
+.rv-mag-back__item--album img,
+.rv-mag-back__item--album .rv-mag-tile--cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 6px;
+}
+
+.rv-mag-back__name {
+  margin-top: 10px;
+  color: #fff;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.15;
+}
+
+.rv-mag-back__note {
+  margin-top: 4px;
+  color: var(--a);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 800;
+  font-size: 9px;
+  line-height: 1.3;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.rv-mag-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 34px 22px 14px;
+  background: var(--rv-ink);
+  color: #fff;
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.rv-mag-label span {
+  color: var(--a);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.rv-mag-list {
+  margin: 0 22px;
+  padding: 18px 18px 8px;
+  border: 2px solid var(--a);
+  border-radius: 16px;
+  background: var(--rv-list);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--a) 25%, transparent);
+}
+
+.rv-mag-list h3 {
+  margin: 0;
+  color: #fff;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.rv-mag-list h3 em {
+  color: var(--a);
+  font-style: normal;
+}
+
+.rv-mag-list__sub {
+  margin: 6px 0 10px;
+  color: var(--rv-meta);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 500;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+.rv-mag-list ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: rv-mag;
+}
+
+.rv-mag-list li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 9px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--rv-text);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.25;
+  counter-increment: rv-mag;
+}
+
+.rv-mag-list li::before {
+  content: counter(rv-mag, decimal-leading-zero);
+  width: 18px;
+  flex: none;
+  color: var(--a);
+  font-weight: 800;
+  font-size: 10px;
+}
+
+.rv-mag-list a {
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rv-mag-list__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.rv-mag-list__variant {
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+.rv-mag-list__year {
+  color: var(--rv-mute);
+  font-size: 12px;
+}
+
+.rv-mag-list__peak {
+  min-width: 42px;
+  color: var(--a);
+  font-size: 11px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.rv-mag-credits {
+  display: grid;
+  gap: 10px;
+  margin: 0 22px;
+}
+
+.rv-mag-credit {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--a);
+  color: var(--t);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.rv-mag-credit b {
+  display: block;
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.rv-mag-credit i {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.rv-mag-credit em {
+  align-self: center;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: var(--rv-ink);
+  color: #fff;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.rv-mag-footer {
+  margin: 0;
+  padding: 36px 22px calc(46px + env(safe-area-inset-bottom, 0px));
+  background: var(--rv-ink);
+  color: var(--a);
+  font-family: var(--rv-font-sans), Inter, sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.rv-mag-loading {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  color: var(--rv-soft);
+  font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+}
