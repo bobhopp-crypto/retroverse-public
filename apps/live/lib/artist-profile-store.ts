@@ -2,6 +2,7 @@ import "server-only";
 
 import { deletePgJsonRedis, loadPgJsonRedis, savePgJsonRedis } from "../../../lib/sunday-nights/pg-json-redis";
 import {
+  ARTIST_PROFILE_REMOVAL_LIMIT,
   artistCreditKey,
   resolveArtistCredit,
   validateArtistProfileView,
@@ -73,7 +74,7 @@ export async function loadArtistProfileBounded(
 
 export function validateArtistRemovals(raw: unknown): string[] | null {
   if (raw === undefined) return [];
-  if (!Array.isArray(raw) || raw.length > 200) return null;
+  if (!Array.isArray(raw) || raw.length > ARTIST_PROFILE_REMOVAL_LIMIT) return null;
   const ids: string[] = [];
   const seen = new Set<string>();
   for (const item of raw) {

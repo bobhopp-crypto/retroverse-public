@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { projectArtistProfile, removedPublishedRvars, resolveArtistCredit, validateArtistProfileView } from "./artist-profile-contract";
+import {
+  ARTIST_PROFILE_REMOVAL_LIMIT,
+  planArtistProfileRetirement,
+  projectArtistProfile,
+  removedPublishedRvars,
+  resolveArtistCredit,
+  validateArtistProfileView,
+} from "./artist-profile-contract";
 
 const base = {
   schemaVersion: 1,
@@ -71,6 +78,38 @@ test("a draft or deleted profile leaves the published set", () => {
   assert.deepEqual(removedPublishedRvars(["RVAR000123", "RVAR000124"], ["RVAR000124"]), ["RVAR000123"]);
   assert.deepEqual(removedPublishedRvars(["RVAR000123"], ["RVAR000123"]), []);
   assert.deepEqual(removedPublishedRvars(["RVAR000123", "RVAR000123"], []), ["RVAR000123"]);
+});
+
+test("a large retirement is a directory replacement, not one oversized remove list", () => {
+  const published = Array.from({ length: ARTIST_PROFILE_REMOVAL_LIMIT + 50 }, (_, index) => ({
+    rvar: `RVAR${String(index).padStart(6, "0")}`,
+    name: `Artist ${index}`,
+    aliases: [] as string[],
+  }));
+  const plan = planArtistProfileRetirement({ published, sent: [], complete: [], unreadable: [] });
+  assert.equal(plan.directory.length, 0);
+  assert.equal(plan.retiredByDirectory.length, published.length);
+  assert.deepEqual(plan.removalBatches, []);
+});
+
+test("retirements the stored directory does not cover stay within the removal cap", () => {
+  const sent = Array.from({ length: ARTIST_PROFILE_REMOVAL_LIMIT + 1 }, (_, index) =>
+    `RVAR${String(800000 + index).padStart(6, "0")}`);
+  const plan = planArtistProfileRetirement({ published: [], sent, complete: [], unreadable: [] });
+  assert.deepEqual(plan.retiredByDirectory, []);
+  assert.deepEqual(plan.removalBatches.map((batch) => batch.length), [ARTIST_PROFILE_REMOVAL_LIMIT, 1]);
+});
+
+test("a just-uploaded profile is kept when its file is temporarily unreadable", () => {
+  const plan = planArtistProfileRetirement({
+    published: [],
+    sent: ["RVAR000123"],
+    complete: [],
+    unreadable: ["RVAR000123"],
+  });
+  assert.deepEqual(plan.directory, []);
+  assert.deepEqual(plan.retiredByDirectory, []);
+  assert.deepEqual(plan.removalBatches, []);
 });
 
 test("verified aliases resolve, while ambiguous collaborations fall back", () => {

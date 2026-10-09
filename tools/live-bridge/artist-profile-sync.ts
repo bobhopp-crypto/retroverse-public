@@ -2,8 +2,8 @@
 import { readFile, readdir, stat } from "node:fs/promises";
 import { join } from "node:path";
 import {
+  planArtistProfileRetirement,
   projectArtistProfile,
-  removedPublishedRvars,
   type ArtistDirectoryEntry,
   type ArtistProfileView,
 } from "../../apps/live/lib/artist-profile-contract";
@@ -69,18 +69,22 @@ export function startArtistProfileSync(secret: string): void {
         for (const item of batch) sent.set(item.view.rvar, item.signature);
       }
 
-      const carried = published.filter((entry) =>
-        unreadable.has(entry.rvar) && !directory.some((item) => item.rvar === entry.rvar));
-      const nextDirectory = [...directory, ...carried];
-      const remove = removedPublishedRvars(
-        [...published.map((entry) => entry.rvar), ...sent.keys()],
-        nextDirectory.map((entry) => entry.rvar),
-      );
-      const directorySignature = JSON.stringify(nextDirectory);
-      if (remove.length > 0 || sentDirectory !== directorySignature) {
-        await post({ profiles: [], directory: nextDirectory, remove });
+      const plan = planArtistProfileRetirement({
+        published,
+        sent: [...sent.keys()],
+        complete: directory,
+        unreadable: [...unreadable],
+      });
+      const directorySignature = JSON.stringify(plan.directory);
+      if (sentDirectory !== directorySignature) {
+        // Directory replacement already deletes stored artists it leaves out, with no 200-item remove cap.
+        await post({ profiles: [], directory: plan.directory });
         sentDirectory = directorySignature;
-        for (const rvar of remove) sent.delete(rvar);
+        for (const rvar of plan.retiredByDirectory) sent.delete(rvar);
+      }
+      for (const batch of plan.removalBatches) {
+        await post({ profiles: [], remove: batch });
+        for (const rvar of batch) sent.delete(rvar);
       }
     } catch (error) {
       console.warn("[live-bridge] Artist profile sync will retry:", error instanceof Error ? error.message : String(error));

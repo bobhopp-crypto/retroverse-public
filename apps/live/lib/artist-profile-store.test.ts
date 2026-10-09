@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { after, test } from "node:test";
 import { setRedisKvForTests, setRedisLatencyForTests } from "../../../lib/sunday-nights/redis-live-state";
 import { POST } from "../app/api/artist-profiles/sync/route";
-import { projectArtistProfile } from "./artist-profile-contract";
+import { ARTIST_PROFILE_REMOVAL_LIMIT, projectArtistProfile } from "./artist-profile-contract";
 import { loadArtistProfile, loadArtistProfileBounded, resolvePublishedArtistCredit } from "./artist-profile-store";
 
 const kv = new Map<string, unknown>();
@@ -97,4 +97,40 @@ test("a slow profile lookup stays inside the page budget", async () => {
     setRedisLatencyForTests(null);
   }
   assert.equal((await loadArtistProfileBounded(profile!.rvar))?.summary, "The first public version.");
+});
+
+test("replacing the directory retires more artists than one remove list allows", async () => {
+  const count = ARTIST_PROFILE_REMOVAL_LIMIT + 50;
+  const views = Array.from({ length: count }, (_, index) => projectArtistProfile({
+    schemaVersion: 1,
+    status: "complete",
+    rvar: `RVAR${String(700000 + index).padStart(6, "0")}`,
+    name: `Retired ${index}`,
+    aliases: [],
+    updatedAt: "2026-09-27T00:00:00Z",
+  }));
+  assert.ok(views.every((view) => view));
+  const profiles = views.flatMap((view) => view ? [view] : []);
+  const directory = profiles.map((view) => ({ rvar: view.rvar, name: view.name, aliases: view.aliases }));
+  for (let offset = 0; offset < profiles.length; offset += 20) {
+    const batch = profiles.slice(offset, offset + 20);
+    assert.equal((await submit({
+      profiles: batch,
+      directory: directory.slice(0, offset + batch.length),
+    })).status, 200);
+  }
+
+  const oversized = profiles.map((view) => view.rvar);
+  assert.equal((await submit({ profiles: [], remove: oversized })).status, 400);
+  assert.equal((await loadArtistProfile(profiles[0]!.rvar))?.name, profiles[0]!.name);
+
+  const replaced = await submit({ profiles: [], directory: [] });
+  assert.equal(replaced.status, 200);
+  const removed = (await replaced.json()).removed as string[];
+  assert.ok(removed.includes(profiles[0]!.rvar));
+  assert.ok(removed.includes(profiles[count - 1]!.rvar));
+  assert.ok(removed.length >= count);
+  assert.equal(await loadArtistProfile(profiles[0]!.rvar), null);
+  assert.equal(await loadArtistProfile(profiles[count - 1]!.rvar), null);
+  assert.equal(await loadArtistProfileBounded(profiles[0]!.rvar), null);
 });

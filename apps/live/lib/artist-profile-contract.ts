@@ -101,6 +101,50 @@ export function artistCreditKey(value: string): string {
   return value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
 
+/** Sync rejects a longer explicit `remove` list. Directory replacement is not subject to this cap. */
+export const ARTIST_PROFILE_REMOVAL_LIMIT = 200;
+
+export type ArtistProfileSyncPlan = {
+  directory: ArtistDirectoryEntry[];
+  /** Deletes the stored directory will not cover, split so each request stays within the cap. */
+  removalBatches: string[][];
+  /** Already-published RVARs dropped by replacing the directory. Not repeated in `remove`. */
+  retiredByDirectory: string[];
+};
+
+/**
+ * Decide the next sync write.
+ * A full directory replace retires every stored artist it leaves out, so those RVARs are not also sent as `remove`.
+ * A profile uploaded this session (`sent`) whose file cannot be read yet is kept.
+ */
+export function planArtistProfileRetirement(input: {
+  published: readonly ArtistDirectoryEntry[];
+  sent: readonly string[];
+  complete: readonly ArtistDirectoryEntry[];
+  unreadable: readonly string[];
+}): ArtistProfileSyncPlan {
+  const unreadableIds = new Set(input.unreadable.map((rvar) => rvar.trim().toUpperCase()));
+  const carried = input.published.filter((entry) =>
+    unreadableIds.has(entry.rvar) && !input.complete.some((item) => item.rvar === entry.rvar));
+  const directory = [...input.complete, ...carried];
+  const keep = new Set([
+    ...directory.map((entry) => entry.rvar),
+    ...input.sent.map((rvar) => rvar.trim().toUpperCase()).filter((rvar) => unreadableIds.has(rvar)),
+  ]);
+  const remove = removedPublishedRvars(
+    [...input.published.map((entry) => entry.rvar), ...input.sent],
+    [...keep],
+  );
+  const publishedIds = new Set(input.published.map((entry) => entry.rvar));
+  const retiredByDirectory = remove.filter((rvar) => publishedIds.has(rvar));
+  const explicit = remove.filter((rvar) => !publishedIds.has(rvar));
+  const removalBatches: string[][] = [];
+  for (let offset = 0; offset < explicit.length; offset += ARTIST_PROFILE_REMOVAL_LIMIT) {
+    removalBatches.push(explicit.slice(offset, offset + ARTIST_PROFILE_REMOVAL_LIMIT));
+  }
+  return { directory, removalBatches, retiredByDirectory };
+}
+
 /** RVARs that were public and are no longer in the completed set. */
 export function removedPublishedRvars(published: readonly string[], complete: readonly string[]): string[] {
   const keep = new Set(complete.map((rvar) => rvar.trim().toUpperCase()));
