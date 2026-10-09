@@ -18,13 +18,42 @@ export function redisLiveStateConfigured(): boolean {
 
 /** In-memory stand-in for the REST KV. Production leaves this unset. */
 let testKv: Map<string, unknown> | null = null;
+let testLatencyMs = 0;
 
 export function setRedisKvForTests(kv: Map<string, unknown> | null): void {
   testKv = kv;
 }
 
-export async function redisCommand(args: (string | number)[]): Promise<unknown> {
+/** Delay test-store commands so page-budget tests can abort a slow read. */
+export function setRedisLatencyForTests(ms: number | null): void {
+  testLatencyMs = ms && ms > 0 ? ms : 0;
+}
+
+function abortError(signal: AbortSignal): Error {
+  return signal.reason instanceof Error ? signal.reason : new Error("The operation was aborted");
+}
+
+async function waitForTestLatency(signal?: AbortSignal): Promise<void> {
+  if (testLatencyMs <= 0) {
+    if (signal?.aborted) throw abortError(signal);
+    return;
+  }
+  await new Promise<void>((resolve, reject) => {
+    if (signal?.aborted) {
+      reject(abortError(signal));
+      return;
+    }
+    const timer = setTimeout(resolve, testLatencyMs);
+    signal?.addEventListener("abort", () => {
+      clearTimeout(timer);
+      reject(abortError(signal));
+    }, { once: true });
+  });
+}
+
+export async function redisCommand(args: (string | number)[], signal?: AbortSignal): Promise<unknown> {
   if (testKv) {
+    await waitForTestLatency(signal);
     const command = String(args[0] ?? "").toUpperCase();
     const key = String(args[1] ?? "");
     if (command === "GET") {
@@ -35,10 +64,14 @@ export async function redisCommand(args: (string | number)[]): Promise<unknown> 
       testKv.set(key, args[2]);
       return "OK";
     }
+    if (command === "DEL") {
+      return testKv.delete(key) ? 1 : 0;
+    }
     throw new Error(`Live state test store does not implement ${command}.`);
   }
   const credentials = config();
   if (!credentials) throw new Error("Live state store is not configured (LIVE_KV_REST_API_URL / LIVE_KV_REST_API_TOKEN).");
+  const budget = AbortSignal.timeout(10_000);
   const response = await fetch(credentials.url, {
     method: "POST",
     headers: {
@@ -47,7 +80,7 @@ export async function redisCommand(args: (string | number)[]): Promise<unknown> 
     },
     body: JSON.stringify(args),
     cache: "no-store",
-    signal: AbortSignal.timeout(10_000),
+    signal: signal ? AbortSignal.any([signal, budget]) : budget,
   });
   if (!response.ok) throw new Error(`Live state store request failed (${response.status}).`);
   const result = await response.json() as { result?: unknown; error?: string };
@@ -55,8 +88,8 @@ export async function redisCommand(args: (string | number)[]): Promise<unknown> 
   return result.result ?? null;
 }
 
-export async function redisJsonGet(key: string): Promise<Record<string, unknown> | null> {
-  const result = await redisCommand(["GET", key]);
+export async function redisJsonGet(key: string, signal?: AbortSignal): Promise<Record<string, unknown> | null> {
+  const result = await redisCommand(["GET", key], signal);
   if (typeof result !== "string") return null;
   try {
     const value: unknown = JSON.parse(result);
@@ -70,4 +103,8 @@ export async function redisJsonGet(key: string): Promise<Record<string, unknown>
 export async function redisJsonSet(key: string, value: Record<string, unknown>): Promise<void> {
   const result = await redisCommand(["SET", key, JSON.stringify(value)]);
   if (result !== "OK") throw new Error("Live state store write was not acknowledged.");
+}
+
+export async function redisJsonDel(key: string): Promise<void> {
+  await redisCommand(["DEL", key]);
 }

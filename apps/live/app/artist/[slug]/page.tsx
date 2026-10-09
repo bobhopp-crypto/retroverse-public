@@ -10,7 +10,7 @@ import { canonicalArtistHref, resolveCanonicalArtist, resolveLegacyArtistId } fr
 import { CanonicalPublicTrace } from "@/components/public/CanonicalPublicTrace";
 import { discoverySourcesForPage } from "@/lib/public/discovery-contract";
 import { localPublicTraceEnabled, timePublicLoader } from "@/lib/public/local-trace";
-import { loadArtistProfile } from "@/lib/artist-profile-store";
+import { loadArtistProfileBounded } from "@/lib/artist-profile-store";
 
 import { ArtistDepthFallback } from "../artist-depth-fallback";
 import { ArtistPageView } from "./artist-page-view";
@@ -59,7 +59,7 @@ export default async function ArtistPage({ params, searchParams }: Props) {
   const [pageLoad, coverageLoad, profile] = await Promise.all([
     timePublicLoader("artist-page", () => loadArtistPage(canonical.routeToken)),
     timePublicLoader("artist-coverage", () => loadArtistCoverageSummary(canonical.routeToken)),
-    loadArtistProfile(canonical.rvar).catch(() => null),
+    loadArtistProfileBounded(canonical.rvar),
   ]);
   const stillByRvtr = await loadCompanionStillUrls([
     ...coverageLoad.value.songs.map((song) => song.rvtr),
