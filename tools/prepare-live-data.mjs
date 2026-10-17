@@ -50,6 +50,7 @@ const SUBSETS = [
   { source: "data/static-graph/albums", target: "static-graph/albums" },
   { source: "data/static-graph/weeks", target: "static-graph/weeks" },
   { source: "data/events", target: "events" },
+  { source: "data/hot100-year-end", target: "hot100-year-end" },
 ];
 
 const stat = fs.lstatSync(target, { throwIfNoEntry: false });
@@ -131,6 +132,21 @@ const pilotRecords = JSON.parse(fs.readFileSync(pilotOverride, "utf8")).records;
 if (!pilotRecords.some((record) => String(record.rvtr).toUpperCase() === "RVTR185152")) {
   throw new Error("[prepare-live-data] required RVTR185152 pilot override is missing");
 }
+const hot100Dir = path.join(target, "hot100-year-end");
+const hot100Years = fs.existsSync(hot100Dir)
+  ? fs.readdirSync(hot100Dir).filter((name) => /^\d{4}\.json$/.test(name)).sort()
+  : [];
+if (hot100Years.length !== 67 || hot100Years[0] !== "1958.json" || hot100Years.at(-1) !== "2024.json") {
+  throw new Error(`[prepare-live-data] expected Hot 100 years 1958-2024, found ${hot100Years.length}`);
+}
+for (const name of ["1958.json", "1984.json", "2024.json"]) {
+  const rows = JSON.parse(fs.readFileSync(path.join(hot100Dir, name), "utf8"));
+  if (!Array.isArray(rows) || rows.length !== 100) {
+    throw new Error(`[prepare-live-data] ${name} is not a 100-song Hot 100 chart`);
+  }
+}
+console.log("[prepare-live-data] verified 67 Hot 100 year-end charts");
+
 console.log(`[prepare-live-data] copied ${copied} data subsets and ${copiedHeroes} hero-video.jpg files into apps/live/data`);
 console.log("[prepare-live-data] verified RVTR185152 pilot override in prepared runtime data");
 

@@ -30,6 +30,7 @@ export default async function RootLayout({
         <RetroverseGlobalNav
           opsEnabled={opsEnabled}
           opsAuthenticated={opsAuthenticated}
+          showHot100
         />
         <PublicSongRequestExperience />
         <ArveyAssistant currentSong={{ title: "Now playing", artist: "Retroverse Live", year: null }} />

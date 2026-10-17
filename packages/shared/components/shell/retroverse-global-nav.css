@@ -178,22 +178,34 @@
     padding-left: 0.5rem;
   }
 
+  .rv-global-nav__home,
+  .rv-global-nav__zone,
+  .rv-global-nav__return-live {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 2.75rem;
+  }
+
   .rv-global-nav__home {
     flex-shrink: 1;
     min-width: 0;
     overflow: hidden;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
     text-overflow: ellipsis;
   }
 
   .rv-global-nav__return-live {
     flex-shrink: 0;
     padding-inline: 0.55rem;
-    font-size: 0.64rem;
+    font-size: 0.875rem;
   }
 
   .rv-global-nav__zone {
     flex-shrink: 0;
-    padding-inline: 0.5rem;
+    padding-inline: 0.55rem;
+    font-size: 0.875rem;
   }
 
   .rv-global-nav__zones {
@@ -233,18 +245,14 @@
   }
 
   .rv-global-nav__home {
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
   }
 
   .rv-global-nav__return-live {
-    padding-inline: 0.42rem;
-    font-size: 0.58rem;
-    letter-spacing: 0.03em;
+    padding-inline: 0.45rem;
   }
 
   .rv-global-nav__zone {
-    padding-inline: 0.42rem;
-    font-size: 0.62rem;
+    padding-inline: 0.45rem;
   }
 }

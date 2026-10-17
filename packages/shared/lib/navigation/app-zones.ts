@@ -72,6 +72,7 @@ const PUBLIC_PATH_PREFIXES = [
   "/week/",
   "/retroverse-2/charts",
   "/retroverse-2/song/",
+  "/hot100",
 ];
 
 const LIVE_PATH_PREFIXES = ["/live", "/sunday-nights", "/retroverse-live", "/retroverse-2/live"];
