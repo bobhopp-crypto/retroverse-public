@@ -19,6 +19,7 @@
 
 .hot100-sheet {
   width: min(74rem, calc(100% - 1.4rem));
+  min-width: 0;
   margin: 0 auto;
   padding: 0.85rem 0 2.4rem;
 }
@@ -44,6 +45,9 @@
 }
 
 .hot100-mast__brand a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   color: var(--hot100-ink);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.18em;
@@ -74,6 +78,7 @@
   margin: 0.45rem 0 0;
   font-size: 1.12rem;
   font-style: italic;
+  overflow-wrap: break-word;
 }
 
 .hot100-pager {
@@ -185,9 +190,9 @@
 .hot100-cover__flag {
   color: var(--hot100-red);
   font-family: var(--hot100-gothic), "Arial Narrow", Impact, sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -197,6 +202,7 @@
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1.15;
+  overflow-wrap: break-word;
 }
 
 .hot100-cover__artist {
@@ -208,11 +214,17 @@
 }
 
 .hot100-cover__artist--link {
+  display: block;
+  max-width: calc(100% - 1.5rem);
+  min-height: 2.75rem;
+  margin: 0 0.75rem 0.45rem;
+  padding: 0.45rem 0;
+  box-sizing: border-box;
   color: var(--hot100-teal);
   font-style: italic;
+  overflow-wrap: break-word;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.16em;
-  width: fit-content;
 }
 
 .hot100-columns {
@@ -276,19 +288,25 @@
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1.15;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .hot100-artist {
   display: inline-block;
+  max-width: 100%;
   margin-top: 0.12rem;
   color: var(--hot100-ink-soft);
   font-size: 1rem;
   font-style: italic;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .hot100-artist--link {
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.35rem;
   color: var(--hot100-teal);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.15em;
@@ -311,9 +329,9 @@
 .hot100-stats dt {
   color: var(--hot100-ink-soft);
   font-family: var(--hot100-gothic), "Arial Narrow", Impact, sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -359,10 +377,9 @@
 
 .hot100-year-rail {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.35rem;
   margin-top: 1.2rem;
-  padding-bottom: 0.35rem;
-  overflow-x: auto;
 }
 
 .hot100-year-rail a {
@@ -447,16 +464,16 @@
   }
 }
 
-@media (max-width: 420px) {
-  .hot100-play span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+@media (max-width: 430px) {
+  .hot100-sheet {
+    width: min(74rem, calc(100% - 1rem));
+  }
+
+  .hot100-play-year a {
+    flex: 1 1 100%;
+  }
+
+  .hot100-mast__title {
+    font-size: clamp(3.4rem, 16vw, 4.6rem);
   }
 }
