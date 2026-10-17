@@ -50,22 +50,27 @@ test("only youtube watch ids become play links", () => {
   assert.equal(youtubeIdFromUrl("/Users/shared/video.mp4"), null);
 });
 
-test("published charts keep the credit contract and drop empty videos", () => {
+test("every published year has a play button and two playlist chunks", () => {
   const root = join(process.cwd(), "data/hot100-year-end");
   const year = (name: string) => parseHot100Year(Number(name.slice(0, 4)), JSON.parse(readFileSync(join(root, name), "utf8")));
-  const y1958 = year("1958.json");
-  const y1984 = year("1984.json");
-  const y2024 = year("2024.json");
-  assert.equal(y1958[0]?.title, "It's All In The Game");
-  assert.equal(y1958.every((song) => song.youtubeId == null), true);
-  assert.equal(youtubePlaylistLinks(y1958.map((song) => song.youtubeId ?? "")).length, 0);
-  assert.equal(y1984[0]?.artist, "Tina Turner");
-  assert.equal(y1984.filter((song) => song.youtubeId).length, 100);
-  assert.equal(youtubePlaylistLinks(y1984.map((song) => song.youtubeId!)).length, 2);
-  assert.equal(y2024[0]?.title, "A Bar Song (Tipsy)");
-  assert.equal(y2024.every((song) => song.youtubeId == null), true);
+  for (const [name, title, artist] of [
+    ["1958.json", "It's All In The Game", "Tommy Edwards"],
+    ["1984.json", "What's Love Got To Do With It", "Tina Turner"],
+    ["2024.json", "A Bar Song (Tipsy)", "Shaboozey"],
+  ] as const) {
+    const songs = year(name);
+    assert.equal(songs[0]?.title, title);
+    assert.equal(songs[0]?.artist, artist);
+    assert.equal(songs.filter((song) => song.youtubeId).length, 100);
+    const playlists = youtubePlaylistLinks(songs.map((song) => song.youtubeId!));
+    assert.equal(playlists.length, 2);
+    assert.equal(playlists[0]?.label, "Play this year · 1–50");
+    assert.equal(playlists[1]?.label, "Play this year · 51–100");
+    assert.equal(playlists[0]!.href.split("video_ids=")[1]!.split(",").length, 50);
+    assert.equal(playlists[1]!.href.split("video_ids=")[1]!.split(",").length, 50);
+  }
   assert.equal(HOT100_CREDIT.includes("Billboard Hot 100"), true);
-  const serialized = JSON.stringify(y1984);
+  const serialized = JSON.stringify(year("1984.json"));
   assert.equal(serialized.includes("/Users/"), false);
   assert.equal(serialized.includes("score"), false);
 });
