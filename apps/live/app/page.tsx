@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { Hot100HomeEntry } from "./components/hot100-home-entry";
 import { RetroverseStage } from "./components/retroverse-stage";
 import { loadPublicCurrentSongPayload } from "@/lib/home/public-current-song";
 import { stageNowFromPublicPayload } from "@/lib/stage-now";
@@ -15,5 +16,9 @@ export const metadata: Metadata = {
 
 export default async function HomePage() {
   const current = await loadPublicCurrentSongPayload().catch(() => null);
-  return <RetroverseStage initial={stageNowFromPublicPayload(current)} />;
+  return (
+    <RetroverseStage initial={stageNowFromPublicPayload(current)}>
+      <Hot100HomeEntry />
+    </RetroverseStage>
+  );
 }

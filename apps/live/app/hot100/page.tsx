@@ -6,6 +6,7 @@ import { HOT100_CREDIT, decadeHeading, hot100Years } from "@/lib/hot100/chart";
 import { loadHot100Year } from "@/lib/hot100/load-year-end";
 
 import { Hot100Masthead } from "./masthead";
+import { Hot100YearJump } from "./year-jump";
 
 export const dynamic = "force-static";
 
@@ -43,7 +44,9 @@ export default async function Hot100IndexPage() {
         kicker="Year-end charts"
         title="Hot 100"
         lede="Sixty-seven years of the chart, 1958–2024. Open a year for the full hundred."
-      />
+      >
+        <Hot100YearJump id="hot100-index-year" />
+      </Hot100Masthead>
 
       {decades.map((decade) => (
         <section key={decade.heading} className="hot100-decade" aria-labelledby={decade.heading.replace(/\s+/g, "-")}>
