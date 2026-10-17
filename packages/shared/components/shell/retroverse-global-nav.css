@@ -191,19 +191,21 @@
     flex-shrink: 1;
     min-width: 0;
     overflow: hidden;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
     text-overflow: ellipsis;
   }
 
   .rv-global-nav__return-live {
     flex-shrink: 0;
     padding-inline: 0.55rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 
   .rv-global-nav__zone {
     flex-shrink: 0;
     padding-inline: 0.55rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 
   .rv-global-nav__zones {
@@ -243,8 +245,7 @@
   }
 
   .rv-global-nav__home {
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
   }
 
   .rv-global-nav__return-live {
