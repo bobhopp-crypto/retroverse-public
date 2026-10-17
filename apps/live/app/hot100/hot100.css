@@ -375,6 +375,118 @@
   visibility: hidden;
 }
 
+.hot100-jump {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 0.85rem;
+  min-width: 0;
+}
+
+.hot100-jump label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-family: var(--hot100-gothic), "Arial Narrow", Impact, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hot100-jump select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: 0.4rem 2rem 0.4rem 0.75rem;
+  border: 2px solid var(--hot100-ink);
+  border-radius: 0;
+  appearance: none;
+  background-color: var(--hot100-cream);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--hot100-ink) 50%),
+    linear-gradient(135deg, var(--hot100-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 55%, calc(100% - 0.75rem) 55%;
+  background-size: 0.4rem 0.4rem, 0.4rem 0.4rem;
+  background-repeat: no-repeat;
+  color: var(--hot100-ink);
+  font-family: var(--hot100-serif), Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hot100-jump select:focus-visible {
+  outline: 3px solid var(--hot100-red);
+  outline-offset: 2px;
+}
+
+.hot100-home {
+  --hot100-paper: #f3e6cc;
+  --hot100-ink: #1a120b;
+  --hot100-red: #9a1c1c;
+  --hot100-cream: #fff8ec;
+  position: absolute;
+  z-index: 4;
+  right: 0.65rem;
+  bottom: calc(0.65rem + env(safe-area-inset-bottom, 0px));
+  left: 0.65rem;
+  pointer-events: auto;
+  color: var(--hot100-ink);
+  font-family: var(--hot100-serif), Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+.hot100-home__sheet {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  padding: 0.55rem 0.7rem 0.65rem;
+  border: 3px solid var(--hot100-ink);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 236, 0.55), rgba(243, 230, 204, 0.15)),
+    var(--hot100-paper);
+  box-shadow: 4px 4px 0 var(--hot100-ink);
+}
+
+.hot100-home__kicker {
+  margin: 0;
+  color: var(--hot100-red);
+  font-family: var(--hot100-gothic), "Arial Narrow", Impact, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hot100-home__title {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--hot100-ink);
+  font-family: var(--hot100-gothic), "Arial Narrow", Impact, sans-serif;
+  font-size: clamp(1.45rem, 5.4vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: underline;
+  text-decoration-color: var(--hot100-red);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.12em;
+}
+
+.hot100-home .hot100-jump {
+  margin-top: 0;
+}
+
+@media (min-width: 720px) {
+  .hot100-home__sheet {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+    align-items: end;
+    gap: 1rem;
+  }
+}
+
 .hot100-year-rail {
   display: flex;
   flex-wrap: wrap;

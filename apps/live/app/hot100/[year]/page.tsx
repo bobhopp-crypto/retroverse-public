@@ -13,6 +13,7 @@ import { loadHot100Year } from "@/lib/hot100/load-year-end";
 
 import { Hot100ChartList } from "../chart-list";
 import { Hot100Masthead } from "../masthead";
+import { Hot100YearJump } from "../year-jump";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -53,6 +54,7 @@ export default async function Hot100YearPage({ params }: Props) {
         title={String(year)}
         lede={numberOne ? `No. 1 · ${numberOne.title} — ${numberOne.artist}` : undefined}
       >
+        <Hot100YearJump id="hot100-chart-year" current={year} />
         <nav className="hot100-pager" aria-label="Other years">
           {previous ? (
             <Link href={`/hot100/${previous}`} aria-label={`Previous year, ${previous}`}>

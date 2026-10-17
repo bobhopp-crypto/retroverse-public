@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
 import { magazineFontClass } from "@/components/theme/magazine-fonts";
@@ -67,7 +67,7 @@ function relatedVideo(track: StageRelatedTrack): VdjbxVideo | null {
   };
 }
 
-export function RetroverseStage({ initial }: { initial?: StageNow | null }) {
+export function RetroverseStage({ initial, children }: { initial?: StageNow | null; children?: ReactNode }) {
   const router = useRouter();
   const idlePool = useMemo(() => uniquePlaylistVideos(), []);
   const [apiNow, setApiNow] = useState<StageNow | null>(initial ?? null);
@@ -233,7 +233,7 @@ export function RetroverseStage({ initial }: { initial?: StageNow | null }) {
 
   return (
     <div
-      className={`retroverse-stage rv-mag rv-mag-site ${magazineFontClass} is-${surface}${prefersNeutralPhotoWash(tone.a) ? " is-neutral-wash" : ""}`}
+      className={`retroverse-stage rv-mag rv-mag-site ${magazineFontClass} is-${surface}${children && surface === "hero" ? " has-hot100-entry" : ""}${prefersNeutralPhotoWash(tone.a) ? " is-neutral-wash" : ""}`}
       style={{ ...toneStyle(tone), ["--h" as string]: tone.a }}
     >
       {surface === "hero" ? (
@@ -295,6 +295,8 @@ export function RetroverseStage({ initial }: { initial?: StageNow | null }) {
           )}
         </section>
       )}
+
+      {surface === "hero" ? children : null}
 
       <nav className="rv-nav-desktop" aria-label="Music navigation">
         <button type="button" className={surface === "hero" ? "is-active" : ""} onClick={goHero}>HOME</button>
