@@ -23,6 +23,8 @@ import "./retroverse-global-nav.css";
 type Props = {
   opsEnabled: boolean;
   opsAuthenticated: boolean;
+  /** Live site only. Studio does not serve /hot100. */
+  showHot100?: boolean;
 };
 
 function GearIcon() {
@@ -120,7 +122,7 @@ function AdminGearMenu({
   );
 }
 
-export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
+export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated, showHot100 = false }: Props) {
   const pathname = usePathname() ?? "/";
   const hideChrome = pathname === "/" || pathname === "/jukebox";
   const onGalleryRoute = pathname.startsWith("/retroverse/experiences");
@@ -183,6 +185,19 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
         </Link>
 
         <nav className="rv-global-nav__zones" aria-label="Public navigation">
+          {showHot100 ? (
+            <Link
+              href="/hot100"
+              className={
+                pathname === "/hot100" || pathname.startsWith("/hot100/")
+                  ? "rv-global-nav__zone rv-global-nav__zone--active"
+                  : "rv-global-nav__zone"
+              }
+              aria-current={pathname === "/hot100" || pathname.startsWith("/hot100/") ? "page" : undefined}
+            >
+              Hot 100
+            </Link>
+          ) : null}
           {!isLiveBroadcastPath(pathname) ? (
             <ReturnToLiveLink className="rv-global-nav__return-live" />
           ) : null}

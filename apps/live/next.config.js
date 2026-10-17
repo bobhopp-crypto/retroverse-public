@@ -69,6 +69,7 @@ const nextConfig = {
       "./data/static-graph/years/**",
       "./data/static-graph/artist-details/**",
       "./data/events/**",
+      "./data/hot100-year-end/**",
     ],
     "/artist/[slug]": ["./data/static-graph/artists/**"],
     "/artist/[slug]/charts": ["./data/static-graph/artists/**"],
