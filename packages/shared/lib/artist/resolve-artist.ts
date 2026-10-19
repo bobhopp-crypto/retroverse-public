@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { gunzipSync } from "node:zlib";
 
+import { artistCreditLookupNames } from "@/lib/artist/credit-name";
 import { displayArtistName } from "@/lib/artist/slug";
 import {
   canonicalArtistHref,
@@ -40,8 +41,6 @@ async function resolveArtistRouteIdentityImpl(routeToken: string): Promise<Resol
 
 /** Compatibility export: the input is a canonical RVAR route token, never a name slug or database ID. */
 export const resolveArtistFromSlug = cache(resolveArtistRouteIdentityImpl);
-
-const CREDIT_LINE = /\s(?:feat\.?|ft\.?|featuring)\s/i;
 
 type ArtistNameRow = { id: number; rvar: string; canonical_name: string };
 let namesPromise: Promise<Map<string, ArtistNameRow[]>> | null = null;
@@ -82,13 +81,18 @@ async function resolveUnambiguousArtistName(name: string): Promise<ResolvedArtis
 
 /**
  * Exact display name → live RVAR, confirmed by resolveCanonicalArtist.
- * Feat/ft credit lines are not looked up. Zero or multiple rows return null.
+ * A feat/ft/featuring credit uses the primary artist when that name is an exact match.
+ * Zero or multiple rows return null.
  */
 export async function resolveLiveArtistName(name: string): Promise<ResolvedArtistIdentity | null> {
-  const clean = name.trim().replace(/\s+/g, " ");
-  if (!clean || CREDIT_LINE.test(clean)) return null;
+  const candidates = artistCreditLookupNames(name);
+  if (candidates.length === 0) return null;
   try {
-    return await resolveUnambiguousArtistName(clean);
+    for (const candidate of candidates) {
+      const resolved = await resolveUnambiguousArtistName(candidate);
+      if (resolved) return resolved;
+    }
+    return null;
   } catch {
     return null;
   }
