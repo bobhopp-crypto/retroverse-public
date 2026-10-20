@@ -46,6 +46,9 @@ export default async function Hot100IndexPage() {
         lede="Sixty-seven years of the chart, 1958–2024. Open a year for the full hundred."
       >
         <Hot100YearJump id="hot100-index-year" />
+        <div className="hot100-play-year">
+          <Link href="/ranker">Hot 100 Ranker</Link>
+        </div>
       </Hot100Masthead>
 
       {decades.map((decade) => (
