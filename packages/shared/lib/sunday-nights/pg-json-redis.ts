@@ -1,11 +1,12 @@
 import "server-only";
 
-import { redisJsonGet, redisJsonSet } from "./redis-live-state";
+import { redisJsonDel, redisJsonGet, redisJsonSet } from "./redis-live-state";
 
 type LoadPgJsonRedisOpts = {
   redisKey: string;
   pgKey: string;
   allowNeonHydrate?: boolean;
+  signal?: AbortSignal;
 };
 
 type SavePgJsonRedisOpts = {
@@ -24,7 +25,11 @@ export async function loadPgJsonRedis(opts: LoadPgJsonRedisOpts): Promise<Record
   if (opts.allowNeonHydrate) {
     throw new Error(`Neon JSON hydrate is not configured for ${opts.pgKey}.`);
   }
-  return redisJsonGet(opts.redisKey);
+  return redisJsonGet(opts.redisKey, opts.signal);
+}
+
+export async function deletePgJsonRedis(opts: { redisKey: string; pgKey: string }): Promise<void> {
+  await redisJsonDel(opts.redisKey);
 }
 
 export async function savePgJsonRedis(opts: SavePgJsonRedisOpts): Promise<void> {
