@@ -74,15 +74,14 @@ export default async function Hot100YearPage({ params }: Props) {
             <span />
           )}
         </nav>
-        {playlists.length > 0 ? (
-          <div className="hot100-play-year">
-            {playlists.map((playlist) => (
-              <a key={playlist.label} href={playlist.href} target="_blank" rel="noopener noreferrer">
-                {playlist.label}
-              </a>
-            ))}
-          </div>
-        ) : null}
+        <div className="hot100-play-year">
+          <Link href={`/ranker?year=${year}`}>Rank {year}</Link>
+          {playlists.map((playlist) => (
+            <a key={playlist.label} href={playlist.href} target="_blank" rel="noopener noreferrer">
+              {playlist.label}
+            </a>
+          ))}
+        </div>
       </Hot100Masthead>
 
       <Hot100ChartList songs={songs} artistHrefs={artistHrefs} />

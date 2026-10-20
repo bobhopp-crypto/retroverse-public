@@ -186,17 +186,30 @@ export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated, showHot100 =
 
         <nav className="rv-global-nav__zones" aria-label="Public navigation">
           {showHot100 ? (
-            <Link
-              href="/hot100"
-              className={
-                pathname === "/hot100" || pathname.startsWith("/hot100/")
-                  ? "rv-global-nav__zone rv-global-nav__zone--active"
-                  : "rv-global-nav__zone"
-              }
-              aria-current={pathname === "/hot100" || pathname.startsWith("/hot100/") ? "page" : undefined}
-            >
-              Hot 100
-            </Link>
+            <>
+              <Link
+                href="/hot100"
+                className={
+                  pathname === "/hot100" || pathname.startsWith("/hot100/")
+                    ? "rv-global-nav__zone rv-global-nav__zone--active"
+                    : "rv-global-nav__zone"
+                }
+                aria-current={pathname === "/hot100" || pathname.startsWith("/hot100/") ? "page" : undefined}
+              >
+                Hot 100
+              </Link>
+              <Link
+                href="/ranker"
+                className={
+                  pathname === "/ranker" || pathname.startsWith("/ranker/")
+                    ? "rv-global-nav__zone rv-global-nav__zone--active"
+                    : "rv-global-nav__zone"
+                }
+                aria-current={pathname === "/ranker" || pathname.startsWith("/ranker/") ? "page" : undefined}
+              >
+                Ranker
+              </Link>
+            </>
           ) : null}
           {!isLiveBroadcastPath(pathname) ? (
             <ReturnToLiveLink className="rv-global-nav__return-live" />
