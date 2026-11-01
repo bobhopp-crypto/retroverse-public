@@ -98,7 +98,7 @@
     const songLink=document.getElementById('hero-song-link');songLink.href=`#song/${encodeURIComponent(track.id)}`;songLink.innerHTML=`Song details${icon('arrow')}`;
     document.getElementById('hero-artist-link').href=`#artist/${encodeURIComponent(track.artistSlug)}`;
     const thumb=document.getElementById('hero-thumbnail'),fallback=document.querySelector('.thumbnail-fallback');
-    if(imageForTrack[track.id]) {thumb.src=imageForTrack[track.id];thumb.alt=`${track.artist} performing ${track.title}.`;thumb.hidden=false;fallback.hidden=true;}
+    if(imageForTrack[track.id]) {thumb.fetchPriority='high';thumb.src=imageForTrack[track.id];thumb.alt=`${track.artist} performing ${track.title}.`;thumb.hidden=false;fallback.hidden=true;}
     else {thumb.hidden=true;fallback.hidden=false;fallback.textContent='No matching video thumbnail in this catalog.';}
     document.getElementById('hero-media-note').textContent=imageForTrack[track.id]?'Archive selection · still image, not playback':'Archive selection · no matching video thumbnail';
   }
@@ -147,7 +147,7 @@
     const thumb=document.getElementById('hero-thumbnail'), fallback=document.querySelector('.thumbnail-fallback'), stillLabel=document.querySelector('.still-label'), mediaNote=document.getElementById('hero-media-note');
     const heroVersion=heroDisplayVersion;
     if(track.heroUrl){
-      thumb.alt=`${track.artist} performance still for ${track.title}.`;thumb.hidden=false;fallback.hidden=true;stillLabel.textContent='LIVE STILL';mediaNote.textContent='Live performance still · no audio playback';thumb.onerror=()=>{if(heroVersion!==heroDisplayVersion||!liveMode)return;thumb.hidden=true;fallback.hidden=false;fallback.textContent='Live performance still unavailable.';stillLabel.textContent='LIVE IDENTITY';mediaNote.textContent='Live song identity · still image unavailable';};thumb.src=track.heroUrl;
+      thumb.fetchPriority='high';thumb.alt=`${track.artist} performance still for ${track.title}.`;thumb.hidden=false;fallback.hidden=true;stillLabel.textContent='LIVE STILL';mediaNote.textContent='Live performance still · no audio playback';thumb.onerror=()=>{if(heroVersion!==heroDisplayVersion||!liveMode)return;thumb.hidden=true;fallback.hidden=false;fallback.textContent='Live performance still unavailable.';stillLabel.textContent='LIVE IDENTITY';mediaNote.textContent='Live song identity · still image unavailable';};thumb.src=track.heroUrl;
     } else {
       thumb.hidden=true;fallback.hidden=false;fallback.textContent='Live song identity · no matching archive thumbnail';stillLabel.textContent='LIVE IDENTITY';mediaNote.textContent='Live song identity · no audio playback';thumb.onerror=null;
     }
