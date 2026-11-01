@@ -1,23 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Oswald, Source_Serif_4 } from "next/font/google";
 
 import "./ranker.css";
-
-const gothic = Oswald({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--hot100-gothic",
-  display: "swap",
-});
-
-const serif = Source_Serif_4({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--hot100-serif",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Hot 100 Ranker — Retroverse",
@@ -46,5 +30,5 @@ export const viewport: Viewport = {
 };
 
 export default function RankerLayout({ children }: { children: ReactNode }) {
-  return <div className={`${gothic.variable} ${serif.variable} ranker-root`}>{children}</div>;
+  return <div className="ranker-root">{children}</div>;
 }

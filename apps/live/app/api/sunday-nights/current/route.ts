@@ -12,14 +12,21 @@ export const fetchCache = "force-no-store";
 export async function GET() {
   try {
     const payload = await loadPublicCurrentSongPayload();
+    // `loadPublicCurrentSongPayload` only returns a bridge selection after the
+    // private state confirms bridgePlaying === true and a fresh bridge tick.
+    // Expose that verified state explicitly for public clients.
+    const publicPayload =
+      payload.live?.source === "bridge"
+        ? { ...payload, live: { ...payload.live, playing: true } }
+        : payload;
     console.info("[public-current-song] response", {
-      source: payload.publicState?.source,
-      servedAt: payload.publicState?.servedAt,
-      rvtr: payload.currentTrackId,
-      title: payload.live?.title ?? payload.track?.title ?? null,
-      artist: payload.live?.artist ?? payload.track?.artistName ?? null,
+      source: publicPayload.publicState?.source,
+      servedAt: publicPayload.publicState?.servedAt,
+      rvtr: publicPayload.currentTrackId,
+      title: publicPayload.live?.title ?? publicPayload.track?.title ?? null,
+      artist: publicPayload.live?.artist ?? publicPayload.track?.artistName ?? null,
     });
-    return NextResponse.json(payload, {
+    return NextResponse.json(publicPayload, {
       headers: {
         ...PUBLIC_CURRENT_NO_STORE_HEADERS,
         "X-Retroverse-State-Version": "2",

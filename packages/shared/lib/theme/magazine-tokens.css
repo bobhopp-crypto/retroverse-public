@@ -22,6 +22,12 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.rv-magazine-font-fallbacks {
+  --rv-font-display: "Iowan Old Style";
+  --rv-font-serif: "Iowan Old Style";
+  --rv-font-sans: system-ui;
+}
+
 .rv-mag-display {
   font-family: var(--rv-font-display), "Playfair Display", Georgia, serif;
   font-weight: 900;
