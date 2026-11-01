@@ -113,7 +113,15 @@
     if (age > liveFreshnessMs) return {state:'stale'};
     if (age < -120_000) return {state:'invalid'};
     if (typeof live.title !== 'string' || !live.title.trim() || typeof live.artist !== 'string' || !live.artist.trim()) return {state:'invalid'};
-    return {state:'fresh',track:{id:payload.publicSong?.rvtr || payload.track?.rvtr || live.rvtr || payload.currentTrackId || null, title:live.title.trim(), artist:live.artist.trim(), year:Number.isInteger(live.year)?live.year:(Number.isInteger(payload.publicSong?.year)?payload.publicSong.year:null), timestamp:new Date(parsed).toISOString()}};
+    return {state:'fresh',track:{id:payload.publicSong?.rvtr || payload.track?.rvtr || live.rvtr || payload.currentTrackId || null, title:live.title.trim(), artist:live.artist.trim(), year:Number.isInteger(live.year)?live.year:(Number.isInteger(payload.publicSong?.year)?payload.publicSong.year:null), timestamp:new Date(parsed).toISOString(), heroUrl:safeLiveHeroUrl(payload.publicSong?.heroUrl)}};
+  }
+  function safeLiveHeroUrl(value) {
+    if(typeof value!=='string'||value.length>2048)return null;
+    try {
+      const url=new URL(value,location.origin);
+      if(url.origin!==location.origin||url.pathname!=='/api/experience/visual-asset'||url.searchParams.get('file')!=='hero-video.jpg'||!/^VDJ-[0-9A-F]{16}$/i.test(url.searchParams.get('rvtr')||''))return null;
+      return `${url.pathname}${url.search}`;
+    } catch { return null; }
   }
   function shouldRestoreArchive(state, isLive, isManualArchive) { return state !== 'fresh' && state !== 'checking' && isLive && !isManualArchive; }
   function liveMessage(state, detail) {
@@ -136,9 +144,13 @@
     const artist=document.getElementById('hero-artist'); artist.textContent=track.artist; artist.removeAttribute('href');
     const song=document.getElementById('hero-song-link'); song.href=track.id?`#song/${encodeURIComponent(track.id)}`:'#live'; song.textContent=track.id?'Song details':'Live status';
     document.getElementById('hero-artist-link').hidden=true;
-    const thumb=document.getElementById('hero-thumbnail'); thumb.hidden=true; document.querySelector('.thumbnail-fallback').hidden=false; document.querySelector('.thumbnail-fallback').textContent='Live song identity · no matching archive thumbnail';
-    document.querySelector('.still-label').textContent='LIVE IDENTITY';
-    document.getElementById('hero-media-note').textContent='Live song identity · no audio playback';
+    const thumb=document.getElementById('hero-thumbnail'), fallback=document.querySelector('.thumbnail-fallback'), stillLabel=document.querySelector('.still-label'), mediaNote=document.getElementById('hero-media-note');
+    const heroVersion=heroDisplayVersion;
+    if(track.heroUrl){
+      thumb.alt=`${track.artist} performance still for ${track.title}.`;thumb.hidden=false;fallback.hidden=true;stillLabel.textContent='LIVE STILL';mediaNote.textContent='Live performance still · no audio playback';thumb.onerror=()=>{if(heroVersion!==heroDisplayVersion||!liveMode)return;thumb.hidden=true;fallback.hidden=false;fallback.textContent='Live performance still unavailable.';stillLabel.textContent='LIVE IDENTITY';mediaNote.textContent='Live song identity · still image unavailable';};thumb.src=track.heroUrl;
+    } else {
+      thumb.hidden=true;fallback.hidden=false;fallback.textContent='Live song identity · no matching archive thumbnail';stillLabel.textContent='LIVE IDENTITY';mediaNote.textContent='Live song identity · no audio playback';thumb.onerror=null;
+    }
     document.getElementById('live-track-status').textContent=`Reported by VirtualDJ bridge · ${new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(track.timestamp))}`;
   }
   function restoreArchiveDisplay() {
