@@ -10,15 +10,15 @@
   const batchSize = 24;
   const liveFeedUrl = '/api/sunday-nights/current';
   const livePollMs = 7000, liveFreshnessMs = 25 * 60_000;
-  let tracks = null, artists = null, catalogPromise = null, overview = null;
+  let tracks = null, artists = null, artistsById = null, catalogPromise = null, overview = null;
   let routeVersion = 0, currentHash = location.hash, backStack = [], lastTrigger = null;
-  let liveMode = false, manualArchiveMode = false, latestLiveTrack = null, latestFeedState = 'checking', lastFeedSuccess = 0, heroDisplayVersion = 0;
+  let liveMode = false, manualArchiveMode = false, latestLiveTrack = null, latestFeedState = 'checking', lastFeedSuccess = 0, heroDisplayVersion = 0, firstLiveCheckSettled = false;
   let searchState = {q:'',type:'songs',page:1}, searchTimer;
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const icon = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
   const prettyCount = value => Number(value).toLocaleString('en-US');
   const date = value => value ? new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(`${value}T12:00:00Z`)) : 'Not listed';
-  const sourceNote = '<p class="catalog-source">Source: Retroverse catalog. Chart figures reflect the catalog records.</p>';
+  const sourceNote = '';
 
   async function loadOverview() {
     if (overview) return overview;
@@ -37,6 +37,7 @@
       const data = JSON.parse(await new Response(stream).text());
       if (!Array.isArray(data.tracks) || !Array.isArray(data.artists) || data.tracks.length !== 41543 || !data.tracks.every(t=>typeof t.id==='string'&&typeof t.title==='string'&&typeof t.artist==='string'&&typeof t.artistSlug==='string'&&(t.year===null||Number.isInteger(t.year)))) throw new Error('Catalog data is incomplete');
       tracks = data.tracks; artists = data.artists;
+      artistsById = new Map(artists.map(artist => [artist.id, artist]));
       const dated=tracks.map(t=>t.year).filter(Number.isInteger);
       document.getElementById('footer-count').textContent = `${prettyCount(tracks.length)} songs · ${prettyCount(artists.length)} artists · catalog years ${Math.min(...dated)}–${Math.max(...dated)}`;
       return {tracks,artists};
@@ -70,7 +71,7 @@
     dialog.scrollTop=0;
     if(focus){const target=content.querySelector('[autofocus]')||content.querySelector('h2');if(target){if(target.tagName!=='INPUT')target.tabIndex=-1;target.focus({preventScroll:true});}}
   }
-  function missingThumb() { return '<div class="thumbnail-missing" role="img" aria-label="No matching video thumbnail in this catalog"><svg class="icon" aria-hidden="true"><use href="#i-record"/></svg><span>No matching video thumbnail</span></div>'; }
+  function missingThumb() { return '<div class="thumbnail-missing" role="img" aria-label="Still unavailable"><svg class="icon" aria-hidden="true"><use href="#i-record"/></svg><span>Still unavailable</span></div>'; }
   function rows(items,showYear=true,offset=0) {
     if(!items.length) return '';
     return `<ul class="track-list">${items.map((track,index)=>`<li><a class="track-link" href="#song/${esc(track.id)}"><span class="track-number" aria-hidden="true">${String(offset+index+1).padStart(2,'0')}</span><span class="track-copy"><span class="track-title">${esc(track.title)}</span><span class="track-byline">${esc(track.artist)}</span></span>${showYear?`<span class="track-year">${track.year??'—'}</span>`:''}${icon('arrow')}</a></li>`).join('')}</ul>`;
@@ -88,6 +89,7 @@
     try { localStorage.setItem('retroverse-selected-song',track.id); } catch {}
     liveMode=false; manualArchiveMode=true; document.getElementById('hero-mode-label').textContent='ARCHIVE SELECTION'; document.getElementById('archive-return').hidden=true; document.getElementById('show-live-song').hidden=!latestLiveTrack; document.getElementById('hero-artist-link').hidden=false;
     document.querySelector('.still-label').textContent='ARCHIVE IMAGE'; document.getElementById('live-track-status').textContent='';
+    if(latestFeedState==='fresh')document.getElementById('live-feed-badge').textContent='LIVE FEED CONNECTED';
     updateHero(track); announcement.textContent=`${track.title} by ${track.artist} selected.`;
   }
   function updateHero(track) {
@@ -99,8 +101,8 @@
     document.getElementById('hero-artist-link').href=`#artist/${encodeURIComponent(track.artistSlug)}`;
     const thumb=document.getElementById('hero-thumbnail'),fallback=document.querySelector('.thumbnail-fallback');
     if(imageForTrack[track.id]) {thumb.fetchPriority='high';thumb.src=imageForTrack[track.id];thumb.alt=`${track.artist} performing ${track.title}.`;thumb.hidden=false;fallback.hidden=true;}
-    else {thumb.hidden=true;fallback.hidden=false;fallback.textContent='No matching video thumbnail in this catalog.';}
-    document.getElementById('hero-media-note').textContent=imageForTrack[track.id]?'Archive selection · still image, not playback':'Archive selection · no matching video thumbnail';
+    else {thumb.hidden=true;fallback.hidden=false;fallback.textContent='Still unavailable';}
+    document.getElementById('hero-media-note').textContent='';
   }
   function resolveLivePayload(payload, now=Date.now()) {
     const live = payload?.live;
@@ -113,7 +115,9 @@
     if (age > liveFreshnessMs) return {state:'stale'};
     if (age < -120_000) return {state:'invalid'};
     if (typeof live.title !== 'string' || !live.title.trim() || typeof live.artist !== 'string' || !live.artist.trim()) return {state:'invalid'};
-    return {state:'fresh',track:{id:payload.publicSong?.rvtr || payload.track?.rvtr || live.rvtr || payload.currentTrackId || null, title:live.title.trim(), artist:live.artist.trim(), year:Number.isInteger(live.year)?live.year:(Number.isInteger(payload.publicSong?.year)?payload.publicSong.year:null), timestamp:new Date(parsed).toISOString(), heroUrl:safeLiveHeroUrl(payload.publicSong?.heroUrl)}};
+    const candidateIds=[payload.publicSong?.rvtr,payload.track?.rvtr,live.rvtr,payload.currentTrackId];
+    const id=candidateIds.find(value=>typeof value==='string'&&/^RVTR\d{6}$/i.test(value))?.toUpperCase()||null;
+    return {state:'fresh',track:{id, title:live.title.trim(), artist:live.artist.trim(), year:Number.isInteger(live.year)?live.year:(Number.isInteger(payload.publicSong?.year)?payload.publicSong.year:null), timestamp:new Date(parsed).toISOString(), heroUrl:safeLiveHeroUrl(payload.publicSong?.heroUrl)}};
   }
   function safeLiveHeroUrl(value) {
     if(typeof value!=='string'||value.length>2048)return null;
@@ -129,8 +133,10 @@
     if (shouldRestoreArchive(state,liveMode,manualArchiveMode)) restoreArchiveDisplay();
     const badge=document.getElementById('live-feed-badge'), label=document.getElementById('live-track-status');
     const title=document.getElementById('live-strip-title'), copy=document.getElementById('live-strip-copy'), mark=document.getElementById('live-mark');
-    const texts={checking:['Checking live feed…','Checking current song…','Checking connection…','Reading current song from the public feed.'],fresh:['LIVE · CURRENT SONG','Now playing from VirtualDJ','Connected · playing','The bridge feed is current.'],stale:['LIVE · STALE FEED','Live feed is stale','Stale · last song retained','The bridge has not sent a fresh update. Showing the last reported song.'],offline:['LIVE · OFFLINE','Live feed unavailable','Offline · retrying automatically','The public current-song feed could not be reached.'],idle:['LIVE · NOT PLAYING','No song playing','Connected · no current song','The bridge is current, but it is not reporting a playing song.'],invalid:['LIVE · INVALID DATA','Live data unavailable','Feed data could not be read','The public feed returned data in an unexpected format.']};
-    const t=texts[state]||texts.offline, detailText=detail||(state==='fresh'&&manualArchiveMode?'Live feed current · archive selection stays selected':t[1]); badge.textContent=t[0]; badge.dataset.state=state; label.textContent=detailText; title.textContent=t[2]; copy.textContent=t[3]; mark.dataset.state=state;
+    const texts={checking:['CHECKING','Checking…','Checking',''],fresh:['LIVE NOW','Now playing','Connected',''],stale:['STALE','Live feed stale','Stale','Last report is older than 25 minutes.'],offline:['OFFLINE','Live feed unavailable','Offline','Retrying automatically.'],idle:['NOT PLAYING','No song playing','Connected',''],invalid:['UNAVAILABLE','Live data unavailable','Data error','']};
+    const t=texts[state]||texts.offline;
+    badge.textContent=state==='fresh'&&manualArchiveMode?'LIVE FEED CONNECTED':t[0];
+    badge.dataset.state=state; label.textContent=detail||(state==='fresh'&&manualArchiveMode?'Archive selection kept':t[1]); title.textContent=t[2]; copy.textContent=t[3]; mark.dataset.state=state;
   }
   function showLiveTrack(track) {
     heroDisplayVersion++;
@@ -142,47 +148,48 @@
     document.getElementById('hero-year-stamp').innerHTML=track.year?`<span>${String(track.year).slice(0,2)}</span><span>${String(track.year).slice(-2)}</span>${icon('record')}`:'';
     document.getElementById('featured-title').textContent=track.title;
     const artist=document.getElementById('hero-artist'); artist.textContent=track.artist; artist.removeAttribute('href');
-    const song=document.getElementById('hero-song-link'); song.href=track.id?`#song/${encodeURIComponent(track.id)}`:'#live'; song.textContent=track.id?'Song details':'Live status';
+    const song=document.getElementById('hero-song-link'); song.href='#live-song'; song.textContent='Find in catalog';
     document.getElementById('hero-artist-link').hidden=true;
     const thumb=document.getElementById('hero-thumbnail'), fallback=document.querySelector('.thumbnail-fallback'), stillLabel=document.querySelector('.still-label'), mediaNote=document.getElementById('hero-media-note');
     const heroVersion=heroDisplayVersion;
     if(track.heroUrl){
-      thumb.fetchPriority='high';thumb.alt=`${track.artist} performance still for ${track.title}.`;thumb.hidden=false;fallback.hidden=true;stillLabel.textContent='LIVE STILL';mediaNote.textContent='Live performance still · no audio playback';thumb.onerror=()=>{if(heroVersion!==heroDisplayVersion||!liveMode)return;thumb.hidden=true;fallback.hidden=false;fallback.textContent='Live performance still unavailable.';stillLabel.textContent='LIVE IDENTITY';mediaNote.textContent='Live song identity · still image unavailable';};thumb.src=track.heroUrl;
+      thumb.fetchPriority='high';thumb.alt=`${track.artist} performance still for ${track.title}.`;thumb.hidden=false;fallback.hidden=true;stillLabel.textContent='LIVE STILL';mediaNote.textContent='';thumb.onerror=()=>{if(heroVersion!==heroDisplayVersion||!liveMode)return;thumb.hidden=true;fallback.hidden=false;fallback.textContent='Still unavailable';stillLabel.textContent='LIVE';mediaNote.textContent='';};thumb.src=track.heroUrl;
     } else {
-      thumb.hidden=true;fallback.hidden=false;fallback.textContent='Live song identity · no matching archive thumbnail';stillLabel.textContent='LIVE IDENTITY';mediaNote.textContent='Live song identity · no audio playback';thumb.onerror=null;
+      thumb.hidden=true;fallback.hidden=false;fallback.textContent='Still unavailable';stillLabel.textContent='LIVE';mediaNote.textContent='';thumb.onerror=null;
     }
-    document.getElementById('live-track-status').textContent=`Reported by VirtualDJ bridge · ${new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(track.timestamp))}`;
+    document.getElementById('live-track-status').textContent=`Updated ${new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(track.timestamp))}`;
   }
   function restoreArchiveDisplay() {
     const restoreVersion=++heroDisplayVersion;
     liveMode=false; document.getElementById('hero-mode-label').textContent='ARCHIVE SELECTION';
     document.getElementById('archive-return').hidden=true; document.getElementById('show-live-song').hidden=!latestLiveTrack; document.getElementById('hero-artist-link').hidden=false;
-    document.querySelector('.still-label').textContent='ARCHIVE IMAGE'; document.querySelector('.thumbnail-fallback').textContent='No matching video thumbnail in this catalog.';
+    document.querySelector('.still-label').textContent='ARCHIVE IMAGE'; document.querySelector('.thumbnail-fallback').textContent='Still unavailable';
     document.getElementById('featured-title').textContent='Restoring archive selection…';
     document.getElementById('hero-artist').textContent=''; document.getElementById('hero-artist').removeAttribute('href');
     document.getElementById('hero-year').textContent=''; document.getElementById('hero-year-stamp').textContent='';
     document.getElementById('hero-song-link').href='#'; document.getElementById('hero-song-link').innerHTML=`Song details${icon('arrow')}`;
     document.getElementById('live-track-status').textContent='';
     document.getElementById('hero-thumbnail').hidden=true; document.querySelector('.thumbnail-fallback').hidden=false;
-    document.getElementById('hero-media-note').textContent='Archive selection';
+    document.getElementById('hero-media-note').textContent='';
     loadCatalog().then(({tracks:all})=>{if(restoreVersion!==heroDisplayVersion)return;const chosen=all.find(t=>t.id===selectionId())||all.find(t=>t.id==='RVTR607320');if(chosen)updateHero(chosen);}).catch(()=>{});
   }
-  function returnToArchive() { manualArchiveMode=true; restoreArchiveDisplay(); }
+  function returnToArchive() { manualArchiveMode=true; if(latestFeedState==='fresh')document.getElementById('live-feed-badge').textContent='LIVE FEED CONNECTED'; restoreArchiveDisplay(); }
   async function pollLiveFeed() {
     try {
       const response=await fetch(`${liveFeedUrl}?ts=${Date.now()}`,{cache:'no-store',mode:'cors',headers:{Accept:'application/json'}});
-      if(!response.ok){liveMessage('offline',`Current-song feed returned HTTP ${response.status}.`);return;}
-      let payload; try{payload=await response.json();}catch{liveMessage('invalid');return;}
-      if(!payload||typeof payload!=='object'||Array.isArray(payload)){liveMessage('invalid');return;}
+      if(!response.ok){liveMessage('offline');settleFirstLiveCheck(false);return;}
+      let payload; try{payload=await response.json();}catch{liveMessage('invalid');settleFirstLiveCheck(false);return;}
+      if(!payload||typeof payload!=='object'||Array.isArray(payload)){liveMessage('invalid');settleFirstLiveCheck(false);return;}
       lastFeedSuccess=Date.now();
       const result=resolveLivePayload(payload);
-      if(result.state==='fresh'){const track=result.track,changed=latestLiveTrack?.timestamp!==track.timestamp||latestLiveTrack?.title!==track.title||latestLiveTrack?.artist!==track.artist;latestLiveTrack=track;if(!manualArchiveMode&&(!liveMode||changed))showLiveTrack(track);liveMessage('fresh');return;}
-      liveMessage(result.state);
+      if(result.state==='fresh'){const track=result.track,changed=latestLiveTrack?.timestamp!==track.timestamp||latestLiveTrack?.title!==track.title||latestLiveTrack?.artist!==track.artist;latestLiveTrack=track;if(!manualArchiveMode&&(!liveMode||changed))showLiveTrack(track);liveMessage('fresh');settleFirstLiveCheck(true);return;}
+      liveMessage(result.state);settleFirstLiveCheck(false);
     } catch(error) {
-      liveMessage(lastFeedSuccess&&Date.now()-lastFeedSuccess>liveFreshnessMs?'stale':'offline',error instanceof TypeError?'Cannot reach the public current-song feed (network or CORS).':'Current-song feed request failed; retrying.');
+      liveMessage(lastFeedSuccess&&Date.now()-lastFeedSuccess>liveFreshnessMs?'stale':'offline');settleFirstLiveCheck(false);
     }
   }
-  function applySavedHero() {try {const id=localStorage.getItem('retroverse-selected-song');if(!id)return;const version=++heroDisplayVersion;loadCatalog().then(({tracks:all})=>{const track=all.find(t=>t.id===id);if(track&&version===heroDisplayVersion&&!liveMode)updateHero(track);});} catch {}}
+  function applySavedHero() {try {const id=localStorage.getItem('retroverse-selected-song');if(!id||manualArchiveMode||liveMode)return;const version=++heroDisplayVersion;loadCatalog().then(({tracks:all})=>{const track=all.find(t=>t.id===id);if(track&&version===heroDisplayVersion&&!liveMode&&!manualArchiveMode)updateHero(track);});} catch {}}
+  function settleFirstLiveCheck(isFresh) {if(firstLiveCheckSettled)return;firstLiveCheckSettled=true;if(!isFresh)applySavedHero();}
   function pagedList(container,items,showYear=true) {
     let page=1;
     const paint=()=>{const visible=items.slice(0,page*batchSize);container.innerHTML=rows(visible,showYear)+ (visible.length<items.length?`<button class="load-more button button-secondary" type="button">Show ${Math.min(batchSize,items.length-visible.length)} more · ${visible.length} of ${prettyCount(items.length)}</button>`:'');const more=container.querySelector('.load-more');if(more)more.addEventListener('click',()=>{page++;paint();});};paint();
@@ -191,14 +198,14 @@
     const track=tracks.find(t=>t.id===id);if(!track)return missingPanel('Song not found');
     const decade=Number.isInteger(track.year)?Math.floor(track.year/10)*10:null;
     const thumbnail=imageForTrack[track.id]?`<img class="detail-thumbnail" src="${imageForTrack[track.id]}" width="480" height="360" alt="${esc(track.artist)} performing ${esc(track.title)}">`:missingThumb();
-    showPanel(`<span class="eyebrow">SONG DETAILS</span><div class="detail-hero">${thumbnail}<div><h2 id="panel-title">${esc(track.title)}</h2><p class="panel-subtitle"><a href="#artist/${esc(track.artistSlug)}">${esc(track.artist)}</a> · ${track.year??'Year not listed'}</p><button class="button button-primary select-song" type="button" data-track="${esc(track.id)}">Show this song on Discover</button></div></div><div class="metadata-grid"><div class="metadata-cell"><strong>${track.year??'—'}</strong><span>Catalog year</span></div><div class="metadata-cell"><strong>${track.peak?`#${track.peak}`:'—'}</strong><span>Best chart position</span></div><div class="metadata-cell"><strong>${track.weeks||'—'}</strong><span>Chart weeks</span></div></div><h3>Chart history</h3>${chart(track)}<div class="panel-button-row">${decade===null?'':`<a class="button button-secondary" href="#era/${decade}">${decade}s catalog</a>`}<a class="button button-secondary" href="#answers?q=${encodeURIComponent(track.title)}">Ask catalog</a></div>${sourceNote}`,track.title);
+    showPanel(`<span class="eyebrow">SONG DETAILS</span><div class="detail-hero">${thumbnail}<div><h2 id="panel-title">${esc(track.title)}</h2><p class="panel-subtitle"><a href="#artist/${esc(track.artistSlug)}">${esc(track.artist)}</a> · ${track.year??'Year not listed'}</p><button class="button button-primary select-song" type="button" data-track="${esc(track.id)}">Show this song on Discover</button></div></div><div class="metadata-grid"><div class="metadata-cell"><strong>${track.year??'—'}</strong><span>Catalog year</span></div><div class="metadata-cell"><strong>${track.peak?`#${track.peak}`:'—'}</strong><span>Best chart position</span></div><div class="metadata-cell"><strong>${track.weeks||'—'}</strong><span>Chart weeks</span></div></div><h3>Chart history</h3>${chart(track)}<div class="panel-button-row">${decade===null?'':`<a class="button button-secondary" href="#era/${decade}">${decade}s catalog</a>`}<a class="button button-secondary" href="#answers?q=${encodeURIComponent(track.title)}">Catalog lookup</a></div>${sourceNote}`,track.title);
     content.querySelector('.select-song').addEventListener('click',()=>{setSelection(track);closePanel();});
   }
   function artistPanel(slug) {
     const artist=artists.find(a=>a.id===slug);if(!artist)return missingPanel('Artist not found');
     const matching=tracks.filter(t=>t.artistSlug===slug).sort((a,b)=>a.year-b.year||a.title.localeCompare(b.title));
     const total=artist.count||matching.length;
-    showPanel(`<span class="eyebrow">ARTIST</span><h2 id="panel-title">${esc(artist.name)}</h2><div class="metadata-grid"><div class="metadata-cell"><strong>${prettyCount(total)}</strong><span>Catalog songs</span></div><div class="metadata-cell"><strong>${prettyCount(artist.charted||0)}</strong><span>Chart records</span></div><div class="metadata-cell"><strong>${matching.length}</strong><span>Loaded here</span></div></div><h3>Songs in this catalog</h3><div id="artist-songs"></div><div class="panel-button-row"><a class="button button-secondary" href="#search?q=${encodeURIComponent(artist.name)}">Search artist</a></div>${sourceNote}`,artist.name);
+    showPanel(`<span class="eyebrow">ARTIST</span><h2 id="panel-title">${esc(artist.name)}</h2><div class="metadata-grid"><div class="metadata-cell"><strong>${prettyCount(total)}</strong><span>Catalog songs</span></div><div class="metadata-cell"><strong>${prettyCount(artist.charted||0)}</strong><span>Chart records</span></div></div><h3>Songs</h3><div id="artist-songs"></div><div class="panel-button-row"><a class="button button-secondary" href="#search?q=${encodeURIComponent(artist.name)}">Search artist</a></div>${sourceNote}`,artist.name);
     pagedList(document.getElementById('artist-songs'),matching);
   }
   function decadeCards(summary) {
@@ -236,7 +243,7 @@
     const q=searchState.q.trim().toLocaleLowerCase();
     const matches=tracks.filter(t=>!q||`${t.title} ${t.artist} ${t.year}`.toLocaleLowerCase().includes(q));
     let items=matches;
-    if(searchState.type==='artists') items=[...new Map(matches.map(t=>[t.artistSlug,artists.find(a=>a.id===t.artistSlug)]).filter(x=>x[1]).map(x=>[x[0],x[1]])).values()].sort((a,b)=>a.name.localeCompare(b.name));
+    if(searchState.type==='artists') items=[...new Set(matches.map(t=>t.artistSlug))].map(id=>artistsById.get(id)).filter(Boolean).sort((a,b)=>a.name.localeCompare(b.name));
     const total=items.length,pages=Math.max(1,Math.ceil(total/batchSize));searchState.page=Math.min(searchState.page,pages);
     const visible=items.slice((searchState.page-1)*batchSize,searchState.page*batchSize);
     const countLabel=searchState.type==='songs'?'songs':'artists';
@@ -250,7 +257,7 @@
   }
   function answerPanel(params) {
     const q=params.get('q')||'';
-    showPanel(`<span class="eyebrow">CATALOG LOOKUP</span><h2 id="panel-title">Catalog answers</h2><p class="small-note">Look up facts listed in the Retroverse catalog. This is a local factual lookup, not a generative AI chat.</p><form class="answer-form"><label for="answer-query">Song, artist, or a question about chart facts</label><div class="answer-input-row"><input id="answer-query" value="${esc(q)}" placeholder="e.g. What was the peak for Blue Monday?" autocomplete="off"><button class="button button-primary" type="submit">Look up</button></div></form><div id="answer-result" aria-live="polite"></div>${sourceNote}`,`Catalog answers`);
+    showPanel(`<span class="eyebrow">CATALOG LOOKUP</span><h2 id="panel-title">Catalog lookup</h2><form class="answer-form"><label for="answer-query">Song or artist</label><div class="answer-input-row"><input id="answer-query" value="${esc(q)}" placeholder="e.g. Blue Monday" autocomplete="off"><button class="button button-primary" type="submit">Look up</button></div></form><div id="answer-result" aria-live="polite"></div>${sourceNote}`,`Catalog lookup`);
     const form=content.querySelector('.answer-form');form.addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('answer-query');const query=input.value.trim();history.replaceState({retroverse:true},'',`#answers?q=${encodeURIComponent(query)}`);answer(query);});
     if(q)answer(q);
   }
@@ -261,18 +268,18 @@
     const exact=tracks.filter(t=>t.title.toLocaleLowerCase()===normalized||`${t.title} ${t.artist}`.toLocaleLowerCase()===normalized);
     const artistExact=artists.find(a=>a.name.toLocaleLowerCase()===normalized);
     const candidates=exact.length?exact:artistExact?tracks.filter(t=>t.artistSlug===artistExact.id):tracks.filter(t=>t.title.toLocaleLowerCase().includes(normalized)||t.artist.toLocaleLowerCase().includes(normalized)).slice(0,8);
-    if(!candidates.length){box.innerHTML='<div class="empty-state"><h3>No catalog match</h3><p>This catalog lookup can answer from song title, artist, year, chart peak, and listed weeks.</p></div>';return;}
+    if(!candidates.length){box.innerHTML='<div class="empty-state"><h3>No catalog match</h3><p>Try a song or artist name.</p></div>';return;}
     if(candidates.length>1){box.innerHTML=`<p class="result-count">${candidates.length} possible matches</p>${rows(candidates.slice(0,8))}`;return;}
     const t=candidates[0];box.innerHTML=`<article class="answer-card"><span class="eyebrow">CATALOG FACTS</span><h3>${esc(t.title)}</h3><p>${esc(t.artist)} · ${t.year}</p><dl><div><dt>Best chart position</dt><dd>${t.peak?`#${t.peak}`:'Not listed'}</dd></div><div><dt>Listed chart weeks</dt><dd>${t.weeks||'Not listed'}</dd></div><div><dt>First chart date</dt><dd>${date(t.firstChart)}</dd></div></dl><a class="text-link" href="#song/${esc(t.id)}">Song details ${icon('arrow')}</a></article>`;
   }
   function rankerPanel(params) {
     const yearParam=Number(params.get('year'));const supported=[...new Set(tracks.map(t=>t.year).filter(Number.isInteger))].sort((a,b)=>a-b);const year=supported.includes(yearParam)?yearParam:supported.at(-1);
     const list=tracks.filter(t=>t.year===year).sort((a,b)=>(a.peak||999)-(b.peak||999)||b.weeks-a.weeks||a.title.localeCompare(b.title));
-    showPanel(`<span class="eyebrow">CATALOG RANKINGS</span><h2 id="panel-title">Chart peaks by year</h2><p class="small-note">Sorted by best listed chart position, then chart weeks. This is a catalog view, not an official year-end chart.</p><label class="year-select-label" for="ranker-year">Catalog year</label><select id="ranker-year">${supported.map(y=>`<option value="${y}" ${y===year?'selected':''}>${y}</option>`).join('')}</select><p class="result-count">${prettyCount(list.length)} songs · best peak first</p><div id="ranker-list"></div>${sourceNote}`,`Rankings ${year}`);
+    showPanel(`<span class="eyebrow">CATALOG RANKINGS</span><h2 id="panel-title">Chart peaks by year</h2><p class="small-note">Sorted by best listed position and chart weeks.</p><label class="year-select-label" for="ranker-year">Catalog year</label><select id="ranker-year">${supported.map(y=>`<option value="${y}" ${y===year?'selected':''}>${y}</option>`).join('')}</select><p class="result-count">${prettyCount(list.length)} songs · best peak first</p><div id="ranker-list"></div>${sourceNote}`,`Rankings ${year}`);
     pagedList(document.getElementById('ranker-list'),list);
     document.getElementById('ranker-year').addEventListener('change',e=>{const next=`#ranker?year=${e.target.value}`;currentHash=next;history.pushState({retroverse:true},'',next);renderRoute();});
   }
-  function livePanel() {const t=latestLiveTrack;showPanel(`<span class="eyebrow">LIVE STATUS</span><h2 id="panel-title">${esc(latestFeedState==='fresh'?'Now playing':latestFeedState==='stale'?'Live feed is stale':latestFeedState==='idle'?'No song playing':latestFeedState==='checking'?'Checking live feed':'Live feed unavailable')}</h2><div class="status-card"><div class="status-label"><span class="status-dot" aria-hidden="true"></span>${esc(document.getElementById('live-feed-badge').textContent)}</div>${t?`<p><strong>${esc(t.title)}</strong> · ${esc(t.artist)}${t.year?` · ${t.year}`:''}</p><p class="small-note">Last bridge update: ${esc(t.timestamp)}</p>`:''}<p>Read-only current-song feed. The page never starts playback or accepts song requests.</p></div><div class="panel-button-row"><a class="button button-primary" href="#">Return to archive selection</a></div>`,`Live status`);}
+  function livePanel() {const t=latestLiveTrack;showPanel(`<span class="eyebrow">LIVE STATUS</span><h2 id="panel-title">${esc(latestFeedState==='fresh'?'Now playing':latestFeedState==='stale'?'Live feed is stale':latestFeedState==='idle'?'No song playing':latestFeedState==='checking'?'Checking live feed':'Live feed unavailable')}</h2><div class="status-card">${t?`<p><strong>${esc(t.title)}</strong> · ${esc(t.artist)}${t.year?` · ${t.year}`:''}</p><p class="small-note">Last update: ${esc(t.timestamp)}</p>`:''}</div><div class="panel-button-row"><a class="button button-primary" href="#">Return to archive selection</a></div>`,`Live status`);}
   function erasPanel(summary) {showPanel(`<span class="eyebrow">BROWSE BY YEAR</span><h2 id="panel-title">All decades</h2><p class="small-note">Songs with no listed year stay in the catalog and are available in Unknown year.</p><div class="panel-era-grid">${decadeCards(summary)}<a class="era-card unknown-year-card" href="#era/unknown-year"><div class="era-image era-type"><div class="era-record-art" aria-hidden="true"><span>?</span><i></i></div><span class="era-year">Unknown year</span></div><div class="era-caption"><span>${prettyCount(summary.unknownYearCount)} catalog songs</span><span class="round-arrow">${icon('arrow')}</span></div></a></div>${sourceNote}`,`All decades`);}
   function missingPanel(title) {showPanel(`<span class="eyebrow">RETROVERSE CATALOG</span><h2 id="panel-title">${esc(title)}</h2><p class="panel-subtitle">This record could not be found in the catalog.</p><div class="panel-button-row"><a class="button button-primary" href="#search">Search the catalog ${icon('search')}</a></div>`,title);}
   function errorPanel(retry) {showPanel(`<span class="eyebrow">CATALOG</span><h2 id="panel-title">Catalog unavailable</h2><div class="error-state"><p>The catalog could not be opened. Check the connection and try again.</p><button type="button" class="button button-primary" id="retry-catalog">Try again</button></div>`,`Catalog unavailable`);document.getElementById('retry-catalog').addEventListener('click',retry);}
@@ -281,6 +288,7 @@
     if(!isPanel(hash)){if(dialog.open)dialog.close();document.body.classList.remove('body-modal-open');document.title=pageTitle;if(hash==='#eras')requestAnimationFrame(()=>document.getElementById('eras').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'}));else if(!hash||hash==='#')window.scrollTo({top:0,behavior:'instant'});return;}
     const [path,queryString='']=hash.slice(1).split('?');const [route,routeId='']=path.split('/');const params=new URLSearchParams(queryString);
     if(route==='live')return livePanel();
+    if(route==='live-song')return liveSongRoute(version);
     if(route==='eras-index'){try{return erasPanel(await loadOverview());}catch{return errorPanel(renderRoute);}}
     if(route==='eras')return erasPanel(await loadOverview());
     if(route==='search'||route==='song'||route==='artist'||route==='era'||route==='answers'||route==='ranker'){
@@ -298,6 +306,19 @@
     if(route==='eras-index')return;
     missingPanel('Page not found');
   }
+  async function liveSongRoute(version) {
+    const current=latestLiveTrack;
+    if(!current){livePanel();return;}
+    if(!tracks)showPanel('<h2 id="panel-title">Catalog</h2><p class="panel-loading" role="status">Finding song…</p>','Catalog',false);
+    try{await loadCatalog();}catch{return errorPanel(renderRoute);}
+    if(version!==routeVersion||currentHash!=='#live-song')return;
+    const byId=current.id?tracks.find(track=>track.id===current.id):null;
+    if(byId){songPanel(byId.id);return;}
+    const norm=value=>String(value??'').normalize('NFKC').trim().toLocaleLowerCase();
+    const matches=tracks.filter(track=>norm(track.title)===norm(current.title)&&norm(track.artist)===norm(current.artist));
+    if(matches.length===1){songPanel(matches[0].id);return;}
+    searchPanel(new URLSearchParams({q:`${current.title} ${current.artist}`}));
+  }
   document.addEventListener('click',event=>{const link=event.target.closest('a[href^="#"]');if(!link||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button!==0)return;event.preventDefault();navigate(link.getAttribute('href'),link);});
   document.querySelector('[data-open-search]').addEventListener('click',event=>navigate('#search',event.currentTarget));
   document.getElementById('archive-return').addEventListener('click',returnToArchive);
@@ -309,7 +330,6 @@
   window.addEventListener('popstate',()=>{currentHash=location.hash;backStack=[];renderRoute();});
   window.addEventListener('hashchange',()=>{if(currentHash!==location.hash){currentHash=location.hash;backStack=[];renderRoute();}});
   loadOverview().then(renderEraIndex).catch(()=>{document.getElementById('era-grid').innerHTML='<p class="catalog-status">Decade counts unavailable.</p>';});
-  applySavedHero();
   pollLiveFeed(); window.setInterval(pollLiveFeed,livePollMs);
   renderRoute();
 })();
