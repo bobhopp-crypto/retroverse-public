@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const SCHEMA = 'RVWEB/3';
-  const SOURCE = 'music-context.json?build=rvweb-3';
+  const SOURCE = 'music-context.json?build=rvweb-4';
   let payloadPromise;
 
   const norm = value => String(value ?? '').normalize('NFKC').trim().replace(/\s+/g, ' ').toLocaleLowerCase();
@@ -49,6 +49,38 @@
     const matches = cards.filter(card => norm(card.title) === norm(track.title) && norm(card.artist) === norm(track.artist));
     return matches.length === 1 ? matches[0] : null;
   }
+  async function showcaseCards() {
+    const cards = await getCards();
+    if (!cards) return [];
+    const byDecade = new Map();
+    for (const card of cards) {
+      if (!/^RVTR\d{6}$/.test(card.trackId || '') || !Number.isInteger(card.year)) continue;
+      const decade = Math.floor(card.year / 10) * 10;
+      if (decade < 1950 || decade > 2020) continue;
+      const score = (101 - card.hot100.peak) * 2 + card.hot100.weeks;
+      const group = byDecade.get(decade) || [];
+      group.push({card, score});
+      group.sort((a, b) => b.score - a.score || a.card.title.localeCompare(b.card.title));
+      if (group.length > 2) group.pop();
+      byDecade.set(decade, group);
+    }
+    return [...byDecade.entries()].sort(([a], [b]) => a - b).flatMap(([, group]) => group.map(item => item.card));
+  }
+  const isEmptyDeck = live => live?.source === 'bridge' && live.playing === true && norm(live.title) === 'drag a song on this deck to load it';
+  function classifyLive(live, now=Date.now(), freshnessMs=25*60_000) {
+    if (!live || live.source !== 'bridge') return {state:'idle'};
+    if (live.playing === false) return {state:'idle'};
+    if (live.playing !== true) return {state:'invalid'};
+    const parsed=typeof live.bridgeTimestamp==='string'?Date.parse(live.bridgeTimestamp):NaN;
+    if (!Number.isFinite(parsed)) return {state:'invalid'};
+    const age=now-parsed;
+    if (age>freshnessMs) return {state:'stale'};
+    if (age < -120_000) return {state:'invalid'};
+    if (typeof live.title!=='string'||!live.title.trim()||typeof live.artist!=='string'||!live.artist.trim()) return {state:'invalid'};
+    if (isEmptyDeck(live)) return {state:'idle'};
+    return {state:'fresh',timestamp:new Date(parsed).toISOString()};
+  }
+  const canRotate = state => state?.feedState === 'idle' && !state.liveMode && !state.manualArchiveMode && !state.hasRoute && state.visible && !state.reducedMotion && state.heroVisible;
   const el = (tag, cls, value) => {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -59,8 +91,7 @@
   function render(slot, card) {
     if (!slot || slot.isConnected === false || !validate({schema:SCHEMA,cards:[card]})) return false;
     const panel = el('section', 'music-context-card');
-    panel.setAttribute('aria-label', 'Song details');
-    panel.append(el('p', 'music-context-stat', `${card.title} · ${card.artist} · ${card.year}`));
+    panel.setAttribute('aria-label', 'Song chart details');
     panel.append(el('p', 'music-context-stat', `Peak #${card.hot100.peak} · ${card.hot100.weeks} ${card.hot100.weeks === 1 ? 'week' : 'weeks'}`), el('p', 'music-context-dates', `${fmtDate(card.hot100.first)} – ${fmtDate(card.hot100.last)}`));
     const links = el('div', 'music-context-links');
     const artistLink = el('a', 'button button-secondary', card.artist);
@@ -74,5 +105,5 @@
     slot.hidden = false;
     return true;
   }
-  window.RetroverseMusicContext = Object.freeze({forTrack, forLive, render, validate});
+  window.RetroverseMusicContext = Object.freeze({forTrack, forLive, showcaseCards, isEmptyDeck, classifyLive, canRotate, render, validate});
 })();
