@@ -78,12 +78,13 @@
     if(!items.length) return '';
     return `<ul class="track-list">${items.map((track,index)=>`<li><a class="track-link" href="#song/${esc(track.id)}"><span class="track-number" aria-hidden="true">${String(offset+index+1).padStart(2,'0')}</span><span class="track-copy"><span class="track-title">${esc(track.title)}</span><span class="track-byline">${esc(track.artist)}</span></span>${showYear?`<span class="track-year">${track.year??'—'}</span>`:''}${icon('arrow')}</a></li>`).join('')}</ul>`;
   }
-  function chart(track) {
+  function chart(track, showDateRange=true) {
     const points=Array.isArray(track.chart)?track.chart.filter(r=>Array.isArray(r)&&typeof r[0]==='string'&&Number.isInteger(r[1])&&r[1]>=1&&r[1]<=100):[];
     if(!points.length)return '<p class="small-note">No weekly chart positions are listed for this song.</p>';
     const coords=points.map((r,i)=>[32+i*(456/Math.max(points.length-1,1)),16+(r[1]-1)*1.65]);
     const peak=points.reduce((best,r,i)=>r[1]<points[best][1]?i:best,0);
-    return `<p class="chart-description">Weekly chart position · Lower numbers rank higher</p><div class="chart-wrap"><svg viewBox="0 0 510 195" role="img" aria-label="${esc(track.title)}: ${points.length} listed weeks, best position ${points[peak][1]}.">${[1,50,100].map(rank=>`<line x1="32" y1="${16+(rank-1)*1.65}" x2="488" y2="${16+(rank-1)*1.65}" stroke="#d6cfbf" stroke-dasharray="3 5"/><text x="4" y="${20+(rank-1)*1.65}" fill="#586663" font-size="10">${rank}</text>`).join('')}<polyline points="${coords.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#176b6c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>${coords.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i===peak?5:2.5}" fill="${i===peak?'#d83c20':'#176b6c'}" stroke="#fffaf0" stroke-width="1.5"/>`).join('')}</svg><div class="chart-dates"><span>${date(points[0][0])}</span><span>${date(points.at(-1)[0])}</span></div></div><details class="chart-details"><summary>View weekly positions</summary><table><thead><tr><th scope="col">Week of</th><th scope="col">Position</th></tr></thead><tbody>${points.map(r=>`<tr><td>${date(r[0])}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table></details>`;
+    const dateRange=showDateRange?`<div class="chart-dates"><span>${date(points[0][0])}</span><span>${date(points.at(-1)[0])}</span></div>`:'';
+    return `<p class="chart-description">Weekly chart position · Lower numbers rank higher</p><div class="chart-wrap"><svg viewBox="0 0 510 195" role="img" aria-label="${esc(track.title)}: ${points.length} listed weeks, best position ${points[peak][1]}.">${[1,50,100].map(rank=>`<line x1="32" y1="${16+(rank-1)*1.65}" x2="488" y2="${16+(rank-1)*1.65}" stroke="#d6cfbf" stroke-dasharray="3 5"/><text x="4" y="${20+(rank-1)*1.65}" fill="#586663" font-size="10">${rank}</text>`).join('')}<polyline points="${coords.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#176b6c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>${coords.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i===peak?5:2.5}" fill="${i===peak?'#d83c20':'#176b6c'}" stroke="#fffaf0" stroke-width="1.5"/>`).join('')}</svg>${dateRange}</div><details class="chart-details"><summary>View weekly positions</summary><table><thead><tr><th scope="col">Week of</th><th scope="col">Position</th></tr></thead><tbody>${points.map(r=>`<tr><td>${date(r[0])}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table></details>`;
   }
   function selectionId() { try { return localStorage.getItem('retroverse-selected-song') || 'RVTR607320'; } catch { return 'RVTR607320'; } }
   function setSelection(track) {
@@ -125,9 +126,8 @@
     } catch { return null; }
   }
   function stopShowcaseRotation() { if (showcaseTimer) window.clearTimeout(showcaseTimer); showcaseTimer = 0; }
-  function savedArchiveSelectionExists() { try { return Boolean(localStorage.getItem('retroverse-selected-song')); } catch { return false; } }
   function showcaseDisplayAllowed() {
-    return latestFeedState === 'idle' && !liveMode && !manualArchiveMode && !savedArchiveSelectionExists() && (!currentHash || currentHash === '#') && document.visibilityState === 'visible' && showcaseHeroVisible;
+    return latestFeedState === 'idle' && !liveMode && !manualArchiveMode && (!currentHash || currentHash === '#') && document.visibilityState === 'visible' && showcaseHeroVisible;
   }
   function showcaseRotationAllowed() {
     return Boolean(window.RetroverseMusicContext?.canRotate({feedState:latestFeedState,liveMode,manualArchiveMode,hasRoute:Boolean(currentHash&&currentHash!=='#'),visible:document.visibilityState==='visible',reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,heroVisible:showcaseHeroVisible}));
@@ -173,7 +173,21 @@
   function shouldRestoreArchive(state, isLive, isManualArchive) { return state !== 'fresh' && state !== 'checking' && isLive && !isManualArchive; }
   function liveMessage(state, detail) {
     latestFeedState=state;
-    if (shouldRestoreArchive(state,liveMode,manualArchiveMode)) restoreArchiveDisplay();
+    if (shouldRestoreArchive(state,liveMode,manualArchiveMode)) {
+      if (state === 'idle') {
+        heroDisplayVersion++; liveMode=false;
+        document.getElementById('hero-mode-label').textContent='FEATURED';
+        document.getElementById('archive-return').hidden=true; document.getElementById('show-live-song').hidden=true;
+        document.querySelector('.still-label').textContent='DECADE ART';
+        document.getElementById('featured-title').textContent='';
+        document.getElementById('hero-artist').textContent=''; document.getElementById('hero-artist').removeAttribute('href');
+        document.getElementById('hero-year').textContent=''; document.getElementById('hero-year-stamp').textContent='';
+        document.getElementById('hero-song-link').href='#'; document.getElementById('hero-song-link').innerHTML=`Song details${icon('arrow')}`;
+        document.getElementById('hero-artist-link').hidden=true;
+        document.getElementById('hero-thumbnail').hidden=true; document.querySelector('.thumbnail-fallback').hidden=true;
+        document.getElementById('hero-media-note').textContent=''; document.getElementById('live-track-status').textContent='';
+      } else restoreArchiveDisplay();
+    }
     const badge=document.getElementById('live-feed-badge'), label=document.getElementById('live-track-status');
     const title=document.getElementById('live-strip-title'), copy=document.getElementById('live-strip-copy'), mark=document.getElementById('live-mark');
     const texts={checking:['CHECKING','Checking…','Checking',''],fresh:['LIVE NOW','Now playing','Connected',''],stale:['STALE','Live feed stale','Stale','Last report is older than 25 minutes.'],offline:['OFFLINE','Live feed unavailable','Offline','Retrying automatically.'],idle:['NOT PLAYING','No song playing','Connected',''],invalid:['UNAVAILABLE','Live data unavailable','Data error','']};
@@ -234,7 +248,7 @@
     }
   }
   function applySavedHero() {try {const id=localStorage.getItem('retroverse-selected-song');if(!id||manualArchiveMode||liveMode)return;const version=++heroDisplayVersion;loadCatalog().then(({tracks:all})=>{const track=all.find(t=>t.id===id);if(track&&version===heroDisplayVersion&&!liveMode&&!manualArchiveMode)updateHero(track);});} catch {}}
-  function settleFirstLiveCheck(isFresh) {if(firstLiveCheckSettled)return;firstLiveCheckSettled=true;if(!isFresh)applySavedHero();}
+  function settleFirstLiveCheck(isFresh) {if(firstLiveCheckSettled)return;firstLiveCheckSettled=true;if(!isFresh&&latestFeedState!=='idle')applySavedHero();}
   function pagedList(container,items,showYear=true) {
     let page=1;
     const paint=()=>{const visible=items.slice(0,page*batchSize);container.innerHTML=rows(visible,showYear)+ (visible.length<items.length?`<button class="load-more button button-secondary" type="button">Show ${Math.min(batchSize,items.length-visible.length)} more · ${visible.length} of ${prettyCount(items.length)}</button>`:'');const more=container.querySelector('.load-more');if(more)more.addEventListener('click',()=>{page++;paint();});};paint();
@@ -246,7 +260,7 @@
     const decade=Number.isInteger(track.year)?Math.floor(track.year/10)*10:null;
     const thumbnail=imageForTrack[track.id]?`<img class="detail-thumbnail" src="${imageForTrack[track.id]}" width="480" height="360" alt="${esc(track.artist)} performing ${esc(track.title)}">`:missingThumb();
     const metadata=card?'':`<div class="metadata-grid"><div class="metadata-cell"><strong>${track.year??'—'}</strong><span>Catalog year</span></div><div class="metadata-cell"><strong>${track.peak?`#${track.peak}`:'—'}</strong><span>Best chart position</span></div><div class="metadata-cell"><strong>${track.weeks||'—'}</strong><span>Chart weeks</span></div></div>`;
-    showPanel(`<span class="eyebrow">SONG DETAILS</span><div class="detail-hero">${thumbnail}<div><h2 id="panel-title">${esc(track.title)}</h2><p class="panel-subtitle"><a href="#artist/${esc(track.artistSlug)}">${esc(track.artist)}</a> · ${track.year??'Year not listed'}</p><button class="button button-primary select-song" type="button" data-track="${esc(track.id)}">Show this song on Discover</button></div></div>${metadata}<div id="music-context-slot" class="music-context-slot" hidden></div><h3>Chart history</h3>${chart(track)}<div class="panel-button-row">${decade===null?'':`<a class="button button-secondary" href="#era/${decade}">${decade}s catalog</a>`}<a class="button button-secondary" href="#answers?q=${encodeURIComponent(track.title)}">Catalog lookup</a></div>${sourceNote}`,track.title);
+    showPanel(`<span class="eyebrow">SONG DETAILS</span><div class="detail-hero">${thumbnail}<div><h2 id="panel-title">${esc(track.title)}</h2><p class="panel-subtitle"><a href="#artist/${esc(track.artistSlug)}">${esc(track.artist)}</a> · ${track.year??'Year not listed'}</p><button class="button button-primary select-song" type="button" data-track="${esc(track.id)}">Show this song on Discover</button></div></div>${metadata}<div id="music-context-slot" class="music-context-slot" hidden></div><h3>Chart history</h3>${chart(track,!card)}<div class="panel-button-row">${decade===null?'':`<a class="button button-secondary" href="#era/${decade}">${decade}s catalog</a>`}<a class="button button-secondary" href="#answers?q=${encodeURIComponent(track.title)}">Catalog lookup</a></div>${sourceNote}`,track.title);
     const contextSlot=document.getElementById('music-context-slot');
     if(contextSlot&&card)window.RetroverseMusicContext.render(contextSlot,card);
     content.querySelector('.select-song').addEventListener('click',()=>{setSelection(track);closePanel();});
@@ -390,7 +404,7 @@
   backButton.addEventListener('click',()=>{const previous=backStack.pop();if(!previous)return closePanel();history.replaceState({retroverse:true},'',previous);currentHash=previous;renderRoute();});
   window.addEventListener('popstate',()=>{currentHash=location.hash;backStack=[];renderRoute();});
   window.addEventListener('hashchange',()=>{if(currentHash!==location.hash){currentHash=location.hash;backStack=[];renderRoute();}});
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='visible')stopShowcaseRotation();else {void pollLiveFeed();syncShowcaseRotation();}});
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='visible')stopShowcaseRotation();else {latestFeedState='checking';liveMessage('checking');void pollLiveFeed();}});
   const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
   motionPreference.addEventListener?.('change',syncShowcaseRotation);
   if ('IntersectionObserver' in window) new IntersectionObserver(entries=>{showcaseHeroVisible=Boolean(entries[0]?.isIntersecting);syncShowcaseRotation();},{threshold:0.25}).observe(document.getElementById('hero-media'));
