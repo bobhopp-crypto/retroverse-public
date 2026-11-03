@@ -198,7 +198,9 @@
     const track=tracks.find(t=>t.id===id);if(!track)return missingPanel('Song not found');
     const decade=Number.isInteger(track.year)?Math.floor(track.year/10)*10:null;
     const thumbnail=imageForTrack[track.id]?`<img class="detail-thumbnail" src="${imageForTrack[track.id]}" width="480" height="360" alt="${esc(track.artist)} performing ${esc(track.title)}">`:missingThumb();
-    showPanel(`<span class="eyebrow">SONG DETAILS</span><div class="detail-hero">${thumbnail}<div><h2 id="panel-title">${esc(track.title)}</h2><p class="panel-subtitle"><a href="#artist/${esc(track.artistSlug)}">${esc(track.artist)}</a> · ${track.year??'Year not listed'}</p><button class="button button-primary select-song" type="button" data-track="${esc(track.id)}">Show this song on Discover</button></div></div><div class="metadata-grid"><div class="metadata-cell"><strong>${track.year??'—'}</strong><span>Catalog year</span></div><div class="metadata-cell"><strong>${track.peak?`#${track.peak}`:'—'}</strong><span>Best chart position</span></div><div class="metadata-cell"><strong>${track.weeks||'—'}</strong><span>Chart weeks</span></div></div><h3>Chart history</h3>${chart(track)}<div class="panel-button-row">${decade===null?'':`<a class="button button-secondary" href="#era/${decade}">${decade}s catalog</a>`}<a class="button button-secondary" href="#answers?q=${encodeURIComponent(track.title)}">Catalog lookup</a></div>${sourceNote}`,track.title);
+    showPanel(`<span class="eyebrow">SONG DETAILS</span><div class="detail-hero">${thumbnail}<div><h2 id="panel-title">${esc(track.title)}</h2><p class="panel-subtitle"><a href="#artist/${esc(track.artistSlug)}">${esc(track.artist)}</a> · ${track.year??'Year not listed'}</p><button class="button button-primary select-song" type="button" data-track="${esc(track.id)}">Show this song on Discover</button></div></div><div class="metadata-grid"><div class="metadata-cell"><strong>${track.year??'—'}</strong><span>Catalog year</span></div><div class="metadata-cell"><strong>${track.peak?`#${track.peak}`:'—'}</strong><span>Best chart position</span></div><div class="metadata-cell"><strong>${track.weeks||'—'}</strong><span>Chart weeks</span></div></div><div id="music-context-slot" class="music-context-slot" hidden></div><h3>Chart history</h3>${chart(track)}<div class="panel-button-row">${decade===null?'':`<a class="button button-secondary" href="#era/${decade}">${decade}s catalog</a>`}<a class="button button-secondary" href="#answers?q=${encodeURIComponent(track.title)}">Catalog lookup</a></div>${sourceNote}`,track.title);
+    const contextSlot=document.getElementById('music-context-slot');
+    if(contextSlot&&window.RetroverseMusicContext) void window.RetroverseMusicContext.forTrack(track).then(card=>{if(card)window.RetroverseMusicContext.render(contextSlot,card);});
     content.querySelector('.select-song').addEventListener('click',()=>{setSelection(track);closePanel();});
   }
   function artistPanel(slug) {
@@ -309,6 +311,16 @@
   async function liveSongRoute(version) {
     const current=latestLiveTrack;
     if(!current){livePanel();return;}
+    if(latestFeedState==='fresh'&&window.RetroverseMusicContext){
+      const card=await window.RetroverseMusicContext.forLive(current);
+      if(version!==routeVersion||currentHash!=='#live-song')return;
+      if(card){
+        const search=`#search?q=${encodeURIComponent(`${current.title} ${current.artist}`)}`;
+        showPanel(`<span class="eyebrow">SONG + ARTIST HISTORY</span><h2 id="panel-title">${esc(current.title)}</h2><p class="panel-subtitle">${esc(current.artist)} · ${card.year}</p><div id="live-music-context-slot" class="music-context-slot"></div><div class="panel-button-row"><a class="button button-secondary" href="${search}">Search catalog</a></div>`,current.title);
+        window.RetroverseMusicContext.render(document.getElementById('live-music-context-slot'),card);
+        return;
+      }
+    }
     if(!tracks)showPanel('<h2 id="panel-title">Catalog</h2><p class="panel-loading" role="status">Finding song…</p>','Catalog',false);
     try{await loadCatalog();}catch{return errorPanel(renderRoute);}
     if(version!==routeVersion||currentHash!=='#live-song')return;
