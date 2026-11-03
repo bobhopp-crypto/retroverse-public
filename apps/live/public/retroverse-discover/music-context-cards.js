@@ -59,10 +59,9 @@
   function render(slot, card) {
     if (!slot || slot.isConnected === false || !validate({schema:SCHEMA,cards:[card]})) return false;
     const panel = el('section', 'music-context-card');
-    panel.setAttribute('aria-label', 'Song and artist chart history');
-    panel.append(el('span', 'eyebrow', 'SONG · CATALOG YEAR'), el('p', 'music-context-stat', `${card.title} · ${card.artist} · ${card.year}`));
-    panel.append(el('span', 'eyebrow', 'BILLBOARD HOT 100 · SONG HISTORY'), el('p', 'music-context-stat', `Peak #${card.hot100.peak} · ${card.hot100.weeks} ${card.hot100.weeks === 1 ? 'week' : 'weeks'}`), el('p', 'music-context-dates', `${fmtDate(card.hot100.first)} – ${fmtDate(card.hot100.last)}`));
-    panel.append(el('p', 'music-context-note', 'Chart facts describe this song and artist; they do not identify the exact video version.'));
+    panel.setAttribute('aria-label', 'Song details');
+    panel.append(el('p', 'music-context-stat', `${card.title} · ${card.artist} · ${card.year}`));
+    panel.append(el('p', 'music-context-stat', `Peak #${card.hot100.peak} · ${card.hot100.weeks} ${card.hot100.weeks === 1 ? 'week' : 'weeks'}`), el('p', 'music-context-dates', `${fmtDate(card.hot100.first)} – ${fmtDate(card.hot100.last)}`));
     const links = el('div', 'music-context-links');
     const artistLink = el('a', 'button button-secondary', card.artist);
     artistLink.href = `#artist/${encodeURIComponent(card.artistId)}`;
