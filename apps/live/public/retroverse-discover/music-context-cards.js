@@ -68,7 +68,8 @@
   }
   const isEmptyDeck = live => live?.source === 'bridge' && live.playing === true && norm(live.title) === 'drag a song on this deck to load it';
   function classifyLive(live, now=Date.now(), freshnessMs=25*60_000) {
-    if (!live || live.source !== 'bridge') return {state:'idle'};
+    if (!live) return {state:'idle'};
+    if (live.source !== 'bridge') return {state:'invalid'};
     if (live.playing === false) return {state:'idle'};
     if (live.playing !== true) return {state:'invalid'};
     const parsed=typeof live.bridgeTimestamp==='string'?Date.parse(live.bridgeTimestamp):NaN;
