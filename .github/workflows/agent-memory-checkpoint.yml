@@ -3,6 +3,8 @@ name: Validate agent memory checkpoint
 on:
   pull_request:
     paths:
+      - 'AGENTS.md'
+      - 'docs/agents/AGENT_MEMORY_PROTOCOL.md'
       - 'docs/agents/checkpoints/retroverse.json'
       - 'tools/agent-memory/validate-checkpoint.mjs'
       - '.github/workflows/agent-memory-checkpoint.yml'
