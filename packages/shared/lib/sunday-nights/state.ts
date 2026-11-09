@@ -1,3 +1,4 @@
+import { normalizeVdjYear } from "./vdj-year";
 import { loadLiveStateRecord, saveLiveStateRecord } from "./live-state-io";
 import { normalizeLiveTrackId } from "./resolve-live-track";
 import type { SundayNightsLiveSelection, SundayNightsState } from "./types";
@@ -54,6 +55,7 @@ function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
     artist,
     title,
     year,
+    ...(Object.hasOwn(obj, "vdjYear") ? { vdjYear: normalizeVdjYear(obj.vdjYear) } : {}),
     coverUrl,
     songKey,
     source,

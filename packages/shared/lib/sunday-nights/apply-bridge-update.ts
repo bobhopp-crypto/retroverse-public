@@ -1,3 +1,4 @@
+import { normalizeVdjYear } from "./vdj-year";
 import { logLiveNowPlaying } from "@/lib/live-now-playing/logger";
 import {
   handleVdjPlaybackStarted,
@@ -97,7 +98,8 @@ export async function applyBridgeLiveUpdate(
       rvtr,
       artist,
       title,
-      year: linked?.entry.year ?? null,
+      ...(Object.hasOwn(body, "vdjYear") ? { vdjYear: normalizeVdjYear(body.vdjYear) } : {}),
+      year: normalizeVdjYear(body.vdjYear) ?? linked?.entry.year ?? null,
       coverUrl: null,
       songKey: songKeyFromPath(filepath),
       source: "bridge",

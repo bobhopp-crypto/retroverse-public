@@ -7,6 +7,7 @@ export type SundayNightsLiveSelection = {
   artist: string;
   title: string;
   year: number | null;
+  vdjYear?: number | null;
   coverUrl?: string | null;
   songKey?: string | null;
   /** Who published this selection. */
@@ -21,6 +22,7 @@ export type SundayNightsLiveSelection = {
 };
 
 export type BridgeLivePostBody = {
+  vdjYear?: number | null;
   /** False when VirtualDJ playback stops. */
   playing: boolean;
   timestamp: string;

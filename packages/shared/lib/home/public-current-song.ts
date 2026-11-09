@@ -1,4 +1,5 @@
 import "server-only";
+import { normalizeVdjYear } from "@/lib/sunday-nights/vdj-year";
 
 import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
 import type { PlayheadPayload, PresentationQueue } from "@/lib/bobos/presentation/types";
@@ -295,6 +296,10 @@ async function payloadFromFreshVirtualDj(
       coverUrl: publicSong.coverUrl ?? live.coverUrl,
     };
   }
+
+  // Native bridge year stays authoritative over catalog/package enrichment.
+  const nativeYear = normalizeVdjYear(live?.vdjYear);
+  if (live && nativeYear !== null) live = { ...live, year: nativeYear };
 
   return {
     ...payload,
