@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "project": "Retroverse",
+  "scope": "agent-memory-checkpoint-pilot",
+  "lastUpdated": "2026-11-08",
+  "currentObjective": "Prove an agent can resume a bounded Retroverse task from verified checkpoint evidence without repeating discovery or inventing progress.",
+  "lastTask": {
+    "title": "Identify the deployed Retroverse repository and existing agent handoff rules",
+    "executionState": "COMPLETE",
+    "summary": "Read-only audit verified Vercel project retroverse-public, its production deployment's GitHub source, and existing Cursor/Studio agent rules. No production change was made.",
+    "evidence": [
+      "https://vercel.com/bobhopp-1585s-projects/retroverse-public/74VAGmvg2sDQcGqhcqc9WhpmDwrB",
+      "https://github.com/bobhopp-crypto/retroverse-public/blob/main/.cursor/rules/retroverse-workflow.mdc",
+      "https://github.com/bobhopp-crypto/retroverse-public/blob/main/docs/studio/STUDIO_BRAIN.md"
+    ]
+  },
+  "completed": [
+    {
+      "item": "Verified retroverse.live belongs to Vercel project retroverse-public, linked by deployment metadata to bobhopp-crypto/retroverse-public.",
+      "evidence": [
+        "https://vercel.com/bobhopp-1585s-projects/retroverse-public/74VAGmvg2sDQcGqhcqc9WhpmDwrB"
+      ]
+    },
+    {
+      "item": "Found existing agent role definitions and mandatory COMPLETE/WAITING/FAILED task execution states.",
+      "evidence": [
+        "https://github.com/bobhopp-crypto/retroverse-public/blob/main/docs/agents/README.md",
+        "https://github.com/bobhopp-crypto/retroverse-public/blob/main/.cursor/rules/retroverse-workflow.mdc"
+      ]
+    },
+    {
+      "item": "Confirmed Studio's source-of-truth document says no further Studio milestones are approved.",
+      "evidence": [
+        "https://github.com/bobhopp-crypto/retroverse-public/blob/main/docs/studio/STUDIO_BRAIN.md"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "date": "2026-11-08",
+      "decision": "Pilot checkpointing only in Retroverse, with no production behavior, data, or Studio milestone changes.",
+      "provenance": "User approved proceeding with the proposed Retroverse memory checkpoint pilot.",
+      "evidence": [
+        "docs/agents/AGENT_MEMORY_PROTOCOL.md"
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "decision": "Use a small versioned JSON checkpoint and existing agent documentation, not a new database or subscription.",
+      "provenance": "Pilot implementation choice, reversible and pending review.",
+      "evidence": [
+        "docs/agents/checkpoints/retroverse.json"
+      ]
+    }
+  ],
+  "blockers": [],
+  "nextAction": "In a separate agent session, read this checkpoint without prior chat context, report the last completed task and its evidence, blockers, and next action; run the validator; record PASS/FAIL with actual evidence.",
+  "handoffTest": {
+    "status": "NOT_RUN",
+    "testedAt": null,
+    "evidence": [],
+    "notes": "A second independent resume session has not yet been executed."
+  }
+}
