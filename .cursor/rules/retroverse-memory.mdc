@@ -1,0 +1,12 @@
+---
+description: Retroverse agent checkpoint handoffs (pilot only)
+alwaysApply: true
+---
+
+# Retroverse Agent Memory Checkpoint (Pilot)
+
+For Retroverse assignments, consult `docs/agents/AGENT_MEMORY_PROTOCOL.md` and `docs/agents/checkpoints/retroverse.json` before rediscovering project status. Treat the checkpoint as a **handoff**, not as authority over current user instructions, runtime evidence, Studio's approved phase, or canonical data.
+
+Report verified completed work, blockers, and one next action. Do not claim `handoffTest.status = PASS` without an independent resume test. Do not update the checkpoint unless the task permits edits, and never auto-approve a new Studio milestone or deploy because a checkpoint says to.
+
+Preserve `.cursor/rules/retroverse-workflow.mdc` execution states and phase gates. This rule does not modify product behavior.
