@@ -8,6 +8,12 @@
   const artForDecade = {1950:'1950s-diner',1960:'1960s-space-age',1970:'1970s-record-shop',1980:'1980s-roller-rink',1990:'1990s-bedroom',2000:'2000s-listening-room',2010:'2010s-outdoor-show',2020:'2020s-shared-studio'};
   const imageForTrack = {RVTR607320:'art/videos/chuck-berry-you-never-can-tell.jpg'};
   const batchSize = 24;
+  // Keep the bundled Discover catalog aligned with the corrected Hot 100 credits.
+  const correctedArtistNames = new Map([
+    ['RVAR005835', 'Daryl Hall & John Oates'],
+    ['RVAR006510', 'Kool & The Gang'],
+  ]);
+  const artistSearchText = value => value.toLocaleLowerCase().replace(/\s*&\s*/g, ' and ');
   const liveFeedUrl = '/api/sunday-nights/current';
   const livePollMs = 7000, liveFreshnessMs = 25 * 60_000, showcaseIntervalMs = 28000;
   let tracks = null, artists = null, artistsById = null, catalogPromise = null, overview = null;
@@ -37,6 +43,16 @@
       const stream = new Blob([await response.arrayBuffer()]).stream().pipeThrough(new DecompressionStream('gzip'));
       const data = JSON.parse(await new Response(stream).text());
       if (!Array.isArray(data.tracks) || !Array.isArray(data.artists) || data.tracks.length !== 41543 || !data.tracks.every(t=>typeof t.id==='string'&&typeof t.title==='string'&&typeof t.artist==='string'&&typeof t.artistSlug==='string'&&(t.year===null||Number.isInteger(t.year)))) throw new Error('Catalog data is incomplete');
+      for (const track of data.tracks) {
+        const name = correctedArtistNames.get(track.artistSlug);
+        if (name && name !== track.artist) {
+          track.previousArtistCredit = track.artist;
+          track.artist = name;
+        }
+      }
+      for (const artist of data.artists) {
+        artist.name = correctedArtistNames.get(artist.id) ?? artist.name;
+      }
       tracks = data.tracks; artists = data.artists;
       artistsById = new Map(artists.map(artist => [artist.id, artist]));
       const dated=tracks.map(t=>t.year).filter(Number.isInteger);
@@ -305,7 +321,14 @@
   function paintSearch() {
     if(!tracks)return;
     const q=searchState.q.trim().toLocaleLowerCase();
-    const matches=tracks.filter(t=>!q||`${t.title} ${t.artist} ${t.year}`.toLocaleLowerCase().includes(q));
+    const normalizedCreditQuery=artistSearchText(q);
+    const matches=tracks.filter(t=>!q||
+      `${t.title} ${t.artist} ${t.year}`.toLocaleLowerCase().includes(q)||
+      (t.previousArtistCredit && (
+        artistSearchText(`${t.title} ${t.artist} ${t.year}`).includes(normalizedCreditQuery)||
+        `${t.title} ${t.previousArtistCredit} ${t.year}`.toLocaleLowerCase().includes(q)
+      ))
+    );
     let items=matches;
     if(searchState.type==='artists') items=[...new Set(matches.map(t=>t.artistSlug))].map(id=>artistsById.get(id)).filter(Boolean).sort((a,b)=>a.name.localeCompare(b.name));
     const total=items.length,pages=Math.max(1,Math.ceil(total/batchSize));searchState.page=Math.min(searchState.page,pages);
@@ -390,7 +413,11 @@
     const byId=current.id?tracks.find(track=>track.id===current.id):null;
     if(byId){await songPanel(byId.id,version);return;}
     const norm=value=>String(value??'').normalize('NFKC').trim().toLocaleLowerCase();
-    const matches=tracks.filter(track=>norm(track.title)===norm(current.title)&&norm(track.artist)===norm(current.artist));
+    const artist=norm(current.artist);
+    const normalizedCredit=artistSearchText(artist);
+    const matches=tracks.filter(track=>norm(track.title)===norm(current.title)&&
+      (norm(track.artist)===artist || (track.previousArtistCredit &&
+        (artistSearchText(norm(track.artist))===normalizedCredit || norm(track.previousArtistCredit)===artist))));
     if(matches.length===1){await songPanel(matches[0].id,version);return;}
     searchPanel(new URLSearchParams({q:`${current.title} ${current.artist}`}));
   }
