@@ -1,0 +1,20 @@
+name: Validate agent memory checkpoint
+
+on:
+  pull_request:
+    paths:
+      - 'docs/agents/checkpoints/retroverse.json'
+      - 'tools/agent-memory/validate-checkpoint.mjs'
+      - '.github/workflows/agent-memory-checkpoint.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-checkpoint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check checkpoint structure and evidence
+        run: node tools/agent-memory/validate-checkpoint.mjs docs/agents/checkpoints/retroverse.json
