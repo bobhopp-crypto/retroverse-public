@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "project": "Retroverse",
+  "scope": "agent-memory-checkpoint-pilot",
+  "lastUpdated": "2026-11-08",
+  "currentObjective": "Prove an agent can resume a bounded Retroverse task from verified checkpoint evidence without repeating discovery or inventing progress.",
+  "lastTask": {
+    "title": "Verify the agent notebook in a clean process",
+    "executionState": "COMPLETE",
+    "summary": "The repository's clean-process handoff check passed, as did the existing public-search safety test. This confirms the notebook can be read and reconstructed without conversation history, but it does not establish that a separate AI agent will reliably follow the handoff.",
+    "evidence": [
+      "https://github.com/bobhopp-crypto/retroverse-public/actions/runs/42551523439",
+      "https://github.com/bobhopp-crypto/retroverse-public/actions/runs/42551523406"
+    ]
+  },
+  "completed": [
+    {
+      "item": "Verified retroverse.live belongs to Vercel project retroverse-public, linked by deployment metadata to bobhopp-crypto/retroverse-public.",
+      "evidence": [
+        "https://vercel.com/bobhopp-1585s-projects/retroverse-public/74VAGmvg2sDQcGqhcqc9WhpmDwrB"
+      ]
+    },
+    {
+      "item": "Found existing agent role definitions and mandatory COMPLETE/WAITING/FAILED task execution states.",
+      "evidence": [
+        "https://github.com/bobhopp-crypto/retroverse-public/blob/main/docs/agents/README.md",
+        "https://github.com/bobhopp-crypto/retroverse-public/blob/main/.cursor/rules/retroverse-workflow.mdc"
+      ]
+    },
+    {
+      "item": "Confirmed Studio's source-of-truth document says no further Studio milestones are approved.",
+      "evidence": [
+        "https://github.com/bobhopp-crypto/retroverse-public/blob/main/docs/studio/STUDIO_BRAIN.md"
+      ]
+    },
+    {
+      "item": "Created the pilot handoff protocol, checkpoint file, Cursor rule, and validation script on a review-only branch.",
+      "evidence": [
+        "https://github.com/bobhopp-crypto/retroverse-public/pull/53"
+      ]
+    },
+    {
+      "item": "GitHub Actions ran the checkpoint validator successfully in a fresh runner (structure and evidence checks passed).",
+      "evidence": [
+        "https://github.com/bobhopp-crypto/retroverse-public/actions/runs/42548933615"
+      ]
+    },
+    {
+      "item": "A clean GitHub Actions runner reconstructed the previous task, evidence, blockers, and next action from repository files; the fresh-process check passed.",
+      "evidence": [
+        "https://github.com/bobhopp-crypto/retroverse-public/actions/runs/42551523439"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "date": "2026-11-08",
+      "decision": "Pilot checkpointing only in Retroverse, with no production behavior, data, or Studio milestone changes.",
+      "provenance": "User approved proceeding with the proposed Retroverse memory checkpoint pilot.",
+      "evidence": [
+        "docs/agents/AGENT_MEMORY_PROTOCOL.md"
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "decision": "Use a small versioned JSON checkpoint and existing agent documentation, not a new database or subscription.",
+      "provenance": "Pilot implementation choice, reversible and pending review.",
+      "evidence": [
+        "docs/agents/checkpoints/retroverse.json"
+      ]
+    }
+  ],
+  "blockers": [],
+  "nextAction": "Have a separate AI agent, with no access to the originating conversation, open this PR branch, read AGENTS.md and the checkpoint, then independently report the last task, evidence, blockers, and next action; compare against the checkpoint, save test evidence, and mark PASS only if accurate.",
+  "handoffTest": {
+    "status": "NOT_RUN",
+    "testedAt": null,
+    "evidence": [],
+    "notes": "The fresh-process test and website safety check passed on commit e5cf403a. A separate AI-agent resumption test has not been performed."
+  }
+}
