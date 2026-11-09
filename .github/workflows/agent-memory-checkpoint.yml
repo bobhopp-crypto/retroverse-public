@@ -7,6 +7,8 @@ on:
       - 'docs/agents/AGENT_MEMORY_PROTOCOL.md'
       - 'docs/agents/checkpoints/retroverse.json'
       - 'tools/agent-memory/validate-checkpoint.mjs'
+      - 'tools/agent-memory/cold-start-check.mjs'
+      - '.cursor/rules/retroverse-memory.mdc'
       - '.github/workflows/agent-memory-checkpoint.yml'
   workflow_dispatch:
 
@@ -20,3 +22,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check checkpoint structure and evidence
         run: node tools/agent-memory/validate-checkpoint.mjs docs/agents/checkpoints/retroverse.json
+      - name: Reconstruct handoff in a fresh process
+        run: node tools/agent-memory/cold-start-check.mjs
