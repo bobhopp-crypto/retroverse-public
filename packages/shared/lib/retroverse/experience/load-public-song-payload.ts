@@ -11,6 +11,7 @@
 import "server-only";
 
 import { cache } from "react";
+import { optionalSongPresentation } from "./optional-song-presentation";
 
 import { loadSongPackage } from "@/lib/ops/intelligence/song-package-store";
 import type { SongPackage, StoryCard, TimelineEvent } from "@/lib/ops/intelligence/song-package-types";
@@ -170,7 +171,7 @@ async function loadVdjFallbackPackage(rvtr: string): Promise<{
   payload: UniversalPackagePayload | null;
   resolverStep: "vdj:loadVdjBasePackageByRvtr" | "vdj:loadBundledVdjRvtrPackage" | null;
 }> {
-  const live = await loadVdjBasePackageByRvtr(rvtr);
+  const live = await optionalSongPresentation(rvtr, "vdj-library", () => loadVdjBasePackageByRvtr(rvtr), null);
   if (live) {
     return { payload: live, resolverStep: "vdj:loadVdjBasePackageByRvtr" };
   }
@@ -365,11 +366,11 @@ async function loadPublicSongPayloadImpl(
 
   const [track, songPackage, universalPackage, vdjFallback, localContent, hero] = await Promise.all([
     loadTrackPage(rvtr),
-    loadSongPackage(rvtr),
-    loadUniversalPackage(rvtr),
-    loadVdjFallbackPackage(rvtr),
-    loadApprovedLocalSongContent(rvtr),
-    resolveHeroForRvtr(rvtr).catch(() => ({ url: null, tier: null })),
+    optionalSongPresentation(rvtr, "song-package", () => loadSongPackage(rvtr), null),
+    optionalSongPresentation(rvtr, "universal-package", () => loadUniversalPackage(rvtr), null),
+    optionalSongPresentation(rvtr, "vdj-fallback", () => loadVdjFallbackPackage(rvtr), { payload: null, resolverStep: null }),
+    optionalSongPresentation(rvtr, "approved-content", () => loadApprovedLocalSongContent(rvtr), null),
+    optionalSongPresentation(rvtr, "hero", () => resolveHeroForRvtr(rvtr), { url: null, tier: null }),
   ]);
 
   return buildPayload(rvtr, {

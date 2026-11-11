@@ -24,7 +24,7 @@ export const CHAT_LIMITS = Object.freeze({
   rawRequestBytes: 131072, providerInputBytes: 65536, sourceBytes: 65536,
   responseBytes: 65536, sources: 10, sourceExcerpt: 3000, totalSourceText: 12000,
   answer: 6000, supports: 30, followups: 2, maxOutputTokens: 700,
-  maxToolCalls: 2, timeoutMs: 8000, monthlyLimitMicros: 20000000,
+  maxToolCalls: 2, timeoutMs: 8000, providerProjectTimeoutMs: 25000, monthlyLimitMicros: 20000000,
 });
 export type ChatBudgetRequest = Parameters<NonNullable<Dependencies["approveShared"]>>[0] & {
   profile: BudgetProfile; grounding: "provided-sources" | "web-search"; maxInputBytes: number; maxSourceBytes: number;
@@ -242,6 +242,7 @@ export function createSourceChatService(config: SourceChatConfig, dependencies: 
   const grounding = cfg.grounding ?? "provided-sources";
   const projectLimit = cfg.providerProjectLimit;
   const profile = projectLimit ? PROVIDER_PROJECT_BUDGET_PROFILE : grounding === "web-search" ? WEB_CHAT_BUDGET_PROFILE : CHAT_BUDGET_PROFILE;
+  const timeoutMs = projectLimit ? CHAT_LIMITS.providerProjectTimeoutMs : CHAT_LIMITS.timeoutMs;
   const budgetReady = projectLimit
     ? cfg.provider === "openai" && grounding === "web-search" && cfg.budgetAssurance === undefined
       && isApprovedOpenAIProject(projectLimit.projectId) && projectLimit.monthlyUsd === 20 && projectLimit.enforcementLagAccepted === true
@@ -263,9 +264,9 @@ export function createSourceChatService(config: SourceChatConfig, dependencies: 
     request = parseChatRequest(parse(rawBody, CHAT_LIMITS.rawRequestBytes));
     if (!request) return fail("invalid");
     if (options.signal?.aborted) return fail("cancelled");
-    const controller = new AbortController(), signal = controller.signal, deadlineMs = Date.now() + CHAT_LIMITS.timeoutMs;
+    const controller = new AbortController(), signal = controller.signal, deadlineMs = Date.now() + timeoutMs;
     let timedOut = false, permit: ChatBudgetPermit | null = null, dispatched = false;
-    const timer = setTimeout(() => { timedOut = true; controller.abort(); }, CHAT_LIMITS.timeoutMs);
+    const timer = setTimeout(() => { timedOut = true; controller.abort(); }, timeoutMs);
     const cancel = () => controller.abort(); options.signal?.addEventListener("abort", cancel, { once: true });
     const check = () => { if (Date.now() >= deadlineMs) { timedOut = true; controller.abort(); } if (signal.aborted) throw Error("aborted"); };
     const now = deps.now ?? Date.now;

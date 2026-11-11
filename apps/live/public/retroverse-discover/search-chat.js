@@ -1,7 +1,7 @@
 /* Search chat orchestration only. No provider, key or persistent history. */
 (function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.RetroverseSearchChat=api;})(typeof window==='object'?window:globalThis,function(){
  'use strict';
- const LIMITS=Object.freeze({input:300,turns:6,answer:6000,timeout:10000});
+ const LIMITS=Object.freeze({input:300,turns:6,answer:6000,timeout:35000});
  const record=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
  const validToken=v=>typeof v==='string'&&/^[a-f0-9]{64}$/.test(v);
  const clean=(v,max)=>typeof v==='string'&&v.trim().length>0&&v.length<=max&&!/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(v)?v.trim():null;
@@ -50,6 +50,7 @@
    const fresh=()=>job===active&&current===selection&&!active.controller.signal.aborted&&selection.isCurrent();
    active.timer=schedule(()=>{if(job!==active)return;stop();if(current===selection&&selection.isCurrent())failure('Search took too long. Try another question.','error',true);},LIMITS.timeout);
    try{const reply=await boundedRequest(request,payload,active.controller.signal);if(!fresh())return false;
+    if(reply?.status==='timeout'){failure('Search took too long. Try another question.','error',true);return false}
     if(reply?.status==='disabled'){failure('Search is not connected yet.','disabled',true);return false}
     if(reply?.status==='unavailable'||reply?.status==='ungrounded'){failure('A verified source is not available for this question yet.','error',true);return false}
     if(reply?.status==='stale'){failure('The song changed. Open Search again.','error',true);return false}

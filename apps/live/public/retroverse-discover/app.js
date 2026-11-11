@@ -543,13 +543,14 @@
     const token=track?.researchSelectionToken||(fixture?'a'.repeat(64):null),version=routeVersion;
     const isCurrent=()=>version===routeVersion&&currentHash.startsWith('#search')&&(fixture||displayedTrack?.title===track?.title&&displayedTrack?.artist===track?.artist&&displayedTrack?.researchSelectionToken===token);
     const slot=document.getElementById('chat-conversation');
-    searchChat=window.RetroverseSearchChat.createController({request:fixture?(prepared?window.RetroverseSearchChat.createPreparedSampleRequest():window.RetroverseSearchChat.createMockRequest()):window.RetroverseSearchChat.createHttpRequest(),onChange:state=>{if(version!==routeVersion)return;window.RetroverseSearchChat.render(slot,state,{onFollowup:q=>{searchState.autoCurrent=false;void searchChat.ask(q);}});if(prepared)insertSearchPortrait(slot);else insertSearchStill(slot,track?.heroUrl,track);}});
+    const showWaiting=()=>{slot.textContent=token?'The live song changed or is unavailable. Open Search again.':'Search needs a current live song. Open Search again when the live feed reconnects.';slot.hidden=false;};
+    searchChat=window.RetroverseSearchChat.createController({request:fixture?(prepared?window.RetroverseSearchChat.createPreparedSampleRequest():window.RetroverseSearchChat.createMockRequest()):window.RetroverseSearchChat.createHttpRequest(),onChange:state=>{if(version!==routeVersion)return;if(state.status==='idle'){showWaiting();return;}window.RetroverseSearchChat.render(slot,state,{onFollowup:q=>{searchState.autoCurrent=false;void searchChat.ask(q);}});if(prepared)insertSearchPortrait(slot);else insertSearchStill(slot,track?.heroUrl,track);}});
     const query=document.getElementById('chat-query'),reply=document.getElementById('chat-reply');
-    content.querySelector('.search-form').addEventListener('submit',event=>{event.preventDefault();if(!token){slot.textContent='Search is not connected yet.';return;}searchState.autoCurrent=false;searchState.q=query.value;void searchChat.newQuery(query.value);query.blur();});
-    content.querySelector('.chat-reply-form').addEventListener('submit',event=>{event.preventDefault();if(!token){slot.textContent='Search is not connected yet.';return;}const value=reply.value;reply.value='';searchState.autoCurrent=false;void searchChat.ask(value);reply.blur();});
+    content.querySelector('.search-form').addEventListener('submit',event=>{event.preventDefault();if(!token){showWaiting();return;}searchState.autoCurrent=false;searchState.q=query.value;void searchChat.newQuery(query.value);query.blur();});
+    content.querySelector('.chat-reply-form').addEventListener('submit',event=>{event.preventDefault();if(!token){showWaiting();return;}const value=reply.value;reply.value='';searchState.autoCurrent=false;void searchChat.ask(value);reply.blur();});
     if(token&&track){searchChat.open({selectionToken:token,title:track.title,artist:track.artist,isCurrent});
       if(params.has('q')&&initial!==[track.title,track.artist].filter(Boolean).join(' - '))void searchChat.newQuery(initial);
-    }else{slot.textContent='Search is not connected yet.';slot.hidden=false;}
+    }else showWaiting();
   }
   function catalogSearchPanel(params) {
     searchState={autoCurrent:!params.has('q'),q:params.has('q')?params.get('q'):(displayedTrack?`${displayedTrack.title} ${displayedTrack.artist}`:''),type:params.get('type')==='artists'?'artists':'songs',page:Math.max(1,parseInt(params.get('page')||'1',10)||1)};

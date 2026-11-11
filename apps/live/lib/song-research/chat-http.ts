@@ -18,7 +18,7 @@ function bounded<T>(start: () => Promise<T>, signal: AbortSignal): Promise<T> {
 export function createChatPostHandler(service: Service) {
   return async (request: Request): Promise<Response> => {
     const controller = new AbortController(), abort = () => controller.abort();
-    const timer = setTimeout(abort, 9500); let reader: ReadableStreamDefaultReader<Uint8Array> | undefined;
+    const timer = setTimeout(abort, 30000); let reader: ReadableStreamDefaultReader<Uint8Array> | undefined;
     request.signal.addEventListener("abort", abort, { once: true });
     try {
       if (request.signal.aborted) return json({ status: "cancelled" }, 499);

@@ -38,8 +38,8 @@ export function createProductionChatService(dependencies: {
       || request.maxOutputTokens !== 700 || request.maxToolCalls !== 2 || request.maxInputBytes !== CHAT_LIMITS.providerInputBytes
       || request.maxResponseBytes !== CHAT_LIMITS.responseBytes || request.maxSourceBytes !== CHAT_LIMITS.sourceBytes
       || !/^[a-f0-9]{64}$/.test(request.key) || !Number.isFinite(time) || !Number.isSafeInteger(request.deadlineMs)
-      || request.deadlineMs <= time || request.deadlineMs > time + CHAT_LIMITS.timeoutMs
-      || !Number.isSafeInteger(request.leaseMs) || request.leaseMs < 1 || request.leaseMs > CHAT_LIMITS.timeoutMs) return null;
+      || request.deadlineMs <= time || request.deadlineMs > time + CHAT_LIMITS.providerProjectTimeoutMs
+      || !Number.isSafeInteger(request.leaseMs) || request.leaseMs < 1 || request.leaseMs > CHAT_LIMITS.providerProjectTimeoutMs) return null;
     for (const [key, value] of active) if (value.expires <= time) active.delete(key);
     if (active.has(request.key) || active.size >= 2) return null;
     const owner = Symbol("request"), expires = request.deadlineMs;
