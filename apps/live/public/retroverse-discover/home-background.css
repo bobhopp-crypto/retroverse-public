@@ -1,0 +1,37 @@
+/* Local review candidate: current video still, with decade typography/color only. */
+@font-face{font-family:"Retroverse Shrikhand";src:url("fonts/Shrikhand-Regular.ttf") format("truetype");font-display:swap}
+@font-face{font-family:"Retroverse Yellowtail";src:url("fonts/Yellowtail-Regular.ttf") format("truetype");font-display:swap}
+html[data-decade="1950"]{--display:"Retroverse Yellowtail",cursive}
+html[data-decade="1960"],html[data-decade="1970"]{--display:"Retroverse Shrikhand",serif}
+html[data-decade],html[data-decade] body{height:100%;width:100%;margin:0;overflow:hidden;background:#101115}
+html[data-decade] body{--home-height:100dvh;--home-accent:var(--accent);padding:0;container-type:normal}
+html[data-decade] [data-home-suppressed],html[data-decade] #main>.eras-section{display:none!important}
+html[data-decade] .masthead{position:fixed;inset:0;z-index:5;width:100%;max-width:none;height:0;margin:0;padding:0;border:0;background:transparent;transform:none;pointer-events:none}
+html[data-decade] .header-inner{height:0;min-height:0;margin:0;padding:0}
+html[data-decade] .search-trigger{position:absolute;top:max(20px,env(safe-area-inset-top));left:max(22px,env(safe-area-inset-left));display:grid;place-items:center;width:46px;height:46px;min-width:44px;min-height:44px;margin:0;padding:11px;border:1px solid #ffffff70;border-radius:50%;background:#101115b8;color:var(--home-accent);box-shadow:none;pointer-events:auto}
+html[data-decade] .search-trigger .icon{width:23px;height:23px}
+html[data-decade] .search-trigger span{display:none}
+html[data-decade] #main{height:var(--home-height);width:100%;outline:none}
+html[data-decade] #main .feature{position:relative;isolation:isolate;width:100%;max-width:none;height:100%;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:#101115;box-shadow:none;overflow:hidden;container-type:normal}
+html[data-decade] #main .feature::before,html[data-decade] #main .feature::after{display:none}
+html[data-decade] #main .feature-layout{position:relative;display:block;height:100%;width:100%;margin:0;padding:0}
+html[data-decade] #main #hero-media{position:absolute;inset:0;display:block;width:100%;height:100%;min-height:0;margin:0;padding:0;transform:none}
+html[data-decade] #main #hero-media .television{position:absolute;inset:0;width:100%;height:100%;max-height:none;aspect-ratio:auto;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;transform:none}
+html[data-decade] #main .television::before,html[data-decade] #main .television::after{display:none}
+html[data-decade] #main #hero-screen{position:absolute;inset:0;display:block;width:100%;height:100%;aspect-ratio:auto;padding:0;border:0;border-radius:0;clip-path:none;background:transparent;box-shadow:none;overflow:hidden}
+html[data-decade] #main #hero-thumbnail{position:absolute;inset:0;display:block;width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center 28%;border:0;border-radius:0;filter:none;opacity:1}
+html[data-decade] #main #hero-thumbnail[hidden]{display:none!important}
+html[data-decade] #main .feature-layout::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,#080a10eb 0%,#080a10b8 22%,#080a1040 65%,#080a1030 100%)}
+html[data-decade] #main .feature-copy{position:absolute;z-index:2;left:max(24px,env(safe-area-inset-left));right:max(24px,env(safe-area-inset-right));bottom:max(34px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px;width:auto;max-width:1100px;height:auto;min-height:0;margin:0;padding:0;color:#fff8ed;text-shadow:0 2px 18px #0008}
+html[data-decade] #main #hero-title-link{display:block;max-width:100%;color:inherit;text-decoration:none}
+html[data-decade] #main #featured-title{display:block;width:100%;max-width:24ch;height:auto;min-height:0;aspect-ratio:auto;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;filter:none;color:#fff8ed;font:400 clamp(28px,8.8vw,88px)/1.1 var(--display);letter-spacing:-.025em;text-wrap:balance;overflow-wrap:anywhere}
+html[data-decade] #main .artist-line{display:flex;align-items:baseline;flex-wrap:wrap;justify-content:flex-start;gap:8px 22px;width:100%;margin:0;padding:0}
+html[data-decade] #main .artist-line #hero-artist,html[data-decade] #main .home-year-area #hero-year{display:block;flex:0 1 auto;width:auto;max-width:100%;min-height:44px;height:auto;margin:0;padding:3px 0;border:0;border-radius:0;background:none;box-shadow:none;filter:none;color:var(--home-accent);font:400 clamp(18px,3.4vw,34px)/1.2 var(--display);letter-spacing:0;overflow-wrap:anywhere;white-space:normal;text-decoration:none}
+html[data-decade] #main .home-year-area{display:block;width:auto;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:inherit}
+html[data-decade] #main .home-year-area #hero-year{white-space:nowrap}
+html[data-decade] #main .home-year-area[hidden],html[data-decade] #main #hero-year-links,html[data-decade] #main #featured-title:empty,html[data-decade] #main #hero-artist:empty,html[data-decade] #main #hero-year:not([href]){display:none!important}
+html[data-decade] #main :is(#hero-title-link,#hero-artist,#hero-year):focus-visible{outline:2px solid var(--home-accent);outline-offset:5px}
+.catalog-review-banner[hidden]{display:none!important}
+@media(min-width:900px){html[data-decade] #main .feature-copy{left:6vw;right:6vw;bottom:7vh}html[data-decade] .search-trigger{left:32px;top:28px}}
+@media(max-height:440px){html[data-decade] #main .feature-copy{bottom:18px;gap:5px}html[data-decade] #main #featured-title{font-size:clamp(26px,9vh,48px);max-width:36ch}html[data-decade] #main .artist-line :is(#hero-artist,#hero-year){font-size:19px;min-height:30px}html[data-decade] .search-trigger{top:14px;left:18px}}
+@media(forced-colors:active){html[data-decade] #main .feature-layout::after{background:Canvas;opacity:.8}html[data-decade] #main #featured-title,html[data-decade] #main .artist-line :is(#hero-artist,#hero-year){color:CanvasText;text-shadow:none}}

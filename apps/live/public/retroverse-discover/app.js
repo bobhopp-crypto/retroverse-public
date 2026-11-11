@@ -332,9 +332,9 @@
     const thumb=document.getElementById('hero-thumbnail'), fallback=document.querySelector('.thumbnail-fallback'), stillLabel=document.querySelector('.still-label'), mediaNote=document.getElementById('hero-media-note');
     const heroVersion=heroDisplayVersion;
     if(track.heroUrl&&track.heroUrl!==failedLiveHeroUrl){
-      thumb.fetchPriority='high';thumb.alt=`${track.artist} performance still for ${track.title}.`;thumb.hidden=false;fallback.hidden=true;stillLabel.textContent='LIVE STILL';mediaNote.textContent='';thumb.onload=()=>{if(heroVersion===heroDisplayVersion&&liveMode)failedLiveHeroUrl=null;};thumb.onerror=()=>{if(heroVersion!==heroDisplayVersion||!liveMode)return;failedLiveHeroUrl=track.heroUrl;thumb.hidden=true;fallback.hidden=false;fallback.textContent='';stillLabel.textContent='LIVE';mediaNote.textContent='';};thumb.src=track.heroUrl;
+      thumb.fetchPriority='high';thumb.alt=`Video frame for ${track.title} by ${track.artist}.`;thumb.hidden=!(thumb.getAttribute('src')===track.heroUrl&&thumb.complete&&thumb.naturalWidth>0);fallback.hidden=true;stillLabel.textContent='LIVE STILL';mediaNote.textContent='';thumb.onload=()=>{if(heroVersion===heroDisplayVersion&&liveMode&&thumb.getAttribute('src')===track.heroUrl){failedLiveHeroUrl=null;thumb.hidden=false;}};thumb.onerror=()=>{if(heroVersion!==heroDisplayVersion||!liveMode)return;failedLiveHeroUrl=track.heroUrl;thumb.hidden=true;fallback.hidden=false;fallback.textContent='';stillLabel.textContent='LIVE';mediaNote.textContent='';};thumb.src=track.heroUrl;
     } else {
-      thumb.hidden=true;fallback.hidden=false;fallback.textContent='';stillLabel.textContent='LIVE';mediaNote.textContent='';thumb.onerror=null;thumb.onload=null;
+      thumb.hidden=true;fallback.hidden=false;fallback.textContent='';stillLabel.textContent='LIVE';mediaNote.textContent='';thumb.onerror=null;thumb.onload=null;thumb.removeAttribute('src');
     }
     document.getElementById('live-track-status').textContent=`Updated ${new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(track.timestamp))}`;
     void loadCatalog().then(({tracks:all})=>{
