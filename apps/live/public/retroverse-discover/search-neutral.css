@@ -1,0 +1,34 @@
+/* Search only. The homepage keeps its decade typography and video background. */
+html[data-decade] dialog:has(.chat-search-page){--paper:#111318;--cream:#191d24;--ink:#f1f3f6;--heading:#f1f3f6;--muted:#b9c1ce;--accent:#d8e4f4;--accent-ink:#111318;--frame:#424a58;--line:#363d49;--body:Arial,Helvetica,sans-serif;--display:Arial,Helvetica,sans-serif;background:#111318;color:#f1f3f6;overflow:hidden;container-type:normal}
+html[data-decade] dialog:has(.chat-search-page) .panel-toolbar{position:absolute;inset:0 auto auto 0;transform:none;width:100%;height:56px;background:#111318;border:0;pointer-events:none}
+html[data-decade] dialog:has(.chat-search-page) .panel-back{top:6px;left:max(8px,env(safe-area-inset-left));width:44px;height:44px;min-height:44px;padding:10px;border:0;border-radius:8px;background:#111318;color:#f1f3f6;box-shadow:none}
+html[data-decade] dialog:has(.chat-search-page) .panel-back .icon{width:24px;height:24px}
+html[data-decade] dialog:has(.chat-search-page) .panel-toolbar::after{content:'Search';position:absolute;top:17px;left:60px;color:#f1f3f6;font:600 18px/1.2 Arial,Helvetica,sans-serif}
+html[data-decade] dialog:has(.chat-search-page) .panel-content{height:100%;padding:0}
+html[data-decade] .chat-search-page{height:100%;min-height:0;padding:56px 16px 0!important;background:#111318!important;color:#f1f3f6;font:400 17px/1.6 Arial,Helvetica,sans-serif;overflow:hidden}
+html[data-decade] .chat-search-page .search-page-inner{display:flex;flex-direction:column;height:100%;min-height:0;width:100%;max-width:760px;margin:auto;padding:0!important;container-type:normal}
+html[data-decade] .chat-search-page .search-form{flex:none;margin:4px 0 12px}
+html[data-decade] .chat-search-page .search-field{height:48px;min-height:48px;padding:2px 3px 2px 12px;background:#1d222b;color:#f1f3f6;border:1px solid #505968;border-radius:10px;box-shadow:none}
+html[data-decade] .chat-search-page .search-field input{font:400 16px/1.4 Arial,Helvetica,sans-serif;color:#f1f3f6;font-weight:400}
+html[data-decade] .chat-search-page :is(input,button){font-family:Arial,Helvetica,sans-serif}
+html[data-decade] .chat-search-page input::placeholder{color:#b9c1ce;opacity:1}
+html[data-decade] .chat-search-page .search-submit{background:#d8e4f4;color:#111318;border:0;border-radius:8px;width:40px;flex-basis:40px;height:40px;min-height:40px;max-height:40px;padding:8px;box-shadow:none}
+html[data-decade] .chat-search-page .search-answer{flex:1 1 auto;min-height:0;max-height:none;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#59616e #111318;margin:0;padding:6px 0 16px;border:0;border-radius:0;background:#111318!important;box-shadow:none;color:#f1f3f6;font:400 17px/1.6 Arial,Helvetica,sans-serif}
+html[data-decade] .chat-search-page .search-answer::-webkit-scrollbar{display:block;width:6px}
+html[data-decade] .chat-search-page .search-answer::-webkit-scrollbar-thumb{background:#59616e;border-radius:8px}
+html[data-decade] .chat-search-page :is(.search-chat-message,.search-answer p){font:400 17px/1.6 Arial,Helvetica,sans-serif;color:#f1f3f6;letter-spacing:normal;text-shadow:none;-webkit-text-stroke:0}
+html[data-decade] .chat-search-page .search-chat-user{font-weight:600;color:#b9c1ce;margin:20px 0 8px}
+html[data-decade] .chat-search-page .search-chat-assistant{margin:0 0 18px}
+html[data-decade] .chat-search-page .search-answer a{color:#a8ccff;text-underline-offset:3px}
+html[data-decade] .chat-search-page .search-followups{display:flex;flex-direction:column;gap:8px;margin:20px 0 0}
+html[data-decade] .chat-search-page .search-followups button{display:block;min-height:44px;padding:10px 12px;text-align:left;background:#1d222b;color:#e7ebf2;border:1px solid #505968;border-radius:10px;box-shadow:none;font:400 15px/1.4 Arial,Helvetica,sans-serif}
+html[data-decade] .chat-search-page .search-followups button::before{display:none;content:none}
+html[data-decade] .chat-search-page .chat-reply-form{flex:none;gap:8px;margin:0;padding:12px 0 max(12px,env(safe-area-inset-bottom));background:#111318;border-top:1px solid #363d49}
+html[data-decade] .chat-search-page .chat-reply-form input{height:48px;min-width:0;width:0;padding:10px 12px;background:#1d222b;color:#f1f3f6;border:1px solid #505968;border-radius:10px;font:400 16px/1.4 Arial,Helvetica,sans-serif}
+html[data-decade] .chat-search-page .chat-reply-form button{flex:0 0 48px;height:48px;padding:12px;background:#d8e4f4;color:#111318;border:0;border-radius:10px}
+html[data-decade] .chat-search-page .chat-reply-form .icon{width:24px;height:24px}
+html[data-decade] .chat-search-page :is(input,button,a):focus-visible{outline:2px solid #a8ccff;outline-offset:3px}
+html[data-decade] .chat-search-page .chat-video-still img{max-height:160px;border-radius:8px}
+html[data-decade] .chat-search-page .chat-demo-label{flex:none;font:400 12px/1.4 Arial,Helvetica,sans-serif;color:#b9c1ce;margin:0 0 8px}
+@media(min-width:800px){html[data-decade] .chat-search-page{padding-inline:32px!important}html[data-decade] dialog:has(.chat-search-page) .panel-back{left:max(16px,calc((100vw - 856px)/2))}html[data-decade] dialog:has(.chat-search-page) .panel-toolbar::after{left:max(68px,calc((100vw - 752px)/2))}}
+@media(forced-colors:active){html[data-decade] .chat-search-page,html[data-decade] .chat-search-page .search-answer{background:Canvas!important;color:CanvasText}html[data-decade] .chat-search-page :is(input,button){border:1px solid ButtonText!important}}

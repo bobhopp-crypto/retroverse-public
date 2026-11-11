@@ -131,8 +131,18 @@ const nextConfig = {
   experimental: {
     externalDir: true,
   },
+  async headers() {
+    return [
+      { source: '/popstand/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] },
+      { source: '/popstand/index.html', headers: [{ key: 'Cache-Control', value: 'no-cache, max-age=0, must-revalidate' }] },
+      { source: '/popstand/app.js', headers: [{ key: 'Cache-Control', value: 'no-cache, max-age=0, must-revalidate' }] },
+      { source: '/popstand/img/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=0, s-maxage=31536000, must-revalidate' }] },
+      { source: '/popstand/fonts/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=0, s-maxage=31536000, must-revalidate' }] },
+    ];
+  },
   async redirects() {
     const audience = [
+      { source: '/popstand', destination: '/popstand/index.html', permanent: false },
       { source: "/live", destination: "/", permanent: false },
       { source: "/sunday-nights", destination: "/", permanent: false },
       { source: "/retroverse-2/live", destination: "/", permanent: false },

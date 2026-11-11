@@ -66,11 +66,33 @@
   }
   return {open,ask:text=>send(text,'followup'),newQuery:text=>{stop();if(state.status==='loading')state={...state,status:'idle'};return send(text,'query')},cancel,getState:snapshot};
  }
+ // Tiny inline formatter, not an HTML/Markdown engine. Never uses innerHTML.
+ // Only citation-source URLs can become links. Original text/offsets remain intact.
+ function safeSourceUrl(value){
+  if(typeof value!=='string'||value.length>2048||/[\u0000-\u0020\u007f]/.test(value))return null;
+  try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password?u.href:null;}catch{return null}
+ }
+ function appendInline(parent,text,sources,{links=true}={}){
+  const doc=parent.ownerDocument,allowed=new Set(sources.map(s=>safeSourceUrl(s.url)).filter(Boolean));
+  const pattern=/\[([^\]\n]{1,300})\]\(((?:[^\s()]|\([^()\s]*\)){1,2048})\)|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*/g;
+  let at=0,match;
+  while((match=pattern.exec(text))){
+   parent.appendChild(doc.createTextNode(text.slice(at,match.index)));
+   if(match[1]!==undefined){
+    const url=safeSourceUrl(match[2]);
+    if(links&&url&&allowed.has(url)){
+     const a=doc.createElement('a');a.textContent=match[1];a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.referrerPolicy='no-referrer';parent.appendChild(a);
+    }else parent.appendChild(doc.createTextNode(match[1]));
+   }else{const el=doc.createElement(match[3]!==undefined?'strong':'em');el.textContent=match[3]??match[4];parent.appendChild(el)}
+   at=pattern.lastIndex;
+  }
+  parent.appendChild(doc.createTextNode(text.slice(at)));
+ }
  function render(container,state,{onFollowup=()=>{}}={}){
   const doc=container.ownerDocument,fragment=doc.createElement('div');fragment.className='search-chat-thread';fragment.setAttribute('aria-live','polite');
   for(const message of state.messages){const bubble=doc.createElement('div');bubble.className=`search-chat-message search-chat-${message.role}`;bubble.style.whiteSpace='pre-wrap';
    if(message.role==='user')bubble.textContent=message.text;
-   else {let at=0;for(const span of message.supports){bubble.appendChild(doc.createTextNode(message.text.slice(at,span.start)));for(const [n,i]of span.sourceIndexes.entries()){if(n)bubble.appendChild(doc.createTextNode(' '));const link=doc.createElement('a');link.textContent=n?`[${i+1}]`:message.text.slice(span.start,span.end);link.href=message.sources[i].url;link.title=message.sources[i].title;link.target='_blank';link.rel='noopener noreferrer';link.referrerPolicy='no-referrer';link.style.textDecoration='underline';bubble.appendChild(link)}at=span.end}bubble.appendChild(doc.createTextNode(message.text.slice(at)))}fragment.appendChild(bubble)}
+   else {let at=0;for(const span of message.supports){appendInline(bubble,message.text.slice(at,span.start),message.sources);for(const [n,i]of span.sourceIndexes.entries()){if(n)bubble.appendChild(doc.createTextNode(' '));const url=safeSourceUrl(message.sources[i]?.url),label=n?`[${i+1}]`:message.text.slice(span.start,span.end);if(!url){appendInline(bubble,label,message.sources,{links:false});continue}const link=doc.createElement('a');appendInline(link,label,message.sources,{links:false});link.href=url;link.title=message.sources[i].title;link.target='_blank';link.rel='noopener noreferrer';link.referrerPolicy='no-referrer';link.style.textDecoration='underline';bubble.appendChild(link)}at=span.end}appendInline(bubble,message.text.slice(at),message.sources)}fragment.appendChild(bubble)}
   if(state.status==='loading'||state.error){const status=doc.createElement('p');status.className='search-chat-status';status.setAttribute('role',state.error?'alert':'status');status.textContent=state.error||'Searching…';fragment.appendChild(status)}
   if(state.followups.length){const links=doc.createElement('nav');links.className='search-followups';links.setAttribute('aria-label','Follow-up questions');for(const q of state.followups){const button=doc.createElement('button');button.type='button';button.textContent=q;button.addEventListener('click',()=>onFollowup(q));links.appendChild(button)}fragment.appendChild(links)}
   container.replaceChildren(fragment);container.hidden=false;

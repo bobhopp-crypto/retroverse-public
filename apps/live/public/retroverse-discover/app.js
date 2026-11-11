@@ -157,20 +157,16 @@
     nav.hidden=true;nav.innerHTML='';
     const area=document.getElementById('hero-year-area');if(area)area.hidden=!valid;
   }
-  function yearPanel(year,params=new URLSearchParams()) {
+  function popStandYearHref(year, track = null) {
+    const identity=track?JSON.stringify([track.id||'',track.artist||'',track.title||'']):'';
+    return window.RetroversePopStand.hrefForYear(year,identity);
+  }
+  function yearPanel(year) {
     if(!Number.isInteger(year)||year<1900||year>2100)return missingPanel('Year not found');
-    const items=tracks.filter(t=>t.year===year).sort((a,b)=>(a.peak||999)-(b.peak||999));
-    const weeks=yearChartWeeks(year);
-    if(!items.length&&!weeks.length)return missingPanel('Year not found');
-    const view=params.get('view');
-    if(view==='catalog') {
-      showPanel(`<section class="chapter-banner"><h2 id="panel-title">${year}</h2></section><p class="small-note">Songs by chart peak</p><div id="year-tracks"></div><a class="text-link" href="#year/${year}">${year} ${icon('arrow')}</a>`,String(year));
-      pagedList(document.getElementById('year-tracks'),items);return;
-    }
-    if(view==='hot-100') {
-      showPanel(`<section class="year-heading"><h2 id="panel-title">Top 100 · ${year}</h2></section>${weeks.length?`<nav class="year-week-grid" aria-label="Top 100 weeks in ${year}">${weeks.map(item=>`<a href="#week/${item.week}"><strong>${esc(date(item.week))}</strong><span>${item.count} positions ${icon('arrow')}</span></a>`).join('')}</nav>`:'<p class="year-empty">No weekly charts available.</p>'}<a class="text-link" href="#year/${year}">${year} ${icon('arrow')}</a>`,`Top 100 · ${year}`);return;
-    }
-    showPanel(`<section class="year-hub" aria-labelledby="panel-title"><header class="year-heading"><h2 id="panel-title">${year}</h2></header><nav class="year-portals" aria-label="Explore ${year}"><a class="year-portal year-portal-music" href="#year/${year}?view=hot-100">${yearPortalArt('music')}<span class="year-portal-copy"><strong>Music</strong><span>The weekly Top 100</span><small>${weeks.length} preserved weeks ${icon('arrow')}</small></span></a><a class="year-portal year-portal-movies" href="https://en.wikipedia.org/wiki/${year}_in_film" target="_blank" rel="noopener noreferrer">${yearPortalArt('movies')}<span class="year-portal-copy"><strong>Movies</strong><small>Wikipedia · new tab ↗</small></span></a><a class="year-portal year-portal-tv" href="https://en.wikipedia.org/wiki/${year}_in_television" target="_blank" rel="noopener noreferrer">${yearPortalArt('tv')}<span class="year-portal-copy"><strong>TV</strong><small>Wikipedia · new tab ↗</small></span></a></nav><a class="year-catalog-link" href="#year/${year}?view=catalog">${prettyCount(items.length)} songs ${icon('arrow')}</a></section>`,String(year));
+    const track=displayedTrack?.year===year?displayedTrack:null;
+    const href=popStandYearHref(year,track);
+    if(href){location.replace(href);return;}
+    showPanel(`<h2 id="panel-title">PopStand · ${year}</h2><p>PopStand covers 1950–2025. There is no issue for ${year} in this edition.</p><a class="text-link" href="/popstand/index.html#/">Browse PopStand</a>`,`PopStand · ${year}`);
   }
   function weekPanel(week) {
     if(!discovery.validChartDate(week))return missingPanel('Chart week not found');
@@ -230,7 +226,7 @@
     document.getElementById('featured-title').textContent=track.title;
     const artist=document.getElementById('hero-artist');artist.textContent=discovery.displayArtist(track);artist.href=`#artist/${encodeURIComponent(track.artistSlug)}`;
     document.getElementById('hero-year').textContent=Number.isInteger(track.year)?track.year:'';
-    const yearLink=document.getElementById('hero-year');if(Number.isInteger(track.year))yearLink.href=`#year/${track.year}`;else yearLink.removeAttribute('href');
+    const yearLink=document.getElementById('hero-year');if(Number.isInteger(track.year)){yearLink.href=popStandYearHref(track.year,track)||`#year/${track.year}`;yearLink.setAttribute('aria-label',`PopStand · ${track.year}`);}else{yearLink.removeAttribute('href');yearLink.removeAttribute('aria-label');}
     updateHomeYearLinks(track.year);
     document.getElementById('hero-year-stamp').innerHTML=track.year?`<span>${String(track.year).slice(0,2)}</span><span>${String(track.year).slice(-2)}</span>${icon('record')}`:'';
     const songLink=document.getElementById('hero-song-link');songLink.href=`#song/${encodeURIComponent(track.id)}`;document.getElementById('hero-title-link').href=songLink.href;songLink.innerHTML=`Song details${icon('arrow')}`;
@@ -320,7 +316,7 @@
     document.getElementById('archive-return').hidden=false;
     document.getElementById('show-live-song').hidden=true;
     document.getElementById('hero-year').textContent=Number.isInteger(track.year)?track.year:'';
-    const yearLink=document.getElementById('hero-year');if(Number.isInteger(track.year))yearLink.href=`#year/${track.year}`;else yearLink.removeAttribute('href');
+    const yearLink=document.getElementById('hero-year');if(Number.isInteger(track.year)){yearLink.href=popStandYearHref(track.year,track)||`#year/${track.year}`;yearLink.setAttribute('aria-label',`PopStand · ${track.year}`);}else{yearLink.removeAttribute('href');yearLink.removeAttribute('aria-label');}
     updateHomeYearLinks(track.year);
     document.getElementById('hero-year-stamp').innerHTML=track.year?`<span>${String(track.year).slice(0,2)}</span><span>${String(track.year).slice(-2)}</span>${icon('record')}`:'';
     document.getElementById('featured-title').textContent=track.title;
@@ -629,18 +625,18 @@
     syncShowcaseRotation();
     const [path,queryString='']=hash.slice(1).split('?');const [route,routeId='']=path.split('/');const params=new URLSearchParams(queryString);
     let decodedRouteId;try{decodedRouteId=decodeURIComponent(routeId);}catch{return missingPanel('Invalid link');}
+    if(route==='year')return yearPanel(Number(routeId));
     if(route==='live')return livePanel();
     if(route==='live-song')return liveSongRoute(version);
     if(route==='eras-index'){try{const summary=await loadOverview();if(version===routeVersion)return erasPanel(summary);return;}catch{if(version===routeVersion)return errorPanel(renderRoute);return;}}
     if(route==='eras'){try{const summary=await loadOverview();if(version===routeVersion)return erasPanel(summary);}catch{if(version===routeVersion)return errorPanel(renderRoute);}return;}
-    if(route==='search'||route==='song'||route==='artist'||route==='era'||route==='year'||route==='week'||route==='answers'||route==='ranker'){
+    if(route==='search'||route==='song'||route==='artist'||route==='era'||route==='week'||route==='answers'||route==='ranker'){
       if(!tracks)showPanel('<h2 id="panel-title">Catalog</h2><p class="panel-loading" role="status">Opening catalog…</p>','Catalog',false);
       try{await loadCatalog();}catch{if(version===routeVersion)return errorPanel(renderRoute);return;}
       if(version!==routeVersion||!currentHash.includes(route))return;
       if(route==='song')await songPanel(decodedRouteId,version);
       else if(route==='artist')artistPanel(decodedRouteId);
       else if(route==='era')eraPanel(routeId==='unknown-year'?'unknown-year':Number(routeId));
-      else if(route==='year')yearPanel(Number(routeId),params);
       else if(route==='week')weekPanel(routeId);
       else if(route==='search')searchPanel(params);
       else if(route==='answers')answerPanel(params);
