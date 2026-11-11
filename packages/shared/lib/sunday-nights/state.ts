@@ -1,3 +1,4 @@
+import { normalizePublicNotes, normalizeVdjYear } from "./public-notes";
 import { loadLiveStateRecord, saveLiveStateRecord } from "./live-state-io";
 import { normalizeLiveTrackId } from "./resolve-live-track";
 import type { SundayNightsLiveSelection, SundayNightsState } from "./types";
@@ -15,7 +16,9 @@ function emptyState(): SundayNightsState {
   };
 }
 
-function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
+type LoadStateOptions = { preserveMissingStartedAt?: boolean };
+
+function normalizeLive(raw: unknown, options: LoadStateOptions = {}): SundayNightsLiveSelection | null {
   if (!raw || typeof raw !== "object") return null;
   const obj = raw as Partial<SundayNightsLiveSelection>;
   const artist = typeof obj.artist === "string" ? obj.artist.trim() : "";
@@ -50,6 +53,8 @@ function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
       : null;
 
   return {
+    ...(Object.hasOwn(obj,"vdjYear")?{vdjYear:normalizeVdjYear(obj.vdjYear)}:{}),
+    publicNotes: normalizePublicNotes(obj.publicNotes, obj),
     rvtr,
     artist,
     title,
@@ -60,13 +65,14 @@ function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
     filepath,
     deck,
     bridgeTimestamp,
-    startedAt: typeof obj.startedAt === "string" && Number.isFinite(Date.parse(obj.startedAt)) ? obj.startedAt : bridgeTimestamp,
+    startedAt: typeof obj.startedAt === "string" && Number.isFinite(Date.parse(obj.startedAt))
+      ? obj.startedAt : options.preserveMissingStartedAt ? null : bridgeTimestamp,
     durationSeconds: typeof obj.durationSeconds === "number" && Number.isFinite(obj.durationSeconds) && obj.durationSeconds > 0 ? obj.durationSeconds : null,
     resolution,
   };
 }
 
-function normalizeState(raw: unknown): SundayNightsState {
+function normalizeState(raw: unknown, options: LoadStateOptions = {}): SundayNightsState {
   if (!raw || typeof raw !== "object") return emptyState();
   const obj = raw as Partial<SundayNightsState> & { version?: number };
 
@@ -74,7 +80,7 @@ function normalizeState(raw: unknown): SundayNightsState {
     typeof obj.currentTrackId === "string" ? obj.currentTrackId : null,
   );
 
-  const live = normalizeLive(obj.live);
+  const live = normalizeLive(obj.live, options);
 
   return {
     version: 2,
@@ -97,9 +103,9 @@ function normalizeState(raw: unknown): SundayNightsState {
   };
 }
 
-export async function loadSundayNightsState(): Promise<SundayNightsState> {
+export async function loadSundayNightsState(options: LoadStateOptions = {}): Promise<SundayNightsState> {
   const raw = await loadLiveStateRecord();
-  return raw ? normalizeState(raw) : emptyState();
+  return raw ? normalizeState(raw, options) : emptyState();
 }
 
 export async function saveSundayNightsState(state: SundayNightsState): Promise<void> {

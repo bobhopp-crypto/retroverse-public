@@ -17,7 +17,7 @@ export function isFreshBridgeLiveSelection(
   const timestamp =
     timestampMs(state.live.bridgeTimestamp) ?? timestampMs(state.updatedAt);
 
-  return timestamp !== null && nowMs - timestamp <= LIVE_BRIDGE_FRESHNESS_MS;
+  return timestamp !== null && nowMs - timestamp <= LIVE_BRIDGE_FRESHNESS_MS && nowMs - timestamp >= -120_000;
 }
 
 export function currentLiveSelection(

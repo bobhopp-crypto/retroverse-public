@@ -1,0 +1,179 @@
+/* HOME composition correction. Decorative art remains a separate, replaceable layer. */
+@font-face{font-family:"Retroverse Shrikhand";src:url("fonts/Shrikhand-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Retroverse Yellowtail";src:url("fonts/Yellowtail-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html[data-decade="1950"]{--display:"Retroverse Yellowtail",cursive}
+html[data-decade="1960"],html[data-decade="1970"]{--display:"Retroverse Shrikhand",serif}
+/* The approved HOME begins with a search ornament, not a site masthead. */
+html[data-decade] .masthead{position:absolute;z-index:4;inset:0 auto auto 50%;width:min(100%,960px);height:0;transform:translateX(-50%);border:0;background:transparent;pointer-events:none}
+html[data-decade] .header-inner{min-height:0;padding:0}
+html[data-decade] .masthead :is(.wordmark,.desktop-nav){display:none}
+html[data-decade] .search-trigger{position:absolute;top:clamp(12px,2.2cqw,22px);left:clamp(16px,3cqw,29px);width:clamp(48px,13cqw,106px);height:clamp(48px,13cqw,106px);min-width:44px;min-height:44px;padding:10px;display:grid;place-items:center;border:4px solid var(--ink);border-radius:48% 52% 44% 56%;background:var(--accent);color:var(--accent-ink);box-shadow:var(--offset);pointer-events:auto}
+html[data-decade] .search-trigger .icon{width:65%;height:65%}
+html[data-decade] .search-trigger span{display:none}
+html[data-decade="1950"] .search-trigger{border:4px ridge #e5e3cd;border-radius:50%;background:linear-gradient(#ff6a4b,#dd240e 65%,#a71509);color:#fff4d2;box-shadow:0 2px 0 2px #2b5b50,inset 0 2px 3px #fff6d4}
+html[data-decade="1960"] .search-trigger{background:#54072f;color:#fff2cd;border-color:#ffc800;box-shadow:0 0 0 4px #53072d,0 0 0 8px #f21978}
+/* Media, title and linked artist/year remain in normal document flow. */
+html[data-decade] .feature{position:relative;isolation:isolate;width:100%;max-width:960px;padding:clamp(56px,18cqw,170px) clamp(16px,3.4cqw,32px) 30px;background-position:top center;background-size:100% auto}
+html[data-decade] .feature-layout{gap:clamp(23px,4.6cqw,44px);padding-top:0}
+html[data-decade] .television{width:100%;margin:0;padding:clamp(10px,2.6cqw,24px);border-width:clamp(3px,.6cqw,6px)}
+html[data-decade] .tv-screen{aspect-ratio:4/3;border-radius:8% 10% 9% 11%;overflow:hidden}
+html[data-decade] .tv-screen img{width:100%;height:100%;object-fit:cover}
+html[data-decade] .thumbnail-fallback{margin:0;padding:18px;color:#eee6d1;font:400 14px/1.5 var(--body);text-align:center;letter-spacing:.02em}
+html[data-decade] .feature-copy{min-width:0}
+html[data-decade] #featured-title{width:82%;max-width:100%;margin:0;padding:clamp(12px,2.5cqw,24px) clamp(10px,2.3cqw,22px);font:400 clamp(24px,11.8cqw,108px)/1.02 var(--display);letter-spacing:-.025em;overflow-wrap:anywhere;text-wrap:balance;border-width:clamp(3px,.6cqw,6px);border-radius:12% 14% 13% 11%}
+html[data-decade] #featured-title:empty{display:none}
+html[data-decade] .artist-line{align-items:flex-start;gap:clamp(16px,4cqw,38px);margin-top:clamp(25px,4.7cqw,45px)}
+html[data-decade] .artist-line :is(#hero-artist,#hero-year){min-height:44px;padding:clamp(8px,1.7cqw,16px) clamp(10px,2cqw,20px);font:400 clamp(16px,6.25cqw,56px)/1.15 var(--display);letter-spacing:-.015em;border-radius:999px;overflow-wrap:anywhere}
+html[data-decade] #hero-artist{max-width:73%;min-width:0}
+html[data-decade] #hero-year{max-width:32%;flex-shrink:0}
+html[data-decade] .artist-line :is(#hero-artist,#hero-year):empty{display:none}
+html[data-decade="1950"] #featured-title{font-style:normal;font-size:clamp(39px,13.7cqw,126px);line-height:.98}
+html[data-decade="1960"] :is(.television,#featured-title){margin-inline:0}
+html[data-decade="1960"] .television{width:100%;border-radius:14% 12% 10% 13%;padding:clamp(12px,3.2cqw,30px);background:#ffcc09;box-shadow:0 0 0 3px #f4167d,0 0 0 7px #4b082d,0 0 0 12px #fa8714,0 0 0 16px #ed1775,0 0 0 19px #51072f}
+html[data-decade="1960"] #featured-title{width:82%;box-shadow:0 0 0 4px #ff8c18,0 0 0 8px #f71b83,0 0 0 11px #51072f}
+/* Legacy state styles are retained for compatibility; HOME suppresses these nodes below. */
+html[data-decade] .feature-kicker{justify-content:flex-start;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:32px 0 0;font:400 11px/1.4 var(--body)}
+html[data-decade] .feature-kicker .eyebrow{font-size:10px;letter-spacing:.07em}
+html[data-decade] .feature-kicker .little-record{display:none}
+html[data-decade] .preview-tag{border:0;border-radius:0;padding:0;background:transparent;color:inherit;font-size:10px;font-weight:500}
+html[data-decade] .live-track-status{margin:5px 0 0;font:400 12px/1.45 var(--body)}
+html[data-decade] .dj-note{max-width:60ch;margin:12px 0 0;padding:10px 13px;background:var(--cream);color:var(--ink);border:1px solid var(--ink);border-radius:8px;font:400 14px/1.45 var(--body)}
+html[data-decade] .live-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+html[data-decade] .live-tags:empty{display:none}
+html[data-decade] .live-tags span{padding:3px 9px;background:var(--cream);color:var(--ink);border:1px solid var(--ink);border-radius:999px;font:400 12px/1.4 var(--body)}
+html[data-decade] .feature-actions{margin-top:16px;gap:10px}
+/* Legacy navigation layout; HOME suppression below takes precedence. */
+html[data-decade] .bottom-nav{position:static;inset:auto;z-index:auto;min-height:64px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
+html[data-decade] .site-footer{padding-bottom:24px}
+html[data-decade] :is(.search-heading,.search-answer h4){font-weight:400}
+@media(min-width:961px){html[data-decade] .feature{padding-top:170px}}
+@media(forced-colors:active){html[data-decade] :is(.search-trigger,.feature,.dj-note,.live-tags span){background:Canvas;color:CanvasText}}
+/* Reference-derived illustration assets: texture and casing, never song text or media. */
+html[data-decade="1950"] .feature{background-image:url("theme-art/home-1950-background.png");background-repeat:no-repeat;background-size:cover}
+html[data-decade="1960"] .feature{background-image:url("theme-art/home-1960-background.png");background-repeat:no-repeat;background-size:cover}
+html[data-decade="1950"] .television,html[data-decade="1960"] .television{position:relative;aspect-ratio:1415/1111;width:100%;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+html[data-decade="1950"] .television::after,html[data-decade="1960"] .television::after{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;background-repeat:no-repeat;background-position:center;background-size:100% 100%}
+html[data-decade="1950"] .television::after{background-image:url("theme-art/home-1950-media-frame.png")}
+html[data-decade="1960"] .television::after{background-image:url("theme-art/home-1960-media-frame.png")}
+/* Clip extends under opaque casing, without painting outside its asymmetric silhouette. */
+html[data-decade="1950"] .tv-screen,html[data-decade="1960"] .tv-screen{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border:0;border-radius:0;clip-path:polygon(4% 23%,12% 13%,88% 6%,96% 13%,96% 28%,93% 90%,86% 92%,13% 92%,6% 87%)}
+html[data-decade="1950"] #featured-title,html[data-decade="1960"] #featured-title{width:82%;aspect-ratio:1983/793;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(13px,3cqw,30px);border:0;border-radius:0;box-shadow:none;background-color:transparent;background-repeat:no-repeat;background-size:100% 100%;font-size:clamp(24px,12.2cqw,103px)}
+html[data-decade="1950"] #featured-title{background-image:url("theme-art/home-1950-title-plaque.png");font-size:clamp(28px,14cqw,122px)}
+html[data-decade="1960"] #featured-title{background-image:url("theme-art/home-1960-title-plaque.png")}
+html[data-decade="1950"] #featured-title:empty,html[data-decade="1960"] #featured-title:empty{display:none}
+@media(forced-colors:active){html[data-decade] .feature{background-image:none}html[data-decade] .television::after{display:none}html[data-decade] #featured-title{background:Canvas;color:CanvasText;border:2px solid CanvasText}}
+
+/* Small truthful status copy stays readable over either illustrated texture. */
+html[data-decade] :is(.feature-kicker,.live-track-status){width:fit-content;max-width:100%;padding:4px 8px;background:var(--cream);color:var(--ink);border-radius:4px}
+
+/* Size from the actual content box, including Safari page-zoom layouts. */
+html[data-decade] body{container-type:inline-size}
+html[data-decade] .feature{container-type:inline-size}
+html[data-decade] #hero-media .television{width:100%;margin-inline:0}
+/* Natural parent ID outranks the legacy :is(.television,#featured-title) rule. */
+html[data-decade="1950"] #hero-media .television,html[data-decade="1960"] #hero-media .television{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;aspect-ratio:1415/1111}
+html[data-decade] #hero-year{max-width:none;white-space:nowrap;overflow-wrap:normal;flex:0 0 auto}
+html[data-decade] #hero-artist{max-width:none;flex:1 1 0;min-width:0}
+
+/* A missing year is a truthful label, not a four-digit date badge. */
+html[data-decade] #hero-year:not([href]){max-width:42%;white-space:normal;overflow-wrap:normal;flex:0 1 auto;font:400 14px/1.3 var(--body)}
+
+/* Text determines plaque height; long real titles must not escape the artwork. */
+html[data-decade="1950"] #featured-title,html[data-decade="1960"] #featured-title{display:block;aspect-ratio:auto;padding-block:clamp(20px,5cqw,48px)}
+html[data-decade] .live-track-status:empty{display:none}
+
+html[data-decade="1950"] #featured-title,html[data-decade="1960"] #featured-title{padding-inline:8%}
+
+/* HOME's visible semantic contract: video still, title, artist, year, Search.
+   Lifecycle code may update legacy data nodes, but can never expose them here.
+   Dialog contents have no suppression markers and retain their normal controls. */
+html[data-decade] [data-home-suppressed]{display:none!important}
+html[data-decade] #main > .eras-section:not(:target){display:none!important}
+html[data-decade] #hero-title-link{display:block;min-width:0;color:inherit;text-decoration:none}
+html[data-decade] #hero-title-link:focus-visible{outline:3px solid var(--ink);outline-offset:8px}
+html[data-decade] #hero-year:not([href]){display:none!important}
+html[data-decade] #hero-thumbnail[hidden]{display:none!important}
+html[data-decade] .feature{min-height:100svh}
+
+/* Reference material depth. Keep the existing PNG silhouettes, real media,
+   native linked text and intrinsic long-title layout; add no HOME content. */
+html[data-decade="1950"] .feature-layout,html[data-decade="1960"] .feature-layout{gap:clamp(16px,3.2cqw,30px)}
+/* Alpha-aware shadows follow the casing instead of a rectangular card. */
+html[data-decade="1950"] .television::after{filter:drop-shadow(0 3px 1px #174d45b3) drop-shadow(0 7px 4px #143d4559)}
+html[data-decade="1960"] .television::after{filter:drop-shadow(0 2px 0 #53072dcc) drop-shadow(0 5px 3px #390a314d)}
+html[data-decade="1950"] #featured-title{filter:drop-shadow(0 3px 1px #174d45b3) drop-shadow(0 5px 3px #143d454d);text-shadow:0 1px 0 #fff8d2}
+html[data-decade="1960"] #featured-title{filter:drop-shadow(0 2px 0 #53072dcc) drop-shadow(0 4px 2px #390a3140);text-shadow:0 1px 0 #ffe8a6}
+/* Red enamel sits inside alternating chrome highlights, as in reference one. */
+html[data-decade="1950"] .search-trigger,html[data-decade="1950"] .artist-line :is(#hero-artist,#hero-year){border:4px ridge #f5f0d9;background:radial-gradient(ellipse at 50% 0%,#ff9b6c80,transparent 55%),linear-gradient(#f94322 0%,#ef3218 45%,#df250e 76%,#a61c0b 100%);box-shadow:inset 0 2px 1px #fff9d2,inset 0 -2px 3px #8c190bb3,0 0 0 1px #29443d,0 0 0 3px #f3edcf,0 0 0 4px #47645d,0 4px 0 4px #164d45,0 8px 5px #174d4566;color:#fff1c7;text-shadow:0 1px 0 #90210c}
+html[data-decade="1950"] .search-trigger{border-radius:39% 43% 41% 42%}
+/* Reference two is ink on textured paper, not chrome or a modern glass card. */
+html[data-decade="1960"] .search-trigger{background:radial-gradient(ellipse at 25% 15%,#77204b,#51072f 75%);border-radius:47% 53% 43% 49%;box-shadow:0 0 0 3px #53072d,0 0 0 7px #f21978,0 3px 0 8px #53072d}
+html[data-decade="1960"] .artist-line :is(#hero-artist,#hero-year){background:linear-gradient(105deg,#ffcb08,#ffdd37 48%,#ffc20a);color:#50072f;box-shadow:inset 0 1px 0 #ffe874,0 0 0 4px #ef167c,0 0 0 7px #51072f,0 3px 0 7px #51072f;text-shadow:0 1px 0 #ffe66a}
+@media(forced-colors:active){html[data-decade] .television::after,html[data-decade] #featured-title{filter:none;box-shadow:none;text-shadow:none}html[data-decade] .search-trigger,html[data-decade] .artist-line :is(#hero-artist,#hero-year){filter:none;box-shadow:none;text-shadow:none;background:ButtonFace;color:ButtonText;border:2px solid ButtonText}}
+
+/* Reference-proportion pass: HOME only. Keep the native image and data links. */
+@font-face{font-family:"Retroverse Caprasimo";src:url("fonts/Caprasimo-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Retroverse Lobster";src:url("fonts/Lobster-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+html[data-decade="1950"] .feature{--display:"Retroverse Lobster",cursive}
+html[data-decade="1960"] .feature{--display:"Retroverse Caprasimo",serif}
+html[data-decade="1950"] .feature,html[data-decade="1960"] .feature{padding:clamp(52px,11.4cqw,110px) 0 clamp(40px,10cqw,96px);background-size:cover;background-position:top center}
+html[data-decade="1950"] .feature-layout,html[data-decade="1960"] .feature-layout{gap:0}
+html[data-decade="1950"] .feature-copy,html[data-decade="1960"] .feature-copy{width:95.2%;margin-inline:2.4%}
+html[data-decade="1950"] #featured-title,html[data-decade="1960"] #featured-title{width:82%;padding:clamp(15px,3.2cqw,30px) 3.8%;font-size:clamp(28px,12cqw,110px);line-height:1.02;letter-spacing:-.035em}
+html[data-decade="1950"] #featured-title{font-size:clamp(32px,15cqw,138px);line-height:1.02;font-style:normal;padding-bottom:clamp(35px,10cqw,96px)}
+html[data-decade="1950"] .artist-line,html[data-decade="1960"] .artist-line{margin-top:clamp(15px,3cqw,28px);gap:clamp(12px,3cqw,28px)}
+html[data-decade="1950"] .artist-line :is(#hero-artist,#hero-year),html[data-decade="1960"] .artist-line :is(#hero-artist,#hero-year){padding:clamp(5px,1cqw,10px) clamp(8px,1.6cqw,16px);font-size:clamp(17px,6cqw,56px);line-height:1.08;letter-spacing:-.035em}
+html[data-decade="1950"] #hero-artist,html[data-decade="1960"] #hero-artist{flex:0 1 auto;text-wrap:balance}
+html[data-decade] .search-trigger{padding:4px}
+html[data-decade] .search-trigger .icon{width:clamp(26px,7.2cqw,66px);height:clamp(26px,7.2cqw,66px);flex:none;stroke-width:2.6}
+html[data-decade="1950"] .search-trigger{width:clamp(48px,14cqw,128px);height:clamp(44px,11.4cqw,104px)}
+html[data-decade="1960"] .search-trigger{width:clamp(48px,13cqw,120px);height:clamp(48px,13cqw,120px)}
+
+/* The year is its own doorway below the full-width artist credit. */
+html[data-decade] .artist-line{flex-direction:column;align-items:flex-start;justify-content:flex-start}
+html[data-decade] #hero-artist{width:fit-content;max-width:100%;flex:0 1 auto;text-wrap:balance}
+html[data-decade] #hero-year{align-self:flex-start;flex:0 0 auto}
+
+/* Requested year links fill the bottom of HOME without a fixed overlay. */
+html[data-decade="1950"] .artist-line,html[data-decade="1960"] .artist-line{gap:clamp(18px,4.8cqw,40px)}
+html[data-decade] .home-year-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,3.8cqw,30px);width:100%;margin-top:clamp(25px,6cqw,54px);padding:0 0 8px}
+html[data-decade] .home-year-links[hidden]{display:none!important}
+html[data-decade] .home-year-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;min-height:112px;padding:10px 4px 12px;border:3px solid var(--ink);border-radius:clamp(18px,5cqw,44px);background:linear-gradient(#ffffff50,transparent 55%),var(--accent);color:var(--accent-ink);box-shadow:inset 0 2px 0 #ffffff90,0 4px 0 var(--ink);text-decoration:none}
+html[data-decade] .home-year-button .year-portal-art{color:var(--ink);width:clamp(60px,22cqw,160px);max-width:100%;height:auto;filter:drop-shadow(0 2px 0 #0003)}
+html[data-decade] .home-year-button>span{font:400 clamp(14px,4.6cqw,40px)/1.15 var(--display);letter-spacing:-.025em;white-space:nowrap}
+html[data-decade] .home-year-button small{font:400 .75em/1 sans-serif}
+html[data-decade] .home-year-button:focus-visible{outline:3px solid var(--cream);outline-offset:6px}
+html[data-decade="1950"] .home-year-button{border:4px ridge #f5f0d9;background:linear-gradient(#f94322,#df250e 76%,#a61c0b);color:#fff1c7;box-shadow:inset 0 2px 1px #fff9d2,0 0 0 1px #29443d,0 0 0 3px #f3edcf,0 0 0 4px #47645d,0 4px 0 4px #164d45}
+html[data-decade="1960"] .home-year-button{background:linear-gradient(110deg,#ffcb08,#ffdd37 48%,#ffc20a);color:#50072f;box-shadow:inset 0 2px 0 #ffe874,0 0 0 3px #ef167c,0 0 0 6px #51072f,0 3px 0 6px #51072f}
+@media(forced-colors:active){html[data-decade] .home-year-button{background:ButtonFace;color:ButtonText;border:2px solid ButtonText;box-shadow:none}html[data-decade] .home-year-button .year-portal-art{filter:none}html[data-decade] .home-year-button:focus-visible{outline-color:Highlight}}
+
+/* A stable, explicit local review entry point never masquerades as live playback. */
+html[data-decade] .feature{background-repeat:no-repeat;background-size:cover}
+.catalog-review-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;max-width:960px;height:44px;margin-inline:auto;padding:4px 14px;background:#211b25;color:#fff4d9;font:400 12px/1.4 sans-serif}
+.catalog-review-banner[hidden]{display:none!important}.catalog-review-banner>div{display:flex;flex-direction:column;gap:2px}.catalog-review-banner strong{font-size:13px}.catalog-review-banner span{font-size:11px}.catalog-review-banner>a{display:flex;align-items:center;min-height:44px;font-size:11px;text-decoration:underline;text-underline-offset:3px;color:inherit;white-space:nowrap}
+html[data-decade] body.is-catalog-review .masthead{top:44px}
+html[data-decade] body.is-catalog-review .thumbnail-fallback:not([hidden]){display:block!important;max-width:25ch;font:400 clamp(11px,2.7cqw,18px)/1.5 sans-serif;color:#c2c9d3;text-shadow:none}
+@media(forced-colors:active){.catalog-review-banner{background:Canvas;color:CanvasText}}
+
+/* One year plaque, not three app tiles: an integrated bottom navigation. */
+html[data-decade] .home-year-area{width:100%;position:relative;margin-top:clamp(30px,7cqw,64px);padding:0 10px 9px;border:3px solid var(--ink);border-radius:28px 24px 30px 22px;background:var(--accent);color:var(--accent-ink);box-shadow:0 4px 0 var(--ink)}
+html[data-decade] .home-year-area[hidden]{display:none!important}
+html[data-decade] .home-year-area #hero-year{display:block;width:fit-content;max-width:100%;min-height:36px;margin:-22px auto 2px;padding:2px 15px;border:3px solid var(--ink);border-radius:999px;background:var(--accent);color:var(--accent-ink);font:400 clamp(23px,6.6cqw,58px)/1.1 var(--display);letter-spacing:-.025em;text-decoration:none;box-shadow:none}
+html[data-decade] .home-year-links{gap:0;margin:0;padding:0}
+html[data-decade] .home-year-button{gap:0;min-height:58px;padding:3px 2px;border:0;border-right:1px solid currentColor;border-radius:0;background:transparent;box-shadow:none;color:inherit}
+html[data-decade] .home-year-button:last-child{border-right:0}
+html[data-decade] .home-year-button .year-portal-art{width:clamp(28px,8.8cqw,78px);max-height:clamp(27px,7cqw,63px);filter:none}
+html[data-decade] .home-year-button>span{font-size:clamp(14px,4.25cqw,36px);line-height:1.2}
+html[data-decade="1950"] .home-year-area{border:4px ridge #f5f0d9;border-radius:25px;background:linear-gradient(#f94322,#df250e 76%,#a61c0b);color:#fff1c7;box-shadow:inset 0 2px 1px #fff9d2,0 0 0 1px #29443d,0 0 0 3px #f3edcf,0 0 0 4px #47645d,0 4px 0 4px #164d45}
+html[data-decade="1950"] .home-year-area #hero-year{background:linear-gradient(#f94322,#b82412);color:#fff1c7;border:3px ridge #f5f0d9;box-shadow:0 0 0 2px #29443d}
+html[data-decade="1960"] .home-year-area{background:linear-gradient(110deg,#ffcb08,#ffdd37 48%,#ffc20a);color:#50072f;border-radius:30px 24px 34px 22px;box-shadow:inset 0 2px 0 #ffe874,0 0 0 3px #ef167c,0 0 0 6px #51072f,0 3px 0 6px #51072f}
+html[data-decade="1960"] .home-year-area #hero-year{background:#ffda20;color:#50072f;box-shadow:0 0 0 3px #ef167c,0 0 0 5px #51072f}
+html[data-decade="1950"] .home-year-button,html[data-decade="1960"] .home-year-button{border:0;border-right:1px solid currentColor;border-radius:0;background:transparent;box-shadow:none;color:inherit}
+html[data-decade="1950"] .home-year-button:last-child,html[data-decade="1960"] .home-year-button:last-child{border-right:0}
+@media(forced-colors:active){html[data-decade] .home-year-area,html[data-decade] .home-year-area #hero-year{background:ButtonFace;color:ButtonText;border:2px solid ButtonText;box-shadow:none}html[data-decade] .home-year-button{background:ButtonFace;color:ButtonText;box-shadow:none}}
+
+/* The television opens the same discovery page as the search control. */
+html[data-decade] #hero-screen[href]{cursor:pointer}
+html[data-decade] #hero-screen:focus-visible{outline:4px solid currentColor;outline-offset:-6px}
+@media(forced-colors:active){html[data-decade] #hero-screen:focus-visible{outline:4px solid Highlight}}

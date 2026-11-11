@@ -1,4 +1,5 @@
 import "server-only";
+import { loadPublicCurrentSongIdentity, type PublicCurrentIdentityPayload } from "./public-current-identity";
 
 import { buildPlayheadPayload } from "@/lib/bobos/presentation/store";
 import type { PlayheadPayload, PresentationQueue } from "@/lib/bobos/presentation/types";
@@ -45,6 +46,7 @@ export type PublicHomepageManualOverride = {
 };
 
 export type PublicHomepagePayload = SundayNightsCurrentPayload & {
+  identityOnly?: boolean;
   /** Selected experience from the Experience Selector (when on air). */
   manualOverride?: PublicHomepageManualOverride | null;
   /** Unified public song payload for the current track when RVTR is known. */
@@ -318,10 +320,16 @@ async function payloadFromFreshVirtualDj(
  * A fresh bridge song replaces song-type selector output. Intentionally
  * selected non-song experiences remain authoritative while they are on air.
  */
-export async function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayload> {
+export function loadPublicCurrentSongPayload(): Promise<PublicHomepagePayload>;
+export function loadPublicCurrentSongPayload(options: { identityOnly: true }): Promise<PublicCurrentIdentityPayload>;
+export function loadPublicCurrentSongPayload(options: { identityOnly?: boolean }): Promise<PublicHomepagePayload | PublicCurrentIdentityPayload>;
+export async function loadPublicCurrentSongPayload(options: { identityOnly?: boolean } = {}): Promise<PublicHomepagePayload | PublicCurrentIdentityPayload> {
+  if (options.identityOnly) return loadPublicCurrentSongIdentity();
   const playhead = await buildPlayheadPayload();
   const manualOverride = resolvePublicHomepageManualOverride(playhead);
-  const state = await loadSundayNightsState();
+  // Identity and full responses must agree on an observed playback start.
+  // Legacy records without one cannot borrow their heartbeat as a new start.
+  const state = await loadSundayNightsState({ preserveMissingStartedAt: true });
   const freshLive = currentLiveSelection(state);
 
   // The VirtualDJ selector is a source choice, not the current-song record.

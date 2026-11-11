@@ -343,3 +343,15 @@ dialog[open] { animation: panel-in .18s ease-out; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+.same-title-section { margin: 1.5rem 0; padding-top: .5rem; }
+.same-title-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: .75rem; }
+.same-title-card { display: flex; min-height: 7.5rem; flex-direction: column; justify-content: space-between; gap: .45rem; padding: 1rem; border: 1px solid #c8bfae; border-radius: 14px; background: #fbf7ee; }
+.same-title-song { color: #172e2d; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.same-title-artist { color: #176b6c; }
+.same-title-card > span { color: #586663; font-size: .9rem; }
+.chart-week-link { display: inline-flex; min-height: 44px; align-items: center; color: #176b6c; text-underline-offset: .18em; }
+@media (max-width: 540px) {
+  .same-title-grid { grid-template-columns: 1fr; }
+  .same-title-card { min-height: 5.5rem; }
+}

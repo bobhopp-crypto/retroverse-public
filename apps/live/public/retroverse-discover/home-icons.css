@@ -1,0 +1,39 @@
+/* Approved, simplified artwork. The same cream mat is used across all eight palettes.
+   Original PNG sheets remain unchanged; SVG view boxes contain only the chosen icon. */
+html[data-decade] #main .home-year-button{background:#fff0d5;color:#302d27;position:relative}
+html[data-decade] #main .home-year-button .approved-decade-icon{width:64px;height:44px;flex:none;max-width:90%;overflow:hidden;mix-blend-mode:multiply}
+html[data-decade] #main .home-year-button>span{font-size:clamp(12px,3.8cqw,21px);width:100%;text-align:center;white-space:nowrap}
+html[data-decade] #main .home-year-button small{position:absolute;top:3px;right:5px;font:11px/1 system-ui}
+@media(max-height:650px){html[data-decade] #main .home-year-button .approved-decade-icon{height:36px}}
+@media(orientation:landscape) and (max-height:540px){html[data-decade] #main .home-year-button .approved-decade-icon{height:25px}}
+@media(forced-colors:active){html[data-decade] #main .home-year-button{background:ButtonFace;color:ButtonText}html[data-decade] #main .home-year-button .approved-decade-icon{mix-blend-mode:normal}}
+
+/* Short portrait / zoomed-phone fallback: preserve every real title and all three controls. */
+@media(orientation:portrait) and (max-height:500px){
+ html[data-decade] #main .feature{padding-top:42px;padding-bottom:10px}
+ html[data-decade] #main .feature-layout{gap:7px}
+ html[data-decade] #main #hero-media{min-height:36px}
+ html[data-decade] #main .feature-copy{gap:7px}
+ html[data-decade] #main #featured-title{width:100%;padding:8px 7%}
+ html[data-decade] #main .home-year-area{gap:4px}
+ html[data-decade] #main .home-year-area #hero-year{min-height:26px;font-size:20px;padding:1px 12px}
+ html[data-decade] #main .home-year-button{min-height:52px;padding:3px 2px}
+ html[data-decade] #main .home-year-button .approved-decade-icon{height:25px}
+ html[data-decade] #main .home-year-button>span{font-size:12px}
+ html[data-decade] .catalog-review-banner strong{font-size:13px}
+ html[data-decade] .catalog-review-banner span{font-size:10px;white-space:nowrap}
+ html[data-decade] .catalog-review-banner a{font-size:11px}
+}
+
+@media(orientation:landscape) and (max-height:400px){
+ html[data-decade] #main .feature{padding-top:18px;padding-bottom:8px}
+ html[data-decade] #main .feature-layout{gap:18px}
+ html[data-decade] #main .feature-copy{gap:4px}
+ html[data-decade] #main #featured-title{font-size:clamp(12px,6svh,20px);padding:4px 5%}
+ html[data-decade] #main #hero-artist{min-height:24px;font-size:12px;padding:2px 8px}
+ html[data-decade] #main .home-year-area{gap:2px}
+ html[data-decade] #main .home-year-area #hero-year{min-height:22px;font-size:18px;padding:1px 10px}
+ html[data-decade] #main .home-year-button{min-height:44px;padding:2px}
+ html[data-decade] #main .home-year-button .approved-decade-icon{height:22px}
+ html[data-decade] #main .home-year-button>span{font-size:12px}
+}

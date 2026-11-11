@@ -1,0 +1,42 @@
+/* HOME is one viewport. Detail panels retain their own scrolling.
+   Latest user reference: live 1970s poster, with separate year destinations. */
+html[data-decade]{height:100%;overflow:hidden}
+html[data-decade] body{--review-height:0px;--home-height:calc(100svh - var(--review-height));--home-width:min(100%,calc(var(--home-height)*.68),960px);height:100svh;overflow:hidden}
+html[data-decade] body.is-catalog-review{--review-height:44px}
+html[data-decade] #main{height:var(--home-height)}
+html[data-decade] .masthead{width:var(--home-width)}
+html[data-decade] #main .feature{width:var(--home-width);height:100%;min-height:0;margin-inline:auto;padding:clamp(54px,9svh,80px) clamp(16px,5cqw,32px) max(18px,env(safe-area-inset-bottom));background-size:cover}
+html[data-decade] #main .feature-layout{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;height:100%;min-height:0;gap:clamp(12px,2svh,18px);padding:0}
+html[data-decade] #main #hero-media{flex:0 1 calc(100cqw*.83);min-height:64px;max-height:calc(100cqw*.83);display:flex;align-items:stretch;padding:0}
+html[data-decade] #main #hero-media .television{height:100%;max-height:100%;width:100%;aspect-ratio:auto;margin:0}
+html[data-decade] #main #hero-media .tv-screen{height:100%;width:100%;aspect-ratio:auto;min-height:0}
+html[data-decade] #main .feature-copy{display:flex;flex-direction:column;flex:1 0 auto;justify-content:space-between;gap:clamp(12px,2.4svh,21px);width:100%;margin:0;padding:0}
+html[data-decade] #main #featured-title{width:82%;padding:clamp(9px,1.6svh,17px) 4%;font-size:clamp(25px,min(14cqw,7.2svh),76px);line-height:1.02}
+html[data-decade="1950"] #main #featured-title{font-size:clamp(28px,min(14cqw,7.2svh),86px);padding-bottom:clamp(17px,2.6svh,30px)}
+html[data-decade] #main .artist-line{margin:0;gap:0}
+html[data-decade] #main #hero-artist{width:fit-content;max-width:100%;font-size:clamp(16px,min(6.6cqw,3.7svh),42px);line-height:1.1;padding:5px 10px}
+html[data-decade] #main .home-year-area{display:flex;flex-direction:column;gap:7px;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+html[data-decade] #main .home-year-area #hero-year{margin:0 auto;width:fit-content;min-height:36px;padding:2px 15px;font-size:clamp(23px,3.7svh,34px);line-height:1.1}
+html[data-decade] #main .home-year-links{gap:clamp(10px,3.6cqw,24px);margin:0;padding:0}
+html[data-decade] #main .home-year-button{min-height:clamp(72px,10.8svh,92px);gap:0;padding:4px 2px 5px;border:3px solid var(--ink);border-radius:clamp(15px,5cqw,28px);background:var(--accent);color:var(--accent-ink);box-shadow:3px 4px 0 var(--ink)}
+html[data-decade] #main .home-year-button>span{font-size:clamp(13px,4.7cqw,25px);line-height:1.15}
+html[data-decade] #main .home-year-button .year-portal-art{width:54px;height:42px;max-width:100%;max-height:none;object-fit:contain}
+html[data-decade="1950"] #main .home-year-button{border:3px ridge #f5f0d9;background:linear-gradient(#f94322,#b82412);color:#fff1c7;box-shadow:0 0 0 2px #29443d,0 4px 0 #164d45}
+html[data-decade="1960"] #main .home-year-button{background:linear-gradient(110deg,#ffcb08,#ffdd37 48%,#ffc20a);color:#50072f;box-shadow:0 0 0 2px #ef167c,0 0 0 4px #51072f,0 3px 0 4px #51072f}
+html[data-decade="1970"] #main .home-year-button{box-shadow:3px 4px 0 #f5771e,5px 6px 0 #522106}
+html[data-decade="1960"] #main #featured-title{padding:14px 7%}
+@media(max-height:650px){html[data-decade] #main .feature{padding-top:54px;padding-bottom:15px}html[data-decade] #main .feature-copy{gap:12px}html[data-decade] #main .home-year-area{gap:5px}html[data-decade] #main .home-year-button{min-height:64px}html[data-decade] #main .home-year-button .year-portal-art{height:36px}}
+@media(orientation:landscape) and (max-height:540px){
+ html[data-decade] body{--home-width:min(100%,960px)}
+ html[data-decade] #main .feature-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px}
+ html[data-decade] #main #hero-media{height:100%;max-height:none;min-height:0}
+ html[data-decade] #main .feature-copy{height:100%;min-height:0;gap:8px}
+ html[data-decade] #main #featured-title{width:100%;font-size:clamp(22px,8svh,35px);padding:8px 5%}
+ html[data-decade] #main #hero-artist{font-size:16px;min-height:36px;padding:4px 9px}
+ html[data-decade] #main .home-year-area{gap:4px}
+ html[data-decade] #main .home-year-area #hero-year{min-height:30px;font-size:22px}
+ html[data-decade] #main .home-year-button{min-height:48px}
+ html[data-decade] #main .home-year-button .year-portal-art{height:25px}
+ html[data-decade] #main .home-year-button>span{font-size:14px}
+}
+@media(forced-colors:active){html[data-decade] #main .home-year-button{background:ButtonFace;color:ButtonText;border:2px solid ButtonText;box-shadow:none}}

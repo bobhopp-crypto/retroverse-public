@@ -1,8 +1,11 @@
+import type { PublicLiveNotes } from "./public-notes";
 export type LiveResolution = "filepath" | "vdj-library" | "fallback" | "unresolved";
 
 export type LiveSource = "manual" | "bridge" | "channel";
 
 export type SundayNightsLiveSelection = {
+  vdjYear?: number | null;
+  publicNotes?: PublicLiveNotes;
   rvtr: string | null;
   artist: string;
   title: string;
@@ -21,6 +24,8 @@ export type SundayNightsLiveSelection = {
 };
 
 export type BridgeLivePostBody = {
+  vdjYear?: number | null;
+  publicNotes?: PublicLiveNotes;
   /** False when VirtualDJ playback stops. */
   playing: boolean;
   timestamp: string;

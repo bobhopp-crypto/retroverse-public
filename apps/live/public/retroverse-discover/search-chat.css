@@ -1,0 +1,30 @@
+.chat-search-page .chat-conversation{overflow-y:auto;scrollbar-width:none;max-height:60dvh;min-height:12rem}.chat-conversation::-webkit-scrollbar{display:none}.chat-conversation p{white-space:pre-wrap;overflow-wrap:anywhere}.chat-reply-form{display:flex;gap:.5rem;margin-top:.75rem}.chat-reply-form input{min-width:0;flex:1;border-radius:1.5rem;padding:.75rem 1rem;font:inherit;background:var(--paper,#fff4da);color:var(--ink,#281d15);border:2px solid currentColor}.chat-reply-form button,.chat-conversation button{font:inherit;color:inherit;background:transparent;border:2px solid currentColor;border-radius:1.3rem;padding:.6rem .9rem;cursor:pointer}.chat-conversation a{overflow-wrap:anywhere}.chat-conversation nav{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.chat-demo-label{font-size:.75rem;opacity:.7;margin:.2rem 0}.chat-search-page .search-page-inner{min-width:0}.chat-search-page .search-field input{min-width:0}@media(max-width:380px){.chat-conversation nav{grid-template-columns:1fr}.chat-reply-form input{width:0}}@media(forced-colors:active){.chat-conversation button,.chat-reply-form input{background:Canvas;color:CanvasText}}
+.search-chat-user{font-weight:700;margin:.8rem 0 .35rem}.search-chat-assistant{margin:0 0 1rem}.chat-conversation .search-followups{margin-top:1rem}
+/* The answer, not a catalog title card, is the focal point. */
+.chat-search-page .search-answer{padding:20px 18px;font-size:15px;line-height:1.6}
+.chat-search-page .search-chat-user:first-child{display:none}
+.chat-search-page .search-chat-assistant{font-weight:400;margin:0 0 1rem}
+.chat-search-page .search-followups button{font-size:14px;line-height:1.35;padding:.8rem .65rem}
+.chat-search-page .chat-reply-form{padding-bottom:env(safe-area-inset-bottom,0px)}
+.chat-search-page .chat-reply-form input{background:var(--paper,#fff1ce)}
+
+html[data-decade] .chat-search-page .chat-reply-form input{background:var(--cream);color:var(--ink)}
+
+.chat-video-still{margin:0 0 1rem}.chat-video-still img{display:block;width:100%;height:auto;aspect-ratio:720/406;object-fit:cover;max-height:175px;border-radius:12px}
+
+/* Visual question cards use the approved decade palette; symbols are decorative. */
+html[data-decade] .chat-conversation .search-followups button{display:flex;align-items:center;gap:.65rem;text-align:left;min-height:68px;background:var(--cream);color:var(--ink);border:2px solid currentColor;border-radius:18px}
+html[data-decade] .chat-conversation .search-followups button::before{content:'♪';display:grid;place-items:center;flex:0 0 2.2rem;width:2.2rem;height:2.2rem;border:2px solid currentColor;border-radius:50%;font-size:1.25rem;background:var(--accent);color:var(--accent-ink)}
+html[data-decade] .chat-conversation .search-followups button:nth-child(2)::before{content:'✦'}
+html[data-decade] .chat-conversation .search-followups button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+@media(forced-colors:active){html[data-decade] .chat-conversation .search-followups button,html[data-decade] .chat-conversation .search-followups button::before{background:ButtonFace;color:ButtonText;border-color:ButtonText}}
+
+/* Leave a clear, tappable path back from the answer screen. */
+html[data-decade] .chat-search-page .search-page-inner{padding-top:72px}
+
+/* The prepared sample uses an attributed artist portrait, not a recording still. */
+.chat-artist-portrait{margin:0 0 1rem;display:grid;grid-template-columns:minmax(0,160px) minmax(0,1fr);gap:12px;align-items:center;white-space:normal}
+.chat-artist-portrait img{display:block;width:100%;height:auto;max-height:220px;object-fit:contain;border-radius:12px}
+.chat-artist-portrait figcaption{font-size:12px;line-height:1.45;overflow-wrap:anywhere}
+.chat-artist-portrait figcaption a{text-decoration:underline}
+@media(max-width:420px){.chat-artist-portrait{grid-template-columns:minmax(0,120px) minmax(0,1fr);gap:10px}}

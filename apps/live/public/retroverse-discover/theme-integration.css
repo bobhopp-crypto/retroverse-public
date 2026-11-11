@@ -1,0 +1,23 @@
+/* Candidate integration safeguards; reference skins remain independently preserved. */
+html[data-decade] :is(.masthead,.bottom-nav,.panel-toolbar){background:var(--cream);color:var(--ink)}
+html[data-decade] :is(.eras-section,.tool-card){color:var(--ink)}
+html[data-decade] dialog{background:var(--cream);color:var(--ink)}
+html[data-decade] dialog:has(.search-page) .panel-toolbar{background:var(--cream);color:var(--ink)}
+html[data-decade] .search-page{padding:clamp(22px,3vw,32px)}
+html[data-decade] .search-followups a{overflow-wrap:anywhere;min-width:0}
+html[data-decade] #hero-year{max-width:48%;flex-shrink:1;overflow-wrap:anywhere}
+html[data-decade] .search-field input{flex:1 1 0;width:0}
+html[data-decade] :is(.filter-tabs,.search-suggestions,.result-count){color:var(--ink)}
+html[data-decade] .result-count{background:var(--cream);padding:8px 12px;border-radius:4px}
+html[data-decade] .search-page .track-list{background:var(--cream);color:var(--ink);padding-inline:12px}
+html[data-decade] .search-page .empty-state{background:var(--cream);color:var(--ink);padding:20px}
+html[data-decade] .filter-tabs{background:var(--cream);width:fit-content;max-width:100%;padding:5px;border-radius:6px}
+html[data-decade="1960"] :is(.feature-kicker,.live-track-status,.media-note,.live-strip,.site-footer){color:#fff3ce}
+html[data-decade="1980"] :is(.feature-kicker,.live-track-status,.media-note,.live-strip,.site-footer){color:#fffefa}
+html[data-decade="1960"] .preview-tag,html[data-decade="1980"] .preview-tag{background:var(--cream);color:var(--ink)}
+html[data-decade] .panel-content .small-note{color:var(--muted)}
+@media(prefers-reduced-motion:reduce){html[data-decade] dialog[open]{animation:none}}
+@media(forced-colors:active){html[data-decade] :is(.masthead,.bottom-nav,.panel-toolbar,.search-page,.search-answer,.feature){background:Canvas;color:CanvasText}}
+/* Small labels need stronger contrast than the large reference lettering. */
+html[data-decade="1950"] :is(.button-primary,.journey-week){background:#b82412;border-color:#b82412;color:#fff3cf}
+html[data-decade="1970"] :is(.button-primary,.journey-week){background:#a53f09;border-color:#a53f09;color:#fff1cb}

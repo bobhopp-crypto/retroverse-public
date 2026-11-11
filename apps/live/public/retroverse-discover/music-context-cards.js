@@ -68,7 +68,9 @@
   }
   const isEmptyDeck = live => live?.source === 'bridge' && live.playing === true && norm(live.title) === 'drag a song on this deck to load it';
   function classifyLive(live, now=Date.now(), freshnessMs=25*60_000) {
-    if (!live) return {state:'idle'};
+    // A missing object says nothing about whether VirtualDJ is stopped. Only
+    // an explicit bridge idle signal is eligible for the featured rotation.
+    if (!live || typeof live !== 'object' || Array.isArray(live)) return {state:'unavailable'};
     if (live.source !== 'bridge') return {state:'invalid'};
     if (live.playing === false) return {state:'idle'};
     if (live.playing !== true) return {state:'invalid'};
@@ -77,8 +79,8 @@
     const age=now-parsed;
     if (age>freshnessMs) return {state:'stale'};
     if (age < -120_000) return {state:'invalid'};
-    if (typeof live.title!=='string'||!live.title.trim()||typeof live.artist!=='string'||!live.artist.trim()) return {state:'invalid'};
     if (isEmptyDeck(live)) return {state:'idle'};
+    if (typeof live.title!=='string'||!live.title.trim()||typeof live.artist!=='string'||!live.artist.trim()) return {state:'invalid'};
     return {state:'fresh',timestamp:new Date(parsed).toISOString()};
   }
   const canRotate = state => state?.feedState === 'idle' && !state.liveMode && !state.manualArchiveMode && !state.hasRoute && state.visible && !state.reducedMotion && state.heroVisible;

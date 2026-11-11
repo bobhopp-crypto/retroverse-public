@@ -1,18 +1,34 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-decade="1960" data-theme-source="fallback">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f0e4">
-  <meta name="description" content="Browse charting songs and artists by decade in the Retroverse catalog.">
-  <title>Retroverse</title>
+  <meta name="description" content="Explore songs, artists and charts by year.">
+  <title>Music</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?build=revision-2026-10-31-3">
   <link rel="stylesheet" href="music-context.css?build=rvweb-4">
+  <link rel="stylesheet" href="journey.css?build=clean-copy-2026-11-07">
+  <link rel="stylesheet" href="decade-themes.css?build=2026-11-06-approved">
+  <link rel="stylesheet" href="theme-integration.css?build=2026-11-06-approved">
+  <link rel="preload" href="fonts/Shrikhand-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="home-composition.css?build=2026-11-07-catalog-review">
+  <link rel="stylesheet" href="home-viewport.css?build=2026-11-07-fit-1">
+  <link rel="stylesheet" href="search-composition.css?build=2026-11-06-mobile-1">
+  <link rel="stylesheet" href="search-chat.css?build=2026-11-10-local">
+  <link rel="stylesheet" href="home-icons.css?build=approved-icons-2026-11-07">
+  <script src="decade-icons.js?build=approved-icons-2026-11-07" defer></script>
+  <script src="decade-theme.js?build=2026-11-06-approved" defer></script>
   <script src="music-context-cards.js?build=rvweb-5" defer></script>
-  <script src="app.js?build=idle-showcase-2026-11-03" defer></script>
+  <script src="discovery-helpers.js?build=journey-2026-11-06" defer></script>
+  <script src="editorial-connections.js?build=2026-11-06" defer></script>
+  <script src="song-research.js?build=2026-11-06" defer></script>
+  <script src="search-chat.js?build=2026-11-10-local" defer></script>
+  <script src="app.js?build=clean-copy-2026-11-07" defer></script>
 </head>
 <body>
+<aside id="catalog-review-banner" class="catalog-review-banner" hidden aria-label="Preview status"><div><strong>Design preview</strong><span>Catalog selection · Not live</span></div><a href="index.html">Back to live</a></aside>
 <a class="skip-link" href="#main">Skip to content</a>
 <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
@@ -20,37 +36,39 @@
   <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
   <symbol id="i-record" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12a6 6 0 0 1 6-6m0 12a6 6 0 0 0 6-6"/></symbol>
   <symbol id="i-era" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 1v5m8-5v5M4 10h16m-12 4h3m2 0h3"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="m15 4 5 5M4 20l5-1L21 7l-4-4L5 15l-1 5Z"/></symbol>
   <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H5m6-6-6 6 6 6"/></symbol>
 </defs></svg>
 <header class="masthead">
   <div class="header-inner">
-    <a class="wordmark" href="#" aria-label="Retroverse home">RETROVERSE<span aria-hidden="true">✦</span></a>
-    <nav class="desktop-nav" aria-label="Primary"><a href="#">Discover</a><a href="#eras">Decades</a><a href="#live">Live status</a></nav>
+    
+    <nav class="desktop-nav" data-home-suppressed aria-label="Primary"><a href="#">Discover</a><a href="#eras">Decades</a><a href="#live">Live status</a></nav>
     <button type="button" class="search-trigger" data-open-search aria-label="Search catalog"><svg class="icon"><use href="#i-search"/></svg><span>Find a song or artist</span></button>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
   <section class="feature section-wrap" aria-labelledby="featured-title">
-        <div class="feature-kicker"><span class="eyebrow"><span class="little-record" aria-hidden="true"></span> <span id="hero-mode-label">ARCHIVE SELECTION</span></span><span class="preview-tag" id="live-feed-badge" data-state="checking" role="status">Checking live feed…</span></div>
     <div class="feature-layout">
       <div class="listening-room" id="hero-media">
-        <div class="room-orbit" aria-hidden="true"></div>
-        <svg class="icon room-star star-one" aria-hidden="true"><use href="#i-record"/></svg>
-        <img class="room-art" src="art/hero/retroverse-hero-illustration-768.webp" srcset="art/hero/retroverse-hero-illustration-480.webp 480w, art/hero/retroverse-hero-illustration-768.webp 768w, art/hero/retroverse-hero-illustration-1280.webp 1280w" sizes="(min-width: 900px) 590px, 380px" width="768" height="512" alt="" aria-hidden="true">
+        <div class="room-orbit" data-home-suppressed aria-hidden="true"></div>
+        <svg class="icon room-star star-one" data-home-suppressed aria-hidden="true"><use href="#i-record"/></svg>
+        
         <figure class="television">
-          <div class="tv-screen" id="hero-screen"><img id="hero-thumbnail" src="art/videos/chuck-berry-you-never-can-tell.jpg" width="480" height="360" alt="Chuck Berry performing You Never Can Tell." fetchpriority="low"><p class="thumbnail-fallback" hidden>Still unavailable</p></div>
-          <figcaption class="tv-footer"><span class="still-label">ARCHIVE IMAGE</span><span class="speaker" aria-hidden="true"></span><span class="tv-dial" aria-hidden="true"></span></figcaption>
+          <a class="tv-screen" id="hero-screen" aria-label="Explore the current song"><img hidden id="hero-thumbnail" width="480" height="360" alt=""><p class="thumbnail-fallback" data-home-suppressed></p></a>
+          <figcaption class="tv-footer" data-home-suppressed><span class="still-label">ARCHIVE IMAGE</span><span class="speaker" aria-hidden="true"></span><span class="tv-dial" aria-hidden="true"></span></figcaption>
         </figure>
       </div>
       <div class="feature-copy">
-        <div class="year-stamp" id="hero-year-stamp"><span>19</span><span>64</span><svg class="icon" aria-hidden="true"><use href="#i-record"/></svg></div>
-        <h1 id="featured-title">You Never Can Tell</h1>
-        <div class="artist-line"><a id="hero-artist" href="#artist/RVAR001494">Chuck Berry</a><span class="year-mobile" id="hero-year">1964</span></div>
-        <p class="live-track-status" id="live-track-status" aria-live="polite">Checking current song…</p>
-        <div class="feature-actions"><a class="button button-primary" id="hero-song-link" href="#song/RVTR607320">Song details<svg class="icon"><use href="#i-arrow"/></svg></a><a class="button button-secondary" id="hero-artist-link" href="#artist/RVAR001494">Artist</a></div>
-        <p class="media-note" id="hero-media-note"></p>
-        <button class="button button-secondary archive-return" id="archive-return" type="button" hidden>Return to archive selection</button>
-        <button class="button button-secondary archive-return" id="show-live-song" type="button" hidden>Show current song</button>
+        <div class="year-stamp" data-home-suppressed id="hero-year-stamp"></div>
+        <a id="hero-title-link"><h1 id="featured-title"></h1></a>
+        <div class="artist-line"><a id="hero-artist"></a></div>
+        <section id="hero-year-area" class="home-year-area" hidden aria-label="Explore the year"><a class="year-mobile" id="hero-year"></a><nav id="hero-year-links" class="home-year-links" aria-label="Explore the year" hidden></nav></section>
+        <div class="feature-kicker" data-home-suppressed><span class="eyebrow"><span class="little-record" aria-hidden="true"></span> <span id="hero-mode-label">ARCHIVE SELECTION</span></span><span class="preview-tag" id="live-feed-badge" data-state="checking" role="status">Checking live feed…</span></div>
+        <p class="live-track-status" data-home-suppressed id="live-track-status" aria-live="polite">Checking current song…</p>
+        <p id="live-notes" data-home-suppressed class="dj-note" hidden></p><div id="live-tags" data-home-suppressed class="live-tags" aria-label="DJ tags"></div><div class="feature-actions" data-home-suppressed><a class="button button-primary" id="hero-song-link" href="#song/RVTR607320">Song details<svg class="icon"><use href="#i-arrow"/></svg></a><a class="button button-secondary" id="hero-artist-link" href="#artist/RVAR001494">Artist</a></div>
+        <p class="media-note" data-home-suppressed id="hero-media-note"></p>
+        <button class="button button-secondary archive-return" id="archive-return" data-home-suppressed type="button" hidden>Return to archive selection</button>
+        <button class="button button-secondary archive-return" id="show-live-song" data-home-suppressed type="button" hidden>Show current song</button>
       </div>
     </div>
   </section>
@@ -60,16 +78,16 @@
       <div class="era-grid" id="era-grid" aria-live="polite"><p class="catalog-status">Loading decade counts…</p></div>
     </div>
   </section>
-  <section class="tools-section section-wrap" aria-label="Catalog tools">
+  <section class="tools-section section-wrap" data-home-suppressed aria-label="Catalog tools">
     <a class="tool-card" href="#search"><span class="tool-icon"><svg class="icon"><use href="#i-search"/></svg></span><span><strong>Search songs and artists</strong><small>Search all catalog records</small></span><svg class="icon"><use href="#i-arrow"/></svg></a>
     <a class="tool-card" href="#answers"><span class="tool-icon"><svg class="icon"><use href="#i-record"/></svg></span><span><strong>Catalog answers</strong><small>Look up chart and release facts</small></span><svg class="icon"><use href="#i-arrow"/></svg></a>
     <a class="tool-card" href="#ranker"><span class="tool-icon"><svg class="icon"><use href="#i-era"/></svg></span><span><strong>Year rankings</strong><small>Browse catalog chart rankings</small></span><svg class="icon"><use href="#i-arrow"/></svg></a>
   </section>
-  <section class="live-strip section-wrap" aria-labelledby="live-strip-title"><div class="live-mark" id="live-mark" data-state="checking" aria-hidden="true"><span></span></div><div><span class="eyebrow">LIVE STATUS</span><h2 id="live-strip-title">Checking connection…</h2><p id="live-strip-copy">Reading current song from the public feed.</p></div><a class="text-link" href="#live">Status details<svg class="icon"><use href="#i-arrow"/></svg></a></section>
+  <section class="live-strip section-wrap" data-home-suppressed aria-labelledby="live-strip-title"><div class="live-mark" id="live-mark" data-state="checking" aria-hidden="true"><span></span></div><div><span class="eyebrow">LIVE STATUS</span><h2 id="live-strip-title">Checking connection…</h2><p id="live-strip-copy">Reading current song from the public feed.</p></div><a class="text-link" href="#live">Status details<svg class="icon"><use href="#i-arrow"/></svg></a></section>
 </main>
-<footer class="site-footer section-wrap"><span class="footer-brand">RETROVERSE</span><p id="footer-count">Catalog data loading</p></footer>
-<nav class="bottom-nav" aria-label="Mobile primary"><a href="#" data-nav="discover"><svg class="icon"><use href="#i-record"/></svg><span>Discover</span></a><a href="#eras" data-nav="eras"><svg class="icon"><use href="#i-era"/></svg><span>Decades</span></a><a href="#search" data-nav="search"><svg class="icon"><use href="#i-search"/></svg><span>Search</span></a><a href="#live" data-nav="live"><span class="nav-dot"></span><span>Live</span></a></nav>
-<dialog id="detail-dialog" aria-labelledby="panel-title"><div class="panel-toolbar"><button type="button" class="icon-button panel-back" aria-label="Back to previous panel"><svg class="icon"><use href="#i-back"/></svg></button><a class="panel-wordmark" href="#">RETROVERSE</a><button type="button" class="icon-button panel-close" aria-label="Close panel"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="panel-content" class="panel-content"></div></dialog>
+<footer class="site-footer section-wrap" data-home-suppressed><p id="footer-count">Catalog data loading</p></footer>
+<nav class="bottom-nav" data-home-suppressed aria-label="Mobile primary"><a href="#" data-nav="discover"><svg class="icon"><use href="#i-record"/></svg><span>Discover</span></a><a href="#eras" data-nav="eras"><svg class="icon"><use href="#i-era"/></svg><span>Decades</span></a><a href="#search" data-nav="search"><svg class="icon"><use href="#i-search"/></svg><span>Search</span></a><a href="#live" data-nav="live"><span class="nav-dot"></span><span>Live</span></a></nav>
+<dialog id="detail-dialog" aria-labelledby="panel-title"><div class="panel-toolbar"><button type="button" class="icon-button panel-back" aria-label="Back to previous panel"><svg class="icon"><use href="#i-back"/></svg></button><span aria-hidden="true"></span><button type="button" class="icon-button panel-close" aria-label="Close panel"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="panel-content" class="panel-content"></div></dialog>
 <div id="announcement" class="sr-only" aria-live="polite"></div>
 </body>
 </html>
