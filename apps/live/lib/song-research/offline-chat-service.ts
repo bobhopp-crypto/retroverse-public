@@ -214,7 +214,12 @@ function answer(raw: unknown, request: ChatRequest, evidence: Source[], privateV
 }
 function webAnswer(raw: unknown, request: ChatRequest, privateValues: readonly string[]): Answer | null {
   const parsed = parseCitedOpenAIResponse(parse(raw, CHAT_LIMITS.responseBytes));
-  if (parsed.status !== "ready" || !parsed.text || !parsed.sources || !parsed.supports || hasPrivateLiteral(parsed, privateValues)) return null;
+  if (parsed.status !== "ready") {
+    // Fixed code only: never log provider content, URLs, identifiers or credentials.
+    console.warn("[song-research] response rejected", { reason: parsed.diagnosticReason ?? "response_invalid" });
+    return null;
+  }
+  if (!parsed.text || !parsed.sources || !parsed.supports || hasPrivateLiteral(parsed, privateValues)) return null;
   const result: Answer = { status: "ready", requestId: request.requestId, selectionToken: request.selectionToken,
     text: parsed.text, sources: parsed.sources, supports: parsed.supports,
     // Questions are interface prompts, not fabricated research or factual claims.
@@ -279,7 +284,7 @@ export function createSourceChatService(config: SourceChatConfig, dependencies: 
       privateValues = [original.recordingIdentity, original.selectionVersion];
       if (songResearchSelectionToken(original) !== request.selectionToken) return fail("stale");
       const sourceRequest: MockSourceRequest = Object.freeze({ requestId: request.requestId, selectionToken: request.selectionToken, mode: request.mode,
-        question: request.mode === "current" ? "What is the story behind this song and this recording?" : request.query,
+        question: request.mode === "current" ? "What is the story behind this song? Use sources for its writing and release history. Do not infer which recording, performance or video is playing." : request.query,
         context: Object.freeze({ title: original.title, artist: original.artist, year: original.year ?? null }),
         trustedRecordingIdentity: original.recordingIdentity,
         // Never forward client-supplied assistant answers. They can be forged and

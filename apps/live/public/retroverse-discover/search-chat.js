@@ -52,7 +52,7 @@
    try{const reply=await boundedRequest(request,payload,active.controller.signal);if(!fresh())return false;
     if(reply?.status==='timeout'){failure('Search took too long. Try another question.','error',true);return false}
     if(reply?.status==='disabled'){failure('Search is not connected yet.','disabled',true);return false}
-    if(reply?.status==='unavailable'||reply?.status==='ungrounded'){failure('A verified source is not available for this question yet.','error',true);return false}
+    if(reply?.status==='unavailable'||reply?.status==='ungrounded'){failure('Search couldn’t verify this response. Try a different question.','error',true);return false}
     if(reply?.status==='stale'){failure('The song changed. Open Search again.','error',true);return false}
     const result=validate(reply,payload);if(!result){failure('Search is unavailable. Try another question.','error',true);return false}
     state={...state,status:'ready',messages:[...state.messages,{role:'assistant',...result}],followups:result.followups,error:null};emit();return true;

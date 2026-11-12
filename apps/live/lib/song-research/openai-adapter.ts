@@ -28,7 +28,8 @@ export type OpenAIRequest = {
   tools: { type: "web_search"; search_context_size: "low" }[];
   max_output_tokens: number; max_tool_calls: number; store: false;
 };
-export type Result = { status: "disabled" | "unavailable" | "denied" | "stale" | "timeout" | "error" | "ungrounded" | "ready"; key?: string; selectionVersion?: string; selectionToken?: string; text?: string; sources?: { title: string; url: string }[]; supports?: { start: number; end: number; sourceIndexes: number[] }[]; attribution?: { required: true; format: "inline-clickable-citations" } };
+export type CitationFailureReason = "response_size" | "response_incomplete" | "response_token_limit" | "response_not_completed" | "output_shape" | "output_item" | "search_not_completed" | "message_shape" | "content_shape" | "text_invalid" | "citations_missing" | "citation_invalid" | "citation_overlap";
+export type Result = { diagnosticReason?: CitationFailureReason; status: "disabled" | "unavailable" | "denied" | "stale" | "timeout" | "error" | "ungrounded" | "ready"; key?: string; selectionVersion?: string; selectionToken?: string; text?: string; sources?: { title: string; url: string }[]; supports?: { start: number; end: number; sourceIndexes: number[] }[]; attribution?: { required: true; format: "inline-clickable-citations" } };
 const TIMEOUT = 8000, MAX_TOKENS = 700;
 const field = (v: unknown, max: number): v is string => typeof v === "string" && !!v.trim() && v.length <= max && !/[\u0000-\u001f\u007f]/.test(v);
 function valid(s: VerifiedSong | null, now: number): s is VerifiedSong {
@@ -38,33 +39,34 @@ function key(s: VerifiedSong, model: string) { return createHash("sha256").updat
 function obj(v: unknown): Record<string, any> { return v !== null && typeof v === "object" && !Array.isArray(v) ? v as Record<string, any> : {}; }
 function url(v: unknown): string | null { if (typeof v !== "string" || v.length > 2048 || /[\u0000-\u0020\u007f\\]/.test(v)) return null; try { const u = new URL(v); return u.href.length <= 2048 && u.protocol === "https:" && !u.username && !u.password && !u.port && /^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?\.[a-z]{2,}$/i.test(u.hostname) && !/\.(?:local|localhost|internal|test|invalid)$/i.test(u.hostname) ? u.href : null; } catch { return null; } }
 export function parseCitedOpenAIResponse(value: unknown): Result {
-  if (JSON.stringify(value)?.length > 65536) return { status: "error" };
+  if (JSON.stringify(value)?.length > 65536) return { status: "error", diagnosticReason: "response_size" };
   const response = obj(value), output = response.output;
-  if (response.status !== "completed" || response.error != null || response.incomplete_details != null || !Array.isArray(output) || output.length > 10) return { status: "error" };
+  if (response.status === "incomplete") return { status: "error", diagnosticReason: obj(response.incomplete_details).reason === "max_output_tokens" ? "response_token_limit" : "response_incomplete" };
+  if (response.status !== "completed" || response.error != null || response.incomplete_details != null || !Array.isArray(output) || output.length > 10) return { status: "error", diagnosticReason: "response_not_completed" };
   // Unknown tool/structure is not silently ignored. Reasoning items are not displayed.
-  if (output.some(item => !["reasoning", "web_search_call", "message"].includes(obj(item).type))) return { status: "error" };
+  if (output.some(item => !["reasoning", "web_search_call", "message"].includes(obj(item).type))) return { status: "error", diagnosticReason: "output_item" };
   const searches = output.filter(item => obj(item).type === "web_search_call");
-  if (!searches.length || searches.length > 2 || searches.some(item => item.status !== "completed" || !["search", "open_page", "find_in_page"].includes(obj(item.action).type))) return { status: "ungrounded" };
+  if (!searches.length || searches.length > 2 || searches.some(item => item.status !== "completed" || !["search", "open_page", "find_in_page"].includes(obj(item.action).type))) return { status: "ungrounded", diagnosticReason: "search_not_completed" };
   const messages = output.filter(item => obj(item).type === "message");
-  if (messages.length !== 1 || messages[0].role !== "assistant" || messages[0].status !== "completed") return { status: "error" };
+  if (messages.length !== 1 || messages[0].role !== "assistant" || messages[0].status !== "completed") return { status: "error", diagnosticReason: "message_shape" };
   const parts = messages[0].content;
-  if (!Array.isArray(parts) || parts.length !== 1 || obj(parts[0]).type !== "output_text") return { status: "error" };
+  if (!Array.isArray(parts) || parts.length !== 1 || obj(parts[0]).type !== "output_text") return { status: "error", diagnosticReason: "content_shape" };
   const text = parts[0].text, annotations = parts[0].annotations;
   // Official examples use Python character slices. BMP text has identical code-point
   // and UTF-16 indexes; preserve text unchanged and reject surrogates/multipart.
-  if (typeof text !== "string" || !text.trim() || text.length > 6000 || /[\uD800-\uDFFF]/.test(text)) return { status: "error" };
-  if (!Array.isArray(annotations) || !annotations.length || annotations.length > 30) return { status: "ungrounded" };
+  if (typeof text !== "string" || !text.trim() || text.length > 6000 || /[\uD800-\uDFFF]/.test(text)) return { status: "error", diagnosticReason: "text_invalid" };
+  if (!Array.isArray(annotations) || !annotations.length || annotations.length > 30) return { status: "ungrounded", diagnosticReason: "citations_missing" };
   const sources: { title: string; url: string }[] = [];
   const supports: { start: number; end: number; sourceIndexes: number[] }[] = [];
   for (const raw of annotations) {
     const a = obj(raw), link = url(a.url);
-    if (a.type !== "url_citation" || !link || !field(a.title, 300) || !Number.isInteger(a.start_index) || !Number.isInteger(a.end_index) || a.start_index < 0 || a.end_index <= a.start_index || a.end_index > text.length) return { status: "ungrounded" };
+    if (a.type !== "url_citation" || !link || !field(a.title, 300) || !Number.isInteger(a.start_index) || !Number.isInteger(a.end_index) || a.start_index < 0 || a.end_index <= a.start_index || a.end_index > text.length) return { status: "ungrounded", diagnosticReason: "citation_invalid" };
     const index = sources.length;
     sources.push({ title: a.title, url: link });
     supports.push({ start: a.start_index, end: a.end_index, sourceIndexes: [index] });
   }
   supports.sort((a, b) => a.start - b.start);
-  if (supports.some((span, i) => i > 0 && span.start < supports[i - 1].end)) return { status: "ungrounded" };
+  if (supports.some((span, i) => i > 0 && span.start < supports[i - 1].end)) return { status: "ungrounded", diagnosticReason: "citation_overlap" };
   // Citation annotations establish structure/provenance, NOT factual truth.
   // Text/titles are plain data, never HTML. UI must render prominent clickable citations.
   return { status: "ready", text, sources, supports, attribution: { required: true, format: "inline-clickable-citations" } };
