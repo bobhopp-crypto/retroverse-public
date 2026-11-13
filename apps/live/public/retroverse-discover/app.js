@@ -114,7 +114,7 @@
     routeVersion++;clearTimeout(searchTimer);
     if (dialog.open) dialog.close();
     document.body.classList.remove('body-modal-open'); backStack=[];
-    history.replaceState(null,'',location.pathname + location.search); currentHash=''; updateNav(''); document.title=pageTitle;
+    history.replaceState(null,'',location.pathname + location.search); currentHash=''; updateNav(''); document.title=pageTitle; window.dispatchEvent(new Event("retroverse:route-changed"));
     if (lastTrigger && lastTrigger.isConnected && !dialog.contains(lastTrigger)) lastTrigger.focus({preventScroll:true});
     else document.querySelector('[data-open-search]').focus({preventScroll:true});
     syncShowcaseRotation();
@@ -293,6 +293,7 @@
   }
   function liveMessage(state, detail) {
     latestFeedState=state;
+    window.dispatchEvent(new CustomEvent("retroverse:feed-state", {detail:{state}}));
     if(state!=='fresh'){songResearch?.cancel();if(!isLocalChatFixture())searchChat?.cancel();invalidateLiveMedia();}
     if(state!=='fresh'&&state!=='checking'){document.getElementById('live-notes').hidden=true;document.getElementById('live-tags').textContent='';}
     if(state!=='fresh'&&!manualArchiveMode)clearAutomaticHero();
@@ -618,6 +619,7 @@
   function missingPanel(title) {showPanel(`<h2 id="panel-title">${esc(title)}</h2><p class="panel-subtitle">This record could not be found in the catalog.</p><div class="panel-button-row"><a class="button button-primary" href="#search">Search the catalog ${icon('search')}</a></div>`,title);}
   function errorPanel(retry) {showPanel(`<h2 id="panel-title">Catalog unavailable</h2><div class="error-state"><p>The catalog could not be opened. Check the connection and try again.</p><button type="button" class="button button-primary" id="retry-catalog">Try again</button></div>`,`Catalog unavailable`);document.getElementById('retry-catalog').addEventListener('click',retry);}
   async function renderRoute() {
+    window.dispatchEvent(new Event("retroverse:route-changed"));
     songResearch?.cancel();searchChat?.cancel();restoreSampleTheme();
     clearTimeout(searchTimer);
     const version=++routeVersion,hash=currentHash||'';updateNav(hash);
