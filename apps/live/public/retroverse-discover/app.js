@@ -217,7 +217,7 @@
   function themeYear(track) { const usable=y=>Number.isInteger(y)&&y>=1900&&y<=2100;return usable(track?.vdjYear)?track.vdjYear:(usable(track?.year)?track.year:null); }
   function themeIdentity(track) { return JSON.stringify([track?.id||'',track?.artist||'',track?.title||'']); }
   function updateHero(track) {
-    displayedTrack=track;document.getElementById('hero-screen').href='#search';
+    displayedTrack=track;document.getElementById('hero-screen').href='#live-song';
     const archiveVersion=++heroDisplayVersion;
     window.RetroverseDecadeTheme?.controller.setYear(themeYear(track),themeIdentity(track));
     document.getElementById('live-notes').hidden=true;document.getElementById('live-tags').textContent='';
@@ -322,7 +322,7 @@
     return displayState;
   }
   function showLiveTrack(track) {
-    displayedTrack=track;document.getElementById('hero-screen').href='#search';
+    displayedTrack=track;document.getElementById('hero-screen').href='#live-song';
     selectLiveMediaTrack(track);
     window.RetroverseDecadeTheme?.controller.setYear(themeYear(track),themeIdentity(track));
     heroDisplayVersion++;
@@ -468,8 +468,9 @@
   }
   async function songPanel(id, expectedRouteVersion=routeVersion) {
     const track=tracks.find(t=>t.id===id);if(!track)return missingPanel('Song not found');
-    const card=null;
     if(expectedRouteVersion!==routeVersion)return;
+    if(preparedSongPanel(track,expectedRouteVersion))return;
+    const card=null;
     const decade=Number.isInteger(track.year)?Math.floor(track.year/10)*10:null;
     const thumbnail=imageForTrack[track.id]?`<img class="detail-thumbnail" src="${imageForTrack[track.id]}" width="480" height="360" alt="${esc(track.artist)} performing ${esc(track.title)}">`:missingThumb(track);
     const metadata=card?'':`<div class="metadata-grid"><div class="metadata-cell"><strong>${track.year??'—'}</strong><span>Catalog year</span></div><div class="metadata-cell"><strong>${track.peak?`#${track.peak}`:'—'}</strong><span>Best chart position</span></div><div class="metadata-cell"><strong>${track.weeks||'—'}</strong><span>Chart weeks</span></div></div>`;
@@ -651,6 +652,7 @@
     syncShowcaseRotation();
     const [path,queryString='']=hash.slice(1).split('?');const [route,routeId='']=path.split('/');const params=new URLSearchParams(queryString);
     let decodedRouteId;try{decodedRouteId=decodeURIComponent(routeId);}catch{return missingPanel('Invalid link');}
+    if(route==='song'&&window.RetroversePrepared?.byId(decodedRouteId)&&preparedSongPanel(window.RetroversePrepared.byId(decodedRouteId).track,version,true))return;
     if(route==='year')return yearPanel(Number(routeId));
     if(route==='live')return livePanel();
     if(route==='live-song')return liveSongRoute(version);
@@ -672,27 +674,33 @@
     if(route==='eras-index')return;
     missingPanel('Page not found');
   }
+  function preparedSongPanel(track,version,explicit=false){
+    const card=explicit?window.RetroversePrepared?.byId(track.id):window.RetroversePrepared?.forTrack(track);if(!card)return false;
+    showPanel(window.RetroversePrepared.html(card),card.track.title);
+    const mount=document.getElementById('prepared-song');
+    const form=mount.querySelector('.prepared-ask');const slot=mount.querySelector('.prepared-answer');
+    let panelController=null,panelToken=null,panelPending=false;
+    const fallback=mount.querySelector('.prepared-visual-fallback'),img=mount.querySelector('.prepared-hero img');
+    img?.addEventListener('error',()=>{img.hidden=true;fallback.hidden=false;});
+    form.addEventListener('submit',async event=>{event.preventDefault();const current=latestLiveTrack;
+      if(window.RetroversePrepared.forTrack(current)?.track.id!==card.track.id||latestFeedState!=='fresh'||!current.researchSelectionToken){slot.textContent='Live research needs this song to be playing. The saved story stays available.';return;}
+      const token=current.researchSelectionToken;const question=form.querySelector('input').value.trim();if(!question)return;
+      if(panelController&&panelToken===token&&['ready','error'].includes(panelController.getState().status)){void panelController.ask(question);return;}
+      searchChat?.cancel();searchChat=panelController=window.RetroverseSearchChat.createController({request:window.RetroverseSearchChat.createHttpRequest(),onChange:state=>{if(version!==routeVersion||!slot.isConnected)return;if(state.status==='idle'){if(panelPending){slot.textContent='Research stopped because the live connection changed. Your saved story is still here. Try again when this song is live.';panelPending=false;}return;}panelPending=state.status==='loading';window.RetroverseSearchChat.render(slot,state,{onFollowup:q=>{form.querySelector('input').value=q;form.requestSubmit();}});}});
+      await searchChat.open({selectionToken:token,title:current.title,artist:current.artist,autoStart:false,isCurrent:()=>version===routeVersion&&latestFeedState==='fresh'&&latestLiveTrack?.researchSelectionToken===token&&window.RetroversePrepared.forTrack(latestLiveTrack)?.track.id===card.track.id});
+      panelToken=token;if(version===routeVersion)void panelController.newQuery(question);
+    });return true;
+  }
   async function liveSongRoute(version) {
     const current=latestLiveTrack;
+    if(current&&window.RetroversePrepared?.forTrack(current)){currentHash='#song/'+window.RetroversePrepared.forTrack(current).track.id;history.replaceState({retroverse:true,panels:[...backStack]},'',currentHash);return renderRoute();}
     if(!current||latestFeedState!=='fresh'){livePanel();return;}
-    const stillCurrent=()=>version===routeVersion&&currentHash==='#live-song'&&latestFeedState==='fresh'&&latestLiveTrack?.id===current.id&&latestLiveTrack?.title===current.title&&latestLiveTrack?.artist===current.artist&&latestLiveTrack?.timestamp===current.timestamp;
-    const query=`${current.title} ${current.artist}`;
-    showPanel(`<h2 id="panel-title">${esc(current.title)}</h2><p class="panel-subtitle">${esc(current.artist)}</p>${current.notes?.comment?`<p class="dj-note">${esc(current.notes.comment)}</p>`:''}<div id="live-music-context-slot" class="music-context-slot" hidden></div><p id="live-discovery-status" class="small-note" role="status">Finding discovery links…</p><div class="panel-button-row"><a class="button button-secondary" href="#search?q=${encodeURIComponent(query)}">Search catalog</a></div>`,current.title);
-    const slot=document.getElementById('live-music-context-slot');
-    if(window.RetroverseMusicContext)void window.RetroverseMusicContext.forLive(current).then(card=>{if(card&&stillCurrent()&&slot?.isConnected)window.RetroverseMusicContext.render(slot,card);}).catch(()=>{});
-    try{await loadCatalog();}catch{if(stillCurrent()){const status=document.getElementById('live-discovery-status');if(status)status.textContent='Discovery links are unavailable. Live song details remain above.';}return;}
-    if(!stillCurrent())return;
-    const byId=current.id?tracks.find(track=>track.id===current.id):null;
-    if(byId&&discovery.exactTitleArtistMatches([byId],current.title,current.artist).length===1){await songPanel(byId.id,version);return;}
-    const matches=discovery.exactTitleArtistMatches(tracks,current.title,current.artist);
-    if(matches.length===1){await songPanel(matches[0].id,version);return;}
-    // Establish the real route before the search controller checks its lifetime.
-    currentHash=`#search?q=${encodeURIComponent(query)}`;
-    history.replaceState({retroverse:true,panels:[...backStack]},'',currentHash);
-    return renderRoute();
+    showPanel(`<section><h2 id="panel-title">${esc(current.title)}</h2><p>${esc(current.artist)}</p><p>A prepared story is not available for this recording yet.</p><a href="#search">Ask a question about this song →</a></section>`,current.title);return;
+
+
   }
   document.addEventListener('click',event=>{const link=event.target.closest('a[href^="#"]');if(!link||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button!==0)return;event.preventDefault();navigate(link.getAttribute('href'),link);});
-  document.querySelector('[data-open-search]').addEventListener('click',event=>navigate('#search',event.currentTarget));
+  document.querySelector('[data-open-search]').addEventListener('click',event=>navigate(window.RetroversePrepared?.forTrack(displayedTrack)?'#live-song':'#search',event.currentTarget));
   document.getElementById('archive-return').addEventListener('click',returnToArchive);
   document.getElementById('show-live-song').addEventListener('click',()=>{manualArchiveMode=false;if(latestLiveTrack){showLiveTrack(latestLiveTrack);void enrichLiveMedia(latestLiveTrack);}});
   document.querySelector('.panel-close').addEventListener('click',closePanel);

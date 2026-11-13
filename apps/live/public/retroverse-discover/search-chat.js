@@ -59,10 +59,10 @@
    }catch{if(fresh())failure('Search is unavailable. Try another question.','error',true);return false}
    finally{if(job===active){unschedule(active.timer);job=null}}
   }
-  function open({selectionToken,title,artist,isCurrent=()=>true}){
+  function open({selectionToken,title,artist,isCurrent=()=>true,autoStart=true}){
    if(!validToken(selectionToken)||!clean(title,240)||!clean(artist,240)||typeof isCurrent!=='function'){cancel();failure('Current song is not available.');return Promise.resolve(false)}
    if(current?.token===selectionToken&&current.title===title&&current.artist===artist){current.isCurrent=isCurrent;return Promise.resolve(state.status==='ready')}
-   cancel();current={token:selectionToken,title,artist,isCurrent};const query=`${title} — ${artist}`;return send(query.length<=LIMITS.input?query:title,'current');
+   cancel();current={token:selectionToken,title,artist,isCurrent};const query=`${title} — ${artist}`;if(!autoStart)return Promise.resolve(true);return send(query.length<=LIMITS.input?query:title,'current');
   }
   return {open,ask:text=>send(text,'followup'),newQuery:text=>{stop();if(state.status==='loading')state={...state,status:'idle'};return send(text,'query')},cancel,getState:snapshot};
  }
