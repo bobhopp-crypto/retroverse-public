@@ -35,3 +35,13 @@ html[data-decade] #main :is(#hero-title-link,#hero-artist,#hero-year):focus-visi
 @media(min-width:900px){html[data-decade] #main .feature-copy{left:6vw;right:6vw;bottom:7vh}html[data-decade] .search-trigger{left:32px;top:28px}}
 @media(max-height:440px){html[data-decade] #main .feature-copy{bottom:18px;gap:5px}html[data-decade] #main #featured-title{font-size:clamp(26px,9vh,48px);max-width:36ch}html[data-decade] #main .artist-line :is(#hero-artist,#hero-year){font-size:19px;min-height:30px}html[data-decade] .search-trigger{top:14px;left:18px}}
 @media(forced-colors:active){html[data-decade] #main .feature-layout::after{background:Canvas;opacity:.8}html[data-decade] #main #featured-title,html[data-decade] #main .artist-line :is(#hero-artist,#hero-year){color:CanvasText;text-shadow:none}}
+
+/* Larger homepage labels only. Keep the two corner controls unobstructed.
+   Normal labels use the doubled size; the shared fitter scales exceptionally
+   long title/artist/year groups to fit without scrolling or covering controls. */
+html[data-decade] #main .feature-copy{max-height:calc(100dvh - max(80px,calc(env(safe-area-inset-top) + 64px)) - max(34px,env(safe-area-inset-bottom)));overflow:hidden}
+html[data-decade] #main #featured-title{font-size:clamp(56px,17.6vw,176px)}
+html[data-decade] #main .artist-line #hero-artist,html[data-decade] #main .home-year-area #hero-year{font-size:clamp(36px,6.8vw,68px)}
+@media(min-width:900px){html[data-decade] #main .feature-copy{max-height:calc(93dvh - max(88px,calc(env(safe-area-inset-top) + 64px)))}}
+@media(max-height:440px){html[data-decade] #main .feature-copy{max-height:calc(100dvh - max(76px,calc(env(safe-area-inset-top) + 64px)) - 18px)}html[data-decade] #main #featured-title{font-size:clamp(52px,18vh,96px)}html[data-decade] #main .artist-line #hero-artist,html[data-decade] #main .home-year-area #hero-year{font-size:38px}}
+html[data-decade] #main .feature-copy>#hero-title-link,html[data-decade] #main .feature-copy>.artist-line{flex-shrink:0}

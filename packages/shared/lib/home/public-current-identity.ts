@@ -129,7 +129,7 @@ export async function loadPublicCurrentSongIdentity(
 
   const bridgeTimestamp = timestamp(rawLive?.bridgeTimestamp);
   const stopTimestamp = timestamp(state?.bridgeStoppedAt);
-  if (state?.bridgePlaying === false && stopTimestamp && now - Date.parse(stopTimestamp) >= -120_000 && now - Date.parse(stopTimestamp) <= LIVE_BRIDGE_FRESHNESS_MS) {
+  if (state?.bridgePlaying === false && stopTimestamp && now >= Date.parse(stopTimestamp)) {
     return { ...base, identityStatus: "stopped", live: { source: "bridge", playing: false,
       rvtr: null, title: "", artist: "", year: null, bridgeTimestamp, bridgeStoppedAt: stopTimestamp } };
   }
