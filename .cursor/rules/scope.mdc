@@ -1,0 +1,16 @@
+---
+description: Protect Retroverse Live, Studio, and bridge workflows from incidental changes
+alwaysApply: true
+---
+# Retroverse working scope
+
+- Identify the specific target: `apps/live` (public experience), `apps/studio` (production tooling), or `tools/live-bridge` (VirtualDJ bridge). Never treat them as interchangeable.
+- Before touching a user-facing page, check the current approved acceptance criteria. In particular, public homepage copy, linked song metadata, search controls, extra sections, and no-scroll behavior must be checked against the latest owner requirements; do not infer the approved UI from an old code snapshot.
+- Do not introduce branding, additional text, new navigation, layouts, or UI redesigns during maintenance unless expressly requested.
+- Preserve working VirtualDJ OSC publishing, song-change trigger, and 10-minute resync; do not start the bridge or VirtualDJ during inspection.
+- Do not change Redis keys, cloud deployment, data authority, bulk media persistence, security credentials, or paid APIs without explicit authorization.
+- Prefer existing components and pipelines: `tools/knowledge-department`, `tools/media-lab`, and built-in package scripts. Do not create duplicates without demonstrating a gap.
+- Keep changes limited to the current sprint. Avoid broad refactors, dependency installations, and generated data changes.
+- Never merge, deploy, purchase, delete, publish files, or run destructive or billed commands without express approval.
+- Verify with relevant available checks; report exactly which checks ran and their results. Never equate a successful static read with successful build/runtime validation.
+- Report changed paths, actual evidence, risks, and a done/not-done judgment.
